@@ -1,0 +1,29 @@
+ _buf << %Q`pipeline {
+  agent any
+  stages {
+    stage('build') {
+      parallel {
+        stage('hello world') {
+          steps {
+            sh 'docker exec #{escape((@docker).to_s)} #{escape((@build_script).to_s)}  $(basename $(pwd)) samples/hello_world #{escape((@board).to_s)}'
+            sh '''docker exec #{escape((@docker).to_s)} run_setup.sh $(basename $(pwd))'''
+            sh 'docker exec #{escape((@docker).to_s)} #{escape((@run_script).to_s)} $(basename $(pwd)) samples/hello_world'
+          }
+        }
+      }
+    }
+    stage('test suite') {
+      parallel {\n`
+      for item in @cases
+ _buf << %Q`        stage('#{escape((item[0]).to_s)}') {
+          steps {
+            echo 'Test #{escape((item[0]).to_s)}'
+            sh '''docker exec #{escape((@docker).to_s)} #{escape((@build_script).to_s)}  $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((@board).to_s)}'''
+            sh 'docker exec #{escape((@docker).to_s)} #{escape((@run_script).to_s)} $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((item[0]).to_s)}'
+          }
+        }\n`
+      end
+ _buf << %Q`      }
+    }
+  }
+}\n`

@@ -1,0 +1,24 @@
+
+__load__:
+  - components/benchmarks.yml
+  - components/crypto.yml
+  - components/coverage.yml
+  - components/kernel.yml
+  - components/lib.yml
+  - components/net.yml
+  - components/posix.yml
+  - components/shell.yml
+  - components/subsys.yml
+  - components/unit.yml
+  - components/drivers/drivers.yml
+
+settings:
+  run_script: build_zephyr_elf.sh
+  build_script: run_zephyr_elf_rt1060.sh
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"
+  __remove__:
+#    drivers.pci_enum:

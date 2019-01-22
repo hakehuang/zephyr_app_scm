@@ -1,0 +1,152 @@
+
+cases:
+  kernel.xip:
+    path: "test/kernel/xip/"
+  kernel.pipe.pipe:  
+    path: "test/kernel/pipe/pipe/"
+  kernel.pipe.pipe_api:
+    path: "test/kernel/pipe/pipe_api/"
+  kernel.mem_pool.mem_pool:
+    path: "test/kernel/mem_pool/mem_pool"
+  kernel.mem_pool.sys_mem_pool:
+    path: "test/kernel/mem_pool/sys_mem_pool/"
+  kernel.mem_pool.mem_pool_concept:
+    path: "test/kernel/mem_pool/mem_pool_concept/"
+  kernel.mem_pool.mem_pool_threadsafe:
+    path: "test/kernel/mem_pool/mem_pool_threadsafe/"
+  kernel.mem_pool.mem_pool_api:
+    path: "test/kernel/mem_pool/mem_pool_api/"
+  kernel.interrupt:
+    path: "test/kernel/interrupt/"
+  kernel.init:
+    path: "test/kernel/init/"
+  kernel.context:
+    path: "test/kernel/context/"
+  kernel.smp:
+    path: "test/kernel/smp/"
+  kernel.pending:
+    path: "test/kernel/pending/"
+  kernel.obj_tracing:
+    path: "test/kernel/obj_tracing/"
+  kernel.queue:
+    path: "test/kernel/queue/"
+  kernel.boot_page_table:
+    path: "test/kernel/boot_page_table/"
+  kernel.stack.stack_usage:
+    path: "test/kernel/stack/stack_usage/"
+  kernel.stack.stack_api:
+    path: "test/kernel/stack/stack_api/"
+  kernel.fifo.fifo_timeout:
+    path: "test/kernel/fifo/fifo_timeout/"
+  kernel.fifo.fifo_usage:
+    path: "test/kernel/fifo/fifo_usage"
+  kernel.fifo.fifo_api:
+    path: "test/kernel/fifo/fifo_api/"
+  kernel.mem_heap.mheap_api_concept:
+    path: "test/kernel/mem_heap/mheap_api_concept/"
+  kernel.common:
+    path: "test/kernel/common/"
+  kernel.critical:
+    path: "test/kernel/critical/"
+  kernel.poll:
+    path: "test/kernel/poll/"
+  kernel.arm_irq_vector_table:
+    path: "test/kernel/arm_irq_vector_table/"
+  kernel.fatal:
+    path: "test/kernel/fatal/"
+  kernel.lifo.lifo_api:
+    path: "test/kernel/lifo/lifo_api/"
+  kernel.lifo.lifo_usage:
+    path: "test/kernel/lifo/lifo_usage/"
+  kernel.errno:
+    path: "test/kernel/errno/"
+  kernel.device:
+    path: "test/kernel/device/"
+  kernel.spinlock:
+    path: "test/kernel/spinlock/"
+  kernel.static_idt:
+    path: "test/kernel/static_idt/"
+  kernel.profiling.profiling_api:
+    path: "test/kernel/profiling/profiling_api/"
+  kernel.early_sleep:
+    path: "test/kernel/early_sleep/"
+  kernel.threads.thread_apis:
+    path: "test/kernel/threads/thread_apis/"
+  kernel.threads.thread_init:
+    path: "test/kernel/threads/thread_init/"
+  kernel.threads.dynamic_thread:
+    path: "test/kernel/threads/dynamic_thread/"
+  kernel.threads.no-multithreading:
+    path: "test/kernel/threads/no-multithreading/"
+  kernel.sched.preempt:
+    path: "test/kernel/sched/preempt/"
+  kernel.sched.deadline:
+    path: "test/kernel/sched/deadline/"
+  kernel.sched.schedule_api:
+    path: "test/kernel/sched/schedule_api/"
+  kernel.arm_runtime_nmi:
+    path: "test/kernel/arm_runtime_nmi/"
+  kernel.mem_protect.stack_random:
+    path: "test/kernel/mem_protect/stack_random/"
+  kernel.mem_protect.userspace:
+    path: "test/kernel/mem_protect/userspace/"
+  kernel.mem_protect.app_memory:
+    path: "test/kernel/mem_protect/app_memory/"
+  kernel.mem_protect.obj_validation:
+    path: "test/kernel/mem_protect/obj_validation/"
+  kernel.mem_protect.mem_protect:
+    path: "test/kernel/mem_protect/mem_protect/"
+  kernel.mem_protect.syscalls:
+    path: "test/kernel/mem_protect/syscalls/"
+  kernel.mem_protect.x86_mmu_api:
+    path: "test/kernel/mem_protect/x86_mmu_api"
+  kernel.mem_protect.stackprot:
+    path: "test/kernel/mem_protect/stackprot/"
+  kernel.mem_protect.protection:
+    path: "test/kernel/mem_protect/protection/"
+  kernel.mbox.mbox_usage:
+    path: "test/kernel/mbox/mbox_usage"
+  kernel.mbox.mbox_api:
+    path: "test/kernel/mbox/mbox_api/"
+  kernel.fp_sharing:
+    path: "test/kernel/fp_sharing"
+  kernel.gen_isr_table:
+    path: "test/kernel/gen_isr_table"
+  kernel.mem_slab.mslab_threadsafe:
+    path: "test/kernel/mem_slab/mslab_threadsafe"
+  kernel.mem_slab.mslab_concept:
+    path: "test/kernel/mem_slab/mslab_concept/"
+  kernel.mem_slab.mslab_api:
+    path: "test/kernel/mem_slab/mslab_api/"
+  kernel.mem_slab.mslab:
+    path: "test/kernel/mem_slab/mslab"
+  kernel.semaphore.sema_api:
+    path: "test/kernel/semaphore/sema_api"
+  kernel.semaphore.semaphore:
+    path: "test/kernel/semaphore/semaphore"
+  kernel.timer.timer_monotonic:
+    path: "test/kernel/timer/timer_monotonic"
+  kernel.timer.timer_api:
+    path: "test/kernel/timer/timer_api"
+  kernel.msgq.msgq_api:
+    path: "test/kernel/msgq/msgq_api/"
+  kernel.workq.work_queue:
+    path: "test/kernel/workq/work_queue/"
+  kernel.workq.work_queue_api:
+    path: "test/kernel/workq/work_queue_api/"
+  kernel.mutex.mutex_api:
+    path: "test/kernel/mutex/mutex_api"
+  kernel.mutex.mutex:
+    path: "test/kernel/mutex/mutex/"
+  kernel.irq_offload:
+    path: "test/kernel/irq_offload"
+  kernel.tickless.tickless_concept:
+    path: "test/kernel/tickless/tickless_concept/"
+  kernel.tickless.tickless:
+    path: "test/kernel/tickless/tickless"
+  kernel.sleep:
+    path: "test/kernel/sleep"
+  kernel.mp:
+    path: "test/kernel/mp/"
+
+

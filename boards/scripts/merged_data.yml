@@ -1,0 +1,564 @@
+---
+settings:
+  run_script: build_zephyr_elf.sh
+  build_script: run_zephyr_elf.sh
+cases:
+  attribute: required
+  drivers.pci_enum:
+    path: drivers/pci_enum
+    attribute: required
+  drivers.i2s.i2s_api:
+    path: drivers/i2s/i2s_api
+    attribute: required
+  drivers.i2s.i2s_speed:
+    path: drivers/i2s/i2s_speed
+    attribute: required
+  drivers.ipm:
+    path: drivers/ipm
+    attribute: required
+  drivers.aio.app:
+    path: drivers/aio/app
+    attribute: required
+  drivers.aio.api:
+    path: drivers/aio/api
+    attribute: required
+  drivers.pinmux.pinmux_basic_api:
+    path: drivers/pinmux/pinmux_basic_api
+    attribute: required
+  drivers.spi.spi_loopback:
+    path: drivers/spi/spi_loopback
+    attribute: required
+  drivers.gpio.gpio_basic_api:
+    path: drivers/gpio/gpio_basic_api
+    attribute: required
+  drivers.pwm.pwm_api:
+    path: drivers/pwm/pwm_api
+    attribute: required
+  drivers.dma.chan_blen_transfer:
+    path: drivers/dma/chan_blen_transfer
+    attribute: required
+  drivers.dma.loop_transfer:
+    path: drivers/dma/loop_transfer
+    attribute: required
+  drivers.uart.uart_basic_api:
+    path: drivers/uart/uart_basic_api
+    attribute: required
+  drivers.aon_counter.aon_api:
+    path: drivers/aon_counter/aon_api
+    attribute: required
+  drivers.entropy.api:
+    path: drivers/entropy/api
+    attribute: required
+  drivers.i2c.i2c_slave_api.common:
+    path: drivers/i2c/i2c_slave_api/common
+    attribute: required
+  drivers.i2c.i2c_slave_api:
+    path: drivers/i2c/i2c_slave_api
+    attribute: required
+  drivers.i2c.i2c_api:
+    path: drivers/i2c/i2c_api
+    attribute: required
+  drivers.adc.adc_api:
+    path: drivers/adc/adc_api
+    attribute: required
+  drivers.build_all:
+    path: drivers/build_all
+    attribute: required
+  drivers.rtc.rtc_basic_api:
+    path: drivers/rtc/rtc_basic_api
+    attribute: required
+  drivers.watchdog.wdt_basic_api:
+    path: drivers/watchdog/wdt_basic_api
+    attribute: required
+  unit.bluetooth.at:
+    path: test/unit/bluetooth/at
+    attribute: required
+  unit.lib.crc:
+    path: test/unit/lib/crc
+    attribute: required
+  subsys.storage.flash_map:
+    path: test/subsys/storage/flash_map
+    attribute: required
+  subsys.dfu.img_util:
+    path: test/subsys/dfu/img_util
+    attribute: required
+  subsys.dfu.mcuboot:
+    path: test/subsys/dfu/mcuboot
+    attribute: required
+  subsys.settings.fcb_init:
+    path: test/subsys/settings/fcb_init
+    attribute: required
+  subsys.settings.nffs.raw:
+    path: test/subsys/settings/nffs/raw
+    attribute: required
+  subsys.settings.nffs.base64:
+    path: test/subsys/settings/nffs/base64
+    attribute: required
+  subsys.settings.fcb.raw:
+    path: test/subsys/settings/fcb/raw
+    attribute: required
+  subsys.settings.fcb.base64:
+    path: test/subsys/settings/fcb/base64
+    attribute: required
+  subsys.logging.log_core:
+    path: test/subsys/logging/log_core
+    attribute: required
+  subsys.logging.log_list:
+    path: test/subsys/logging/log_list
+    attribute: required
+  subsys.logging.log_msg:
+    path: test/subsys/logging/log_msg
+    attribute: required
+  subsys.fs.nffs_fs_api.cache:
+    path: test/subsys/fs/nffs_fs_api/cache
+    attribute: required
+  subsys.fs.nffs_fs_api.performance:
+    path: test/subsys/fs/nffs_fs_api/performance
+    attribute: required
+  subsys.fs.nffs_fs_api.basic:
+    path: test/subsys/fs/nffs_fs_api/basic
+    attribute: required
+  subsys.fs.nffs_fs_api.large:
+    path: test/subsys/fs/nffs_fs_api/large
+    attribute: required
+  subsys.fs.fat_fs_api:
+    path: test/subsys/fs/fat_fs_api
+    attribute: required
+  subsys.fs.multi-fs:
+    path: test/subsys/fs/multi-fs
+    attribute: required
+  subsys.fs.fat_fs_dual_drive:
+    path: test/subsys/fs/fat_fs_dual_drive
+    attribute: required
+  subsys.fs.fcb:
+    path: test/subsys/fs/fcb
+    attribute: required
+  subsys.usb.bos:
+    path: test/subsys/usb/bos
+    attribute: required
+  subsys.usb.os_desc:
+    path: test/subsys/usb/os_desc
+    attribute: required
+  shell:
+    path: test/shell
+    attribute: required
+  posix.common:
+    path: test/posix/common
+    attribute: required
+  posix.fs:
+    path: test/posix/fs
+    attribute: required
+  net.utils:
+    path: test/net/utils
+    attribute: required
+  net.route:
+    path: test/net/route
+    attribute: required
+  net.mgmt:
+    path: test/net/mgmt
+    attribute: required
+  net.ip-addr:
+    path: test/net/ip-addr
+    attribute: required
+  net.promiscuous:
+    path: test/net/promiscuous
+    attribute: required
+  net.6lo:
+    path: test/net/6lo
+    attribute: required
+  net.iface:
+    path: test/net/iface
+    attribute: required
+  net.context:
+    path: test/net/context
+    attribute: required
+  net.traffic_class:
+    path: test/net/traffic_class
+    attribute: required
+  net.ieee802154.fragment:
+    path: test/net/ieee802154/fragment
+    attribute: required
+  net.ieee802154.crypto:
+    path: test/net/ieee802154/crypto
+    attribute: required
+  net.ieee802154.l2:
+    path: test/net/ieee802154/l2
+    attribute: required
+  net.ipv6:
+    path: test/net/ipv6
+    attribute: required
+  net.vlan:
+    path: test/net/vlan
+    attribute: required
+  net.ipv6_fragment:
+    path: test/net/ipv6_fragment
+    attribute: required
+  net.icmpv6:
+    path: test/net/icmpv6
+    attribute: required
+  net.arp:
+    path: test/net/arp
+    attribute: required
+  net.socket.getaddrinfo:
+    path: test/net/socket/getaddrinfo
+    attribute: required
+  net.socket.tcp:
+    path: test/net/socket/tcp
+    attribute: required
+  net.socket.udp:
+    path: test/net/socket/udp
+    attribute: required
+  net.tx_timestamp:
+    path: test/net/tx_timestamp
+    attribute: required
+  net.all:
+    path: test/net/all
+    attribute: required
+  net.app:
+    path: test/net/app
+    attribute: required
+  net.mld:
+    path: test/net/mld
+    attribute: required
+  net.lib.tls_credentials:
+    path: test/net/lib/tls_credentials
+    attribute: required
+  net.lib.mqtt_subscriber:
+    path: test/net/lib/mqtt_subscriber
+    attribute: required
+  net.lib.dns_resolve:
+    path: test/net/lib/dns_resolve
+    attribute: required
+  net.lib.coap:
+    path: test/net/lib/coap
+    attribute: required
+  net.lib.mqtt_pubsub:
+    path: test/net/lib/mqtt_pubsub
+    attribute: required
+  net.lib.mqtt_publisher:
+    path: test/net/lib/mqtt_publisher
+    attribute: required
+  net.lib.http_header_fields:
+    path: test/net/lib/http_header_fields
+    attribute: required
+  net.lib.dns_packet:
+    path: test/net/lib/dns_packet
+    attribute: required
+  net.lib.mqtt_packet:
+    path: test/net/lib/mqtt_packet
+    attribute: required
+  net.lib.coap_sock:
+    path: test/net/lib/coap_sock
+    attribute: required
+  net.websocket:
+    path: test/net/websocket
+    attribute: required
+  net.neighbor:
+    path: test/net/neighbor
+    attribute: required
+  net.buf:
+    path: test/net/buf
+    attribute: required
+  net.ethernet_mgmt:
+    path: test/net/ethernet_mgmt
+    attribute: required
+  net.dhcpv4:
+    path: test/net/dhcpv4
+    attribute: required
+  net.checksum_offload:
+    path: test/net/checksum_offload
+    attribute: required
+  net.tcp:
+    path: test/net/tcp
+    attribute: required
+  net.trickle:
+    path: test/net/trickle
+    attribute: required
+  net.ptp.clock:
+    path: test/net/ptp/clock
+    attribute: required
+  net.net_pkt:
+    path: test/net/net_pkt
+    attribute: required
+  net.udp:
+    path: test/net/udp
+    attribute: required
+  lib.mem_alloc:
+    path: test/lib/mem_alloc
+    attribute: required
+  lib.base64:
+    path: test/lib/base64
+    attribute: required
+  lib.rbtree:
+    path: test/lib/rbtree
+    attribute: required
+  lib.sprintf:
+    path: test/lib/sprintf
+    attribute: required
+  lib.ringbuffer:
+    path: test/lib/ringbuffer
+    attribute: required
+  lib.c_lib:
+    path: test/lib/c_lib
+    attribute: required
+  lib.json:
+    path: test/lib/json
+    attribute: required
+  kernel.xip:
+    path: test/kernel/xip/
+    attribute: required
+  kernel.pipe.pipe:
+    path: test/kernel/pipe/pipe/
+    attribute: required
+  kernel.pipe.pipe_api:
+    path: test/kernel/pipe/pipe_api/
+    attribute: required
+  kernel.mem_pool.mem_pool:
+    path: test/kernel/mem_pool/mem_pool
+    attribute: required
+  kernel.mem_pool.sys_mem_pool:
+    path: test/kernel/mem_pool/sys_mem_pool/
+    attribute: required
+  kernel.mem_pool.mem_pool_concept:
+    path: test/kernel/mem_pool/mem_pool_concept/
+    attribute: required
+  kernel.mem_pool.mem_pool_threadsafe:
+    path: test/kernel/mem_pool/mem_pool_threadsafe/
+    attribute: required
+  kernel.mem_pool.mem_pool_api:
+    path: test/kernel/mem_pool/mem_pool_api/
+    attribute: required
+  kernel.interrupt:
+    path: test/kernel/interrupt/
+    attribute: required
+  kernel.init:
+    path: test/kernel/init/
+    attribute: required
+  kernel.context:
+    path: test/kernel/context/
+    attribute: required
+  kernel.smp:
+    path: test/kernel/smp/
+    attribute: required
+  kernel.pending:
+    path: test/kernel/pending/
+    attribute: required
+  kernel.obj_tracing:
+    path: test/kernel/obj_tracing/
+    attribute: required
+  kernel.queue:
+    path: test/kernel/queue/
+    attribute: required
+  kernel.boot_page_table:
+    path: test/kernel/boot_page_table/
+    attribute: required
+  kernel.stack.stack_usage:
+    path: test/kernel/stack/stack_usage/
+    attribute: required
+  kernel.stack.stack_api:
+    path: test/kernel/stack/stack_api/
+    attribute: required
+  kernel.fifo.fifo_timeout:
+    path: test/kernel/fifo/fifo_timeout/
+    attribute: required
+  kernel.fifo.fifo_usage:
+    path: test/kernel/fifo/fifo_usage
+    attribute: required
+  kernel.fifo.fifo_api:
+    path: test/kernel/fifo/fifo_api/
+    attribute: required
+  kernel.mem_heap.mheap_api_concept:
+    path: test/kernel/mem_heap/mheap_api_concept/
+    attribute: required
+  kernel.common:
+    path: test/kernel/common/
+    attribute: required
+  kernel.critical:
+    path: test/kernel/critical/
+    attribute: required
+  kernel.poll:
+    path: test/kernel/poll/
+    attribute: required
+  kernel.arm_irq_vector_table:
+    path: test/kernel/arm_irq_vector_table/
+    attribute: required
+  kernel.fatal:
+    path: test/kernel/fatal/
+    attribute: required
+  kernel.lifo.lifo_api:
+    path: test/kernel/lifo/lifo_api/
+    attribute: required
+  kernel.lifo.lifo_usage:
+    path: test/kernel/lifo/lifo_usage/
+    attribute: required
+  kernel.errno:
+    path: test/kernel/errno/
+    attribute: required
+  kernel.device:
+    path: test/kernel/device/
+    attribute: required
+  kernel.spinlock:
+    path: test/kernel/spinlock/
+    attribute: required
+  kernel.static_idt:
+    path: test/kernel/static_idt/
+    attribute: required
+  kernel.profiling.profiling_api:
+    path: test/kernel/profiling/profiling_api/
+    attribute: required
+  kernel.early_sleep:
+    path: test/kernel/early_sleep/
+    attribute: required
+  kernel.threads.thread_apis:
+    path: test/kernel/threads/thread_apis/
+    attribute: required
+  kernel.threads.thread_init:
+    path: test/kernel/threads/thread_init/
+    attribute: required
+  kernel.threads.dynamic_thread:
+    path: test/kernel/threads/dynamic_thread/
+    attribute: required
+  kernel.threads.no-multithreading:
+    path: test/kernel/threads/no-multithreading/
+    attribute: required
+  kernel.sched.preempt:
+    path: test/kernel/sched/preempt/
+    attribute: required
+  kernel.sched.deadline:
+    path: test/kernel/sched/deadline/
+    attribute: required
+  kernel.sched.schedule_api:
+    path: test/kernel/sched/schedule_api/
+    attribute: required
+  kernel.arm_runtime_nmi:
+    path: test/kernel/arm_runtime_nmi/
+    attribute: required
+  kernel.mem_protect.stack_random:
+    path: test/kernel/mem_protect/stack_random/
+    attribute: required
+  kernel.mem_protect.userspace:
+    path: test/kernel/mem_protect/userspace/
+    attribute: required
+  kernel.mem_protect.app_memory:
+    path: test/kernel/mem_protect/app_memory/
+    attribute: required
+  kernel.mem_protect.obj_validation:
+    path: test/kernel/mem_protect/obj_validation/
+    attribute: required
+  kernel.mem_protect.mem_protect:
+    path: test/kernel/mem_protect/mem_protect/
+    attribute: required
+  kernel.mem_protect.syscalls:
+    path: test/kernel/mem_protect/syscalls/
+    attribute: required
+  kernel.mem_protect.x86_mmu_api:
+    path: test/kernel/mem_protect/x86_mmu_api
+    attribute: required
+  kernel.mem_protect.stackprot:
+    path: test/kernel/mem_protect/stackprot/
+    attribute: required
+  kernel.mem_protect.protection:
+    path: test/kernel/mem_protect/protection/
+    attribute: required
+  kernel.mbox.mbox_usage:
+    path: test/kernel/mbox/mbox_usage
+    attribute: required
+  kernel.mbox.mbox_api:
+    path: test/kernel/mbox/mbox_api/
+    attribute: required
+  kernel.fp_sharing:
+    path: test/kernel/fp_sharing
+    attribute: required
+  kernel.gen_isr_table:
+    path: test/kernel/gen_isr_table
+    attribute: required
+  kernel.mem_slab.mslab_threadsafe:
+    path: test/kernel/mem_slab/mslab_threadsafe
+    attribute: required
+  kernel.mem_slab.mslab_concept:
+    path: test/kernel/mem_slab/mslab_concept/
+    attribute: required
+  kernel.mem_slab.mslab_api:
+    path: test/kernel/mem_slab/mslab_api/
+    attribute: required
+  kernel.mem_slab.mslab:
+    path: test/kernel/mem_slab/mslab
+    attribute: required
+  kernel.semaphore.sema_api:
+    path: test/kernel/semaphore/sema_api
+    attribute: required
+  kernel.semaphore.semaphore:
+    path: test/kernel/semaphore/semaphore
+    attribute: required
+  kernel.timer.timer_monotonic:
+    path: test/kernel/timer/timer_monotonic
+    attribute: required
+  kernel.timer.timer_api:
+    path: test/kernel/timer/timer_api
+    attribute: required
+  kernel.msgq.msgq_api:
+    path: test/kernel/msgq/msgq_api/
+    attribute: required
+  kernel.workq.work_queue:
+    path: test/kernel/workq/work_queue/
+    attribute: required
+  kernel.workq.work_queue_api:
+    path: test/kernel/workq/work_queue_api/
+    attribute: required
+  kernel.mutex.mutex_api:
+    path: test/kernel/mutex/mutex_api
+    attribute: required
+  kernel.mutex.mutex:
+    path: test/kernel/mutex/mutex/
+    attribute: required
+  kernel.irq_offload:
+    path: test/kernel/irq_offload
+    attribute: required
+  kernel.tickless.tickless_concept:
+    path: test/kernel/tickless/tickless_concept/
+    attribute: required
+  kernel.tickless.tickless:
+    path: test/kernel/tickless/tickless
+    attribute: required
+  kernel.sleep:
+    path: test/kernel/sleep
+    attribute: required
+  kernel.mp:
+    path: test/kernel/mp/
+    attribute: required
+  coverage:
+    path: test/coverage
+    attribute: required
+  crypto.tinycrypt_hmac_prng:
+    path: test/crypto/tinycrypt_hmac_prng
+    attribute: required
+  crypto.mbedtls:
+    path: test/crypto/mbedtls
+    attribute: required
+  crypto.tinycrypt:
+    path: test/crypto/tinycrypt
+    attribute: required
+  crypto.rand32:
+    path: test/crypto/rand32
+    attribute: required
+  benchmarks.footprint:
+    path: test/benchmarks/footprint
+    attribute: required
+  benchmarks.boot_time:
+    path: test/benchmarks/boot_time
+    attribute: required
+  benchmarks.object_footprint:
+    path: test/benchmarks/object_footprint
+    attribute: required
+  benchmarks.latency_measure:
+    path: test/benchmarks/latency_measure
+    attribute: required
+  benchmarks.timing_info:
+    path: test/benchmarks/timing_info
+    attribute: required
+  benchmarks.sys_kernel:
+    path: test/benchmarks/sys_kernel
+    attribute: required
+  benchmarks.app_kernel:
+    path: test/benchmarks/app_kernel
+    attribute: required
