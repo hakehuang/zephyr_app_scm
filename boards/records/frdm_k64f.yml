@@ -18,12 +18,24 @@ __load__:
 
 
 settings:
-  run_script: build_zephyr_elf.sh
-  build_script: run_zephyr_elf.sh
+  build_script: build_zephyr_elf.sh
+  run_script: run_zephyr_elf.sh
 
 cases:
   attribute: "required"
   __common__:
     attribute: "required"
   __remove__:
-#    drivers.pci_enum:
+    drivers.aio.api:
+    drivers.aio.app:
+    drivers.aon_counter.aon_api:
+    drivers.dma.chan_blen_transfer:
+    drivers.gpio.gpio_basic_api:
+    drivers.i2c.i2c_api:
+    drivers.i2c.i2c_slave_api:
+    drivers.i2c.i2c_slave_api.common:
+    drivers.i2s.i2s_api:
+    drivers.i2s.i2s_speed:
+    drivers.pinmux.pinmux_basic_api:
+    drivers.rtc.rtc_basic_api:
+    drivers.spi.spi_loopback:

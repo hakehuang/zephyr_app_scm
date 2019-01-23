@@ -1,20 +1,22 @@
 
 __load__:
-  - components/benchmarks.yml
-  - components/crypto.yml
-  - components/coverage.yml
-  - components/kernel.yml
-  - components/lib.yml
-  - components/net.yml
-  - components/posix.yml
-  - components/shell.yml
-  - components/subsys.yml
-  - components/unit.yml
-  - components/drivers/drivers.yml
+  # - components/benchmarks.yml
+  # - components/crypto.yml
+  # - components/coverage.yml
+  # - components/kernel.yml
+  # - components/lib.yml
+  # - components/net.yml
+  # - components/posix.yml
+   - components/samples.yml
+   - components/sample_basic.yml
+  # - components/shell.yml
+  # - components/subsys.yml
+  # - components/unit.yml
+  # - components/drivers/drivers.yml
 
 settings:
-  run_script: build_zephyr_elf.sh
-  build_script: run_zephyr_elf_kw41.sh
+  build_script: build_zephyr_elf.sh
+  run_script: run_zephyr_elf_kw41.sh
 
 cases:
   attribute: "required"

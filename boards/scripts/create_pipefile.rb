@@ -59,14 +59,20 @@ def create_pipefile_from_commandline(data)
   pipe_data = {
     :docker => @command_lines[:docker_name],
     :build_script => @content["settings"]["build_script"], 
-    :run_script   => @content["settings"]["build_script"], 
+    :run_script   => @content["settings"]["run_script"], 
     :board => @command_lines[:board_name],
-    :cases => []
+    :catalog => {}
   }
   @content["cases"].keys().each do |key|
     next if key == "attribute"
-    pipe_data[:cases].insert(-1, [key, @content["cases"][key]['path']])
-  end    
+    catelog = @content["cases"][key]['catelog']
+    pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
+    if @content["cases"][key].has_key?("config")
+      pipe_data[:catalog][catelog]['cases'].insert(-1, 
+        [key, @content["cases"][key]['path'], @content["cases"][key]['config']])
+    else
+      pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path']])
+    end    
   output = engine.render(@command_lines[:template], pipe_data)
   File.open( "Jenkinsfile_" + @command_lines[:board_name], 'w') {|f| f.write(YAML.dump(output)) }
 end
@@ -78,7 +84,7 @@ def create_pipefile_from_config(config, board_name = "frdm_k64f", output_path = 
   pipe_data = {
     :docker => docker_name,
     :build_script => @content["settings"]["build_script"], 
-    :run_script   => @content["settings"]["build_script"], 
+    :run_script   => @content["settings"]["run_script"], 
     :board => board_name,
     :catalog => {}
   }
@@ -86,7 +92,12 @@ def create_pipefile_from_config(config, board_name = "frdm_k64f", output_path = 
     next if key == "attribute"
     catelog = @content["cases"][key]['catelog']
     pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
-    pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path']])
+    if @content["cases"][key].has_key?("config")
+      pipe_data[:catalog][catelog]['cases'].insert(-1, 
+        [key, @content["cases"][key]['path'], @content["cases"][key]['config']])
+    else
+      pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path']])
+    end
   end
   output = engine.render(template, pipe_data)
   FileUtils::mkdir_p output_path
