@@ -11,7 +11,17 @@ gem install bundle
 bundle update
 ```
 
-#in boards/scropts run the individual board rb file
+#in boards/scropts 
+
+run the individual board rb file, e.g.
+
+```
+  ruby ./frdm_k64f.rb
+```
+
+#the output will be in the pipe_file
+
+currently only jenkins pipeline out put supports
 
 #Note:
 currently only NXP boards configs available 
