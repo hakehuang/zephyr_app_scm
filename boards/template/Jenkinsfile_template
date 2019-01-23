@@ -12,9 +12,10 @@ pipeline {
         }
       }
     }
-    stage('test suite') {
+    <?rb for k, items in @catalog ?>
+    stage('${k}') {
       parallel {
-      <?rb for item in @cases ?>
+      <?rb items['cases'].each do |item| ?>
         stage('${item[0]}') {
           steps {
             echo 'Test ${item[0]}'
@@ -25,5 +26,6 @@ pipeline {
       <?rb end ?>
       }
     }
+    <?rb end ?>
   }
 }

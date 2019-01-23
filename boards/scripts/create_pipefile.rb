@@ -53,7 +53,7 @@ end
 def create_pipefile_from_commandline(data)
   @command_lines = Marshal.load(Marshal.dump(Parser.parse(data)))
   ap @command_lines
-  engine = Tenjin::Engine.new(:trace=>true)
+  engine = Tenjin::Engine.new()
   @content = File::read(@command_lines[:config_file].gsub("\\","/"))
   @content = YAML::load(@content)
   pipe_data = {
@@ -73,22 +73,24 @@ end
 
 def create_pipefile_from_config(config, board_name = "frdm_k64f", output_path = "../pipe_file/",
   docker_name = "confident_sinoussi", template = "../template/Jenkinsfile_template")
-  engine = Tenjin::Engine.new(:trace=>true)
+  engine = Tenjin::Engine.new()
   @content = config
   pipe_data = {
     :docker => docker_name,
     :build_script => @content["settings"]["build_script"], 
     :run_script   => @content["settings"]["build_script"], 
     :board => board_name,
-    :cases => []
+    :catalog => {}
   }
   @content["cases"].keys().each do |key|
     next if key == "attribute"
-    pipe_data[:cases].insert(-1, [key, @content["cases"][key]['path']])
-  end    
+    catelog = @content["cases"][key]['catelog']
+    pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
+    pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path']])
+  end
   output = engine.render(template, pipe_data)
   FileUtils::mkdir_p output_path
-  File.open( output_path + "Jenkinsfile_" + board_name, 'w') {|f| f.write(YAML.dump(output)) } 
+  File.open( output_path + "Jenkinsfile_" + board_name, 'w') {|f| f.write(output) } 
 end
 
 #create_pipefile(ARGV)

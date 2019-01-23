@@ -1,10 +1,12 @@
 
 cases:
+  __hierarchy__:
+    catelog: tests_crypto
   crypto.tinycrypt_hmac_prng:
-    path: "test/crypto/tinycrypt_hmac_prng"
+    path: "tests/crypto/tinycrypt_hmac_prng"
   crypto.mbedtls:
-    path: "test/crypto/mbedtls"
+    path: "tests/crypto/mbedtls"
   crypto.tinycrypt:
-    path: "test/crypto/tinycrypt"
+    path: "tests/crypto/tinycrypt"
   crypto.rand32:
-    path: "test/crypto/rand32"
+    path: "tests/crypto/rand32"

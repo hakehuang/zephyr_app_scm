@@ -11,10 +11,11 @@
           }
         }
       }
-    }
-    stage('test suite') {
+    }\n`
+    for k, items in @catalog
+ _buf << %Q`    stage('#{escape((k).to_s)}') {
       parallel {\n`
-      for item in @cases
+      items['cases'].each do |item|
  _buf << %Q`        stage('#{escape((item[0]).to_s)}') {
           steps {
             echo 'Test #{escape((item[0]).to_s)}'
@@ -24,6 +25,7 @@
         }\n`
       end
  _buf << %Q`      }
-    }
-  }
+    }\n`
+    end
+ _buf << %Q`  }
 }\n`
