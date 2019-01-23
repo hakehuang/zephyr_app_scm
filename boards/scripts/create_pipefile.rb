@@ -72,7 +72,8 @@ def create_pipefile_from_commandline(data)
         [key, @content["cases"][key]['path'], @content["cases"][key]['config']])
     else
       pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path']])
-    end    
+    end
+  end 
   output = engine.render(@command_lines[:template], pipe_data)
   File.open( "Jenkinsfile_" + @command_lines[:board_name], 'w') {|f| f.write(YAML.dump(output)) }
 end
@@ -93,8 +94,7 @@ def create_pipefile_from_config(config, board_name = "frdm_k64f", output_path = 
     catelog = @content["cases"][key]['catelog']
     pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
     if @content["cases"][key].has_key?("config")
-      pipe_data[:catalog][catelog]['cases'].insert(-1, 
-        [key, @content["cases"][key]['path'], @content["cases"][key]['config']])
+      pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path'], @content["cases"][key]['config']])
     else
       pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path']])
     end
@@ -104,5 +104,4 @@ def create_pipefile_from_config(config, board_name = "frdm_k64f", output_path = 
   File.open( output_path + "Jenkinsfile_" + board_name, 'w') {|f| f.write(output) } 
 end
 
-#create_pipefile(ARGV)
-
+#create_pipefile_from_config(ARGV)
