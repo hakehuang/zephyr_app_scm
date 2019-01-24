@@ -1,20 +1,20 @@
 
 __load__:
-  - components/benchmarks.yml
-#  - components/crypto.yml
-#  - components/coverage.yml
-#  - components/kernel.yml
-#  - components/lib.yml
-#  - components/net.yml
-  - components/posix.yml
-  - components/samples.yml
-  - components/sample_basic.yml
-#  - components/sample_net.yml
-#  - components/sample_subsys.yml
-  - components/shell.yml
-  - components/subsys.yml
-#  - components/unit.yml
-  - components/drivers/drivers.yml
+##  - components/benchmarks.yml
+  - components/crypto.yml
+##  - components/coverage.yml
+##  - components/kernel.yml
+##  - components/lib.yml
+##  - components/net.yml
+##  - components/posix.yml
+##  - components/samples.yml
+##  - components/sample_basic.yml
+##  - components/sample_net.yml
+##  - components/sample_subsys.yml
+##  - components/shell.yml
+##  - components/subsys.yml
+##  - components/unit.yml
+##  - components/drivers/drivers.yml
 
 
 settings:
@@ -52,3 +52,46 @@ cases:
     subsys.settings.fcb.raw:
     subsys.settings.nffs.base64:
     subsys.settings.nffs.raw:
+    basic.blink_led:
+    basic.fade_led:
+    basic.rgb_led:
+    basic.servo_motor:
+    application_development.code_relocation:
+    kernel.boot_page_table:
+    kernel.mem_protect.stackprot:
+    kernel.mem_protect.x86_mmu_api:
+    kernel.mem_slab.mslab:
+    kernel.mp:
+    kernel.mutex.mutex:
+    kernel.smp:
+    kernel.spinlock:
+    kernel.static_idt:
+    kernel.threads.dynamic_thread:
+    kernel.xip:
+    net.eth_native_posix:
+    net.sockets.big_http_download:
+    net.sockets.coap_server:
+    net.wpan_serial:
+    net.wpanusb:
+    net.all:
+    net.context:
+    net.ieee802154.crypto:
+    net.lib.tls_credentials:
+    net.socket.getaddrinfo:
+    net.socket.tcp:
+    unit.bluetooth.at:
+    unit.lib.crc:
+    subsys.ipc.ipm_imx:
+    subsys.ipc.ipm_mailbox.ap:
+    subsys.ipc.ipm_mailbox.sensor:
+    subsys.ipc.ipm_mcux:
+    subsys.ipc.ipm_mcux.remote:
+    subsys.ipc.openamp:
+    subsys.ipc.openamp.remote:
+    subsys.mgmt.mcumgr.smp_svr:
+    subsys.power.power_mgr:
+    coverage:
+
+
+
+
