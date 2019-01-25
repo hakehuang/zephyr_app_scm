@@ -1,20 +1,20 @@
 
 __load__:
 ##  - components/benchmarks.yml
-  - components/crypto.yml
-##  - components/coverage.yml
-##  - components/kernel.yml
+##  - components/crypto.yml
+# - components/coverage.yml
+## - components/kernel.yml
 ##  - components/lib.yml
-##  - components/net.yml
-##  - components/posix.yml
-##  - components/samples.yml
-##  - components/sample_basic.yml
+  - components/net.yml
+# - components/posix.yml
+## - components/samples.yml
+## - components/sample_basic.yml
 ##  - components/sample_net.yml
 ##  - components/sample_subsys.yml
-##  - components/shell.yml
-##  - components/subsys.yml
-##  - components/unit.yml
-##  - components/drivers/drivers.yml
+# - components/shell.yml
+## - components/subsys.yml
+# - components/unit.yml
+# - components/drivers/drivers.yml
 
 settings:
   build_script: build_zephyr_elf.sh
@@ -25,4 +25,92 @@ cases:
   __common__:
     attribute: "required"
   __remove__:
-#    drivers.pci_enum:
+    drivers.aio.api:
+    drivers.aio.app:
+    drivers.aon_counter.aon_api:
+    drivers.dma.chan_blen_transfer:
+    drivers.gpio.gpio_basic_api:
+    drivers.i2c.i2c_api:
+    drivers.i2c.i2c_slave_api:
+    drivers.i2c.i2c_slave_api.common:
+    drivers.i2s.i2s_api:
+    drivers.i2s.i2s_speed:
+    drivers.pinmux.pinmux_basic_api:
+    drivers.rtc.rtc_basic_api:
+    drivers.spi.spi_loopback:
+    subsys.dfu.mcuboot:
+    subsys.fs.fat_fs_api:
+    subsys.fs.fat_fs_dual_drive:
+    subsys.fs.fcb:
+    subsys.fs.multi-fs:
+    subsys.fs.nffs_fs_api.basic:
+    subsys.fs.nffs_fs_api.cache:
+    subsys.fs.nffs_fs_api.large:
+    subsys.fs.nffs_fs_api.performance:
+    subsys.nvs:
+    subsys.settings.fcb.base64:
+    subsys.settings.fcb.raw:
+    subsys.settings.nffs.base64:
+    subsys.settings.nffs.raw:
+    subsys.usb.cdc_acm:
+    subsys.usb.console:
+    subsys.usb.dfu:
+    subsys.usb.hid:
+    subsys.usb.hid-mouse:
+    subsys.usb.webusb:
+    basic.disco:
+    basic.threads:
+    basic.blink_led:
+    basic.fade_led:
+    basic.rgb_led:
+    basic.servo_motor:
+    application_development.code_relocation:
+    kernel.boot_page_table:
+    kernel.mem_protect.stackprot:
+    kernel.mem_protect.x86_mmu_api:
+    kernel.mem_slab.mslab:
+    kernel.mp:
+    kernel.mutex.mutex:
+    kernel.smp:
+    kernel.spinlock:
+    kernel.static_idt:
+    kernel.threads.dynamic_thread:
+    kernel.tickless.tickless:
+    kernel.xip:
+    net.eth_native_posix:
+    net.sockets.big_http_download:
+    net.sockets.coap_server:
+    net.wpan_serial:
+    net.wpanusb:
+    net.all:
+    net.context:
+    net.ieee802154.crypto:
+    net.gptp:
+    net.lib.coap_sock:
+    net.lib.tls_credentials:
+    net.lwm2m_client:
+    net.socket.getaddrinfo:
+    net.socket.tcp:
+    net.throughput_server:
+    net.traffic_class:
+    net.websocket:
+    net.ws_console:
+    net.ws_echo_server:
+    unit.bluetooth.at:
+    unit.lib.crc:
+    subsys.dfu.img_util:
+    subsys.ipc.ipm_imx:
+    subsys.ipc.ipm_mailbox.ap:
+    subsys.ipc.ipm_mailbox.sensor:
+    subsys.ipc.ipm_mcux:
+    subsys.ipc.ipm_mcux.remote:
+    subsys.ipc.openamp:
+    subsys.ipc.openamp.remote:
+    subsys.mgmt.mcumgr.smp_svr:
+    subsys.power.power_mgr:
+    subsys.settings.fcb_init:
+    subsys.storage.flash_map:
+    subsys.usb.bos:
+    subsys.usb.os_desc:
+    crypto.tinycrypt:
+    coverage:
