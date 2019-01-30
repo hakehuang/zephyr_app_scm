@@ -1,20 +1,21 @@
 
 __load__:
-##  - components/benchmarks.yml
-  - components/crypto.yml
-##  - components/coverage.yml
-##  - components/kernel.yml
-##  - components/lib.yml
-##  - components/net.yml
-##  - components/posix.yml
-##  - components/samples.yml
-##  - components/sample_basic.yml
-##  - components/sample_net.yml
-##  - components/sample_subsys.yml
-##  - components/shell.yml
-##  - components/subsys.yml
-##  - components/unit.yml
-##  - components/drivers/drivers.yml
+  # - components/benchmarks.yml
+  # - components/crypto.yml
+  # - components/coverage.yml
+  # - components/kernel.yml
+  # - components/lib.yml
+  # - components/net.yml
+  # - components/posix.yml
+  # - components/samples.yml
+  # - components/sample_basic.yml
+  # - components/sample_net.yml
+  # - components/sample_subsys.yml
+  - components/sample_sensor.yml
+  # - components/shell.yml
+  # - components/subsys.yml
+  # - components/unit.yml
+  # - components/drivers/drivers.yml
 
 
 settings:
@@ -58,16 +59,16 @@ cases:
     basic.servo_motor:
     application_development.code_relocation:
     kernel.boot_page_table:
-    kernel.mem_protect.stackprot:
+    #kernel.mem_protect.stackprot:
     kernel.mem_protect.x86_mmu_api:
-    kernel.mem_slab.mslab:
+    #kernel.mem_slab.mslab:
     kernel.mp:
-    kernel.mutex.mutex:
+    #kernel.mutex.mutex:
     kernel.smp:
     kernel.spinlock:
     kernel.static_idt:
-    kernel.threads.dynamic_thread:
-    kernel.xip:
+    #kernel.threads.dynamic_thread:
+    #kernel.xip:
     net.eth_native_posix:
     net.sockets.big_http_download:
     net.sockets.coap_server:
@@ -91,6 +92,19 @@ cases:
     subsys.mgmt.mcumgr.smp_svr:
     subsys.power.power_mgr:
     coverage:
+    sensor.adt7420:
+    sensor.apds9960:
+    sensor.bme280:
+    sensor.bmi160:
+    sensor.ccs811:
+    sensor.fxas21002:
+    sensor.hts221:
+    sensor.lsm303dlhc:
+    sensor.max30101:
+    sensor.ms5837:
+    sensor.sht3xd:
+    sensor.sx9500:
+    sensor.vl53l0x:
 
 
 
