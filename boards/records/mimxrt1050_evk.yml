@@ -7,15 +7,15 @@ __load__:
 ##  - components/lib.yml
 ##  - components/net.yml
 # - components/posix.yml
-## - components/samples.yml
-## - components/sample_basic.yml
-##  - components/sample_net.yml
-##  - components/sample_subsys.yml
+- components/samples.yml
+- components/sample_basic.yml
+- components/sample_net.yml
+- components/sample_subsys.yml
 # - components/shell.yml
 ## - components/subsys.yml
 # - components/unit.yml
 # - components/drivers/drivers.yml
-  - components/sample_sensor.yml
+#  - components/sample_sensor.yml
 
 settings:
   build_script: build_zephyr_elf.sh
@@ -67,17 +67,12 @@ cases:
     basic.servo_motor:
     application_development.code_relocation:
     kernel.boot_page_table:
-    #kernel.mem_protect.stackprot:
     kernel.mem_protect.x86_mmu_api:
-    #kernel.mem_slab.mslab:
     kernel.mp:
-    #kernel.mutex.mutex:
     kernel.smp:
     kernel.spinlock:
     kernel.static_idt:
-    #kernel.threads.dynamic_thread:
     kernel.tickless.tickless:
-    #kernel.xip:
     net.eth_native_posix:
     net.sockets.big_http_download:
     net.sockets.coap_server:
@@ -97,6 +92,7 @@ cases:
     net.websocket:
     net.ws_console:
     net.ws_echo_server:
+    net.sockets.echo_server:
     unit.bluetooth.at:
     unit.lib.crc:
     subsys.dfu.img_util:
@@ -132,3 +128,21 @@ cases:
     sensor.sx9500:
     sensor.tmp112:
     sensor.vl53l0x:
+#R1.14_RC1 special
+    net.coap_client:
+    net.coap_server:
+    net.echo_client:
+    net.echo_server:
+    net.http_client:
+    net.http_server:
+    net.irc_bot:
+    net.leds_demo:
+    net.sntp_client:
+    net.throughput_server:
+    net.traffic_class:
+    net.ws_console:
+    net.ws_echo_server:
+    net.sockets.echo_server:
+    net.syslog_net:
+    net.zperf:
+    userspace.shared_mem:
