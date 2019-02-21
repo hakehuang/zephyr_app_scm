@@ -1,5 +1,5 @@
 require 'yml_merger'
-require 'Pathname'
+require 'pathname'
 
 @entry_yml = "frdm_k64f.yml"
 @search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records/').to_s

@@ -1,5 +1,5 @@
 require 'yml_merger'
-require 'Pathname'
+require 'pathname'
 require_relative 'create_pipefile'
 
 board = File.basename(__FILE__, ".rb")
