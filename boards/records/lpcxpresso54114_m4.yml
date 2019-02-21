@@ -3,13 +3,13 @@ __load__:
   # - components/benchmarks.yml
   # - components/crypto.yml
   # - components/coverage.yml
-  # - components/kernel.yml
+  - components/kernel.yml
   # - components/lib.yml
   # - components/net.yml
   # - components/posix.yml
-   - components/samples.yml
-   - components/sample_basic.yml
-   - components/sample_subsys.yml
+  - components/samples.yml
+  - components/sample_basic.yml
+  - components/sample_subsys.yml
   # - components/shell.yml
   # - components/subsys.yml
   # - components/unit.yml
@@ -107,3 +107,10 @@ cases:
     sensor.vl53l0x:
     userspace.shared_mem:
     posix.fs: #code size
+    kernel.mem_protect.app_memory:
+    kernel.mem_protect.mem_protect: #no mpu enalbed
+    kernel.mem_protect.obj_validation: #no mpu enalbed
+    kernel.mem_protect.stackprot: #no mpu enalbed
+    kernel.mem_protect.syscalls: #no mpu enalbed
+    kernel.mem_protect.userspace: #no mpu enalbed
+    kernel.tickless.tickless: #test app not support

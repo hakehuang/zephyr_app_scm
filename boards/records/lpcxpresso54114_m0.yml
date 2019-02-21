@@ -110,3 +110,16 @@ cases:
     basic.threads:
     userspace.shared_mem:
     posix.fs: #code size
+    kernel.errno:
+    kernel.fp_sharing:
+    kernel.init:
+    kernel.mem_protect.app_memory:
+    kernel.mem_protect.mem_protect: #no mpu
+    kernel.mem_protect.obj_validation: #no mpu
+    kernel.mem_protect.stackprot: #no mpu
+    kernel.mem_protect.syscalls: #no mpu
+    kernel.mem_protect.userspace: #no mpu
+    kernel.tickless.tickless: #test app not support
+    kernel.arm_irq_vector_table: #only support M4/m7
+    kernel.gen_isr_table: #only support M4/m7
+    kernel.irq_offload: #only support M4/m7

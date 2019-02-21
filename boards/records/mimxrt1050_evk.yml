@@ -1,16 +1,16 @@
 
 __load__:
-##  - components/benchmarks.yml
-##  - components/crypto.yml
-# - components/coverage.yml
-## - components/kernel.yml
-##  - components/lib.yml
-##  - components/net.yml
-# - components/posix.yml
-- components/samples.yml
-- components/sample_basic.yml
-- components/sample_net.yml
-- components/sample_subsys.yml
+  - components/benchmarks.yml
+  - components/crypto.yml
+  - components/coverage.yml
+  - components/kernel.yml
+  - components/lib.yml
+  - components/net.yml
+  - components/posix.yml
+###- components/samples.yml
+###- components/sample_basic.yml
+###- components/sample_net.yml
+###- components/sample_subsys.yml
 # - components/shell.yml
 ## - components/subsys.yml
 # - components/unit.yml
@@ -146,3 +146,5 @@ cases:
     net.syslog_net:
     net.zperf:
     userspace.shared_mem:
+    net.app:
+    net.lib.coap:

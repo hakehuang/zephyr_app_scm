@@ -1,18 +1,22 @@
 
 __load__:
-  # - components/benchmarks.yml
-  # - components/crypto.yml
-  # - components/coverage.yml
+  - components/benchmarks.yml
+  - components/crypto.yml
+  - components/coverage.yml
   # - components/kernel.yml
-  # - components/lib.yml
-  # - components/net.yml
-  # - components/posix.yml
-   - components/samples.yml
-   - components/sample_basic.yml
-  # - components/shell.yml
-  # - components/subsys.yml
-  # - components/unit.yml
-  # - components/drivers/drivers.yml
+  ###- components/lib.yml
+  ###- components/net.yml
+  - components/posix.yml
+  - components/samples.yml
+  - components/sample_basic.yml
+  ## - components/sample_net.yml
+  - components/sample_subsys.yml
+  ## - components/sample_sensor.yml
+  ## - components/shell.yml
+  ## - components/subsys.yml
+  ## - components/unit.yml
+  ## - components/drivers/drivers.yml
+
 
 settings:
   build_script: build_zephyr_elf.sh
@@ -60,6 +64,7 @@ cases:
     kernel.smp:
     kernel.spinlock:
     kernel.static_idt:
+    kernel.mem_protect.protection: #no MPU enabled
     net.eth_native_posix:
     net.sockets.big_http_download:
     net.sockets.coap_server:
@@ -97,3 +102,70 @@ cases:
     sensor.sht3xd:
     sensor.sx9500:
     sensor.vl53l0x:
+#R1.14_RC1 special
+    net.coap_client:
+    net.coap_server:
+    net.echo_client:
+    net.echo_server:
+    net.http_client:
+    net.http_server:
+    net.irc_bot:
+    net.leds_demo:
+    net.sntp_client:
+    net.throughput_server:
+    net.traffic_class:
+    net.ws_console:
+    net.ws_echo_server:
+    net.app:
+    net.lib.coap_sock:
+    net.websocket:
+    net.tcp:
+    lib.mem_alloc:
+    kernel.errno:
+    kernel.init:
+    kernel.irq_offload:
+    kernel.mem_slab.mslab_threadsafe:
+    subsys.nvs:
+    subsys.usb.cdc_acm:
+    subsys.usb.console:
+    subsys.usb.dfu:
+    subsys.usb.hid:
+    subsys.usb.hid-mouse:
+    subsys.usb.webusb:
+    userspace.shared_mem:
+    kernel.arm_irq_vector_table:
+    kernel.fatal:
+    kernel.fp_sharing:
+    kernel.gen_isr_table:
+    kernel.interrupt:
+    kernel.mem_protect.app_memory:
+    kernel.mem_protect.mem_protect:
+    kernel.mem_protect.obj_validation:
+    kernel.mem_protect.stackprot:
+    kernel.mem_protect.syscalls:
+    kernel.mem_protect.userspace:
+    kernel.threads.dynamic_thread:
+    kernel.tickless.tickless:
+    drivers.watchdog.wdt_basic_api: #no watchdog
+    drivers.pwm.pwm_api: #no pwd driver
+    drivers.dma.loop_transfer: #no dma driver
+    subsys.dfu.img_util:
+    subsys.settings.fcb_init:
+    subsys.storage.flash_map:
+    subsys.usb.bos:
+    subsys.usb.os_desc:
+    sensor.fxos8700-hid: #not support
+    sensor.tmp112: #not spuuort
+
+
+
+
+
+
+
+    
+
+
+
+
+

@@ -7,8 +7,8 @@ __load__:
 #  - components/lib.yml
 #  - components/net.yml
 #  - components/posix.yml
-#  - components/sample_basic.yml
-#  - components/shell.yml
+  - components/sample_basic.yml
+  - components/shell.yml
   - components/subsys.yml
 #  - components/unit.yml
   - components/drivers/drivers.yml
@@ -64,6 +64,10 @@ cases:
     kernel.smp:
     kernel.spinlock:
     kernel.static_idt:
+    kernel.tickless.tickless:
+    kernel.obj_tracing: #code size
+    kernel.fp_sharing: #no float
+    kernel.gen_isr_table: #case not support
     net.eth_native_posix:
     net.sockets.big_http_download:
     net.sockets.coap_server:
@@ -104,6 +108,10 @@ cases:
     sensor.sht3xd:
     sensor.sx9500:
     sensor.vl53l0x:
+    posix.common: #code size
+    posix.fs: #code size
+    benchmarks.app_kernel: #code size
+    benchmarks.sys_kernel: #code size
 #R1.14_RC1 special
     net.coap_client:
     net.coap_server:
@@ -121,4 +129,20 @@ cases:
     basic.disco:
     basic.threads:
     userspace.shared_mem:
+    kernel.mem_protect.userspace:
+    kernel.mem_protect.syscalls:
+    kernel.mem_protect.stack_random:
+    kernel.mem_protect.protection:
+    kernel.mem_protect.obj_validation:
+    kernel.mem_protect.mem_protect:
+    kernel.mem_protect.app_memory:
+    kernel.arm_irq_vector_table: #case not support
+    kernel.errno:
+    kernel.init:
+    kernel.interrupt: #case not support
+    kernel.irq_offload: #case not support
+    kernel.lifo.lifo_usage: #code size
+    kernel.mem_pool.mem_pool: #code size
+    crypto.tinycrypt_hmac_prng: #code size
+
 
