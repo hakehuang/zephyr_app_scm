@@ -101,7 +101,8 @@ def create_pipefile_from_config(config, board_name = "frdm_k64f", output_path = 
   end
   output = engine.render(template, pipe_data)
   FileUtils::mkdir_p output_path
-  File.open( output_path + "Jenkinsfile_" + board_name, 'w') {|f| f.write(output) } 
+  board_pipe_name = @content["settings"]["case_pipe_name"]
+  File.open( output_path + "Jenkinsfile_" + board_pipe_name, 'w') {|f| f.write(output) } 
 end
 
 #create_pipefile_from_config(ARGV)

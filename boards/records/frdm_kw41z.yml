@@ -4,6 +4,8 @@ __load__:
   - components/crypto.yml
   - components/coverage.yml
   # - components/kernel.yml
+  # - components/kernel_2.yml
+  # - components/kernel_3.yml
   ###- components/lib.yml
   ###- components/net.yml
   - components/posix.yml
@@ -21,6 +23,7 @@ __load__:
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf_kw41.sh
+  case_pipe_name: frdm_kw41z
 
 cases:
   attribute: "required"
@@ -156,6 +159,7 @@ cases:
     subsys.usb.os_desc:
     sensor.fxos8700-hid: #not support
     sensor.tmp112: #not spuuort
+    subsys.usb.mass: #not support
 
 
 

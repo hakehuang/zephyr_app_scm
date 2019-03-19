@@ -3,22 +3,25 @@ __load__:
   - components/benchmarks.yml
 #  - components/crypto.yml
 #  - components/coverage.yml
-#  - components/kernel.yml
+  - components/kernel_3.yml
+  - components/kernel_2.yml
+  - components/kernel.yml
 #  - components/lib.yml
 #  - components/net.yml
   - components/posix.yml
   - components/samples.yml
-  - components/sample_basic.yml
-  - components/sample_net.yml
-  - components/sample_subsys.yml
-  - components/shell.yml
-  - components/subsys.yml
+#  - components/sample_basic.yml
+#  - components/sample_net.yml
+#  - components/sample_subsys.yml
+#  - components/shell.yml
+#  - components/subsys.yml
 #  - components/unit.yml
-  - components/drivers/drivers.yml
+#  - components/drivers/drivers.yml
 
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf_rt1020.sh
+  case_pipe_name: mimxrt1020_evk
 
 cases:
   attribute: "required"
@@ -62,6 +65,7 @@ cases:
     kernel.smp:
     kernel.spinlock:
     kernel.static_idt:
+    kernel.tickless.tickless:
     net.eth_native_posix:
     net.sockets.big_http_download:
     net.sockets.coap_server:
@@ -100,3 +104,55 @@ cases:
     sensor.sx9500:
     sensor.vl53l0x:
     userspace.shared_mem:
+    drivers.adc.adc_api:
+    drivers.dma.loop_transfer:
+    drivers.pwm.pwm_api:
+    drivers.watchdog.wdt_basic_api:
+    subsys.dfu.img_util:
+    subsys.settings.fcb_init:
+    subsys.storage.flash_map:
+    subsys.usb.bos:
+    subsys.usb.os_desc:
+    subsys.logging.log_core:
+    subsys.logging.logger:
+    subsys.nvs:
+    subsys.usb.cdc_acm:
+    subsys.usb.console:
+    subsys.usb.dfu:
+    subsys.usb.hid:
+    subsys.usb.hid-mouse:
+    subsys.usb.webusb:
+    net.coap_client:
+    net.coap_server:
+    net.echo_client:
+    net.echo_server:
+    net.http_client:
+    net.http_server:
+    net.irc_bot:
+    net.leds_demo:
+    net.sntp_client:
+    net.throughput_server:
+    net.traffic_class:
+    net.ws_console:
+    net.ws_echo_server:
+    net.sockets.echo_server:
+    net.syslog_net:
+    net.zperf:
+    basic.disco:
+    basic.threads:
+    benchmarks.app_kernel:
+    kernel.mem_protect.mem_protect:
+    kernel.mem_protect.obj_validation:
+    kernel.mem_protect.syscalls:
+    kernel.mem_protect.userspace:
+    kernel.workq.work_queue:
+    kernel.mem_protect.syscalls:
+    kernel.mem_protect.userspace:
+    kernel.errno:
+    kernel.init:
+    kernel.irq_offload:
+    kernel.mem_protect.app_memory:
+    kernel.threads.dynamic_thread:
+    kernel.mem_protect.stack_random:
+    kernel.fatal:
+    kernel.gen_isr_table:

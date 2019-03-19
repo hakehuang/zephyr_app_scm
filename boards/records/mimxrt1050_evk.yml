@@ -1,25 +1,28 @@
 
 __load__:
-  - components/benchmarks.yml
-  - components/crypto.yml
-  - components/coverage.yml
-  - components/kernel.yml
-  - components/lib.yml
-  - components/net.yml
-  - components/posix.yml
+ - components/kernel_3.yml
+ - components/kernel_2.yml
+ - components/benchmarks.yml
+ - components/crypto.yml
+# - components/coverage.yml
+ - components/kernel.yml
+# - components/lib.yml
+# - components/net.yml
+ - components/posix.yml
 ###- components/samples.yml
 ###- components/sample_basic.yml
 ###- components/sample_net.yml
 ###- components/sample_subsys.yml
 # - components/shell.yml
-## - components/subsys.yml
+ - components/subsys.yml
 # - components/unit.yml
-# - components/drivers/drivers.yml
+ - components/drivers/drivers.yml
 #  - components/sample_sensor.yml
 
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf_rt1050.sh
+  case_pipe_name: mimxrt1050_evk
 
 cases:
   attribute: "required"
@@ -28,6 +31,10 @@ cases:
   __remove__:
     drivers.aio.api:
     drivers.aio.app:
+    drivers.adc.adc_api:
+    drivers.dma.loop_transfer:
+    drivers.pwm.pwm_api:
+    drivers.watchdog.wdt_basic_api:
     drivers.aon_counter.aon_api:
     drivers.dma.chan_blen_transfer:
     drivers.gpio.gpio_basic_api:
@@ -148,3 +155,24 @@ cases:
     userspace.shared_mem:
     net.app:
     net.lib.coap:
+    kernel.errno:
+    kernel.init:
+    kernel.irq_offload:
+    kernel.mem_protect.app_memory:
+    kernel.threads.dynamic_thread:
+    kernel.mem_protect.stack_random:
+    crypto.rand32:
+    net.mgmt:
+    subsys.logging.log_core:
+    benchmarks.app_kernel:
+    kernel.mem_protect.mem_protect:
+    kernel.mem_protect.mem_protect:
+    kernel.mem_protect.obj_validation:
+    kernel.mem_protect.syscalls:
+    kernel.mem_protect.userspace:
+    kernel.workq.work_queue:
+    kernel.mem_protect.syscalls:
+    kernel.mem_protect.userspace:
+    kernel.fatal:
+    benchmarks.latency_measure:
+

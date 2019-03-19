@@ -1,23 +1,29 @@
 
 __load__:
-#  - components/benchmarks.yml
-#  - components/crypto.yml
-#  - components/coverage.yml
+  - components/benchmarks.yml
+  - components/crypto.yml
+  - components/coverage.yml
   - components/kernel.yml
   - components/kernel_2.yml
   - components/kernel_3.yml
-#  - components/lib.yml
-#  - components/net.yml
-#  - components/posix.yml
-#  - components/shell.yml
-#  - components/subsys.yml
-#  - components/unit.yml
-#  - components/drivers/drivers.yml
+  - components/lib.yml
+  - components/net.yml
+  - components/posix.yml
+   # - components/samples.yml
+   # - components/sample_basic.yml
+   # - components/sample_net.yml
+   # - components/sample_subsys.yml
+   # - components/sample_sensor.yml
+   # - components/shell.yml
+   # - components/subsys.yml
+   # - components/unit.yml
+   # - components/drivers/drivers.yml
+
 
 settings:
   build_script: build_zephyr_elf.sh
-  run_script: run_elf_frdmk22f.sh
-  case_pipe_name: frdm_k22f
+  run_script: run_zephyr_elf.sh
+  case_pipe_name: frdm_k64f_kernel
 
 cases:
   attribute: "required"
@@ -98,3 +104,39 @@ cases:
     sensor.sht3xd:
     sensor.sx9500:
     sensor.vl53l0x:
+#R1.14_RC1 special
+    net.coap_client:
+    net.coap_server:
+    net.echo_client:
+    net.echo_server:
+    net.http_client:
+    net.http_server:
+    net.irc_bot:
+    net.leds_demo:
+    net.sntp_client:
+    net.throughput_server:
+    net.traffic_class:
+    net.ws_console:
+    net.ws_echo_server:
+    net.app:
+    net.lib.coap_sock:
+    net.websocket:
+    #net.tcp:
+    lib.mem_alloc:
+    kernel.errno:
+    kernel.init:
+    kernel.irq_offload:
+    kernel.mem_slab.mslab_threadsafe:
+
+
+
+
+
+
+
+    
+
+
+
+
+

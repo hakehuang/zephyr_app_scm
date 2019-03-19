@@ -6,7 +6,7 @@
         stage('hello world') {
           steps {
             sh 'docker exec #{escape((@docker).to_s)} #{escape((@build_script).to_s)}  $(basename $(pwd)) samples/hello_world #{escape((@board).to_s)}'
-            sh '''docker exec #{escape((@docker).to_s)} run_setup.sh $(basename $(pwd))'''
+            sh '''docker exec #{escape((@docker).to_s)} run_setup.sh $(basename $(pwd)) #{escape((@board).to_s)}'''
             sh 'docker exec #{escape((@docker).to_s)} #{escape((@run_script).to_s)} $(basename $(pwd)) samples/hello_world'
           }
         }

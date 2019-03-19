@@ -4,6 +4,8 @@ __load__:
   # - components/crypto.yml
   # - components/coverage.yml
   - components/kernel.yml
+  - components/kernel_2.yml
+  - components/kernel_3.yml
   # - components/lib.yml
   # - components/net.yml
   # - components/posix.yml
@@ -18,6 +20,7 @@ __load__:
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf_lpc54114.sh
+  case_pipe_name: lpcxpresso54114_m4
 
 cases:
   attribute: "required"
@@ -114,3 +117,4 @@ cases:
     kernel.mem_protect.syscalls: #no mpu enalbed
     kernel.mem_protect.userspace: #no mpu enalbed
     kernel.tickless.tickless: #test app not support
+    subsys.usb.mass: #not support

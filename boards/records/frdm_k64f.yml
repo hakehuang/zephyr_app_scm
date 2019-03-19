@@ -1,26 +1,29 @@
 
 __load__:
-  ###- components/benchmarks.yml
-  ###- components/crypto.yml
-  ###- components/coverage.yml
-  ###- components/kernel.yml
-  ###- components/lib.yml
-  ### - components/net.yml
-  ###- components/posix.yml
-  ## - components/samples.yml
-  ## - components/sample_basic.yml
+  # - components/benchmarks.yml
+  # - components/crypto.yml
+  # - components/coverage.yml
+  # - components/kernel.yml
+  # - components/kernel_2.yml
+  # - components/kernel_3.yml
+  # - components/lib.yml
+  # - components/net.yml
+  # - components/posix.yml
+   - components/samples.yml
+   - components/sample_basic.yml
    - components/sample_net.yml
-  ## - components/sample_subsys.yml
-  ## - components/sample_sensor.yml
-  ## - components/shell.yml
-  ## - components/subsys.yml
-  ## - components/unit.yml
-  ## - components/drivers/drivers.yml
+   - components/sample_subsys.yml
+   - components/sample_sensor.yml
+   - components/shell.yml
+   - components/subsys.yml
+   - components/unit.yml
+   - components/drivers/drivers.yml
 
 
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf.sh
+  case_pipe_name: frdm_k64f
 
 cases:
   attribute: "required"
@@ -124,6 +127,7 @@ cases:
     kernel.init:
     kernel.irq_offload:
     kernel.mem_slab.mslab_threadsafe:
+    drivers.pwm.pwm_api:
 
 
 
