@@ -126,3 +126,16 @@ cases:
     kernel.arm_irq_vector_table: #only support M4/m7
     kernel.gen_isr_table: #only support M4/m7
     kernel.irq_offload: #only support M4/m7
+    posix.fs: #code size
+    kernel.mem_protect.app_memory:
+    kernel.mem_protect.mem_protect: #no mpu enalbed
+    kernel.mem_protect.obj_validation: #no mpu enalbed
+    kernel.mem_protect.stackprot: #no mpu enalbed
+    kernel.mem_protect.syscalls: #no mpu enalbed
+    kernel.mem_protect.userspace: #no mpu enalbed
+    kernel.tickless.tickless: #test app not support
+    subsys.usb.mass: #not support
+    kernel.fp_sharing:
+    kernel.irq_offload:
+    kernel.threads.dynamic_thread:
+    kernel.fatal:
