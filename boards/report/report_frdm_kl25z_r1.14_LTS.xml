@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<testsuites>
+    <testsuite tests="0" errors="0" failures="0" name="samples" skipped="0" time="0">
+  </testsuite>
+    <testsuite tests="1" errors="0" failures="0" name="tests_drivers" skipped="0" time="0">
+      <testcase classname="frdm_kl25z:Fat" name="peripheral.pci.pci_enumerate" time="0">
+      </testcase>
+  </testsuite>
+    <testsuite tests="22" errors="0" failures="0" name="tests_subsys" skipped="0" time="0">
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_core.log_arguments" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_core.log_backend_runtime_filtering" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_core.log_from_declared_module" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_core.log_overflow" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_core.log_panic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_core.log_strdup_gc" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_core.strdup_trimming" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_list.log_list" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_list.log_list_multiple_items" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_msg.log_hexdump_data_get_multiple_chunks" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_msg.log_hexdump_data_get_single_chunk" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_msg.log_hexdump_data_get_two_chunks" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_msg.log_hexdump_msg" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="logging.log_msg.log_std_msg" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="testing.ztest.verbose_0.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="testing.ztest.verbose_0.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="testing.ztest.verbose_1.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="testing.ztest.verbose_1.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="testing.ztest.verbose_2.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="testing.ztest.verbose_2.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="usb.bos.usb_bos" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="usb.bos.usb_bos_macros" time="0">
+      </testcase>
+  </testsuite>
+    <testsuite tests="36" errors="0" failures="0" name="tests_shell" skipped="0" time="0">
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fat_close" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fat_mkdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fat_mount" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fat_open" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fat_read" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fat_readdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fat_rmdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fat_unlink" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fat_write" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fs_help" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.fs_shell_exit" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.nffs_mkdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.nffs_mount" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.nffs_open" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.nffs_read" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.nffs_readdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.nffs_unlink" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.fs_shell.nffs_write" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="filesystem.multifs.fs_shell_exit" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="peripheral.uart.shell.uart_fifo_fill" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="peripheral.uart.shell.uart_fifo_read" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="peripheral.uart.shell.uart_poll_in" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="peripheral.uart.shell.uart_poll_out" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.app_handler" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.cmd_clear" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.cmd_help" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.cmd_history" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.cmd_resize" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.cmd_shell" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.exit" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.help" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.module" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.select" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.shell_module" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.shell_wildcards_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:Fat" name="shell.shell_wildcards_static" time="0">
+      </testcase>
+  </testsuite>
+    <testsuite tests="0" errors="0" failures="0" name="samples_basic" skipped="0" time="0">
+  </testsuite>
+</testsuites>

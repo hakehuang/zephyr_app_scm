@@ -1,817 +1,307 @@
 ---
 settings:
-  run_script: build_zephyr_elf.sh
-  build_script: run_zephyr_elf.sh
+  build_script: build_zephyr_elf.sh
+  run_script: run_zephyr_elf.sh
+  case_pipe_name: frdm_k64f
 cases:
   attribute: required
   drivers.pci_enum:
-    path: drivers/pci_enum
-    catelog: drivers
-    attribute: required
-  drivers.i2s.i2s_api:
-    path: drivers/i2s/i2s_api
-    catelog: drivers
-    attribute: required
-  drivers.i2s.i2s_speed:
-    path: drivers/i2s/i2s_speed
-    catelog: drivers
+    path: tests/drivers/pci_enum
+    catelog: tests_drivers
     attribute: required
   drivers.ipm:
-    path: drivers/ipm
-    catelog: drivers
-    attribute: required
-  drivers.aio.app:
-    path: drivers/aio/app
-    catelog: drivers
-    attribute: required
-  drivers.aio.api:
-    path: drivers/aio/api
-    catelog: drivers
-    attribute: required
-  drivers.pinmux.pinmux_basic_api:
-    path: drivers/pinmux/pinmux_basic_api
-    catelog: drivers
-    attribute: required
-  drivers.spi.spi_loopback:
-    path: drivers/spi/spi_loopback
-    catelog: drivers
-    attribute: required
-  drivers.gpio.gpio_basic_api:
-    path: drivers/gpio/gpio_basic_api
-    catelog: drivers
-    attribute: required
-  drivers.pwm.pwm_api:
-    path: drivers/pwm/pwm_api
-    catelog: drivers
-    attribute: required
-  drivers.dma.chan_blen_transfer:
-    path: drivers/dma/chan_blen_transfer
-    catelog: drivers
+    path: tests/drivers/ipm
+    catelog: tests_drivers
     attribute: required
   drivers.dma.loop_transfer:
-    path: drivers/dma/loop_transfer
-    catelog: drivers
+    path: tests/drivers/dma/loop_transfer
+    catelog: tests_drivers
     attribute: required
   drivers.uart.uart_basic_api:
-    path: drivers/uart/uart_basic_api
-    catelog: drivers
-    attribute: required
-  drivers.aon_counter.aon_api:
-    path: drivers/aon_counter/aon_api
-    catelog: drivers
+    path: tests/drivers/uart/uart_basic_api
+    catelog: tests_drivers
     attribute: required
   drivers.entropy.api:
-    path: drivers/entropy/api
-    catelog: drivers
-    attribute: required
-  drivers.i2c.i2c_slave_api.common:
-    path: drivers/i2c/i2c_slave_api/common
-    catelog: drivers
-    attribute: required
-  drivers.i2c.i2c_slave_api:
-    path: drivers/i2c/i2c_slave_api
-    catelog: drivers
-    attribute: required
-  drivers.i2c.i2c_api:
-    path: drivers/i2c/i2c_api
-    catelog: drivers
+    path: tests/drivers/entropy/api
+    catelog: tests_drivers
     attribute: required
   drivers.adc.adc_api:
-    path: drivers/adc/adc_api
-    catelog: drivers
+    path: tests/drivers/adc/adc_api
+    catelog: tests_drivers
     attribute: required
   drivers.build_all:
-    path: drivers/build_all
-    catelog: drivers
-    attribute: required
-  drivers.rtc.rtc_basic_api:
-    path: drivers/rtc/rtc_basic_api
-    catelog: drivers
+    path: tests/drivers/build_all
+    catelog: tests_drivers
     attribute: required
   drivers.watchdog.wdt_basic_api:
-    path: drivers/watchdog/wdt_basic_api
-    catelog: drivers
-    attribute: required
-  unit.bluetooth.at:
-    path: test/unit/bluetooth/at
-    attribute: required
-  unit.lib.crc:
-    path: test/unit/lib/crc
+    path: tests/drivers/watchdog/wdt_basic_api
+    catelog: tests_drivers
     attribute: required
   subsys.storage.flash_map:
-    path: test/subsys/storage/flash_map
+    path: tests/subsys/storage/flash_map
+    catelog: tests_subsys
     attribute: required
   subsys.dfu.img_util:
-    path: test/subsys/dfu/img_util
-    attribute: required
-  subsys.dfu.mcuboot:
-    path: test/subsys/dfu/mcuboot
+    path: tests/subsys/dfu/img_util
+    catelog: tests_subsys
     attribute: required
   subsys.settings.fcb_init:
-    path: test/subsys/settings/fcb_init
-    attribute: required
-  subsys.settings.nffs.raw:
-    path: test/subsys/settings/nffs/raw
-    attribute: required
-  subsys.settings.nffs.base64:
-    path: test/subsys/settings/nffs/base64
-    attribute: required
-  subsys.settings.fcb.raw:
-    path: test/subsys/settings/fcb/raw
-    attribute: required
-  subsys.settings.fcb.base64:
-    path: test/subsys/settings/fcb/base64
+    path: tests/subsys/settings/fcb_init
+    catelog: tests_subsys
     attribute: required
   subsys.logging.log_core:
-    path: test/subsys/logging/log_core
+    path: tests/subsys/logging/log_core
+    catelog: tests_subsys
     attribute: required
   subsys.logging.log_list:
-    path: test/subsys/logging/log_list
+    path: tests/subsys/logging/log_list
+    catelog: tests_subsys
     attribute: required
   subsys.logging.log_msg:
-    path: test/subsys/logging/log_msg
-    attribute: required
-  subsys.fs.nffs_fs_api.cache:
-    path: test/subsys/fs/nffs_fs_api/cache
-    attribute: required
-  subsys.fs.nffs_fs_api.performance:
-    path: test/subsys/fs/nffs_fs_api/performance
-    attribute: required
-  subsys.fs.nffs_fs_api.basic:
-    path: test/subsys/fs/nffs_fs_api/basic
-    attribute: required
-  subsys.fs.nffs_fs_api.large:
-    path: test/subsys/fs/nffs_fs_api/large
-    attribute: required
-  subsys.fs.fat_fs_api:
-    path: test/subsys/fs/fat_fs_api
-    attribute: required
-  subsys.fs.multi-fs:
-    path: test/subsys/fs/multi-fs
-    attribute: required
-  subsys.fs.fat_fs_dual_drive:
-    path: test/subsys/fs/fat_fs_dual_drive
-    attribute: required
-  subsys.fs.fcb:
-    path: test/subsys/fs/fcb
+    path: tests/subsys/logging/log_msg
+    catelog: tests_subsys
     attribute: required
   subsys.usb.bos:
-    path: test/subsys/usb/bos
+    path: tests/subsys/usb/bos
+    catelog: tests_subsys
     attribute: required
   subsys.usb.os_desc:
-    path: test/subsys/usb/os_desc
+    path: tests/subsys/usb/os_desc
+    catelog: tests_subsys
     attribute: required
   shell:
-    path: test/shell
+    path: tests/shell
+    catelog: tests_shell
     attribute: required
-  subsys.mgmt.mcumgr.smp_svr:
-    path: samples/subsys/mgmt/mcumgr/smp_svr
+  sensor.fxos8700-hid:
+    path: samples/sensor/fxos8700-hid
+    catelog: samples_sensor
     attribute: required
-  subsys.power.power_mgr:
-    path: samples/subsys/power/power_mgr
+  sensor.bmm150:
+    path: samples/sensor/bmm150
+    catelog: samples_sensor
+    attribute: required
+  sensor.fxos8700:
+    path: samples/sensor/fxos8700
+    catelog: samples_sensor
+    attribute: required
+  sensor.thermometer:
+    path: samples/sensor/thermometer
+    catelog: samples_sensor
+    attribute: required
+  sensor.grove_light:
+    path: samples/sensor/grove_light
+    catelog: samples_sensor
+    attribute: required
+  sensor.grove_temperature:
+    path: samples/sensor/grove_temperature
+    catelog: samples_sensor
+    attribute: required
+  sensor.amg88xx:
+    path: samples/sensor/amg88xx
+    catelog: samples_sensor
+    attribute: required
+  sensor.tmp112:
+    path: samples/sensor/tmp112
+    catelog: samples_sensor
+    attribute: required
+  sensor.magn_polling:
+    path: samples/sensor/magn_polling
+    catelog: samples_sensor
+    attribute: required
+  sensor.mcp9808:
+    path: samples/sensor/mcp9808
+    catelog: samples_sensor
+    attribute: required
+  sensor.max44009:
+    path: samples/sensor/max44009
+    catelog: samples_sensor
+    attribute: required
+  sensor.th02:
+    path: samples/sensor/th02
+    catelog: samples_sensor
+    attribute: required
+  sensor.bmg160:
+    path: samples/sensor/bmg160
+    catelog: samples_sensor
     attribute: required
   subsys.console.echo:
     path: samples/subsys/console/echo
+    catelog: samples_subsys
     attribute: required
   subsys.console.getline:
     path: samples/subsys/console/getline
+    catelog: samples_subsys
     attribute: required
   subsys.console.getchar:
     path: samples/subsys/console/getchar
+    catelog: samples_subsys
     attribute: required
   subsys.shell.shell_module:
     path: samples/subsys/shell/shell_module
-    attribute: required
-  subsys.ipc.ipm_imx:
-    path: samples/subsys/ipc/ipm_imx
-    attribute: required
-  subsys.ipc.ipm_mcux.remote:
-    path: samples/subsys/ipc/ipm_mcux/remote
-    attribute: required
-  subsys.ipc.ipm_mcux:
-    path: samples/subsys/ipc/ipm_mcux
-    attribute: required
-  subsys.ipc.openamp.remote:
-    path: samples/subsys/ipc/openamp/remote
-    attribute: required
-  subsys.ipc.openamp:
-    path: samples/subsys/ipc/openamp
-    attribute: required
-  subsys.ipc.ipm_mailbox.ap:
-    path: samples/subsys/ipc/ipm_mailbox/ap
-    attribute: required
-  subsys.ipc.ipm_mailbox.sensor:
-    path: samples/subsys/ipc/ipm_mailbox/sensor
+    catelog: samples_subsys
     attribute: required
   subsys.nvs:
     path: samples/subsys/nvs
+    catelog: samples_subsys
     attribute: required
   subsys.logging.logger:
     path: samples/subsys/logging/logger
+    catelog: samples_subsys
     attribute: required
   subsys.usb.dfu:
     path: samples/subsys/usb/dfu
+    catelog: samples_subsys
     attribute: required
   subsys.usb.hid:
     path: samples/subsys/usb/hid
+    catelog: samples_subsys
     attribute: required
   subsys.usb.cdc_acm:
     path: samples/subsys/usb/cdc_acm
+    catelog: samples_subsys
     attribute: required
   subsys.usb.console:
     path: samples/subsys/usb/console
+    catelog: samples_subsys
     attribute: required
   subsys.usb.hid-mouse:
     path: samples/subsys/usb/hid-mouse
-    attribute: required
-  subsys.usb.mass:
-    path: samples/subsys/usb/mass
+    catelog: samples_subsys
     attribute: required
   subsys.usb.testusb:
     path: samples/subsys/usb/testusb
+    catelog: samples_subsys
     attribute: required
   subsys.usb.webusb:
     path: samples/subsys/usb/webusb
-    attribute: required
-  net.throughput_server:
-    path: samples/net/throughput_server
-    attribute: required
-  net.irc_bot:
-    path: samples/net/irc_bot
-    attribute: required
-  net.ws_echo_server:
-    path: samples/net/ws_echo_server
-    attribute: required
-  net.http_server:
-    path: samples/net/http_server
-    attribute: required
-  net.leds_demo:
-    path: samples/net/leds_demo
+    catelog: samples_subsys
     attribute: required
   net.lwm2m_client:
     path: samples/net/lwm2m_client
-    attribute: required
-  net.traffic_class:
-    path: samples/net/traffic_class
+    catelog: samples_net
     attribute: required
   net.lldp:
     path: samples/net/lldp
+    catelog: samples_net
     attribute: required
   net.gptp:
     path: samples/net/gptp
+    catelog: samples_net
     attribute: required
   net.dns_resolve:
     path: samples/net/dns_resolve
+    catelog: samples_net
     attribute: required
   net.zperf:
     path: samples/net/zperf
+    catelog: samples_net
     attribute: required
   net.vlan:
     path: samples/net/vlan
+    catelog: samples_net
     attribute: required
   net.mdns_responder:
     path: samples/net/mdns_responder
+    catelog: samples_net
     attribute: required
   net.dhcpv4_client:
     path: samples/net/dhcpv4_client
-    attribute: required
-  net.echo_server:
-    path: samples/net/echo_server
-    attribute: required
-  net.promiscuous_mode:
-    path: samples/net/promiscuous_mode
+    catelog: samples_net
     attribute: required
   net.ipv4_autoconf:
     path: samples/net/ipv4_autoconf
+    catelog: samples_net
     attribute: required
   net.mqtt_publisher:
     path: samples/net/mqtt_publisher
-    attribute: required
-  net.ws_console:
-    path: samples/net/ws_console
-    attribute: required
-  net.coap_client:
-    path: samples/net/coap_client
-    attribute: required
-  net.wpan_serial:
-    path: samples/net/wpan_serial
-    attribute: required
-  net.sntp_client:
-    path: samples/net/sntp_client
+    catelog: samples_net
     attribute: required
   net.telnet:
     path: samples/net/telnet
+    catelog: samples_net
     attribute: required
   net.stats:
     path: samples/net/stats
-    attribute: required
-  net.http_client:
-    path: samples/net/http_client
-    attribute: required
-  net.wpanusb:
-    path: samples/net/wpanusb
+    catelog: samples_net
     attribute: required
   net.syslog_net:
     path: samples/net/syslog_net
-    attribute: required
-  net.eth_native_posix:
-    path: samples/net/eth_native_posix
-    attribute: required
-  net.echo_client:
-    path: samples/net/echo_client
+    catelog: samples_net
     attribute: required
   net.wifi:
     path: samples/net/wifi
+    catelog: samples_net
     attribute: required
   net.nats:
     path: samples/net/nats
+    catelog: samples_net
     attribute: required
   net.sockets.echo:
     path: samples/net/sockets/echo
+    catelog: samples_net
     attribute: required
   net.sockets.echo_async:
     path: samples/net/sockets/echo_async
+    catelog: samples_net
     attribute: required
   net.sockets.echo_server:
     path: samples/net/sockets/echo_server
-    attribute: required
-  net.sockets.big_http_download:
-    path: samples/net/sockets/big_http_download
+    catelog: samples_net
     attribute: required
   net.sockets.coap_client:
     path: samples/net/sockets/coap_client
+    catelog: samples_net
     attribute: required
   net.sockets.dumb_http_server:
     path: samples/net/sockets/dumb_http_server
+    catelog: samples_net
     attribute: required
   net.sockets.http_get:
     path: samples/net/sockets/http_get
+    catelog: samples_net
     attribute: required
   net.sockets.echo_client:
     path: samples/net/sockets/echo_client
-    attribute: required
-  net.sockets.coap_server:
-    path: samples/net/coap_server
-    attribute: required
-  net.coap_server:
-    path: samples/net/coap_server
-    attribute: required
-  basic.rgb_led:
-    path: samples/basic/rgb_led
+    catelog: samples_net
     attribute: required
   basic.disco:
     path: samples/basic/disco
+    catelog: samples_basic
     attribute: required
   basic.threads:
     path: samples/basic/threads
+    catelog: samples_basic
     attribute: required
   basic.button:
     path: samples/basic/button
+    catelog: samples_basic
     attribute: required
   basic.blinky:
     path: samples/basic/blinky
-    attribute: required
-  basic.blink_led:
-    path: samples/basic/blink_led
-    attribute: required
-  basic.servo_motor:
-    path: samples/basic/servo_motor
-    attribute: required
-  basic.fade_led:
-    path: samples/basic/fade_led
-    attribute: required
-  application_development.code_relocation:
-    path: samples/application_development/code_relocation
+    catelog: samples_basic
     attribute: required
   application_development.external_lib:
     path: samples/application_development/external_lib
+    catelog: samples
     attribute: required
   application_development.out_of_tree_board:
     path: samples/application_development/out_of_tree_board
+    catelog: samples
     attribute: required
   cpp_synchronization:
     path: samples/cpp_synchronization
+    catelog: samples
     attribute: required
   hello_world:
     path: samples/hello_world
+    catelog: samples
     attribute: required
   userspace.shared_mem:
     path: samples/userspace/shared_mem
+    catelog: samples
     attribute: required
   testing.integration:
     path: samples/testing/integration
-    attribute: required
-  posix.common:
-    path: test/posix/common
-    attribute: required
-  posix.fs:
-    path: test/posix/fs
-    attribute: required
-  net.utils:
-    path: test/net/utils
-    attribute: required
-  net.route:
-    path: test/net/route
-    attribute: required
-  net.mgmt:
-    path: test/net/mgmt
-    attribute: required
-  net.ip-addr:
-    path: test/net/ip-addr
-    attribute: required
-  net.promiscuous:
-    path: test/net/promiscuous
-    attribute: required
-  net.6lo:
-    path: test/net/6lo
-    attribute: required
-  net.iface:
-    path: test/net/iface
-    attribute: required
-  net.context:
-    path: test/net/context
-    attribute: required
-  net.ieee802154.fragment:
-    path: test/net/ieee802154/fragment
-    attribute: required
-  net.ieee802154.crypto:
-    path: test/net/ieee802154/crypto
-    attribute: required
-  net.ieee802154.l2:
-    path: test/net/ieee802154/l2
-    attribute: required
-  net.ipv6:
-    path: test/net/ipv6
-    attribute: required
-  net.ipv6_fragment:
-    path: test/net/ipv6_fragment
-    attribute: required
-  net.icmpv6:
-    path: test/net/icmpv6
-    attribute: required
-  net.arp:
-    path: test/net/arp
-    attribute: required
-  net.socket.getaddrinfo:
-    path: test/net/socket/getaddrinfo
-    attribute: required
-  net.socket.tcp:
-    path: test/net/socket/tcp
-    attribute: required
-  net.socket.udp:
-    path: test/net/socket/udp
-    attribute: required
-  net.tx_timestamp:
-    path: test/net/tx_timestamp
-    attribute: required
-  net.all:
-    path: test/net/all
-    attribute: required
-  net.app:
-    path: test/net/app
-    attribute: required
-  net.mld:
-    path: test/net/mld
-    attribute: required
-  net.lib.tls_credentials:
-    path: test/net/lib/tls_credentials
-    attribute: required
-  net.lib.mqtt_subscriber:
-    path: test/net/lib/mqtt_subscriber
-    attribute: required
-  net.lib.dns_resolve:
-    path: test/net/lib/dns_resolve
-    attribute: required
-  net.lib.coap:
-    path: test/net/lib/coap
-    attribute: required
-  net.lib.mqtt_pubsub:
-    path: test/net/lib/mqtt_pubsub
-    attribute: required
-  net.lib.mqtt_publisher:
-    path: test/net/lib/mqtt_publisher
-    attribute: required
-  net.lib.http_header_fields:
-    path: test/net/lib/http_header_fields
-    attribute: required
-  net.lib.dns_packet:
-    path: test/net/lib/dns_packet
-    attribute: required
-  net.lib.mqtt_packet:
-    path: test/net/lib/mqtt_packet
-    attribute: required
-  net.lib.coap_sock:
-    path: test/net/lib/coap_sock
-    attribute: required
-  net.websocket:
-    path: test/net/websocket
-    attribute: required
-  net.neighbor:
-    path: test/net/neighbor
-    attribute: required
-  net.buf:
-    path: test/net/buf
-    attribute: required
-  net.ethernet_mgmt:
-    path: test/net/ethernet_mgmt
-    attribute: required
-  net.dhcpv4:
-    path: test/net/dhcpv4
-    attribute: required
-  net.checksum_offload:
-    path: test/net/checksum_offload
-    attribute: required
-  net.tcp:
-    path: test/net/tcp
-    attribute: required
-  net.trickle:
-    path: test/net/trickle
-    attribute: required
-  net.ptp.clock:
-    path: test/net/ptp/clock
-    attribute: required
-  net.net_pkt:
-    path: test/net/net_pkt
-    attribute: required
-  net.udp:
-    path: test/net/udp
-    attribute: required
-  lib.mem_alloc:
-    path: test/lib/mem_alloc
-    attribute: required
-  lib.base64:
-    path: test/lib/base64
-    attribute: required
-  lib.rbtree:
-    path: test/lib/rbtree
-    attribute: required
-  lib.sprintf:
-    path: test/lib/sprintf
-    attribute: required
-  lib.ringbuffer:
-    path: test/lib/ringbuffer
-    attribute: required
-  lib.c_lib:
-    path: test/lib/c_lib
-    attribute: required
-  lib.json:
-    path: test/lib/json
-    attribute: required
-  kernel.xip:
-    path: test/kernel/xip/
-    attribute: required
-  kernel.pipe.pipe:
-    path: test/kernel/pipe/pipe/
-    attribute: required
-  kernel.pipe.pipe_api:
-    path: test/kernel/pipe/pipe_api/
-    attribute: required
-  kernel.mem_pool.mem_pool:
-    path: test/kernel/mem_pool/mem_pool
-    attribute: required
-  kernel.mem_pool.sys_mem_pool:
-    path: test/kernel/mem_pool/sys_mem_pool/
-    attribute: required
-  kernel.mem_pool.mem_pool_concept:
-    path: test/kernel/mem_pool/mem_pool_concept/
-    attribute: required
-  kernel.mem_pool.mem_pool_threadsafe:
-    path: test/kernel/mem_pool/mem_pool_threadsafe/
-    attribute: required
-  kernel.mem_pool.mem_pool_api:
-    path: test/kernel/mem_pool/mem_pool_api/
-    attribute: required
-  kernel.interrupt:
-    path: test/kernel/interrupt/
-    attribute: required
-  kernel.init:
-    path: test/kernel/init/
-    attribute: required
-  kernel.context:
-    path: test/kernel/context/
-    attribute: required
-  kernel.smp:
-    path: test/kernel/smp/
-    attribute: required
-  kernel.pending:
-    path: test/kernel/pending/
-    attribute: required
-  kernel.obj_tracing:
-    path: test/kernel/obj_tracing/
-    attribute: required
-  kernel.queue:
-    path: test/kernel/queue/
-    attribute: required
-  kernel.boot_page_table:
-    path: test/kernel/boot_page_table/
-    attribute: required
-  kernel.stack.stack_usage:
-    path: test/kernel/stack/stack_usage/
-    attribute: required
-  kernel.stack.stack_api:
-    path: test/kernel/stack/stack_api/
-    attribute: required
-  kernel.fifo.fifo_timeout:
-    path: test/kernel/fifo/fifo_timeout/
-    attribute: required
-  kernel.fifo.fifo_usage:
-    path: test/kernel/fifo/fifo_usage
-    attribute: required
-  kernel.fifo.fifo_api:
-    path: test/kernel/fifo/fifo_api/
-    attribute: required
-  kernel.mem_heap.mheap_api_concept:
-    path: test/kernel/mem_heap/mheap_api_concept/
-    attribute: required
-  kernel.common:
-    path: test/kernel/common/
-    attribute: required
-  kernel.critical:
-    path: test/kernel/critical/
-    attribute: required
-  kernel.poll:
-    path: test/kernel/poll/
-    attribute: required
-  kernel.arm_irq_vector_table:
-    path: test/kernel/arm_irq_vector_table/
-    attribute: required
-  kernel.fatal:
-    path: test/kernel/fatal/
-    attribute: required
-  kernel.lifo.lifo_api:
-    path: test/kernel/lifo/lifo_api/
-    attribute: required
-  kernel.lifo.lifo_usage:
-    path: test/kernel/lifo/lifo_usage/
-    attribute: required
-  kernel.errno:
-    path: test/kernel/errno/
-    attribute: required
-  kernel.device:
-    path: test/kernel/device/
-    attribute: required
-  kernel.spinlock:
-    path: test/kernel/spinlock/
-    attribute: required
-  kernel.static_idt:
-    path: test/kernel/static_idt/
-    attribute: required
-  kernel.profiling.profiling_api:
-    path: test/kernel/profiling/profiling_api/
-    attribute: required
-  kernel.early_sleep:
-    path: test/kernel/early_sleep/
-    attribute: required
-  kernel.threads.thread_apis:
-    path: test/kernel/threads/thread_apis/
-    attribute: required
-  kernel.threads.thread_init:
-    path: test/kernel/threads/thread_init/
-    attribute: required
-  kernel.threads.dynamic_thread:
-    path: test/kernel/threads/dynamic_thread/
-    attribute: required
-  kernel.threads.no-multithreading:
-    path: test/kernel/threads/no-multithreading/
-    attribute: required
-  kernel.sched.preempt:
-    path: test/kernel/sched/preempt/
-    attribute: required
-  kernel.sched.deadline:
-    path: test/kernel/sched/deadline/
-    attribute: required
-  kernel.sched.schedule_api:
-    path: test/kernel/sched/schedule_api/
-    attribute: required
-  kernel.arm_runtime_nmi:
-    path: test/kernel/arm_runtime_nmi/
-    attribute: required
-  kernel.mem_protect.stack_random:
-    path: test/kernel/mem_protect/stack_random/
-    attribute: required
-  kernel.mem_protect.userspace:
-    path: test/kernel/mem_protect/userspace/
-    attribute: required
-  kernel.mem_protect.app_memory:
-    path: test/kernel/mem_protect/app_memory/
-    attribute: required
-  kernel.mem_protect.obj_validation:
-    path: test/kernel/mem_protect/obj_validation/
-    attribute: required
-  kernel.mem_protect.mem_protect:
-    path: test/kernel/mem_protect/mem_protect/
-    attribute: required
-  kernel.mem_protect.syscalls:
-    path: test/kernel/mem_protect/syscalls/
-    attribute: required
-  kernel.mem_protect.x86_mmu_api:
-    path: test/kernel/mem_protect/x86_mmu_api
-    attribute: required
-  kernel.mem_protect.stackprot:
-    path: test/kernel/mem_protect/stackprot/
-    attribute: required
-  kernel.mem_protect.protection:
-    path: test/kernel/mem_protect/protection/
-    attribute: required
-  kernel.mbox.mbox_usage:
-    path: test/kernel/mbox/mbox_usage
-    attribute: required
-  kernel.mbox.mbox_api:
-    path: test/kernel/mbox/mbox_api/
-    attribute: required
-  kernel.fp_sharing:
-    path: test/kernel/fp_sharing
-    attribute: required
-  kernel.gen_isr_table:
-    path: test/kernel/gen_isr_table
-    attribute: required
-  kernel.mem_slab.mslab_threadsafe:
-    path: test/kernel/mem_slab/mslab_threadsafe
-    attribute: required
-  kernel.mem_slab.mslab_concept:
-    path: test/kernel/mem_slab/mslab_concept/
-    attribute: required
-  kernel.mem_slab.mslab_api:
-    path: test/kernel/mem_slab/mslab_api/
-    attribute: required
-  kernel.mem_slab.mslab:
-    path: test/kernel/mem_slab/mslab
-    attribute: required
-  kernel.semaphore.sema_api:
-    path: test/kernel/semaphore/sema_api
-    attribute: required
-  kernel.semaphore.semaphore:
-    path: test/kernel/semaphore/semaphore
-    attribute: required
-  kernel.timer.timer_monotonic:
-    path: test/kernel/timer/timer_monotonic
-    attribute: required
-  kernel.timer.timer_api:
-    path: test/kernel/timer/timer_api
-    attribute: required
-  kernel.msgq.msgq_api:
-    path: test/kernel/msgq/msgq_api/
-    attribute: required
-  kernel.workq.work_queue:
-    path: test/kernel/workq/work_queue/
-    attribute: required
-  kernel.workq.work_queue_api:
-    path: test/kernel/workq/work_queue_api/
-    attribute: required
-  kernel.mutex.mutex_api:
-    path: test/kernel/mutex/mutex_api
-    attribute: required
-  kernel.mutex.mutex:
-    path: test/kernel/mutex/mutex/
-    attribute: required
-  kernel.irq_offload:
-    path: test/kernel/irq_offload
-    attribute: required
-  kernel.tickless.tickless_concept:
-    path: test/kernel/tickless/tickless_concept/
-    attribute: required
-  kernel.tickless.tickless:
-    path: test/kernel/tickless/tickless
-    attribute: required
-  kernel.sleep:
-    path: test/kernel/sleep
-    attribute: required
-  kernel.mp:
-    path: test/kernel/mp/
-    attribute: required
-  coverage:
-    path: test/coverage
-    attribute: required
-  crypto.tinycrypt_hmac_prng:
-    path: test/crypto/tinycrypt_hmac_prng
-    attribute: required
-  crypto.mbedtls:
-    path: test/crypto/mbedtls
-    attribute: required
-  crypto.tinycrypt:
-    path: test/crypto/tinycrypt
-    attribute: required
-  crypto.rand32:
-    path: test/crypto/rand32
-    attribute: required
-  benchmarks.footprint:
-    path: test/benchmarks/footprint
-    attribute: required
-  benchmarks.boot_time:
-    path: test/benchmarks/boot_time
-    attribute: required
-  benchmarks.object_footprint:
-    path: test/benchmarks/object_footprint
-    attribute: required
-  benchmarks.latency_measure:
-    path: test/benchmarks/latency_measure
-    attribute: required
-  benchmarks.timing_info:
-    path: test/benchmarks/timing_info
-    attribute: required
-  benchmarks.sys_kernel:
-    path: test/benchmarks/sys_kernel
-    attribute: required
-  benchmarks.app_kernel:
-    path: test/benchmarks/app_kernel
+    catelog: samples
     attribute: required

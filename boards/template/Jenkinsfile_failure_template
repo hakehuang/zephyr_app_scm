@@ -1,0 +1,35 @@
+pipeline {
+  agent any
+  stages {
+    stage('build') {
+      parallel {
+        stage('hello world') {
+          steps {
+            sh 'docker exec ${@docker} ${@build_script}  $(basename $(pwd)) samples/hello_world ${@board}'
+            sh '''docker exec ${@docker} run_setup.sh $(basename $(pwd))'''
+            sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) samples/hello_world'
+          }
+        }
+      }
+    }
+    <?rb for k, items in @catalog ?>
+    stage('${k}') {
+      parallel {
+      <?rb items['cases'].each do |item| ?>
+        stage('${item[0]}') {
+          steps {
+            echo 'Test ${item[0]}'
+            <?rb if ! item[2].nil? ?>
+              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board} -DCONF_FILE=${item[2]}'''
+            <?rb else ?>
+              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board}'''
+            <?rb end ?>
+            sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
+          }
+        }
+      <?rb end ?>
+      }
+    }
+    <?rb end ?>
+  }
+}

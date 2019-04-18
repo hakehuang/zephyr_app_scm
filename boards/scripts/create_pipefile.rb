@@ -78,8 +78,8 @@ def create_pipefile_from_commandline(data)
   File.open( "Jenkinsfile_" + @command_lines[:board_name], 'w') {|f| f.write(YAML.dump(output)) }
 end
 
-def create_pipefile_from_config(config, board_name = "frdm_k64f", output_path = "../pipe_file/",
-  docker_name = "confident_sinoussi", template = "../template/Jenkinsfile_template")
+def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path: "../pipe_file/",
+  docker_name: "confident_sinoussi", template: "../template/Jenkinsfile_template")
   engine = Tenjin::Engine.new()
   @content = config
   pipe_data = {
@@ -90,7 +90,8 @@ def create_pipefile_from_config(config, board_name = "frdm_k64f", output_path = 
     :catalog => {}
   }
   @content["cases"].keys().each do |key|
-    next if key == "attribute"
+    key_words = ["mode", "attribute"]
+    next if key_words.include?(key)
     catelog = @content["cases"][key]['catelog']
     pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
     if @content["cases"][key].has_key?("config")
