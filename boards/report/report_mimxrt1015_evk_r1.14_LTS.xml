@@ -1,113 +1,113 @@
 <?xml version="1.0"?>
 <testsuites>
     <testsuite tests="7" errors="0" failures="0" name="tests_drivers" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:Pci" name="peripheral.pci.pci_enumerate" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.pci.pci_enumerate" name="peripheral.pci.pci_enumerate" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Uart" name="peripheral.uart_async_api.chained_read" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Uart" name="peripheral.uart_async_api.double_buffer" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Uart" name="peripheral.uart_async_api.read_abort" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Uart" name="peripheral.uart_async_api.single_read" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Uart" name="peripheral.uart_async_api.write_abort" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Cmsis Rtos V1" name="portability.cmsis_rtos_v1.thread_apis" time="0">
+      <testcase classname="mimxrt1015_evk:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
       </testcase>
   </testsuite>
     <testsuite tests="7" errors="0" failures="0" name="tests_subsys" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:Logging" name="logging.log_list.log_list" time="0">
+      <testcase classname="mimxrt1015_evk:logging.log_list.log_list" name="logging.log_list.log_list" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Logging" name="logging.log_list.log_list_multiple_items" time="0">
+      <testcase classname="mimxrt1015_evk:logging.log_list.log_list_multiple_items" name="logging.log_list.log_list_multiple_items" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Logging" name="logging.log_msg.log_hexdump_data_get_multiple_chunks" time="0">
+      <testcase classname="mimxrt1015_evk:logging.log_msg.log_hexdump_data_get_multiple_chunks" name="logging.log_msg.log_hexdump_data_get_multiple_chunks" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Logging" name="logging.log_msg.log_hexdump_data_get_single_chunk" time="0">
+      <testcase classname="mimxrt1015_evk:logging.log_msg.log_hexdump_data_get_single_chunk" name="logging.log_msg.log_hexdump_data_get_single_chunk" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Logging" name="logging.log_msg.log_hexdump_data_get_two_chunks" time="0">
+      <testcase classname="mimxrt1015_evk:logging.log_msg.log_hexdump_data_get_two_chunks" name="logging.log_msg.log_hexdump_data_get_two_chunks" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Logging" name="logging.log_msg.log_hexdump_msg" time="0">
+      <testcase classname="mimxrt1015_evk:logging.log_msg.log_hexdump_msg" name="logging.log_msg.log_hexdump_msg" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Logging" name="logging.log_msg.log_std_msg" time="0">
+      <testcase classname="mimxrt1015_evk:logging.log_msg.log_std_msg" name="logging.log_msg.log_std_msg" time="0">
       </testcase>
   </testsuite>
     <testsuite tests="36" errors="0" failures="0" name="tests_shell" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_close" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mount" name="filesystem.fs_shell.fat_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_open" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_open" name="filesystem.fs_shell.fat_open" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_read" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_read" name="filesystem.fs_shell.fat_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_readdir" name="filesystem.fs_shell.fat_readdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_rmdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_rmdir" name="filesystem.fs_shell.fat_rmdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_unlink" name="filesystem.fs_shell.fat_unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_write" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_write" name="filesystem.fs_shell.fat_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fs_help" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_help" name="filesystem.fs_shell.fs_help" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fs_shell_exit" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_shell_exit" name="filesystem.fs_shell.fs_shell_exit" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_open" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_read" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_write" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fs_shell_exit" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Uart" name="peripheral.uart.shell.uart_fifo_fill" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Uart" name="peripheral.uart.shell.uart_fifo_read" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_read" name="peripheral.uart.shell.uart_fifo_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Uart" name="peripheral.uart.shell.uart_poll_in" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Uart" name="peripheral.uart.shell.uart_poll_out" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.app_handler" time="0">
+      <testcase classname="mimxrt1015_evk:shell.app_handler" name="shell.app_handler" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.cmd_clear" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_clear" name="shell.cmd_clear" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.cmd_help" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_help" name="shell.cmd_help" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.cmd_history" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_history" name="shell.cmd_history" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.cmd_resize" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_resize" name="shell.cmd_resize" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.cmd_shell" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_shell" name="shell.cmd_shell" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.exit" time="0">
+      <testcase classname="mimxrt1015_evk:shell.exit" name="shell.exit" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.help" time="0">
+      <testcase classname="mimxrt1015_evk:shell.help" name="shell.help" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.module" time="0">
+      <testcase classname="mimxrt1015_evk:shell.module" name="shell.module" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.select" time="0">
+      <testcase classname="mimxrt1015_evk:shell.select" name="shell.select" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.shell_module" time="0">
+      <testcase classname="mimxrt1015_evk:shell.shell_module" name="shell.shell_module" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.shell_wildcards_dynamic" time="0">
+      <testcase classname="mimxrt1015_evk:shell.shell_wildcards_dynamic" name="shell.shell_wildcards_dynamic" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.shell_wildcards_static" time="0">
+      <testcase classname="mimxrt1015_evk:shell.shell_wildcards_static" name="shell.shell_wildcards_static" time="0">
       </testcase>
   </testsuite>
     <testsuite tests="1" errors="0" failures="0" name="samples_subsys" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:Shell" name="shell.shell_module" time="0">
+      <testcase classname="mimxrt1015_evk:shell.shell_module" name="shell.shell_module" time="0">
       </testcase>
   </testsuite>
     <testsuite tests="0" errors="0" failures="0" name="samples_basic" skipped="0" time="0">
@@ -115,533 +115,533 @@
     <testsuite tests="0" errors="0" failures="0" name="samples" skipped="0" time="0">
   </testsuite>
     <testsuite tests="148" errors="0" failures="0" name="tests_posix" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:Common" name="arch.common.xip.globals" time="0">
+      <testcase classname="mimxrt1015_evk:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.atomic" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.atomic" name="kernel.common.atomic" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.bitfield" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.bitfield" name="kernel.common.bitfield" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.busy_wait" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.busy_wait" name="kernel.common.busy_wait" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.byteorder_mem_swap" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.byteorder_mem_swap" name="kernel.common.byteorder_mem_swap" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.byteorder_memcpy_swap" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.byteorder_memcpy_swap" name="kernel.common.byteorder_memcpy_swap" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.clock_cycle" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.clock_cycle" name="kernel.common.clock_cycle" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.clock_uptime" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.clock_uptime" name="kernel.common.clock_uptime" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.critical" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.critical" name="kernel.common.critical" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.dlist" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.dlist" name="kernel.common.dlist" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.early_sleep" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.errno.newlib.thread_context" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.errno.thread_context" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.errno.thread_context" name="kernel.common.errno.thread_context" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.init.verify_bootdelay" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.init.verify_bootdelay" name="kernel.common.init.verify_bootdelay" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.intmath" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.intmath" name="kernel.common.intmath" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.irq_offload" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.irq_offload" name="kernel.common.irq_offload" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.k_sleep" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.k_yield" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.k_yield" name="kernel.common.k_yield" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.kernel_cpu_idle" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_cpu_idle" name="kernel.common.kernel_cpu_idle" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.kernel_cpu_idle_atomic" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_cpu_idle_atomic" name="kernel.common.kernel_cpu_idle_atomic" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.kernel_ctx_thread" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_ctx_thread" name="kernel.common.kernel_ctx_thread" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.kernel_interrupts" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_interrupts" name="kernel.common.kernel_interrupts" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.kernel_thread" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_thread" name="kernel.common.kernel_thread" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.kernel_timer_interrupts" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_timer_interrupts" name="kernel.common.kernel_timer_interrupts" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.atomic" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.atomic" name="kernel.common.misra.atomic" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.bitfield" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.bitfield" name="kernel.common.misra.bitfield" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.byteorder_mem_swap" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.byteorder_mem_swap" name="kernel.common.misra.byteorder_mem_swap" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.byteorder_memcpy_swap" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.byteorder_memcpy_swap" name="kernel.common.misra.byteorder_memcpy_swap" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.clock_cycle" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.clock_cycle" name="kernel.common.misra.clock_cycle" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.clock_uptime" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.clock_uptime" name="kernel.common.misra.clock_uptime" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.dlist" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.dlist" name="kernel.common.misra.dlist" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.intmath" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.intmath" name="kernel.common.misra.intmath" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.irq_offload" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.irq_offload" name="kernel.common.misra.irq_offload" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.multilib" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.multilib" name="kernel.common.misra.multilib" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.printk" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.printk" name="kernel.common.misra.printk" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.slist" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.slist" name="kernel.common.misra.slist" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.thread_context" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.thread_context" name="kernel.common.misra.thread_context" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.timeout_order" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.timeout_order" name="kernel.common.misra.timeout_order" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.verify_bootdelay" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.verify_bootdelay" name="kernel.common.misra.verify_bootdelay" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.misra.version" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.version" name="kernel.common.misra.version" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.multilib" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.multilib" name="kernel.common.multilib" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.printk" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.printk" name="kernel.common.printk" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.slist" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.slist" name="kernel.common.slist" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.stack_protection.fatal" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.stack_sentinel.fatal" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.thread_context" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.thread_context" name="kernel.common.thread_context" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.timeout_order" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.timeout_order" name="kernel.common.timeout_order" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.timing.pending" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.timing.sleep" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.verify_bootdelay" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.verify_bootdelay" name="kernel.common.verify_bootdelay" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Common" name="kernel.common.version" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.version" name="kernel.common.version" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fat" name="filesystem.fat.fat_fs" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fat.fat_fs" name="filesystem.fat.fat_fs" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_close" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mount" name="filesystem.fs_shell.fat_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_open" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_open" name="filesystem.fs_shell.fat_open" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_read" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_read" name="filesystem.fs_shell.fat_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_readdir" name="filesystem.fs_shell.fat_readdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_rmdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_rmdir" name="filesystem.fs_shell.fat_rmdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_unlink" name="filesystem.fs_shell.fat_unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fat_write" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_write" name="filesystem.fs_shell.fat_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fs_help" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_help" name="filesystem.fs_shell.fs_help" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.fs_shell_exit" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_shell_exit" name="filesystem.fs_shell.fs_shell_exit" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_open" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_read" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Fs Shell" name="filesystem.fs_shell.nffs_write" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fat_close" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_close" name="filesystem.multifs.fat_close" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fat_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mkdir" name="filesystem.multifs.fat_mkdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fat_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mount" name="filesystem.multifs.fat_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fat_open" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_open" name="filesystem.multifs.fat_open" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fat_read" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_read" name="filesystem.multifs.fat_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fat_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_readdir" name="filesystem.multifs.fat_readdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fat_rmdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_rmdir" name="filesystem.multifs.fat_rmdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fat_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_unlink" name="filesystem.multifs.fat_unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fat_write" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_write" name="filesystem.multifs.fat_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fs_help" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_help" name="filesystem.multifs.fs_help" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.fs_shell_exit" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.nffs_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mkdir" name="filesystem.multifs.nffs_mkdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.nffs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mount" name="filesystem.multifs.nffs_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.nffs_open" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_open" name="filesystem.multifs.nffs_open" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.nffs_read" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_read" name="filesystem.multifs.nffs_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.nffs_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_readdir" name="filesystem.multifs.nffs_readdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.nffs_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_unlink" name="filesystem.multifs.nffs_unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multifs" name="filesystem.multifs.nffs_write" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_write" name="filesystem.multifs.nffs_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.append" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.corrupt_block" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_block" name="filesystem.nffs.basic.corrupt_block" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.corrupt_scratch" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_scratch" name="filesystem.nffs.basic.corrupt_scratch" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.fs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.fs_mount" name="filesystem.nffs.basic.fs_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.gc" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc" name="filesystem.nffs.basic.gc" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.gc_on_oom" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc_on_oom" name="filesystem.nffs.basic.gc_on_oom" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.incomplete_block" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.large_write" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.large_write" name="filesystem.nffs.basic.large_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.long_filename" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.long_filename" name="filesystem.nffs.basic.long_filename" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.lost_found" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.lost_found" name="filesystem.nffs.basic.lost_found" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.many_children" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.many_children" name="filesystem.nffs.basic.many_children" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.mkdir" name="filesystem.nffs.basic.mkdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.open" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.open" name="filesystem.nffs.basic.open" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.overwrite_many" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_many" name="filesystem.nffs.basic.overwrite_many" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.overwrite_one" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_one" name="filesystem.nffs.basic.overwrite_one" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.overwrite_three" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_three" name="filesystem.nffs.basic.overwrite_three" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.overwrite_two" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_two" name="filesystem.nffs.basic.overwrite_two" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.read" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.read" name="filesystem.nffs.basic.read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.readdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.readdir" name="filesystem.nffs.basic.readdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.rename" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.rename" name="filesystem.nffs.basic.rename" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.split_file" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.split_file" name="filesystem.nffs.basic.split_file" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.unlink" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.unlink" name="filesystem.nffs.basic.unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.basic.wear_level" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.wear_level" name="filesystem.nffs.basic.wear_level" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.cache.cache_large_file" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.cache_large_file" name="filesystem.nffs.cache.cache_large_file" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.cache.fs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.fs_mount" name="filesystem.nffs.cache.fs_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.large.fs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.fs_mount" name="filesystem.nffs.large.fs_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.large.large_system" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_system" name="filesystem.nffs.large.large_system" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.large.large_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_unlink" name="filesystem.nffs.large.large_unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.performance.fs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.fs_mount" name="filesystem.nffs.performance.fs_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:NFFS" name="filesystem.nffs.performance.performance" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.performance" name="filesystem.nffs.performance.performance" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.fs_close" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.fs_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.fs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.fs_open" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.fs_read" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.fs_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.fs_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.fs_write" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.newlib.fs_close" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.newlib.fs_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.newlib.fs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.newlib.fs_open" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.newlib.fs_read" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.newlib.fs_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.newlib.fs_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.newlib.fs_write" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_commit" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_commit" name="system.settings.nffs.config_commit" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_compress_file" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_compress_file" name="system.settings.nffs.config_compress_file" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_empty_file" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_file" name="system.settings.nffs.config_empty_file" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_empty_lookups" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_lookups" name="system.settings.nffs.config_empty_lookups" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_getset_bytes" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_bytes" name="system.settings.nffs.config_getset_bytes" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_getset_int" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int" name="system.settings.nffs.config_getset_int" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_getset_int64" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int64" name="system.settings.nffs.config_getset_int64" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_getset_unknown" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_unknown" name="system.settings.nffs.config_getset_unknown" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_insert" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_insert" name="system.settings.nffs.config_insert" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_multiple_in_file" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_multiple_in_file" name="system.settings.nffs.config_multiple_in_file" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_save_in_file" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_in_file" name="system.settings.nffs.config_save_in_file" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_save_one_file" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_one_file" name="system.settings.nffs.config_save_one_file" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_setup_nffs" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_setup_nffs" name="system.settings.nffs.config_setup_nffs" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Settings" name="system.settings.nffs.config_small_file" time="0">
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_small_file" name="system.settings.nffs.config_small_file" time="0">
       </testcase>
   </testsuite>
     <testsuite tests="32" errors="0" failures="0" name="tests_lib" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.base64_codec" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.base64_codec" name="libraries.encoding.base64_codec" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.rbtree.rbtree_spam" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.rbtree.rbtree_spam" name="libraries.data_structures.rbtree.rbtree_spam" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Libc" name="libraries.libc.sprintf_double" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.libc.sprintf_double" name="libraries.libc.sprintf_double" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Libc" name="libraries.libc.sprintf_integer" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.libc.sprintf_integer" name="libraries.libc.sprintf_integer" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Libc" name="libraries.libc.sprintf_misc" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.libc.sprintf_misc" name="libraries.libc.sprintf_misc" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Libc" name="libraries.libc.sprintf_string" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.libc.sprintf_string" name="libraries.libc.sprintf_string" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Libc" name="libraries.libc.vsprintf" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.libc.vsprintf" name="libraries.libc.vsprintf" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_alloc_put" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_alloc_put" name="libraries.data_structures.ringbuffer_alloc_put" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_declare_pow2" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_declare_pow2" name="libraries.data_structures.ringbuffer_declare_pow2" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_declare_size" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_declare_size" name="libraries.data_structures.ringbuffer_declare_size" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_init" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_init" name="libraries.data_structures.ringbuffer_init" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" name="libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_put_get_isr" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_put_get_isr" name="libraries.data_structures.ringbuffer_put_get_isr" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_put_get_thread" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_put_get_thread" name="libraries.data_structures.ringbuffer_put_get_thread" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_put_get_thread_isr" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_put_get_thread_isr" name="libraries.data_structures.ringbuffer_put_get_thread_isr" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_raw" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Data Structures" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_size_put_get_thread_isr" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_decoding" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_decoding" name="libraries.encoding.json_decoding" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_decoding_array_array" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_decoding_array_array" name="libraries.encoding.json_decoding_array_array" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_encoding" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_encoding" name="libraries.encoding.json_encoding" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_escape" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape" name="libraries.encoding.json_escape" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_escape_bounds_check" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape_bounds_check" name="libraries.encoding.json_escape_bounds_check" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_escape_empty" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape_empty" name="libraries.encoding.json_escape_empty" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_escape_no_op" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape_no_op" name="libraries.encoding.json_escape_no_op" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_escape_one" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape_one" name="libraries.encoding.json_escape_one" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_invalid_unicode" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_invalid_unicode" name="libraries.encoding.json_invalid_unicode" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_item_wrong_type" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_item_wrong_type" name="libraries.encoding.json_item_wrong_type" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_key_not_in_descr" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_key_not_in_descr" name="libraries.encoding.json_key_not_in_descr" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_missing_quote" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_missing_quote" name="libraries.encoding.json_missing_quote" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_obj_arr_decoding" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_obj_arr_decoding" name="libraries.encoding.json_obj_arr_decoding" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_obj_arr_encoding" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_obj_arr_encoding" name="libraries.encoding.json_obj_arr_encoding" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Encoding" name="libraries.encoding.json_wrong_token" time="0">
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_wrong_token" name="libraries.encoding.json_wrong_token" time="0">
       </testcase>
   </testsuite>
     <testsuite tests="46" errors="0" failures="0" name="tests_crypto" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:Mbedtls" name="crypto.mbedtls.mbedtls" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.mbedtls.mbedtls" name="crypto.mbedtls.mbedtls" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.aes_fixed_key_variable_text" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.aes_fixed_key_variable_text" name="crypto.tinycrypt.aes_fixed_key_variable_text" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.aes_key_chain" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.aes_key_chain" name="crypto.tinycrypt.aes_key_chain" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.aes_variable_key_fixed_text" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.aes_variable_key_fixed_text" name="crypto.tinycrypt.aes_variable_key_fixed_text" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.aes_vectors" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.aes_vectors" name="crypto.tinycrypt.aes_vectors" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.cbc_sp_800_38a_encrypt_decrypt" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.cbc_sp_800_38a_encrypt_decrypt" name="crypto.tinycrypt.cbc_sp_800_38a_encrypt_decrypt" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ccm_vector_1" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ccm_vector_1" name="crypto.tinycrypt.ccm_vector_1" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ccm_vector_2" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ccm_vector_2" name="crypto.tinycrypt.ccm_vector_2" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ccm_vector_3" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ccm_vector_3" name="crypto.tinycrypt.ccm_vector_3" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ccm_vector_4" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ccm_vector_4" name="crypto.tinycrypt.ccm_vector_4" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ccm_vector_5" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ccm_vector_5" name="crypto.tinycrypt.ccm_vector_5" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ccm_vector_6" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ccm_vector_6" name="crypto.tinycrypt.ccm_vector_6" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ccm_vector_7" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ccm_vector_7" name="crypto.tinycrypt.ccm_vector_7" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ccm_vector_8" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ccm_vector_8" name="crypto.tinycrypt.ccm_vector_8" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.cmac_mode" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.cmac_mode" name="crypto.tinycrypt.cmac_mode" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ctr_prng_reseed" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ctr_prng_reseed" name="crypto.tinycrypt.ctr_prng_reseed" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ctr_prng_robustness" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ctr_prng_robustness" name="crypto.tinycrypt.ctr_prng_robustness" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ctr_prng_uninstantiate" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ctr_prng_uninstantiate" name="crypto.tinycrypt.ctr_prng_uninstantiate" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ctr_prng_vector" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ctr_prng_vector" name="crypto.tinycrypt.ctr_prng_vector" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ctr_sp_800_38a_encrypt_decrypt" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ctr_sp_800_38a_encrypt_decrypt" name="crypto.tinycrypt.ctr_sp_800_38a_encrypt_decrypt" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ecc_dh" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ecc_dh" name="crypto.tinycrypt.ecc_dh" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.ecc_dsa" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.ecc_dsa" name="crypto.tinycrypt.ecc_dsa" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.hmac_1" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.hmac_1" name="crypto.tinycrypt.hmac_1" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.hmac_2" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.hmac_2" name="crypto.tinycrypt.hmac_2" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.hmac_3" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.hmac_3" name="crypto.tinycrypt.hmac_3" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.hmac_4" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.hmac_4" name="crypto.tinycrypt.hmac_4" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.hmac_5" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.hmac_5" name="crypto.tinycrypt.hmac_5" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.hmac_6" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.hmac_6" name="crypto.tinycrypt.hmac_6" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.hmac_7" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.hmac_7" name="crypto.tinycrypt.hmac_7" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.hmac_prng" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.hmac_prng" name="crypto.tinycrypt.hmac_prng" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_1" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_1" name="crypto.tinycrypt.sha256_1" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_10" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_10" name="crypto.tinycrypt.sha256_10" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_11" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_11" name="crypto.tinycrypt.sha256_11" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_12" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_12" name="crypto.tinycrypt.sha256_12" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_13_and_14" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_13_and_14" name="crypto.tinycrypt.sha256_13_and_14" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_2" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_2" name="crypto.tinycrypt.sha256_2" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_3" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_3" name="crypto.tinycrypt.sha256_3" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_4" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_4" name="crypto.tinycrypt.sha256_4" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_5" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_5" name="crypto.tinycrypt.sha256_5" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_6" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_6" name="crypto.tinycrypt.sha256_6" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_7" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_7" name="crypto.tinycrypt.sha256_7" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_8" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_8" name="crypto.tinycrypt.sha256_8" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Tinycrypt" name="crypto.tinycrypt.sha256_9" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.tinycrypt.sha256_9" name="crypto.tinycrypt.sha256_9" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Rand32" name="crypto.rand32.rand32" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.rand32.rand32" name="crypto.rand32.rand32" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
+      <testcase classname="mimxrt1015_evk:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
       </testcase>
   </testsuite>
     <testsuite tests="35" errors="0" failures="0" name="tests_benchmarks" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:Multiprocessing" name="kernel.multiprocessing.coop_resched_threads" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.coop_resched_threads" name="kernel.multiprocessing.coop_resched_threads" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Multiprocessing" name="kernel.multiprocessing.preempt_resched_threads" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.preempt_resched_threads" name="kernel.multiprocessing.preempt_resched_threads" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.deadline.deadline" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.lock_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.lock_preemptible" name="kernel.sched.lock_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.lock_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.priority_cooperative" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.priority_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.priority_scheduling" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.sleep_cooperative" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.slice_reset" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.slice_scheduling" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.unlock_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.native_posix.yield_cooperative" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.pending_thread_wakeup" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.pending_thread_wakeup" name="kernel.sched.pending_thread_wakeup" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.preempt.preempt" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.preempt.preempt" name="kernel.sched.preempt.preempt" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.priority_cooperative" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.priority_cooperative" name="kernel.sched.priority_cooperative" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.priority_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.priority_preemptible" name="kernel.sched.priority_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.priority_scheduling" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.priority_scheduling" name="kernel.sched.priority_scheduling" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.sched_is_preempt_thread" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.sched_is_preempt_thread" name="kernel.sched.sched_is_preempt_thread" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.sleep_cooperative" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.sleep_cooperative" name="kernel.sched.sleep_cooperative" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.sleep_wakeup_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.slice_reset" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.slice_reset" name="kernel.sched.slice_reset" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.slice_scheduling" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.slice_scheduling" name="kernel.sched.slice_scheduling" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.time_slicing_disable_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.time_slicing_disable_preemptible" name="kernel.sched.time_slicing_disable_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.time_slicing_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.time_slicing_preemptible" name="kernel.sched.time_slicing_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.unlock_preemptible" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.unlock_preemptible" name="kernel.sched.unlock_preemptible" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.wakeup_expired_timer_thread" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.wakeup_expired_timer_thread" name="kernel.sched.wakeup_expired_timer_thread" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Sched" name="kernel.sched.yield_cooperative" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.sched.yield_cooperative" name="kernel.sched.yield_cooperative" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:Posix" name="portability.posix.sched_policy" time="0">
+      <testcase classname="mimxrt1015_evk:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
       </testcase>
   </testsuite>
 </testsuites>
