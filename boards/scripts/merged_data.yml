@@ -1,8 +1,8 @@
 ---
 settings:
   build_script: build_zephyr_elf.sh
-  run_script: run_elf_twrke18f.sh
-  case_pipe_name: twr_ke18f
+  run_script: run_zephyr_elf.sh
+  case_pipe_name: frdm_k64f
 cases:
   attribute: required
   drivers.pci_enum:
@@ -11,14 +11,6 @@ cases:
     attribute: required
   drivers.ipm:
     path: tests/drivers/ipm
-    catelog: tests_drivers
-    attribute: required
-  drivers.pwm.pwm_api:
-    path: tests/drivers/pwm/pwm_api
-    catelog: tests_drivers
-    attribute: required
-  drivers.dma.loop_transfer:
-    path: tests/drivers/dma/loop_transfer
     catelog: tests_drivers
     attribute: required
   drivers.uart.uart_basic_api:
@@ -145,40 +137,44 @@ cases:
     path: samples/subsys/shell/shell_module
     catelog: samples_subsys
     attribute: required
+  subsys.nvs:
+    path: samples/subsys/nvs
+    catelog: samples_subsys
+    attribute: required
   subsys.logging.logger:
     path: samples/subsys/logging/logger
+    catelog: samples_subsys
+    attribute: required
+  subsys.usb.dfu:
+    path: samples/subsys/usb/dfu
+    catelog: samples_subsys
+    attribute: required
+  subsys.usb.hid:
+    path: samples/subsys/usb/hid
+    catelog: samples_subsys
+    attribute: required
+  subsys.usb.cdc_acm:
+    path: samples/subsys/usb/cdc_acm
+    catelog: samples_subsys
+    attribute: required
+  subsys.usb.console:
+    path: samples/subsys/usb/console
+    catelog: samples_subsys
+    attribute: required
+  subsys.usb.hid-mouse:
+    path: samples/subsys/usb/hid-mouse
     catelog: samples_subsys
     attribute: required
   subsys.usb.testusb:
     path: samples/subsys/usb/testusb
     catelog: samples_subsys
     attribute: required
-  net.throughput_server:
-    path: samples/net/throughput_server
-    catelog: samples_net
-    attribute: required
-  net.irc_bot:
-    path: samples/net/irc_bot
-    catelog: samples_net
-    attribute: required
-  net.ws_echo_server:
-    path: samples/net/ws_echo_server
-    catelog: samples_net
-    attribute: required
-  net.http_server:
-    path: samples/net/http_server
-    catelog: samples_net
-    attribute: required
-  net.leds_demo:
-    path: samples/net/leds_demo
-    catelog: samples_net
+  subsys.usb.webusb:
+    path: samples/subsys/usb/webusb
+    catelog: samples_subsys
     attribute: required
   net.lwm2m_client:
     path: samples/net/lwm2m_client
-    catelog: samples_net
-    attribute: required
-  net.traffic_class:
-    path: samples/net/traffic_class
     catelog: samples_net
     attribute: required
   net.lldp:
@@ -209,32 +205,12 @@ cases:
     path: samples/net/dhcpv4_client
     catelog: samples_net
     attribute: required
-  net.echo_server:
-    path: samples/net/echo_server
-    catelog: samples_net
-    attribute: required
-  net.promiscuous_mode:
-    path: samples/net/promiscuous_mode
-    catelog: samples_net
-    attribute: required
   net.ipv4_autoconf:
     path: samples/net/ipv4_autoconf
     catelog: samples_net
     attribute: required
   net.mqtt_publisher:
     path: samples/net/mqtt_publisher
-    catelog: samples_net
-    attribute: required
-  net.ws_console:
-    path: samples/net/ws_console
-    catelog: samples_net
-    attribute: required
-  net.coap_client:
-    path: samples/net/coap_client
-    catelog: samples_net
-    attribute: required
-  net.sntp_client:
-    path: samples/net/sntp_client
     catelog: samples_net
     attribute: required
   net.telnet:
@@ -245,16 +221,8 @@ cases:
     path: samples/net/stats
     catelog: samples_net
     attribute: required
-  net.http_client:
-    path: samples/net/http_client
-    catelog: samples_net
-    attribute: required
   net.syslog_net:
     path: samples/net/syslog_net
-    catelog: samples_net
-    attribute: required
-  net.echo_client:
-    path: samples/net/echo_client
     catelog: samples_net
     attribute: required
   net.wifi:
@@ -293,9 +261,21 @@ cases:
     path: samples/net/sockets/echo_client
     catelog: samples_net
     attribute: required
-  net.coap_server:
-    path: samples/net/coap_server
-    catelog: samples_net
+  basic.disco:
+    path: samples/basic/disco
+    catelog: samples_basic
+    attribute: required
+  basic.threads:
+    path: samples/basic/threads
+    catelog: samples_basic
+    attribute: required
+  basic.button:
+    path: samples/basic/button
+    catelog: samples_basic
+    attribute: required
+  basic.blinky:
+    path: samples/basic/blinky
+    catelog: samples_basic
     attribute: required
   application_development.external_lib:
     path: samples/application_development/external_lib
@@ -311,6 +291,10 @@ cases:
     attribute: required
   hello_world:
     path: samples/hello_world
+    catelog: samples
+    attribute: required
+  userspace.shared_mem:
+    path: samples/userspace/shared_mem
     catelog: samples
     attribute: required
   testing.integration:

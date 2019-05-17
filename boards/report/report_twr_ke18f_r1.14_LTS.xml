@@ -1,24 +1,10 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="7" errors="0" failures="0" name="tests_drivers" skipped="0" time="0">
+    <testsuite tests="1" errors="0" failures="0" name="tests_drivers" skipped="0" time="0">
       <testcase classname="twr_ke18f:peripheral.pci.pci_enumerate" name="peripheral.pci.pci_enumerate" time="0">
       </testcase>
-      <testcase classname="twr_ke18f:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
-      </testcase>
   </testsuite>
-    <testsuite tests="24" errors="0" failures="0" name="tests_subsys" skipped="0" time="0">
-      <testcase classname="twr_ke18f:storage.flash_map.flash_area_to_sectors" name="storage.flash_map.flash_area_to_sectors" time="0">
-      </testcase>
+    <testsuite tests="15" errors="0" failures="0" name="tests_subsys" skipped="0" time="0">
       <testcase classname="twr_ke18f:filesystem.fcb.fcb_init" name="filesystem.fcb.fcb_init" time="0">
       </testcase>
       <testcase classname="twr_ke18f:logging.log_core.log_arguments" name="logging.log_core.log_arguments" time="0">
@@ -48,22 +34,6 @@
       <testcase classname="twr_ke18f:logging.log_msg.log_hexdump_msg" name="logging.log_msg.log_hexdump_msg" time="0">
       </testcase>
       <testcase classname="twr_ke18f:logging.log_msg.log_std_msg" name="logging.log_msg.log_std_msg" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:usb.bos.usb_bos" name="usb.bos.usb_bos" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:usb.bos.usb_bos_macros" name="usb.bos.usb_bos_macros" time="0">
       </testcase>
   </testsuite>
     <testsuite tests="36" errors="0" failures="0" name="tests_shell" skipped="0" time="0">

@@ -143,6 +143,15 @@ cases:
     kernel.irq_offload:
     kernel.threads.dynamic_thread:
     kernel.fatal:
+    drivers.adc.adc_api:
+    drivers.dma.loop_transfer:
+    drivers.pwm.pwm_api:
+    drivers.watchdog.wdt_basic_api:
+    drivers.entropy.api:
+    subsys.usb.bos:
+    subsys.usb.os_desc:
+    subsys.storage.flash_map: #https://github.com/zephyrproject-rtos/zephyr/issues/16224
+
 
 
 
