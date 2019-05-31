@@ -18,13 +18,18 @@
       items['cases'].each do |item|
  _buf << %Q`        stage('#{escape((item[0]).to_s)}') {
           steps {
-            echo 'Test #{escape((item[0]).to_s)}'\n`
+            echo 'Test #{escape((item[0]).to_s)}'
+            \n`
             if ! item[2].nil?
  _buf << %Q`              sh '''docker exec #{escape((@docker).to_s)} #{escape((@build_script).to_s)}  $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((@board).to_s)} -DCONF_FILE=#{escape((item[2]).to_s)}'''\n`
             else
  _buf << %Q`              sh '''docker exec #{escape((@docker).to_s)} #{escape((@build_script).to_s)}  $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((@board).to_s)}'''\n`
             end
- _buf << %Q`            sh 'docker exec #{escape((@docker).to_s)} #{escape((@run_script).to_s)} $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((item[0]).to_s)}'
+ _buf << %Q`            try {
+              sh 'docker exec #{escape((@docker).to_s)} #{escape((@run_script).to_s)} $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((item[0]).to_s)}'
+            } catch (err) {
+              sh 'docker exec #{escape((@docker).to_s)} #{escape((@run_script).to_s)} $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((item[0]).to_s)}'
+            }
           }
         }\n`
       end

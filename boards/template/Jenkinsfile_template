@@ -19,12 +19,17 @@ pipeline {
         stage('${item[0]}') {
           steps {
             echo 'Test ${item[0]}'
+            
             <?rb if ! item[2].nil? ?>
               sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board} -DCONF_FILE=${item[2]}'''
             <?rb else ?>
               sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board}'''
             <?rb end ?>
-            sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
+            try {
+              sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
+            } catch (err) {
+              sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
+            }
           }
         }
       <?rb end ?>

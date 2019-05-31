@@ -6,9 +6,9 @@ __load__:
   - components/kernel.yml
   - components/kernel_2.yml
   - components/kernel_3.yml
-  - components/lib.yml
+##  - components/lib.yml
 #  - components/net.yml
-  - components/posix.yml
+##  - components/posix.yml
    # - components/samples.yml
    # - components/sample_basic.yml
    # - components/sample_net.yml
@@ -27,6 +27,8 @@ settings:
 
 cases:
   attribute: "required"
+  benchmarks.latency_measure:
+    config: prj_small_freq_divider.conf
   __common__:
     attribute: "required"
   __remove__:
@@ -133,6 +135,28 @@ cases:
     kernel.mem_protect.stackprot:
     kernel.threads.dynamic_thread:
     posix.fs:
+    kernel.tickless.tickless:
+    #remove all userspace cases
+    kernel.mem_pool.sys_mem_pool:
+    kernel.pipe.pipe:
+    kernel.pipe.pipe_api:
+    kernel.queue:
+    kernel.msgq.msgq_api:
+    kernel.semaphore.sema_api:
+    kernel.semaphore.semaphore:
+    kernel.tickless.tickless:
+    kernel.timer.timer_api:
+    kernel.workq.work_queue_api:
+    kernel.common:
+    kernel.mem_protect.mem_protect:
+    kernel.mem_protect.obj_validation:
+    kernel.mem_protect.syscalls:
+    kernel.mem_protect.userspace:
+    kernel.poll:
+    kernel.stack.stack_api:
+    kernel.stack.stack_usage:
+    kernel.threads.thread_apis:
+    kernel.threads.thread_init:
 
 
 

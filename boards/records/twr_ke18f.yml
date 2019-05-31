@@ -11,9 +11,9 @@ __load__:
   # - components/posix.yml
    - components/samples.yml
    - components/sample_basic.yml
-   - components/sample_net.yml
+#   - components/sample_net.yml
    - components/sample_subsys.yml
-   - components/sample_sensor.yml
+#   - components/sample_sensor.yml
    - components/shell.yml
    - components/subsys.yml
    - components/unit.yml
@@ -151,6 +151,7 @@ cases:
     subsys.usb.bos:
     subsys.usb.os_desc:
     subsys.storage.flash_map: #https://github.com/zephyrproject-rtos/zephyr/issues/16224
+    subsys.usb.testusb:
 
 
 
