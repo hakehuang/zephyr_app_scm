@@ -25,9 +25,7 @@
             else
  _buf << %Q`              sh '''docker exec #{escape((@docker).to_s)} #{escape((@build_script).to_s)}  $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((@board).to_s)}'''\n`
             end
- _buf << %Q`            try {
-              sh 'docker exec #{escape((@docker).to_s)} #{escape((@run_script).to_s)} $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((item[0]).to_s)}'
-            } catch (err) {
+ _buf << %Q`            retry(2)  {
               sh 'docker exec #{escape((@docker).to_s)} #{escape((@run_script).to_s)} $(basename $(pwd)) #{escape((item[1]).to_s)} #{escape((item[0]).to_s)}'
             }
           }

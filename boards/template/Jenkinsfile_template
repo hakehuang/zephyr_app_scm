@@ -25,9 +25,7 @@ pipeline {
             <?rb else ?>
               sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board}'''
             <?rb end ?>
-            try {
-              sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
-            } catch (err) {
+            retry(2)  {
               sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
             }
           }
