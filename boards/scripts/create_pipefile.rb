@@ -92,6 +92,7 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
   @content["cases"].keys().each do |key|
     key_words = ["mode", "attribute"]
     next if key_words.include?(key)
+    next if not @content["cases"][key].has_key?('result')
     catelog = @content["cases"][key]['catelog']
     pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
     if @content["cases"][key].has_key?("config")

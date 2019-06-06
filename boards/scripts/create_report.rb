@@ -113,9 +113,23 @@ def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: 
     
     data.keys.each do |case_name|
       if case_name.include? key.split('.')[-1]
-        section_name = data[case_name]
-        pipe_data[:catalog][catelog]['cases'].insert(-1, {'case_name': case_name, 'section_name': "#{board_name}:#{section_name}"})
-        pipe_data[:catalog][catelog]['total_cases'] += 1
+        if @content["cases"][key]['result'].nil?
+          section_name = data[case_name]
+          pipe_data[:catalog][catelog]['cases'].insert(-1, {'case_name':case_name, 'section_name':"#{board_name}:#{section_name}", 'result':'PASS'})
+          pipe_data[:catalog][catelog]['total_cases'] += 1
+        else
+          result = @content["cases"][key]['result'].strip.upcase
+          if result == 'SKIP'
+            pipe_data[:catalog][catelog]['skipped_cases'] += 1
+          elsif result == 'FAILURE'
+            pipe_data[:catalog][catelog]['failure_cases'] += 1
+          else
+            pipe_data[:catalog][catelog]['error_cases'] += 1
+          end
+          section_name = data[case_name]
+          pipe_data[:catalog][catelog]['total_cases'] += 1
+          pipe_data[:catalog][catelog]['cases'].insert(-1, {'case_name':case_name, 'section_name':"#{board_name}:#{section_name}", 'result':result})
+        end
       end
     end
   end
