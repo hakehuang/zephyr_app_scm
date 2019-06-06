@@ -35,7 +35,7 @@ cases:
     drivers.aon_counter.aon_api:
     drivers.dma.chan_blen_transfer:
     drivers.gpio.gpio_basic_api:
-    drivers.i2c.i2c_api:
+    #drivers.i2c.i2c_api:
     drivers.i2c.i2c_slave_api:
     drivers.i2c.i2c_slave_api.common:
     drivers.i2s.i2s_api:
@@ -150,7 +150,7 @@ cases:
     drivers.entropy.api:
     subsys.usb.bos:
     subsys.usb.os_desc:
-    subsys.storage.flash_map: #https://github.com/zephyrproject-rtos/zephyr/issues/16224
+    #subsys.storage.flash_map: #https://github.com/zephyrproject-rtos/zephyr/issues/16224
     subsys.usb.testusb:
 
 
