@@ -1,19 +1,23 @@
 <?xml version="1.0"?>
 <testsuites>
   <?rb for k, items in @catalog ?>
+    <?rb next if items['total_cases'] == items['skipped_cases']  ?>
     <testsuite tests="${items['total_cases']}" errors="${items['error_cases']}" 
       failures="${items['failure_cases']}" name="${items['catalog']}" skipped="${items['skipped_cases']}" time="0">
     <?rb items['cases'].each do |item| ?>
       <testcase classname="${item[:section_name]}" name="${item[:case_name]}" time="0">
-        <?rb if item['result'] == 'ERROR' ?>
+        <?rb next if item[:result].nil?  ?>
+        <?rb if item[:result].include? 'ERROR' ?>
           <error message="failed" type="failure"/>
-        <?rb elsif item['result'] == "FAILURE" ?>
+        <?rb elsif item[:result].include? "FAILURE" ?>
           <failure message="failed" type="failure">
             ${@item['log'].encode(:xml => :text)}
           </failure>
-        <?rb elsif item['result'] == "SKIP" ?>
+        <?rb elsif item[:result].include? "SKIP" ?>
          <skipped message="Skipped" type="skipped"/>
-        <?rb elsif item['result'] == "PASS" ?>
+        <?rb elsif item[:result].include? "PASS" ?>
+        <?rb else ?>
+          <b>"${item}"</b>
         <?rb end ?>
       </testcase>
     <?rb end ?>

@@ -1,6 +1,291 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="59" errors="0" failures="0" name="tests_kernel_3" skipped="0" time="0">
+    <testsuite tests="626" errors="0" failures="0" name="tests_kernel" skipped="95" time="0">
+      <testcase classname="frdm_k22f:kernel.memory_protection.boot_page_table" name="kernel.memory_protection.boot_page_table" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:filesystem.fcb.fcb_empty_walk" name="filesystem.fcb.fcb_empty_walk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.fifo.fifo_is_empty_isr" name="kernel.fifo.fifo_is_empty_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.fifo.fifo_is_empty_thread" name="kernel.fifo.fifo_is_empty_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.fifo.poll.fifo_is_empty_isr" name="kernel.fifo.poll.fifo_is_empty_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.fifo.poll.fifo_is_empty_thread" name="kernel.fifo.poll.fifo_is_empty_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.fifo.timeout.poll.timeout_empty_fifo" name="kernel.fifo.timeout.poll.timeout_empty_fifo" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.fifo.timeout.poll.timeout_non_empty_fifo" name="kernel.fifo.timeout.poll.timeout_non_empty_fifo" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.fifo.timeout.timeout_empty_fifo" name="kernel.fifo.timeout.timeout_empty_fifo" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.fifo.timeout.timeout_non_empty_fifo" name="kernel.fifo.timeout.timeout_non_empty_fifo" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.lifo.usage.timeout_empty_lifo" name="kernel.lifo.usage.timeout_empty_lifo" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.lifo.usage.timeout_non_empty_lifo" name="kernel.lifo.usage.timeout_non_empty_lifo" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_alloc_free_isr" name="kernel.memory_pool.mpool_alloc_free_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_alloc_free_thread" name="kernel.memory_pool.mpool_alloc_free_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.mpool_alloc_merge_failed_diff_parent" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.mpool_alloc_merge_failed_diff_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_alloc_size" name="kernel.memory_pool.mpool_alloc_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_alloc_size_roundup" name="kernel.memory_pool.mpool_alloc_size_roundup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_alloc_timeout" name="kernel.memory_pool.mpool_alloc_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_alloc_wait_prio" name="kernel.memory_pool.mpool_alloc_wait_prio" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_kdefine_extern" name="kernel.memory_pool.mpool_kdefine_extern" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_pool.mpool_threadsafe" name="kernel.memory_pool.mpool_threadsafe" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_protection.mem_domain_add_partitions_simple" name="kernel.memory_protection.mem_domain_add_partitions_simple" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_protection.mem_domain_remove_partitions_simple" name="kernel.memory_protection.mem_domain_remove_partitions_simple" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.memory_protection.userspace.disable_mmu_mpu" name="kernel.memory_protection.userspace.disable_mmu_mpu" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.multiprocessing.mp_start" name="kernel.multiprocessing.mp_start" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.multiprocessing.preempt_resched_threads" name="kernel.multiprocessing.preempt_resched_threads" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.multiprocessing.smp_coop_threads" name="kernel.multiprocessing.smp_coop_threads" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.pipe.pipe_get_on_empty_pipe" name="kernel.pipe.pipe_get_on_empty_pipe" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.lock_preemptible" name="kernel.sched.lock_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.preempt.preempt" name="kernel.sched.preempt.preempt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.priority_preemptible" name="kernel.sched.priority_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.sched_is_preempt_thread" name="kernel.sched.sched_is_preempt_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.time_slicing_disable_preemptible" name="kernel.sched.time_slicing_disable_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.time_slicing_preemptible" name="kernel.sched.time_slicing_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.sched.unlock_preemptible" name="kernel.sched.unlock_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.semaphore.simple_sem_from_isr" name="kernel.semaphore.simple_sem_from_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.semaphore.simple_sem_from_task" name="kernel.semaphore.simple_sem_from_task" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.threads.customdata_get_set_preempt" name="kernel.threads.customdata_get_set_preempt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.threads.kdefine_preempt_thread" name="kernel.threads.kdefine_preempt_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.threads.kinit_preempt_thread" name="kernel.threads.kinit_preempt_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.threads.threads_suspend_resume_preemptible" name="kernel.threads.threads_suspend_resume_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:libraries.encoding.json_escape_empty" name="libraries.encoding.json_escape_empty" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:libraries.libc.memcmp" name="libraries.libc.memcmp" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:libraries.libc.strcmp" name="libraries.libc.strcmp" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:logging.log_msg.log_hexdump_data_get_multiple_chunks" name="logging.log_msg.log_hexdump_data_get_multiple_chunks" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:logging.log_msg.log_hexdump_data_get_single_chunk" name="logging.log_msg.log_hexdump_data_get_single_chunk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:logging.log_msg.log_hexdump_data_get_two_chunks" name="logging.log_msg.log_hexdump_data_get_two_chunks" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:logging.log_msg.log_hexdump_msg" name="logging.log_msg.log_hexdump_msg" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.icmpv6.icmpv6" name="net.icmpv6.icmpv6" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.ipv6.cmp_prefix" name="net.ipv6.cmp_prefix" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.packet.fragment_compact" name="net.packet.fragment_compact" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.timestamp.address_setup" name="net.timestamp.address_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.timestamp.check_timestamp_after_enabling" name="net.timestamp.check_timestamp_after_enabling" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.timestamp.check_timestamp_before_enabling" name="net.timestamp.check_timestamp_before_enabling" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.timestamp.timestamp_cleanup" name="net.timestamp.timestamp_cleanup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.timestamp.timestamp_setup" name="net.timestamp.timestamp_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.timestamp.timestamp_setup_2nd_iface" name="net.timestamp.timestamp_setup_2nd_iface" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:net.timestamp.timestamp_setup_all" name="net.timestamp.timestamp_setup_all" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.adc_repeated_samplings" name="peripheral.adc.adc_repeated_samplings" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.adc_sample" name="peripheral.adc.adc_sample" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.adc_sample_one_channel" name="peripheral.adc.adc_sample_one_channel" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.adc_sample_two_channels" name="peripheral.adc.adc_sample_two_channels" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.adc_sample_with_interval" name="peripheral.adc.adc_sample_with_interval" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.poll_mode.adc_sample" name="peripheral.adc.poll_mode.adc_sample" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.resolution_10.adc_sample" name="peripheral.adc.resolution_10.adc_sample" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.resolution_12.adc_sample" name="peripheral.adc.resolution_12.adc_sample" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.resolution_6.adc_sample" name="peripheral.adc.resolution_6.adc_sample" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.adc.resolution_8.adc_sample" name="peripheral.adc.resolution_8.adc_sample" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:peripheral.i2s.i2s_rx_empty_timeout" name="peripheral.i2s.i2s_rx_empty_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:portability.cmsis_rtos_v1.mempool" name="portability.cmsis_rtos_v1.mempool" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:system.settings.fcb.config_compress_deleted" name="system.settings.fcb.config_compress_deleted" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:system.settings.fcb.config_compress_reset" name="system.settings.fcb.config_compress_reset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:system.settings.fcb.config_empty_fcb" name="system.settings.fcb.config_empty_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:system.settings.fcb.config_empty_lookups" name="system.settings.fcb.config_empty_lookups" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:system.settings.nffs.config_compress_file" name="system.settings.nffs.config_compress_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:system.settings.nffs.config_empty_file" name="system.settings.nffs.config_empty_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:system.settings.nffs.config_empty_lookups" name="system.settings.nffs.config_empty_lookups" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:testing.ztest.empty_test" name="testing.ztest.empty_test" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.multiprocessing.smp_coop_threads" name="kernel.multiprocessing.smp_coop_threads" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k22f:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="frdm_k22f:kernel.fp_sharing" name="kernel.fp_sharing" time="0">
       </testcase>
       <testcase classname="frdm_k22f:kernel.fp_sharing.x86" name="kernel.fp_sharing.x86" time="0">
@@ -119,8 +404,6 @@
       </testcase>
       <testcase classname="frdm_k22f:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
       </testcase>
-  </testsuite>
-    <testsuite tests="274" errors="0" failures="0" name="tests_kernel_2" skipped="0" time="0">
       <testcase classname="frdm_k22f:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
       </testcase>
       <testcase classname="frdm_k22f:kernel.common.atomic" name="kernel.common.atomic" time="0">
@@ -669,8 +952,6 @@
       </testcase>
       <testcase classname="frdm_k22f:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
       </testcase>
-  </testsuite>
-    <testsuite tests="198" errors="0" failures="0" name="tests_kernel" skipped="0" time="0">
       <testcase classname="frdm_k22f:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
       </testcase>
       <testcase classname="frdm_k22f:kernel.memory_protection.userspace.read_kobject_user_pipe" name="kernel.memory_protection.userspace.read_kobject_user_pipe" time="0">

@@ -11,6 +11,6 @@ merge_unit      = YML_Merger.new(
     )
 merged_data     = merge_unit.process()
 #puts "creating './merged_data.yml'"
-#File.write('./merged_data.yml', YAML.dump(merged_data))
+File.write('./merged_data.yml', YAML.dump(merged_data))
 create_pipefile_from_config(config: merged_data, board_name: board.gsub("_kernel", ""))
 create_report_from_config(config: merged_data, board_name: board.gsub("_kernel", ""))
