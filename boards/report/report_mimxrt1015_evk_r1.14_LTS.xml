@@ -1,6 +1,525 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="7" errors="0" failures="0" name="tests_drivers" skipped="0" time="0">
+    <testsuite tests="180" errors="0" failures="0" name="tests_drivers" skipped="173" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_append" name="filesystem.fcb.fcb_append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_append_fill" name="filesystem.fcb.fcb_append_fill" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_append_too_big" name="filesystem.fcb.fcb_append_too_big" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.memory_protection.app_memory" name="kernel.memory_protection.app_memory" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_close_server" name="net.app.app_close_server" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_init" name="net.app.app_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_hostname" name="net.app.app_tcp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_hostname_fail" name="net.app.app_tcp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_peer" name="net.app.app_tcp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_peer_addr" name="net.app.app_tcp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_peer_with_port" name="net.app.app_tcp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_hostname" name="net.app.app_tcp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_hostname_fail" name="net.app.app_tcp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_peer" name="net.app.app_tcp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_peer_addr" name="net.app.app_tcp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_peer_with_port" name="net.app.app_tcp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp_server_init" name="net.app.app_tcp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp_server_listen" name="net.app.app_tcp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_hostname" name="net.app.app_udp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_hostname_fail" name="net.app.app_udp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_peer" name="net.app.app_udp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_peer_addr" name="net.app.app_udp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_peer_with_port" name="net.app.app_udp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_hostname" name="net.app.app_udp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_hostname_fail" name="net.app.app_udp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_peer" name="net.app.app_udp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_peer_addr" name="net.app.app_udp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_peer_with_port" name="net.app.app_udp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp_server_init" name="net.app.app_udp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp_server_listen" name="net.app.app_udp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.iface_setup" name="net.app.iface_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_close_server" name="net.app.no-ipv4.app_close_server" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_init" name="net.app.no-ipv4.app_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_hostname" name="net.app.no-ipv4.app_tcp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_hostname_fail" name="net.app.no-ipv4.app_tcp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_peer" name="net.app.no-ipv4.app_tcp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_peer_addr" name="net.app.no-ipv4.app_tcp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_peer_with_port" name="net.app.no-ipv4.app_tcp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_hostname" name="net.app.no-ipv4.app_tcp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_hostname_fail" name="net.app.no-ipv4.app_tcp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_peer" name="net.app.no-ipv4.app_tcp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_peer_addr" name="net.app.no-ipv4.app_tcp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_peer_with_port" name="net.app.no-ipv4.app_tcp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp_server_init" name="net.app.no-ipv4.app_tcp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp_server_listen" name="net.app.no-ipv4.app_tcp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_hostname" name="net.app.no-ipv4.app_udp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_hostname_fail" name="net.app.no-ipv4.app_udp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_peer" name="net.app.no-ipv4.app_udp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_peer_addr" name="net.app.no-ipv4.app_udp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_peer_with_port" name="net.app.no-ipv4.app_udp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_hostname" name="net.app.no-ipv4.app_udp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_hostname_fail" name="net.app.no-ipv4.app_udp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_peer" name="net.app.no-ipv4.app_udp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_peer_addr" name="net.app.no-ipv4.app_udp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_peer_with_port" name="net.app.no-ipv4.app_udp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp_server_init" name="net.app.no-ipv4.app_udp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp_server_listen" name="net.app.no-ipv4.app_udp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.iface_setup" name="net.app.no-ipv4.iface_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_close_server" name="net.app.no-ipv6.app_close_server" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_init" name="net.app.no-ipv6.app_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_hostname" name="net.app.no-ipv6.app_tcp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_hostname_fail" name="net.app.no-ipv6.app_tcp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_peer" name="net.app.no-ipv6.app_tcp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_peer_addr" name="net.app.no-ipv6.app_tcp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_peer_with_port" name="net.app.no-ipv6.app_tcp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_hostname" name="net.app.no-ipv6.app_tcp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_hostname_fail" name="net.app.no-ipv6.app_tcp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_peer" name="net.app.no-ipv6.app_tcp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_peer_addr" name="net.app.no-ipv6.app_tcp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_peer_with_port" name="net.app.no-ipv6.app_tcp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp_server_init" name="net.app.no-ipv6.app_tcp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp_server_listen" name="net.app.no-ipv6.app_tcp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_hostname" name="net.app.no-ipv6.app_udp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_hostname_fail" name="net.app.no-ipv6.app_udp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_peer" name="net.app.no-ipv6.app_udp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_peer_addr" name="net.app.no-ipv6.app_udp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_peer_with_port" name="net.app.no-ipv6.app_udp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_hostname" name="net.app.no-ipv6.app_udp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_hostname_fail" name="net.app.no-ipv6.app_udp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_peer" name="net.app.no-ipv6.app_udp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_peer_addr" name="net.app.no-ipv6.app_udp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_peer_with_port" name="net.app.no-ipv6.app_udp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp_server_init" name="net.app.no-ipv6.app_udp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp_server_listen" name="net.app.no-ipv6.app_udp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.iface_setup" name="net.app.no-ipv6.iface_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_close_server" name="net.app.with-dns.app_close_server" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_init" name="net.app.with-dns.app_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_hostname" name="net.app.with-dns.app_tcp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_hostname_fail" name="net.app.with-dns.app_tcp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_peer" name="net.app.with-dns.app_tcp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_peer_addr" name="net.app.with-dns.app_tcp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_peer_with_port" name="net.app.with-dns.app_tcp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_hostname" name="net.app.with-dns.app_tcp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_hostname_fail" name="net.app.with-dns.app_tcp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_peer" name="net.app.with-dns.app_tcp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_peer_addr" name="net.app.with-dns.app_tcp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_peer_with_port" name="net.app.with-dns.app_tcp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp_server_init" name="net.app.with-dns.app_tcp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp_server_listen" name="net.app.with-dns.app_tcp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_hostname" name="net.app.with-dns.app_udp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_hostname_fail" name="net.app.with-dns.app_udp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_peer" name="net.app.with-dns.app_udp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_peer_addr" name="net.app.with-dns.app_udp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_peer_with_port" name="net.app.with-dns.app_udp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_hostname" name="net.app.with-dns.app_udp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_hostname_fail" name="net.app.with-dns.app_udp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_peer" name="net.app.with-dns.app_udp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_peer_addr" name="net.app.with-dns.app_udp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_peer_with_port" name="net.app.with-dns.app_udp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp_server_init" name="net.app.with-dns.app_udp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp_server_listen" name="net.app.with-dns.app_udp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.iface_setup" name="net.app.with-dns.iface_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.packet.net_pkt_append_memset" name="net.packet.net_pkt_append_memset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.packet.pkt_read_append" name="net.packet.pkt_read_append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:shell.app_handler" name="shell.app_handler" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.atomic" name="kernel.common.atomic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.bitfield" name="kernel.common.bitfield" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.busy_wait" name="kernel.common.busy_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.byteorder_mem_swap" name="kernel.common.byteorder_mem_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.byteorder_memcpy_swap" name="kernel.common.byteorder_memcpy_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.clock_cycle" name="kernel.common.clock_cycle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.clock_uptime" name="kernel.common.clock_uptime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.critical" name="kernel.common.critical" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.dlist" name="kernel.common.dlist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.errno.thread_context" name="kernel.common.errno.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.init.verify_bootdelay" name="kernel.common.init.verify_bootdelay" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.intmath" name="kernel.common.intmath" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.irq_offload" name="kernel.common.irq_offload" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.k_yield" name="kernel.common.k_yield" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_cpu_idle" name="kernel.common.kernel_cpu_idle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_cpu_idle_atomic" name="kernel.common.kernel_cpu_idle_atomic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_ctx_thread" name="kernel.common.kernel_ctx_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_interrupts" name="kernel.common.kernel_interrupts" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_thread" name="kernel.common.kernel_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.kernel_timer_interrupts" name="kernel.common.kernel_timer_interrupts" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.atomic" name="kernel.common.misra.atomic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.bitfield" name="kernel.common.misra.bitfield" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.byteorder_mem_swap" name="kernel.common.misra.byteorder_mem_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.byteorder_memcpy_swap" name="kernel.common.misra.byteorder_memcpy_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.clock_cycle" name="kernel.common.misra.clock_cycle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.clock_uptime" name="kernel.common.misra.clock_uptime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.dlist" name="kernel.common.misra.dlist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.intmath" name="kernel.common.misra.intmath" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.irq_offload" name="kernel.common.misra.irq_offload" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.multilib" name="kernel.common.misra.multilib" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.printk" name="kernel.common.misra.printk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.slist" name="kernel.common.misra.slist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.thread_context" name="kernel.common.misra.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.timeout_order" name="kernel.common.misra.timeout_order" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.verify_bootdelay" name="kernel.common.misra.verify_bootdelay" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.version" name="kernel.common.misra.version" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.multilib" name="kernel.common.multilib" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.printk" name="kernel.common.printk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.slist" name="kernel.common.slist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.thread_context" name="kernel.common.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.timeout_order" name="kernel.common.timeout_order" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.verify_bootdelay" name="kernel.common.verify_bootdelay" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.common.version" name="kernel.common.version" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="mimxrt1015_evk:peripheral.pci.pci_enumerate" name="peripheral.pci.pci_enumerate" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
@@ -16,7 +535,259 @@
       <testcase classname="mimxrt1015_evk:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="7" errors="0" failures="0" name="tests_subsys" skipped="0" time="0">
+    <testsuite tests="91" errors="0" failures="0" name="tests_subsys" skipped="84" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_append" name="filesystem.fcb.fcb_append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_append_fill" name="filesystem.fcb.fcb_append_fill" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_append_too_big" name="filesystem.fcb.fcb_append_too_big" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_empty_walk" name="filesystem.fcb.fcb_empty_walk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_init" name="filesystem.fcb.fcb_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_last_of_n" name="filesystem.fcb.fcb_last_of_n" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_len" name="filesystem.fcb.fcb_len" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_multi_scratch" name="filesystem.fcb.fcb_multi_scratch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_reset" name="filesystem.fcb.fcb_reset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_rotate" name="filesystem.fcb.fcb_rotate" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_commit" name="system.settings.fcb.config_commit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_compress_deleted" name="system.settings.fcb.config_compress_deleted" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_compress_reset" name="system.settings.fcb.config_compress_reset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_empty_fcb" name="system.settings.fcb.config_empty_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_empty_lookups" name="system.settings.fcb.config_empty_lookups" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_getset_bytes" name="system.settings.fcb.config_getset_bytes" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_getset_int" name="system.settings.fcb.config_getset_int" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_getset_int64" name="system.settings.fcb.config_getset_int64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_getset_unknown" name="system.settings.fcb.config_getset_unknown" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_insert" name="system.settings.fcb.config_insert" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_insert2" name="system.settings.fcb.config_insert2" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_insert3" name="system.settings.fcb.config_insert3" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_save_1_fcb" name="system.settings.fcb.config_save_1_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_save_2_fcb" name="system.settings.fcb.config_save_2_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_save_3_fcb" name="system.settings.fcb.config_save_3_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.config_save_one_fcb" name="system.settings.fcb.config_save_one_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.fcb.init" name="system.settings.fcb.init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_block" name="filesystem.nffs.basic.corrupt_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_scratch" name="filesystem.nffs.basic.corrupt_scratch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.fs_mount" name="filesystem.nffs.basic.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc" name="filesystem.nffs.basic.gc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc_on_oom" name="filesystem.nffs.basic.gc_on_oom" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.large_write" name="filesystem.nffs.basic.large_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.long_filename" name="filesystem.nffs.basic.long_filename" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.lost_found" name="filesystem.nffs.basic.lost_found" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.many_children" name="filesystem.nffs.basic.many_children" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.mkdir" name="filesystem.nffs.basic.mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.open" name="filesystem.nffs.basic.open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_many" name="filesystem.nffs.basic.overwrite_many" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_one" name="filesystem.nffs.basic.overwrite_one" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_three" name="filesystem.nffs.basic.overwrite_three" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_two" name="filesystem.nffs.basic.overwrite_two" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.read" name="filesystem.nffs.basic.read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.readdir" name="filesystem.nffs.basic.readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.rename" name="filesystem.nffs.basic.rename" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.split_file" name="filesystem.nffs.basic.split_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.unlink" name="filesystem.nffs.basic.unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.wear_level" name="filesystem.nffs.basic.wear_level" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.cache_large_file" name="filesystem.nffs.cache.cache_large_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.fs_mount" name="filesystem.nffs.cache.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.route.populate_nbr_cache" name="net.route.populate_nbr_cache" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.rpl.populate_nbr_cache" name="net.rpl.populate_nbr_cache" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.large_write" name="filesystem.nffs.basic.large_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.cache_large_file" name="filesystem.nffs.cache.cache_large_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.fs_mount" name="filesystem.nffs.large.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_system" name="filesystem.nffs.large.large_system" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_unlink" name="filesystem.nffs.large.large_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.ipv6.fragment.send_ipv6_fragment_large_hbho" name="net.ipv6.fragment.send_ipv6_fragment_large_hbho" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.fs_mount" name="filesystem.nffs.performance.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.performance" name="filesystem.nffs.performance.performance" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:libraries.encoding.base64_codec" name="libraries.encoding.base64_codec" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:libraries.encoding.base64_codec" name="libraries.encoding.base64_codec" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_init" name="filesystem.fcb.fcb_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:storage.flash_map.flash_area_to_sectors" name="storage.flash_map.flash_area_to_sectors" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:usb.bos.usb_bos" name="usb.bos.usb_bos" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:usb.bos.usb_bos_macros" name="usb.bos.usb_bos_macros" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:logging.log_core.log_arguments" name="logging.log_core.log_arguments" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:logging.log_core.log_backend_runtime_filtering" name="logging.log_core.log_backend_runtime_filtering" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:logging.log_core.log_from_declared_module" name="logging.log_core.log_from_declared_module" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:logging.log_core.log_overflow" name="logging.log_core.log_overflow" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:logging.log_core.log_panic" name="logging.log_core.log_panic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:logging.log_core.log_strdup_gc" name="logging.log_core.log_strdup_gc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:logging.log_core.strdup_trimming" name="logging.log_core.strdup_trimming" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="mimxrt1015_evk:logging.log_list.log_list" name="logging.log_list.log_list" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:logging.log_list.log_list_multiple_items" name="logging.log_list.log_list_multiple_items" time="0">
@@ -32,89 +803,869 @@
       <testcase classname="mimxrt1015_evk:logging.log_msg.log_std_msg" name="logging.log_msg.log_std_msg" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="36" errors="0" failures="0" name="tests_shell" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
+    <testsuite tests="166" errors="0" failures="0" name="samples_subsys" skipped="165" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_append" name="filesystem.fcb.fcb_append" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_append_fill" name="filesystem.fcb.fcb_append_fill" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mount" name="filesystem.fs_shell.fat_mount" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_append_too_big" name="filesystem.fcb.fcb_append_too_big" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_open" name="filesystem.fs_shell.fat_open" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_read" name="filesystem.fs_shell.fat_read" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.byteorder_mem_swap" name="kernel.common.byteorder_mem_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_readdir" name="filesystem.fs_shell.fat_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.byteorder_memcpy_swap" name="kernel.common.byteorder_memcpy_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_rmdir" name="filesystem.fs_shell.fat_rmdir" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.byteorder_mem_swap" name="kernel.common.misra.byteorder_mem_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_unlink" name="filesystem.fs_shell.fat_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.common.misra.byteorder_memcpy_swap" name="kernel.common.misra.byteorder_memcpy_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_write" name="filesystem.fs_shell.fat_write" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.memory_heap.mheap_block_desc" name="kernel.memory_heap.mheap_block_desc" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_help" name="filesystem.fs_shell.fs_help" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.memory_heap.mheap_calloc" name="kernel.memory_heap.mheap_calloc" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_shell_exit" name="filesystem.fs_shell.fs_shell_exit" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.memory_heap.mheap_malloc_align4" name="kernel.memory_heap.mheap_malloc_align4" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.memory_heap.mheap_malloc_free" name="kernel.memory_heap.mheap_malloc_free" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.memory_heap.mheap_min_block_size" name="kernel.memory_heap.mheap_min_block_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.memory_pool.sys_heap_mem_pool_assign" name="kernel.memory_pool.sys_heap_mem_pool_assign" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.memory_protection.app_memory" name="kernel.memory_protection.app_memory" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.memory_protection.protection.exec_heap" name="kernel.memory_protection.protection.exec_heap" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_give_take_from_isr" name="kernel.semaphore.sem_give_take_from_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_measure_timeout_from_thread" name="kernel.semaphore.sem_measure_timeout_from_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_measure_timeouts" name="kernel.semaphore.sem_measure_timeouts" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_multi_take_timeout_diff_sem" name="kernel.semaphore.sem_multi_take_timeout_diff_sem" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_read" name="peripheral.uart.shell.uart_fifo_read" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_multiple_take_and_timeouts" name="kernel.semaphore.sem_multiple_take_and_timeouts" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_multiple_threads_wait" name="kernel.semaphore.sem_multiple_threads_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_take_multiple" name="kernel.semaphore.sem_take_multiple" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_take_no_wait" name="kernel.semaphore.sem_take_no_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_take_no_wait_fails" name="kernel.semaphore.sem_take_no_wait_fails" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_take_timeout" name="kernel.semaphore.sem_take_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_take_timeout_fails" name="kernel.semaphore.sem_take_timeout_fails" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_take_timeout_forever" name="kernel.semaphore.sem_take_timeout_forever" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sem_take_timeout_isr" name="kernel.semaphore.sem_take_timeout_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sema_count_get" name="kernel.semaphore.sema_count_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sema_reset" name="kernel.semaphore.sema_reset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sema_thread2isr" name="kernel.semaphore.sema_thread2isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.sema_thread2thread" name="kernel.semaphore.sema_thread2thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.simple_sem_from_isr" name="kernel.semaphore.simple_sem_from_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.semaphore.simple_sem_from_task" name="kernel.semaphore.simple_sem_from_task" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape" name="libraries.encoding.json_escape" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape_bounds_check" name="libraries.encoding.json_escape_bounds_check" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape_empty" name="libraries.encoding.json_escape_empty" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape_no_op" name="libraries.encoding.json_escape_no_op" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:libraries.encoding.json_escape_one" name="libraries.encoding.json_escape_one" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_close_server" name="net.app.app_close_server" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_init" name="net.app.app_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_hostname" name="net.app.app_tcp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_hostname_fail" name="net.app.app_tcp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_peer" name="net.app.app_tcp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_peer_addr" name="net.app.app_tcp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp4_client_peer_with_port" name="net.app.app_tcp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_hostname" name="net.app.app_tcp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_hostname_fail" name="net.app.app_tcp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_peer" name="net.app.app_tcp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_peer_addr" name="net.app.app_tcp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp6_client_peer_with_port" name="net.app.app_tcp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp_server_init" name="net.app.app_tcp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_tcp_server_listen" name="net.app.app_tcp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_hostname" name="net.app.app_udp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_hostname_fail" name="net.app.app_udp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_peer" name="net.app.app_udp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_peer_addr" name="net.app.app_udp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp4_client_peer_with_port" name="net.app.app_udp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_hostname" name="net.app.app_udp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_hostname_fail" name="net.app.app_udp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_peer" name="net.app.app_udp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_peer_addr" name="net.app.app_udp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp6_client_peer_with_port" name="net.app.app_udp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp_server_init" name="net.app.app_udp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.app_udp_server_listen" name="net.app.app_udp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.iface_setup" name="net.app.iface_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_close_server" name="net.app.no-ipv4.app_close_server" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_init" name="net.app.no-ipv4.app_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_hostname" name="net.app.no-ipv4.app_tcp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_hostname_fail" name="net.app.no-ipv4.app_tcp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_peer" name="net.app.no-ipv4.app_tcp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_peer_addr" name="net.app.no-ipv4.app_tcp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp4_client_peer_with_port" name="net.app.no-ipv4.app_tcp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_hostname" name="net.app.no-ipv4.app_tcp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_hostname_fail" name="net.app.no-ipv4.app_tcp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_peer" name="net.app.no-ipv4.app_tcp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_peer_addr" name="net.app.no-ipv4.app_tcp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp6_client_peer_with_port" name="net.app.no-ipv4.app_tcp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp_server_init" name="net.app.no-ipv4.app_tcp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_tcp_server_listen" name="net.app.no-ipv4.app_tcp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_hostname" name="net.app.no-ipv4.app_udp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_hostname_fail" name="net.app.no-ipv4.app_udp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_peer" name="net.app.no-ipv4.app_udp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_peer_addr" name="net.app.no-ipv4.app_udp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp4_client_peer_with_port" name="net.app.no-ipv4.app_udp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_hostname" name="net.app.no-ipv4.app_udp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_hostname_fail" name="net.app.no-ipv4.app_udp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_peer" name="net.app.no-ipv4.app_udp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_peer_addr" name="net.app.no-ipv4.app_udp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp6_client_peer_with_port" name="net.app.no-ipv4.app_udp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp_server_init" name="net.app.no-ipv4.app_udp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.app_udp_server_listen" name="net.app.no-ipv4.app_udp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv4.iface_setup" name="net.app.no-ipv4.iface_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_close_server" name="net.app.no-ipv6.app_close_server" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_init" name="net.app.no-ipv6.app_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_hostname" name="net.app.no-ipv6.app_tcp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_hostname_fail" name="net.app.no-ipv6.app_tcp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_peer" name="net.app.no-ipv6.app_tcp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_peer_addr" name="net.app.no-ipv6.app_tcp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp4_client_peer_with_port" name="net.app.no-ipv6.app_tcp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_hostname" name="net.app.no-ipv6.app_tcp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_hostname_fail" name="net.app.no-ipv6.app_tcp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_peer" name="net.app.no-ipv6.app_tcp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_peer_addr" name="net.app.no-ipv6.app_tcp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp6_client_peer_with_port" name="net.app.no-ipv6.app_tcp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp_server_init" name="net.app.no-ipv6.app_tcp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_tcp_server_listen" name="net.app.no-ipv6.app_tcp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_hostname" name="net.app.no-ipv6.app_udp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_hostname_fail" name="net.app.no-ipv6.app_udp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_peer" name="net.app.no-ipv6.app_udp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_peer_addr" name="net.app.no-ipv6.app_udp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp4_client_peer_with_port" name="net.app.no-ipv6.app_udp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_hostname" name="net.app.no-ipv6.app_udp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_hostname_fail" name="net.app.no-ipv6.app_udp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_peer" name="net.app.no-ipv6.app_udp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_peer_addr" name="net.app.no-ipv6.app_udp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp6_client_peer_with_port" name="net.app.no-ipv6.app_udp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp_server_init" name="net.app.no-ipv6.app_udp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.app_udp_server_listen" name="net.app.no-ipv6.app_udp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.no-ipv6.iface_setup" name="net.app.no-ipv6.iface_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_close_server" name="net.app.with-dns.app_close_server" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_init" name="net.app.with-dns.app_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_hostname" name="net.app.with-dns.app_tcp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_hostname_fail" name="net.app.with-dns.app_tcp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_peer" name="net.app.with-dns.app_tcp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_peer_addr" name="net.app.with-dns.app_tcp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp4_client_peer_with_port" name="net.app.with-dns.app_tcp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_hostname" name="net.app.with-dns.app_tcp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_hostname_fail" name="net.app.with-dns.app_tcp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_peer" name="net.app.with-dns.app_tcp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_peer_addr" name="net.app.with-dns.app_tcp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp6_client_peer_with_port" name="net.app.with-dns.app_tcp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp_server_init" name="net.app.with-dns.app_tcp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_tcp_server_listen" name="net.app.with-dns.app_tcp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_hostname" name="net.app.with-dns.app_udp4_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_hostname_fail" name="net.app.with-dns.app_udp4_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_peer" name="net.app.with-dns.app_udp4_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_peer_addr" name="net.app.with-dns.app_udp4_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp4_client_peer_with_port" name="net.app.with-dns.app_udp4_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_hostname" name="net.app.with-dns.app_udp6_client_hostname" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_hostname_fail" name="net.app.with-dns.app_udp6_client_hostname_fail" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_peer" name="net.app.with-dns.app_udp6_client_peer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_peer_addr" name="net.app.with-dns.app_udp6_client_peer_addr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp6_client_peer_with_port" name="net.app.with-dns.app_udp6_client_peer_with_port" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp_server_init" name="net.app.with-dns.app_udp_server_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.app_udp_server_listen" name="net.app.with-dns.app_udp_server_listen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.app.with-dns.iface_setup" name="net.app.with-dns.iface_setup" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.coap" name="net.coap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.packet.net_pkt_append_memset" name="net.packet.net_pkt_append_memset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:net.packet.pkt_read_append" name="net.packet.pkt_read_append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.cmsis_rtos_v1.semaphore" name="portability.cmsis_rtos_v1.semaphore" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.posix_semaphore" name="portability.posix.newlib.posix_semaphore" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.posix_semaphore" name="portability.posix.posix_semaphore" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1015_evk:shell.app_handler" name="shell.app_handler" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:shell.cmd_clear" name="shell.cmd_clear" time="0">
+      <testcase classname="mimxrt1015_evk:storage.flash_map.flash_area_to_sectors" name="storage.flash_map.flash_area_to_sectors" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:shell.cmd_help" name="shell.cmd_help" time="0">
+      <testcase classname="mimxrt1015_evk:usb.device.dfu.bank_erase" name="usb.device.dfu.bank_erase" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:shell.cmd_history" name="shell.cmd_history" time="0">
+      <testcase classname="mimxrt1015_evk:usb.device.dfu.request_upgrade" name="usb.device.dfu.request_upgrade" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:shell.cmd_resize" name="shell.cmd_resize" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:shell.cmd_shell" name="shell.cmd_shell" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:shell.exit" name="shell.exit" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:shell.help" name="shell.help" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:shell.module" name="shell.module" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:shell.select" name="shell.select" time="0">
+      <testcase classname="mimxrt1015_evk:usb.device.dfu.write_confirm" name="usb.device.dfu.write_confirm" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1015_evk:shell.shell_module" name="shell.shell_module" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:shell.shell_wildcards_dynamic" name="shell.shell_wildcards_dynamic" time="0">
+  </testsuite>
+    <testsuite tests="35" errors="0" failures="0" name="tests_benchmarks" skipped="0" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.coop_resched_threads" name="kernel.multiprocessing.coop_resched_threads" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:shell.shell_wildcards_static" name="shell.shell_wildcards_static" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.preempt_resched_threads" name="kernel.multiprocessing.preempt_resched_threads" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.lock_preemptible" name="kernel.sched.lock_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.pending_thread_wakeup" name="kernel.sched.pending_thread_wakeup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.preempt.preempt" name="kernel.sched.preempt.preempt" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.priority_cooperative" name="kernel.sched.priority_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.priority_preemptible" name="kernel.sched.priority_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.priority_scheduling" name="kernel.sched.priority_scheduling" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.sched_is_preempt_thread" name="kernel.sched.sched_is_preempt_thread" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.sleep_cooperative" name="kernel.sched.sleep_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.slice_reset" name="kernel.sched.slice_reset" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.slice_scheduling" name="kernel.sched.slice_scheduling" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.time_slicing_disable_preemptible" name="kernel.sched.time_slicing_disable_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.time_slicing_preemptible" name="kernel.sched.time_slicing_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.unlock_preemptible" name="kernel.sched.unlock_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.wakeup_expired_timer_thread" name="kernel.sched.wakeup_expired_timer_thread" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.sched.yield_cooperative" name="kernel.sched.yield_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="1" errors="0" failures="0" name="samples_subsys" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:shell.shell_module" name="shell.shell_module" time="0">
+    <testsuite tests="148" errors="0" failures="0" name="tests_posix" skipped="97" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fat.fat_fs" name="filesystem.fat.fat_fs" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-  </testsuite>
-    <testsuite tests="0" errors="0" failures="0" name="samples_basic" skipped="0" time="0">
-  </testsuite>
-    <testsuite tests="0" errors="0" failures="0" name="samples" skipped="0" time="0">
-  </testsuite>
-    <testsuite tests="148" errors="0" failures="0" name="tests_posix" skipped="0" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mount" name="filesystem.fs_shell.fat_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_open" name="filesystem.fs_shell.fat_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_read" name="filesystem.fs_shell.fat_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_readdir" name="filesystem.fs_shell.fat_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_rmdir" name="filesystem.fs_shell.fat_rmdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_unlink" name="filesystem.fs_shell.fat_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_write" name="filesystem.fs_shell.fat_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_help" name="filesystem.fs_shell.fs_help" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_shell_exit" name="filesystem.fs_shell.fs_shell_exit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_close" name="filesystem.multifs.fat_close" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mkdir" name="filesystem.multifs.fat_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mount" name="filesystem.multifs.fat_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_open" name="filesystem.multifs.fat_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_read" name="filesystem.multifs.fat_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_readdir" name="filesystem.multifs.fat_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_rmdir" name="filesystem.multifs.fat_rmdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_unlink" name="filesystem.multifs.fat_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_write" name="filesystem.multifs.fat_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_help" name="filesystem.multifs.fs_help" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mkdir" name="filesystem.multifs.nffs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mount" name="filesystem.multifs.nffs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_open" name="filesystem.multifs.nffs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_read" name="filesystem.multifs.nffs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_readdir" name="filesystem.multifs.nffs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_unlink" name="filesystem.multifs.nffs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_write" name="filesystem.multifs.nffs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_block" name="filesystem.nffs.basic.corrupt_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_scratch" name="filesystem.nffs.basic.corrupt_scratch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.fs_mount" name="filesystem.nffs.basic.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc" name="filesystem.nffs.basic.gc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc_on_oom" name="filesystem.nffs.basic.gc_on_oom" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.large_write" name="filesystem.nffs.basic.large_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.long_filename" name="filesystem.nffs.basic.long_filename" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.lost_found" name="filesystem.nffs.basic.lost_found" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.many_children" name="filesystem.nffs.basic.many_children" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.mkdir" name="filesystem.nffs.basic.mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.open" name="filesystem.nffs.basic.open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_many" name="filesystem.nffs.basic.overwrite_many" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_one" name="filesystem.nffs.basic.overwrite_one" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_three" name="filesystem.nffs.basic.overwrite_three" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_two" name="filesystem.nffs.basic.overwrite_two" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.read" name="filesystem.nffs.basic.read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.readdir" name="filesystem.nffs.basic.readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.rename" name="filesystem.nffs.basic.rename" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.split_file" name="filesystem.nffs.basic.split_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.unlink" name="filesystem.nffs.basic.unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.wear_level" name="filesystem.nffs.basic.wear_level" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.cache_large_file" name="filesystem.nffs.cache.cache_large_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.fs_mount" name="filesystem.nffs.cache.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.fs_mount" name="filesystem.nffs.large.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_system" name="filesystem.nffs.large.large_system" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_unlink" name="filesystem.nffs.large.large_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.fs_mount" name="filesystem.nffs.performance.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.performance" name="filesystem.nffs.performance.performance" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_commit" name="system.settings.nffs.config_commit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_compress_file" name="system.settings.nffs.config_compress_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_file" name="system.settings.nffs.config_empty_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_lookups" name="system.settings.nffs.config_empty_lookups" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_bytes" name="system.settings.nffs.config_getset_bytes" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int" name="system.settings.nffs.config_getset_int" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int64" name="system.settings.nffs.config_getset_int64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_unknown" name="system.settings.nffs.config_getset_unknown" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_insert" name="system.settings.nffs.config_insert" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_multiple_in_file" name="system.settings.nffs.config_multiple_in_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_in_file" name="system.settings.nffs.config_save_in_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_one_file" name="system.settings.nffs.config_save_one_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_setup_nffs" name="system.settings.nffs.config_setup_nffs" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_small_file" name="system.settings.nffs.config_small_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="mimxrt1015_evk:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:kernel.common.atomic" name="kernel.common.atomic" time="0">
@@ -217,8 +1768,8 @@
       </testcase>
       <testcase classname="mimxrt1015_evk:kernel.common.version" name="kernel.common.version" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fat.fat_fs" name="filesystem.fat.fat_fs" time="0">
-      </testcase>
+  </testsuite>
+    <testsuite tests="36" errors="0" failures="0" name="tests_shell" skipped="0" time="0">
       <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
@@ -255,161 +1806,41 @@
       </testcase>
       <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_close" name="filesystem.multifs.fat_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mkdir" name="filesystem.multifs.fat_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mount" name="filesystem.multifs.fat_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_open" name="filesystem.multifs.fat_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_read" name="filesystem.multifs.fat_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_readdir" name="filesystem.multifs.fat_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_rmdir" name="filesystem.multifs.fat_rmdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_unlink" name="filesystem.multifs.fat_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_write" name="filesystem.multifs.fat_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_help" name="filesystem.multifs.fs_help" time="0">
-      </testcase>
       <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mkdir" name="filesystem.multifs.nffs_mkdir" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mount" name="filesystem.multifs.nffs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_read" name="peripheral.uart.shell.uart_fifo_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_open" name="filesystem.multifs.nffs_open" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_read" name="filesystem.multifs.nffs_read" time="0">
+      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_readdir" name="filesystem.multifs.nffs_readdir" time="0">
+      <testcase classname="mimxrt1015_evk:shell.app_handler" name="shell.app_handler" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_unlink" name="filesystem.multifs.nffs_unlink" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_clear" name="shell.cmd_clear" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_write" name="filesystem.multifs.nffs_write" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_help" name="shell.cmd_help" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_history" name="shell.cmd_history" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_block" name="filesystem.nffs.basic.corrupt_block" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_resize" name="shell.cmd_resize" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_scratch" name="filesystem.nffs.basic.corrupt_scratch" time="0">
+      <testcase classname="mimxrt1015_evk:shell.cmd_shell" name="shell.cmd_shell" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.fs_mount" name="filesystem.nffs.basic.fs_mount" time="0">
+      <testcase classname="mimxrt1015_evk:shell.exit" name="shell.exit" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc" name="filesystem.nffs.basic.gc" time="0">
+      <testcase classname="mimxrt1015_evk:shell.help" name="shell.help" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc_on_oom" name="filesystem.nffs.basic.gc_on_oom" time="0">
+      <testcase classname="mimxrt1015_evk:shell.module" name="shell.module" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
+      <testcase classname="mimxrt1015_evk:shell.select" name="shell.select" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.large_write" name="filesystem.nffs.basic.large_write" time="0">
+      <testcase classname="mimxrt1015_evk:shell.shell_module" name="shell.shell_module" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.long_filename" name="filesystem.nffs.basic.long_filename" time="0">
+      <testcase classname="mimxrt1015_evk:shell.shell_wildcards_dynamic" name="shell.shell_wildcards_dynamic" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.lost_found" name="filesystem.nffs.basic.lost_found" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.many_children" name="filesystem.nffs.basic.many_children" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.mkdir" name="filesystem.nffs.basic.mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.open" name="filesystem.nffs.basic.open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_many" name="filesystem.nffs.basic.overwrite_many" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_one" name="filesystem.nffs.basic.overwrite_one" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_three" name="filesystem.nffs.basic.overwrite_three" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_two" name="filesystem.nffs.basic.overwrite_two" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.read" name="filesystem.nffs.basic.read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.readdir" name="filesystem.nffs.basic.readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.rename" name="filesystem.nffs.basic.rename" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.split_file" name="filesystem.nffs.basic.split_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.unlink" name="filesystem.nffs.basic.unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.wear_level" name="filesystem.nffs.basic.wear_level" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.cache_large_file" name="filesystem.nffs.cache.cache_large_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.fs_mount" name="filesystem.nffs.cache.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.fs_mount" name="filesystem.nffs.large.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_system" name="filesystem.nffs.large.large_system" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_unlink" name="filesystem.nffs.large.large_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.fs_mount" name="filesystem.nffs.performance.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.performance" name="filesystem.nffs.performance.performance" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_commit" name="system.settings.nffs.config_commit" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_compress_file" name="system.settings.nffs.config_compress_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_file" name="system.settings.nffs.config_empty_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_lookups" name="system.settings.nffs.config_empty_lookups" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_bytes" name="system.settings.nffs.config_getset_bytes" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int" name="system.settings.nffs.config_getset_int" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int64" name="system.settings.nffs.config_getset_int64" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_unknown" name="system.settings.nffs.config_getset_unknown" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_insert" name="system.settings.nffs.config_insert" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_multiple_in_file" name="system.settings.nffs.config_multiple_in_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_in_file" name="system.settings.nffs.config_save_in_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_one_file" name="system.settings.nffs.config_save_one_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_setup_nffs" name="system.settings.nffs.config_setup_nffs" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_small_file" name="system.settings.nffs.config_small_file" time="0">
+      <testcase classname="mimxrt1015_evk:shell.shell_wildcards_static" name="shell.shell_wildcards_static" time="0">
       </testcase>
   </testsuite>
     <testsuite tests="32" errors="0" failures="0" name="tests_lib" skipped="0" time="0">
@@ -570,78 +2001,6 @@
       <testcase classname="mimxrt1015_evk:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
-      </testcase>
-  </testsuite>
-    <testsuite tests="35" errors="0" failures="0" name="tests_benchmarks" skipped="0" time="0">
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.coop_resched_threads" name="kernel.multiprocessing.coop_resched_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.preempt_resched_threads" name="kernel.multiprocessing.preempt_resched_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.lock_preemptible" name="kernel.sched.lock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.pending_thread_wakeup" name="kernel.sched.pending_thread_wakeup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.preempt.preempt" name="kernel.sched.preempt.preempt" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.priority_cooperative" name="kernel.sched.priority_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.priority_preemptible" name="kernel.sched.priority_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.priority_scheduling" name="kernel.sched.priority_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.sched_is_preempt_thread" name="kernel.sched.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.sleep_cooperative" name="kernel.sched.sleep_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.slice_reset" name="kernel.sched.slice_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.slice_scheduling" name="kernel.sched.slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.time_slicing_disable_preemptible" name="kernel.sched.time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.time_slicing_preemptible" name="kernel.sched.time_slicing_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.unlock_preemptible" name="kernel.sched.unlock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.wakeup_expired_timer_thread" name="kernel.sched.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.sched.yield_cooperative" name="kernel.sched.yield_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
       </testcase>
   </testsuite>
 </testsuites>
