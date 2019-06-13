@@ -17,13 +17,9 @@ cases:
     attribute: required
   drivers.aon_counter.aon_api:
     result: skip
-    path: tests/drivers/aon_counter/aon_api
-    catelog: tests_drivers
     attribute: required
   drivers.dma.chan_blen_transfer:
     result: skip
-    path: tests/drivers/dma/chan_blen_transfer
-    catelog: tests_drivers
     attribute: required
   drivers.gpio.gpio_basic_api:
     result: skip
@@ -32,23 +28,15 @@ cases:
     attribute: required
   drivers.i2c.i2c_slave_api:
     result: skip
-    path: tests/drivers/i2c/i2c_slave_api
-    catelog: tests_drivers
     attribute: required
   drivers.i2c.i2c_slave_api.common:
     result: skip
-    path: tests/drivers/i2c/i2c_slave_api/common
-    catelog: tests_drivers
     attribute: required
   drivers.i2s.i2s_api:
     result: skip
-    path: tests/drivers/i2s/i2s_api
-    catelog: tests_drivers
     attribute: required
   drivers.i2s.i2s_speed:
     result: skip
-    path: tests/drivers/i2s/i2s_speed
-    catelog: tests_drivers
     attribute: required
   drivers.pinmux.pinmux_basic_api:
     result: skip
@@ -57,8 +45,6 @@ cases:
     attribute: required
   drivers.rtc.rtc_basic_api:
     result: skip
-    path: tests/drivers/rtc/rtc_basic_api
-    catelog: tests_drivers
     attribute: required
   drivers.spi.spi_loopback:
     result: skip
@@ -426,8 +412,6 @@ cases:
     attribute: required
   drivers.dma.loop_transfer:
     result: skip
-    path: tests/drivers/dma/loop_transfer
-    catelog: tests_drivers
     attribute: required
   drivers.pwm.pwm_api:
     result: skip
