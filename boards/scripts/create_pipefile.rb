@@ -68,13 +68,17 @@ def create_pipefile_from_commandline(data)
     next if @content["cases"][key]['result'].upcase == "SKIP"
     catelog = @content["cases"][key]['catelog']
     pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
+    case_array = [key, @content["cases"][key]['path']]
+    options_array = []
     if @content["cases"][key].has_key?("config")
-      pipe_data[:catalog][catelog]['cases'].insert(-1, 
-        [key, @content["cases"][key]['path'], @content["cases"][key]['config']])
-    else
-      pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path']])
+      options_array.insert(-1, "-DCONF_FILE=#{@content["cases"][key]['config']}")
     end
-  end 
+    if @content["cases"][key].has_key?("overlay")
+      options_array.insert(-1, "-DOVERLAY_CONFIG=#{@content["cases"][key]['overlay']}")
+    end
+    case_array.insert(-1, options_array.join(" "))
+    pipe_data[:catalog][catelog]['cases'].insert(-1, case_array)
+  end
   output = engine.render(@command_lines[:template], pipe_data)
   File.open( "Jenkinsfile_" + @command_lines[:board_name], 'w') {|f| f.write(YAML.dump(output)) }
 end
@@ -96,11 +100,16 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     next if @content["cases"][key].has_key?('result')
     catelog = @content["cases"][key]['catelog']
     pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
+    case_array = [key, @content["cases"][key]['path']]
+    options_array = []
     if @content["cases"][key].has_key?("config")
-      pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path'], @content["cases"][key]['config']])
-    else
-      pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path']])
+      options_array.insert(-1, "-DCONF_FILE=#{@content["cases"][key]['config']}")
     end
+    if @content["cases"][key].has_key?("overlay")
+      options_array.insert(-1, "-DOVERLAY_CONFIG=#{@content["cases"][key]['overlay']}")
+    end
+    case_array.insert(-1, options_array.join(" "))
+    pipe_data[:catalog][catelog]['cases'].insert(-1, case_array)
   end
   output = engine.render(template, pipe_data)
   FileUtils::mkdir_p output_path

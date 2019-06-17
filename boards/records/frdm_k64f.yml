@@ -185,7 +185,7 @@ cases:
   net.echo_client:
     result: skip
   net.echo_server:
-    result: skip
+    overlay: overlay-frdm_k64f_mcr20a.conf
   net.http_client:
     result: skip
   net.http_server:

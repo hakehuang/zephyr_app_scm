@@ -3,6 +3,7 @@ cases:
     catelog: tests_subsys
   subsys.storage.flash_map:
     path: "tests/subsys/storage/flash_map"
+    overlay: "overlay-mpu.conf"
   subsys.dfu.img_util:
     path: "tests/subsys/dfu/img_util"
   subsys.dfu.mcuboot:

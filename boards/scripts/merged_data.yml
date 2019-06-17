@@ -465,6 +465,7 @@ cases:
     attribute: required
   subsys.storage.flash_map:
     path: tests/subsys/storage/flash_map
+    overlay: overlay-mpu.conf
     catelog: tests_subsys
     attribute: required
   subsys.dfu.img_util:
