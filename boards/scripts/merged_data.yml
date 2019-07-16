@@ -1,8 +1,8 @@
 ---
 settings:
   build_script: build_zephyr_elf.sh
-  run_script: run_elf_twrke18f.sh
-  case_pipe_name: twr_ke18f
+  run_script: run_zephyr_elf.sh
+  case_pipe_name: frdm_k64f
 cases:
   attribute: required
   drivers.aio.api:
@@ -24,6 +24,11 @@ cases:
   drivers.gpio.gpio_basic_api:
     result: skip
     path: tests/drivers/gpio/gpio_basic_api
+    catelog: tests_drivers
+    attribute: required
+  drivers.i2c.i2c_api:
+    result: skip
+    path: tests/drivers/i2c/i2c_api
     catelog: tests_drivers
     attribute: required
   drivers.i2c.i2c_slave_api:
@@ -118,28 +123,18 @@ cases:
     attribute: required
   basic.blink_led:
     result: skip
-    path: samples/basic/blink_led
-    catelog: samples_basic
     attribute: required
   basic.fade_led:
     result: skip
-    path: samples/basic/fade_led
-    catelog: samples_basic
     attribute: required
   basic.rgb_led:
     result: skip
-    path: samples/basic/rgb_led
-    catelog: samples_basic
     attribute: required
   basic.servo_motor:
     result: skip
-    path: samples/basic/servo_motor
-    catelog: samples_basic
     attribute: required
   application_development.code_relocation:
     result: skip
-    path: samples/application_development/code_relocation
-    catelog: samples
     attribute: required
   kernel.boot_page_table:
     result: skip
@@ -176,21 +171,33 @@ cases:
     attribute: required
   net.all:
     result: skip
+    path: tests/net/all
+    catelog: tests_net
     attribute: required
   net.context:
     result: skip
+    path: tests/net/context
+    catelog: tests_net
     attribute: required
   net.ieee802154.crypto:
     result: skip
+    path: tests/net/ieee802154/crypto
+    catelog: tests_net
     attribute: required
   net.lib.tls_credentials:
     result: skip
+    path: tests/net/lib/tls_credentials
+    catelog: tests_net
     attribute: required
   net.socket.getaddrinfo:
     result: skip
+    path: tests/net/socket/getaddrinfo
+    catelog: tests_net
     attribute: required
   net.socket.tcp:
     result: skip
+    path: tests/net/socket/tcp
+    catelog: tests_net
     attribute: required
   unit.bluetooth.at:
     result: skip
@@ -204,86 +211,35 @@ cases:
     attribute: required
   subsys.ipc.ipm_imx:
     result: skip
-    path: samples/subsys/ipc/ipm_imx
-    catelog: samples_subsys
     attribute: required
   subsys.ipc.ipm_mailbox.ap:
     result: skip
-    path: samples/subsys/ipc/ipm_mailbox/ap
-    catelog: samples_subsys
     attribute: required
   subsys.ipc.ipm_mailbox.sensor:
     result: skip
-    path: samples/subsys/ipc/ipm_mailbox/sensor
-    catelog: samples_subsys
     attribute: required
   subsys.ipc.ipm_mcux:
     result: skip
-    path: samples/subsys/ipc/ipm_mcux
-    catelog: samples_subsys
     attribute: required
   subsys.ipc.ipm_mcux.remote:
     result: skip
-    path: samples/subsys/ipc/ipm_mcux/remote
-    catelog: samples_subsys
     attribute: required
   subsys.ipc.openamp:
     result: skip
-    path: samples/subsys/ipc/openamp
-    catelog: samples_subsys
     attribute: required
   subsys.ipc.openamp.remote:
     result: skip
-    path: samples/subsys/ipc/openamp/remote
-    catelog: samples_subsys
     attribute: required
   subsys.mgmt.mcumgr.smp_svr:
     result: skip
-    path: samples/subsys/mgmt/mcumgr/smp_svr
-    catelog: samples_subsys
     attribute: required
   subsys.power.power_mgr:
     result: skip
-    path: samples/subsys/power/power_mgr
-    catelog: samples_subsys
-    attribute: required
-  subsys.usb.cdc_acm:
-    result: skip
-    path: samples/subsys/usb/cdc_acm
-    catelog: samples_subsys
-    attribute: required
-  subsys.usb.console:
-    result: skip
-    path: samples/subsys/usb/console
-    catelog: samples_subsys
-    attribute: required
-  subsys.usb.dfu:
-    result: skip
-    path: samples/subsys/usb/dfu
-    catelog: samples_subsys
-    attribute: required
-  subsys.usb.hid:
-    result: skip
-    path: samples/subsys/usb/hid
-    catelog: samples_subsys
-    attribute: required
-  subsys.usb.hid-mouse:
-    result: skip
-    path: samples/subsys/usb/hid-mouse
-    catelog: samples_subsys
-    attribute: required
-  subsys.usb.webusb:
-    result: skip
-    path: samples/subsys/usb/webusb
-    catelog: samples_subsys
-    attribute: required
-  subsys.nvs:
-    result: skip
-    path: samples/subsys/nvs
-    catelog: samples_subsys
     attribute: required
   coverage:
     result: skip
+    path: tests/coverage
+    catelog: tests_coverage
     attribute: required
   sensor.adxl372:
     result: skip
@@ -327,90 +283,77 @@ cases:
   sensor.vl53l0x:
     result: skip
     attribute: required
-  basic.blinky:
+  net.coap_client:
     result: skip
-    path: samples/basic/blinky
-    catelog: samples_basic
     attribute: required
-  basic.button:
+  net.coap_server:
     result: skip
-    path: samples/basic/button
-    catelog: samples_basic
     attribute: required
-  basic.disco:
+  net.echo_client:
     result: skip
-    path: samples/basic/disco
-    catelog: samples_basic
     attribute: required
-  basic.threads:
-    result: skip
-    path: samples/basic/threads
-    catelog: samples_basic
+  net.echo_server:
+    overlay: overlay-frdm_k64f_mcr20a.conf
     attribute: required
-  userspace.shared_mem:
+  net.http_client:
     result: skip
-    path: samples/userspace/shared_mem
-    catelog: samples
     attribute: required
-  posix.fs:
+  net.http_server:
     result: skip
+    attribute: required
+  net.irc_bot:
+    result: skip
+    attribute: required
+  net.leds_demo:
+    result: skip
+    attribute: required
+  net.sntp_client:
+    result: skip
+    attribute: required
+  net.throughput_server:
+    result: skip
+    attribute: required
+  net.traffic_class:
+    result: skip
+    path: tests/net/traffic_class
+    catelog: tests_net
+    attribute: required
+  net.ws_console:
+    result: skip
+    attribute: required
+  net.ws_echo_server:
+    result: skip
+    attribute: required
+  net.app:
+    result: skip
+    path: tests/net/app
+    catelog: tests_net
+    attribute: required
+  net.lib.coap_sock:
+    result: skip
+    path: tests/net/lib/coap_sock
+    catelog: tests_net
+    attribute: required
+  net.websocket:
+    result: skip
+    path: tests/net/websocket
+    catelog: tests_net
+    attribute: required
+  lib.mem_alloc:
+    result: skip
+    path: tests/lib/mem_alloc
+    catelog: tests_lib
     attribute: required
   kernel.errno:
-    result: skip
-    attribute: required
-  kernel.fp_sharing:
     result: skip
     attribute: required
   kernel.init:
     result: skip
     attribute: required
-  kernel.mem_protect.app_memory:
-    result: skip
-    attribute: required
-  kernel.mem_protect.mem_protect:
-    result: skip
-    attribute: required
-  kernel.mem_protect.obj_validation:
-    result: skip
-    attribute: required
-  kernel.mem_protect.stackprot:
-    result: skip
-    attribute: required
-  kernel.mem_protect.syscalls:
-    result: skip
-    attribute: required
-  kernel.mem_protect.userspace:
-    result: skip
-    attribute: required
-  kernel.tickless.tickless:
-    result: skip
-    attribute: required
-  kernel.arm_irq_vector_table:
-    result: skip
-    attribute: required
-  kernel.gen_isr_table:
-    result: skip
-    attribute: required
   kernel.irq_offload:
     result: skip
     attribute: required
-  subsys.usb.mass:
-    result: skip
-    path: samples/subsys/usb/mass
-    catelog: samples_subsys
-    attribute: required
-  kernel.threads.dynamic_thread:
-    result: skip
-    attribute: required
-  kernel.fatal:
-    result: skip
-    attribute: required
-  drivers.adc.adc_api:
-    result: skip
-    path: tests/drivers/adc/adc_api
-    catelog: tests_drivers
-    attribute: required
-  drivers.dma.loop_transfer:
+  kernel.mem_slab.mslab_threadsafe:
     result: skip
     attribute: required
   drivers.pwm.pwm_api:
@@ -418,30 +361,14 @@ cases:
     path: tests/drivers/pwm/pwm_api
     catelog: tests_drivers
     attribute: required
-  drivers.watchdog.wdt_basic_api:
+  subsys.usb.mass:
     result: skip
-    path: tests/drivers/watchdog/wdt_basic_api
-    catelog: tests_drivers
     attribute: required
-  drivers.entropy.api:
+  net.promiscuous_mode:
     result: skip
-    path: tests/drivers/entropy/api
-    catelog: tests_drivers
     attribute: required
-  subsys.usb.bos:
+  drivers.dma.loop_transfer:
     result: skip
-    path: tests/subsys/usb/bos
-    catelog: tests_subsys
-    attribute: required
-  subsys.usb.os_desc:
-    result: skip
-    path: tests/subsys/usb/os_desc
-    catelog: tests_subsys
-    attribute: required
-  subsys.usb.testusb:
-    result: skip
-    path: samples/subsys/usb/testusb
-    catelog: samples_subsys
     attribute: required
   drivers.pci_enum:
     path: tests/drivers/pci_enum
@@ -455,12 +382,20 @@ cases:
     path: tests/drivers/uart/uart_basic_api
     catelog: tests_drivers
     attribute: required
-  drivers.i2c.i2c_api:
-    path: tests/drivers/i2c/i2c_api
+  drivers.entropy.api:
+    path: tests/drivers/entropy/api
+    catelog: tests_drivers
+    attribute: required
+  drivers.adc.adc_api:
+    path: tests/drivers/adc/adc_api
     catelog: tests_drivers
     attribute: required
   drivers.build_all:
     path: tests/drivers/build_all
+    catelog: tests_drivers
+    attribute: required
+  drivers.watchdog.wdt_basic_api:
+    path: tests/drivers/watchdog/wdt_basic_api
     catelog: tests_drivers
     attribute: required
   subsys.storage.flash_map:
@@ -488,47 +423,227 @@ cases:
     path: tests/subsys/logging/log_msg
     catelog: tests_subsys
     attribute: required
+  subsys.usb.bos:
+    path: tests/subsys/usb/bos
+    catelog: tests_subsys
+    attribute: required
+  subsys.usb.os_desc:
+    path: tests/subsys/usb/os_desc
+    catelog: tests_subsys
+    attribute: required
   shell:
     path: tests/shell
     catelog: tests_shell
     attribute: required
-  subsys.console.echo:
-    path: samples/subsys/console/echo
-    catelog: samples_subsys
+  posix.common:
+    path: tests/posix/common
+    catelog: tests_posix
     attribute: required
-  subsys.console.getline:
-    path: samples/subsys/console/getline
-    catelog: samples_subsys
+  posix.fs:
+    path: tests/posix/fs
+    catelog: tests_posix
     attribute: required
-  subsys.console.getchar:
-    path: samples/subsys/console/getchar
-    catelog: samples_subsys
+  net.utils:
+    path: tests/net/utils
+    catelog: tests_net
     attribute: required
-  subsys.shell.shell_module:
-    path: samples/subsys/shell/shell_module
-    catelog: samples_subsys
+  net.route:
+    path: tests/net/route
+    catelog: tests_net
     attribute: required
-  subsys.logging.logger:
-    path: samples/subsys/logging/logger
-    catelog: samples_subsys
+  net.mgmt:
+    path: tests/net/mgmt
+    catelog: tests_net
     attribute: required
-  application_development.external_lib:
-    path: samples/application_development/external_lib
-    catelog: samples
+  net.ip-addr:
+    path: tests/net/ip-addr
+    catelog: tests_net
     attribute: required
-  application_development.out_of_tree_board:
-    path: samples/application_development/out_of_tree_board
-    catelog: samples
+  net.promiscuous:
+    path: tests/net/promiscuous
+    catelog: tests_net
     attribute: required
-  cpp_synchronization:
-    path: samples/cpp_synchronization
-    catelog: samples
+  net.6lo:
+    path: tests/net/6lo
+    catelog: tests_net
     attribute: required
-  hello_world:
-    path: samples/hello_world
-    catelog: samples
+  net.iface:
+    path: tests/net/iface
+    catelog: tests_net
     attribute: required
-  testing.integration:
-    path: samples/testing/integration
-    catelog: samples
+  net.ieee802154.fragment:
+    path: tests/net/ieee802154/fragment
+    catelog: tests_net
+    attribute: required
+  net.ieee802154.l2:
+    path: tests/net/ieee802154/l2
+    catelog: tests_net
+    attribute: required
+  net.ipv6:
+    path: tests/net/ipv6
+    catelog: tests_net
+    attribute: required
+  net.vlan:
+    path: tests/net/vlan
+    catelog: tests_net
+    attribute: required
+  net.ipv6_fragment:
+    path: tests/net/ipv6_fragment
+    catelog: tests_net
+    attribute: required
+  net.icmpv6:
+    path: tests/net/icmpv6
+    catelog: tests_net
+    attribute: required
+  net.arp:
+    path: tests/net/arp
+    catelog: tests_net
+    attribute: required
+  net.socket.udp:
+    path: tests/net/socket/udp
+    catelog: tests_net
+    attribute: required
+  net.tx_timestamp:
+    path: tests/net/tx_timestamp
+    catelog: tests_net
+    attribute: required
+  net.mld:
+    path: tests/net/mld
+    catelog: tests_net
+    attribute: required
+  net.lib.mqtt_subscriber:
+    path: tests/net/lib/mqtt_subscriber
+    catelog: tests_net
+    attribute: required
+  net.lib.dns_resolve:
+    path: tests/net/lib/dns_resolve
+    catelog: tests_net
+    attribute: required
+  net.lib.coap:
+    path: tests/net/lib/coap
+    catelog: tests_net
+    attribute: required
+  net.lib.mqtt_pubsub:
+    path: tests/net/lib/mqtt_pubsub
+    catelog: tests_net
+    attribute: required
+  net.lib.mqtt_publisher:
+    path: tests/net/lib/mqtt_publisher
+    catelog: tests_net
+    attribute: required
+  net.lib.http_header_fields:
+    path: tests/net/lib/http_header_fields
+    catelog: tests_net
+    attribute: required
+  net.lib.dns_packet:
+    path: tests/net/lib/dns_packet
+    catelog: tests_net
+    attribute: required
+  net.lib.mqtt_packet:
+    path: tests/net/lib/mqtt_packet
+    catelog: tests_net
+    attribute: required
+  net.neighbor:
+    path: tests/net/neighbor
+    catelog: tests_net
+    attribute: required
+  net.buf:
+    path: tests/net/buf
+    catelog: tests_net
+    attribute: required
+  net.ethernet_mgmt:
+    path: tests/net/ethernet_mgmt
+    catelog: tests_net
+    attribute: required
+  net.dhcpv4:
+    path: tests/net/dhcpv4
+    catelog: tests_net
+    attribute: required
+  net.checksum_offload:
+    path: tests/net/checksum_offload
+    catelog: tests_net
+    attribute: required
+  net.tcp:
+    path: tests/net/tcp
+    catelog: tests_net
+    attribute: required
+  net.trickle:
+    path: tests/net/trickle
+    catelog: tests_net
+    attribute: required
+  net.ptp.clock:
+    path: tests/net/ptp/clock
+    catelog: tests_net
+    attribute: required
+  net.net_pkt:
+    path: tests/net/net_pkt
+    catelog: tests_net
+    attribute: required
+  net.udp:
+    path: tests/net/udp
+    catelog: tests_net
+    attribute: required
+  lib.base64:
+    path: tests/lib/base64
+    catelog: tests_lib
+    attribute: required
+  lib.rbtree:
+    path: tests/lib/rbtree
+    catelog: tests_lib
+    attribute: required
+  lib.sprintf:
+    path: tests/lib/sprintf
+    catelog: tests_lib
+    attribute: required
+  lib.ringbuffer:
+    path: tests/lib/ringbuffer
+    catelog: tests_lib
+    attribute: required
+  lib.c_lib:
+    path: tests/lib/c_lib
+    catelog: tests_lib
+    attribute: required
+  lib.json:
+    path: tests/lib/json
+    catelog: tests_lib
+    attribute: required
+  crypto.tinycrypt_hmac_prng:
+    path: tests/crypto/tinycrypt_hmac_prng
+    catelog: tests_crypto
+    attribute: required
+  crypto.mbedtls:
+    path: tests/crypto/mbedtls
+    catelog: tests_crypto
+    attribute: required
+  crypto.tinycrypt:
+    path: tests/crypto/tinycrypt
+    catelog: tests_crypto
+    attribute: required
+  crypto.rand32:
+    path: tests/crypto/rand32
+    catelog: tests_crypto
+    attribute: required
+  benchmarks.boot_time:
+    path: tests/benchmarks/boot_time
+    catelog: tests_benchmarks
+    attribute: required
+  benchmarks.sched:
+    path: tests/benchmarks/sched
+    catelog: tests_benchmarks
+    attribute: required
+  benchmarks.latency_measure:
+    path: tests/benchmarks/latency_measure
+    catelog: tests_benchmarks
+    attribute: required
+  benchmarks.timing_info:
+    path: tests/benchmarks/timing_info
+    catelog: tests_benchmarks
+    attribute: required
+  benchmarks.sys_kernel:
+    path: tests/benchmarks/sys_kernel
+    catelog: tests_benchmarks
+    attribute: required
+  benchmarks.app_kernel:
+    path: tests/benchmarks/app_kernel
+    catelog: tests_benchmarks
     attribute: required

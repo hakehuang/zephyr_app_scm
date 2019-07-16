@@ -5,8 +5,8 @@ pipeline {
       parallel {
         stage('hello world') {
           steps {
-            sh 'docker exec ${@docker} ${@build_script}  $(basename $(pwd)) samples/hello_world ${@board}'
             sh '''docker exec ${@docker} run_setup.sh $(basename $(pwd)) ${@board}'''
+            sh 'docker exec ${@docker} ${@build_script}  $(basename $(pwd)) samples/hello_world ${@board}'
             sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) samples/hello_world'
           }
         }
