@@ -22,14 +22,10 @@ pipeline {
             <?rb if ! item[2].nil? ?>
               sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board} ${item[2]}'''
             <?rb else ?>
-              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board}'''
+              sh 'docker exec ${@docker} ${@build_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
             <?rb end ?>
             retry(2)  {
-            <?rb if ! item[2].nil? ?>
-              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board} ${item[2]}'''
-            <?rb else ?>
-              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board}'''
-            <?rb end ?>
+              sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
             }
           }
         }

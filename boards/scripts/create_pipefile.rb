@@ -66,6 +66,7 @@ def create_pipefile_from_commandline(data)
   @content["cases"].keys().each do |key|
     next if key == "attribute"
     next if @content["cases"][key]['result'].upcase == "SKIP"
+    next if ! @content["cases"][key].has_key?('path')
     catelog = @content["cases"][key]['catelog']
     pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
     case_array = [key, @content["cases"][key]['path']]
@@ -98,6 +99,7 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     key_words = ["mode", "attribute"]
     next if key_words.include?(key)
     next if @content["cases"][key].has_key?('result')
+    next if ! @content["cases"][key].has_key?('path')
     catelog = @content["cases"][key]['catelog']
     pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
     case_array = [key, @content["cases"][key]['path']]
