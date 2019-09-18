@@ -1,29 +1,29 @@
 
 __load__:
-  # - components/benchmarks.yml
-  # - components/crypto.yml
-  # - components/coverage.yml
-  # - components/kernel.yml
-  # - components/kernel_2.yml
-  # - components/kernel_3.yml
-  # - components/lib.yml
-  # - components/net.yml
-  # - components/posix.yml
-   - components/samples.yml
-   - components/sample_basic.yml
-#   - components/sample_net.yml
-   - components/sample_subsys.yml
-#   - components/sample_sensor.yml
-   - components/shell.yml
-   - components/subsys.yml
-   - components/unit.yml
-   - components/drivers/drivers.yml
+  #- components/benchmarks.yml
+  #- components/crypto.yml
+  #- components/coverage.yml
+  - components/kernel.yml
+  - components/kernel_2.yml
+  - components/kernel_3.yml
+  #- components/lib.yml
+  #- components/net.yml
+  #- components/posix.yml
+   # - components/samples.yml
+   # - components/sample_basic.yml
+   # - components/sample_net.yml
+   # - components/sample_subsys.yml
+   # - components/sample_sensor.yml
+   # - components/shell.yml
+   # - components/subsys.yml
+   # - components/unit.yml
+   # - components/drivers/drivers.yml
 
 
 settings:
   build_script: build_zephyr_elf.sh
-  run_script: run_elf_twrke18f.sh
-  case_pipe_name: twr_ke18f
+  run_script: run_zephyr_elf.sh
+  case_pipe_name: frdm_k82f_kernel
 
 cases:
   attribute: "required"
@@ -147,20 +147,6 @@ cases:
     result: skip
   subsys.power.power_mgr:
     result: skip
-  subsys.usb.cdc_acm:
-    result: skip
-  subsys.usb.console:
-    result: skip
-  subsys.usb.dfu:
-    result: skip
-  subsys.usb.hid:
-    result: skip
-  subsys.usb.hid-mouse:
-    result: skip
-  subsys.usb.webusb:
-    result: skip
-  subsys.nvs:
-    result: skip
   coverage:
     result: skip
   sensor.adxl372:
@@ -191,86 +177,60 @@ cases:
     result: skip
   sensor.vl53l0x:
     result: skip
-  basic.blinky:
+#R1.14_RC1 special
+  net.coap_client:
     result: skip
-  basic.button:
+  net.coap_server:
     result: skip
-  basic.disco:
+  net.echo_client:
     result: skip
-  basic.threads:
+  net.echo_server:
     result: skip
-  userspace.shared_mem:
+  net.http_client:
     result: skip
-  posix.fs: #code size
+  net.http_server:
+    result: skip
+  net.irc_bot:
+    result: skip
+  net.leds_demo:
+    result: skip
+  net.sntp_client:
+    result: skip
+  net.throughput_server:
+    result: skip
+  net.traffic_class:
+    result: skip
+  net.ws_console:
+    result: skip
+  net.ws_echo_server:
+    result: skip
+  net.app:
+    result: skip
+  net.lib.coap_sock:
+    result: skip
+  net.websocket:
+    result: skip
+  lib.mem_alloc:
+    result: skip
   kernel.errno:
-    result: skip
-  kernel.fp_sharing:
     result: skip
   kernel.init:
     result: skip
-  kernel.mem_protect.app_memory:
-    result: skip
-  kernel.mem_protect.mem_protect: #no mpu
-    result: skip
-  kernel.mem_protect.obj_validation: #no mpu
-    result: skip
-  kernel.mem_protect.stackprot: #no mpu
-    result: skip
-  kernel.mem_protect.syscalls: #no mpu
-    result: skip
-  kernel.mem_protect.userspace: #no mpu
-    result: skip
-  kernel.tickless.tickless: #test app not support
-    result: skip
-  kernel.arm_irq_vector_table: #only support M4/m7
-    result: skip
-  kernel.gen_isr_table: #only support M4/m7
-    result: skip
-  kernel.irq_offload: #only support M4/m7
-    result: skip
-  posix.fs: #code size
-    result: skip
-  kernel.mem_protect.app_memory:
-    result: skip
-  kernel.mem_protect.mem_protect: #no mpu enalbed
-    result: skip
-  kernel.mem_protect.obj_validation: #no mpu enalbed
-    result: skip
-  kernel.mem_protect.stackprot: #no mpu enalbed
-    result: skip
-  kernel.mem_protect.syscalls: #no mpu enalbed
-    result: skip
-  kernel.mem_protect.userspace: #no mpu enalbed
-    result: skip
-  kernel.tickless.tickless: #test app not support
-    result: skip
-  subsys.usb.mass: #not support
-    result: skip
-  kernel.fp_sharing:
-    result: skip
   kernel.irq_offload:
+    result: skip
+  kernel.mem_slab.mslab_threadsafe:
     result: skip
   kernel.threads.dynamic_thread:
     result: skip
+  kernel.mem_protect.app_memory:
+    result: skip
   kernel.fatal:
     result: skip
-  drivers.adc.adc_api:
+  kernel.mem_protect.stackprot:
     result: skip
-  drivers.dma.loop_transfer:
+  kernel.threads.dynamic_thread:
     result: skip
-  drivers.pwm.pwm_api:
-    result: skip
-  drivers.watchdog.wdt_basic_api:
-    result: skip
-  drivers.entropy.api:
-    result: skip
-  subsys.usb.bos:
-    result: skip
-  subsys.usb.os_desc:
-    result: skip
-  #subsys.storage.flash_map: #https://github.com/zephyrproject-rtos/zephyr/issues/16224
-  subsys.usb.testusb:
-    result: skip
+
 
 
 

@@ -5,8 +5,10 @@ cases:
     path: "tests/kernel/mbox/mbox_usage"
   kernel.mbox.mbox_api:
     path: "tests/kernel/mbox/mbox_api/"
-  kernel.fp_sharing:
-    path: "tests/kernel/fp_sharing"
+  kernel.fp_sharing.float_disable:
+    path: "tests/kernel/fp_sharing/float_disable"
+  kernel.fp_sharing.generic:
+    path: "tests/kernel/fp_sharing/generic"
   kernel.gen_isr_table:
     path: "tests/kernel/gen_isr_table"
   kernel.mem_slab.mslab_threadsafe:

@@ -90,6 +90,8 @@ cases:
     result: skip
   kernel.boot_page_table:
     result: skip
+  kernel.mem_protect.protection:
+    result: skip
   kernel.mem_protect.x86_mmu_api:
     result: skip
   kernel.mp:
@@ -208,7 +210,9 @@ cases:
     result: skip
   subsys.usb.mass: #not support
     result: skip
-  kernel.fp_sharing:
+  kernel.fp_sharing.float_disable:
+    result: skip
+  kernel.fp_sharing.generic:
     result: skip
   kernel.irq_offload:
     result: skip

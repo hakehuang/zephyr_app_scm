@@ -444,7 +444,7 @@
       <testcase classname="lpcxpresso54114_m0:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="277" errors="0" failures="0" name="tests_kernel_2" skipped="43" time="0">
+    <testsuite tests="275" errors="0" failures="0" name="tests_kernel_2" skipped="42" time="0">
       <testcase classname="lpcxpresso54114_m0:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -563,9 +563,6 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
@@ -848,8 +845,6 @@
       </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
       </testcase>
-      <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
-      </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
       </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
@@ -1043,7 +1038,7 @@
       <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="149" errors="0" failures="0" name="tests_kernel_3" skipped="108" time="0">
+    <testsuite tests="148" errors="0" failures="0" name="tests_kernel_3" skipped="107" time="0">
       <testcase classname="lpcxpresso54114_m0:filesystem.fcb.fcb_empty_walk" name="filesystem.fcb.fcb_empty_walk" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -1314,10 +1309,7 @@
       <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.fp_sharing" name="kernel.fp_sharing" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.fp_sharing.x86" name="kernel.fp_sharing.x86" time="0">
+      <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.tickless.tickless" name="kernel.tickless.tickless" time="0">

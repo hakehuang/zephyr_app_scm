@@ -2,7 +2,7 @@
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf.sh
-  case_pipe_name: frdm_k64f_samples
+  case_pipe_name: frdm_k82f_samples
 cases:
   attribute: required
   drivers.aio.api:
@@ -309,7 +309,7 @@ cases:
     catelog: samples_net
     attribute: required
   net.echo_server:
-    overlay: overlay-frdm_k64f_mcr20a.conf
+    overlay: overlay-frdm_k82f_mcr20a.conf
     attribute: required
   net.http_client:
     result: skip

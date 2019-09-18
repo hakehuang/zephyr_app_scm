@@ -27,8 +27,8 @@ settings:
 
 cases:
   attribute: "required"
-  benchmarks.latency_measure:
-    config: prj_small_freq_divider.conf
+#  benchmarks.latency_measure:
+#    config: prj_small_freq_divider.conf
   __common__:
     attribute: "required"
 
@@ -277,6 +277,16 @@ cases:
   kernel.threads.thread_apis:
     result: skip
   kernel.threads.thread_init:
+    result: skip
+  kernel.fp_sharing.float_disable:
+    result: skip
+  kernel.mutex.mutex_api:
+    result: skip
+  kernel.sleep:
+    result: skip
+  kernel.sched.schedule_api:
+    result: skip
+  kernel.device:
     result: skip
 
 

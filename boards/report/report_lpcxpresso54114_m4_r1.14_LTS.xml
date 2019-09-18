@@ -560,7 +560,292 @@
       <testcase classname="lpcxpresso54114_m4:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="277" errors="0" failures="0" name="tests_kernel_2" skipped="42" time="0">
+    <testsuite tests="275" errors="0" failures="0" name="tests_kernel_2" skipped="137" time="0">
+      <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.access_kobject_without_init_access" name="kernel.memory_protection.access_kobject_without_init_access" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.access_kobject_without_init_with_access" name="kernel.memory_protection.access_kobject_without_init_with_access" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.app_memory" name="kernel.memory_protection.app_memory" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.boot_page_table" name="kernel.memory_protection.boot_page_table" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_essential_thread_from_user" name="kernel.memory_protection.create_new_essential_thread_from_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_higher_prio_thread_from_user" name="kernel.memory_protection.create_new_higher_prio_thread_from_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_invalid_prio_thread_from_user" name="kernel.memory_protection.create_new_invalid_prio_thread_from_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_supervisor_thread_from_user" name="kernel.memory_protection.create_new_supervisor_thread_from_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_thread_from_user" name="kernel.memory_protection.create_new_thread_from_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_thread_from_user_huge_stacksize" name="kernel.memory_protection.create_new_thread_from_user_huge_stacksize" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_thread_from_user_invalid_stacksize" name="kernel.memory_protection.create_new_thread_from_user_invalid_stacksize" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_thread_from_user_no_access_stack" name="kernel.memory_protection.create_new_thread_from_user_no_access_stack" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_access_all_grant" name="kernel.memory_protection.kobject_access_all_grant" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_access_grant" name="kernel.memory_protection.kobject_access_grant" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_access_grant_to_invalid_thread" name="kernel.memory_protection.kobject_access_grant_to_invalid_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_access_invalid_kobject" name="kernel.memory_protection.kobject_access_invalid_kobject" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_grant_access_kobj" name="kernel.memory_protection.kobject_grant_access_kobj" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_grant_access_kobj_invalid" name="kernel.memory_protection.kobject_grant_access_kobj_invalid" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_reinitialize_thread_kobj" name="kernel.memory_protection.kobject_reinitialize_thread_kobj" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_release_from_user" name="kernel.memory_protection.kobject_release_from_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_revoke_access" name="kernel.memory_protection.kobject_revoke_access" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_add_partitions_invalid" name="kernel.memory_protection.mem_domain_add_partitions_invalid" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_add_partitions_simple" name="kernel.memory_protection.mem_domain_add_partitions_simple" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_destroy" name="kernel.memory_protection.mem_domain_destroy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_invalid_access" name="kernel.memory_protection.mem_domain_invalid_access" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_partitions_supervisor_rw" name="kernel.memory_protection.mem_domain_partitions_supervisor_rw" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_partitions_user_ro" name="kernel.memory_protection.mem_domain_partitions_user_ro" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_partitions_user_rw" name="kernel.memory_protection.mem_domain_partitions_user_rw" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_remove_partitions" name="kernel.memory_protection.mem_domain_remove_partitions" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_remove_partitions_simple" name="kernel.memory_protection.mem_domain_remove_partitions_simple" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_remove_thread" name="kernel.memory_protection.mem_domain_remove_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_valid_access" name="kernel.memory_protection.mem_domain_valid_access" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_readable_read" name="kernel.memory_protection.mmu.buffer_readable_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_readable_write" name="kernel.memory_protection.mmu.buffer_readable_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_rw_read" name="kernel.memory_protection.mmu.buffer_rw_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_supervisor_rw" name="kernel.memory_protection.mmu.buffer_supervisor_rw" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_supervisor_w" name="kernel.memory_protection.mmu.buffer_supervisor_w" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_user_rw_supervisor" name="kernel.memory_protection.mmu.buffer_user_rw_supervisor" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_user_rw_user" name="kernel.memory_protection.mmu.buffer_user_rw_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_writeable_write" name="kernel.memory_protection.mmu.buffer_writeable_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_page_buffer_read" name="kernel.memory_protection.mmu.multi_page_buffer_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_page_buffer_read_user" name="kernel.memory_protection.mmu.multi_page_buffer_read_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_page_buffer_user" name="kernel.memory_protection.mmu.multi_page_buffer_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_page_buffer_write_user" name="kernel.memory_protection.mmu.multi_page_buffer_write_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_pde_buffer_readable_read" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_pde_buffer_readable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_pde_buffer_rw" name="kernel.memory_protection.mmu.multi_pde_buffer_rw" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.permission_inheritance" name="kernel.memory_protection.permission_inheritance" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.exec_data" name="kernel.memory_protection.protection.exec_data" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.exec_heap" name="kernel.memory_protection.protection.exec_heap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.exec_stack" name="kernel.memory_protection.protection.exec_stack" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.write_ro" name="kernel.memory_protection.protection.write_ro" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.write_text" name="kernel.memory_protection.protection.write_text" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscall_invalid_kobject" name="kernel.memory_protection.syscall_invalid_kobject" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscalls.string_nlen" name="kernel.memory_protection.syscalls.string_nlen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscalls.to_copy" name="kernel.memory_protection.syscalls.to_copy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscalls.user_string_alloc_copy" name="kernel.memory_protection.syscalls.user_string_alloc_copy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscalls.user_string_copy" name="kernel.memory_protection.syscalls.user_string_copy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.thread_has_residual_permissions" name="kernel.memory_protection.thread_has_residual_permissions" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.thread_without_kobject_permission" name="kernel.memory_protection.thread_without_kobject_permission" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.access_after_revoke" name="kernel.memory_protection.userspace.access_after_revoke" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.access_other_memdomain" name="kernel.memory_protection.userspace.access_other_memdomain" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.disable_mmu_mpu" name="kernel.memory_protection.userspace.disable_mmu_mpu" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_add_part_context_switch" name="kernel.memory_protection.userspace.domain_add_part_context_switch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_add_part_drop_to_user" name="kernel.memory_protection.userspace.domain_add_part_drop_to_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_add_thread_context_switch" name="kernel.memory_protection.userspace.domain_add_thread_context_switch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_add_thread_drop_to_user" name="kernel.memory_protection.userspace.domain_add_thread_drop_to_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_remove_part_context_switch" name="kernel.memory_protection.userspace.domain_remove_part_context_switch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_remove_part_drop_to_user" name="kernel.memory_protection.userspace.domain_remove_part_drop_to_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_remove_thread_context_switch" name="kernel.memory_protection.userspace.domain_remove_thread_context_switch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_remove_thread_drop_to_user" name="kernel.memory_protection.userspace.domain_remove_thread_drop_to_user" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.is_usermode" name="kernel.memory_protection.userspace.is_usermode" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.pass_noperms_object" name="kernel.memory_protection.userspace.pass_noperms_object" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.pass_user_object" name="kernel.memory_protection.userspace.pass_user_object" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_kernel_data" name="kernel.memory_protection.userspace.read_kernel_data" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_kernram" name="kernel.memory_protection.userspace.read_kernram" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_kobject_user_pipe" name="kernel.memory_protection.userspace.read_kobject_user_pipe" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_other_stack" name="kernel.memory_protection.userspace.read_other_stack" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_priv_stack" name="kernel.memory_protection.userspace.read_priv_stack" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.revoke_noperms_object" name="kernel.memory_protection.userspace.revoke_noperms_object" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.start_kernel_thread" name="kernel.memory_protection.userspace.start_kernel_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.user_mode_enter" name="kernel.memory_protection.userspace.user_mode_enter" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_control" name="kernel.memory_protection.userspace.write_control" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kernel_data" name="kernel.memory_protection.userspace.write_kernel_data" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kernram" name="kernel.memory_protection.userspace.write_kernram" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kernro" name="kernel.memory_protection.userspace.write_kernro" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kerntext" name="kernel.memory_protection.userspace.write_kerntext" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kobject_user_pipe" name="kernel.memory_protection.userspace.write_kobject_user_pipe" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_other_stack" name="kernel.memory_protection.userspace.write_other_stack" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="lpcxpresso54114_m4:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -885,8 +1170,6 @@
       </testcase>
       <testcase classname="lpcxpresso54114_m4:peripheral.uart.uart_poll_out" name="peripheral.uart.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="lpcxpresso54114_m4:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
-      </testcase>
       <testcase classname="lpcxpresso54114_m4:kernel.device.bogus_dynamic_name" name="kernel.device.bogus_dynamic_name" time="0">
       </testcase>
       <testcase classname="lpcxpresso54114_m4:kernel.device.build_suspend_device_list" name="kernel.device.build_suspend_device_list" time="0">
@@ -963,202 +1246,10 @@
       </testcase>
       <testcase classname="lpcxpresso54114_m4:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
       </testcase>
-      <testcase classname="lpcxpresso54114_m4:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
-      </testcase>
       <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.access_kobject_without_init_access" name="kernel.memory_protection.access_kobject_without_init_access" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.access_kobject_without_init_with_access" name="kernel.memory_protection.access_kobject_without_init_with_access" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.app_memory" name="kernel.memory_protection.app_memory" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.boot_page_table" name="kernel.memory_protection.boot_page_table" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_essential_thread_from_user" name="kernel.memory_protection.create_new_essential_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_higher_prio_thread_from_user" name="kernel.memory_protection.create_new_higher_prio_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_invalid_prio_thread_from_user" name="kernel.memory_protection.create_new_invalid_prio_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_supervisor_thread_from_user" name="kernel.memory_protection.create_new_supervisor_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_thread_from_user" name="kernel.memory_protection.create_new_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_thread_from_user_huge_stacksize" name="kernel.memory_protection.create_new_thread_from_user_huge_stacksize" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_thread_from_user_invalid_stacksize" name="kernel.memory_protection.create_new_thread_from_user_invalid_stacksize" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.create_new_thread_from_user_no_access_stack" name="kernel.memory_protection.create_new_thread_from_user_no_access_stack" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_access_all_grant" name="kernel.memory_protection.kobject_access_all_grant" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_access_grant" name="kernel.memory_protection.kobject_access_grant" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_access_grant_to_invalid_thread" name="kernel.memory_protection.kobject_access_grant_to_invalid_thread" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_access_invalid_kobject" name="kernel.memory_protection.kobject_access_invalid_kobject" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_grant_access_kobj" name="kernel.memory_protection.kobject_grant_access_kobj" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_grant_access_kobj_invalid" name="kernel.memory_protection.kobject_grant_access_kobj_invalid" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_reinitialize_thread_kobj" name="kernel.memory_protection.kobject_reinitialize_thread_kobj" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_release_from_user" name="kernel.memory_protection.kobject_release_from_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.kobject_revoke_access" name="kernel.memory_protection.kobject_revoke_access" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_add_partitions_invalid" name="kernel.memory_protection.mem_domain_add_partitions_invalid" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_add_partitions_simple" name="kernel.memory_protection.mem_domain_add_partitions_simple" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_destroy" name="kernel.memory_protection.mem_domain_destroy" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_invalid_access" name="kernel.memory_protection.mem_domain_invalid_access" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_partitions_supervisor_rw" name="kernel.memory_protection.mem_domain_partitions_supervisor_rw" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_partitions_user_ro" name="kernel.memory_protection.mem_domain_partitions_user_ro" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_partitions_user_rw" name="kernel.memory_protection.mem_domain_partitions_user_rw" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_remove_partitions" name="kernel.memory_protection.mem_domain_remove_partitions" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_remove_partitions_simple" name="kernel.memory_protection.mem_domain_remove_partitions_simple" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_remove_thread" name="kernel.memory_protection.mem_domain_remove_thread" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mem_domain_valid_access" name="kernel.memory_protection.mem_domain_valid_access" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_readable_read" name="kernel.memory_protection.mmu.buffer_readable_read" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_readable_write" name="kernel.memory_protection.mmu.buffer_readable_write" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_rw_read" name="kernel.memory_protection.mmu.buffer_rw_read" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_supervisor_rw" name="kernel.memory_protection.mmu.buffer_supervisor_rw" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_supervisor_w" name="kernel.memory_protection.mmu.buffer_supervisor_w" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_user_rw_supervisor" name="kernel.memory_protection.mmu.buffer_user_rw_supervisor" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_user_rw_user" name="kernel.memory_protection.mmu.buffer_user_rw_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.buffer_writeable_write" name="kernel.memory_protection.mmu.buffer_writeable_write" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_page_buffer_read" name="kernel.memory_protection.mmu.multi_page_buffer_read" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_page_buffer_read_user" name="kernel.memory_protection.mmu.multi_page_buffer_read_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_page_buffer_user" name="kernel.memory_protection.mmu.multi_page_buffer_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_page_buffer_write_user" name="kernel.memory_protection.mmu.multi_page_buffer_write_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_pde_buffer_readable_read" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_read" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_pde_buffer_readable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_write" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_pde_buffer_rw" name="kernel.memory_protection.mmu.multi_pde_buffer_rw" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.permission_inheritance" name="kernel.memory_protection.permission_inheritance" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.exec_data" name="kernel.memory_protection.protection.exec_data" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.exec_heap" name="kernel.memory_protection.protection.exec_heap" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.exec_stack" name="kernel.memory_protection.protection.exec_stack" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.write_ro" name="kernel.memory_protection.protection.write_ro" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.protection.write_text" name="kernel.memory_protection.protection.write_text" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscall_invalid_kobject" name="kernel.memory_protection.syscall_invalid_kobject" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscalls.string_nlen" name="kernel.memory_protection.syscalls.string_nlen" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscalls.to_copy" name="kernel.memory_protection.syscalls.to_copy" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscalls.user_string_alloc_copy" name="kernel.memory_protection.syscalls.user_string_alloc_copy" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.syscalls.user_string_copy" name="kernel.memory_protection.syscalls.user_string_copy" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.thread_has_residual_permissions" name="kernel.memory_protection.thread_has_residual_permissions" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.thread_without_kobject_permission" name="kernel.memory_protection.thread_without_kobject_permission" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.access_after_revoke" name="kernel.memory_protection.userspace.access_after_revoke" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.access_other_memdomain" name="kernel.memory_protection.userspace.access_other_memdomain" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.disable_mmu_mpu" name="kernel.memory_protection.userspace.disable_mmu_mpu" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_add_part_context_switch" name="kernel.memory_protection.userspace.domain_add_part_context_switch" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_add_part_drop_to_user" name="kernel.memory_protection.userspace.domain_add_part_drop_to_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_add_thread_context_switch" name="kernel.memory_protection.userspace.domain_add_thread_context_switch" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_add_thread_drop_to_user" name="kernel.memory_protection.userspace.domain_add_thread_drop_to_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_remove_part_context_switch" name="kernel.memory_protection.userspace.domain_remove_part_context_switch" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_remove_part_drop_to_user" name="kernel.memory_protection.userspace.domain_remove_part_drop_to_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_remove_thread_context_switch" name="kernel.memory_protection.userspace.domain_remove_thread_context_switch" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.domain_remove_thread_drop_to_user" name="kernel.memory_protection.userspace.domain_remove_thread_drop_to_user" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.is_usermode" name="kernel.memory_protection.userspace.is_usermode" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.pass_noperms_object" name="kernel.memory_protection.userspace.pass_noperms_object" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.pass_user_object" name="kernel.memory_protection.userspace.pass_user_object" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_kernel_data" name="kernel.memory_protection.userspace.read_kernel_data" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_kernram" name="kernel.memory_protection.userspace.read_kernram" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_kobject_user_pipe" name="kernel.memory_protection.userspace.read_kobject_user_pipe" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_other_stack" name="kernel.memory_protection.userspace.read_other_stack" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.read_priv_stack" name="kernel.memory_protection.userspace.read_priv_stack" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.revoke_noperms_object" name="kernel.memory_protection.userspace.revoke_noperms_object" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.start_kernel_thread" name="kernel.memory_protection.userspace.start_kernel_thread" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.user_mode_enter" name="kernel.memory_protection.userspace.user_mode_enter" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_control" name="kernel.memory_protection.userspace.write_control" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kernel_data" name="kernel.memory_protection.userspace.write_kernel_data" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kernram" name="kernel.memory_protection.userspace.write_kernram" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kernro" name="kernel.memory_protection.userspace.write_kernro" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kerntext" name="kernel.memory_protection.userspace.write_kerntext" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_kobject_user_pipe" name="kernel.memory_protection.userspace.write_kobject_user_pipe" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_other_stack" name="kernel.memory_protection.userspace.write_other_stack" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="149" errors="0" failures="0" name="tests_kernel_3" skipped="108" time="0">
+    <testsuite tests="148" errors="0" failures="0" name="tests_kernel_3" skipped="107" time="0">
       <testcase classname="lpcxpresso54114_m4:filesystem.fcb.fcb_empty_walk" name="filesystem.fcb.fcb_empty_walk" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -1468,10 +1559,7 @@
       <testcase classname="lpcxpresso54114_m4:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.fp_sharing" name="kernel.fp_sharing" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="lpcxpresso54114_m4:kernel.fp_sharing.x86" name="kernel.fp_sharing.x86" time="0">
+      <testcase classname="lpcxpresso54114_m4:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="lpcxpresso54114_m4:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">

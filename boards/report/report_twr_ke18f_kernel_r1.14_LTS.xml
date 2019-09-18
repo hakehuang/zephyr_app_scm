@@ -1,77 +1,5 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="35" errors="0" failures="0" name="tests_benchmarks" skipped="0" time="0">
-      <testcase classname="twr_ke18f:kernel.multiprocessing.coop_resched_threads" name="kernel.multiprocessing.coop_resched_threads" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.multiprocessing.preempt_resched_threads" name="kernel.multiprocessing.preempt_resched_threads" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.lock_preemptible" name="kernel.sched.lock_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.pending_thread_wakeup" name="kernel.sched.pending_thread_wakeup" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.preempt.preempt" name="kernel.sched.preempt.preempt" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.priority_cooperative" name="kernel.sched.priority_cooperative" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.priority_preemptible" name="kernel.sched.priority_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.priority_scheduling" name="kernel.sched.priority_scheduling" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.sched_is_preempt_thread" name="kernel.sched.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.sleep_cooperative" name="kernel.sched.sleep_cooperative" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.slice_reset" name="kernel.sched.slice_reset" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.slice_scheduling" name="kernel.sched.slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.time_slicing_disable_preemptible" name="kernel.sched.time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.time_slicing_preemptible" name="kernel.sched.time_slicing_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.unlock_preemptible" name="kernel.sched.unlock_preemptible" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.wakeup_expired_timer_thread" name="kernel.sched.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.sched.yield_cooperative" name="kernel.sched.yield_cooperative" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
-      </testcase>
-  </testsuite>
     <testsuite tests="200" errors="0" failures="0" name="tests_kernel" skipped="137" time="0">
       <testcase classname="twr_ke18f:kernel.memory_protection.boot_page_table" name="kernel.memory_protection.boot_page_table" time="0">
          <skipped message="Skipped" type="skipped"/>
@@ -611,7 +539,7 @@
       <testcase classname="twr_ke18f:kernel.object_tracing.obj_tracing" name="kernel.object_tracing.obj_tracing" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="277" errors="0" failures="0" name="tests_kernel_2" skipped="141" time="0">
+    <testsuite tests="275" errors="0" failures="0" name="tests_kernel_2" skipped="141" time="0">
       <testcase classname="twr_ke18f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -1037,8 +965,6 @@
       </testcase>
       <testcase classname="twr_ke18f:kernel.common.critical" name="kernel.common.critical" time="0">
       </testcase>
-      <testcase classname="twr_ke18f:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
-      </testcase>
       <testcase classname="twr_ke18f:kernel.device.bogus_dynamic_name" name="kernel.device.bogus_dynamic_name" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.device.build_suspend_device_list" name="kernel.device.build_suspend_device_list" time="0">
@@ -1112,8 +1038,6 @@
       <testcase classname="twr_ke18f:kernel.threads.threads_suspend_resume_preemptible" name="kernel.threads.threads_suspend_resume_preemptible" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
       </testcase>
@@ -1308,7 +1232,7 @@
       <testcase classname="twr_ke18f:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="149" errors="0" failures="0" name="tests_kernel_3" skipped="129" time="0">
+    <testsuite tests="148" errors="0" failures="0" name="tests_kernel_3" skipped="137" time="0">
       <testcase classname="twr_ke18f:filesystem.fcb.fcb_empty_walk" name="filesystem.fcb.fcb_empty_walk" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -1696,9 +1620,31 @@
       <testcase classname="twr_ke18f:portability.posix.posix_semaphore" name="portability.posix.posix_semaphore" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="twr_ke18f:kernel.fp_sharing" name="kernel.fp_sharing" time="0">
+      <testcase classname="twr_ke18f:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="twr_ke18f:kernel.fp_sharing.x86" name="kernel.fp_sharing.x86" time="0">
+      <testcase classname="twr_ke18f:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.multiprocessing.sleep_threads" name="kernel.multiprocessing.sleep_threads" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.sleep_cooperative" name="kernel.sched.sleep_cooperative" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.memory_slabs.mslab" name="kernel.memory_slabs.mslab" time="0">
       </testcase>
@@ -1720,21 +1666,77 @@
       </testcase>
       <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_used_get" name="kernel.memory_slabs.mslab_used_get" time="0">
       </testcase>
-      <testcase classname="twr_ke18f:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
+  </testsuite>
+    <testsuite tests="35" errors="0" failures="0" name="tests_benchmarks" skipped="0" time="0">
+      <testcase classname="twr_ke18f:kernel.multiprocessing.coop_resched_threads" name="kernel.multiprocessing.coop_resched_threads" time="0">
       </testcase>
-      <testcase classname="twr_ke18f:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
+      <testcase classname="twr_ke18f:kernel.multiprocessing.preempt_resched_threads" name="kernel.multiprocessing.preempt_resched_threads" time="0">
       </testcase>
-      <testcase classname="twr_ke18f:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+      <testcase classname="twr_ke18f:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
       </testcase>
-      <testcase classname="twr_ke18f:kernel.multiprocessing.sleep_threads" name="kernel.multiprocessing.sleep_threads" time="0">
+      <testcase classname="twr_ke18f:kernel.sched.lock_preemptible" name="kernel.sched.lock_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
       </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.pending_thread_wakeup" name="kernel.sched.pending_thread_wakeup" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.preempt.preempt" name="kernel.sched.preempt.preempt" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.priority_cooperative" name="kernel.sched.priority_cooperative" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.priority_preemptible" name="kernel.sched.priority_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.priority_scheduling" name="kernel.sched.priority_scheduling" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.sched_is_preempt_thread" name="kernel.sched.sched_is_preempt_thread" time="0">
+      </testcase>
       <testcase classname="twr_ke18f:kernel.sched.sleep_cooperative" name="kernel.sched.sleep_cooperative" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.slice_reset" name="kernel.sched.slice_reset" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.slice_scheduling" name="kernel.sched.slice_scheduling" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.time_slicing_disable_preemptible" name="kernel.sched.time_slicing_disable_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.time_slicing_preemptible" name="kernel.sched.time_slicing_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.unlock_preemptible" name="kernel.sched.unlock_preemptible" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.wakeup_expired_timer_thread" name="kernel.sched.wakeup_expired_timer_thread" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.sched.yield_cooperative" name="kernel.sched.yield_cooperative" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
       </testcase>
   </testsuite>
 </testsuites>

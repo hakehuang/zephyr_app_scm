@@ -444,7 +444,7 @@
       <testcase classname="mimxrt1015_evk:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="277" errors="0" failures="0" name="tests_kernel_2" skipped="42" time="0">
+    <testsuite tests="275" errors="0" failures="0" name="tests_kernel_2" skipped="42" time="0">
       <testcase classname="mimxrt1015_evk:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -769,8 +769,6 @@
       </testcase>
       <testcase classname="mimxrt1015_evk:peripheral.uart.uart_poll_out" name="peripheral.uart.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="mimxrt1015_evk:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
-      </testcase>
       <testcase classname="mimxrt1015_evk:kernel.device.bogus_dynamic_name" name="kernel.device.bogus_dynamic_name" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:kernel.device.build_suspend_device_list" name="kernel.device.build_suspend_device_list" time="0">
@@ -846,8 +844,6 @@
       <testcase classname="mimxrt1015_evk:kernel.threads.threads_suspend_resume_preemptible" name="kernel.threads.threads_suspend_resume_preemptible" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
       </testcase>
@@ -1042,7 +1038,7 @@
       <testcase classname="mimxrt1015_evk:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="149" errors="0" failures="0" name="tests_kernel_3" skipped="106" time="0">
+    <testsuite tests="148" errors="0" failures="0" name="tests_kernel_3" skipped="106" time="0">
       <testcase classname="mimxrt1015_evk:filesystem.fcb.fcb_empty_walk" name="filesystem.fcb.fcb_empty_walk" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -1361,9 +1357,7 @@
       <testcase classname="mimxrt1015_evk:kernel.common.misra.irq_offload" name="kernel.common.misra.irq_offload" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.fp_sharing" name="kernel.fp_sharing" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.fp_sharing.x86" name="kernel.fp_sharing.x86" time="0">
+      <testcase classname="mimxrt1015_evk:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:kernel.memory_slabs.mslab_threadsafe" name="kernel.memory_slabs.mslab_threadsafe" time="0">
       </testcase>
@@ -1520,7 +1514,298 @@
       <testcase classname="mimxrt1015_evk:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="148" errors="0" failures="0" name="tests_posix" skipped="0" time="0">
+    <testsuite tests="148" errors="0" failures="0" name="tests_posix" skipped="97" time="0">
+      <testcase classname="mimxrt1015_evk:filesystem.fat.fat_fs" name="filesystem.fat.fat_fs" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mount" name="filesystem.fs_shell.fat_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_open" name="filesystem.fs_shell.fat_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_read" name="filesystem.fs_shell.fat_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_readdir" name="filesystem.fs_shell.fat_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_rmdir" name="filesystem.fs_shell.fat_rmdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_unlink" name="filesystem.fs_shell.fat_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_write" name="filesystem.fs_shell.fat_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_help" name="filesystem.fs_shell.fs_help" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_shell_exit" name="filesystem.fs_shell.fs_shell_exit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_close" name="filesystem.multifs.fat_close" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mkdir" name="filesystem.multifs.fat_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mount" name="filesystem.multifs.fat_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_open" name="filesystem.multifs.fat_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_read" name="filesystem.multifs.fat_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_readdir" name="filesystem.multifs.fat_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_rmdir" name="filesystem.multifs.fat_rmdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_unlink" name="filesystem.multifs.fat_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_write" name="filesystem.multifs.fat_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_help" name="filesystem.multifs.fs_help" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mkdir" name="filesystem.multifs.nffs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mount" name="filesystem.multifs.nffs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_open" name="filesystem.multifs.nffs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_read" name="filesystem.multifs.nffs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_readdir" name="filesystem.multifs.nffs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_unlink" name="filesystem.multifs.nffs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_write" name="filesystem.multifs.nffs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_block" name="filesystem.nffs.basic.corrupt_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_scratch" name="filesystem.nffs.basic.corrupt_scratch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.fs_mount" name="filesystem.nffs.basic.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc" name="filesystem.nffs.basic.gc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc_on_oom" name="filesystem.nffs.basic.gc_on_oom" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.large_write" name="filesystem.nffs.basic.large_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.long_filename" name="filesystem.nffs.basic.long_filename" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.lost_found" name="filesystem.nffs.basic.lost_found" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.many_children" name="filesystem.nffs.basic.many_children" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.mkdir" name="filesystem.nffs.basic.mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.open" name="filesystem.nffs.basic.open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_many" name="filesystem.nffs.basic.overwrite_many" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_one" name="filesystem.nffs.basic.overwrite_one" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_three" name="filesystem.nffs.basic.overwrite_three" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_two" name="filesystem.nffs.basic.overwrite_two" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.read" name="filesystem.nffs.basic.read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.readdir" name="filesystem.nffs.basic.readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.rename" name="filesystem.nffs.basic.rename" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.split_file" name="filesystem.nffs.basic.split_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.unlink" name="filesystem.nffs.basic.unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.wear_level" name="filesystem.nffs.basic.wear_level" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.cache_large_file" name="filesystem.nffs.cache.cache_large_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.fs_mount" name="filesystem.nffs.cache.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.fs_mount" name="filesystem.nffs.large.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_system" name="filesystem.nffs.large.large_system" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_unlink" name="filesystem.nffs.large.large_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.fs_mount" name="filesystem.nffs.performance.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.performance" name="filesystem.nffs.performance.performance" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_commit" name="system.settings.nffs.config_commit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_compress_file" name="system.settings.nffs.config_compress_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_file" name="system.settings.nffs.config_empty_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_lookups" name="system.settings.nffs.config_empty_lookups" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_bytes" name="system.settings.nffs.config_getset_bytes" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int" name="system.settings.nffs.config_getset_int" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int64" name="system.settings.nffs.config_getset_int64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_unknown" name="system.settings.nffs.config_getset_unknown" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_insert" name="system.settings.nffs.config_insert" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_multiple_in_file" name="system.settings.nffs.config_multiple_in_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_in_file" name="system.settings.nffs.config_save_in_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_one_file" name="system.settings.nffs.config_save_one_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_setup_nffs" name="system.settings.nffs.config_setup_nffs" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_small_file" name="system.settings.nffs.config_small_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="mimxrt1015_evk:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:kernel.common.atomic" name="kernel.common.atomic" time="0">
@@ -1622,200 +1907,6 @@
       <testcase classname="mimxrt1015_evk:kernel.common.verify_bootdelay" name="kernel.common.verify_bootdelay" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:kernel.common.version" name="kernel.common.version" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fat.fat_fs" name="filesystem.fat.fat_fs" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_mount" name="filesystem.fs_shell.fat_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_open" name="filesystem.fs_shell.fat_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_read" name="filesystem.fs_shell.fat_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_readdir" name="filesystem.fs_shell.fat_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_rmdir" name="filesystem.fs_shell.fat_rmdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_unlink" name="filesystem.fs_shell.fat_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fat_write" name="filesystem.fs_shell.fat_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_help" name="filesystem.fs_shell.fs_help" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.fs_shell_exit" name="filesystem.fs_shell.fs_shell_exit" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_close" name="filesystem.multifs.fat_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mkdir" name="filesystem.multifs.fat_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_mount" name="filesystem.multifs.fat_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_open" name="filesystem.multifs.fat_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_read" name="filesystem.multifs.fat_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_readdir" name="filesystem.multifs.fat_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_rmdir" name="filesystem.multifs.fat_rmdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_unlink" name="filesystem.multifs.fat_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fat_write" name="filesystem.multifs.fat_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_help" name="filesystem.multifs.fs_help" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mkdir" name="filesystem.multifs.nffs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_mount" name="filesystem.multifs.nffs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_open" name="filesystem.multifs.nffs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_read" name="filesystem.multifs.nffs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_readdir" name="filesystem.multifs.nffs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_unlink" name="filesystem.multifs.nffs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.multifs.nffs_write" name="filesystem.multifs.nffs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_block" name="filesystem.nffs.basic.corrupt_block" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.corrupt_scratch" name="filesystem.nffs.basic.corrupt_scratch" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.fs_mount" name="filesystem.nffs.basic.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc" name="filesystem.nffs.basic.gc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.gc_on_oom" name="filesystem.nffs.basic.gc_on_oom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.large_write" name="filesystem.nffs.basic.large_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.long_filename" name="filesystem.nffs.basic.long_filename" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.lost_found" name="filesystem.nffs.basic.lost_found" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.many_children" name="filesystem.nffs.basic.many_children" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.mkdir" name="filesystem.nffs.basic.mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.open" name="filesystem.nffs.basic.open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_many" name="filesystem.nffs.basic.overwrite_many" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_one" name="filesystem.nffs.basic.overwrite_one" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_three" name="filesystem.nffs.basic.overwrite_three" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.overwrite_two" name="filesystem.nffs.basic.overwrite_two" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.read" name="filesystem.nffs.basic.read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.readdir" name="filesystem.nffs.basic.readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.rename" name="filesystem.nffs.basic.rename" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.split_file" name="filesystem.nffs.basic.split_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.unlink" name="filesystem.nffs.basic.unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.basic.wear_level" name="filesystem.nffs.basic.wear_level" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.cache_large_file" name="filesystem.nffs.cache.cache_large_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.cache.fs_mount" name="filesystem.nffs.cache.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.fs_mount" name="filesystem.nffs.large.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_system" name="filesystem.nffs.large.large_system" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.large.large_unlink" name="filesystem.nffs.large.large_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.fs_mount" name="filesystem.nffs.performance.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:filesystem.nffs.performance.performance" name="filesystem.nffs.performance.performance" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_commit" name="system.settings.nffs.config_commit" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_compress_file" name="system.settings.nffs.config_compress_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_file" name="system.settings.nffs.config_empty_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_empty_lookups" name="system.settings.nffs.config_empty_lookups" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_bytes" name="system.settings.nffs.config_getset_bytes" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int" name="system.settings.nffs.config_getset_int" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_int64" name="system.settings.nffs.config_getset_int64" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_getset_unknown" name="system.settings.nffs.config_getset_unknown" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_insert" name="system.settings.nffs.config_insert" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_multiple_in_file" name="system.settings.nffs.config_multiple_in_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_in_file" name="system.settings.nffs.config_save_in_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_save_one_file" name="system.settings.nffs.config_save_one_file" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_setup_nffs" name="system.settings.nffs.config_setup_nffs" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:system.settings.nffs.config_small_file" name="system.settings.nffs.config_small_file" time="0">
       </testcase>
   </testsuite>
 </testsuites>

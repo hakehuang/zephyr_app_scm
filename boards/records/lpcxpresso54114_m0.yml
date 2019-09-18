@@ -200,7 +200,9 @@ cases:
   posix.fs: #code size
   kernel.errno:
     result: skip
-  kernel.fp_sharing:
+  kernel.fp_sharing.float_disable:
+    result: skip
+  kernel.fp_sharing.generic:
     result: skip
   kernel.init:
     result: skip

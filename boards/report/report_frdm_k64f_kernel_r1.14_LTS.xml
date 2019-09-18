@@ -444,7 +444,7 @@
       <testcase classname="frdm_k64f:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="277" errors="0" failures="0" name="tests_kernel_2" skipped="7" time="0">
+    <testsuite tests="275" errors="0" failures="0" name="tests_kernel_2" skipped="7" time="0">
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -664,8 +664,6 @@
       </testcase>
       <testcase classname="frdm_k64f:peripheral.uart.uart_poll_out" name="peripheral.uart.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:kernel.device.bogus_dynamic_name" name="kernel.device.bogus_dynamic_name" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.device.build_suspend_device_list" name="kernel.device.build_suspend_device_list" time="0">
@@ -741,8 +739,6 @@
       <testcase classname="frdm_k64f:kernel.threads.threads_suspend_resume_preemptible" name="kernel.threads.threads_suspend_resume_preemptible" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
       </testcase>
@@ -1007,7 +1003,7 @@
       <testcase classname="frdm_k64f:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="149" errors="0" failures="0" name="tests_kernel_3" skipped="94" time="0">
+    <testsuite tests="148" errors="0" failures="0" name="tests_kernel_3" skipped="94" time="0">
       <testcase classname="frdm_k64f:filesystem.fcb.fcb_empty_walk" name="filesystem.fcb.fcb_empty_walk" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -1290,9 +1286,7 @@
       <testcase classname="frdm_k64f:kernel.memory_slabs.mslab_threadsafe" name="kernel.memory_slabs.mslab_threadsafe" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_k64f:kernel.fp_sharing" name="kernel.fp_sharing" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fp_sharing.x86" name="kernel.fp_sharing.x86" time="0">
+      <testcase classname="frdm_k64f:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.memory_slabs.mslab" name="kernel.memory_slabs.mslab" time="0">
       </testcase>
