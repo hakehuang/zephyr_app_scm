@@ -1003,7 +1003,7 @@
       <testcase classname="frdm_k82f:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="148" errors="0" failures="0" name="tests_kernel_3" skipped="94" time="0">
+    <testsuite tests="148" errors="0" failures="0" name="tests_kernel_3" skipped="107" time="0">
       <testcase classname="frdm_k82f:filesystem.fcb.fcb_empty_walk" name="filesystem.fcb.fcb_empty_walk" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -1286,6 +1286,45 @@
       <testcase classname="frdm_k82f:kernel.memory_slabs.mslab_threadsafe" name="kernel.memory_slabs.mslab_threadsafe" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
+      <testcase classname="frdm_k82f:kernel.tickless.tickless" name="kernel.tickless.tickless" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.tickless.tickless_slice" name="kernel.tickless.tickless_slice" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.tickless.tickless_sysclock" name="kernel.tickless.tickless_sysclock" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="frdm_k82f:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
       </testcase>
       <testcase classname="frdm_k82f:kernel.memory_slabs.mslab" name="kernel.memory_slabs.mslab" time="0">
@@ -1351,32 +1390,6 @@
       <testcase classname="frdm_k82f:portability.posix.newlib.posix_semaphore" name="portability.posix.newlib.posix_semaphore" time="0">
       </testcase>
       <testcase classname="frdm_k82f:portability.posix.posix_semaphore" name="portability.posix.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.tickless.tickless" name="kernel.tickless.tickless" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.tickless.tickless_slice" name="kernel.tickless.tickless_slice" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.tickless.tickless_sysclock" name="kernel.tickless.tickless_sysclock" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
       </testcase>
       <testcase classname="frdm_k82f:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
       </testcase>

@@ -396,6 +396,9 @@ cases:
   drivers.dma.loop_transfer:
     result: skip
     attribute: required
+  kernel.tickless.tickless:
+    result: skip
+    attribute: required
   sensor.fxos8700-hid:
     path: samples/sensor/fxos8700-hid
     catelog: samples_sensor
