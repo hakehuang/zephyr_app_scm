@@ -100,6 +100,7 @@ def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: 
   @content["cases"].keys().each do |key|
     key_words = ["mode", "attribute"]
     next if key_words.include?(key)
+    next if @content["cases"][key].nil?
     catelog = @content["cases"][key]['catelog']
 
     if pipe_data[:catalog][catelog].nil?

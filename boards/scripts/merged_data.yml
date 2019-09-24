@@ -309,7 +309,7 @@ cases:
     catelog: samples_net
     attribute: required
   net.echo_server:
-    overlay: overlay-frdm_k82f_mcr20a.conf
+    result: skip
     attribute: required
   net.http_client:
     result: skip
@@ -399,6 +399,17 @@ cases:
   kernel.tickless.tickless:
     result: skip
     attribute: required
+  drivers.adc.adc_api:
+    result: skip
+    attribute: required
+  drivers.pci_enum:
+    result: skip
+    attribute: required
+  sensor.amg88xx:
+    result: skip
+    path: samples/sensor/amg88xx
+    catelog: samples_sensor
+    attribute: required
   sensor.fxos8700-hid:
     path: samples/sensor/fxos8700-hid
     catelog: samples_sensor
@@ -421,10 +432,6 @@ cases:
     attribute: required
   sensor.grove_temperature:
     path: samples/sensor/grove_temperature
-    catelog: samples_sensor
-    attribute: required
-  sensor.amg88xx:
-    path: samples/sensor/amg88xx
     catelog: samples_sensor
     attribute: required
   sensor.tmp112:
