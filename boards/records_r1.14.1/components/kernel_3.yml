@@ -1,0 +1,48 @@
+cases:
+  __hierarchy__:
+    catelog: tests_kernel
+  kernel.mbox.mbox_usage:
+    path: "tests/kernel/mbox/mbox_usage"
+  kernel.mbox.mbox_api:
+    path: "tests/kernel/mbox/mbox_api/"
+  kernel.fp_sharing:
+    path: "tests/kernel/fp_sharing"
+  kernel.gen_isr_table:
+    path: "tests/kernel/gen_isr_table"
+  kernel.mem_slab.mslab_threadsafe:
+    path: "tests/kernel/mem_slab/mslab_threadsafe"
+  kernel.mem_slab.mslab_concept:
+    path: "tests/kernel/mem_slab/mslab_concept/"
+  kernel.mem_slab.mslab_api:
+    path: "tests/kernel/mem_slab/mslab_api/"
+  kernel.mem_slab.mslab:
+    path: "tests/kernel/mem_slab/mslab"
+  kernel.semaphore.sema_api:
+    path: "tests/kernel/semaphore/sema_api"
+  kernel.semaphore.semaphore:
+    path: "tests/kernel/semaphore/semaphore"
+  kernel.timer.timer_monotonic:
+    path: "tests/kernel/timer/timer_monotonic"
+  kernel.timer.timer_api:
+    path: "tests/kernel/timer/timer_api"
+  kernel.msgq.msgq_api:
+    path: "tests/kernel/msgq/msgq_api/"
+  kernel.workq.work_queue:
+    path: "tests/kernel/workq/work_queue/"
+  kernel.workq.work_queue_api:
+    path: "tests/kernel/workq/work_queue_api/"
+  kernel.mutex.mutex_api:
+    path: "tests/kernel/mutex/mutex_api"
+  # kernel.mutex.mutex:
+  #   path: "tests/kernel/mutex/mutex/"
+  kernel.irq_offload:
+    path: "tests/kernel/irq_offload"
+  kernel.tickless.tickless_concept:
+    path: "tests/kernel/tickless/tickless_concept/"
+  kernel.tickless.tickless:
+    path: "tests/kernel/tickless/tickless"
+  kernel.sleep:
+    path: "tests/kernel/sleep"
+  kernel.mp:
+    path: "tests/kernel/mp/"
+    report: skip

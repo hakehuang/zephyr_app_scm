@@ -1,24 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="129" errors="0" failures="0" name="tests_drivers" skipped="128" time="0">
-      <testcase classname="frdm_kl25z:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
+    <testsuite tests="151" errors="0" failures="0" name="tests_drivers" skipped="149" time="0">
       <testcase classname="frdm_kl25z:filesystem.fcb.fcb_append" name="filesystem.fcb.fcb_append" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -367,6 +349,81 @@
       <testcase classname="frdm_kl25z:shell.app_handler" name="shell.app_handler" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
+      <testcase classname="frdm_kl25z:peripheral.dma.dma_m2m_chan0_burst16" name="peripheral.dma.dma_m2m_chan0_burst16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.dma.dma_m2m_chan0_burst8" name="peripheral.dma.dma_m2m_chan0_burst8" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.dma.dma_m2m_chan1_burst16" name="peripheral.dma.dma_m2m_chan1_burst16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.dma.dma_m2m_chan1_burst8" name="peripheral.dma.dma_m2m_chan1_burst8" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.dma.interactive.dma_m2m_chan0_burst16" name="peripheral.dma.interactive.dma_m2m_chan0_burst16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.dma.interactive.dma_m2m_chan0_burst8" name="peripheral.dma.interactive.dma_m2m_chan0_burst8" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.dma.interactive.dma_m2m_chan1_burst16" name="peripheral.dma.interactive.dma_m2m_chan1_burst16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.dma.interactive.dma_m2m_chan1_burst8" name="peripheral.dma.interactive.dma_m2m_chan1_burst8" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.i2s_rx_empty_timeout" name="peripheral.i2s.i2s_rx_empty_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.i2s_rx_sync_start" name="peripheral.i2s.i2s_rx_sync_start" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.i2s_rx_transfer_configure_0" name="peripheral.i2s.i2s_rx_transfer_configure_0" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.i2s_transfer_long" name="peripheral.i2s.i2s_transfer_long" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.i2s_transfer_restart" name="peripheral.i2s.i2s_transfer_restart" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.i2s_transfer_rx_overrun" name="peripheral.i2s.i2s_transfer_rx_overrun" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.i2s_transfer_short" name="peripheral.i2s.i2s_transfer_short" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.i2s_transfer_tx_underrun" name="peripheral.i2s.i2s_transfer_tx_underrun" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.i2s_tx_transfer_configure_0" name="peripheral.i2s.i2s_tx_transfer_configure_0" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.speed.i2s_rx_transfer_configure" name="peripheral.i2s.speed.i2s_rx_transfer_configure" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.speed.i2s_transfer_long" name="peripheral.i2s.speed.i2s_transfer_long" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.speed.i2s_transfer_short" name="peripheral.i2s.speed.i2s_transfer_short" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2s.speed.i2s_tx_transfer_configure" name="peripheral.i2s.speed.i2s_tx_transfer_configure" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -385,10 +442,27 @@
       <testcase classname="frdm_kl25z:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
+      <testcase classname="frdm_kl25z:peripheral.pwm.pwm_cycle" name="peripheral.pwm.pwm_cycle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.pwm.pwm_usec" name="peripheral.pwm.pwm_usec" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="frdm_kl25z:peripheral.pci.pci_enumerate" name="peripheral.pci.pci_enumerate" time="0">
       </testcase>
+      <testcase classname="frdm_kl25z:peripheral.aio.aio_callback_fall" name="peripheral.aio.aio_callback_fall" time="0">
+      </testcase>
   </testsuite>
-    <testsuite tests="91" errors="0" failures="0" name="tests_subsys" skipped="69" time="0">
+    <testsuite tests="195" errors="0" failures="0" name="tests_subsys" skipped="171" time="0">
+      <testcase classname="frdm_kl25z:usb.device.dfu.bank_erase" name="usb.device.dfu.bank_erase" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:usb.device.dfu.request_upgrade" name="usb.device.dfu.request_upgrade" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:usb.device.dfu.write_confirm" name="usb.device.dfu.write_confirm" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="frdm_kl25z:filesystem.fcb.fcb_append" name="filesystem.fcb.fcb_append" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -468,6 +542,60 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:system.settings.fcb.init" name="system.settings.fcb.init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fat_close" name="filesystem.multifs.fat_close" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fat_mkdir" name="filesystem.multifs.fat_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fat_mount" name="filesystem.multifs.fat_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fat_open" name="filesystem.multifs.fat_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fat_read" name="filesystem.multifs.fat_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fat_readdir" name="filesystem.multifs.fat_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fat_rmdir" name="filesystem.multifs.fat_rmdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fat_unlink" name="filesystem.multifs.fat_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fat_write" name="filesystem.multifs.fat_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fs_help" name="filesystem.multifs.fs_help" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_mkdir" name="filesystem.multifs.nffs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_mount" name="filesystem.multifs.nffs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_open" name="filesystem.multifs.nffs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_read" name="filesystem.multifs.nffs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_readdir" name="filesystem.multifs.nffs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_unlink" name="filesystem.multifs.nffs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_write" name="filesystem.multifs.nffs_write" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
@@ -572,19 +700,262 @@
       <testcase classname="frdm_kl25z:net.ipv6.fragment.send_ipv6_fragment_large_hbho" name="net.ipv6.fragment.send_ipv6_fragment_large_hbho" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_append" name="filesystem.fcb.fcb_append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_append_fill" name="filesystem.fcb.fcb_append_fill" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_append_too_big" name="filesystem.fcb.fcb_append_too_big" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_empty_walk" name="filesystem.fcb.fcb_empty_walk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_init" name="filesystem.fcb.fcb_init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_last_of_n" name="filesystem.fcb.fcb_last_of_n" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_len" name="filesystem.fcb.fcb_len" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_multi_scratch" name="filesystem.fcb.fcb_multi_scratch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_reset" name="filesystem.fcb.fcb_reset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fcb.fcb_rotate" name="filesystem.fcb.fcb_rotate" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_commit" name="system.settings.fcb.config_commit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_compress_deleted" name="system.settings.fcb.config_compress_deleted" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_compress_reset" name="system.settings.fcb.config_compress_reset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_empty_fcb" name="system.settings.fcb.config_empty_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_empty_lookups" name="system.settings.fcb.config_empty_lookups" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_getset_bytes" name="system.settings.fcb.config_getset_bytes" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_getset_int" name="system.settings.fcb.config_getset_int" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_getset_int64" name="system.settings.fcb.config_getset_int64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_getset_unknown" name="system.settings.fcb.config_getset_unknown" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_insert" name="system.settings.fcb.config_insert" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_insert2" name="system.settings.fcb.config_insert2" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_insert3" name="system.settings.fcb.config_insert3" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_save_1_fcb" name="system.settings.fcb.config_save_1_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_save_2_fcb" name="system.settings.fcb.config_save_2_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_save_3_fcb" name="system.settings.fcb.config_save_3_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.config_save_one_fcb" name="system.settings.fcb.config_save_one_fcb" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.fcb.init" name="system.settings.fcb.init" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_mkdir" name="filesystem.multifs.nffs_mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_mount" name="filesystem.multifs.nffs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_open" name="filesystem.multifs.nffs_open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_read" name="filesystem.multifs.nffs_read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_readdir" name="filesystem.multifs.nffs_readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_unlink" name="filesystem.multifs.nffs_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.nffs_write" name="filesystem.multifs.nffs_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.corrupt_block" name="filesystem.nffs.basic.corrupt_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.corrupt_scratch" name="filesystem.nffs.basic.corrupt_scratch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.fs_mount" name="filesystem.nffs.basic.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.gc" name="filesystem.nffs.basic.gc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.gc_on_oom" name="filesystem.nffs.basic.gc_on_oom" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.large_write" name="filesystem.nffs.basic.large_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.long_filename" name="filesystem.nffs.basic.long_filename" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.lost_found" name="filesystem.nffs.basic.lost_found" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.many_children" name="filesystem.nffs.basic.many_children" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.mkdir" name="filesystem.nffs.basic.mkdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.open" name="filesystem.nffs.basic.open" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.overwrite_many" name="filesystem.nffs.basic.overwrite_many" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.overwrite_one" name="filesystem.nffs.basic.overwrite_one" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.overwrite_three" name="filesystem.nffs.basic.overwrite_three" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.overwrite_two" name="filesystem.nffs.basic.overwrite_two" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.read" name="filesystem.nffs.basic.read" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.readdir" name="filesystem.nffs.basic.readdir" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.rename" name="filesystem.nffs.basic.rename" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.split_file" name="filesystem.nffs.basic.split_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.unlink" name="filesystem.nffs.basic.unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.basic.wear_level" name="filesystem.nffs.basic.wear_level" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.cache.cache_large_file" name="filesystem.nffs.cache.cache_large_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.cache.fs_mount" name="filesystem.nffs.cache.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.large.fs_mount" name="filesystem.nffs.large.fs_mount" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.large.large_system" name="filesystem.nffs.large.large_system" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.large.large_unlink" name="filesystem.nffs.large.large_unlink" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="frdm_kl25z:filesystem.nffs.performance.fs_mount" name="filesystem.nffs.performance.fs_mount" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:filesystem.nffs.performance.performance" name="filesystem.nffs.performance.performance" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_kl25z:libraries.encoding.base64_codec" name="libraries.encoding.base64_codec" time="0">
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_commit" name="system.settings.nffs.config_commit" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_kl25z:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_compress_file" name="system.settings.nffs.config_compress_file" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_kl25z:libraries.encoding.base64_codec" name="libraries.encoding.base64_codec" time="0">
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_empty_file" name="system.settings.nffs.config_empty_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_empty_lookups" name="system.settings.nffs.config_empty_lookups" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_getset_bytes" name="system.settings.nffs.config_getset_bytes" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_getset_int" name="system.settings.nffs.config_getset_int" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_getset_int64" name="system.settings.nffs.config_getset_int64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_getset_unknown" name="system.settings.nffs.config_getset_unknown" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_insert" name="system.settings.nffs.config_insert" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_multiple_in_file" name="system.settings.nffs.config_multiple_in_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_save_in_file" name="system.settings.nffs.config_save_in_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_save_one_file" name="system.settings.nffs.config_save_one_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_setup_nffs" name="system.settings.nffs.config_setup_nffs" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:system.settings.nffs.config_small_file" name="system.settings.nffs.config_small_file" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
@@ -623,6 +994,10 @@
       <testcase classname="frdm_kl25z:logging.log_msg.log_hexdump_msg" name="logging.log_msg.log_hexdump_msg" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:logging.log_msg.log_std_msg" name="logging.log_msg.log_std_msg" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.performance.fs_mount" name="filesystem.nffs.performance.fs_mount" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.nffs.performance.performance" name="filesystem.nffs.performance.performance" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
       </testcase>

@@ -1,0 +1,284 @@
+
+__load__:
+  - components/benchmarks.yml
+#  - components/crypto.yml
+#  - components/coverage.yml
+  - components/kernel_3.yml
+  - components/kernel_2.yml
+  - components/kernel.yml
+#  - components/lib.yml
+#  - components/net.yml
+  - components/posix.yml
+  - components/samples.yml
+#  - components/sample_basic.yml
+#  - components/sample_net.yml
+#  - components/sample_subsys.yml
+#  - components/shell.yml
+#  - components/subsys.yml
+#  - components/unit.yml
+#  - components/drivers/drivers.yml
+
+settings:
+  build_script: build_zephyr_elf.sh
+  run_script: run_zephyr_elf_rt1015.sh
+  case_pipe_name: mimxrt1015_evk_kernel
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"
+  #__remove__:
+  peripheral.aio:
+    result: skip
+  drivers.aio.app:
+    result: skip
+  peripheral.dma.dma_m2m:
+    result: skip
+  drivers.gpio.gpio_basic_api:
+    result: skip
+  peripheral.i2c:
+    result: skip
+  peripheral.i2c_slave:
+    result: skip
+  peripheral.i2c_slave.common:
+    result: skip
+  peripheral.i2s:
+    result: skip
+  drivers.i2s.i2s_speed:
+    result: skip
+  drivers.pinmux.pinmux_basic_api:
+    result: skip
+  drivers.rtc.rtc_basic_api:
+    result: skip
+  drivers.spi.spi_loopback:
+    result: skip
+  usb.device.dfu:
+    result: skip
+  subsys.fs.fat_fs_api:
+    result: skip
+  subsys.fs.fat_fs_dual_drive:
+    result: skip
+  subsys.fs.fcb:
+    result: skip
+  filesystem.multifs:
+    result: skip
+  filesystem.nffs.basic:
+    result: skip
+  filesystem.nffs.cache:
+    result: skip
+  filesystem.nffs.large:
+    result: skip
+  subsys.fs.nffs_fs_api.performance:
+    result: skip
+  system.settings.fcb:
+    result: skip
+  subsys.settings.fcb.raw:
+    result: skip
+  system.settings.nffs:
+    result: skip
+  subsys.settings.nffs.raw:
+    result: skip
+  sample.blink_led:
+    result: skip
+  basic.fade_led:
+    result: skip
+  basic.rgb_led:
+    result: skip
+  basic.servo_motor:
+    result: skip
+  application_development.code_relocation:
+    result: skip
+  kernel.boot_page_table:
+    result: skip
+  kernel.mem_protect.x86_mmu_api:
+    result: skip
+  kernel.mp:
+    result: skip
+  kernel.multiprocessing:
+    result: skip
+  kernel.spinlock:
+    result: skip
+  kernel.static_idt:
+    result: skip
+  kernel.tickless.tickless:
+    result: skip
+  net.eth_native_posix:
+    result: skip
+  net.sockets.big_http_download:
+    result: skip
+  net.sockets.coap_server:
+    result: skip
+  net.wpan_serial:
+    result: skip
+  net.wpanusb:
+    result: skip
+  net.all:
+    result: skip
+  net.context:
+    result: skip
+  net.ieee802154.crypto:
+    result: skip
+  net.lib.tls_credentials:
+    result: skip
+  net.socket.getaddrinfo:
+    result: skip
+  net.socket.tcp:
+    result: skip
+  unit.bluetooth.at:
+    result: skip
+  unit.lib.crc:
+    result: skip
+  subsys.ipc.ipm_imx:
+    result: skip
+  subsys.ipc.ipm_mailbox.ap:
+    result: skip
+  subsys.ipc.ipm_mailbox.sensor:
+    result: skip
+  subsys.ipc.ipm_mcux:
+    result: skip
+  subsys.ipc.ipm_mcux.remote:
+    result: skip
+  subsys.ipc.openamp:
+    result: skip
+  subsys.ipc.openamp.remote:
+    result: skip
+  subsys.mgmt.mcumgr.smp_svr:
+    result: skip
+  subsys.power.power_mgr:
+    result: skip
+  coverage:
+    result: skip
+  sensor.adxl372:
+    result: skip
+  sensor.adt7420:
+    result: skip
+  sensor.apds9960:
+    result: skip
+  sensor.bme280:
+    result: skip
+  sensor.bmi160:
+    result: skip
+  sensor.ccs811:
+    result: skip
+  sensor.fxas21002:
+    result: skip
+  sensor.hts221:
+    result: skip
+  sensor.lsm303dlhc:
+    result: skip
+  sensor.max30101:
+    result: skip
+  sensor.ms5837:
+    result: skip
+  sensor.sht3xd:
+    result: skip
+  sensor.sx9500:
+    result: skip
+  sensor.vl53l0x:
+    result: skip
+  userspace.shared_mem:
+    result: skip
+  drivers.adc.adc_api:
+    result: skip
+  drivers.dma.loop_transfer:
+    result: skip
+  peripheral.pwm:
+    result: skip
+  drivers.watchdog.wdt_basic_api:
+    result: skip
+  subsys.dfu.img_util:
+    result: skip
+  subsys.settings.fcb_init:
+    result: skip
+  subsys.storage.flash_map:
+    result: skip
+  subsys.usb.bos:
+    result: skip
+  subsys.usb.os_desc:
+    result: skip
+  subsys.logging.log_core:
+    result: skip
+  subsys.logging.logger:
+    result: skip
+  subsys.nvs:
+    result: skip
+  subsys.usb.cdc_acm:
+    result: skip
+  subsys.usb.console:
+    result: skip
+  subsys.usb.dfu:
+    result: skip
+  subsys.usb.hid:
+    result: skip
+  subsys.usb.hid-mouse:
+    result: skip
+  subsys.usb.webusb:
+    result: skip
+  net.coap_client:
+    result: skip
+  net.coap_server:
+    result: skip
+  net.echo_client:
+    result: skip
+  net.echo_server:
+    result: skip
+  net.http_client:
+    result: skip
+  net.http_server:
+    result: skip
+  net.irc_bot:
+    result: skip
+  net.leds_demo:
+    result: skip
+  net.sntp_client:
+    result: skip
+  net.throughput_server:
+    result: skip
+  net.traffic_class:
+    result: skip
+  net.ws_console:
+    result: skip
+  net.ws_echo_server:
+    result: skip
+  net.sockets.echo_server:
+    result: skip
+  net.syslog_net:
+    result: skip
+  net.zperf:
+    result: skip
+  basic.disco:
+    result: skip
+  basic.threads:
+    result: skip
+  benchmarks.app_kernel:
+    result: skip
+  kernel.mem_protect.mem_protect:
+    result: skip
+  kernel.mem_protect.obj_validation:
+    result: skip
+  kernel.mem_protect.syscalls:
+    result: skip
+  kernel.mem_protect.userspace:
+    result: skip
+  kernel.workq.work_queue:
+    result: skip
+  kernel.mem_protect.syscalls:
+    result: skip
+  kernel.mem_protect.userspace:
+    result: skip
+  kernel.errno:
+    result: skip
+  kernel.init:
+    result: skip
+  kernel.irq_offload:
+    result: skip
+  kernel.mem_protect.app_memory:
+    result: skip
+  kernel.threads.dynamic_thread:
+    result: skip
+  kernel.mem_protect.stack_random:
+    result: skip
+  kernel.fatal:
+    result: skip
+  kernel.gen_isr_table:
+    result: skip
