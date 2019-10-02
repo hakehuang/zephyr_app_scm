@@ -444,7 +444,7 @@
       <testcase classname="frdm_k82f:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
       </testcase>
   </testsuite>
-    <testsuite tests="275" errors="0" failures="0" name="tests_kernel_2" skipped="3" time="0">
+    <testsuite tests="274" errors="0" failures="0" name="tests_kernel_2" skipped="4" time="0">
       <testcase classname="frdm_k82f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -452,6 +452,9 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_k82f:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_k82f:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
@@ -794,8 +797,6 @@
       </testcase>
       <testcase classname="frdm_k82f:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
       </testcase>
-      <testcase classname="frdm_k82f:kernel.memory_protection.app_memory" name="kernel.memory_protection.app_memory" time="0">
-      </testcase>
       <testcase classname="frdm_k82f:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
       </testcase>
       <testcase classname="frdm_k82f:kernel.memory_protection.syscalls.string_nlen" name="kernel.memory_protection.syscalls.string_nlen" time="0">
@@ -805,8 +806,6 @@
       <testcase classname="frdm_k82f:kernel.memory_protection.syscalls.user_string_alloc_copy" name="kernel.memory_protection.syscalls.user_string_alloc_copy" time="0">
       </testcase>
       <testcase classname="frdm_k82f:kernel.memory_protection.syscalls.user_string_copy" name="kernel.memory_protection.syscalls.user_string_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
       </testcase>
       <testcase classname="frdm_k82f:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
       </testcase>
