@@ -16,6 +16,7 @@ __load__:
   ## - components/unit.yml
   - components/drivers/drivers.yml
 
+
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf_kw41.sh
@@ -25,22 +26,23 @@ cases:
   attribute: "required"
   __common__:
     attribute: "required"
-  #__remove__:
-  peripheral.aio:
+  drivers.aio.api:
     result: skip
   drivers.aio.app:
     result: skip
-  peripheral.dma.dma_m2m:
+  drivers.aon_counter.aon_api:
+    result: skip
+  drivers.dma.chan_blen_transfer:
     result: skip
   drivers.gpio.gpio_basic_api:
     result: skip
-  peripheral.i2c:
+  drivers.i2c.i2c_api:
     result: skip
-  peripheral.i2c_slave:
+  drivers.i2c.i2c_slave_api:
     result: skip
-  peripheral.i2c_slave.common:
+  drivers.i2c.i2c_slave_api.common:
     result: skip
-  peripheral.i2s:
+  drivers.i2s.i2s_api:
     result: skip
   drivers.i2s.i2s_speed:
     result: skip
@@ -50,7 +52,7 @@ cases:
     result: skip
   drivers.spi.spi_loopback:
     result: skip
-  usb.device.dfu:
+  subsys.dfu.mcuboot:
     result: skip
   subsys.fs.fat_fs_api:
     result: skip
@@ -58,25 +60,25 @@ cases:
     result: skip
   subsys.fs.fcb:
     result: skip
-  filesystem.multifs:
+  subsys.fs.multi-fs:
     result: skip
-  filesystem.nffs.basic:
+  subsys.fs.nffs_fs_api.basic:
     result: skip
-  filesystem.nffs.cache:
+  subsys.fs.nffs_fs_api.cache:
     result: skip
-  filesystem.nffs.large:
+  subsys.fs.nffs_fs_api.large:
     result: skip
   subsys.fs.nffs_fs_api.performance:
     result: skip
-  system.settings.fcb:
+  subsys.settings.fcb.base64:
     result: skip
   subsys.settings.fcb.raw:
     result: skip
-  system.settings.nffs:
+  subsys.settings.nffs.base64:
     result: skip
   subsys.settings.nffs.raw:
     result: skip
-  sample.blink_led:
+  basic.blink_led:
     result: skip
   basic.fade_led:
     result: skip
@@ -92,7 +94,7 @@ cases:
     result: skip
   kernel.mp:
     result: skip
-  kernel.multiprocessing:
+  kernel.smp:
     result: skip
   kernel.spinlock:
     result: skip
@@ -175,7 +177,6 @@ cases:
   sensor.vl53l0x:
     result: skip
 #R1.14_RC1 special
-    result: skip
   net.coap_client:
     result: skip
   net.coap_server:
@@ -240,7 +241,7 @@ cases:
     result: skip
   kernel.fatal:
     result: skip
-  kernel.fp_sharing:
+  kernel.fp_sharing.generic:
     result: skip
   kernel.gen_isr_table:
     result: skip
@@ -264,7 +265,7 @@ cases:
     result: skip
   drivers.watchdog.wdt_basic_api: #no watchdog
     result: skip
-  peripheral.pwm: #no pwd driver
+  drivers.pwm.pwm_api: #no pwd driver
     result: skip
   drivers.dma.loop_transfer: #no dma driver
     result: skip
@@ -284,3 +285,18 @@ cases:
     result: skip
   subsys.usb.mass: #not support
     result: skip
+  subsys.usb.testusb:
+    result: skip
+
+
+
+
+
+
+
+  
+
+
+
+
+

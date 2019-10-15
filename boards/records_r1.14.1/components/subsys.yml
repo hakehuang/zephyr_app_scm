@@ -3,21 +3,20 @@ cases:
     catelog: tests_subsys
   subsys.storage.flash_map:
     path: "tests/subsys/storage/flash_map"
+#    overlay: "overlay-mpu.conf"
   subsys.dfu.img_util:
     path: "tests/subsys/dfu/img_util"
-  usb.device.dfu:
+  subsys.dfu.mcuboot:
     path: "tests/subsys/dfu/mcuboot"
   subsys.settings.fcb_init:
     path: "tests/subsys/settings/fcb_init"
   subsys.settings.nffs.raw:
     path: "tests/subsys/settings/nffs/raw"
-    report: skip
-  system.settings.nffs:
+  subsys.settings.nffs.base64:
     path: "tests/subsys/settings/nffs/base64"
   subsys.settings.fcb.raw:
     path: "tests/subsys/settings/fcb/raw"
-    report: skip
-  system.settings.fcb:
+  subsys.settings.fcb.base64:
     path: "tests/subsys/settings/fcb/base64"
   subsys.logging.log_core:
     path: "tests/subsys/logging/log_core"
@@ -25,17 +24,17 @@ cases:
     path: "tests/subsys/logging/log_list"
   subsys.logging.log_msg:
     path: "tests/subsys/logging/log_msg"
-  filesystem.nffs.cache:
+  subsys.fs.nffs_fs_api.cache:
     path: "tests/subsys/fs/nffs_fs_api/cache"
-  filesystem.nffs.performance:
+  subsys.fs.nffs_fs_api.performance:
     path: "tests/subsys/fs/nffs_fs_api/performance"
-  filesystem.nffs.basic:
+  subsys.fs.nffs_fs_api.basic:
     path: "tests/subsys/fs/nffs_fs_api/basic"
-  filesystem.nffs.large:
+  subsys.fs.nffs_fs_api.large:
     path: "tests/subsys/fs/nffs_fs_api/large"
   subsys.fs.fat_fs_api:
     path: "tests/subsys/fs/fat_fs_api"
-  filesystem.multifs:
+  subsys.fs.multi-fs:
     path: "tests/subsys/fs/multi-fs"
   subsys.fs.fat_fs_dual_drive:
     path: "tests/subsys/fs/fat_fs_dual_drive"

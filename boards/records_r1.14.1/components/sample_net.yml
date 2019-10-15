@@ -1,20 +1,16 @@
 cases:
   __hierarchy__:
     catelog: samples_net
-    report: 'skip'
   net.throughput_server:
     path: "samples/net/throughput_server"
-    report: 'skip'
   net.irc_bot:
     path: "samples/net/irc_bot"
-    report: 'skip'
   net.ws_echo_server:
     path: "samples/net/ws_echo_server"
   net.http_server:
     path: "samples/net/http_server"
   net.leds_demo:
     path: "samples/net/leds_demo"
-    report: 'skip'
   net.lwm2m_client:
     path: "samples/net/lwm2m_client"
   net.traffic_class:
@@ -33,9 +29,8 @@ cases:
     path: "samples/net/mdns_responder"
   net.dhcpv4_client:
     path: "samples/net/dhcpv4_client"
-  net.echo_server:
-    path: "samples/net/echo_server"
-    report: 'skip'
+  # net.echo_server:
+  #   path: "samples/net/echo_server"
   net.promiscuous_mode:
     path: "samples/net/promiscuous_mode"
   net.ipv4_autoconf:
@@ -44,15 +39,12 @@ cases:
     path: "samples/net/mqtt_publisher"
   net.ws_console:
     path: "samples/net/ws_console"
-    report: 'skip'
   net.coap_client:
     path: "samples/net/coap_client"
   net.wpan_serial:
     path: "samples/net/wpan_serial"
-    report: 'skip'
   net.sntp_client:
     path: "samples/net/sntp_client"
-    report: 'skip'
   net.telnet:
     path: "samples/net/telnet"
   net.stats:
@@ -61,14 +53,12 @@ cases:
     path: "samples/net/http_client"
   net.wpanusb:
     path: "samples/net/wpanusb"
-    report: 'skip'
   net.syslog_net:
     path: "samples/net/syslog_net"
   net.eth_native_posix:
     path: "samples/net/eth_native_posix"
   net.echo_client:
     path: "samples/net/echo_client"
-    report: 'skip'
   net.wifi:
     path: "samples/net/wifi"
   net.nats:
@@ -81,7 +71,6 @@ cases:
     path: "samples/net/sockets/echo_server"
   net.sockets.big_http_download:
     path: "samples/net/sockets/big_http_download"
-    report: 'skip'
   net.sockets.coap_client:
     path: "samples/net/sockets/coap_client"
   net.sockets.dumb_http_server:

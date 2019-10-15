@@ -1,17 +1,20 @@
 
 cases:
   __hierarchy__:
-    catelog: tests_kernel
+    catelog: tests_kernel_2
   kernel.stack.stack_usage:
     path: "tests/kernel/stack/stack_usage/"
   kernel.stack.stack_api:
     path: "tests/kernel/stack/stack_api/"
-  kernel.fifo.timeout:
+  kernel.fifo.fifo_timeout:
     path: "tests/kernel/fifo/fifo_timeout/"
   kernel.fifo.fifo_usage:
     path: "tests/kernel/fifo/fifo_usage"
-  kernel.fifo.fifo_api:
-    path: "tests/kernel/fifo/fifo_api/"
+  #kernel.fifo.fifo_api:
+  #  path: "tests/kernel/fifo/fifo_api/"
+  #kernel.fifo.fifo_api_poll:
+  #  path: "tests/kernel/fifo/fifo_api/"
+  #  config: prj_poll.conf
   kernel.mem_heap.mheap_api_concept:
     path: "tests/kernel/mem_heap/mheap_api_concept/"
   kernel.common:
@@ -20,8 +23,8 @@ cases:
     path: "tests/kernel/critical/"
   kernel.poll:
     path: "tests/kernel/poll/"
-  kernel.arm_irq_vector_table:
-    path: "tests/kernel/arm_irq_vector_table/"
+#  kernel.arm_irq_vector_table:
+#    path: "tests/kernel/arm_irq_vector_table/"
   kernel.fatal:
     path: "tests/kernel/fatal/"
   kernel.lifo.lifo_api:
@@ -54,14 +57,14 @@ cases:
     path: "tests/kernel/sched/deadline/"
   kernel.sched.schedule_api:
     path: "tests/kernel/sched/schedule_api/"
-  kernel.arm_runtime_nmi:
-    path: "tests/kernel/arm_runtime_nmi/"
+#  kernel.arm_runtime_nmi:
+#    path: "tests/kernel/arm_runtime_nmi/"
   kernel.mem_protect.stack_random:
     path: "tests/kernel/mem_protect/stack_random/"
   kernel.mem_protect.userspace:
     path: "tests/kernel/mem_protect/userspace/"
-  kernel.mem_protect.app_memory:
-    path: "tests/kernel/mem_protect/app_memory/"
+  # kernel.mem_protect.app_memory:
+  #   path: "tests/kernel/mem_protect/app_memory/"
   kernel.mem_protect.obj_validation:
     path: "tests/kernel/mem_protect/obj_validation/"
   kernel.mem_protect.mem_protect:

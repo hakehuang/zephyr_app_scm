@@ -1,19 +1,14 @@
 
 __load__:
-  # - components/benchmarks.yml
-  # - components/crypto.yml
-  # - components/coverage.yml
-  # - components/kernel.yml
-  # - components/kernel_2.yml
-  # - components/kernel_3.yml
-  # - components/lib.yml
-  # - components/net.yml
-  # - components/posix.yml
-   - components/samples.yml
-   - components/sample_basic.yml
-   - components/sample_net.yml
-   - components/sample_subsys.yml
-   - components/sample_sensor.yml
+   - components/benchmarks.yml
+   - components/crypto.yml
+   - components/coverage.yml
+  ## - components/kernel.yml
+  ## - components/kernel_2.yml
+  ## - components/kernel_3.yml
+   - components/lib.yml
+   - components/net.yml
+   - components/posix.yml
    - components/shell.yml
    - components/subsys.yml
    - components/unit.yml
@@ -29,18 +24,23 @@ cases:
   attribute: "required"
   __common__:
     attribute: "required"
-  #__remove__:
-  peripheral.aio:
+  drivers.aio.api:
     result: skip
   drivers.aio.app:
     result: skip
-  peripheral.dma.dma_m2m:
+  drivers.aon_counter.aon_api:
+    result: skip
+  drivers.dma.chan_blen_transfer:
     result: skip
   drivers.gpio.gpio_basic_api:
     result: skip
-  peripheral.i2c:
+  drivers.i2c.i2c_api:
     result: skip
-  peripheral.i2s:
+  drivers.i2c.i2c_slave_api:
+    result: skip
+  drivers.i2c.i2c_slave_api.common:
+    result: skip
+  drivers.i2s.i2s_api:
     result: skip
   drivers.i2s.i2s_speed:
     result: skip
@@ -50,7 +50,7 @@ cases:
     result: skip
   drivers.spi.spi_loopback:
     result: skip
-  usb.device.dfu:
+  subsys.dfu.mcuboot:
     result: skip
   subsys.fs.fat_fs_api:
     result: skip
@@ -58,25 +58,25 @@ cases:
     result: skip
   subsys.fs.fcb:
     result: skip
-  filesystem.multifs:
+  subsys.fs.multi-fs:
     result: skip
-  filesystem.nffs.basic:
+  subsys.fs.nffs_fs_api.basic:
     result: skip
-  filesystem.nffs.cache:
+  subsys.fs.nffs_fs_api.cache:
     result: skip
-  filesystem.nffs.large:
+  subsys.fs.nffs_fs_api.large:
     result: skip
   subsys.fs.nffs_fs_api.performance:
     result: skip
-  system.settings.fcb:
+  subsys.settings.fcb.base64:
     result: skip
   subsys.settings.fcb.raw:
     result: skip
-  system.settings.nffs:
+  subsys.settings.nffs.base64:
     result: skip
   subsys.settings.nffs.raw:
     result: skip
-  sample.blink_led:
+  basic.blink_led:
     result: skip
   basic.fade_led:
     result: skip
@@ -92,7 +92,7 @@ cases:
     result: skip
   kernel.mp:
     result: skip
-  kernel.multiprocessing:
+  kernel.smp:
     result: skip
   kernel.spinlock:
     result: skip
@@ -180,7 +180,7 @@ cases:
   net.echo_client:
     result: skip
   net.echo_server:
-    result: skip
+    overlay: overlay-frdm_k64f_mcr20a.conf
   net.http_client:
     result: skip
   net.http_server:
@@ -205,8 +205,6 @@ cases:
     result: skip
   net.websocket:
     result: skip
-  #net.tcp:
-    result: skip
   lib.mem_alloc:
     result: skip
   kernel.errno:
@@ -217,11 +215,13 @@ cases:
     result: skip
   kernel.mem_slab.mslab_threadsafe:
     result: skip
-  peripheral.pwm:
+  drivers.pwm.pwm_api:
     result: skip
   subsys.usb.mass:
     result: skip
   net.promiscuous_mode:
+    result: skip
+  drivers.dma.loop_transfer:
     result: skip
 
 

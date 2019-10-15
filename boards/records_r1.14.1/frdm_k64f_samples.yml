@@ -1,33 +1,21 @@
 
 __load__:
-  - components/benchmarks.yml
-#  - components/crypto.yml
-#  - components/coverage.yml
-  - components/kernel_3.yml
-  - components/kernel_2.yml
-  - components/kernel.yml
-#  - components/lib.yml
-#  - components/net.yml
-  - components/posix.yml
-  - components/samples.yml
-#  - components/sample_basic.yml
-#  - components/sample_net.yml
-#  - components/sample_subsys.yml
-#  - components/shell.yml
-#  - components/subsys.yml
-#  - components/unit.yml
-#  - components/drivers/drivers.yml
+   - components/samples.yml
+   - components/sample_basic.yml
+   - components/sample_net.yml
+   - components/sample_subsys.yml
+   - components/sample_sensor.yml
+
 
 settings:
   build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_elf_rt1015.sh
-  case_pipe_name: mimxrt1015_evk_kernel
+  run_script: run_zephyr_elf.sh
+  case_pipe_name: frdm_k64f_samples
 
 cases:
   attribute: "required"
   __common__:
     attribute: "required"
-
   drivers.aio.api:
     result: skip
   drivers.aio.app:
@@ -101,8 +89,6 @@ cases:
   kernel.spinlock:
     result: skip
   kernel.static_idt:
-    result: skip
-  kernel.tickless.tickless:
     result: skip
   net.eth_native_posix:
     result: skip
@@ -178,44 +164,7 @@ cases:
     result: skip
   sensor.vl53l0x:
     result: skip
-  userspace.shared_mem:
-    result: skip
-  drivers.adc.adc_api:
-    result: skip
-  drivers.dma.loop_transfer:
-    result: skip
-  drivers.pwm.pwm_api:
-    result: skip
-  drivers.watchdog.wdt_basic_api:
-    result: skip
-  subsys.dfu.img_util:
-    result: skip
-  subsys.settings.fcb_init:
-    result: skip
-  subsys.storage.flash_map:
-    result: skip
-  subsys.usb.bos:
-    result: skip
-  subsys.usb.os_desc:
-    result: skip
-  subsys.logging.log_core:
-    result: skip
-  subsys.logging.logger:
-    result: skip
-  subsys.nvs:
-    result: skip
-  subsys.usb.cdc_acm:
-    result: skip
-  subsys.usb.console:
-    result: skip
-  subsys.usb.dfu:
-    result: skip
-  subsys.usb.hid:
-    result: skip
-  subsys.usb.hid-mouse:
-    result: skip
-  subsys.usb.webusb:
-    result: skip
+#R1.14_RC1 special
   net.coap_client:
     result: skip
   net.coap_server:
@@ -223,7 +172,7 @@ cases:
   net.echo_client:
     result: skip
   net.echo_server:
-    result: skip
+    overlay: overlay-frdm_k64f_mcr20a.conf
   net.http_client:
     result: skip
   net.http_server:
@@ -242,31 +191,13 @@ cases:
     result: skip
   net.ws_echo_server:
     result: skip
-  net.sockets.echo_server:
+  net.app:
     result: skip
-  net.syslog_net:
+  net.lib.coap_sock:
     result: skip
-  net.zperf:
+  net.websocket:
     result: skip
-  basic.disco:
-    result: skip
-  basic.threads:
-    result: skip
-  benchmarks.app_kernel:
-    result: skip
-  kernel.mem_protect.mem_protect:
-    result: skip
-  kernel.mem_protect.obj_validation:
-    result: skip
-  kernel.mem_protect.syscalls:
-    result: skip
-  kernel.mem_protect.userspace:
-    result: skip
-  kernel.workq.work_queue:
-    result: skip
-  kernel.mem_protect.syscalls:
-    result: skip
-  kernel.mem_protect.userspace:
+  lib.mem_alloc:
     result: skip
   kernel.errno:
     result: skip
@@ -274,19 +205,27 @@ cases:
     result: skip
   kernel.irq_offload:
     result: skip
-  kernel.mem_protect.app_memory:
+  kernel.mem_slab.mslab_threadsafe:
     result: skip
-  kernel.threads.dynamic_thread:
+  drivers.pwm.pwm_api:
     result: skip
-  kernel.mem_protect.stack_random:
+  subsys.usb.mass:
     result: skip
-  kernel.fatal:
+  net.promiscuous_mode:
     result: skip
-  kernel.gen_isr_table:
+  drivers.dma.loop_transfer:
     result: skip
-  subsys.usb.testusb:
-    result: skip
-  posix.fs:
-    result: skip
-  kernel.sched.schedule_api:
-    result: skip
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
