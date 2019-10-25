@@ -1,0 +1,11 @@
+---
+cases:
+  sample.synchronization:
+    path: samples/testing/integration
+    catalog: kernel synchronization
+  sample.synchronization.openocd:
+    path: samples/testing/integration
+    catalog: kernel synchronization
+    extra_configs:
+    - CONFIG_OPENOCD_SUPPORT=y
+    arch_exclude: posix xtensa x86_64

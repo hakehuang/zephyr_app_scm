@@ -1,0 +1,16 @@
+---
+cases:
+  sample.cpp_syncronisation:
+    path: samples/cpp_synchronization
+    catalog: cpp
+    arch_exclude: posix
+  misc.app_dev.cpp:
+    path: tests/application_development/cpp
+    catalog: cpp
+    arch_exclude: posix
+    build_only: true
+  misc.app_dev.libcxx:
+    path: tests/application_development/libcxx
+    catalog: cpp
+    arch_exclude: posix
+    platform_exclude: qemu_x86_coverage qemu_x86_64

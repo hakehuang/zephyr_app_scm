@@ -22,8 +22,8 @@ pipeline {
         stage('${item[0]}') {
           steps {
             echo 'Test ${item[0]}'
-            <?rb if ! item[2].nil? ?>
-              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board} ${item[2]}'''
+            <?rb if item[2] ?>
+              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board} ${item[2..-1].join(' ')}'''
             <?rb else ?>
               sh 'docker exec ${@docker} ${@build_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
             <?rb end ?>

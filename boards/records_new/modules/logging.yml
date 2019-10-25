@@ -1,0 +1,12 @@
+---
+cases:
+  samples.logger:
+    path: samples/subsys/logging/logger
+    catalog: logging
+    platform_exclude: qemu_x86_64
+  samples.logger.rtt:
+    path: samples/subsys/logging/logger
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_RTT=y
+    - CONFIG_USE_SEGGER_RTT=y

@@ -1,0 +1,10 @@
+---
+cases:
+  sample.bluetooth.hci_uart.arm:
+    path: samples/bluetooth/hci_uart
+    catalog: uart bluetooth
+    platform_whitelist: 96b_nitrogen nrf51_pca10028 nrf52_pca10040 bbc_microbit
+  sample.bluetooth.hci_uart.nrf5:
+    path: samples/bluetooth/hci_uart
+    catalog: uart bluetooth
+    platform_whitelist: 96b_nitrogen nrf51_pca10028 nrf52_pca10040

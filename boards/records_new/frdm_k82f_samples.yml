@@ -1,0 +1,34 @@
+
+__load__:
+  - components/samples.yml
+  - components/sample_basic.yml
+  - components/sample_net.yml
+  - components/sample_subsys.yml
+  - components/sample_sensor.yml
+  - skips/frdm_k82f.yml
+
+
+settings:
+  build_script: build_zephyr_elf.sh
+  run_script: run_elf_frdmk82f.sh
+  case_pipe_name: frdm_k82f_samples
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+

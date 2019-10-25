@@ -1,0 +1,9 @@
+---
+cases:
+  peripheral.entropy:
+    path: tests/drivers/entropy/api
+    catalog: driver
+  peripheral.device_id:
+    path: tests/drivers/hwinfo/api
+    catalog: driver
+    depends_on: hwinfo

@@ -1,0 +1,11 @@
+---
+cases:
+  sample.subsys.fs:
+    path: samples/subsys/fs
+    catalog: filesystem
+    build_only: true
+    platform_whitelist: nrf52840_blip olimexino_stm32
+  filesystem.fat:
+    path: tests/subsys/fs/fat_fs_dual_drive
+    catalog: filesystem
+    platform_whitelist: qemu_x86

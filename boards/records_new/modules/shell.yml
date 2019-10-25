@@ -1,0 +1,17 @@
+---
+cases:
+  sample.subsys.shell.shell_module:
+    path: samples/subsys/shell/shell_module
+    catalog: shell
+    min_ram: 40
+  sample.subsys.shell.shell_module.minimal:
+    path: samples/subsys/shell/shell_module
+    catalog: shell
+  sample.subsys.shell.shell_module.minimal_rtt:
+    path: samples/subsys/shell/shell_module
+    catalog: shell
+  shell:
+    path: tests/shell
+    catalog: shell
+    min_flash: 64
+    min_ram: 32

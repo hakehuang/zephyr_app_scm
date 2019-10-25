@@ -1,0 +1,10 @@
+---
+cases:
+  sample.board.reel_board.mesh_badge:
+    path: samples/boards/reel_board/mesh_badge
+    catalog: samples sensor
+    platform_whitelist: reel_board
+  sample.sensor.lsm303dlhc:
+    path: samples/sensor/lsm303dlhc
+    catalog: samples sensor
+    depends_on: i2c lsm303dlhc

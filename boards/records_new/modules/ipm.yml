@@ -1,0 +1,19 @@
+---
+cases:
+  sample.subsys.ipc.ipm_mailbox.ap:
+    path: samples/subsys/ipc/ipm_mailbox/ap
+    catalog: ipm
+    platform_whitelist: quark_se_c1000_devboard
+  sample.subsys.ipc.ipm_mailbox.sensor:
+    path: samples/subsys/ipc/ipm_mailbox/sensor
+    catalog: ipm
+    platform_whitelist: quark_se_c1000_ss_devboard
+  sample.subsys.ipc.ipm_mcux:
+    path: samples/subsys/ipc/ipm_mcux/remote
+    catalog: ipm
+    platform_whitelist: lpcxpresso54114_m4
+  sample.subsys.ipc.openamp:
+    path: samples/subsys/ipc/openamp/remote
+    catalog: ipm
+    build_only: true
+    platform_whitelist: lpcxpresso54114_m4

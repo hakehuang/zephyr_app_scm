@@ -1,0 +1,7 @@
+---
+cases:
+  logging.log_core:
+    path: tests/subsys/logging/log_core
+    catalog: log_core logging
+    platform_exclude: nucleo_l053r8 nucleo_f030r8 quark_d2000_crb stm32f0_disco native_posix
+      nrf52_bsim

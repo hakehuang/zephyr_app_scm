@@ -1,0 +1,67 @@
+---
+cases:
+  sample.display.grove_display:
+    path: samples/display/grove_display
+    catalog: drivers
+    depends_on: i2c
+  sample.driver.counter.alarm:
+    path: samples/drivers/counter/alarm
+    catalog: drivers
+    platform_whitelist: nucleo_f746zg
+    depends_on: counter
+  sample.driver.gpio:
+    path: samples/drivers/gpio
+    catalog: drivers
+    depends_on: gpio
+  sample.driver.i2c_fujitsu_fram:
+    path: samples/drivers/i2c_fujitsu_fram
+    catalog: drivers
+    platform_whitelist: arduino_101_sss quark_d2000_crb arduino_due
+    depends_on: i2c
+  sample.driver.i2c_scanner:
+    path: samples/drivers/i2c_scanner
+    catalog: drivers
+    platform_whitelist: nrf52840_blip nrf51_ble400
+    depends_on: i2c
+  sample.driver.rtc:
+    path: samples/drivers/rtc
+    catalog: drivers
+    depends_on: rtc
+  sample.driver.watchdog:
+    path: samples/drivers/watchdog
+    catalog: drivers
+    depends_on: watchdog
+  peripheral.counter:
+    path: tests/drivers/counter/counter_basic_api
+    catalog: drivers
+    depends_on: counter
+    min_ram: 16
+    platform_exclude: nucleo_f302r8
+  peripheral.pinmux:
+    path: tests/drivers/pinmux/pinmux_basic_api
+    catalog: drivers
+    platform_whitelist: quark_se_c1000_devboard quark_d2000_crb
+    depends_on: pinmux
+  peripheral.rtc:
+    path: tests/drivers/rtc/rtc_basic_api
+    catalog: drivers
+    depends_on: rtc
+  peripheral.uart_async_api:
+    path: tests/drivers/uart/uart_async_api
+    catalog: drivers
+  peripheral.uart:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+  peripheral.uart.poll:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+  peripheral.uart.shell:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    min_flash: 64

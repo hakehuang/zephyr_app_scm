@@ -1,0 +1,12 @@
+---
+cases:
+  sample.shields.x_nucleo_iks01a1:
+    path: samples/shields/x_nucleo_iks01a1
+    catalog: shield
+    platform_exclude: disco_l475_iot1
+    depends_on: arduino_i2c
+  sample.shields.x_nucleo_iks01a2:
+    path: samples/shields/x_nucleo_iks01a2
+    catalog: shield
+    platform_exclude: disco_l475_iot1
+    depends_on: arduino_i2c

@@ -1,0 +1,10 @@
+---
+cases:
+  sample.blinky:
+    path: samples/basic/blinky
+    catalog: LED gpio
+    depends_on: gpio
+  sample.disco:
+    path: samples/basic/disco
+    catalog: LED gpio
+    depends_on: gpio

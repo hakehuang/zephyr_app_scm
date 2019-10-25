@@ -1,0 +1,6 @@
+---
+cases:
+  arch.interrupt:
+    path: tests/kernel/static_idt
+    catalog: ignore_faults interrupt idt
+    arch_whitelist: x86

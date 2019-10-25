@@ -1,0 +1,9 @@
+---
+cases:
+  sample.net.dns_resolve.mdns:
+    path: samples/net/dns_resolve
+    catalog: mdns
+    extra_configs:
+    - CONFIG_MDNS_RESOLVER=y
+    - CONFIG_LLMNR_RESOLVER=n
+    - CONFIG_NET_DHCPV4=y

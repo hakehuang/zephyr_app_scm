@@ -1,0 +1,7 @@
+---
+cases:
+  peripheral.watchdog:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: drivers watchdog
+    depends_on: watchdog
+    platform_exclude: quark_d2000_crb

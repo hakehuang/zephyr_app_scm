@@ -1,0 +1,23 @@
+---
+cases:
+  boards.native_posix:
+    path: tests/booting/stub
+    catalog: unknown
+    arch_whitelist: posix
+  test_clock:
+    path: tests/drivers/build_all
+    catalog: unknown
+    extra_configs:
+    - CONFIG_CLOCK_CONTROL=y
+    build_only: true
+    platform_whitelist: arduino_101
+  test_build_gpio:
+    path: tests/drivers/build_all
+    catalog: unknown
+    build_only: true
+    min_ram: 32
+    depends_on: gpio
+  kernel.multiprocessing:
+    path: tests/kernel/spinlock
+    catalog: unknown
+    platform_whitelist: esp32

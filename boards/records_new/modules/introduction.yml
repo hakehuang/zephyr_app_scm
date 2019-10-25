@@ -1,0 +1,36 @@
+---
+cases:
+  sample.helloworld:
+    path: samples/hello_world
+    catalog: introduction
+  sample.philosopher.tracing:
+    path: samples/philosophers
+    catalog: introduction
+    extra_configs:
+    - CONFIG_SEGGER_SYSTEMVIEW=y
+    min_ram: 32
+  sample.philosopher.static:
+    path: samples/philosophers
+    catalog: introduction
+  sample.philosopher.stacks:
+    path: samples/philosophers
+    catalog: introduction
+  sample.philosopher.fifos:
+    path: samples/philosophers
+    catalog: introduction
+  sample.philosopher.lifos:
+    path: samples/philosophers
+    catalog: introduction
+  sample.philosopher.preempt_only:
+    path: samples/philosophers
+    catalog: introduction
+    extra_configs:
+    - CONFIG_NUM_PREEMPT_PRIORITIES=6
+    - CONFIG_NUM_COOP_PRIORITIES=0
+    - CONFIG_BT=n
+  sample.philosopher.coop_only:
+    path: samples/philosophers
+    catalog: introduction
+    extra_configs:
+    - CONFIG_NUM_PREEMPT_PRIORITIES=0
+    - CONFIG_NUM_COOP_PRIORITIES=6

@@ -1,0 +1,16 @@
+---
+cases:
+  sample.driver.crypto.mbedtls:
+    path: samples/drivers/crypto
+    catalog: crypto
+    min_flash: 34
+  sample.driver.crypto.mbedtls.micro:
+    path: samples/drivers/crypto
+    catalog: crypto
+  sample.driver.entropy:
+    path: samples/drivers/entropy
+    catalog: crypto
+  benchmark.mbedtls:
+    path: tests/benchmarks/mbedtls
+    catalog: crypto
+    platform_whitelist: qemu_x86 frdm_k64f sam_e70_xplained nrf52840_pca10056

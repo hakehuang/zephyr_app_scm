@@ -1,0 +1,47 @@
+---
+cases:
+  sample.net.eth_native_posix:
+    path: samples/net/eth_native_posix
+    catalog: net
+    platform_whitelist: native_posix
+  sample.net.sockets.echo_server.e1000:
+    path: samples/net/sockets/echo_server
+    catalog: net
+    platform_whitelist: qemu_x86
+  sample.net.sockets.echo_server.stellaris:
+    path: samples/net/sockets/echo_server
+    catalog: net
+    platform_whitelist: qemu_cortex_m3
+  sample.net.sockets.echo_server.smsc911x:
+    path: samples/net/sockets/echo_server
+    catalog: net
+    platform_whitelist: mps2_an385
+  sample.net.sockets.sntp_client:
+    path: samples/net/sockets/sntp_client
+    catalog: net
+    platform_whitelist: qemu_x86
+  net.build:
+    path: tests/net/all
+    catalog: net
+    build_only: true
+    min_ram: 32
+  net.coap:
+    path: tests/net/lib/coap
+    catalog: net
+    min_ram: 16
+    depends_on: netif
+  net.packet:
+    path: tests/net/net_pkt
+    catalog: net
+    min_ram: 20
+  net.udp:
+    path: tests/net/udp
+    catalog: net
+    min_ram: 20
+  net.util:
+    path: tests/net/utils
+    catalog: net
+    min_ram: 24
+  can.frame:
+    path: tests/subsys/can/frame
+    catalog: net

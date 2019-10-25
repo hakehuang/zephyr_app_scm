@@ -1,0 +1,37 @@
+---
+cases:
+  benchmark.application:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    arch_whitelist: x86 arm
+    min_flash: 34
+    min_ram: 32
+  benchmark.application.posix:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    arch_whitelist: posix
+    min_ram: 32
+  benchmark.boot_time:
+    path: tests/benchmarks/boot_time
+    catalog: benchmark
+    arch_whitelist: x86 arm posix
+  benchmark.latency:
+    path: tests/benchmarks/latency_measure
+    catalog: benchmark
+    arch_whitelist: x86 arm posix
+  benchmark.scheduler:
+    path: tests/benchmarks/sched
+    catalog: benchmark
+  benchmark.kernel:
+    path: tests/benchmarks/sys_kernel
+    catalog: benchmark
+    arch_exclude: nios2 riscv32 xtensa x86_64
+    min_ram: 32
+  benchmark.timing.default_kernel:
+    path: tests/benchmarks/timing_info
+    catalog: benchmark
+    arch_exclude: posix
+  benchmark.timing.userspace:
+    path: tests/benchmarks/timing_info
+    catalog: benchmark
+    arch_whitelist: x86 arm arc

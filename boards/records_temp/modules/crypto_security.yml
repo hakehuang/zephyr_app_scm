@@ -1,0 +1,14 @@
+---
+cases:
+  crypto.rand32:
+    path: tests/crypto/rand32
+    catalog: crypto security
+    min_ram: 16
+  crypto.rand32.random_sw_systimer:
+    path: tests/crypto/rand32
+    catalog: crypto security
+    min_ram: 16
+  crypto.rand32.random_hw_xoroshiro:
+    path: tests/crypto/rand32
+    catalog: crypto security
+    min_ram: 16

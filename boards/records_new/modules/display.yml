@@ -1,0 +1,36 @@
+---
+cases:
+  sample.board.bbc_microbit.display:
+    path: samples/boards/bbc_microbit/display
+    catalog: display
+    platform_whitelist: bbc_microbit
+  sample.display.cfb.ssd1306:
+    path: samples/display/cfb
+    catalog: display
+    platform_whitelist: frdm_k64f
+  sample.display.cfb.ssd1673:
+    path: samples/display/cfb
+    catalog: display
+    platform_whitelist: reel_board
+  sample.display.cfb_custom_font.ssd1673:
+    path: samples/display/cfb_custom_font
+    catalog: display
+    platform_whitelist: reel_board
+  sample.display.cfb_shell.ssd1306:
+    path: samples/display/cfb_shell
+    catalog: display
+    platform_whitelist: frdm_k64f
+  sample.display.cfb_shell.ssd1673:
+    path: samples/display/cfb_shell
+    catalog: display
+    platform_whitelist: reel_board
+  sample.display.ili9340:
+    path: samples/display/ili9340
+    catalog: display
+    build_only: true
+    platform_whitelist: nucleo_l476rg
+  sample.driver.lcd_hd44780:
+    path: samples/drivers/lcd_hd44780
+    catalog: display
+    platform_whitelist: arduino_due
+    depends_on: gpio

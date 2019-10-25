@@ -77,6 +77,11 @@ def create_pipefile_from_commandline(data)
     if @content["cases"][key].has_key?("overlay")
       options_array.insert(-1, "-DOVERLAY_CONFIG=#{@content["cases"][key]['overlay']}")
     end
+    if @content["cases"][key].has_key?("extra_configs")
+      @content["cases"][key]["extra_configs"].each do |conf|
+        options_array.insert(-1, "-D#{conf}")
+      end
+    end
     case_array.insert(-1, options_array.join(" "))
     pipe_data[:catalog][catelog]['cases'].insert(-1, case_array)
   end
@@ -110,6 +115,11 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     end
     if @content["cases"][key].has_key?("overlay")
       options_array.insert(-1, "-DOVERLAY_CONFIG=#{@content["cases"][key]['overlay']}")
+    end
+    if @content["cases"][key].has_key?("extra_configs")
+      @content["cases"][key]["extra_configs"].each do |conf|
+        options_array.insert(-1, "-D#{conf}")
+      end
     end
     case_array.insert(-1, options_array.join(" "))
     pipe_data[:catalog][catelog]['cases'].insert(-1, case_array)

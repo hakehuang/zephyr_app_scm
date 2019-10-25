@@ -1,0 +1,7 @@
+---
+cases:
+  usb.device.image_util:
+    path: tests/subsys/dfu/img_util
+    catalog: dfu_image_util
+    depends_on: usb_device
+    platform_whitelist: nrf52840_pca10056

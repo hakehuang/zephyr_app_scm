@@ -1,0 +1,10 @@
+---
+cases:
+  filesystem.multifs:
+    path: tests/subsys/fs/multi-fs
+    catalog: nffs fatfs filesystem
+    platform_whitelist: qemu_x86
+  filesystem.fs_shell:
+    path: tests/subsys/fs/multi-fs
+    catalog: nffs fatfs filesystem
+    platform_whitelist: qemu_x86

@@ -1,0 +1,6 @@
+---
+cases:
+  libraries.libc.minimal:
+    path: tests/lib/mem_alloc
+    catalog: clib minimal_libc userspace
+    arch_exclude: posix

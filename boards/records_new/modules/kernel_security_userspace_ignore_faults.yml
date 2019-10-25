@@ -1,0 +1,9 @@
+---
+cases:
+  kernel.memory_protection.syscalls:
+    path: tests/kernel/mem_protect/syscalls
+    catalog: kernel security userspace ignore_faults
+  kernel.memory_protection.userspace:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    min_ram: 32

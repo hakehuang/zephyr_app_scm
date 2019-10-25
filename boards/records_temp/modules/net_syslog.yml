@@ -1,0 +1,12 @@
+---
+cases:
+  sample.net.syslog.with_timefuncs:
+    path: samples/net/syslog_net
+    catalog: net syslog
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+  sample.net.syslog.without_timefuncs:
+    path: samples/net/syslog_net
+    catalog: net syslog
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n

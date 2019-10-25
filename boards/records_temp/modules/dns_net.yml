@@ -1,0 +1,10 @@
+---
+cases:
+  net.dns:
+    path: tests/net/lib/dns_resolve
+    catalog: dns net
+    min_ram: 21
+  net.dns.no_ipv6:
+    path: tests/net/lib/dns_resolve
+    catalog: dns net
+    min_ram: 16

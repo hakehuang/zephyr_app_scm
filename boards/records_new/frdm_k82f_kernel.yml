@@ -1,0 +1,38 @@
+
+__load__:
+  #- components/benchmarks.yml
+  #- components/crypto.yml
+  #- components/coverage.yml
+  - components/kernel.yml
+  - components/kernel_2.yml
+  - components/kernel_3.yml
+  #- components/lib.yml
+  #- components/net.yml
+  #- components/posix.yml
+   # - components/samples.yml
+   # - components/sample_basic.yml
+   # - components/sample_net.yml
+   # - components/sample_subsys.yml
+   # - components/sample_sensor.yml
+   # - components/shell.yml
+   # - components/subsys.yml
+   # - components/unit.yml
+   # - components/drivers/drivers.yml
+  - skips/frdm_k82f.yml
+
+
+settings:
+  build_script: build_zephyr_elf.sh
+  run_script: run_elf_frdmk82f.sh
+  case_pipe_name: frdm_k82f_kernel
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"
+
+
+
+
+
+

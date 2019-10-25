@@ -1,0 +1,48 @@
+---
+cases:
+  kernel.lifo.usage:
+    path: tests/kernel/lifo/lifo_usage
+    catalog: kernel userspace
+    min_ram: 32
+    platform_exclude: m2gl025_miv
+  kernel.message_queue:
+    path: tests/kernel/msgq/msgq_api
+    catalog: kernel userspace
+  kernel.mutex:
+    path: tests/kernel/mutex/mutex_api
+    catalog: kernel userspace
+  sys.mutex:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel userspace
+  kernel.pipe:
+    path: tests/kernel/pipe/pipe_api
+    catalog: kernel userspace
+  kernel.poll:
+    path: tests/kernel/poll
+    catalog: kernel userspace
+    min_ram: 16
+    platform_exclude: nrf52810_pca10040
+  kernel.queue:
+    path: tests/kernel/queue
+    catalog: kernel userspace
+  kernel.queue.poll:
+    path: tests/kernel/queue
+    catalog: kernel userspace
+  kernel.semaphore:
+    path: tests/kernel/semaphore/semaphore
+    catalog: kernel userspace
+    min_ram: 32
+  kernel.stack:
+    path: tests/kernel/stack/stack_api
+    catalog: kernel userspace
+  kernel.stack.usage:
+    path: tests/kernel/stack/stack_usage
+    catalog: kernel userspace
+  kernel.timer.tickless:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel userspace
+    build_only: true
+    arch_exclude: riscv32 nios2 posix
+  kernel.workqueue:
+    path: tests/kernel/workq/work_queue_api
+    catalog: kernel userspace
