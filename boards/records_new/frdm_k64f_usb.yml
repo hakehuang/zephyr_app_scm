@@ -1,0 +1,19 @@
+
+__load__:
+  - modules/usb_osdesc.yml
+  - modules/usb_net_zperf.yml
+  - modules/usb_desc_sections.yml
+  - modules/usb_bos.yml
+  - modules/usb_bluetooth.yml
+  - modules/usb.yml
+  - skips/frdm_k64f.yml
+  - boards/frdm_k64f.yml
+
+
+settings:
+  case_pipe_name: frdm_k64f_usb
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"

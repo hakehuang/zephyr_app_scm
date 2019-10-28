@@ -50,11 +50,14 @@ __load__:
   - modules/net_arp.yml
   - modules/net_6loWPAN.yml
   - modules/net.yml
+  - modules/samples_sensor.yml
+  - modules/samples_ipm.yml
+  - modules/samples_display_gui.yml
+  - modules/Full_stack_sample.yml
   - skips/frdm_k64f.yml
+  - boards/frdm_k64f.yml
 
 settings:
-  build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_elf.sh
   case_pipe_name: frdm_k64f_samples
 
 cases:

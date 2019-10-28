@@ -71,7 +71,7 @@ module ZEPHER_FILTER
   module_function :neural_list
 
   def get_board_name(instr)
-    instr.gsub("_samples", "").gsub("_kernel", "")
+    instr.gsub("_samples", "").gsub("_kernel", "").gsub("_usb", "").gsub("_drivers", "")
   end
   module_function :get_board_name
 

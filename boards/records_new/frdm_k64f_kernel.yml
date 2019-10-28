@@ -13,11 +13,10 @@ __load__:
   - modules/kernel_ignore_faults_userspace.yml
   - modules/kernel.yml
   - skips/frdm_k64f.yml
+  - boards/frdm_k64f.yml
 
 
 settings:
-  build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_elf.sh
   case_pipe_name: frdm_k64f_kernel
 
 cases:

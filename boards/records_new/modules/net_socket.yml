@@ -37,10 +37,12 @@ cases:
   sample.net.sockets.echo_client.802154:
     path: samples/net/sockets/echo_client
     catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
     platform_whitelist: qemu_x86
   sample.net.sockets.echo_client.nrf_802154:
     path: samples/net/sockets/echo_client
     catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_whitelist: nrf52840_pca10056
   sample.net.sockets.echo_server:
     path: samples/net/sockets/echo_server
@@ -49,14 +51,17 @@ cases:
   sample.net.sockets.echo_server.802154:
     path: samples/net/sockets/echo_server
     catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
     platform_whitelist: qemu_x86
   sample.net.sockets.echo_server.mcr20a:
     path: samples/net/sockets/echo_server
     catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-frdm_k64f_mcr20a.conf"
     platform_whitelist: frdm_k64f
   sample.net.sockets.echo_server.nrf_802154:
     path: samples/net/sockets/echo_server
     catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_whitelist: nrf52840_pca10056
   sample.net.sockets.http_get:
     path: samples/net/sockets/http_get

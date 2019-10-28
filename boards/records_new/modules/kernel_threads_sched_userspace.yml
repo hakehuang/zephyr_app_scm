@@ -7,4 +7,5 @@ cases:
   kernel.sched.multiq:
     path: tests/kernel/sched/schedule_api
     catalog: kernel threads sched userspace
+    extra_args: CONF_FILE=prj_multiq.conf
     min_ram: 40

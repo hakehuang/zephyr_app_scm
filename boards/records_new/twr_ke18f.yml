@@ -1,288 +1,130 @@
-
 __load__:
-  # - components/benchmarks.yml
-  # - components/crypto.yml
-  # - components/coverage.yml
-  # - components/kernel.yml
-  # - components/kernel_2.yml
-  # - components/kernel_3.yml
-  # - components/lib.yml
-  # - components/net.yml
-  # - components/posix.yml
-   - components/samples.yml
-   - components/sample_basic.yml
-#   - components/sample_net.yml
-   - components/sample_subsys.yml
-#   - components/sample_sensor.yml
-   - components/shell.yml
-   - components/subsys.yml
-   - components/unit.yml
-   - components/drivers/drivers.yml
+  - modules/xip.yml
+  - modules/util.yml
+  - modules/userspace.yml
+  - modules/usb_osdesc.yml
+  - modules/usb_net_zperf.yml
+  - modules/usb_desc_sections.yml
+  - modules/usb_bos.yml
+  - modules/usb_bluetooth.yml
+  - modules/usb.yml
+  - modules/unknown.yml
+  - modules/uart_bluetooth.yml
+  - modules/tinycrypt_crypto_sha256_hmac_prng.yml
+  - modules/timer.yml
+  - modules/test_framework.yml
+  - modules/sysid.yml
+  - modules/spi_flash.yml
+  - modules/sound.yml
+  - modules/socket_can_CAN.yml
+  - modules/sleep.yml
+  - modules/shield.yml
+  - modules/shell.yml
+  - modules/settings_intialization_fcb.yml
+  - modules/settings_fs.yml
+  - modules/settings.yml
+  - modules/sensors.yml
+  - modules/samples_sensor.yml
+  - modules/samples_ipm.yml
+  - modules/samples_display_gui.yml
+  - modules/ring_buffer_circular_buffer.yml
+  - modules/rbtree.yml
+  - modules/power.yml
+  - modules/posix_filesystem.yml
+  - modules/posix.yml
+  - modules/pio.yml
+  - modules/peripheral_adc_userspace.yml
+  - modules/out_of_tree.yml
+  - modules/nffs_filesystem.yml
+  - modules/nffs_fatfs_filesystem.yml
+  - modules/nfc.yml
+  - modules/my_tags.yml
+  - modules/msd_usb.yml
+  - modules/mqtt_net_userspace.yml
+  - modules/mpu.yml
+  - modules/microbit_mesh_bluetooth.yml
+  - modules/memory_protection.yml
+  - modules/mdns.yml
+  - modules/logging_usermode.yml
+  - modules/logging.yml
+  - modules/log_output_logging.yml
+  - modules/log_msg_logging.yml
+  - modules/log_list_logging.yml
+  - modules/log_core_logging.yml
+  - modules/llmnr.yml
+  - modules/linker.yml
+  - modules/libc.yml
+  - modules/LED_gpio.yml
+  - modules/LED.yml
+  - modules/jwt.yml
+  - modules/ipm.yml
+  - modules/introduction.yml
+  - modules/ignore_faults_interrupt_idt.yml
+  - modules/i2s.yml
+  - modules/http_net.yml
+  - modules/gpio.yml
+  - modules/gen_inc_file.yml
+  - modules/Full_stack_sample.yml
+  - modules/flash_shell.yml
+  - modules/flash_nrf52.yml
+  - modules/flash_map.yml
+  - modules/flash_circural_buffer.yml
+  - modules/filesystem.yml
+  - modules/external.yml
+  - modules/drivers_watchdog.yml
+  - modules/drivers_userspace.yml
+  - modules/drivers_spi.yml
+  - modules/drivers_sensor_grove_temperature.yml
+  - modules/drivers_sensor_grove_light.yml
+  - modules/drivers_pwm.yml
+  - modules/drivers_pci.yml
+  - modules/drivers_ipc.yml
+  - modules/drivers_i2s.yml
+  - modules/drivers_i2c.yml
+  - modules/drivers_gpio.yml
+  - modules/drivers_fram.yml
+  - modules/drivers_footprint.yml
+  - modules/drivers_dma.yml
+  - modules/drivers.yml
+  - modules/driver_can.yml
+  - modules/driver.yml
+  - modules/dns_net.yml
+  - modules/display.yml
+  - modules/dfu_mcuboot.yml
+  - modules/dfu_image_util.yml
+  - modules/device.yml
+  - modules/crypto_security.yml
+  - modules/crypto_mbedtls_userspace.yml
+  - modules/crypto.yml
+  - modules/cpp.yml
+  - modules/console.yml
+  - modules/cmsis_rtos_v2_syncronization.yml
+  - modules/cmsis_rtos_v2_philosopher.yml
+  - modules/cmsis_rtos_v2.yml
+  - modules/cmsis_rtos_v1_syncronization.yml
+  - modules/cmsis_rtos_v1.yml
+  - modules/clib_newlib_userspace.yml
+  - modules/clib_minimal_libc_userspace.yml
+  - modules/CAN.yml
+  - modules/button_gpio.yml
+  - modules/build_test.yml
+  - modules/boards.yml
+  - modules/board.yml
+  - modules/bluetooth_spi.yml
+  - modules/bluetooth_net.yml
+  - modules/bluetooth_mesh.yml
+  - modules/bluetooth.yml
+  - modules/benchmark.yml
+  - modules/audio.yml
+  - modules/aio.yml
+  - skips/twr_ke18f.yml
+  - boards/twr_ke18f.yml
 
 
 settings:
-  build_script: build_zephyr_elf.sh
-  run_script: run_elf_twrke18f.sh
   case_pipe_name: twr_ke18f
 
 cases:
   attribute: "required"
   __common__:
     attribute: "required"
-  drivers.aio.api:
-    result: skip
-  drivers.aio.app:
-    result: skip
-  drivers.aon_counter.aon_api:
-    result: skip
-  drivers.dma.chan_blen_transfer:
-    result: skip
-  drivers.gpio.gpio_basic_api:
-    result: skip
-  drivers.i2c.i2c_api:
-    result: skip
-  drivers.i2c.i2c_slave_api:
-    result: skip
-  drivers.i2c.i2c_slave_api.common:
-    result: skip
-  drivers.i2s.i2s_api:
-    result: skip
-  drivers.i2s.i2s_speed:
-    result: skip
-  drivers.pinmux.pinmux_basic_api:
-    result: skip
-  drivers.rtc.rtc_basic_api:
-    result: skip
-  drivers.spi.spi_loopback:
-    result: skip
-  subsys.dfu.mcuboot:
-    result: skip
-  subsys.fs.fat_fs_api:
-    result: skip
-  subsys.fs.fat_fs_dual_drive:
-    result: skip
-  subsys.fs.fcb:
-    result: skip
-  subsys.fs.multi-fs:
-    result: skip
-  subsys.fs.nffs_fs_api.basic:
-    result: skip
-  subsys.fs.nffs_fs_api.cache:
-    result: skip
-  subsys.fs.nffs_fs_api.large:
-    result: skip
-  subsys.fs.nffs_fs_api.performance:
-    result: skip
-  subsys.settings.fcb.base64:
-    result: skip
-  subsys.settings.fcb.raw:
-    result: skip
-  subsys.settings.nffs.base64:
-    result: skip
-  subsys.settings.nffs.raw:
-    result: skip
-  basic.blink_led:
-    result: skip
-  basic.fade_led:
-    result: skip
-  basic.rgb_led:
-    result: skip
-  basic.servo_motor:
-    result: skip
-  application_development.code_relocation:
-    result: skip
-  kernel.boot_page_table:
-    result: skip
-  kernel.mem_protect.x86_mmu_api:
-    result: skip
-  kernel.mp:
-    result: skip
-  kernel.smp:
-    result: skip
-  kernel.spinlock:
-    result: skip
-  kernel.static_idt:
-    result: skip
-  net.eth_native_posix:
-    result: skip
-  net.sockets.big_http_download:
-    result: skip
-  net.sockets.coap_server:
-    result: skip
-  net.wpan_serial:
-    result: skip
-  net.wpanusb:
-    result: skip
-  net.all:
-    result: skip
-  net.context:
-    result: skip
-  net.ieee802154.crypto:
-    result: skip
-  net.lib.tls_credentials:
-    result: skip
-  net.socket.getaddrinfo:
-    result: skip
-  net.socket.tcp:
-    result: skip
-  unit.bluetooth.at:
-    result: skip
-  unit.lib.crc:
-    result: skip
-  subsys.ipc.ipm_imx:
-    result: skip
-  subsys.ipc.ipm_mailbox.ap:
-    result: skip
-  subsys.ipc.ipm_mailbox.sensor:
-    result: skip
-  subsys.ipc.ipm_mcux:
-    result: skip
-  subsys.ipc.ipm_mcux.remote:
-    result: skip
-  subsys.ipc.openamp:
-    result: skip
-  subsys.ipc.openamp.remote:
-    result: skip
-  subsys.mgmt.mcumgr.smp_svr:
-    result: skip
-  subsys.power.power_mgr:
-    result: skip
-  subsys.usb.cdc_acm:
-    result: skip
-  subsys.usb.console:
-    result: skip
-  subsys.usb.dfu:
-    result: skip
-  subsys.usb.hid:
-    result: skip
-  subsys.usb.hid-mouse:
-    result: skip
-  subsys.usb.webusb:
-    result: skip
-  subsys.nvs:
-    result: skip
-  coverage:
-    result: skip
-  sensor.adxl372:
-    result: skip
-  sensor.adt7420:
-    result: skip
-  sensor.apds9960:
-    result: skip
-  sensor.bme280:
-    result: skip
-  sensor.bmi160:
-    result: skip
-  sensor.ccs811:
-    result: skip
-  sensor.fxas21002:
-    result: skip
-  sensor.hts221:
-    result: skip
-  sensor.lsm303dlhc:
-    result: skip
-  sensor.max30101:
-    result: skip
-  sensor.ms5837:
-    result: skip
-  sensor.sht3xd:
-    result: skip
-  sensor.sx9500:
-    result: skip
-  sensor.vl53l0x:
-    result: skip
-  basic.blinky:
-    result: skip
-  basic.button:
-    result: skip
-  basic.disco:
-    result: skip
-  basic.threads:
-    result: skip
-  userspace.shared_mem:
-    result: skip
-  posix.fs: #code size
-  kernel.errno:
-    result: skip
-  kernel.fp_sharing:
-    result: skip
-  kernel.init:
-    result: skip
-  kernel.mem_protect.app_memory:
-    result: skip
-  kernel.mem_protect.mem_protect: #no mpu
-    result: skip
-  kernel.mem_protect.obj_validation: #no mpu
-    result: skip
-  kernel.mem_protect.stackprot: #no mpu
-    result: skip
-  kernel.mem_protect.syscalls: #no mpu
-    result: skip
-  kernel.mem_protect.userspace: #no mpu
-    result: skip
-  kernel.tickless.tickless: #test app not support
-    result: skip
-  kernel.arm_irq_vector_table: #only support M4/m7
-    result: skip
-  kernel.gen_isr_table: #only support M4/m7
-    result: skip
-  kernel.irq_offload: #only support M4/m7
-    result: skip
-  posix.fs: #code size
-    result: skip
-  kernel.mem_protect.app_memory:
-    result: skip
-  kernel.mem_protect.mem_protect: #no mpu enalbed
-    result: skip
-  kernel.mem_protect.obj_validation: #no mpu enalbed
-    result: skip
-  kernel.mem_protect.stackprot: #no mpu enalbed
-    result: skip
-  kernel.mem_protect.syscalls: #no mpu enalbed
-    result: skip
-  kernel.mem_protect.userspace: #no mpu enalbed
-    result: skip
-  kernel.tickless.tickless: #test app not support
-    result: skip
-  subsys.usb.mass: #not support
-    result: skip
-  kernel.fp_sharing:
-    result: skip
-  kernel.irq_offload:
-    result: skip
-  kernel.threads.dynamic_thread:
-    result: skip
-  kernel.fatal:
-    result: skip
-  drivers.adc.adc_api:
-    result: skip
-  drivers.dma.loop_transfer:
-    result: skip
-  drivers.pwm.pwm_api:
-    result: skip
-  drivers.watchdog.wdt_basic_api:
-    result: skip
-  drivers.entropy.api:
-    result: skip
-  subsys.usb.bos:
-    result: skip
-  subsys.usb.os_desc:
-    result: skip
-  #subsys.storage.flash_map: #https://github.com/zephyrproject-rtos/zephyr/issues/16224
-  subsys.usb.testusb:
-    result: skip
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-

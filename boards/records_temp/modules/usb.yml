@@ -17,6 +17,7 @@ cases:
   sample.usb.cdc-acm.comp:
     path: samples/subsys/usb/cdc_acm
     catalog: usb
+    extra_args: "-DOVERLAY_CONFIG=overlay-composite-cdc-msc.conf"
     depends_on: usb_device
   sample.usb.cdc-acm-composite:
     path: samples/subsys/usb/cdc_acm_composite

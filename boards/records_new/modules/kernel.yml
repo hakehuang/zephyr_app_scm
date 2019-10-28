@@ -20,6 +20,7 @@ cases:
   kernel.fifo.poll:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
   kernel.fifo.timeout:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
@@ -27,6 +28,7 @@ cases:
   kernel.fifo.timeout.poll:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
     min_ram: 32
   kernel.fifo.usage:
     path: tests/kernel/fifo/fifo_usage
@@ -34,13 +36,16 @@ cases:
   kernel.fifo.usage.poll:
     path: tests/kernel/fifo/fifo_usage
     catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
   kernel.fp_sharing:
     path: tests/kernel/fp_sharing
     catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
     min_ram: 16
   kernel.fp_sharing.x86:
     path: tests/kernel/fp_sharing
     catalog: kernel
+    extra_args: CONF_FILE=prj_x86.conf
     platform_whitelist: qemu_x86
   kernel.lifo:
     path: tests/kernel/lifo/lifo_api

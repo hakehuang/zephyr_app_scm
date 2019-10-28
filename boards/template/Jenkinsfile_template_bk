@@ -1,0 +1,40 @@
+pipeline {
+  agent any
+  environment {
+    PATH = "/root/.local/bin/:$PATH"
+  }
+  stages {
+    stage('build') {
+      parallel {
+        stage('hello world') {
+          steps {
+            sh '''docker exec ${@docker} run_setup.sh $(basename $(pwd)) ${@board}'''
+            sh 'docker exec ${@docker} ${@build_script}  $(basename $(pwd)) samples/hello_world ${@board}'
+            sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) samples/hello_world'
+          }
+        }
+      }
+    }
+    <?rb for k, items in @catalog ?>
+    stage('${k}') {
+      parallel {
+      <?rb items['cases'].each do |item| ?>
+        stage('${item[0]}') {
+          steps {
+            echo 'Test ${item[0]}'
+            <?rb if item[2] ?>
+              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board} ${item[2..-1].join(' ')}'''
+            <?rb else ?>
+              sh 'docker exec ${@docker} ${@build_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
+            <?rb end ?>
+            retry(2)  {
+              sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
+            }
+          }
+        }
+      <?rb end ?>
+      }
+    }
+    <?rb end ?>
+  }
+}

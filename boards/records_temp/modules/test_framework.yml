@@ -13,9 +13,12 @@ cases:
   testing.ztest.verbose_0:
     path: tests/ztest/base
     catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_0.conf
   testing.ztest.verbose_1:
     path: tests/ztest/base
     catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_1.conf
   testing.ztest.verbose_2:
     path: tests/ztest/base
     catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_2.conf

@@ -7,4 +7,5 @@ cases:
   net.dns.no_ipv6:
     path: tests/net/lib/dns_resolve
     catalog: dns net
+    extra_args: CONF_FILE=prj-no-ipv6.conf
     min_ram: 16

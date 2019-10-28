@@ -92,6 +92,13 @@ def create_pipefile_from_commandline(data, board_info: nil)
     if @content["cases"][key].has_key?("overlay")
       options_array.insert(-1, "-DOVERLAY_CONFIG=#{@content["cases"][key]['overlay']}")
     end
+    if @content["cases"][key].has_key?("extra_args")
+      if @content["cases"][key]['extra_args'].include?("-D")
+        options_array.insert(-1, %Q[#{@content["cases"][key]['extra_args']}])
+      else
+        options_array.insert(-1, %Q[-D#{@content["cases"][key]['extra_args']}])
+      end
+    end
     if @content["cases"][key].has_key?("extra_configs")
       @content["cases"][key]["extra_configs"].each do |conf|
         options_array.insert(-1, "-D#{conf}")
@@ -123,8 +130,8 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     next if ! @content["cases"][key].has_key?('path')
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
 
-    catelog = @content["cases"][key]['catelog']
-    pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
+    catalog = @content["cases"][key]['catalog'].gsub(' ', '_')
+    pipe_data[:catalog][catalog] = {'cases' => []} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]
     options_array = Array.new()
 
@@ -134,14 +141,21 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     if @content["cases"][key].has_key?("overlay")
       options_array.insert(-1, "-DOVERLAY_CONFIG=#{@content["cases"][key]['overlay']}")
     end
+    if @content["cases"][key].has_key?("extra_args")
+      if @content["cases"][key]['extra_args'].include?("-D")
+        options_array.insert(-1, "#{@content["cases"][key]['extra_args'].gsub('"', '')}")
+      else
+        options_array.insert(-1, "-D#{@content["cases"][key]['extra_args'].gsub('"', '')}")
+      end
+    end
     if @content["cases"][key].has_key?("extra_configs")
       @content["cases"][key]["extra_configs"].each do |conf|
-        options_array.insert(-1, "-D#{conf}")
+        options_array.insert(-1, %Q[-D#{conf.gsub('"', '')}])
       end
     end
     case_array.insert(-1, options_array.join(' ')) if options_array.length
 
-    pipe_data[:catalog][catelog]['cases'].insert(-1, case_array)
+    pipe_data[:catalog][catalog]['cases'].insert(-1, case_array)
   end
   output = engine.render(template, pipe_data)
   out_line = ''

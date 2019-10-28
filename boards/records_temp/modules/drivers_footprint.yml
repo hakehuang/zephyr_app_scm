@@ -9,6 +9,7 @@ cases:
   test_build_ethernet:
     path: tests/drivers/build_all
     catalog: drivers footprint
+    extra_args: CONF_FILE=ethernet.conf
     build_only: true
     min_flash: 42
     min_ram: 32
@@ -17,6 +18,7 @@ cases:
   test_build_sensors_trigger_a_h:
     path: tests/drivers/build_all
     catalog: drivers footprint
+    extra_args: CONF_FILE=sensors_trigger_a_h.conf
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z
@@ -24,6 +26,7 @@ cases:
   test_build_sensors_trigger_i_z:
     path: tests/drivers/build_all
     catalog: drivers footprint
+    extra_args: CONF_FILE=sensors_trigger_i_z.conf
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z
@@ -31,6 +34,7 @@ cases:
   test_build_sensors_a_h:
     path: tests/drivers/build_all
     catalog: drivers footprint
+    extra_args: CONF_FILE=sensors_a_h.conf
     build_only: true
     min_flash: 44
     min_ram: 32
@@ -39,6 +43,7 @@ cases:
   test_build_sensors_i_z:
     path: tests/drivers/build_all
     catalog: drivers footprint
+    extra_args: CONF_FILE=sensors_i_z.conf
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z

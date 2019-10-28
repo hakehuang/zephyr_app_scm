@@ -35,6 +35,7 @@ cases:
   sample.sensor.adxl372.i2c:
     path: samples/sensor/adxl372
     catalog: sensors
+    extra_args: CONF_FILE=prj_i2c.conf
     depends_on: i2c
     platform_whitelist: frdm_k64f
   sample.sensor.amg88xx:
@@ -61,6 +62,7 @@ cases:
   sample.sensor.bme280.spi:
     path: samples/sensor/bme280
     catalog: sensors
+    extra_args: CONF_FILE=prj_spi.conf
     depends_on: spi bme280
   sample.sensor.bmg160:
     path: samples/sensor/bmg160
@@ -135,6 +137,7 @@ cases:
   sample.sensor.sht3xd.trigger:
     path: samples/sensor/sht3xd
     catalog: sensors
+    extra_args: CONF_FILE="trigger.conf"
     build_only: true
     platform_whitelist: efr32mg_sltb004a frdm_k64f nrf51_ble400 nrf52840_pca10056
       nucleo_l476rg

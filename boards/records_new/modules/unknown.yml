@@ -14,6 +14,7 @@ cases:
   test_build_gpio:
     path: tests/drivers/build_all
     catalog: unknown
+    extra_args: CONF_FILE=gpio.conf
     build_only: true
     min_ram: 32
     depends_on: gpio

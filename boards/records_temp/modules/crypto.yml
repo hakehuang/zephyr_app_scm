@@ -3,6 +3,7 @@ cases:
   sample.driver.crypto.mbedtls:
     path: samples/drivers/crypto
     catalog: crypto
+    extra_args: CONF_FILE=prj_mtls_shim.conf
     min_flash: 34
   sample.driver.crypto.mbedtls.micro:
     path: samples/drivers/crypto

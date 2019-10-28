@@ -28,6 +28,7 @@ cases:
   kernel.queue.poll:
     path: tests/kernel/queue
     catalog: kernel userspace
+    extra_args: CONF_FILE="prj_poll.conf"
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace
@@ -41,6 +42,7 @@ cases:
   kernel.timer.tickless:
     path: tests/kernel/timer/timer_api
     catalog: kernel userspace
+    extra_args: CONF_FILE="prj_tickless.conf"
     build_only: true
     arch_exclude: riscv32 nios2 posix
   kernel.workqueue:

@@ -8,6 +8,7 @@ cases:
   peripheral.dma.interactive:
     path: tests/drivers/dma/chan_blen_transfer
     catalog: drivers dma
+    extra_args: CONF_FILE=prj_shell.conf
     depends_on: dma
     min_ram: 16
   driver.dma.loop_transfer:

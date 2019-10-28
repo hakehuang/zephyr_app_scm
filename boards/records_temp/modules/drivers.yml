@@ -59,9 +59,11 @@ cases:
     catalog: drivers
     extra_configs:
     - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    extra_args: CONF_FILE=prj_poll.conf
   peripheral.uart.shell:
     path: tests/drivers/uart/uart_basic_api
     catalog: drivers
     extra_configs:
     - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    extra_args: CONF_FILE=prj_shell.conf
     min_flash: 64

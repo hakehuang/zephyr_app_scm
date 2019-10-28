@@ -7,9 +7,11 @@ cases:
   sample.subsys.shell.shell_module.minimal:
     path: samples/subsys/shell/shell_module
     catalog: shell
+    extra_args: CONF_FILE="prj_minimal.conf"
   sample.subsys.shell.shell_module.minimal_rtt:
     path: samples/subsys/shell/shell_module
     catalog: shell
+    extra_args: CONF_FILE="prj_minimal_rtt.conf"
   shell:
     path: tests/shell
     catalog: shell

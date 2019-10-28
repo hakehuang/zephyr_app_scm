@@ -34,4 +34,5 @@ cases:
   benchmark.timing.userspace:
     path: tests/benchmarks/timing_info
     catalog: benchmark
+    extra_args: CONF_FILE=prj_userspace.conf
     arch_whitelist: x86 arm arc

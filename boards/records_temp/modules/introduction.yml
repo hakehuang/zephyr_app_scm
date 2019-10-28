@@ -12,15 +12,19 @@ cases:
   sample.philosopher.static:
     path: samples/philosophers
     catalog: introduction
+    extra_args: "-DSTATIC_OBJS=1"
   sample.philosopher.stacks:
     path: samples/philosophers
     catalog: introduction
+    extra_args: "-DFORKS=STACKS"
   sample.philosopher.fifos:
     path: samples/philosophers
     catalog: introduction
+    extra_args: "-DFORKS=FIFOS"
   sample.philosopher.lifos:
     path: samples/philosophers
     catalog: introduction
+    extra_args: "-DFORKS=LIFOS"
   sample.philosopher.preempt_only:
     path: samples/philosophers
     catalog: introduction

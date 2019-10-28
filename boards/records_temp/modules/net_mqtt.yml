@@ -11,6 +11,7 @@ cases:
   net.mqtt.tls:
     path: tests/net/lib/mqtt_publisher
     catalog: net mqtt
+    extra_args: CONF_FILE="prj_tls.conf"
   net.mqtt.pubsub:
     path: tests/net/lib/mqtt_pubsub
     catalog: net mqtt

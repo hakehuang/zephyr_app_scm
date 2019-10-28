@@ -7,14 +7,17 @@ cases:
   sample.net.sockets.echo_server.e1000:
     path: samples/net/sockets/echo_server
     catalog: net
+    extra_args: OVERLAY_CONFIG="overlay-e1000.conf"
     platform_whitelist: qemu_x86
   sample.net.sockets.echo_server.stellaris:
     path: samples/net/sockets/echo_server
     catalog: net
+    extra_args: OVERLAY_CONFIG="overlay-qemu_cortex_m3_eth.conf"
     platform_whitelist: qemu_cortex_m3
   sample.net.sockets.echo_server.smsc911x:
     path: samples/net/sockets/echo_server
     catalog: net
+    extra_args: OVERLAY_CONFIG="overlay-smsc911x.conf"
     platform_whitelist: mps2_an385
   sample.net.sockets.sntp_client:
     path: samples/net/sockets/sntp_client

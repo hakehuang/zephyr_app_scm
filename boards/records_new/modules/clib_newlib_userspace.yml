@@ -3,4 +3,5 @@ cases:
   libraries.libc.newlib:
     path: tests/lib/mem_alloc
     catalog: clib newlib userspace
+    extra_args: CONF_FILE=prj_newlib.conf
     arch_exclude: posix

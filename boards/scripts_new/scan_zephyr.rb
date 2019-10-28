@@ -134,6 +134,9 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 if testcase_hash['tests'][k].has_key?('extra_configs')
                   cases['cases'][k]['extra_configs'] = testcase_hash['tests'][k]['extra_configs']
                 end
+                if testcase_hash['tests'][k].has_key?('extra_args')
+                  cases['cases'][k]['extra_args'] = testcase_hash['tests'][k]['extra_args']
+                end
                 keep_hash = {}
                 lists_to_keep(testcase_hash['tests'][k], keep_hash)
                 #log.info(keep_hash)
@@ -158,6 +161,9 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                   }
                   if sample_hash['tests'][k].has_key?('extra_configs')
                     cases['cases'][k]['extra_configs'] = sample_hash['tests'][k]['extra_configs']
+                  end
+                  if sample_hash['tests'][k].has_key?('extra_args')
+                    cases['cases'][k]['extra_args'] = sample_hash['tests'][k]['extra_args']
                   end
                   keep_hash = {}
                   lists_to_keep(sample_hash['tests'][k], keep_hash)

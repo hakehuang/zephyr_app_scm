@@ -3,4 +3,5 @@ cases:
   libraries.libc.minimal:
     path: tests/lib/mem_alloc
     catalog: clib minimal_libc userspace
+    extra_args: CONF_FILE=prj.conf
     arch_exclude: posix
