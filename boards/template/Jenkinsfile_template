@@ -9,7 +9,7 @@ pipeline {
         stage('hello world') {
           steps {
             sh '''docker exec ${@docker} run_setup.sh $(basename $(pwd)) ${@board}'''
-            sh 'docker exec ${@docker} ${@build_script}  $(basename $(pwd)) samples/hello_world ${@board}'
+            sh 'docker exec ${@docker} ${@build_script}  $(basename $(pwd)) samples/hello_world ${@board} build'
             sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) samples/hello_world'
           }
         }
@@ -18,18 +18,21 @@ pipeline {
     <?rb for k, items in @catalog ?>
     stage('${k}') {
       parallel {
-      <?rb items['cases'].each do |item| ?>
-        stage('${item[0]}') {
+      <?rb items['cases'].each do |k, item| ?>
+        stage('${k}') {
           steps {
-            echo 'Test ${item[0]}'
-            <?rb if item[2] ?>
-              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item[1]} ${@board} ${item[2..-1].join(' ')}'''
+            echo 'Test ${k}'
+            echo '${item['opt'][0]}'
+            <?rb if item['opt'][2] ?>
+              sh '''docker exec ${@docker} ${@build_script}  $(basename $(pwd)) ${item['opt'][1]} ${@board} ${item['build']} ${item['opt'][2..-1].join(' ')}'''
             <?rb else ?>
-              sh 'docker exec ${@docker} ${@build_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
+              sh 'docker exec ${@docker} ${@build_script} $(basename $(pwd)) ${item['opt'][1]} ${item['opt'][0]} ${item['build']}'
             <?rb end ?>
-            retry(2)  {
-              sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
-            }
+            <?rb if ! item.has_key?('build_only') ?>
+              retry(2)  {
+                sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item['build_path']} ${item['opt'][0]}'
+              }
+            <?rb end ?>
           }
         }
       <?rb end ?>

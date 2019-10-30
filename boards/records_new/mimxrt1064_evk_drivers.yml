@@ -1,0 +1,31 @@
+
+__load__:
+  - modules/drivers_watchdog.yml
+  - modules/drivers_userspace.yml
+  - modules/drivers_spi.yml
+  - modules/drivers_sensor_grove_temperature.yml
+  - modules/drivers_sensor_grove_light.yml
+  - modules/drivers_pwm.yml
+  - modules/drivers_pci.yml
+  - modules/drivers_ipc.yml
+  - modules/drivers_i2s.yml
+  - modules/drivers_i2c.yml
+  - modules/drivers_gpio.yml
+  - modules/drivers_fram.yml
+  - modules/drivers_footprint.yml
+  - modules/drivers_dma.yml
+  - modules/drivers.yml
+  - modules/driver_can.yml
+  - modules/driver.yml
+  - modules/sensors.yml
+  - skips/mimxrt1064_evk.yml
+  - boards/mimxrt1064_evk.yml
+
+
+settings:
+  case_pipe_name: mimxrt1064_evk_drivers
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"

@@ -1,14 +1,9 @@
 
+
 __load__:
   - modules/xip.yml
   - modules/util.yml
   - modules/userspace.yml
-  - modules/usb_osdesc.yml
-  - modules/usb_net_zperf.yml
-  - modules/usb_desc_sections.yml
-  - modules/usb_bos.yml
-  - modules/usb_bluetooth.yml
-  - modules/usb.yml
   - modules/unknown.yml
   - modules/uart_bluetooth.yml
   - modules/tinycrypt_crypto_sha256_hmac_prng.yml
@@ -24,10 +19,6 @@ __load__:
   - modules/settings_intialization_fcb.yml
   - modules/settings_fs.yml
   - modules/settings.yml
-  - modules/sensors.yml
-  - modules/samples_sensor.yml
-  - modules/samples_ipm.yml
-  - modules/samples_display_gui.yml
   - modules/ring_buffer_circular_buffer.yml
   - modules/rbtree.yml
   - modules/power.yml
@@ -65,30 +56,12 @@ __load__:
   - modules/http_net.yml
   - modules/gpio.yml
   - modules/gen_inc_file.yml
-  - modules/Full_stack_sample.yml
   - modules/flash_shell.yml
   - modules/flash_nrf52.yml
   - modules/flash_map.yml
   - modules/flash_circural_buffer.yml
   - modules/filesystem.yml
   - modules/external.yml
-  - modules/drivers_watchdog.yml
-  - modules/drivers_userspace.yml
-  - modules/drivers_spi.yml
-  - modules/drivers_sensor_grove_temperature.yml
-  - modules/drivers_sensor_grove_light.yml
-  - modules/drivers_pwm.yml
-  - modules/drivers_pci.yml
-  - modules/drivers_ipc.yml
-  - modules/drivers_i2s.yml
-  - modules/drivers_i2c.yml
-  - modules/drivers_gpio.yml
-  - modules/drivers_fram.yml
-  - modules/drivers_footprint.yml
-  - modules/drivers_dma.yml
-  - modules/drivers.yml
-  - modules/driver_can.yml
-  - modules/driver.yml
   - modules/dns_net.yml
   - modules/display.yml
   - modules/dfu_mcuboot.yml

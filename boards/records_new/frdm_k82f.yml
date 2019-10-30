@@ -1,3 +1,5 @@
+
+
 __load__:
   - modules/xip.yml
   - modules/util.yml
@@ -90,26 +92,12 @@ __load__:
   - modules/audio.yml
   - modules/aio.yml
   - skips/frdm_k82f.yml
-
+  - boards/frdm_k82f.yml
 
 settings:
-  build_script: build_zephyr_elf.sh
-  run_script: run_elf_frdmk82f.sh
   case_pipe_name: frdm_k82f
 
 cases:
   attribute: "required"
   __common__:
     attribute: "required"
-
-
-
-
-
-
-  
-
-
-
-
-

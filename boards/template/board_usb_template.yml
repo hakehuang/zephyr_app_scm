@@ -1,0 +1,23 @@
+
+__load__:
+  - modules/usb_osdesc.yml
+  - modules/usb_net_zperf.yml
+  - modules/usb_desc_sections.yml
+  - modules/usb_bos.yml
+  - modules/usb_bluetooth.yml
+  - modules/usb.yml
+  - modules/samples_sensor.yml
+  - modules/samples_ipm.yml
+  - modules/samples_display_gui.yml
+  - modules/Full_stack_sample.yml
+  - skips/${@board}.yml
+  - boards/${@board}.yml
+
+
+settings:
+  case_pipe_name: ${@board}_usb
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"

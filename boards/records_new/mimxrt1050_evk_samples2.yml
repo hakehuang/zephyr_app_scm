@@ -1,0 +1,33 @@
+
+__load__:
+  - modules/net_ipv6_fragment.yml
+  - modules/net_ipv6.yml
+  - modules/net_ipv4_autoconf.yml
+  - modules/net_ip-addr.yml
+  - modules/net_iface.yml
+  - modules/net_ieee802154_usb.yml
+  - modules/net_ieee802154_l2.yml
+  - modules/net_ieee802154_fragment.yml
+  - modules/net_icmpv6.yml
+  - modules/net_http.yml
+  - modules/net_gptp.yml
+  - modules/net_ethernet_mgmt.yml
+  - modules/net_enc28j60.yml
+  - modules/net_dhcpv4.yml
+  - modules/net_crypto.yml
+  - modules/net_crc.yml
+  - modules/net_checksum_offload.yml
+  - modules/net_buf.yml
+  - modules/net_arp.yml
+  - modules/net_6loWPAN.yml
+  - modules/net.yml
+  - skips/mimxrt1050_evk.yml
+  - boards/mimxrt1050_evk.yml
+
+settings:
+  case_pipe_name: mimxrt1050_evk_samples2
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"

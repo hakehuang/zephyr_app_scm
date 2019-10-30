@@ -2,4 +2,10 @@
 __load__:
   - skips/common.yml
 
-cases: {}
+cases:
+  peripheral.spi:
+    build_only: true
+  net.build:
+    comments: "build error"
+    result: skip
+  

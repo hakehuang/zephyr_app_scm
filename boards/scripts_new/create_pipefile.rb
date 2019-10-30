@@ -10,7 +10,7 @@ require 'pathname'
 require 'tenjin'
 require 'optparse'
 require 'ostruct'
-
+require 'digest'
 
 require_relative 'zephyr_filter'
 
@@ -65,6 +65,7 @@ end
 
 
 def create_pipefile_from_commandline(data, board_info: nil)
+  md5 = Digest::MD5.new
   @command_lines = Marshal.load(Marshal.dump(Parser.parse(data)))
   ap @command_lines
   engine = Tenjin::Engine.new()
@@ -82,8 +83,8 @@ def create_pipefile_from_commandline(data, board_info: nil)
     next if @content["cases"][key]['result'].upcase == "SKIP"
     next if ! @content["cases"][key].has_key?('path')
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
-    catelog = @content["cases"][key]['catelog']
-    pipe_data[:catalog][catelog] = {'cases' => []} if pipe_data[:catalog][catelog].nil?
+    catalog = @content["cases"][key]['catalog']
+    pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]
     options_array = []
     if @content["cases"][key].has_key?("config")
@@ -104,8 +105,17 @@ def create_pipefile_from_commandline(data, board_info: nil)
         options_array.insert(-1, "-D#{conf}")
       end
     end
-    case_array.insert(-1, options_array.join(" "))
-    pipe_data[:catalog][catelog]['cases'].insert(-1, case_array)
+    case_array.insert(-1, options_array.join(' ')) if options_array.length
+    pipe_data[:catalog][catalog]['cases'][key] = {}
+    if @content["cases"][key].has_key?("build_only") and @content["cases"][key]['build_only']
+      pipe_data[:catalog][catalog]['cases'][key]['build_only'] = true
+    end
+    md5 << options_array.join(' ')
+    pipe_data[:catalog][catalog]['cases'][key]['build_path'] = File.join(case_array[1], "build_" + md5.hexdigest[0..6])
+    pipe_data[:catalog][catalog]['cases'][key]['build'] = "build_" + md5.hexdigest[0..6]
+
+
+    pipe_data[:catalog][catalog]['cases'][key]['opt'] = case_array
   end
   output = engine.render(@command_lines[:template], pipe_data)
   File.open( "Jenkinsfile_" + @command_lines[:board_name], 'w') {|f| f.write(YAML.dump(output)) }
@@ -113,6 +123,7 @@ end
 
 def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path: "../pipe_file/",
   docker_name: "confident_sinoussi", template: "../template/Jenkinsfile_template", board_info: nil)
+  md5 = Digest::MD5.new
   engine = Tenjin::Engine.new()
   @content = config
   pipe_data = {
@@ -131,10 +142,9 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
 
     catalog = @content["cases"][key]['catalog'].gsub(' ', '_')
-    pipe_data[:catalog][catalog] = {'cases' => []} if pipe_data[:catalog][catalog].nil?
+    pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]
     options_array = Array.new()
-
     if @content["cases"][key].has_key?("config")
       options_array.insert(-1, "-DCONF_FILE=#{@content["cases"][key]['config']}")
     end
@@ -154,8 +164,15 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
       end
     end
     case_array.insert(-1, options_array.join(' ')) if options_array.length
+    pipe_data[:catalog][catalog]['cases'][key] = {}
+    if @content["cases"][key].has_key?("build_only") and @content["cases"][key]['build_only']
+      pipe_data[:catalog][catalog]['cases'][key]['build_only'] = true
+    end
+    md5 << options_array.join(' ')
+    pipe_data[:catalog][catalog]['cases'][key]['build_path'] = File.join(case_array[1], "build_" + md5.hexdigest[0..6])
+    pipe_data[:catalog][catalog]['cases'][key]['build'] = "build_" + md5.hexdigest[0..6]
 
-    pipe_data[:catalog][catalog]['cases'].insert(-1, case_array)
+    pipe_data[:catalog][catalog]['cases'][key]['opt'] = case_array
   end
   output = engine.render(template, pipe_data)
   out_line = ''

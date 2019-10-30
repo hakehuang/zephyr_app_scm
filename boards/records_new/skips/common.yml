@@ -2,5 +2,15 @@
 cases:
   __hierarchy__: 
     result: skip
-  test_utf8_in_kconfig_values: {}
-  section.subsection: {}
+  test_utf8_in_kconfig_values:
+    comments: "build failure"
+  section.subsection:
+    comments: "build failure"
+  sample.net.dns_resolve.llmnr:
+    comments: "meet bus fault"
+  sample.nfc.hello:
+    comments: "meet bus fault"
+  testing.ztest:
+    comments: "build error #20205"
+  peripheral.uart_async_api:
+    comments: "USER FAULT and not harness keyboard"

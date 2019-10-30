@@ -7,7 +7,7 @@ module ZEPHER_FILTER
             if k == "skip" and case_hash[k] == "true"
                 return false
             end
-            if k == "build_only" and case_hash[k] == "true"
+            if k == "build_only" and ! case_hash[k]
                 return false
             end
             if k == "arch_exclude" and case_hash[k].include?(board_hash["arch"])
@@ -71,7 +71,12 @@ module ZEPHER_FILTER
   module_function :neural_list
 
   def get_board_name(instr)
-    instr.gsub("_samples", "").gsub("_kernel", "").gsub("_usb", "").gsub("_drivers", "")
+    filter_list = [/_samples$/, /_samples2$/, /_kernel$/, /_usb$/, /_drivers$/, /_drivers$/]
+    temp_str = instr.dup
+    filter_list.each do |f|
+      temp_str.gsub!(f, '')
+    end
+    temp_str
   end
   module_function :get_board_name
 

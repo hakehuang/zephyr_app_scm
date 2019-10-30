@@ -1,25 +1,14 @@
 #!/bin/ruby
 
+=begin
+create board generator for all give platforms
+=end
+
 require 'fileutils'
+require 'tenjin'
 
-platforms = {
-    "frdm_kl25z" => ["", "drivers", "samples", "kernel"],
-    "frdm_k64f" => ["", "drivers", "samples", "kernel"],
-    "frdm_k22f" => ["", "drivers", "samples", "kernel"],
-    "frdm_k82f" => ["", "drivers", "samples", "kernel"],
-    "frdm_kw41z" => ["", "drivers", "samples", "kernel"],
-    "lpcxpresso54114_m0" => ["", "drivers", "samples", "kernel"],
-    "lpcxpresso54114_m4" => ["", "drivers", "samples", "kernel"],
+require_relative 'platform_config'
 
-    "mimxrt1015_evk" => ["", "drivers", "samples", "kernel"],
-    "mimxrt1020_evk" => ["", "drivers", "samples", "kernel"],
-    "mimxrt1050_evk" => ["", "drivers", "samples", "kernel"],
-    "mimxrt1060_evk" => ["", "drivers", "samples", "kernel"],
-    "mimxrt1064_evk" => ["", "drivers", "samples", "kernel"],
-
-    "twr_ke18f" => ["", "drivers", "samples", "kernel"],
-    "twr_kv58f220m" => ["", "drivers", "samples", "kernel"],
-}
 
 generator = %{ 
 require 'yml_merger'
@@ -47,6 +36,7 @@ create_report_from_config(config: merged_data, board_name: board_name, board_inf
 
 platforms.each do |plat, v|
     v.each do |surfix|
+        filename = ""
         if surfix == ""
             filename = File.join(plat + ".rb")
         else
@@ -60,4 +50,38 @@ platforms.each do |plat, v|
         end
     end
 end
+
+
+pipe_data = {}
+engine = Tenjin::Engine.new()
+platforms.each do |plat, v|
+    v.each do |surfix|
+        filename = ""
+        template_name = ""
+        if surfix == ""
+            filename = File.join("..","records_new", plat + ".yml")
+            template_name = File.join("..","template", "board_template.yml")
+        else
+            filename = File.join("..","records_new",plat + "_" + surfix + ".yml")
+            template_name = File.join("..","template", "board_" + surfix + "_template.yml")
+        end
+        if File.exist?(filename)
+            FileUtils.rm_r filename
+        end
+        pipe_data[:board] = plat
+        out_line = ''
+        output = engine.render(template_name, pipe_data)
+        output.each_line do |line|
+            out_line += line.rstrip() + "\n"
+        end
+        File.open(filename, 'w') {|f| f.write(out_line) }  
+    end
+end
+
+  
+  
+
+
+
+
 
