@@ -172,7 +172,8 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 end
               else
                 sample_hash['sample'].keys.each do |k|
-                  cases['cases'][Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)).to_path] = {
+                  kk = Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)).to_path.split(File::Separator).join(".")
+                  cases['cases'][kk] = {
                     'path' => Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)).to_path,
                     'catalog' => sample_hash['sample']['name']
                   }

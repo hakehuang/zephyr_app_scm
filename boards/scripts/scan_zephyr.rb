@@ -126,6 +126,8 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 if testcase_hash['common']
                   tags = testcase_hash['common']['tags']
                   tags = testcase_hash['tests'][k]['tags'] if testcase_hash['tests'][k].has_key?('tags')
+                  testcase_hash['tests'][k].merge!(testcase_hash['common'])
+                  puts "******#{k}", testcase_hash['tests'][k]
                 else
                   tags = testcase_hash['tests'][k]['tags'] if testcase_hash['tests'][k].has_key?('tags')
                 end
@@ -150,6 +152,7 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                   if sample_hash['common']
                     tags = sample_hash['common']['tags']
                     tags = sample_hash['tests'][k]['tags'] if sample_hash['tests'][k].has_key?('tags')
+                    sample_hash['tests'][k].merge!(sample_hash['common'])
                   else
                     tags = sample_hash['tests'][k]['tags'] if sample_hash['tests'][k].has_key?('tags')
                   end

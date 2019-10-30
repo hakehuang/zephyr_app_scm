@@ -1,6 +1,6 @@
 ---
 settings:
-  case_pipe_name: frdm_k64f_samples2
+  case_pipe_name: frdm_k64f_usb
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf.sh
 cases:
@@ -11,10 +11,14 @@ cases:
   net.build:
     comments: build error
     result: skip
-    path: tests/net/all
-    catalog: net
+    attribute: required
+  samples.net.google_iot_mqtt:
+    comments: no goolge web access so build only
+    scripts:
+    - ''
     build_only: true
-    min_ram: 32
+    path: samples/net/google_iot_mqtt
+    catalog: Full stack sample
     attribute: required
   test_utf8_in_kconfig_values:
     comments: build failure
@@ -40,168 +44,164 @@ cases:
     comments: USER FAULT and not harness keyboard
     result: skip
     attribute: required
-  sample.net.eth_native_posix:
-    path: samples/net/eth_native_posix
-    catalog: net
-    platform_whitelist: native_posix
+  sample.gui.lvgl:
+    path: samples/gui/lvgl
+    catalog: samples display gui
+    platform_whitelist: nrf52840_pca10056 reel_board mimxrt1050_evk mimxrt1060_evk
     attribute: required
-  sample.net.sockets.echo_server.e1000:
-    path: samples/net/sockets/echo_server
-    catalog: net
-    extra_args: OVERLAY_CONFIG="overlay-e1000.conf"
-    platform_whitelist: qemu_x86
+  sample.subsys.ipc.ipm_imx:
+    path: samples/subsys/ipc/ipm_imx
+    catalog: samples ipm
+    build_only: true
+    platform_whitelist: udoo_neo_full_m4 colibri_imx7d_m4 warp7_m4
     attribute: required
-  sample.net.sockets.echo_server.stellaris:
-    path: samples/net/sockets/echo_server
-    catalog: net
-    extra_args: OVERLAY_CONFIG="overlay-qemu_cortex_m3_eth.conf"
-    platform_whitelist: qemu_cortex_m3
+  sample.board.reel_board.mesh_badge:
+    path: samples/boards/reel_board/mesh_badge
+    catalog: samples sensor
+    platform_whitelist: reel_board
     attribute: required
-  sample.net.sockets.echo_server.smsc911x:
-    path: samples/net/sockets/echo_server
-    catalog: net
-    extra_args: OVERLAY_CONFIG="overlay-smsc911x.conf"
-    platform_whitelist: mps2_an385
+  sample.sensor.lsm303dlhc:
+    path: samples/sensor/lsm303dlhc
+    catalog: samples sensor
+    depends_on: i2c lsm303dlhc
     attribute: required
-  sample.net.sockets.sntp_client:
-    path: samples/net/sockets/sntp_client
-    catalog: net
-    platform_whitelist: qemu_x86
-    attribute: required
-  net.coap:
-    path: tests/net/lib/coap
-    catalog: net
-    min_ram: 16
-    depends_on: netif
-    attribute: required
-  net.packet:
-    path: tests/net/net_pkt
-    catalog: net
-    min_ram: 20
-    attribute: required
-  net.udp:
-    path: tests/net/udp
-    catalog: net
-    min_ram: 20
-    attribute: required
-  net.util:
-    path: tests/net/utils
-    catalog: net
-    min_ram: 24
-    attribute: required
-  can.frame:
-    path: tests/subsys/can/frame
-    catalog: net
-    attribute: required
-  net.6lo:
-    path: tests/net/6lo
-    catalog: net 6loWPAN
-    min_ram: 32
-    depends_on: netif
-    attribute: required
-  net.arp:
-    path: tests/net/arp
-    catalog: net arp
-    min_ram: 16
-    attribute: required
-  net.buf:
-    path: tests/net/buf
-    catalog: net buf
-    min_ram: 16
-    attribute: required
-  net.offload:
-    path: tests/net/checksum_offload
-    catalog: net checksum_offload
-    min_ram: 16
-    attribute: required
-  misc.crc:
-    path: tests/lib/crc
-    catalog: net crc
-    attribute: required
-  net.ieee802154.crypto:
-    path: tests/net/ieee802154/crypto
-    catalog: net crypto
-    attribute: required
-  net.dhcp:
-    path: tests/net/dhcpv4
-    catalog: net dhcpv4
-    attribute: required
-  sample.net.sockets.echo_client.enc28j60:
-    path: samples/net/sockets/echo_client
-    catalog: net enc28j60
-    extra_args: OVERLAY_CONFIG="overlay-enc28j60.conf"
-    platform_whitelist: arduino_101
-    attribute: required
-  sample.net.sockets.echo_server.enc28j60:
-    path: samples/net/sockets/echo_server
-    catalog: net enc28j60
-    extra_args: OVERLAY_CONFIG="overlay-enc28j60.conf"
-    platform_whitelist: arduino_101
-    attribute: required
-  net.ethernet_mgmt:
-    path: tests/net/ethernet_mgmt
-    catalog: net ethernet_mgmt
-    min_ram: 32
-    attribute: required
-  sample.net.gptp:
-    path: samples/net/gptp
-    catalog: net gptp
-    platform_whitelist: frdm_k64f sam_e70_xplained native_posix
-    depends_on: netif
-    attribute: required
-  sample.net.dhcpv4_client:
-    path: samples/net/dhcpv4_client
-    catalog: net http
-    depends_on: netif
-    attribute: required
-  net.icmpv6:
-    path: tests/net/icmpv6
-    catalog: net icmpv6
-    min_ram: 16
-    attribute: required
-  net.ieee802154.fragment:
-    path: tests/net/ieee802154/fragment
-    catalog: net ieee802154 fragment
-    attribute: required
-  net.ieee802154.l2:
-    path: tests/net/ieee802154/l2
-    catalog: net ieee802154 l2
-    min_ram: 16
-    attribute: required
-  sample.net.wpanusb_frdm_cr20a:
-    path: samples/net/wpanusb
-    catalog: net ieee802154 usb
-    extra_args: OVERLAY_CONFIG=overlay-mcr20a.conf
-    platform_whitelist: frdm_k64f
-    attribute: required
-  sample.net.wpanusb_quark_se_cc2520:
-    path: samples/net/wpanusb
-    catalog: net ieee802154 usb
-    extra_args: OVERLAY_CONFIG=overlay-cc2520.conf
+  sample.net.wpan.serial:
+    path: samples/net/wpan_serial
+    catalog: usb
+    depends_on: usb_device
     platform_whitelist: quark_se_c1000_devboard
     attribute: required
-  net.iface:
-    path: tests/net/iface
-    catalog: net iface
-    min_ram: 16
-    depends_on: netif
+  sample.usb.hid-mouse:
+    path: samples/subsys/usb/hid-mouse
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude: arduino_101 96b_carbon tinytile
     attribute: required
-  net.ip-addr:
-    path: tests/net/ip-addr
-    catalog: net ip-addr
-    min_ram: 16
+  sample.usb.cdc-acm:
+    path: samples/subsys/usb/cdc_acm
+    catalog: usb
+    depends_on: usb_device
     attribute: required
-  sample.net.ipv4_autoconf:
-    path: samples/net/ipv4_autoconf
-    catalog: net ipv4_autoconf
-    depends_on: netif
+  sample.usb.cdc-acm.comp:
+    path: samples/subsys/usb/cdc_acm
+    catalog: usb
+    extra_args: "-DOVERLAY_CONFIG=overlay-composite-cdc-msc.conf"
+    depends_on: usb_device
     attribute: required
-  net.ipv6:
-    path: tests/net/ipv6
-    catalog: net ipv6
-    depends_on: netif
+  sample.usb.cdc-acm-composite:
+    path: samples/subsys/usb/cdc_acm_composite
+    catalog: usb
+    depends_on: usb_device
     attribute: required
-  net.ipv6.fragment:
-    path: tests/net/ipv6_fragment
-    catalog: net ipv6 fragment
+  sample.subsys.usb.console:
+    path: samples/subsys/usb/console
+    catalog: usb
+    depends_on: usb_device
+    platform_whitelist: arduino_101
+    attribute: required
+  sample.subsys.usb.dfu:
+    path: samples/subsys/usb/dfu
+    catalog: usb
+    platform_whitelist: nrf52840_pca10056 intel_s1000_crb
+    depends_on: usb_device
+    attribute: required
+  sample.usb.hid:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    depends_on: usb_device
+    platform_whitelist: quark_se_c1000_devboard
+    attribute: required
+  sample.usb.hid_composite:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    extra_configs:
+    - CONFIG_USB_COMPOSITE_DEVICE=y
+    depends_on: usb_device
+    platform_whitelist: quark_se_c1000_devboard
+    attribute: required
+  sample.usb.hid_msc_composite:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    extra_configs:
+    - CONFIG_USB_COMPOSITE_DEVICE=y
+    - CONFIG_USB_MASS_STORAGE=y
+    depends_on: usb_device
+    platform_whitelist: quark_se_c1000_devboard
+    attribute: required
+  sample.usb.hid-cdc:
+    path: samples/subsys/usb/hid-cdc
+    catalog: usb
+    depends_on: usb_device
+    platform_whitelist: nrf52840_pca10056 nrf52840_pca10059
+    attribute: required
+  sample.usb.loopback:
+    path: samples/subsys/usb/testusb
+    catalog: usb
+    depends_on: usb_device
+    attribute: required
+  sample.usb.webusb:
+    path: samples/subsys/usb/webusb
+    catalog: usb
+    depends_on: usb_device
+    platform_whitelist: quark_se_c1000_devboard
+    attribute: required
+  usb.device:
+    path: tests/subsys/usb/device
+    catalog: usb
+    platform_whitelist: native_posix
+    attribute: required
+  sample.bluetooth.hci_usb:
+    path: samples/bluetooth/hci_usb
+    catalog: usb bluetooth
+    depends_on: usb_device
+    platform_whitelist: quark_se_c1000_devboard nrf52840_pca10056
+    attribute: required
+  usb.bos:
+    path: tests/subsys/usb/bos
+    catalog: usb bos
+    platform_whitelist: native_posix frdm_k64f
+    attribute: required
+  usb.desc_sections:
+    path: tests/subsys/usb/desc_sections
+    catalog: usb desc_sections
+    platform_whitelist: frdm_k64f native_posix
+    attribute: required
+  sample.net.zperf.netusb_ecm:
+    path: samples/net/zperf
+    catalog: usb net zperf
+    extra_configs:
+    - CONFIG_NET_TCP=n
+    - CONFIG_SHELL_CMDS=n
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: usb_device
+    attribute: required
+  sample.net.zperf.netusb_eem:
+    path: samples/net/zperf
+    catalog: usb net zperf
+    extra_configs:
+    - CONFIG_USB_DEVICE_NETWORK_ECM=n
+    - CONFIG_USB_DEVICE_NETWORK_EEM=y
+    - CONFIG_NET_TCP=n
+    - CONFIG_SHELL_CMDS=n
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: usb_device
+    attribute: required
+  sample.net.zperf.netusb_rndis:
+    path: samples/net/zperf
+    catalog: usb net zperf
+    extra_configs:
+    - CONFIG_USB_DEVICE_NETWORK_ECM=n
+    - CONFIG_USB_DEVICE_NETWORK_RNDIS=y
+    - CONFIG_NET_PKT_RX_COUNT=32
+    - CONFIG_NET_PKT_TX_COUNT=32
+    - CONFIG_NET_TCP=n
+    - CONFIG_SHELL_CMDS=n
+    - CONFIG_SHELL_HISTORY=n
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: usb_device
+    attribute: required
+  usb.osdesc:
+    path: tests/subsys/usb/os_desc
+    catalog: usb osdesc
+    platform_whitelist: native_posix frdm_k64f
     attribute: required

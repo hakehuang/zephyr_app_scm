@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="825" errors="0" failures="0" name="" skipped="52" time="0">
+    <testsuite tests="648" errors="0" failures="0" name="" skipped="52" time="0">
       <testcase classname="frdm_kl25z:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -529,10 +529,6 @@
       </testcase>
       <testcase classname="frdm_kl25z:portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.object_tracing.philosophers_tracing" name="kernel.object_tracing.philosophers_tracing" time="0">
-      </testcase>
       <testcase classname="frdm_kl25z:misc.app_dev.libcxx.array" name="misc.app_dev.libcxx.array" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:misc.app_dev.libcxx.exceptions.array" name="misc.app_dev.libcxx.exceptions.array" time="0">
@@ -587,66 +583,6 @@
       </testcase>
       <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_add_callback" name="net.dns.no_ipv6.dns_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_add_callback6" name="net.dns.no_ipv6.dns_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_add_remove_two_callback" name="net.dns.no_ipv6.dns_add_remove_two_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_add_remove_two_callback6" name="net.dns.no_ipv6.dns_add_remove_two_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_do_not_add_add_callback" name="net.dns.no_ipv6.dns_do_not_add_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_do_not_add_add_callback6" name="net.dns.no_ipv6.dns_do_not_add_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_invalid_callback" name="net.dns.no_ipv6.dns_query_invalid_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_invalid_context" name="net.dns.no_ipv6.dns_query_invalid_context" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_invalid_query" name="net.dns.no_ipv6.dns_query_invalid_query" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_invalid_timeout" name="net.dns.no_ipv6.dns_query_invalid_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv4" name="net.dns.no_ipv6.dns_query_ipv4" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv4_cancel" name="net.dns.no_ipv6.dns_query_ipv4_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv4_numeric" name="net.dns.no_ipv6.dns_query_ipv4_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv4_server_count" name="net.dns.no_ipv6.dns_query_ipv4_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv4_timeout" name="net.dns.no_ipv6.dns_query_ipv4_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv6" name="net.dns.no_ipv6.dns_query_ipv6" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv6_cancel" name="net.dns.no_ipv6.dns_query_ipv6_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv6_numeric" name="net.dns.no_ipv6.dns_query_ipv6_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv6_server_count" name="net.dns.no_ipv6.dns_query_ipv6_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_ipv6_timeout" name="net.dns.no_ipv6.dns_query_ipv6_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_server_count" name="net.dns.no_ipv6.dns_query_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_query_too_many" name="net.dns.no_ipv6.dns_query_too_many" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_remove_callback" name="net.dns.no_ipv6.dns_remove_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_remove_callback6" name="net.dns.no_ipv6.dns_remove_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_remove_none_callback" name="net.dns.no_ipv6.dns_remove_none_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.dns_remove_none_callback6" name="net.dns.no_ipv6.dns_remove_none_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.init" name="net.dns.no_ipv6.init" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.rand32" name="net.dns.no_ipv6.rand32" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.vlan_disable_all" name="net.dns.no_ipv6.vlan_disable_all" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.no_ipv6.vlan_send_data" name="net.dns.no_ipv6.vlan_send_data" time="0">
-      </testcase>
       <testcase classname="frdm_kl25z:buildsystem.include_file.assert_mem_equal" name="buildsystem.include_file.assert_mem_equal" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:buildsystem.include_file.gen_gz_inc_file" name="buildsystem.include_file.gen_gz_inc_file" time="0">
@@ -656,28 +592,6 @@
       <testcase classname="frdm_kl25z:buildsystem.include_file.gen_gz_inc_file_no_mtime" name="buildsystem.include_file.gen_gz_inc_file_no_mtime" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:buildsystem.include_file.gen_inc_file" name="buildsystem.include_file.gen_inc_file" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.multiq.http_header_fields" name="kernel.sched.multiq.http_header_fields" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.delayed" name="net.http.delayed" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.header_nread_value" name="net.http.header_nread_value" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.http_header_fields" name="net.http.http_header_fields" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.method_str" name="net.http.method_str" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.parse_url" name="net.http.parse_url" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.preserve_data" name="net.http.preserve_data" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.preservt_delayed" name="net.http.preservt_delayed" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.resubmit" name="net.http.resubmit" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.sequence" name="net.http.sequence" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.http.tePASS - test_delayed" name="net.http.tePASS - test_delayed" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
       </testcase>
@@ -915,45 +829,7 @@
       </testcase>
       <testcase classname="frdm_kl25z:kernel.memory_protection.userspace.is_usermode" name="kernel.memory_protection.userspace.is_usermode" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.dns.mdns_response" name="net.dns.mdns_response" time="0">
-      </testcase>
       <testcase classname="frdm_kl25z:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.coap.mqtt_packet" name="net.coap.mqtt_packet" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.mqtt.packet.neighbor" name="net.mqtt.packet.neighbor" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.fragment_compact" name="net.packet.fragment_compact" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.fragment_copy" name="net.packet.fragment_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.fragment_split" name="net.packet.fragment_split" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.ipv6_multi_frags" name="net.packet.ipv6_multi_frags" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.net_pkt_advanced_basics" name="net.packet.net_pkt_advanced_basics" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.net_pkt_allocate_with_buffer" name="net.packet.net_pkt_allocate_with_buffer" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.net_pkt_allocate_wo_buffer" name="net.packet.net_pkt_allocate_wo_buffer" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.net_pkt_append_memset" name="net.packet.net_pkt_append_memset" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.net_pkt_basics_of_rw" name="net.packet.net_pkt_basics_of_rw" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.net_pkt_copy" name="net.packet.net_pkt_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.net_pkt_easier_rw_usage" name="net.packet.net_pkt_easier_rw_usage" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.pkt_pull" name="net.packet.pkt_pull" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.pkt_read_append" name="net.packet.pkt_read_append" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.packet.pkt_read_write_insert" name="net.packet.pkt_read_write_insert" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:kernel.common.adc_00p 0x0000 0x0000" name="kernel.common.adc_00p 0x0000 0x0000" time="0">
       </testcase>
@@ -1004,236 +880,6 @@
       <testcase classname="frdm_kl25z:peripheral.adc.threads_spawn_params" name="peripheral.adc.threads_spawn_params" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.can.adc_invalid_request" name="peripheral.can.adc_invalid_request" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.call_stacks_analyze_workq" name="portability.posix.call_stacks_analyze_workq" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.clock_support" name="portability.posix.clock_support" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.filter_handling" name="portability.posix.filter_handling" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.fs_fd_leak" name="portability.posix.fs_fd_leak" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.mqueue" name="portability.posix.mqueue" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.mutex.mutex_normal" name="portability.posix.mutex.mutex_normal" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.mutex.recursive_mutex" name="portability.posix.mutex.recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_fd_leak" name="portability.posix.newlib.fs_fd_leak" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.gen_gz_inc_file_mtime_arg" name="portability.posix.newlib.gen_gz_inc_file_mtime_arg" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_clock" name="portability.posix.newlib.posix_clock" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_mqueue" name="portability.posix.newlib.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_multiple_threads_single_key" name="portability.posix.newlib.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_normal_mutex" name="portability.posix.newlib.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_pthread_execution" name="portability.posix.newlib.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_pthread_termination" name="portability.posix.newlib.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_realtime" name="portability.posix.newlib.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_recursive_mutex" name="portability.posix.newlib.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_rw_lock" name="portability.posix.newlib.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_semaphore" name="portability.posix.newlib.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_single_thread_multiple_keys" name="portability.posix.newlib.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_timer" name="portability.posix.newlib.posix_timer" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.ring_buffer_main" name="portability.posix.newlib.ring_buffer_main" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.ringbuffer_raw" name="portability.posix.newlib.ringbuffer_raw" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.ringbuffer_size_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_size_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_clock" name="portability.posix.posix_clock" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_multiple_threads_single_key" name="portability.posix.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_normal_mutex" name="portability.posix.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_pthread_execution" name="portability.posix.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_pthread_termination" name="portability.posix.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_realtime" name="portability.posix.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_recursive_mutex" name="portability.posix.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_rw_lock" name="portability.posix.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_semaphore" name="portability.posix.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_single_thread_multiple_keys" name="portability.posix.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.posix_timer" name="portability.posix.posix_timer" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.pthread" name="portability.posix.pthread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.pthread_cancel" name="portability.posix.pthread_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.pthread_equal" name="portability.posix.pthread_equal" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.pthread_join" name="portability.posix.pthread_join" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.pthread_key.multiple_threads_single_key" name="portability.posix.pthread_key.multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.pthread_key.single_thread_multiple_keys" name="portability.posix.pthread_key.single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.rw_lock" name="portability.posix.rw_lock" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.sema" name="portability.posix.sema" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.timer" name="portability.posix.timer" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.timer_support" name="portability.posix.timer_support" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.libc.newlib.calloc" name="libraries.libc.newlib.calloc" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.libc.newlib.free" name="libraries.libc.newlib.free" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.libc.newlib.malloc" name="libraries.libc.newlib.malloc" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.libc.newlib.memalloc_all" name="libraries.libc.newlib.memalloc_all" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.libc.newlib.memalloc_max" name="libraries.libc.newlib.memalloc_max" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.libc.newlib.realloc" name="libraries.libc.newlib.realloc" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.libc.newlib.reallocarray" name="libraries.libc.newlib.reallocarray" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_fd_leak" name="portability.posix.newlib.fs_fd_leak" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.gen_gz_inc_file_mtime_arg" name="portability.posix.newlib.gen_gz_inc_file_mtime_arg" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_clock" name="portability.posix.newlib.posix_clock" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_mqueue" name="portability.posix.newlib.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_multiple_threads_single_key" name="portability.posix.newlib.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_normal_mutex" name="portability.posix.newlib.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_pthread_execution" name="portability.posix.newlib.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_pthread_termination" name="portability.posix.newlib.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_realtime" name="portability.posix.newlib.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_recursive_mutex" name="portability.posix.newlib.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_rw_lock" name="portability.posix.newlib.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_semaphore" name="portability.posix.newlib.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_single_thread_multiple_keys" name="portability.posix.newlib.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.posix_timer" name="portability.posix.newlib.posix_timer" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.ring_buffer_main" name="portability.posix.newlib.ring_buffer_main" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.ringbuffer_raw" name="portability.posix.newlib.ringbuffer_raw" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.ringbuffer_size_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_size_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:libraries.data_structures.rbtree.rbtree_spam" name="libraries.data_structures.rbtree.rbtree_spam" time="0">
       </testcase>

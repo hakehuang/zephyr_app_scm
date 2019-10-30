@@ -1,11 +1,47 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="2159" errors="0" failures="0" name="" skipped="52" time="0">
+    <testsuite tests="1969" errors="0" failures="0" name="" skipped="64" time="0">
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
       </testcase>
       <testcase classname="frdm_k64f:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:buildsystem.include_file.assert_mem_equal" name="buildsystem.include_file.assert_mem_equal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:buildsystem.include_file.gen_gz_inc_file" name="buildsystem.include_file.gen_gz_inc_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:buildsystem.include_file.gen_gz_inc_file_mtime_arg" name="buildsystem.include_file.gen_gz_inc_file_mtime_arg" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:buildsystem.include_file.gen_gz_inc_file_no_mtime" name="buildsystem.include_file.gen_gz_inc_file_no_mtime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:buildsystem.include_file.gen_inc_file" name="buildsystem.include_file.gen_inc_file" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.device.build_suspend_device_list" name="kernel.device.build_suspend_device_list" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.device.pm.build_suspend_device_list" name="kernel.device.pm.build_suspend_device_list" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.fifo.timeout.poll.timeout_fifS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="kernel.fifo.timeout.poll.timeout_fifS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:net.6lo.pipe_user_putphyr OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="net.6lo.pipe_user_putphyr OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:net.coap.build_empty_pdu" name="net.coap.build_empty_pdu" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:net.coap.build_simple_pdu" name="net.coap.build_simple_pdu" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_k64f:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
          <skipped message="Skipped" type="skipped"/>
@@ -2671,350 +2707,6 @@
       </testcase>
       <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_========================================" name="benchmark.boot_time.dns_========================================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_q==================" name="benchmark.boot_time.dns_q==================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_invalid_callback" name="benchmark.boot_time.dns_query_invalid_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_invalid_context" name="benchmark.boot_time.dns_query_invalid_context" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_invalid_query" name="benchmark.boot_time.dns_query_invalid_query" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_ipv4_numeric" name="benchmark.boot_time.dns_query_ipv4_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_ipv4_server=======================" name="benchmark.boot_time.dns_query_ipv4_server=======================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_ipv4_server_count" name="benchmark.boot_time.dns_query_ipv4_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_ipv4_timeout" name="benchmark.boot_time.dns_query_ipv4_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_ipv6_server_count" name="benchmark.boot_time.dns_query_ipv6_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_ipv6_t=======" name="benchmark.boot_time.dns_query_ipv6_t=======" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_ipv6_timeout" name="benchmark.boot_time.dns_query_ipv6_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_server_c=" name="benchmark.boot_time.dns_query_server_c=" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_server_count" name="benchmark.boot_time.dns_query_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.boot_time.dns_query_too_many" name="benchmark.boot_time.dns_query_too_many" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query===v4=========" name="kernel.fifo.timeout.dns_query===v4=========" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_invalid_callback" name="kernel.fifo.timeout.dns_query_invalid_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_invalid_context" name="kernel.fifo.timeout.dns_query_invalid_context" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_invalid_query" name="kernel.fifo.timeout.dns_query_invalid_query" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_ipv4" name="kernel.fifo.timeout.dns_query_ipv4" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_ipv4_cancel" name="kernel.fifo.timeout.dns_query_ipv4_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_ipv4_numeric" name="kernel.fifo.timeout.dns_query_ipv4_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_ipv4_server_count" name="kernel.fifo.timeout.dns_query_ipv4_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_ipv4_timeout" name="kernel.fifo.timeout.dns_query_ipv4_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_ipv6_cancel" name="kernel.fifo.timeout.dns_query_ipv6_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_ipv6_server_count" name="kernel.fifo.timeout.dns_query_ipv6_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.dns_query_server_count" name="kernel.fifo.timeout.dns_query_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.poll.dns_add_remove_two_callback6" name="kernel.fifo.timeout.poll.dns_add_remove_two_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.poll.dns_remove_callback6" name="kernel.fifo.timeout.poll.dns_remove_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.poll.dns_remove_none_callback6" name="kernel.fifo.timeout.poll.dns_remove_none_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.fifo.timeout.poll.dns_remove_timeout_empty_fifo" name="kernel.fifo.timeout.poll.dns_remove_timeout_empty_fifo" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_close_server" name="net.app.with-dns.app_close_server" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_init" name="net.app.with-dns.app_init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp4_client_hostname" name="net.app.with-dns.app_tcp4_client_hostname" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp4_client_hostname_fail" name="net.app.with-dns.app_tcp4_client_hostname_fail" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp4_client_peer" name="net.app.with-dns.app_tcp4_client_peer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp4_client_peer_addr" name="net.app.with-dns.app_tcp4_client_peer_addr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp4_client_peer_with_port" name="net.app.with-dns.app_tcp4_client_peer_with_port" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp6_client_hostname" name="net.app.with-dns.app_tcp6_client_hostname" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp6_client_hostname_fail" name="net.app.with-dns.app_tcp6_client_hostname_fail" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp6_client_peer" name="net.app.with-dns.app_tcp6_client_peer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp6_client_peer_addr" name="net.app.with-dns.app_tcp6_client_peer_addr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp6_client_peer_with_port" name="net.app.with-dns.app_tcp6_client_peer_with_port" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp_server_init" name="net.app.with-dns.app_tcp_server_init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_tcp_server_listen" name="net.app.with-dns.app_tcp_server_listen" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp4_client_hostname" name="net.app.with-dns.app_udp4_client_hostname" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp4_client_hostname_fail" name="net.app.with-dns.app_udp4_client_hostname_fail" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp4_client_peer" name="net.app.with-dns.app_udp4_client_peer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp4_client_peer_addr" name="net.app.with-dns.app_udp4_client_peer_addr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp4_client_peer_with_port" name="net.app.with-dns.app_udp4_client_peer_with_port" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp6_client_hostname" name="net.app.with-dns.app_udp6_client_hostname" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp6_client_hostname_fail" name="net.app.with-dns.app_udp6_client_hostname_fail" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp6_client_peer" name="net.app.with-dns.app_udp6_client_peer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp6_client_peer_addr" name="net.app.with-dns.app_udp6_client_peer_addr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp6_client_peer_with_port" name="net.app.with-dns.app_udp6_client_peer_with_port" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp_server_init" name="net.app.with-dns.app_udp_server_init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.app_udp_server_listen" name="net.app.with-dns.app_udp_server_listen" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.app.with-dns.iface_setup" name="net.app.with-dns.iface_setup" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns" name="net.dns" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_add_callback" name="net.dns.dns_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_add_callback6" name="net.dns.dns_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_add_remove_two_callback" name="net.dns.dns_add_remove_two_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_add_remove_two_callback6" name="net.dns.dns_add_remove_two_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_do_not_add_add_callback" name="net.dns.dns_do_not_add_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_do_not_add_add_callback6" name="net.dns.dns_do_not_add_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query" name="net.dns.dns_query" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_invalid_callback" name="net.dns.dns_query_invalid_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_invalid_context" name="net.dns.dns_query_invalid_context" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_invalid_query" name="net.dns.dns_query_invalid_query" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_invalid_timeout" name="net.dns.dns_query_invalid_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv4" name="net.dns.dns_query_ipv4" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv4_cancel" name="net.dns.dns_query_ipv4_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv4_numeric" name="net.dns.dns_query_ipv4_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv4_server_count" name="net.dns.dns_query_ipv4_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv4_timeout" name="net.dns.dns_query_ipv4_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv6" name="net.dns.dns_query_ipv6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv6_cancel" name="net.dns.dns_query_ipv6_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv6_numeric" name="net.dns.dns_query_ipv6_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv6_server_count" name="net.dns.dns_query_ipv6_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_ipv6_timeout" name="net.dns.dns_query_ipv6_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_server_count" name="net.dns.dns_query_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_query_too_many" name="net.dns.dns_query_too_many" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_remove_callback" name="net.dns.dns_remove_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_remove_callback6" name="net.dns.dns_remove_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_remove_none_callback" name="net.dns.dns_remove_none_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_remove_none_callback6" name="net.dns.dns_remove_none_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_response" name="net.dns.dns_response" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.dns_response2" name="net.dns.dns_response2" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.init" name="net.dns.init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.mdns_response" name="net.dns.mdns_response" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_add_callback" name="net.dns.no_ipv4.dns_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_add_callback6" name="net.dns.no_ipv4.dns_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_add_remove_two_callback" name="net.dns.no_ipv4.dns_add_remove_two_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_add_remove_two_callback6" name="net.dns.no_ipv4.dns_add_remove_two_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_do_not_add_add_callback" name="net.dns.no_ipv4.dns_do_not_add_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_do_not_add_add_callback6" name="net.dns.no_ipv4.dns_do_not_add_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_remove_callback" name="net.dns.no_ipv4.dns_remove_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_remove_callback6" name="net.dns.no_ipv4.dns_remove_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_remove_none_callback" name="net.dns.no_ipv4.dns_remove_none_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.dns_remove_none_callback6" name="net.dns.no_ipv4.dns_remove_none_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.init" name="net.dns.no_ipv4.init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv4.main" name="net.dns.no_ipv4.main" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_add_callback" name="net.dns.no_ipv6.dns_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_add_callback6" name="net.dns.no_ipv6.dns_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_add_remove_two_callback" name="net.dns.no_ipv6.dns_add_remove_two_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_add_remove_two_callback6" name="net.dns.no_ipv6.dns_add_remove_two_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_do_not_add_add_callback" name="net.dns.no_ipv6.dns_do_not_add_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_do_not_add_add_callback6" name="net.dns.no_ipv6.dns_do_not_add_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_invalid_callback" name="net.dns.no_ipv6.dns_query_invalid_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_invalid_context" name="net.dns.no_ipv6.dns_query_invalid_context" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_invalid_query" name="net.dns.no_ipv6.dns_query_invalid_query" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_invalid_timeout" name="net.dns.no_ipv6.dns_query_invalid_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4" name="net.dns.no_ipv6.dns_query_ipv4" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4_cancel" name="net.dns.no_ipv6.dns_query_ipv4_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4_numeric" name="net.dns.no_ipv6.dns_query_ipv4_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4_server_count" name="net.dns.no_ipv6.dns_query_ipv4_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4_timeout" name="net.dns.no_ipv6.dns_query_ipv4_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6" name="net.dns.no_ipv6.dns_query_ipv6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6_cancel" name="net.dns.no_ipv6.dns_query_ipv6_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6_numeric" name="net.dns.no_ipv6.dns_query_ipv6_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6_server_count" name="net.dns.no_ipv6.dns_query_ipv6_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6_timeout" name="net.dns.no_ipv6.dns_query_ipv6_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_server_count" name="net.dns.no_ipv6.dns_query_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_too_many" name="net.dns.no_ipv6.dns_query_too_many" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_remove_callback" name="net.dns.no_ipv6.dns_remove_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_remove_callback6" name="net.dns.no_ipv6.dns_remove_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_remove_none_callback" name="net.dns.no_ipv6.dns_remove_none_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_remove_none_callback6" name="net.dns.no_ipv6.dns_remove_none_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.init" name="net.dns.no_ipv6.init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.rand32" name="net.dns.no_ipv6.rand32" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.vlan_disable_all" name="net.dns.no_ipv6.vlan_disable_all" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.vlan_send_data" name="net.dns.no_ipv6.vlan_send_data" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.sem_multiple_threads_wait" name="net.dns.sem_multiple_threads_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.sem_take_no_wait_fails" name="net.dns.sem_take_no_wait_fails" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.sem_take_timeout" name="net.dns.sem_take_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.sem_take_timeout_fails" name="net.dns.sem_take_timeout_fails" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.iface.no_userspace_allowed.dns_add_cal_MAX_IPV4_COUNT value." name="net.iface.no_userspace_allowed.dns_add_cal_MAX_IPV4_COUNT value." time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.iface.no_userspace_allowed.dns_add_callback6" name="net.iface.no_userspace_allowed.dns_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.iface.no_userspace_allowed.dns_do_not_add_add_callback6" name="net.iface.no_userspace_allowed.dns_do_not_add_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.iface.no_userspace_allowed.dns_remove_c=========================================================" name="net.iface.no_userspace_allowed.dns_remove_c=========================================================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.iface.no_userspace_allowed.dns_remove_callback6" name="net.iface.no_userspace_allowed.dns_remove_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_add_callback" name="net.dns.no_ipv6.dns_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_add_callback6" name="net.dns.no_ipv6.dns_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_add_remove_two_callback" name="net.dns.no_ipv6.dns_add_remove_two_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_add_remove_two_callback6" name="net.dns.no_ipv6.dns_add_remove_two_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_do_not_add_add_callback" name="net.dns.no_ipv6.dns_do_not_add_add_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_do_not_add_add_callback6" name="net.dns.no_ipv6.dns_do_not_add_add_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_invalid_callback" name="net.dns.no_ipv6.dns_query_invalid_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_invalid_context" name="net.dns.no_ipv6.dns_query_invalid_context" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_invalid_query" name="net.dns.no_ipv6.dns_query_invalid_query" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_invalid_timeout" name="net.dns.no_ipv6.dns_query_invalid_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4" name="net.dns.no_ipv6.dns_query_ipv4" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4_cancel" name="net.dns.no_ipv6.dns_query_ipv4_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4_numeric" name="net.dns.no_ipv6.dns_query_ipv4_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4_server_count" name="net.dns.no_ipv6.dns_query_ipv4_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv4_timeout" name="net.dns.no_ipv6.dns_query_ipv4_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6" name="net.dns.no_ipv6.dns_query_ipv6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6_cancel" name="net.dns.no_ipv6.dns_query_ipv6_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6_numeric" name="net.dns.no_ipv6.dns_query_ipv6_numeric" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6_server_count" name="net.dns.no_ipv6.dns_query_ipv6_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_ipv6_timeout" name="net.dns.no_ipv6.dns_query_ipv6_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_server_count" name="net.dns.no_ipv6.dns_query_server_count" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_query_too_many" name="net.dns.no_ipv6.dns_query_too_many" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_remove_callback" name="net.dns.no_ipv6.dns_remove_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_remove_callback6" name="net.dns.no_ipv6.dns_remove_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_remove_none_callback" name="net.dns.no_ipv6.dns_remove_none_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.dns_remove_none_callback6" name="net.dns.no_ipv6.dns_remove_none_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.init" name="net.dns.no_ipv6.init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.rand32" name="net.dns.no_ipv6.rand32" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.vlan_disable_all" name="net.dns.no_ipv6.vlan_disable_all" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.no_ipv6.vlan_send_data" name="net.dns.no_ipv6.vlan_send_data" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:buildsystem.include_file.assert_mem_equal" name="buildsystem.include_file.assert_mem_equal" time="0">
       </testcase>
       <testcase classname="frdm_k64f:buildsystem.include_file.gen_gz_inc_file" name="buildsystem.include_file.gen_gz_inc_file" time="0">
@@ -3024,28 +2716,6 @@
       <testcase classname="frdm_k64f:buildsystem.include_file.gen_gz_inc_file_no_mtime" name="buildsystem.include_file.gen_gz_inc_file_no_mtime" time="0">
       </testcase>
       <testcase classname="frdm_k64f:buildsystem.include_file.gen_inc_file" name="buildsystem.include_file.gen_inc_file" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.sched.multiq.http_header_fields" name="kernel.sched.multiq.http_header_fields" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.delayed" name="net.http.delayed" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.header_nread_value" name="net.http.header_nread_value" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.http_header_fields" name="net.http.http_header_fields" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.method_str" name="net.http.method_str" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.parse_url" name="net.http.parse_url" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.preserve_data" name="net.http.preserve_data" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.preservt_delayed" name="net.http.preservt_delayed" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.resubmit" name="net.http.resubmit" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.sequence" name="net.http.sequence" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.tePASS - test_delayed" name="net.http.tePASS - test_delayed" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
       </testcase>
@@ -3355,45 +3025,7 @@
       </testcase>
       <testcase classname="frdm_k64f:kernel.memory_protection.userspace.is_usermode" name="kernel.memory_protection.userspace.is_usermode" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.dns.mdns_response" name="net.dns.mdns_response" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.coap.mqtt_packet" name="net.coap.mqtt_packet" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.packet.neighbor" name="net.mqtt.packet.neighbor" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.fragment_compact" name="net.packet.fragment_compact" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.fragment_copy" name="net.packet.fragment_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.fragment_split" name="net.packet.fragment_split" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.ipv6_multi_frags" name="net.packet.ipv6_multi_frags" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.net_pkt_advanced_basics" name="net.packet.net_pkt_advanced_basics" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.net_pkt_allocate_with_buffer" name="net.packet.net_pkt_allocate_with_buffer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.net_pkt_allocate_wo_buffer" name="net.packet.net_pkt_allocate_wo_buffer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.net_pkt_append_memset" name="net.packet.net_pkt_append_memset" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.net_pkt_basics_of_rw" name="net.packet.net_pkt_basics_of_rw" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.net_pkt_copy" name="net.packet.net_pkt_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.net_pkt_easier_rw_usage" name="net.packet.net_pkt_easier_rw_usage" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.pkt_pull" name="net.packet.pkt_pull" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.pkt_read_append" name="net.packet.pkt_read_append" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.packet.pkt_read_write_insert" name="net.packet.pkt_read_write_insert" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.common.adc_00p 0x0000 0x0000" name="kernel.common.adc_00p 0x0000 0x0000" time="0">
       </testcase>

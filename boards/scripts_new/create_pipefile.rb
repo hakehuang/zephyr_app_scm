@@ -114,6 +114,10 @@ def create_pipefile_from_commandline(data, board_info: nil)
     pipe_data[:catalog][catalog]['cases'][key]['build_path'] = File.join(case_array[1], "build_" + md5.hexdigest[0..6])
     pipe_data[:catalog][catalog]['cases'][key]['build'] = "build_" + md5.hexdigest[0..6]
 
+    if @content["cases"][key].has_key?("scripts")
+      pipe_data[:catalog][catalog]['cases'][key]['scripts'] = @content["cases"][key]['scripts']
+    end
+
 
     pipe_data[:catalog][catalog]['cases'][key]['opt'] = case_array
   end
@@ -171,6 +175,10 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     md5 << options_array.join(' ')
     pipe_data[:catalog][catalog]['cases'][key]['build_path'] = File.join(case_array[1], "build_" + md5.hexdigest[0..6])
     pipe_data[:catalog][catalog]['cases'][key]['build'] = "build_" + md5.hexdigest[0..6]
+
+    if @content["cases"][key].has_key?("scripts")
+      pipe_data[:catalog][catalog]['cases'][key]['scripts'] = @content["cases"][key]['scripts']
+    end
 
     pipe_data[:catalog][catalog]['cases'][key]['opt'] = case_array
   end
