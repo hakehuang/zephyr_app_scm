@@ -14,4 +14,9 @@ cases:
     comments: "build error #20205"
   peripheral.uart_async_api:
     comments: "USER FAULT and not harness keyboard"
+  crypto.rand32.random_hw_xoroshiro:
+    comments: "not hw in chip"
+  kernel.common.stack_sentinel:
+    comments: "no sentinel"
+
 

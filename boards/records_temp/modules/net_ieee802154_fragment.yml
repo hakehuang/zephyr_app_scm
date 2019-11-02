@@ -3,3 +3,5 @@ cases:
   net.ieee802154.fragment:
     path: tests/net/ieee802154/fragment
     catalog: net ieee802154 fragment
+    depends_on: ieee802154
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3

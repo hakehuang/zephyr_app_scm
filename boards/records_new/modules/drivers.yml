@@ -12,6 +12,7 @@ cases:
   sample.driver.gpio:
     path: samples/drivers/gpio
     catalog: drivers
+    filter: DT_GPIO_LEDS_LED0_GPIO_CONTROLLER and DT_GPIO_KEYS_SW0_GPIO_CONTROLLER
     depends_on: gpio
   sample.driver.i2c_fujitsu_fram:
     path: samples/drivers/i2c_fujitsu_fram
@@ -49,17 +50,20 @@ cases:
   peripheral.uart_async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
+    filter: CONFIG_UART_CONSOLE
   peripheral.uart:
     path: tests/drivers/uart/uart_basic_api
     catalog: drivers
     extra_configs:
     - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    filter: CONFIG_UART_CONSOLE
   peripheral.uart.poll:
     path: tests/drivers/uart/uart_basic_api
     catalog: drivers
     extra_configs:
     - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
     extra_args: CONF_FILE=prj_poll.conf
+    filter: CONFIG_UART_CONSOLE
   peripheral.uart.shell:
     path: tests/drivers/uart/uart_basic_api
     catalog: drivers
@@ -67,3 +71,4 @@ cases:
     - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
     extra_args: CONF_FILE=prj_shell.conf
     min_flash: 64
+    filter: CONFIG_UART_CONSOLE

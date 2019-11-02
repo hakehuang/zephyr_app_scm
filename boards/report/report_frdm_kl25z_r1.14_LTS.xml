@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="648" errors="0" failures="0" name="" skipped="52" time="0">
+    <testsuite tests="648" errors="0" failures="0" name="" skipped="56" time="0">
       <testcase classname="frdm_kl25z:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -155,6 +155,18 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" name="crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:benchmark.boot_time.dns_========================================" name="benchmark.boot_time.dns_========================================" time="0">
@@ -574,14 +586,6 @@
       <testcase classname="frdm_kl25z:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:crypto.rand32.random_sw_systimer.te" name="crypto.rand32.random_sw_systimer.te" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" name="crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:buildsystem.include_file.assert_mem_equal" name="buildsystem.include_file.assert_mem_equal" time="0">
       </testcase>

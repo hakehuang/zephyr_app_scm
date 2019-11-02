@@ -3,17 +3,21 @@ cases:
   sample.subsys.shell.shell_module:
     path: samples/subsys/shell/shell_module
     catalog: shell
+    filter: "( CONFIG_SERIAL and CONFIG_UART_SHELL_ON_DEV_NAME )"
     min_ram: 40
   sample.subsys.shell.shell_module.minimal:
     path: samples/subsys/shell/shell_module
     catalog: shell
     extra_args: CONF_FILE="prj_minimal.conf"
+    filter: "( CONFIG_SERIAL and CONFIG_UART_SHELL_ON_DEV_NAME )"
   sample.subsys.shell.shell_module.minimal_rtt:
     path: samples/subsys/shell/shell_module
     catalog: shell
     extra_args: CONF_FILE="prj_minimal_rtt.conf"
+    filter: CONFIG_HAS_SEGGER_RTT
   shell:
     path: tests/shell
     catalog: shell
     min_flash: 64
     min_ram: 32
+    filter: "( CONFIG_SHELL )"

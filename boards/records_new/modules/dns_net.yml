@@ -4,8 +4,12 @@ cases:
     path: tests/net/lib/dns_resolve
     catalog: dns net
     min_ram: 21
+    depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
   net.dns.no_ipv6:
     path: tests/net/lib/dns_resolve
     catalog: dns net
     extra_args: CONF_FILE=prj-no-ipv6.conf
     min_ram: 16
+    depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3

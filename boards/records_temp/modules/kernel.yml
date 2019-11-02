@@ -7,6 +7,7 @@ cases:
     - CONFIG_MISRA_SANE=y
     min_flash: 33
     min_ram: 32
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
   kernel.common.nsim:
     path: tests/kernel/critical
     catalog: kernel
@@ -41,6 +42,7 @@ cases:
     path: tests/kernel/fp_sharing
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
     min_ram: 16
   kernel.fp_sharing.x86:
     path: tests/kernel/fp_sharing
@@ -86,10 +88,12 @@ cases:
   kernel.sched.preempt:
     path: tests/kernel/sched/preempt
     catalog: kernel
+    filter: not CONFIG_SMP
     platform_exclude: nrf52810_pca10040
   kernel.threads.no-multithreading:
     path: tests/kernel/threads/no-multithreading
     catalog: kernel
+    filter: not CONFIG_SMP
     platform_exclude: galileo
   kernel.tickless:
     path: tests/kernel/tickless/tickless_concept

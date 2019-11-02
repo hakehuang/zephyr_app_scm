@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="55" errors="0" failures="0" name="" skipped="52" time="0">
+    <testsuite tests="60" errors="0" failures="0" name="" skipped="57" time="0">
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
@@ -161,6 +161,21 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_k64f:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" name="crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
   </testsuite>

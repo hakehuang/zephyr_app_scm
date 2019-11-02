@@ -5,3 +5,4 @@ cases:
     catalog: net 6loWPAN
     min_ram: 32
     depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3

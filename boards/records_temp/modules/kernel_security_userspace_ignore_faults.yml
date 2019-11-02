@@ -3,7 +3,9 @@ cases:
   kernel.memory_protection.syscalls:
     path: tests/kernel/mem_protect/syscalls
     catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.memory_protection.userspace:
     path: tests/kernel/mem_protect/userspace
     catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
     min_ram: 32

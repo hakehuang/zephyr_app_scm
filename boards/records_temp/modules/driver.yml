@@ -3,6 +3,7 @@ cases:
   peripheral.entropy:
     path: tests/drivers/entropy/api
     catalog: driver
+    filter: CONFIG_ENTROPY_HAS_DRIVER
   peripheral.device_id:
     path: tests/drivers/hwinfo/api
     catalog: driver

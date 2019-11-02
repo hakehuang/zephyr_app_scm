@@ -8,6 +8,7 @@ cases:
     path: tests/kernel/fatal
     catalog: kernel ignore_faults userspace
     extra_args: CONF_FILE=prj.conf
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
   kernel.common.stack_sentinel:
     path: tests/kernel/fatal
     catalog: kernel ignore_faults userspace

@@ -3,4 +3,5 @@ cases:
   sample.button:
     path: samples/basic/button
     catalog: button gpio
+    filter: DT_GPIO_KEYS_SW0_GPIO_CONTROLLER
     depends_on: gpio

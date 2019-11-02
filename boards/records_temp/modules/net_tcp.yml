@@ -4,3 +4,4 @@ cases:
     path: tests/net/tcp
     catalog: net tcp
     depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3

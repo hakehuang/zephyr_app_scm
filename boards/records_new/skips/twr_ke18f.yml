@@ -2,4 +2,8 @@ __load__:
   - skips/common.yml
   - skips/build_only.yml
 
-cases: {}
+cases:
+  __hierarchy__: 
+    result: skip
+  kernel.fp_sharing:
+    comments: "no fp"

@@ -4,3 +4,4 @@ cases:
     path: tests/net/ipv6
     catalog: net ipv6
     depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3

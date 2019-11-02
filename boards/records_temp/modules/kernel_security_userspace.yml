@@ -3,3 +3,4 @@ cases:
   kernel.memory_protection.obj_validation:
     path: tests/kernel/mem_protect/obj_validation
     catalog: kernel security userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE

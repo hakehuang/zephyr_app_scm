@@ -55,8 +55,11 @@ end
 
 def load_board_data(search_base, board_name)
   board_file = File.join(search_base, "boards", "arm", board_name,"#{board_name}.yaml")
+  board_settings = File.join(search_base, "boards", "#{board_name}.yml")
   if File.exist?(board_file)
-    return YAML.load_file(board_file)
+    board_info =  YAML.load_file(board_file)
+    board_info.merge!(YAML.load_file(board_settings))
+    return board_info
   else
     puts "no such board file found #{board_name} in arm"
     exit

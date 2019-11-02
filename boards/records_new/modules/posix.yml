@@ -8,6 +8,8 @@ cases:
     - CONFIG_TEST_USERSPACE=n
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    min_ram: 64
+    arch_exclude: posix
   portability.posix.newlib.nsim:
     path: tests/posix/common
     catalog: posix
@@ -16,3 +18,6 @@ cases:
     - CONFIG_TEST_USERSPACE=n
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+    arch_exclude: posix

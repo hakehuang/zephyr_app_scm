@@ -7,3 +7,4 @@ cases:
     - CONFIG_MDNS_RESOLVER=y
     - CONFIG_LLMNR_RESOLVER=n
     - CONFIG_NET_DHCPV4=y
+    depends_on: netif

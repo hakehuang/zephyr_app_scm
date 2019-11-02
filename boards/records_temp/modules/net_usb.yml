@@ -7,6 +7,8 @@ cases:
     - CONFIG_NET_SHELL=n
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
     platform_whitelist: quark_se_c1000_devboard 96b_carbon
+    depends_on: netif
+    min_flash: 140
   sample.net.sockets.echo_server.usbnet_composite:
     path: samples/net/sockets/echo_server
     catalog: net usb
@@ -14,3 +16,5 @@ cases:
     - CONFIG_USB_COMPOSITE_DEVICE=y
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
     platform_whitelist: quark_se_c1000_devboard 96b_carbon
+    depends_on: netif
+    min_flash: 140

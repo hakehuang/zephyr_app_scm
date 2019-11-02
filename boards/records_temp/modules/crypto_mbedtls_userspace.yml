@@ -3,6 +3,7 @@ cases:
   crypto.mbedtls:
     path: tests/crypto/mbedtls
     catalog: crypto mbedtls userspace
+    filter: not CONFIG_DEBUG
     platform_exclude: qemu_x86_64
     min_flash: 65
     min_ram: 32

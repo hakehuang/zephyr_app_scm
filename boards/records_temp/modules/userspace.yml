@@ -3,3 +3,4 @@ cases:
   sample.kernel.memory_protection.shared_mem:
     path: tests/ztest/mock
     catalog: userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE

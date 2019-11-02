@@ -5,3 +5,4 @@ cases:
     catalog: logging usermode
     extra_configs:
     - CONFIG_USERSPACE=y
+    filter: CONFIG_ARCH_HAS_USERSPACE

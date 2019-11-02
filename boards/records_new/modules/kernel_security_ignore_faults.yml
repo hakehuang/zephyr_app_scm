@@ -3,3 +3,4 @@ cases:
   kernel.memory_protection.protection:
     path: tests/kernel/mem_protect/protection
     catalog: kernel security ignore_faults
+    filter: CONFIG_CPU_HAS_MPU or CONFIG_X86_MMU

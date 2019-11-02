@@ -4,3 +4,5 @@ cases:
     path: samples/net/zperf
     catalog: net zperf
     platform_whitelist: qemu_x86
+    platform_exclude: native_posix sam_e70_xplained
+    min_ram: 64

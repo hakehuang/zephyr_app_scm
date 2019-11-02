@@ -121,9 +121,11 @@ def scan(zephyr_path, output_records_path, output_records_fname)
               #puts testcase_hash
               testcase_hash['tests'].keys.each do |k|
                 #log.info(k)
+                extra_args = testcase_hash['tests'][k]['extra_args']
                 if testcase_hash['common']
                   tags = testcase_hash['common']['tags']
                   tags = testcase_hash['tests'][k]['tags'] if testcase_hash['tests'][k].has_key?('tags')
+                  testcase_hash['tests'][k].merge!(testcase_hash['common'])
                 else
                   tags = testcase_hash['tests'][k]['tags'] if testcase_hash['tests'][k].has_key?('tags')
                 end
@@ -135,7 +137,10 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                   cases['cases'][k]['extra_configs'] = testcase_hash['tests'][k]['extra_configs']
                 end
                 if testcase_hash['tests'][k].has_key?('extra_args')
-                  cases['cases'][k]['extra_args'] = testcase_hash['tests'][k]['extra_args']
+                  cases['cases'][k]['extra_args'] = extra_args
+                  if extra_args != testcase_hash['tests'][k]['extra_args']
+                    cases['cases'][k]['extra_args'] = [testcase_hash['tests'][k]['extra_args'], extra_args].join(" ")
+                  end
                 end
                 keep_hash = {}
                 lists_to_keep(testcase_hash['tests'][k], keep_hash)
@@ -147,10 +152,11 @@ def scan(zephyr_path, output_records_path, output_records_fname)
             if ! sample_hash.nil?
               if sample_hash.has_key?('tests')
                 sample_hash['tests'].keys.each do |k|
-                
+                  extra_args = sample_hash['tests'][k]['extra_args']
                   if sample_hash['common']
                     tags = sample_hash['common']['tags']
                     tags = sample_hash['tests'][k]['tags'] if sample_hash['tests'][k].has_key?('tags')
+                    sample_hash['tests'][k].merge!(sample_hash['common'])
                   else
                     tags = sample_hash['tests'][k]['tags'] if sample_hash['tests'][k].has_key?('tags')
                   end
@@ -163,7 +169,10 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                     cases['cases'][k]['extra_configs'] = sample_hash['tests'][k]['extra_configs']
                   end
                   if sample_hash['tests'][k].has_key?('extra_args')
-                    cases['cases'][k]['extra_args'] = sample_hash['tests'][k]['extra_args']
+                    cases['cases'][k]['extra_args'] = extra_args
+                    if extra_args != sample_hash['tests'][k]['extra_args']
+                      cases['cases'][k]['extra_args'] = [extra_args, sample_hash['tests'][k]['extra_args']].join(" ")
+                    end
                   end
                   keep_hash = {}
                   lists_to_keep(sample_hash['tests'][k], keep_hash)

@@ -13,7 +13,7 @@ require 'logger'
 
 require_relative "parse_testcase"
 require_relative "parse_sample"
-
+require_relative "zephyr_filter"
 
 class Parser
   def self.parse(options)
@@ -50,10 +50,7 @@ end
 
 def lists_to_keep(in_hash, out_hash)
   #base on the knowledge from https://docs.zephyrproject.org/latest/guides/test/sanitycheck.html
-  neg_list = ["skip", "build_only", "arch_exclude", "platform_exclude"]
-  pos_list = ["arch_whitelist", "platform_whitelist"]
-  neural_list = ["min_ram", "min_flash", "depends_on"]
-  all_list = neg_list + pos_list + neural_list
+  all_list = ZEPHER_FILTER::neg_list + ZEPHER_FILTER::pos_list + ZEPHER_FILTER::neural_list
   in_hash.each do |k, v|
     if all_list.include?(k)
       out_hash[k] = v
@@ -127,7 +124,6 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                   tags = testcase_hash['common']['tags']
                   tags = testcase_hash['tests'][k]['tags'] if testcase_hash['tests'][k].has_key?('tags')
                   testcase_hash['tests'][k].merge!(testcase_hash['common'])
-                  puts "******#{k}", testcase_hash['tests'][k]
                 else
                   tags = testcase_hash['tests'][k]['tags'] if testcase_hash['tests'][k].has_key?('tags')
                 end
@@ -137,6 +133,9 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                                      }
                 if testcase_hash['tests'][k].has_key?('extra_configs')
                   cases['cases'][k]['extra_configs'] = testcase_hash['tests'][k]['extra_configs']
+                end
+                if testcase_hash['tests'][k].has_key?('extra_args')
+                  cases['cases'][k]['extra_args'] = testcase_hash['tests'][k]['extra_args']
                 end
                 keep_hash = {}
                 lists_to_keep(testcase_hash['tests'][k], keep_hash)
@@ -171,7 +170,8 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 end
               else
                 sample_hash['sample'].keys.each do |k|
-                  cases['cases'][Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)).to_path] = {
+                  kk = Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)).to_path.split(File::Separator).join(".")
+                  cases['cases'][kk] = {
                     'path' => Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)).to_path,
                     'catalog' => sample_hash['sample']['name']
                   }

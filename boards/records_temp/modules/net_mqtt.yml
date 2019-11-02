@@ -8,15 +8,23 @@ cases:
     path: tests/net/lib/mqtt_publisher
     catalog: net mqtt
     min_ram: 16
+    depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
   net.mqtt.tls:
     path: tests/net/lib/mqtt_publisher
     catalog: net mqtt
     extra_args: CONF_FILE="prj_tls.conf"
+    depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
   net.mqtt.pubsub:
     path: tests/net/lib/mqtt_pubsub
     catalog: net mqtt
     min_ram: 16
+    depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
   net.mqtt.subscriber:
     path: tests/net/lib/mqtt_subscriber
     catalog: net mqtt
     min_ram: 16
+    depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3

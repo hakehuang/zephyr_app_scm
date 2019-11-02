@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="249" errors="0" failures="0" name="" skipped="64" time="0">
+    <testsuite tests="280" errors="0" failures="0" name="" skipped="69" time="0">
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
@@ -198,6 +198,73 @@
       </testcase>
       <testcase classname="frdm_k64f:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
          <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" name="crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_r" name="kernel.memory_protection.sys_sem.nouser.triggered_r" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_cancel_from_queue_isr" name="kernel.memory_protection.sys_sem.nouser.triggered_work_cancel_from_queue_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_cancel_from_queue_thread" name="kernel.memory_protection.sys_sem.nouser.triggered_work_cancel_from_queue_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submit_isr" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submit_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submit_thread" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submit_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submit_to_queue_isr" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submit_to_queue_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submit_to_queue_thread" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submit_to_queue_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submitest_delayed_work_cancel_from_queue_isr" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submitest_delayed_work_cancel_from_queue_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.already_triggered" name="kernel.workqueue.already_triggered" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered" name="kernel.workqueue.triggered" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_no_wait" name="kernel.workqueue.triggered_no_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_no_wait_expired" name="kernel.workqueue.triggered_no_wait_expired" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_resubmit" name="kernel.workqueue.triggered_resubmit" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_wait" name="kernel.workqueue.triggered_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_wait_expired" name="kernel.workqueue.triggered_wait_expired" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_work_cancel_from_queue_isr" name="kernel.workqueue.triggered_work_cancel_from_queue_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_work_cancel_from_queue_thread" name="kernel.workqueue.triggered_work_cancel_from_queue_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_work_cancel_isr" name="kernel.workqueue.triggered_work_cancel_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_work_cancel_thread" name="kernel.workqueue.triggered_work_cancel_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_work_submit_isr" name="kernel.workqueue.triggered_work_submit_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_work_submit_thread" name="kernel.workqueue.triggered_work_submit_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_work_submit_to_queue_isr" name="kernel.workqueue.triggered_work_submit_to_queue_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.workqueue.triggered_work_submit_to_queue_thread" name="kernel.workqueue.triggered_work_submit_to_queue_thread" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
       </testcase>

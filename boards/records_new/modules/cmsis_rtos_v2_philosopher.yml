@@ -3,11 +3,21 @@ cases:
   sample.philosopher:
     path: samples/portability/cmsis_rtos_v2/philosophers
     catalog: cmsis_rtos_v2_philosopher
+    extra_args: " -DDEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
   sample.philosopher.same_prio:
     path: samples/portability/cmsis_rtos_v2/philosophers
     catalog: cmsis_rtos_v2_philosopher
-    extra_args: "-DSAME_PRIO=1"
+    extra_args: "-DSAME_PRIO=1 -DDEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
   sample.philosopher.semaphores:
     path: samples/portability/cmsis_rtos_v2/philosophers
     catalog: cmsis_rtos_v2_philosopher
-    extra_args: "-DFORKS=SEMAPHORES"
+    extra_args: "-DFORKS=SEMAPHORES -DDEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64

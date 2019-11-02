@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="178" errors="0" failures="0" name="" skipped="52" time="0">
+    <testsuite tests="234" errors="0" failures="0" name="" skipped="56" time="0">
       <testcase classname="frdm_kl25z:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -155,6 +155,18 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" name="crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
@@ -356,6 +368,110 @@
       <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_mount" name="filesystem.fs_shell.fat_mount" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_open" name="filesystem.fs_shell.fat_open" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_read" name="filesystem.fs_shell.fat_read" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_readdir" name="filesystem.fs_shell.fat_readdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_rmdir" name="filesystem.fs_shell.fat_rmdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_unlink" name="filesystem.fs_shell.fat_unlink" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_write" name="filesystem.fs_shell.fat_write" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fs_help" name="filesystem.fs_shell.fs_help" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.fs_shell_exit" name="filesystem.fs_shell.fs_shell_exit" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.encoding.cmd_shell" name="libraries.encoding.cmd_shell" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.encoding.shell_wildcards_dynamic" name="libraries.encoding.shell_wildcards_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.encoding.shell_wildcards_static" name="libraries.encoding.shell_wildcards_static" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:net.shell" name="net.shell" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:net.shell.ipv4_addresses" name="net.shell.ipv4_addresses" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:net.shell.net_shell" name="net.shell.net_shell" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:net.shell.setup" name="net.shell.setup" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_fifo_read" name="peripheral.uart.shell.uart_fifo_read" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.app_handler" name="shell.app_handler" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.cmd_clear" name="shell.cmd_clear" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.cmd_help" name="shell.cmd_help" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.cmd_history" name="shell.cmd_history" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.cmd_resize" name="shell.cmd_resize" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.cmd_select" name="shell.cmd_select" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.cmd_shell" name="shell.cmd_shell" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.exit" name="shell.exit" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.help" name="shell.help" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.history_add_get" name="shell.history_add_get" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.history_get_up_and_down" name="shell.history_get_up_and_down" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.history_purge" name="shell.history_purge" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.log_output_raw_string" name="shell.log_output_raw_string" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.log_output_string" name="shell.log_output_string" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.module" name="shell.module" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.no_duplicates_in_a_row" name="shell.no_duplicates_in_a_row" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.select" name="shell.select" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.shell_module" name="shell.shell_module" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.shell_wildcards_dynamic" name="shell.shell_wildcards_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.shell_wildcards_static" name="shell.shell_wildcards_static" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.storing_long_buffers" name="shell.storing_long_buffers" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:shell.too_long_line_not_stored" name="shell.too_long_line_not_stored" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:kernel.mailbox.array" name="kernel.mailbox.array" time="0">
       </testcase>

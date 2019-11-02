@@ -3,4 +3,5 @@ cases:
   sample.threads:
     path: samples/basic/threads
     catalog: kernel threads gpio
+    filter: DT_GPIO_LEDS_LED0_GPIO_CONTROLLER and DT_GPIO_LEDS_LED1_GPIO_CONTROLLER
     depends_on: gpio

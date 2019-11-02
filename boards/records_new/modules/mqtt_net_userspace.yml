@@ -4,3 +4,5 @@ cases:
     path: tests/net/lib/mqtt_packet
     catalog: mqtt net userspace
     min_ram: 16
+    depends_on: netif
+    platform_whitelist: native_posix qemu_x86 mps2_an385

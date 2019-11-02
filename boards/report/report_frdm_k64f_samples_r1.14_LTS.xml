@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="67" errors="0" failures="0" name="" skipped="64" time="0">
+    <testsuite tests="118" errors="0" failures="0" name="" skipped="69" time="0">
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
@@ -198,6 +198,113 @@
       </testcase>
       <testcase classname="frdm_k64f:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
          <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" name="crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.mbedtls.mbedtls" name="crypto.mbedtls.mbedtls" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.block1_size" name="net.trickle.block1_size" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.block2_siformed_opt_ext" name="net.trickle.block2_siformed_opt_ext" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.block2_size" name="net.trickle.block2_size" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.init" name="net.trickle.init" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.match_path_uri" name="net.trickle.match_path_uri" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.parse_malformed_marker" name="net.trickle.parse_malformed_marker" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.parse_malformed_opt_ext" name="net.trickle.parse_malformed_opt_ext" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.parse_malformed_opt_len_ext" name="net.trickle.parse_malformed_opt_len_ext" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_1_status" name="net.trickle.trickle_1_status" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_1_stopped" name="net.trickle.trickle_1_stopped" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_1_update" name="net.trickle.trickle_1_update" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_1_wait" name="net.trickle.trickle_1_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_1_wait_long" name="net.trickle.trickle_1_wait_long" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_2_inc" name="net.trickle.trickle_2_inc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_2_status" name="net.trickle.trickle_2_status" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_2_wait" name="net.trickle.trickle_2_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_create" name="net.trickle.trickle_create" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_start" name="net.trickle.trickle_start" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.trickle.trickle_stop" name="net.trickle.trickle_stop" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.fifo.timeout.poll.vlan_disable_all" name="kernel.fifo.timeout.poll.vlan_disable_all" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.dns.no_ipv6.vlan_disable_all" name="net.dns.no_ipv6.vlan_disable_all" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.dns.no_ipv6.vlan_send_data" name="net.dns.no_ipv6.vlan_send_data" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.address_setup" name="net.vlan.address_setup" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.read (q order: 4, t/o: 70, fifo 0x2000001c)" name="net.vlan.read (q order: 4, t/o: 70, fifo 0x2000001c)" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeouer: 4, t/o: 70, fifo 0x2000001c)" name="net.vlan.timeouer: 4, t/o: 70, fifo 0x2000001c)" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_p 70, fifo 0x2000001c)" name="net.vlan.timeout_threads_p 70, fifo 0x2000001c)" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_pend_fail_on_fi00001c)" name="net.vlan.timeout_threads_pend_fail_on_fi00001c)" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_pend_fail_on_fifo" name="net.vlan.timeout_threads_pend_fail_on_fifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_pend_on_dual_fifos" name="net.vlan.timeout_threads_pend_on_dual_fifos" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_pend_on_fifo" name="net.vlan.timeout_threads_pend_on_fifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.vlan_disable" name="net.vlan.vlan_disable" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.vlan_disable_all" name="net.vlan.vlan_disable_all" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.vlan_enable" name="net.vlan.vlan_enable" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.vlan_enable_all" name="net.vlan.vlan_enable_all" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.vlan_send_data" name="net.vlan.vlan_send_data" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.vlan_setup" name="net.vlan.vlan_setup" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.vlan_tci" name="net.vlan.vlan_tci" time="0">
       </testcase>
   </testsuite>
 </testsuites>

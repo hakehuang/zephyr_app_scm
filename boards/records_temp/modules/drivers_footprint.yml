@@ -5,7 +5,7 @@ cases:
     catalog: drivers footprint
     build_only: true
     min_ram: 16
-    depends_on: adc i2c
+    depends_on: gpio spi i2c
   test_build_ethernet:
     path: tests/drivers/build_all
     catalog: drivers footprint
@@ -14,7 +14,7 @@ cases:
     min_flash: 42
     min_ram: 32
     platform_exclude: frdm_kw41z
-    depends_on: spi netif
+    depends_on: gpio spi i2c
   test_build_sensors_trigger_a_h:
     path: tests/drivers/build_all
     catalog: drivers footprint
@@ -22,7 +22,7 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z
-    depends_on: adc spi
+    depends_on: gpio spi i2c
   test_build_sensors_trigger_i_z:
     path: tests/drivers/build_all
     catalog: drivers footprint
@@ -30,7 +30,7 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z
-    depends_on: adc spi
+    depends_on: gpio spi i2c
   test_build_sensors_a_h:
     path: tests/drivers/build_all
     catalog: drivers footprint
@@ -39,7 +39,7 @@ cases:
     min_flash: 44
     min_ram: 32
     platform_exclude: frdm_kw41z
-    depends_on: adc spi
+    depends_on: gpio spi i2c
   test_build_sensors_i_z:
     path: tests/drivers/build_all
     catalog: drivers footprint
@@ -47,4 +47,4 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z
-    depends_on: adc spi
+    depends_on: gpio spi i2c

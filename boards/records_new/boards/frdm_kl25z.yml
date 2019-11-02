@@ -2,4 +2,7 @@
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf_kl25.sh
-
+  no_filter:
+    - CONFIG_ARCH_HAS_USERSPACE
+    - CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_CPU_HAS_MPU
