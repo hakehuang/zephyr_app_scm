@@ -1,0 +1,8 @@
+---
+cases:
+  sample.video.tcpserversink:
+    path: tests/ztest/mock
+    catalog: video net socket
+    build_only: true
+    platform_whitelist: mimxrt1064_evk
+    depends_on: video netif

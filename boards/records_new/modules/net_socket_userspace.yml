@@ -1,14 +1,22 @@
 ---
 cases:
-  net.socket:
+  net.socket.get_name_info:
+    path: tests/net/socket/getnameinfo
+    catalog: net socket userspace
+    min_ram: 21
+    depends_on: netif
+  net.socket.misc:
+    path: tests/net/socket/misc
+    catalog: net socket userspace
+    min_ram: 21
+    depends_on: netif
+  net.socket.select:
     path: tests/net/socket/select
     catalog: net socket userspace
     min_ram: 21
     depends_on: netif
-    platform_whitelist: native_posix qemu_x86 mps2_an385
   net.socket.tcp:
     path: tests/net/socket/tcp
     catalog: net socket userspace
     min_ram: 32
     depends_on: netif
-    platform_whitelist: native_posix qemu_x86 mps2_an385

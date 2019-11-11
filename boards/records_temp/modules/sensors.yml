@@ -10,14 +10,11 @@ cases:
     catalog: sensors
     platform_whitelist: 96b_argonkey
     depends_on: i2c spi gpio
-  sample.board.arduino_101.env_sensing:
-    path: samples/boards/arduino_101/environmental_sensing/ap
+  sample.board.sensortile_box.sensors:
+    path: samples/boards/sensortile_box
     catalog: sensors
-    platform_whitelist: arduino_101
-  sample.board.arduino_101_sss.env_sensing:
-    path: samples/boards/arduino_101/environmental_sensing/sensor
-    catalog: sensors
-    platform_whitelist: arduino_101_sss
+    platform_whitelist: sensortile_box
+    depends_on: i2c spi gpio
   sample.driver.current_sensing:
     path: samples/drivers/current_sensing
     catalog: sensors
@@ -27,6 +24,10 @@ cases:
     catalog: sensors
     platform_whitelist: frdm_k64f
     depends_on: i2c
+  sample.sensor.adxl362:
+    path: samples/sensor/adxl362
+    catalog: sensors
+    depends_on: spi adxl362
   sample.sensor.adxl372:
     path: samples/sensor/adxl372
     catalog: sensors
@@ -41,8 +42,10 @@ cases:
   sample.sensor.amg88xx:
     path: samples/sensor/amg88xx
     catalog: sensors
+    extra_configs:
+    - CONFIG_AMG88XX_TRIGGER_GLOBAL_THREAD=y
     build_only: true
-    depends_on: i2c
+    depends_on: arduino_i2c arduino_gpio
   sample.sensor.apds9960:
     path: samples/sensor/apds9960
     catalog: sensors
@@ -68,15 +71,12 @@ cases:
     path: samples/sensor/bmg160
     catalog: sensors
     depends_on: i2c gpio
-  sample.sensor.bmi160:
-    path: samples/sensor/bmi160
-    catalog: sensors
-    platform_whitelist: arduino_101_sss
-    depends_on: spi gpio
+    filter: dt_compat_enabled("bosch,bmg160")
   sample.sensor.bmm150:
     path: samples/sensor/bmm150
     catalog: sensors
     depends_on: gpio i2c
+    filter: dt_compat_enabled("bosch,bmm150")
   sample.sensor.ccs811:
     path: samples/sensor/ccs811
     catalog: sensors
@@ -96,12 +96,21 @@ cases:
     - CONFIG_FXOS8700_MOTION_INT1=y
     - CONFIG_FXOS8700_PM_LOW_POWER=y
     platform_whitelist: frdm_k64f hexiwear_k64 warp7_m4 bbc_microbit frdm_kl25z frdm_kw41z
-      reel_board
+      reel_board rv32m1_vega_ri5cy twr_ke18f
     depends_on: i2c gpio
+  sample.sensor.hmc5883l:
+    path: samples/sensor/hmc5883l
+    catalog: sensors
+    depends_on: i2c gpio
+    filter: dt_compat_enabled("honeywell,hmc5883l")
   sample.sensor.hts221:
     path: samples/sensor/hts221
     catalog: sensors
     depends_on: i2c hts221
+  sample.sensor.lps22hb:
+    path: samples/sensor/lps22hb
+    catalog: sensors
+    depends_on: i2c lps22hb
   sample.sensor.lsm6dsl:
     path: samples/sensor/lsm6dsl
     catalog: sensors
@@ -110,6 +119,7 @@ cases:
     path: samples/sensor/magn_polling
     catalog: sensors
     depends_on: i2c gpio
+    filter: dt_compat_enabled("bosch,bmc150_magn")
   sample.sensor.max30101:
     path: samples/sensor/max30101
     catalog: sensors
@@ -119,10 +129,12 @@ cases:
     path: samples/sensor/max44009
     catalog: sensors
     depends_on: i2c
+    filter: dt_compat_enabled("maxim,max44009")
   sample.sensor.mcp9808:
     path: samples/sensor/mcp9808
     catalog: sensors
     depends_on: i2c
+    filter: dt_compat_enabled("microchip,mcp9808")
   sample.sensor.ms5837:
     path: samples/sensor/ms5837
     catalog: sensors
@@ -145,17 +157,29 @@ cases:
     path: samples/sensor/sx9500
     catalog: sensors
     depends_on: i2c gpio
+    filter: dt_compat_enabled("semtech,sx9500")
   sample.sensor.th02:
     path: samples/sensor/th02
     catalog: sensors
     depends_on: i2c
+    filter: dt_compat_enabled("hoperf,th02")
   sample.sensor.thermometer:
     path: samples/sensor/thermometer
     catalog: sensors
-    arch_exclude: x86_64
+  test_build:
+    path: samples/sensor/tmp116
+    catalog: sensors
+    platform_whitelist: nucleo_f401re
+    depends_on: i2c
   sample.sensor.tmp112:
     path: samples/sensor/tmp112
     catalog: sensors
+    depends_on: i2c
+    filter: dt_compat_enabled("ti,tmp112")
+  sample.sensor.tmp116:
+    path: samples/sensor/tmp116
+    catalog: sensors
+    platform_whitelist: nucleo_f401re
     depends_on: i2c
   sample.sensor.vl53l0x:
     path: samples/sensor/vl53l0x

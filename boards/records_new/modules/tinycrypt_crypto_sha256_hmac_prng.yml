@@ -1,6 +1,6 @@
 ---
 cases:
-  crypto.tinycrypt:
+  crypto.tinycrypt.hmac_prng:
     path: tests/crypto/tinycrypt_hmac_prng
     catalog: tinycrypt crypto sha256 hmac prng
-    min_ram: 48
+    platform_whitelist: native_posix

@@ -3,6 +3,17 @@ cases:
   sample.net.sockets.big_http_download:
     path: samples/net/sockets/big_http_download
     catalog: net socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 128
+  sample.net.sockets.big_http_download.posix:
+    path: samples/net/sockets/big_http_download
+    catalog: net socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 128
@@ -17,6 +28,17 @@ cases:
   sample.net.sockets.dumb_http_server:
     path: samples/net/sockets/dumb_http_server
     catalog: net socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 96
+  sample.net.sockets.dumb_http_server.posix:
+    path: samples/net/sockets/dumb_http_server
+    catalog: net socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 96
@@ -27,6 +49,17 @@ cases:
   sample.net.sockets.echo_async:
     path: samples/net/sockets/echo_async
     catalog: net socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_whitelist: qemu_x86
+  sample.net.sockets.echo_async.posix:
+    path: samples/net/sockets/echo_async
+    catalog: net socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
     platform_whitelist: qemu_x86
   sample.net.sockets.echo_async_select:
     path: samples/net/sockets/echo_async_select
@@ -43,6 +76,13 @@ cases:
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
     platform_whitelist: qemu_x86
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.mcr20a:
+    path: samples/net/sockets/echo_client
+    catalog: net socket
+    extra_args: SHIELD=frdm_cr20a OVERLAY_CONFIG=overlay-802154.conf
+    platform_whitelist: frdm_k64f
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.nrf_802154:
@@ -68,7 +108,7 @@ cases:
   sample.net.sockets.echo_server.mcr20a:
     path: samples/net/sockets/echo_server
     catalog: net socket
-    extra_args: OVERLAY_CONFIG="overlay-frdm_k64f_mcr20a.conf"
+    extra_args: SHIELD=frdm_cr20a OVERLAY_CONFIG=overlay-802154.conf
     platform_whitelist: frdm_k64f
     depends_on: netif
     min_flash: 140
@@ -82,15 +122,17 @@ cases:
   sample.net.sockets.http_get:
     path: samples/net/sockets/http_get
     catalog: net socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 80
-  net.socket.udp:
-    path: tests/net/socket/udp
+  sample.net.sockets.http_get.posix:
+    path: samples/net/sockets/http_get
     catalog: net socket
     extra_configs:
-    - CONFIG_NET_TEST=y
-    - CONFIG_NET_LOOPBACK=y
-    min_ram: 21
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 80

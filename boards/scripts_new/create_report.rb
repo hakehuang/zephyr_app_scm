@@ -87,7 +87,7 @@ end
 
 
 def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: "../report/", 
-  release: "r1.14 LTS", template: "../template/junit_template", data_file: "../cases_lib/data.yml", board_info: nil)
+  release: "v2.1.0-rc1", template: "../template/junit_template", data_file: "../cases_lib/data.yml", board_info: nil)
   engine = Tenjin::Engine.new()
   @content = config
   pipe_data = {

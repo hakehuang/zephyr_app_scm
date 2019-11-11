@@ -6,11 +6,13 @@ cases:
     extra_configs:
     - CONFIG_LOG_DEFAULT_LEVEL=3
     extra_args: OVERLAY_CONFIG="overlay-flash-disk.conf"
-    platform_whitelist: arduino_101
+    min_ram: 32
+    depends_on: flash
   sample.usb.mass_ram:
     path: samples/subsys/usb/mass
     catalog: msd usb
     extra_configs:
     - CONFIG_LOG_DEFAULT_LEVEL=3
     extra_args: OVERLAY_CONFIG="overlay-ram-disk.conf"
-    platform_whitelist: frdm_k64f quark_se_c1000_devboard
+    min_ram: 32
+    depends_on: usb_device gpio

@@ -54,7 +54,8 @@ class Parser
 end
 
 def load_board_data(search_base, board_name)
-  board_file = File.join(search_base, "boards", "arm", board_name,"#{board_name}.yaml")
+  board = board_name.gsub('_m4', '').gsub('_m0', '')
+  board_file = File.join(search_base, "boards", "arm", board,"#{board_name}.yaml")
   board_settings = File.join(search_base, "boards", "#{board_name}.yml")
   if File.exist?(board_file)
     board_info =  YAML.load_file(board_file)
@@ -130,7 +131,6 @@ end
 
 def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path: "../pipe_file/",
   docker_name: "confident_sinoussi", template: "../template/Jenkinsfile_template", board_info: nil)
-  md5 = Digest::MD5.new
   engine = Tenjin::Engine.new()
   @content = config
   pipe_data = {
@@ -141,6 +141,7 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     :catalog => {}
   }
   @content["cases"].keys().each do |key|
+    md5 = Digest::MD5.new
     key_words = ["mode", "attribute"]
     next if key_words.include?(key)
     next if @content["cases"][key].nil?

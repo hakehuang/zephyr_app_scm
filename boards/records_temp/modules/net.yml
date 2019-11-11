@@ -3,7 +3,7 @@ cases:
   sample.net.eth_native_posix:
     path: samples/net/eth_native_posix
     catalog: net
-    platform_whitelist: native_posix
+    platform_whitelist: native_posix native_posix_64
   sample.net.sockets.echo_server.e1000:
     path: samples/net/sockets/echo_server
     catalog: net
@@ -28,38 +28,32 @@ cases:
   sample.net.sockets.sntp_client:
     path: samples/net/sockets/sntp_client
     catalog: net
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
     platform_whitelist: qemu_x86
-  net.build:
-    path: tests/net/all
+  sample.net.sockets.sntp_client.posix:
+    path: samples/net/sockets/sntp_client
     catalog: net
-    build_only: true
-    min_ram: 32
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
     platform_whitelist: qemu_x86
   net.coap:
     path: tests/net/lib/coap
     catalog: net
     min_ram: 16
     depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
   net.packet:
     path: tests/net/net_pkt
     catalog: net
     min_ram: 20
     depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
   net.udp:
     path: tests/net/udp
     catalog: net
     min_ram: 20
     depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-  net.util:
-    path: tests/net/utils
-    catalog: net
-    min_ram: 24
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
   can.frame:
     path: tests/subsys/can/frame
     catalog: net
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
+    platform_whitelist: native_posix native_posix_64 qemu_x86 qemu_cortex_m3

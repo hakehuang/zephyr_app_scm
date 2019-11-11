@@ -82,7 +82,7 @@ module ZEPHER_FILTER
   module_function :neural_list
 
   def get_board_name(instr)
-    filter_list = [/_samples$/, /_samples2$/, /_kernel$/, /_usb$/, /_drivers$/, /_drivers$/]
+    filter_list = [/_samples$/, /_samples2$/, /_kernel$/, /_usb$/, /_drivers$/, /_drivers$/, /_failures$/]
     temp_str = instr.dup
     filter_list.each do |f|
       temp_str.gsub!(f, '')

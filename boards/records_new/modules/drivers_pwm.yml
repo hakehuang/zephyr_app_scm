@@ -3,30 +3,27 @@ cases:
   sample.blink_led:
     path: samples/basic/blink_led
     catalog: drivers pwm
-    platform_whitelist: arduino_101 quark_d2000_crb nucleo_f103rb nucleo_f302r8 nucleo_f401re
-      nucleo_l476rg stm32f4_disco hexiwear_k64 colibri_imx7d_m4 nrf52832_mdk nrf52840_mdk,
-      nucleo_l496zg
+    filter: dt_alias_exists("pwm-led0")
     depends_on: pwm
   sample.fade_led:
     path: samples/basic/fade_led
     catalog: drivers pwm
-    platform_whitelist: arduino_101 quark_d2000_crb nucleo_f103rb nucleo_f401re nucleo_l476rg
-      nucleo_l496zg hexiwear_k64 nrf51_pca10028 nrf52840_pca10056
     depends_on: pwm
+    filter: dt_alias_exists("pwm-led0")
   sample.rgb_led:
     path: samples/basic/rgb_led
     catalog: drivers pwm
-    filter: DT_PWM_LEDS_RED_PWM_LED_PWM_CONTROLLER and DT_PWM_LEDS_GREEN_PWM_LED_PWM_CONTROLLER
-      and DT_PWM_LEDS_BLUE_PWM_LED_PWM_CONTROLLER
+    filter: dt_alias_exists("red-pwm-led") and dt_alias_exists("green-pwm-led") and
+      dt_alias_exists("blue-pwm-led")
     depends_on: pwm
   sample.servo_motor:
     path: samples/basic/servo_motor
     catalog: drivers pwm
-    platform_whitelist: arduino_101 quark_d2000_crb bbc_microbit
     depends_on: pwm
+    filter: dt_alias_exists("pwm-0")
   peripheral.pwm:
     path: tests/drivers/pwm/pwm_api
     catalog: drivers pwm
-    platform_whitelist: quark_se_c1000_devboard quark_se_c1000_ss_devboard arduino_101
-      arduino_101_sss colibri_imx7d_m4 sam_e70_xplained
+    filter: dt_alias_exists("pwm-0") or dt_alias_exists("pwm-1") or dt_alias_exists("pwm-2")
+      or dt_alias_exists("pwm-3")
     depends_on: pwm

@@ -15,11 +15,14 @@ cases:
     path: tests/benchmarks/boot_time
     catalog: benchmark
     arch_whitelist: x86 arm posix
+    platform_exclude: qemu_x86 qemu_x86_coverage qemu_x86_64 qemu_x86_nommu minnowboard
+      acrn
     filter: CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC >= 1000000
   benchmark.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
     arch_whitelist: x86 arm posix
+    platform_exclude: qemu_x86_64
     filter: CONFIG_PRINTK
   benchmark.scheduler:
     path: tests/benchmarks/sched
@@ -27,15 +30,10 @@ cases:
   benchmark.kernel:
     path: tests/benchmarks/sys_kernel
     catalog: benchmark
-    arch_exclude: nios2 riscv32 xtensa x86_64
+    arch_exclude: nios2 riscv32 xtensa
+    platform_exclude: qemu_x86_64
     min_ram: 32
   benchmark.timing.default_kernel:
     path: tests/benchmarks/timing_info
     catalog: benchmark
     arch_exclude: posix
-  benchmark.timing.userspace:
-    path: tests/benchmarks/timing_info
-    catalog: benchmark
-    extra_args: CONF_FILE=prj_userspace.conf
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    arch_whitelist: x86 arm arc

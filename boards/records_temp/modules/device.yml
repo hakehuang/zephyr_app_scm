@@ -3,10 +3,10 @@ cases:
   kernel.device:
     path: tests/kernel/device
     catalog: device
-    platform_whitelist: native_posix qemu_x86 qemu_x86_64
+    platform_whitelist: native_posix native_posix_64 qemu_x86
   kernel.device.pm:
     path: tests/kernel/device
     catalog: device
     extra_configs:
     - CONFIG_DEVICE_POWER_MANAGEMENT=y
-    platform_whitelist: native_posix qemu_x86
+    platform_whitelist: native_posix native_posix_64 qemu_x86

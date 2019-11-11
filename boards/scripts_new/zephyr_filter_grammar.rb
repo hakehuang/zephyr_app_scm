@@ -22,7 +22,7 @@ symbol
 
 class ZephyrLex < Rly::Lex
 
-  literals '=+><():[],'
+  literals '-=+><():[],'
   ignore "\'\" \t\n"
   token :AND, /(and|AND)/ do |t|
     t
@@ -262,8 +262,8 @@ def simple_ast(data, board_hash)
                 if board_hash.has_key?(k)
                     return eval "#{board_hash[k]} #{v[0]} #{simple_ast[v1, board_hash]}"
                 end
-                if board_hash["settings"] and board_hash[settings].has_key?(k)
-                    bv = board_hash[settings][k]
+                if board_hash["settings"] and board_hash["settings"].has_key?(k)
+                    bv = board_hash["settings"][k]
                     return eval "#{bv} #{v[0]} #{simple_ast[v1, board_hash]}"
                 end
             end
@@ -272,7 +272,7 @@ def simple_ast(data, board_hash)
             judge = ""
             if board_hash["settings"] and board_hash["settings"]["no_filter"]
                 judge = board_hash["settings"]["no_filter"]
-                puts "judge is #{judge}"
+                #puts "judge is #{judge}"
             else
                 return true
             end
@@ -307,7 +307,7 @@ def simple_ast(data, board_hash)
                     return true
             end
         else
-            puts "class is #{data.class}"
+            #puts "class is #{data.class}"
             return data
     end
 end
@@ -315,7 +315,19 @@ end
 def zephyr_filter_parser(filters, board_hash)
     parser = ZephyrParse.new(ZephyrLex.new)
     data = parser.parse(filters)
-    return simple_ast(data, board_hash)
+    if data.class == String
+        if board_hash["settings"] and board_hash["settings"]["no_filter"]
+            if board_hash["settings"]["no_filter"].include?(data)
+                return false
+            else
+                return true
+            end
+        else
+            return true
+        end
+    else
+        return simple_ast(data, board_hash)
+    end
 end
 
 
@@ -344,7 +356,5 @@ if __FILE__ == $0
     ap parser.parse("C == 0xA")
 =end
     board_hash = {"settings" => { "no_filter" => ["CONFIG_CPU_HAS_MPU", "CONFIG_ARCH_HAS_USERSPACE"]} }
-    ap zephyr_filter_parser("CONFIG_CPU_HAS_MPU or CONFIG_X86_MMU", board_hash)
-    
-    
+    ap zephyr_filter_parser("CONFIG_ARCH_HAS_USERSPACE", board_hash)
 end

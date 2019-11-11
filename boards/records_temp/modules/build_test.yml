@@ -5,18 +5,6 @@ cases:
     catalog: build_test
     extra_args: CONF_FILE=debug.conf
     build_only: true
-  test_newlib:
-    path: tests/misc/test_build
-    catalog: build_test
-    extra_args: CONF_FILE=newlib.conf
-    build_only: true
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  test_runtime_nmi:
-    path: tests/misc/test_build
-    catalog: build_test
-    extra_args: CONF_FILE=runtime_nmi.conf
-    arch_whitelist: arm
-    build_only: true
   test_mcuboot_bootloader:
     path: tests/misc/test_build
     catalog: build_test
@@ -30,3 +18,4 @@ cases:
     extra_configs:
     - CONFIG_KERNEL_BIN_NAME="A_kconfig_value_with_a_utf8_char_in_it_Bøe_"
     build_only: true
+    platform_whitelist: native_posix

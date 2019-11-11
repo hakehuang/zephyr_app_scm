@@ -3,4 +3,5 @@ cases:
   sample.driver.spi_fujitsu_fram:
     path: samples/drivers/spi_fujitsu_fram
     catalog: drivers fram
-    platform_whitelist: arduino_101
+    depends_on: gpio spi
+    filter: CONFIG_SPI_1

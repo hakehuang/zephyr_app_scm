@@ -1,26 +1,15 @@
 ---
 settings:
-  case_pipe_name: frdm_kl25z_samples
+  case_pipe_name: twr_kv58f220m_kernel
   build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_elf_kl25.sh
-  no_filter:
-  - CONFIG_ARCH_HAS_USERSPACE
-  - CONFIG_ARMV7_M_ARMV8_M_FP
-  - CONFIG_CPU_HAS_MPU
+  run_script: run_elf_twrkv58f.sh
 cases:
   attribute: required
-  kernel.fp_sharing:
-    comments: no fp
-    result: skip
-    attribute: required
   samples.net.google_iot_mqtt:
     comments: no goolge web access so build only
     scripts:
     - ''
     build_only: true
-    result: skip
-    path: samples/net/google_iot_mqtt
-    catalog: Full stack sample
     attribute: required
   test_utf8_in_kconfig_values:
     comments: build failure
@@ -30,8 +19,8 @@ cases:
     comments: build failure
     result: skip
     attribute: required
-  sample.net.dns_resolve.llmnr:
-    comments: meet bus fault
+  sample.net.dns_resolve.mdns:
+    comments: 'BUS Fault: http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f/detail/frdmk64f/7/pipeline'
     result: skip
     attribute: required
   sample.nfc.hello:
@@ -54,1113 +43,421 @@ cases:
     comments: no sentinel
     result: skip
     attribute: required
-  sample.gui.lvgl:
-    path: samples/gui/lvgl
-    catalog: samples display gui
-    platform_whitelist: nrf52840_pca10056 reel_board mimxrt1050_evk mimxrt1060_evk
-    attribute: required
-  sample.subsys.ipc.ipm_imx:
-    path: samples/subsys/ipc/ipm_imx
-    catalog: samples ipm
-    build_only: true
-    filter: CONFIG_SOC_FAMILY_IMX
-    platform_whitelist: udoo_neo_full_m4 colibri_imx7d_m4 warp7_m4
-    attribute: required
-  sample.board.reel_board.mesh_badge:
-    path: samples/boards/reel_board/mesh_badge
-    catalog: samples sensor
-    platform_whitelist: reel_board
-    attribute: required
-  sample.sensor.lsm303dlhc:
-    path: samples/sensor/lsm303dlhc
-    catalog: samples sensor
-    depends_on: i2c lsm303dlhc
-    attribute: required
-  sample.net.eth_native_posix:
-    path: samples/net/eth_native_posix
-    catalog: net
-    platform_whitelist: native_posix
-    attribute: required
-  sample.net.sockets.echo_server.e1000:
-    path: samples/net/sockets/echo_server
-    catalog: net
-    extra_args: OVERLAY_CONFIG="overlay-e1000.conf"
-    platform_whitelist: qemu_x86
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_server.stellaris:
-    path: samples/net/sockets/echo_server
-    catalog: net
-    extra_args: OVERLAY_CONFIG="overlay-qemu_cortex_m3_eth.conf"
-    platform_whitelist: qemu_cortex_m3
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_server.smsc911x:
-    path: samples/net/sockets/echo_server
-    catalog: net
-    extra_args: OVERLAY_CONFIG="overlay-smsc911x.conf"
-    platform_whitelist: mps2_an385
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.sntp_client:
-    path: samples/net/sockets/sntp_client
-    catalog: net
+  kernel.memory_protection.mmu:
+    path: tests/arch/xtensa_asm2
+    catalog: kernel
     platform_whitelist: qemu_x86
     attribute: required
-  net.build:
-    path: tests/net/all
-    catalog: net
-    build_only: true
-    min_ram: 32
-    platform_whitelist: qemu_x86
-    attribute: required
-  net.coap:
-    path: tests/net/lib/coap
-    catalog: net
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.packet:
-    path: tests/net/net_pkt
-    catalog: net
+  kernel.context:
+    path: tests/kernel/context
+    catalog: kernel
     min_ram: 20
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
     attribute: required
-  net.udp:
-    path: tests/net/udp
-    catalog: net
+  kernel.critical:
+    path: tests/kernel/critical
+    catalog: kernel
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: not CONFIG_WDT_SAM
+    attribute: required
+  kernel.critical.sam:
+    path: tests/kernel/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_WDT_DISABLE_AT_BOOT=y
+    filter: CONFIG_WDT_SAM
+    attribute: required
+  kernel.critical.nsim:
+    path: tests/kernel/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    attribute: required
+  kernel.fifo:
+    path: tests/kernel/fifo/fifo_api
+    catalog: kernel
+    attribute: required
+  kernel.fifo.poll:
+    path: tests/kernel/fifo/fifo_api
+    catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
+    attribute: required
+  kernel.fifo.timeout:
+    path: tests/kernel/fifo/fifo_timeout
+    catalog: kernel
+    min_ram: 32
+    attribute: required
+  kernel.fifo.timeout.poll:
+    path: tests/kernel/fifo/fifo_timeout
+    catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
+    min_ram: 32
+    attribute: required
+  kernel.fifo.usage:
+    path: tests/kernel/fifo/fifo_usage
+    catalog: kernel
+    attribute: required
+  kernel.fifo.usage.poll:
+    path: tests/kernel/fifo/fifo_usage
+    catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
+    attribute: required
+  kernel.fp_sharing:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_ram: 16
+    attribute: required
+  kernel.fp_sharing.x86:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_whitelist: qemu_x86
+    attribute: required
+  kernel.fp_sharing.arc:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_ARCV2 and CONFIG_CPU_HAS_FPU
+    min_ram: 16
+    attribute: required
+  kernel.lifo:
+    path: tests/kernel/lifo/lifo_api
+    catalog: kernel
+    attribute: required
+  kernel.lifo.usage:
+    path: tests/kernel/lifo/lifo_usage
+    catalog: kernel
+    min_ram: 32
+    platform_exclude: m2gl025_miv
+    attribute: required
+  kernel.mailbox.api:
+    path: tests/kernel/mbox/mbox_api
+    catalog: kernel
     min_ram: 20
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
     attribute: required
-  net.util:
-    path: tests/net/utils
-    catalog: net
-    min_ram: 24
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
+  kernel.mailbox.usage:
+    path: tests/kernel/mbox/mbox_usage
+    catalog: kernel
     attribute: required
-  can.frame:
-    path: tests/subsys/can/frame
-    catalog: net
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
+  kernel.memory_heap:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
     attribute: required
-  net.6lo:
-    path: tests/net/6lo
-    catalog: net 6loWPAN
-    min_ram: 32
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.arp:
-    path: tests/net/arp
-    catalog: net arp
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.buf:
-    path: tests/net/buf
-    catalog: net buf
-    min_ram: 16
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.offload:
-    path: tests/net/checksum_offload
-    catalog: net checksum_offload
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  misc.crc:
-    path: tests/lib/crc
-    catalog: net crc
-    attribute: required
-  net.ieee802154.crypto:
-    path: tests/net/ieee802154/crypto
-    catalog: net crypto
-    depends_on: ieee802154
-    platform_whitelist: quark_se_c1000_devboard
-    attribute: required
-  net.dhcp:
-    path: tests/net/dhcpv4
-    catalog: net dhcpv4
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.net.sockets.echo_client.enc28j60:
-    path: samples/net/sockets/echo_client
-    catalog: net enc28j60
-    extra_args: OVERLAY_CONFIG="overlay-enc28j60.conf"
-    platform_whitelist: arduino_101
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_server.enc28j60:
-    path: samples/net/sockets/echo_server
-    catalog: net enc28j60
-    extra_args: OVERLAY_CONFIG="overlay-enc28j60.conf"
-    platform_whitelist: arduino_101
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  net.ethernet_mgmt:
-    path: tests/net/ethernet_mgmt
-    catalog: net ethernet_mgmt
-    min_ram: 32
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.net.gptp:
-    path: samples/net/gptp
-    catalog: net gptp
-    platform_whitelist: frdm_k64f sam_e70_xplained native_posix
-    depends_on: netif
-    attribute: required
-  sample.net.dhcpv4_client:
-    path: samples/net/dhcpv4_client
-    catalog: net http
-    depends_on: netif
-    attribute: required
-  net.icmpv6:
-    path: tests/net/icmpv6
-    catalog: net icmpv6
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.ieee802154.fragment:
-    path: tests/net/ieee802154/fragment
-    catalog: net ieee802154 fragment
-    depends_on: ieee802154
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.ieee802154.l2:
-    path: tests/net/ieee802154/l2
-    catalog: net ieee802154 l2
-    min_ram: 16
-    depends_on: ieee802154
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.net.wpanusb_frdm_cr20a:
-    path: samples/net/wpanusb
-    catalog: net ieee802154 usb
-    extra_args: OVERLAY_CONFIG=overlay-mcr20a.conf
-    platform_whitelist: frdm_k64f
-    attribute: required
-  sample.net.wpanusb_quark_se_cc2520:
-    path: samples/net/wpanusb
-    catalog: net ieee802154 usb
-    extra_args: OVERLAY_CONFIG=overlay-cc2520.conf
-    platform_whitelist: quark_se_c1000_devboard
-    attribute: required
-  net.iface:
-    path: tests/net/iface
-    catalog: net iface
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.ip-addr:
-    path: tests/net/ip-addr
-    catalog: net ip-addr
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.net.ipv4_autoconf:
-    path: samples/net/ipv4_autoconf
-    catalog: net ipv4_autoconf
-    depends_on: netif
-    platform_whitelist: qemu_x86 native_posix
-    attribute: required
-  net.ipv6:
-    path: tests/net/ipv6
-    catalog: net ipv6
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.ipv6.fragment:
-    path: tests/net/ipv6_fragment
-    catalog: net ipv6 fragment
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.net.lldp:
-    path: samples/net/lldp
-    catalog: net lldp
-    platform_whitelist: native_posix
-    depends_on: netif
-    attribute: required
-  sample.net.lwm2m_client:
-    path: samples/net/lwm2m_client
-    catalog: net lwm2m
-    depends_on: netif
-    platform_whitelist: qemu_x86 frdm_k64f
-    attribute: required
-  sample.net.lwm2m_client.dtls:
-    path: samples/net/lwm2m_client
-    catalog: net lwm2m
-    extra_args: OVERLAY_CONFIG=overlay-dtls.conf
-    depends_on: netif
-    platform_whitelist: qemu_x86 frdm_k64f
-    attribute: required
-  sample.net.lwm2m_client.bt:
-    path: samples/net/lwm2m_client
-    catalog: net lwm2m
-    extra_args: OVERLAY_CONFIG=overlay-bt.conf
-    platform_whitelist: nrf52_pca10040 nrf52840_pca10056 disco_l475_iot1
-    attribute: required
-  sample.net.lwm2m_client.modem:
-    path: samples/net/lwm2m_client
-    catalog: net lwm2m
-    extra_args: OVERLAY_CONFIG=overlay-wncm14a2a.conf
-    platform_whitelist: frdm_k64f nrf52840_pca10056
-    attribute: required
-  sample.net.mdns_responder:
-    path: samples/net/mdns_responder
-    catalog: net mdns
-    platform_whitelist: qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.management:
-    path: tests/net/mgmt
-    catalog: net mgmt
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.mld:
-    path: tests/net/mld
-    catalog: net mld
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.net.mqtt_publisher:
-    path: samples/net/mqtt_publisher
-    catalog: net mqtt
-    platform_whitelist: frdm_k64f qemu_x86
-    attribute: required
-  net.mqtt:
-    path: tests/net/lib/mqtt_publisher
-    catalog: net mqtt
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.mqtt.tls:
-    path: tests/net/lib/mqtt_publisher
-    catalog: net mqtt
-    extra_args: CONF_FILE="prj_tls.conf"
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.mqtt.pubsub:
-    path: tests/net/lib/mqtt_pubsub
-    catalog: net mqtt
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.mqtt.subscriber:
-    path: tests/net/lib/mqtt_subscriber
-    catalog: net mqtt
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.net.mqtt_publisher.bt:
-    path: samples/net/mqtt_publisher
-    catalog: net mqtt bluetooth
-    platform_whitelist: 96b_nitrogen
-    attribute: required
-  sample.net.nats:
-    path: samples/net/nats
-    catalog: net nats
-    depends_on: netif
-    attribute: required
-  net.neighbour:
-    path: tests/net/neighbor
-    catalog: net neighbour
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.context:
-    path: tests/net/context
-    catalog: net net_context
+  kernel.memory_protection.sys_sem.nouser:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel
     extra_configs:
-    - CONFIG_ASSERT_LEVEL=0
+    - CONFIG_TEST_USERSPACE=n
+    attribute: required
+  kernel.memory_slabs.api.test:
+    path: tests/kernel/mem_slab/mslab
+    catalog: kernel
     min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
     attribute: required
-  sample.net.sockets.echo_client.nrf_openthread:
-    path: samples/net/sockets/echo_client
-    catalog: net openthread
-    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
-    platform_whitelist: nrf52840_pca10056
-    depends_on: netif
-    min_flash: 140
+  kernel.memory_slabs.api:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
     attribute: required
-  sample.net.sockets.echo_client.kw41z_openthread:
-    path: samples/net/sockets/echo_client
-    catalog: net openthread
-    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
-    platform_whitelist: frdm_kw41z
-    depends_on: netif
-    min_flash: 140
+  kernel.memory_slabs.concept:
+    path: tests/kernel/mem_slab/mslab_concept
+    catalog: kernel
     attribute: required
-  sample.net.sockets.echo_server.nrf_openthread:
-    path: samples/net/sockets/echo_server
-    catalog: net openthread
-    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
-    platform_whitelist: nrf52840_pca10056
-    depends_on: netif
-    min_flash: 140
+  kernel.memory_slabs.threadsafe:
+    path: tests/kernel/mem_slab/mslab_threadsafe
+    catalog: kernel
     attribute: required
-  sample.net.sockets.echo_server.kw41z_openthread:
-    path: samples/net/sockets/echo_server
-    catalog: net openthread
-    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
-    platform_whitelist: frdm_kw41z
-    depends_on: netif
-    min_flash: 140
+  sys.mutex.nouser:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
     attribute: required
-  sample.net.promiscuous_mode:
-    path: samples/net/promiscuous_mode
-    catalog: net promisc
-    depends_on: netif
-    attribute: required
-  net.promisc:
-    path: tests/net/promiscuous
-    catalog: net promisc
-    min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.ptp.clock:
-    path: tests/net/ptp/clock
-    catalog: net ptp gptp
+  kernel.object_tracing:
+    path: tests/kernel/obj_tracing
+    catalog: kernel
     min_ram: 32
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
     attribute: required
-  net.route:
-    path: tests/net/route
-    catalog: net route
+  kernel.pending:
+    path: tests/kernel/pending
+    catalog: kernel
     min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
     attribute: required
-  sample.net.sockets.big_http_download:
-    path: samples/net/sockets/big_http_download
-    catalog: net socket
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  kernel.profiling:
+    path: tests/kernel/profiling/profiling_api
+    catalog: kernel
+    arch_exclude: nios2 riscv32
+    platform_exclude: em_starterkit
+    attribute: required
+  kernel.sched.deadline:
+    path: tests/kernel/sched/deadline
+    catalog: kernel
+    attribute: required
+  kernel.sched.preempt:
+    path: tests/kernel/sched/preempt
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52810_pca10040
+    attribute: required
+  kernel.timing:
+    path: tests/kernel/sleep
+    catalog: kernel
+    attribute: required
+  kernel.threads.no-multithreading:
+    path: tests/kernel/threads/no-multithreading
+    catalog: kernel
+    filter: not CONFIG_SMP
+    attribute: required
+  kernel.tickless.concept:
+    path: tests/kernel/tickless/tickless_concept
+    catalog: kernel
+    arch_exclude: riscv32 nios2
+    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+    attribute: required
+  kernel.timer.tickless:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel
+    extra_args: CONF_FILE="prj_tickless.conf"
+    build_only: true
+    arch_exclude: riscv32 nios2 posix
+    attribute: required
+  kernel.workqueue:
+    path: tests/kernel/workq/work_queue
+    catalog: kernel
+    min_flash: 34
+    attribute: required
+  kernel.common.stack_protection:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    attribute: required
+  kernel.common.stack_protection_arm_fp_sharing:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_arm_fp_sharing.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
+    attribute: required
+  kernel.common.stack_protection_armv8m_mpu_stack_guard:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_whitelist: arm
+    attribute: required
+  kernel.memory_protection.stackprot:
+    path: tests/kernel/mem_protect/stackprot
+    catalog: kernel ignore_faults userspace
+    arch_exclude: nios2 xtensa posix
+    attribute: required
+  kernel.memory_protection.protection:
+    path: tests/kernel/mem_protect/protection
+    catalog: kernel security ignore_faults
+    platform_exclude: twr_ke18f
+    filter: CONFIG_MEMORY_PROTECTION
+    attribute: required
+  kernel.memory_protection.obj_validation:
+    path: tests/kernel/mem_protect/obj_validation
+    catalog: kernel security userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
     min_ram: 32
-    min_flash: 128
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: twr_ke18f
     attribute: required
-  sample.net.sockets.coap_client:
-    path: samples/net/sockets/coap_client
-    catalog: net socket
+  kernel.memory_protection.armv8m_gap_filling:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    arch_whitelist: arm
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    min_ram: 32
+    attribute: required
+  kernel.memory_protection.syscalls:
+    path: tests/kernel/mem_protect/syscalls
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.userspace:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    min_ram: 36
+    attribute: required
+  kernel.memory_protection.userspace.armv8m_gap_filling:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    arch_whitelist: arm
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    min_ram: 36
+    attribute: required
+  sample.synchronization:
+    path: samples/testing/integration
+    catalog: kernel synchronization
+    attribute: required
+  sample.threads:
+    path: samples/basic/threads
+    catalog: kernel threads gpio
+    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
+      "led1")
+    depends_on: gpio
+    attribute: required
+  kernel.sched:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 40
+    attribute: required
+  kernel.sched_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 40
+    attribute: required
+  kernel.sched.multiq:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    extra_args: CONF_FILE=prj_multiq.conf
+    min_ram: 40
+    attribute: required
+  kernel.sched.multiq_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_multiq.conf
+    min_ram: 40
+    attribute: required
+  kernel.threads.init:
+    path: tests/kernel/threads/thread_init
+    catalog: kernel threads userspace
+    attribute: required
+  kernel.threads.dynamic:
+    path: tests/kernel/threads/dynamic_thread
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.threads.apis:
+    path: tests/kernel/threads/thread_apis
+    catalog: kernel threads userspace ignore_faults
+    min_flash: 34
+    attribute: required
+  kernel.common:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    min_flash: 33
+    min_ram: 32
+    attribute: required
+  kernel.common.misra:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_MISRA_SANE=y
+    min_flash: 33
+    min_ram: 32
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    attribute: required
+  kernel.fp_sharing.float_disable.arm:
+    path: tests/kernel/fp_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_INTERRUPTS=y
+    arch_whitelist: arm
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    attribute: required
+  kernel.fp_sharing.float_disable.x86:
+    path: tests/kernel/fp_sharing/float_disable
+    catalog: kernel userspace
+    extra_args: CONF_FILE=prj_x86.conf
     platform_whitelist: qemu_x86
     attribute: required
-  sample.net.sockets.coap_server:
-    path: samples/net/sockets/coap_server
-    catalog: net socket
-    platform_whitelist: qemu_x86
+  kernel.futex:
+    path: tests/kernel/mem_protect/futex
+    catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    min_ram: 36
     attribute: required
-  sample.net.sockets.dumb_http_server:
-    path: samples/net/sockets/dumb_http_server
-    catalog: net socket
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  kernel.memory_protection.sys_sem:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel userspace
+    min_ram: 36
+    attribute: required
+  kernel.message_queue:
+    path: tests/kernel/msgq/msgq_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.mutex:
+    path: tests/kernel/mutex/mutex_api
+    catalog: kernel userspace
+    attribute: required
+  sys.mutex:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel userspace
     min_ram: 32
-    min_flash: 96
-    attribute: required
-  sample.net.sockets.echo:
-    path: samples/net/sockets/echo
-    catalog: net socket
-    depends_on: netif
-    attribute: required
-  sample.net.sockets.echo_async:
-    path: samples/net/sockets/echo_async
-    catalog: net socket
-    platform_whitelist: qemu_x86
-    attribute: required
-  sample.net.sockets.echo_async_select:
-    path: samples/net/sockets/echo_async_select
-    catalog: net socket
-    platform_whitelist: qemu_x86
-    attribute: required
-  sample.net.sockets.echo_client:
-    path: samples/net/sockets/echo_client
-    catalog: net socket
-    platform_whitelist: qemu_x86 frdm_k64f sam_e70_xplained qemu_cortex_m3 frdm_kw41z
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_client.802154:
-    path: samples/net/sockets/echo_client
-    catalog: net socket
-    extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
-    platform_whitelist: qemu_x86
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_client.nrf_802154:
-    path: samples/net/sockets/echo_client
-    catalog: net socket
-    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
-    platform_whitelist: nrf52840_pca10056
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_server:
-    path: samples/net/sockets/echo_server
-    catalog: net socket
-    platform_whitelist: qemu_x86 sam_e70_xplained frdm_k64f qemu_cortex_m3 frdm_kw41z
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_server.802154:
-    path: samples/net/sockets/echo_server
-    catalog: net socket
-    extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
-    platform_whitelist: qemu_x86
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_server.mcr20a:
-    path: samples/net/sockets/echo_server
-    catalog: net socket
-    extra_args: OVERLAY_CONFIG="overlay-frdm_k64f_mcr20a.conf"
-    platform_whitelist: frdm_k64f
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_server.nrf_802154:
-    path: samples/net/sockets/echo_server
-    catalog: net socket
-    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
-    platform_whitelist: nrf52840_pca10056
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.http_get:
-    path: samples/net/sockets/http_get
-    catalog: net socket
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 32
-    min_flash: 80
-    attribute: required
-  net.socket.udp:
-    path: tests/net/socket/udp
-    catalog: net socket
-    extra_configs:
-    - CONFIG_NET_TEST=y
-    - CONFIG_NET_LOOPBACK=y
-    min_ram: 21
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.socket:
-    path: tests/net/socket/select
-    catalog: net socket userspace
-    min_ram: 21
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 mps2_an385
-    attribute: required
-  net.socket.tcp:
-    path: tests/net/socket/tcp
-    catalog: net socket userspace
-    min_ram: 32
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 mps2_an385
-    attribute: required
-  sample.net.sockets.packet:
-    path: samples/net/sockets/packet
-    catalog: net sockets packet-socket
-    platform_whitelist: native_posix
-    attribute: required
-  sample.net.stats:
-    path: samples/net/stats
-    catalog: net statistics
-    min_ram: 64
-    depends_on: netif
-    attribute: required
-  sample.net.syslog.with_timefuncs:
-    path: samples/net/syslog_net
-    catalog: net syslog
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    depends_on: netif
-    attribute: required
-  sample.net.syslog.without_timefuncs:
-    path: samples/net/syslog_net
-    catalog: net syslog
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=n
-    depends_on: netif
-    attribute: required
-  net.tcp:
-    path: tests/net/tcp
-    catalog: net tcp
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.net.telnet:
-    path: samples/net/telnet
-    catalog: net telnet
-    depends_on: netif
-    attribute: required
-  net.tls_credentials:
-    path: tests/net/lib/tls_credentials
-    catalog: net tls
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
-    attribute: required
-  net.traffic_class.1:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=1
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.2:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=2
-    - CONFIG_NET_TC_RX_COUNT=2
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.3:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=3
-    - CONFIG_NET_TC_RX_COUNT=3
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.4:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=4
-    - CONFIG_NET_TC_RX_COUNT=4
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.5:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=5
-    - CONFIG_NET_TC_RX_COUNT=5
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.6:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=6
-    - CONFIG_NET_TC_RX_COUNT=6
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.7:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=7
-    - CONFIG_NET_TC_RX_COUNT=7
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.8:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=8
-    - CONFIG_NET_TC_RX_COUNT=8
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.2_no_rx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=2
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.3_no_rx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=3
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.4_no_rx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=4
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.5_no_rx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=5
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.6_no_rx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=6
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.7_no_rx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=7
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.8_no_rx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=8
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.2_no_tx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=2
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.3_no_tx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=3
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.4_no_tx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=4
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.5_no_tx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.6_no_tx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=6
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.7_no_tx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=7
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.8_no_tx:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=8
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_2_rx_3:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=3
-    - CONFIG_NET_TC_TX_COUNT=2
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_3_rx_8:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=8
-    - CONFIG_NET_TC_TX_COUNT=3
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.rx_4_tx_8:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=4
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.rx_5_tx_7:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_6_rx_2:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=2
-    - CONFIG_NET_TC_TX_COUNT=6
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_7_rx_5:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_8_rx_7:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=7
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.2_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=2
-    - CONFIG_NET_TC_RX_COUNT=2
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.3_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=3
-    - CONFIG_NET_TC_RX_COUNT=3
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.4_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=4
-    - CONFIG_NET_TC_RX_COUNT=4
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.5_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=5
-    - CONFIG_NET_TC_RX_COUNT=5
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.6_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=6
-    - CONFIG_NET_TC_RX_COUNT=6
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.7_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=7
-    - CONFIG_NET_TC_RX_COUNT=7
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.8_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=8
-    - CONFIG_NET_TC_RX_COUNT=8
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_2_rx_3_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=3
-    - CONFIG_NET_TC_TX_COUNT=2
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_3_rx_8_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=8
-    - CONFIG_NET_TC_TX_COUNT=3
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.rx_4_tx_8_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=4
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.rx_5_tx_7_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_6_rx_2_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=2
-    - CONFIG_NET_TC_TX_COUNT=6
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_7_rx_5_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_8_rx_7_sr_ab:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=7
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.2_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=2
-    - CONFIG_NET_TC_RX_COUNT=2
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.3_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=3
-    - CONFIG_NET_TC_RX_COUNT=3
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.4_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=4
-    - CONFIG_NET_TC_RX_COUNT=4
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.5_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=5
-    - CONFIG_NET_TC_RX_COUNT=5
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.6_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=6
-    - CONFIG_NET_TC_RX_COUNT=6
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.7_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=7
-    - CONFIG_NET_TC_RX_COUNT=7
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.8_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=8
-    - CONFIG_NET_TC_RX_COUNT=8
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_2_rx_3_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=3
-    - CONFIG_NET_TC_TX_COUNT=2
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_3_rx_8_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=8
-    - CONFIG_NET_TC_TX_COUNT=3
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.rx_4_tx_8_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=4
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.rx_5_tx_7_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_6_rx_2_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=2
-    - CONFIG_NET_TC_TX_COUNT=6
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_7_rx_5_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_whitelist: native_posix
-    attribute: required
-  net.traffic_class.tx_8_rx_7_sr_b:
-    path: tests/net/traffic_class
-    catalog: net traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=7
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_whitelist: native_posix
-    attribute: required
-  net.trickle:
-    path: tests/net/trickle
-    catalog: net trickle
-    min_ram: 12
-    depends_on: netif
-    attribute: required
-  net.timestamp:
-    path: tests/net/tx_timestamp
-    catalog: net tx_timestamp gptp
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.pipe.api:
+    path: tests/kernel/pipe/pipe_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.poll:
+    path: tests/kernel/poll
+    catalog: kernel userspace
     min_ram: 16
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
+    min_flash: 34
+    platform_exclude: nrf52810_pca10040
     attribute: required
-  sample.net.sockets.echo_server.usbnet:
-    path: samples/net/sockets/echo_server
-    catalog: net usb
-    extra_configs:
-    - CONFIG_NET_SHELL=n
-    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    platform_whitelist: quark_se_c1000_devboard 96b_carbon
-    depends_on: netif
-    min_flash: 140
+  kernel.queue:
+    path: tests/kernel/queue
+    catalog: kernel userspace
     attribute: required
-  sample.net.sockets.echo_server.usbnet_composite:
-    path: samples/net/sockets/echo_server
-    catalog: net usb
-    extra_configs:
-    - CONFIG_USB_COMPOSITE_DEVICE=y
-    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    platform_whitelist: quark_se_c1000_devboard 96b_carbon
-    depends_on: netif
-    min_flash: 140
+  kernel.queue.poll:
+    path: tests/kernel/queue
+    catalog: kernel userspace
+    extra_args: CONF_FILE="prj_poll.conf"
     attribute: required
-  sample.net.vlan:
-    path: samples/net/vlan
-    catalog: net vlan
-    depends_on: netif
+  kernel.semaphore.api:
+    path: tests/kernel/semaphore/sema_api
+    catalog: kernel userspace
     attribute: required
-  net.vlan:
-    path: tests/net/vlan
-    catalog: net vlan
+  kernel.semaphore:
+    path: tests/kernel/semaphore/semaphore
+    catalog: kernel userspace
     min_ram: 32
-    depends_on: netif
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3
     attribute: required
-  sample.net.wifi:
-    path: samples/net/wifi
-    catalog: net wifi
-    platform_whitelist: quark_se_c1000_devboard cc3220sf_launchxl disco_l475_iot1
+  kernel.stack:
+    path: tests/kernel/stack/stack_api
+    catalog: kernel userspace
     attribute: required
-  sample.net.zperf:
-    path: samples/net/zperf
-    catalog: net zperf
-    platform_whitelist: qemu_x86
-    platform_exclude: native_posix sam_e70_xplained
-    min_ram: 64
+  kernel.stack.usage:
+    path: tests/kernel/stack/stack_usage
+    catalog: kernel userspace
+    attribute: required
+  kernel.timer:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel userspace
+    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+    attribute: required
+  kernel.workqueue.api:
+    path: tests/kernel/workq/work_queue_api
+    catalog: kernel userspace
+    min_flash: 34
+    attribute: required
+  kernel.memory_pool.sys:
+    path: tests/kernel/mem_pool/sys_mem_pool
+    catalog: kernel userspace mem_pool
+    min_ram: 32
     attribute: required

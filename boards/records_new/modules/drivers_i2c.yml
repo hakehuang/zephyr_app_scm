@@ -4,7 +4,7 @@ cases:
     path: tests/drivers/i2c/i2c_api
     catalog: drivers i2c
     depends_on: i2c
-    platform_whitelist: quark_se_c1000_devboard quark_d2000_crb quark_se_c1000_ss_devboard
+    filter: dt_alias_exists("i2c-0") or dt_alias_exists("i2c-1") or dt_alias_exists("i2c-2")
   peripheral.i2c_slave:
     path: tests/drivers/i2c/i2c_slave_api/common
     catalog: drivers i2c

@@ -1,5 +1,9 @@
 ---
 cases:
+  peripheral.eeprom:
+    path: tests/drivers/eeprom
+    catalog: drivers userspace
+    platform_whitelist: native_posix native_posix_64
   peripheral.i2s:
     path: tests/drivers/i2s/i2s_api
     catalog: drivers userspace

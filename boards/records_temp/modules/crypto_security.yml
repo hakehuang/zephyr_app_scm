@@ -15,3 +15,9 @@ cases:
     extra_args: CONF_FILE=prj_hw_random_xoroshiro.conf
     filter: CONFIG_ENTROPY_HAS_DRIVER
     min_ram: 16
+  crypto.rand32.random_ctr_drbg:
+    path: tests/crypto/rand32
+    catalog: crypto security
+    extra_args: CONF_FILE=prj_ctr_drbg.conf
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+    min_ram: 16

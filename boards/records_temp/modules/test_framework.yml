@@ -22,3 +22,10 @@ cases:
     path: tests/ztest/base
     catalog: test_framework
     extra_args: CONF_FILE=prj_verbose_2.conf
+  testing.ztest.regular_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+  testing.ztest.customized_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_customized_output.conf

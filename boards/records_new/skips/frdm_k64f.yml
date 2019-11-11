@@ -9,4 +9,12 @@ cases:
   net.build:
     comments: "build error"
     result: skip
-  
+  #sample.net.sockets.big_http_download:
+  #  result: skip
+  #  comments: "run error http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_samples/detail/frdmk64f/2/pipeline/153/"
+  sample.net.sockets.echo_server.mcr20a:
+    result: skip
+    comments: "run error http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_samples/detail/frdmk64f/2/pipeline/153/"
+  #net.traffic_class.rx_4_tx_8:
+  #  result: skip
+  #  comments: "run error http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_samples/detail/frdmk64f/5/pipeline/112"

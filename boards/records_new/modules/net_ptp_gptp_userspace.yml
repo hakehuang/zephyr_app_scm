@@ -1,0 +1,7 @@
+---
+cases:
+  net.ptp.clock:
+    path: tests/net/ptp/clock
+    catalog: net ptp gptp userspace
+    min_ram: 32
+    depends_on: netif

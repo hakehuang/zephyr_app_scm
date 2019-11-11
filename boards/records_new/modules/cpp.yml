@@ -13,4 +13,20 @@ cases:
     path: tests/application_development/libcxx
     catalog: cpp
     arch_exclude: posix
-    platform_exclude: qemu_x86_coverage qemu_x86_64
+    platform_exclude: qemu_x86_coverage
+    min_flash: 54
+  misc.app_dev.libcxx.zephyr_cpp:
+    path: tests/application_development/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_ZEPHYR_CPLUSPLUS=y
+    arch_exclude: posix
+    platform_exclude: qemu_x86_coverage
+  misc.app_dev.libcxx.exceptions:
+    path: tests/application_development/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_EXCEPTIONS=y
+    arch_exclude: posix
+    platform_exclude: qemu_x86_coverage
+    min_flash: 54

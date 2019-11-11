@@ -41,3 +41,7 @@ cases:
     - CONFIG_NUM_PREEMPT_PRIORITIES=0
     - CONFIG_NUM_COOP_PRIORITIES=6
     extra_args: " -DDEBUG_PRINTF=1"
+  sample.smp_pi:
+    path: samples/smp/pi
+    catalog: introduction
+    platform_whitelist: nsim_hs_smp qemu_x86_64

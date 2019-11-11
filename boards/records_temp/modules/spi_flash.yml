@@ -3,5 +3,13 @@ cases:
   sample.driver.spi_flash:
     path: samples/drivers/spi_flash
     catalog: spi flash
-    platform_whitelist: arduino_101
+    filter: dt_compat_enabled("jedec,spi-nor")
+    depends_on: spi
+  sample.driver.spi_flash_dpd:
+    path: samples/drivers/spi_flash
+    catalog: spi flash
+    extra_configs:
+    - CONFIG_SPI_NOR_IDLE_IN_DPD=y
+    filter: dt_compat_enabled("jedec,spi-nor")
+    build_only: true
     depends_on: spi

@@ -4,4 +4,10 @@ cases:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     depends_on: watchdog
-    platform_exclude: quark_d2000_crb
+    platform_exclude: nucleo_l496zg nucleo_f401re
+  peripheral.window_watchdog_nucleo_l496zg:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: drivers watchdog
+    extra_args: CONF_FILE="prj.conf;nucleo_l496zg.conf"
+    depends_on: watchdog
+    platform_whitelist: nucleo_l496zg
