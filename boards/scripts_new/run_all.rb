@@ -1,9 +1,13 @@
 
 require 'rubygems'
 require 'fileutils'
+require "logger"
 
 require_relative 'platform_config'
 
+
+$log = Logger.new(STDOUT)
+$log.level = Logger::WARN
 
 platforms.each do |plat, v|
     v.each do |surfix|
@@ -14,7 +18,10 @@ platforms.each do |plat, v|
         end
         puts Dir.pwd
         puts filename
-        system("ruby #{filename}")
+        ret = system("ruby #{filename}")
+        if ! ret
+            $log.warn("#{filename} pare error #{ret}")
+        end
     end
 end
 

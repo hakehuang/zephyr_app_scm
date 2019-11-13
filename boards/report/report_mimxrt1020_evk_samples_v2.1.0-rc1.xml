@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="299" errors="0" failures="0" name="" skipped="59" time="0">
-      <testcase classname="mimxrt1020_evk:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
-         <skipped message="Skipped" type="skipped"/>
+    <testsuite tests="130" errors="0" failures="0" name="" skipped="57" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:net.dns.mdns_response" name="net.dns.mdns_response" time="0">
-         <skipped message="Skipped" type="skipped"/>
+      <testcase classname="mimxrt1020_evk:peripheral.entropy.entropy_get_entropy" name="peripheral.entropy.entropy_get_entropy" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
          <skipped message="Skipped" type="skipped"/>
@@ -178,109 +176,135 @@
       <testcase classname="mimxrt1020_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_async_put_get_buffer" name="kernel.mailbox.mbox_async_put_get_buffer" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_block_get_buff_to_pool" name="kernel.mailbox.mbox_block_get_buff_to_pool" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_block_get_buff_to_smaller_pool" name="kernel.mailbox.mbox_block_get_buff_to_smaller_pool" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_put_get_buffer" name="kernel.mailbox.mbox_put_get_buffer" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_target_source_thread_buffer" name="kernel.mailbox.mbox_target_source_thread_buffer" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_readable_read" name="kernel.memory_protection.mmu.buffer_readable_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_readable_write" name="kernel.memory_protection.mmu.buffer_readable_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_rw_read" name="kernel.memory_protection.mmu.buffer_rw_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_supervisor_rw" name="kernel.memory_protection.mmu.buffer_supervisor_rw" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_supervisor_w" name="kernel.memory_protection.mmu.buffer_supervisor_w" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_user_rw_supervisor" name="kernel.memory_protection.mmu.buffer_user_rw_supervisor" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_user_rw_user" name="kernel.memory_protection.mmu.buffer_user_rw_user" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_writeable_write" name="kernel.memory_protection.mmu.buffer_writeable_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_page_buffer_read" name="kernel.memory_protection.mmu.multi_page_buffer_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_page_buffer_read_user" name="kernel.memory_protection.mmu.multi_page_buffer_read_user" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.call_stacks_analyze_workq" name="portability.posix.call_stacks_analyze_workq" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_page_buffer_user" name="kernel.memory_protection.mmu.multi_page_buffer_user" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.clock_support" name="portability.posix.clock_support" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_page_buffer_write_user" name="kernel.memory_protection.mmu.multi_page_buffer_write_user" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.filter_handling" name="portability.posix.filter_handling" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_pde_buffer_readable_read" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_read" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_pde_buffer_readable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_fd_leak" name="portability.posix.fs_fd_leak" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_pde_buffer_rw" name="kernel.memory_protection.mmu.multi_pde_buffer_rw" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_protection.userspace.stack_buffer" name="kernel.memory_protection.userspace.stack_buffer" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.memory_slabs.stack_buffer" name="kernel.memory_slabs.stack_buffer" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.sched.multiq_no_timeslicing.get_buff_to_pool" name="kernel.sched.multiq_no_timeslicing.get_buff_to_pool" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.sched.multiq_no_timeslicing.mbox_block_get_buff_to_pool" name="kernel.sched.multiq_no_timeslicing.mbox_block_get_buff_to_pool" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.sched.multiq_no_timeslicing.mbox_block_get_buff_to_smaller_pool" name="kernel.sched.multiq_no_timeslicing.mbox_block_get_buff_to_smaller_pool" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.sched.multiq_no_timeslicing.mbox_clean_up_tx_poolS - test_mbox_block_get_buff_to_pool" name="kernel.sched.multiq_no_timeslicing.mbox_clean_up_tx_poolS - test_mbox_block_get_buff_to_pool" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.mqueue" name="portability.posix.mqueue" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ring_buffer_main" name="libraries.data_structures.ring_buffer_main" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.mutex.mutex_normal" name="portability.posix.mutex.mutex_normal" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_alloc_put" name="libraries.data_structures.ringbuffer_alloc_put" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.mutex.recursive_mutex" name="portability.posix.mutex.recursive_mutex" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_declare_pow2" name="libraries.data_structures.ringbuffer_declare_pow2" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_declare_size" name="libraries.data_structures.ringbuffer_declare_size" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_fd_leak" name="portability.posix.newlib.fs_fd_leak" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_init" name="libraries.data_structures.ringbuffer_init" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" name="libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_put_get_isr" name="libraries.data_structures.ringbuffer_put_get_isr" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_put_get_thread" name="libraries.data_structures.ringbuffer_put_get_thread" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_put_get_thread_isr" name="libraries.data_structures.ringbuffer_put_get_thread_isr" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_size_put_get_thread_isr" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.encoding.storing_long_buffers" name="libraries.encoding.storing_long_buffers" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.gen_gz_inc_file_mtime_arg" name="portability.posix.newlib.gen_gz_inc_file_mtime_arg" time="0">
+      <testcase classname="mimxrt1020_evk:libraries.libc.send_receive_buffer" name="libraries.libc.send_receive_buffer" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_clock" name="portability.posix.newlib.posix_clock" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_1" name="net.buf.net_buf_1" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_mqueue" name="portability.posix.newlib.posix_mqueue" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_2" name="net.buf.net_buf_2" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_multiple_threads_single_key" name="portability.posix.newlib.posix_multiple_threads_single_key" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_3" name="net.buf.net_buf_3" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_normal_mutex" name="portability.posix.newlib.posix_normal_mutex" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_4" name="net.buf.net_buf_4" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_pthread_execution" name="portability.posix.newlib.posix_pthread_execution" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_big_buf" name="net.buf.net_buf_big_buf" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_pthread_termination" name="portability.posix.newlib.posix_pthread_termination" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_clone" name="net.buf.net_buf_clone" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_realtime" name="portability.posix.newlib.posix_realtime" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_fixed_pool" name="net.buf.net_buf_fixed_pool" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_recursive_mutex" name="portability.posix.newlib.posix_recursive_mutex" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_multi_frags" name="net.buf.net_buf_multi_frags" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_rw_lock" name="portability.posix.newlib.posix_rw_lock" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_test_1" name="net.buf.net_buf_test_1" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_semaphore" name="portability.posix.newlib.posix_semaphore" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_test_2" name="net.buf.net_buf_test_2" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_single_thread_multiple_keys" name="portability.posix.newlib.posix_single_thread_multiple_keys" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_test_3" name="net.buf.net_buf_test_3" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_timer" name="portability.posix.newlib.posix_timer" time="0">
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_test_4" name="net.buf.net_buf_test_4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_test_big_buf" name="net.buf.net_buf_test_big_buf" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_test_clone" name="net.buf.net_buf_test_clone" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_test_fixed_pool" name="net.buf.net_buf_test_fixed_pool" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_test_multi_frags" name="net.buf.net_buf_test_multi_frags" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_test_var_pool" name="net.buf.net_buf_test_var_pool" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.buf.net_buf_var_pool" name="net.buf.net_buf_var_pool" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.buf.v6_sendmsg_with_txtime" name="net.buf.v6_sendmsg_with_txtime" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.ipv6.fragment.net_buf_test_var_pool" name="net.ipv6.fragment.net_buf_test_var_pool" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.packet.net_pkt_allocate_with_buffer" name="net.packet.net_pkt_allocate_with_buffer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.packet.net_pkt_allocate_wo_buffer" name="net.packet.net_pkt_allocate_wo_buffer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.udp.net_buf_test_fixed_pool" name="net.udp.net_buf_test_fixed_pool" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:portability.cmsis_rtos_v1.storing_long_buffers" name="portability.cmsis_rtos_v1.storing_long_buffers" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:portability.posix.newlib.ring_buffer_main" name="portability.posix.newlib.ring_buffer_main" time="0">
       </testcase>
@@ -292,371 +316,7 @@
       </testcase>
       <testcase classname="mimxrt1020_evk:portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" time="0">
       </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_clock" name="portability.posix.posix_clock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_multiple_threads_single_key" name="portability.posix.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_normal_mutex" name="portability.posix.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_pthread_execution" name="portability.posix.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_pthread_termination" name="portability.posix.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_realtime" name="portability.posix.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_recursive_mutex" name="portability.posix.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_rw_lock" name="portability.posix.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_semaphore" name="portability.posix.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_single_thread_multiple_keys" name="portability.posix.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_timer" name="portability.posix.posix_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread" name="portability.posix.pthread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_cancel" name="portability.posix.pthread_cancel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_equal" name="portability.posix.pthread_equal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_join" name="portability.posix.pthread_join" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_key.multiple_threads_single_key" name="portability.posix.pthread_key.multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_key.single_thread_multiple_keys" name="portability.posix.pthread_key.single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.rw_lock" name="portability.posix.rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.sema" name="portability.posix.sema" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.timer" name="portability.posix.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.timer_support" name="portability.posix.timer_support" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.call_stacks_analyze_workq" name="portability.posix.call_stacks_analyze_workq" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.clock_support" name="portability.posix.clock_support" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.filter_handling" name="portability.posix.filter_handling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_fd_leak" name="portability.posix.fs_fd_leak" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.mqueue" name="portability.posix.mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.mutex.mutex_normal" name="portability.posix.mutex.mutex_normal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.mutex.recursive_mutex" name="portability.posix.mutex.recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_fd_leak" name="portability.posix.newlib.fs_fd_leak" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.gen_gz_inc_file_mtime_arg" name="portability.posix.newlib.gen_gz_inc_file_mtime_arg" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_clock" name="portability.posix.newlib.posix_clock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_mqueue" name="portability.posix.newlib.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_multiple_threads_single_key" name="portability.posix.newlib.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_normal_mutex" name="portability.posix.newlib.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_pthread_execution" name="portability.posix.newlib.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_pthread_termination" name="portability.posix.newlib.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_realtime" name="portability.posix.newlib.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_recursive_mutex" name="portability.posix.newlib.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_rw_lock" name="portability.posix.newlib.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_semaphore" name="portability.posix.newlib.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_single_thread_multiple_keys" name="portability.posix.newlib.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_timer" name="portability.posix.newlib.posix_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ring_buffer_main" name="portability.posix.newlib.ring_buffer_main" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ringbuffer_raw" name="portability.posix.newlib.ringbuffer_raw" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ringbuffer_size_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_size_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_clock" name="portability.posix.posix_clock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_multiple_threads_single_key" name="portability.posix.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_normal_mutex" name="portability.posix.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_pthread_execution" name="portability.posix.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_pthread_termination" name="portability.posix.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_realtime" name="portability.posix.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_recursive_mutex" name="portability.posix.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_rw_lock" name="portability.posix.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_semaphore" name="portability.posix.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_single_thread_multiple_keys" name="portability.posix.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_timer" name="portability.posix.posix_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread" name="portability.posix.pthread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_cancel" name="portability.posix.pthread_cancel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_equal" name="portability.posix.pthread_equal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_join" name="portability.posix.pthread_join" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_key.multiple_threads_single_key" name="portability.posix.pthread_key.multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_key.single_thread_multiple_keys" name="portability.posix.pthread_key.single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.rw_lock" name="portability.posix.rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.sema" name="portability.posix.sema" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.timer" name="portability.posix.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.timer_support" name="portability.posix.timer_support" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.call_stacks_analyze_workq" name="portability.posix.call_stacks_analyze_workq" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.clock_support" name="portability.posix.clock_support" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.filter_handling" name="portability.posix.filter_handling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_fd_leak" name="portability.posix.fs_fd_leak" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.mqueue" name="portability.posix.mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.mutex.mutex_normal" name="portability.posix.mutex.mutex_normal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.mutex.recursive_mutex" name="portability.posix.mutex.recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_fd_leak" name="portability.posix.newlib.fs_fd_leak" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.gen_gz_inc_file_mtime_arg" name="portability.posix.newlib.gen_gz_inc_file_mtime_arg" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_clock" name="portability.posix.newlib.posix_clock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_mqueue" name="portability.posix.newlib.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_multiple_threads_single_key" name="portability.posix.newlib.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_normal_mutex" name="portability.posix.newlib.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_pthread_execution" name="portability.posix.newlib.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_pthread_termination" name="portability.posix.newlib.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_realtime" name="portability.posix.newlib.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_recursive_mutex" name="portability.posix.newlib.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_rw_lock" name="portability.posix.newlib.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_semaphore" name="portability.posix.newlib.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_single_thread_multiple_keys" name="portability.posix.newlib.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.posix_timer" name="portability.posix.newlib.posix_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ring_buffer_main" name="portability.posix.newlib.ring_buffer_main" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ringbuffer_raw" name="portability.posix.newlib.ringbuffer_raw" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ringbuffer_size_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_size_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_clock" name="portability.posix.posix_clock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_multiple_threads_single_key" name="portability.posix.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_normal_mutex" name="portability.posix.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_pthread_execution" name="portability.posix.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_pthread_termination" name="portability.posix.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_realtime" name="portability.posix.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_recursive_mutex" name="portability.posix.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_rw_lock" name="portability.posix.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_semaphore" name="portability.posix.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_single_thread_multiple_keys" name="portability.posix.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.posix_timer" name="portability.posix.posix_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread" name="portability.posix.pthread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_cancel" name="portability.posix.pthread_cancel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_equal" name="portability.posix.pthread_equal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_join" name="portability.posix.pthread_join" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_key.multiple_threads_single_key" name="portability.posix.pthread_key.multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.pthread_key.single_thread_multiple_keys" name="portability.posix.pthread_key.single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.rw_lock" name="portability.posix.rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.sema" name="portability.posix.sema" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.timer" name="portability.posix.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.timer_support" name="portability.posix.timer_support" time="0">
+      <testcase classname="mimxrt1020_evk:shell.storing_long_buffers" name="shell.storing_long_buffers" time="0">
       </testcase>
   </testsuite>
 </testsuites>

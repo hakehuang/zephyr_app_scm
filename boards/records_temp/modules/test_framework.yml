@@ -7,9 +7,11 @@ cases:
   testing.ztest.unit:
     path: tests/ztest/mock
     catalog: test_framework
+    type: unit
   testing.ztest:
     path: tests/ztest/base
     catalog: test_framework
+    type: unit
   testing.ztest.verbose_0:
     path: tests/ztest/base
     catalog: test_framework

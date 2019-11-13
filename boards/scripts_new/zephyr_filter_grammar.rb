@@ -2,6 +2,7 @@ require 'yaml'
 require 'awesome_print'
 require 'rly'
 require 'ruby_parser'
+require 'logger'
 
 =begin
 expression “and” expression
@@ -19,11 +20,13 @@ symbol “:” string
 symbol
 =end
 
+$log = Logger.new(STDOUT)
+$log.level = Logger::WARN
 
 class ZephyrLex < Rly::Lex
 
-  literals '-=+><():[],'
-  ignore "\'\" \t\n"
+  literals "=+><():[],\";\'"
+  ignore "\'\"\t\n\\"
   token :AND, /(and|AND)/ do |t|
     t
   end
@@ -37,6 +40,10 @@ class ZephyrLex < Rly::Lex
   end
 
   token :NOT, /(not|NOT)/ do |t|
+    t
+  end
+
+  token :SPACE, /\s+/ do |t|
     t
   end
 
@@ -66,10 +73,13 @@ class ZephyrLex < Rly::Lex
     t
   end
 
-  token :DATA, /[a-zA-Z_][a-zA-Z0-9_]*/ do |t|
+  token :DATA, /[a-zA-Z_][a-zA-Z0-9_-]*\.[a-zA-Z_]*/ do |t|
     t
   end
-  
+
+  token :DATA, /[a-zA-Z_][a-zA-Z0-9_-]*/ do |t|
+    t
+  end
 
   on_error do |t|
     puts "Illegal character #{t.value}"
@@ -177,6 +187,26 @@ class ZephyrParse < Rly::Yacc
 
   rule 'statement : expression' do |st, e|
     st.value = e.value
+    $log.info  "rule statement expression #{st.value}"
+  end
+
+  rule 'statement : statement SPACE statement' do |st, s1, op, s2|
+    $log.info  "s1 #{s1.value}"
+    $log.info  "s2 #{s2.value}"
+    tv1 = [ ]
+    if s1.value.class == Array
+        tv1 = s1.value
+    else
+        tv1 = [s1.value]
+    end
+    tv2 = []
+    if s2.value.class == Array
+        tv2 = s2.value
+    else
+        tv2 = [s2.value]
+    end
+    st.value = tv1 | tv2
+    $log.info  "rule statement SPACE #{st.value}"
   end
 
   rule 'statement : DATA "=" expression' do |st, n, _, e|
@@ -210,13 +240,17 @@ class ZephyrParse < Rly::Yacc
 
   rule 'expression : "[" expression "]"' do |ex, _, e, _|
     ex.value = e.value
+    $log.info  "rule []  #{ex.value}"
   end
  
   rule 'expression : "(" expression ")"' do |ex, _, e, _|
     ex.value = e.value
+    $log.info  "rule ()  #{ex.value}"
   end
 
-  rule 'expression : expression "," expression' do |ex, e1, op, e2|
+  rule 'expression : expression "," expression
+                   | expression ";" expression
+                   | expression " " expression' do |ex, e1, op, e2|
     tv1 = [ ]
     if e1.value.class == Array
         tv1 = e1.value
@@ -228,44 +262,80 @@ class ZephyrParse < Rly::Yacc
         tv2 = e2.value
     else
         tv2 = [e2.value]
-    end    
-    ex.value = tv1 | tv2 
+    end
+    ex.value = tv1 | tv2
+    $log.info  "rule ,  #{ex.value}"
+  end
+
+  rule 'expression : DATA "(" expression ")" ' do |ex, d, _, e, _|
+    ex.value = {d.value => e.value }
+    $log.info  "rule DATA expression  #{ex.value}"
   end
 
   rule 'expression : NUMBER' do |ex, n|
     ex.value = n.value
+    $log.info  "rule NUMBER  #{ex.value}"
   end
 
   rule 'expression : DATA' do |ex, n|
     ex.value = n.value
+    $log.info  "rule DATA  #{ex.value}"
   end
 
   rule 'expression : HEX' do |ex, n|
     ex.value = n.value
+    $log.info  "rule HEX  #{ex.value}"
   end
 
   rule 'expression : expression "+" expression
-                   | expression "-" expression
                    | expression "*" expression
                    | expression "/" expression' do |ex, e1, op, e2|
     ex.value = e1.value.send(op.value, e2.value)
+    $log.info  "rule +*/  #{ex.value}"
+  end
+
+  rule 'expression : expression "-" expression' do |ex, e1, op, e2|
+    $log.info  "#{e1.value}  #{ex.value} #{e2.value}"
+    ex.value = e1.value + op.value + e2.value
+    $log.info  "rule -  #{ex.value}"
   end
 
   #store_grammar 'grammar.txt'
 
 end
 
+def isDT_filter(key)
+  dt_list = ["dt_compat_enabled", "dt_alias_exists", "dt_compat_enabled_with_alias"]
+  if dt_list.include?(key)
+    return true
+  end
+  return false
+end
+
+def dt_parser(k, v, board_hash)
+  if k == "dt_compat_enabled"
+      return false 
+  elsif k == "dt_alias_exists"
+      return false
+  elsif k == "dt_compat_enabled_with_alias"
+      return false
+  end
+end
+
 def simple_ast(data, board_hash)
     case data.class.name
         when "Hash"
             data.each do |k, v|
-                if board_hash.has_key?(k)
-                    return eval "#{board_hash[k]} #{v[0]} #{simple_ast[v1, board_hash]}"
-                end
-                if board_hash["settings"] and board_hash["settings"].has_key?(k)
-                    bv = board_hash["settings"][k]
-                    return eval "#{bv} #{v[0]} #{simple_ast[v1, board_hash]}"
-                end
+              if isDT_filter(k)
+                return dt_parser(k, v, board_hash)
+              end
+              if board_hash.has_key?(k)
+                return eval "#{board_hash[k]} #{v[0]} #{simple_ast[v1, board_hash]}"
+              end
+              if board_hash["settings"] and board_hash["settings"].has_key?(k)
+                bv = board_hash["settings"][k]
+                return eval "#{bv} #{v[0]} #{simple_ast[v1, board_hash]}"
+              end
             end
             return false
         when "Array"
@@ -279,14 +349,14 @@ def simple_ast(data, board_hash)
             case data[0]
                 when "AND"
                     data[1..-1].each do |dst|
-                        case dst.class
-                            when String
-                                if judge and judge.include?(dst)
-                                    return false
-                                end
-                            else
-                                return false if ! simple_ast(dst, board_hash)
-                        end
+                      case dst.class.name
+                        when "String"
+                          if judge and judge.include?(dst)
+                            return false
+                          end
+                        else
+                          return false if ! simple_ast(dst, board_hash)
+                      end
                     end
                     return true
                 when "OR"
@@ -330,31 +400,54 @@ def zephyr_filter_parser(filters, board_hash)
     end
 end
 
+def zephyr_expr_parser(expr)
+    parser = ZephyrParse.new(ZephyrLex.new)
+    return parser.parse(expr)
+end
+
 
 if __FILE__ == $0
     #lex = ZephyrLex.new('C and A or B == D != E > 12 < >= <= in NOT ( f )')
     #lex = ZephyrLex.new('[ 1, 2, 3 ]')
     #lex = ZephyrLex.new('C = 0x1234')
     #lex.show()
+    $log.level = Logger::INFO
     parser = ZephyrParse.new(ZephyrLex.new)
 =begin  
-    ap parser.parse('A AND B')
-    ap parser.parse('NOT A')
-    ap parser.parse('(A)')
-    ap parser.parse('2+2')
-    ap parser.parse('A = (2+2) ')
-    ap parser.parse("[1,2,3]")
-    ap parser.parse("NOT (A AND B)")
-    ap parser.parse("IN [\"A\", \"B\", \"C\"]")
-    ap parser.parse("SAND != GOLD")
-    ap parser.parse("SAND == GOLD")
-    ap parser.parse("SAND == 4")
-    ap parser.parse("(SAND < 4)")
-    ap parser.parse("(SAND < 4) AND (SAND > 1)")
-    ap parser.parse("(SAND <= 4) AND (SAND >= 1)")
-    ap parser.parse("(SAND <= 4) OR (SAND >= 1)")
-    ap parser.parse("C == 0xA")
-=end
+    $log.info  parser.parse('A AND B')
+    $log.info  parser.parse('NOT A')
+    $log.info  parser.parse('(A)')
+    $log.info  parser.parse('2+2')
+    $log.info  parser.parse('A = (2+2) ')
+    $log.info  parser.parse("[1,2,3]")
+    $log.info  parser.parse("NOT (A AND B)")
+    $log.info  parser.parse("IN [\"A\", \"B\", \"C\"]")
+    $log.info  parser.parse("SAND != GOLD")
+    $log.info  parser.parse("SAND == GOLD")
+    $log.info  parser.parse("SAND == 4")
+    $log.info  parser.parse("(SAND < 4)")
+    $log.info  parser.parse("(SAND < 4) AND (SAND > 1)")
+    $log.info  parser.parse("(SAND <= 4) AND (SAND >= 1)")
+    $log.info  parser.parse("(SAND <= 4) OR (SAND >= 1)")
+    $log.info  parser.parse("C == 0xA")
     board_hash = {"settings" => { "no_filter" => ["CONFIG_CPU_HAS_MPU", "CONFIG_ARCH_HAS_USERSPACE"]} }
-    ap zephyr_filter_parser("CONFIG_ARCH_HAS_USERSPACE", board_hash)
+    $log.info  zephyr_filter_parser("CONFIG_ARCH_HAS_USERSPACE", board_hash)
+    lex = ZephyrLex.new('dt_compat_enabled\(\"jedec,spi-nor\"\)')
+    lex.show()
+    board_hash = {"settings" => { "no_filter" => ["CONFIG_CPU_HAS_MPU", "CONFIG_ARCH_HAS_USERSPACE"]} }
+    $log.info  zephyr_filter_parser("dt_compat_enabled(\"jedec, spi-nor\")", board_hash)
+    lex = ZephyrLex.new('dt_compat_enabled_with_alias("gpio-keys", "sw0")')
+    lex.show()
+    board_hash = {"settings" => { "no_filter" => ["CONFIG_CPU_HAS_MPU", "CONFIG_ARCH_HAS_USERSPACE"]} }
+    $log.info  zephyr_filter_parser('dt_compat_enabled_with_alias("gpio-keys", "sw0")', board_hash)
+    board_hash = {"settings" => { "no_filter" => ["CONFIG_CPU_HAS_MPU", "CONFIG_ARCH_HAS_USERSPACE", "CONFIG_CPU_ARCV2"]} }
+    $log.info  zephyr_filter_parser("CONFIG_CPU_ARCV2 and CONFIG_CPU_HAS_FPU", board_hash)
+    board_hash = {"settings" => { "no_filter" => ["CONFIG_ARCH_HAS_USERSPACE", 
+       "CONFIG_ARMV7_M_ARMV8_M_FP",  "CONFIG_CPU_HAS_MPU","CONFIG_ENTROPY_HAS_DRIVER", "CONFIG_CPU_ARCV2"]} }
+    $log.info  zephyr_filter_parser("CONFIG_ENTROPY_HAS_DRIVER", board_hash)
+    board_hash = {"settings" => { "no_filter" => ["CONFIG_ARCH_HAS_USERSPACE", 
+       "CONFIG_ARMV7_M_ARMV8_M_FP",  "CONFIG_CPU_HAS_MPU","CONFIG_ENTROPY_HAS_DRIVER", "CONFIG_CPU_ARCV2"]} }
+    $log.info  parser.parse("CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;arm.conf'")
+=end
+    $log.info  parser.parse("SHIELD=frdm_cr20a OVERLAY_CONFIG=overlay-802154.conf")
 end

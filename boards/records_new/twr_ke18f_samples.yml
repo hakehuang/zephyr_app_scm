@@ -1,33 +1,30 @@
 
 __load__:
-  - modules/net_zperf.yml
-  - modules/net_wifi.yml
-  - modules/net_vlan.yml
-  - modules/net_usb.yml
-  - modules/net_tx_timestamp_gptp.yml
-  - modules/net_trickle.yml
-  - modules/net_traffic_class.yml
-  - modules/net_tls.yml
-  - modules/net_telnet.yml
-  - modules/net_tcp.yml
-  - modules/net_syslog.yml
-  - modules/net_statistics.yml
-  - modules/net_sockets_packet-socket.yml
-  - modules/net_socket_userspace.yml
-  - modules/net_socket.yml
-  - modules/net_route.yml
-  - modules/net_ptp_gptp.yml
-  - modules/net_promisc.yml
-  - modules/net_openthread.yml
-  - modules/net_net_context.yml
-  - modules/net_neighbour.yml
-  - modules/net_nats.yml
-  - modules/net_mqtt_bluetooth.yml
-  - modules/net_mqtt.yml
-  - modules/net_mld.yml
-  - modules/net_mgmt.yml
-  - modules/net_mdns.yml
-  - modules/net_lwm2m.yml
+  - modules/dns_net.yml
+  - modules/llmnr.yml
+  - modules/mdns.yml
+  - modules/net.yml
+  - modules/net_6loWPAN.yml
+  - modules/net_arp.yml
+  - modules/net_buf.yml
+  - modules/net_checksum_offload.yml
+  - modules/net_crc.yml
+  - modules/net_dhcpv4.yml
+  - modules/net_ethernet_mgmt.yml
+  - modules/net_gptp.yml
+  - modules/net_hostname.yml
+  - modules/net_http.yml
+  - modules/net_http_http_client.yml
+  - modules/net_http_http_client_websocket_client_websocket.yml
+  - modules/net_icmpv6.yml
+  - modules/net_ieee802154_fragment.yml
+  - modules/net_ieee802154_l2.yml
+  - modules/net_ieee802154_usb.yml
+  - modules/net_iface_userspace.yml
+  - modules/net_ip-addr.yml
+  - modules/net_ipv4_autoconf.yml
+  - modules/net_ipv6.yml
+  - modules/net_ipv6_fragment.yml
   - modules/net_lldp.yml
   - skips/twr_ke18f.yml
   - boards/twr_ke18f.yml

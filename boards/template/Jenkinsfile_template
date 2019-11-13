@@ -35,7 +35,7 @@ pipeline {
             <?rb end ?>
             <?rb if ! item.has_key?('build_only') ?>
               retry(2)  {
-                sh 'docker exec #{@docker} #{@run_script} $(basename $(pwd)) #{item['build_path']} #{item['opt'][0]}'
+                sh 'docker exec #{@docker} #{@run_script} $(basename $(pwd)) #{item['build_path']} #{item['opt'][0]} #{item['bin']}'
               }
             <?rb end ?>
           }

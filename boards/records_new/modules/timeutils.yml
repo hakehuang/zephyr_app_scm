@@ -4,7 +4,9 @@ cases:
     path: tests/unit/timeutil
     catalog: timeutils
     extra_args: M64_MODE=0
+    type: unit
   lib.os.timeutil_64bit:
     path: tests/unit/timeutil
     catalog: timeutils
     extra_args: M64_MODE=1
+    type: unit

@@ -7,9 +7,11 @@ test_framework:
   testing.ztest.unit:
     path: tests/ztest/mock
     catalog: test_framework
+    type: unit
   testing.ztest:
     path: tests/ztest/base
     catalog: test_framework
+    type: unit
   testing.ztest.verbose_0:
     path: tests/ztest/base
     catalog: test_framework
@@ -31,7 +33,7 @@ test_framework:
     extra_args: CONF_FILE=prj_customized_output.conf
 video net socket:
   sample.video.tcpserversink:
-    path: tests/ztest/mock
+    path: samples/video/tcpserversink
     catalog: video net socket
     build_only: true
     platform_whitelist: mimxrt1064_evk
@@ -236,6 +238,7 @@ unknown:
   misc.math_extras:
     path: tests/unit/math_extras
     catalog: unknown
+    type: unit
 kernel threads gpio:
   sample.threads:
     path: samples/basic/threads
@@ -365,7 +368,7 @@ bluetooth:
     min_ram: 16
     platform_whitelist: qemu_x86 qemu_cortex_m3
   bluetooth.general:
-    path: tests/bluetooth/bsim_bt/bsim_test_app
+    path: tests/bluetooth/bluetooth
     catalog: bluetooth
     platform_whitelist: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
   bluetooth.ctrl_user_ext.test:
@@ -878,7 +881,7 @@ sound:
     platform_whitelist: bbc_microbit
 audio:
   sample.board.intel_s1000_crb.audio:
-    path: samples/boards/intel_s1000_crb/dmic
+    path: samples/boards/intel_s1000_crb/audio
     catalog: audio
     platform_whitelist: intel_s1000_crb
 i2s:
@@ -1016,7 +1019,7 @@ drivers:
       nrf9160_pca10090
     depends_on: counter
   sample.driver.espi:
-    path: samples/drivers/random
+    path: samples/drivers/ps2
     catalog: drivers
     depends_on: ps2
   sample.driver.gpio:
@@ -1767,7 +1770,7 @@ net syslog:
     depends_on: netif
 net telnet:
   sample.net.telnet:
-    path: samples/net/updatehub
+    path: samples/net/telnet
     catalog: net telnet
     depends_on: netif
 net vlan:
@@ -1871,7 +1874,7 @@ cmsis_rtos_v1_synchronization:
     min_flash: 34
 cmsis_rtos_v2_synchronization:
   sample.portability.cmsis_rtos_v2.timer_synchronization:
-    path: samples/posix/gettimeofday
+    path: samples/portability/cmsis_rtos_v2/timer_synchronization
     catalog: cmsis_rtos_v2_synchronization
     min_ram: 32
     min_flash: 34
@@ -1940,7 +1943,7 @@ samples ipm:
     platform_whitelist: udoo_neo_full_m4 colibri_imx7d_m4 warp7_m4
 ipm:
   sample.subsys.ipc.ipm_mcux:
-    path: samples/subsys/ipc/ipm_mcux/remote
+    path: samples/subsys/ipc/ipm_mcux
     catalog: ipm
     platform_whitelist: lpcxpresso54114_m4
   sample.ipm:
@@ -1948,7 +1951,7 @@ ipm:
     catalog: ipm
     platform_whitelist: v2m_musca v2m_musca_nonsecure v2m_musca_b1 v2m_musca_b1_nonsecure
   sample.subsys.ipc.openamp:
-    path: samples/subsys/ipc/openamp/remote
+    path: samples/subsys/ipc/openamp
     catalog: ipm
     platform_whitelist: lpcxpresso54114_m4
 logging:
@@ -2030,11 +2033,11 @@ msd usb:
     depends_on: usb_device gpio
 kernel synchronization:
   sample.synchronization:
-    path: samples/testing/integration
+    path: samples/synchronization
     catalog: kernel synchronization
 my_tags:
   section.subsection:
-    path: subsys/usb/class/netusb
+    path: samples/testing/integration
     catalog: my_tags
     build_only: true
 video:
@@ -2140,7 +2143,7 @@ ignore_faults interrupt idt:
     platform_exclude: qemu_x86_64
 kernel:
   kernel.memory_protection.mmu:
-    path: tests/arch/xtensa_asm2
+    path: tests/arch/x86/x86_mmu_api
     catalog: kernel
     platform_whitelist: qemu_x86
   kernel.context:
@@ -2585,7 +2588,7 @@ drivers i2c:
     depends_on: i2c
     filter: dt_alias_exists("i2c-0") or dt_alias_exists("i2c-1") or dt_alias_exists("i2c-2")
   peripheral.i2c_slave:
-    path: tests/drivers/i2c/i2c_slave_api/common
+    path: tests/drivers/i2c/i2c_slave_api
     catalog: drivers i2c
     depends_on: i2c
     platform_whitelist: nucleo_f091rc stm32f072b_disco
@@ -3923,17 +3926,17 @@ settings_file:
     platform_whitelist: nrf52840_pca10056 nrf52_pca10040 native_posix native_posix_64
 settings_nvs:
   system.settings.functional.nvs:
-    path: tests/subsys/settings/functional/src
+    path: tests/subsys/settings/functional/nvs
     catalog: settings_nvs
     platform_whitelist: qemu_x86 native_posix native_posix_64
   system.settings.nvs:
-    path: tests/subsys/settings/src
+    path: tests/subsys/settings/nvs/raw
     catalog: settings_nvs
     depends_on: nvs
     min_ram: 32
 settings_fs:
   system.settings.nffs:
-    path: tests/subsys/settings/nffs/src
+    path: tests/subsys/settings/nffs/raw
     catalog: settings_fs
     platform_whitelist: nrf52840_pca10056 nrf52_pca10040 native_posix native_posix_64
 flash_map:
@@ -3965,32 +3968,40 @@ base64:
   libraries.encoding.base64:
     path: tests/unit/base64
     catalog: base64
+    type: unit
 net crc:
   misc.crc:
     path: tests/unit/crc
     catalog: net crc
+    type: unit
 util intmath:
   utilities.intmath:
     path: tests/unit/intmath
     catalog: util intmath
+    type: unit
 utils lists:
   utilities.lists:
     path: tests/unit/list
     catalog: utils lists
+    type: unit
 rbtree:
   libraries.data_structures.rbtree:
     path: tests/unit/rbtree
     catalog: rbtree
+    type: unit
 timeutils:
   lib.os.timeutil:
     path: tests/unit/timeutil
     catalog: timeutils
     extra_args: M64_MODE=0
+    type: unit
   lib.os.timeutil_64bit:
     path: tests/unit/timeutil
     catalog: timeutils
     extra_args: M64_MODE=1
+    type: unit
 lib_sys_util_tests:
   libraries.sys.util.dec:
     path: tests/unit/util
     catalog: lib_sys_util_tests
+    type: unit

@@ -11,6 +11,8 @@ require 'tenjin'
 require 'optparse'
 require 'ostruct'
 require 'digest'
+require 'yml_merger'
+
 
 require_relative 'zephyr_filter'
 
@@ -53,18 +55,56 @@ class Parser
   end
 end
 
-def load_board_data(search_base, board_name)
+def load_board_data(search_base, board_name, board_settings)
   board = board_name.gsub('_m4', '').gsub('_m0', '')
   board_file = File.join(search_base, "boards", "arm", board,"#{board_name}.yaml")
-  board_settings = File.join(search_base, "boards", "#{board_name}.yml")
   if File.exist?(board_file)
     board_info =  YAML.load_file(board_file)
-    board_info.merge!(YAML.load_file(board_settings))
+    board_info["settings"] = board_settings["settings"]
     return board_info
   else
     puts "no such board file found #{board_name} in arm"
     exit
   end
+end
+
+
+def parse_args(args)
+    case args.class.name
+    when "Hash"
+      ret = ""
+      args.each do |k, v|
+        if v.class == Array
+          lv = ""
+          v.each do |vv|
+            lv += " -D#{k}=#{vv}"
+          end
+          return lv
+        elsif v.class == String
+          ret += " -D#{k}=#{parse_args(v)}"
+        elsif v.class == Integer
+          ret += " -D#{k}=#{parse_args(v)}"
+        else
+          raise "We do not know how to handle this #{args}"
+        end
+      end
+      return ret
+    when "Array"
+      ret = ""
+      args.each do |v|
+        if v.class == Hash
+          ret += parse_args(v)
+        else
+          ret += " -D#{v}"
+        end
+      end
+      return ret
+    when "String"
+      return "#{args}"
+    else
+      return args
+    end
+
 end
 
 
@@ -92,16 +132,23 @@ def create_pipefile_from_commandline(data, board_info: nil)
     case_array = [key, @content["cases"][key]['path']]
     options_array = []
     if @content["cases"][key].has_key?("config")
-      options_array.insert(-1, "-DCONF_FILE=#{@content["cases"][key]['config']}")
+      config_list = @content["cases"][key]['config'].split(";")
+      config_files = ""
+      config_list.each do |cfg| 
+        config_files += " -DCONF_FILE=#{cfg}"
+      end
+      options_array.insert(-1, config_files)
     end
     if @content["cases"][key].has_key?("overlay")
       options_array.insert(-1, "-DOVERLAY_CONFIG=#{@content["cases"][key]['overlay']}")
     end
     if @content["cases"][key].has_key?("extra_args")
       if @content["cases"][key]['extra_args'].include?("-D")
-        options_array.insert(-1, %Q[#{@content["cases"][key]['extra_args']}])
+        options_array.insert(-1, "#{@content["cases"][key]['extra_args'].gsub('"', '')}")
       else
-        options_array.insert(-1, %Q[-D#{@content["cases"][key]['extra_args']}])
+        ea_list = zephyr_expr_parser(@content["cases"][key]['extra_args'])
+        ea_args = parse_args(ea_list)
+        options_array.insert(-1, ea_args)
       end
     end
     if @content["cases"][key].has_key?("extra_configs")
@@ -124,6 +171,10 @@ def create_pipefile_from_commandline(data, board_info: nil)
 
 
     pipe_data[:catalog][catalog]['cases'][key]['opt'] = case_array
+
+    if @content["cases"][key].has_key?("bin")
+      pipe_data[:catalog][catalog]['cases'][key]['bin'] = @content["cases"][key]["bin"]
+    end
   end
   output = engine.render(@command_lines[:template], pipe_data)
   File.open( "Jenkinsfile_" + @command_lines[:board_name], 'w') {|f| f.write(YAML.dump(output)) }
@@ -154,7 +205,12 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     case_array = [key, @content["cases"][key]['path']]
     options_array = Array.new()
     if @content["cases"][key].has_key?("config")
-      options_array.insert(-1, "-DCONF_FILE=#{@content["cases"][key]['config']}")
+      config_list = @content["cases"][key]['config'].split(";")
+      config_files = ""
+      config_list.each do |cfg| 
+        config_files += " -DCONF_FILE=#{cfg}"
+      end
+      options_array.insert(-1, config_files)
     end
     if @content["cases"][key].has_key?("overlay")
       options_array.insert(-1, "-DOVERLAY_CONFIG=#{@content["cases"][key]['overlay']}")
@@ -163,7 +219,9 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
       if @content["cases"][key]['extra_args'].include?("-D")
         options_array.insert(-1, "#{@content["cases"][key]['extra_args'].gsub('"', '')}")
       else
-        options_array.insert(-1, "-D#{@content["cases"][key]['extra_args'].gsub('"', '')}")
+        ea_list = zephyr_expr_parser(@content["cases"][key]['extra_args'])
+        ea_args = parse_args(ea_list)
+        options_array.insert(-1, ea_args)
       end
     end
     if @content["cases"][key].has_key?("extra_configs")
@@ -185,6 +243,10 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     end
 
     pipe_data[:catalog][catalog]['cases'][key]['opt'] = case_array
+
+    if @content["cases"][key].has_key?("bin")
+      pipe_data[:catalog][catalog]['cases'][key]['bin'] = @content["cases"][key]["bin"]
+    end
   end
   output = engine.render(template, pipe_data)
   out_line = ''

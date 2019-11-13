@@ -1,15 +1,11 @@
 
 __load__:
-  - modules/usb_osdesc.yml
-  - modules/usb_net_zperf.yml
-  - modules/usb_desc_sections.yml
-  - modules/usb_bos.yml
-  - modules/usb_bluetooth.yml
   - modules/usb.yml
-  - modules/samples_sensor.yml
-  - modules/samples_ipm.yml
-  - modules/samples_display_gui.yml
-  - modules/Full_stack_sample.yml
+  - modules/usb_bluetooth.yml
+  - modules/usb_bos.yml
+  - modules/usb_desc_sections.yml
+  - modules/usb_net_zperf.yml
+  - modules/usb_osdesc.yml
   - skips/frdm_k64f.yml
   - boards/frdm_k64f.yml
 

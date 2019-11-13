@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="135" errors="0" failures="0" name="" skipped="71" time="0">
+    <testsuite tests="138" errors="0" failures="0" name="" skipped="72" time="0">
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
       </testcase>
       <testcase classname="frdm_k64f:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_k64f:buildsystem.include_file.assert_mem_equal" name="buildsystem.include_file.assert_mem_equal" time="0">
          <skipped message="Skipped" type="skipped"/>
@@ -42,6 +45,10 @@
       </testcase>
       <testcase classname="frdm_k64f:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
          <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.entropy.entropy_get_entropy" name="peripheral.entropy.entropy_get_entropy" time="0">
       </testcase>
       <testcase classname="frdm_k64f:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
          <skipped message="Skipped" type="skipped"/>
@@ -220,6 +227,72 @@
       <testcase classname="frdm_k64f:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
+      <testcase classname="frdm_k64f:logging.log_list.osdesc_feature" name="logging.log_list.osdesc_feature" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_multiple_threads_wait_wake" name="usb.osdesc.futex_multiple_threads_wait_wake" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_multiplwake" name="usb.osdesc.futex_multiplwake" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_forever" name="usb.osdesc.futex_wait_forever" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_forever_wake" name="usb.osdesc.futex_wait_forever_wake" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_forever_wake_from_isr" name="usb.osdesc.futex_wait_forever_wake_from_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_nowait" name="usb.osdesc.futex_wait_nowait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_nowait_wake" name="usb.osdesc.futex_wait_nowait_wake" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_timeout" name="usb.osdesc.futex_wait_timeout" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_timeout_wake" name="usb.osdesc.futex_wait_timeout_wake" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futt_timeout_wake" name="usb.osdesc.futt_timeout_wake" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.multiple_futex_wait_wake" name="usb.osdesc.multiple_futex_wait_wake" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.osdesc_feature" name="usb.osdesc.osdesc_feature" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.osdesc_string" name="usb.osdesc.osdesc_string" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.user_futex_bad" name="usb.osdesc.user_futex_bad" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.futex.desc_sections" name="kernel.futex.desc_sections" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.futex.desc_sectionssection" name="kernel.futex.desc_sectionssection" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.desc_sections.desc_sections" name="usb.desc_sections.desc_sections" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.bos.k_float_disable_irq" name="usb.bos.k_float_disable_irq" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.bos.k_float_disable_syscall" name="usb.bos.k_float_disable_syscall" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.bos.usb_bos" name="usb.bos.usb_bos" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.bos.usb_bos_macros" name="usb.bos.usb_bos_macros" time="0">
+      </testcase>
       <testcase classname="frdm_k64f:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
       </testcase>
       <testcase classname="frdm_k64f:net.packet.fragment_compact" name="net.packet.fragment_compact" time="0">
@@ -275,72 +348,6 @@
       <testcase classname="frdm_k64f:usb.device.usb_disable" name="usb.device.usb_disable" time="0">
       </testcase>
       <testcase classname="frdm_k64f:usb.device.image_util.collecting" name="use.device.image_util.collecting" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.bos.k_float_disable_irq" name="usb.bos.k_float_disable_irq" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.bos.k_float_disable_syscall" name="usb.bos.k_float_disable_syscall" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.bos.usb_bos" name="usb.bos.usb_bos" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.bos.usb_bos_macros" name="usb.bos.usb_bos_macros" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.futex.desc_sections" name="kernel.futex.desc_sections" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.futex.desc_sectionssection" name="kernel.futex.desc_sectionssection" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.desc_sections.desc_sections" name="usb.desc_sections.desc_sections" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:logging.log_list.osdesc_feature" name="logging.log_list.osdesc_feature" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futex_multiple_threads_wait_wake" name="usb.osdesc.futex_multiple_threads_wait_wake" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futex_multiplwake" name="usb.osdesc.futex_multiplwake" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_forever" name="usb.osdesc.futex_wait_forever" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_forever_wake" name="usb.osdesc.futex_wait_forever_wake" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_forever_wake_from_isr" name="usb.osdesc.futex_wait_forever_wake_from_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_nowait" name="usb.osdesc.futex_wait_nowait" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_nowait_wake" name="usb.osdesc.futex_wait_nowait_wake" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_timeout" name="usb.osdesc.futex_wait_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futex_wait_timeout_wake" name="usb.osdesc.futex_wait_timeout_wake" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.futt_timeout_wake" name="usb.osdesc.futt_timeout_wake" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.multiple_futex_wait_wake" name="usb.osdesc.multiple_futex_wait_wake" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.osdesc_feature" name="usb.osdesc.osdesc_feature" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.osdesc_string" name="usb.osdesc.osdesc_string" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:usb.osdesc.user_futex_bad" name="usb.osdesc.user_futex_bad" time="0">
       </testcase>
   </testsuite>
 </testsuites>

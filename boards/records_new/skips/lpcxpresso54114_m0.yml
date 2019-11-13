@@ -10,3 +10,8 @@ cases:
     comments: "no fp"
   kernel.threads.dynamic:
     comments: "no CONFIG_ARCH_HAS_USERSPACE depends on MPU"
+  peripheral.pinmux:
+    comments: "no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/"
+    result: skip
+  sample.net.sockets.http_client:
+    comments: "dependency missing netif"

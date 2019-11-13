@@ -40,25 +40,33 @@ module ZEPHER_FILTER
             if k == "min_flash" and board_hash.has_key?("flash") and case_hash[k].to_i > board_hash["flash"]
                 return false
             end
-            if k == "depends_on" and board_hash.has_key?("supported")
-              case_hash[k].split().each do |k|
-                if ! board_hash["supported"].include?(k)
-                  match = false
-                  board_hash["supported"].each do |kk|
-                    if kk.include?(k)
-                      match = true
-                      break
+            if k == "depends_on"
+              if board_hash.has_key?("supported")
+                case_hash[k].split().each do |k|
+                  if ! board_hash["supported"].include?(k)
+                    match = false
+                    board_hash["supported"].each do |kk|
+                      if kk.include?(k)
+                        match = true
+                        break
+                      end
+                    end
+                    if match == false
+                      return false
                     end
                   end
-                  if match == false
-                    return false
-                  end
                 end
+              else
+                return false
               end
             end
             #TO do filter expression parser
+
             if k == "filter" and board_hash.has_key?("settings") and board_hash['settings'].has_key?("no_filter")
               return zephyr_filter_parser(case_hash[k], board_hash)
+            end
+            if k == "type" and case_hash[k] == "unit"
+              return false
             end
         end
     end
@@ -77,7 +85,7 @@ module ZEPHER_FILTER
   module_function :pos_list
   
   def neural_list
-    ["min_ram", "min_flash", "depends_on", "filter"]
+    ["min_ram", "min_flash", "depends_on", "filter", "type"]
   end
   module_function :neural_list
 

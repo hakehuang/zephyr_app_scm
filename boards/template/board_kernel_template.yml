@@ -1,17 +1,21 @@
 
 __load__:
-  - modules/kernel_userspace_mem_pool.yml
-  - modules/kernel_userspace.yml
-  - modules/kernel_threads_userspace_ignore_faults.yml
-  - modules/kernel_threads_userspace.yml
-  - modules/kernel_threads_sched_userspace.yml
-  - modules/kernel_threads_gpio.yml
-  - modules/kernel_synchronization.yml
-  - modules/kernel_security_userspace_ignore_faults.yml
-  - modules/kernel_security_userspace.yml
-  - modules/kernel_security_ignore_faults.yml
-  - modules/kernel_ignore_faults_userspace.yml
   - modules/kernel.yml
+  - modules/kernel_ignore_faults.yml
+  - modules/kernel_ignore_faults_memory_protection.yml
+  - modules/kernel_ignore_faults_userspace.yml
+  - modules/kernel_mem_pool.yml
+  - modules/kernel_security_ignore_faults.yml
+  - modules/kernel_security_userspace.yml
+  - modules/kernel_security_userspace_ignore_faults.yml
+  - modules/kernel_synchronization.yml
+  - modules/kernel_threads_gpio.yml
+  - modules/kernel_threads_sched_userspace.yml
+  - modules/kernel_threads_userspace.yml
+  - modules/kernel_threads_userspace_ignore_faults.yml
+  - modules/kernel_userspace.yml
+  - modules/kernel_userspace_ignore_faults.yml
+  - modules/kernel_userspace_mem_pool.yml
   - skips/${@board}.yml
   - boards/${@board}.yml
 

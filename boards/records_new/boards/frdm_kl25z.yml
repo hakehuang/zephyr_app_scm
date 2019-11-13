@@ -1,3 +1,5 @@
+__load__:
+  - boards/common.yml
 
 settings:
   build_script: build_zephyr_elf.sh
@@ -6,3 +8,4 @@ settings:
     - CONFIG_ARCH_HAS_USERSPACE
     - CONFIG_ARMV7_M_ARMV8_M_FP
     - CONFIG_CPU_HAS_MPU
+    - CONFIG_MEMORY_PROTECTION
