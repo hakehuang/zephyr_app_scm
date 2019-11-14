@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="1494" errors="0" failures="0" name="" skipped="62" time="0">
+    <testsuite tests="1470" errors="0" failures="0" name="" skipped="69" time="0">
       <testcase classname="frdm_kl25z:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -8,6 +8,27 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.entropy.entropy_get_entropy" name="peripheral.entropy.entropy_get_entropy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:benchmark.latency.loop" name="benchmark.latency.loop" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
@@ -2054,68 +2075,6 @@
       <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.arm_thread_swap" name="arch.arm.swap.common.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.pool_block_get" name="arch.arm.swap.common.fp_sharing.pool_block_get" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.common.xip.nondefault.globals" name="arch.common.xip.nondefault.globals" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.fatal" name="arch.interrupt.fatal" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.main" name="arch.interrupt.main" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.sem_give_limit" name="arch.interrupt.sem_give_limit" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.ramfunc.arm_ramfunc" name="arch.ramfunc.arm_ramfunc" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.ramfunc.arm_thread_swap" name="arch.ramfunc.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.libc.bsearch" name="libraries.libc.bsearch" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.libc.minimal.bsearch" name="libraries.libc.minimal.bsearch" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:kernel.lifo.lifo_ test_sem_give_take_from_isr" name="kernel.lifo.lifo_ test_sem_give_take_from_isr" time="0">
       </testcase>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="138" errors="0" failures="0" name="" skipped="72" time="0">
+    <testsuite tests="145" errors="0" failures="0" name="" skipped="72" time="0">
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
@@ -49,6 +49,20 @@
       <testcase classname="frdm_k64f:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
       </testcase>
       <testcase classname="frdm_k64f:peripheral.entropy.entropy_get_entropy" name="peripheral.entropy.entropy_get_entropy" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:benchmark.latency.loop" name="benchmark.latency.loop" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
       </testcase>
       <testcase classname="frdm_k64f:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
          <skipped message="Skipped" type="skipped"/>

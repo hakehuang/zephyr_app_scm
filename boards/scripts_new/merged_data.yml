@@ -1,70 +1,46 @@
 ---
 settings:
-  case_pipe_name: lpcxpresso54114_m4
+  case_pipe_name: twr_kv58f220m_kernel
   build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_elf_lpc54114.sh
+  run_script: run_elf_twrkv58f.sh
   no_filter:
-  - CONFIG_ARCH_HAS_USERSPACE
-  - CONFIG_ARMV7_M_ARMV8_M_FP
-  - CONFIG_CPU_HAS_MPU
-  - CONFIG_CPU_ARCV2
-  - CONFIG_MEMORY_PROTECTION
   - CONFIG_ENTROPY_HAS_DRIVER
+  - CONFIG_CPU_ARCV2
 cases:
   attribute: required
   misc.crc:
     bin: testbinary
     attribute: required
-  peripheral.pinmux:
-    comments: no gpio-0
-    result: skip
-    attribute: required
-  sample.net.sockets.http_client:
-    comments: dependency missing netif
-    result: skip
-    attribute: required
-  sample.subsys.ipc.ipm_mcux:
-    comments: only for m0+
-    result: skip
-    path: samples/subsys/ipc/ipm_mcux
-    catalog: ipm
-    platform_whitelist: lpcxpresso54114_m4
-    attribute: required
   samples.net.google_iot_mqtt:
-    comments: no goolge web access so build only
+    result: skip
+    comments: code size issue
     scripts:
     - ''
     build_only: true
-    path: samples/net/google_iot_mqtt
-    catalog: Full stack sample
     attribute: required
   libraries.libc.newlibnano:
     comments: http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164
     build_only: true
-    path: tests/lib/mem_alloc
-    catalog: clib newlib userspace
-    extra_args: CONF_FILE=prj_newlibnano.conf
     attribute: required
   peripheral.entropy:
     comments: no entropy
     build_only: true
     attribute: required
+  benchmark.latency:
+    comments: TICK need customerize
+    build_only: true
+    attribute: required
+  peripheral.i2c:
+    comments: not all platform has such test devices
+    build_only: true
+    attribute: required
   test_utf8_in_kconfig_values:
     comments: build failure
     result: skip
-    path: tests/misc/test_build
-    catalog: build_test
-    extra_configs:
-    - CONFIG_KERNEL_BIN_NAME="A_kconfig_value_with_a_utf8_char_in_it_B酶e_"
-    build_only: true
-    platform_whitelist: native_posix
     attribute: required
   section.subsection:
     comments: build failure
     result: skip
-    path: samples/testing/integration
-    catalog: my_tags
-    build_only: true
     attribute: required
   sample.net.dns_resolve.mdns:
     comments: 'BUS Fault: http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f/detail/frdmk64f/7/pipeline'
@@ -85,1351 +61,457 @@ cases:
   crypto.rand32.random_hw_xoroshiro:
     comments: not hw in chip
     result: skip
-    path: tests/crypto/rand32
-    catalog: crypto security
-    extra_args: CONF_FILE=prj_hw_random_xoroshiro.conf
-    filter: CONFIG_ENTROPY_HAS_DRIVER
-    min_ram: 16
     attribute: required
   kernel.common.stack_sentinel:
     comments: no sentinel
     result: skip
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults
+    extra_args: CONF_FILE=sentinel.conf
     attribute: required
-  arch.common.xip:
-    path: tests/kernel/xip
-    catalog: xip
-    filter: CONFIG_XIP
-    attribute: required
-  arch.common.xip.nondefault:
-    path: tests/kernel/xip
-    catalog: xip
-    extra_configs:
-    - CONFIG_XIP=y
-    platform_whitelist: qemu_x86 qemu_x86_coverage
-    attribute: required
-  sample.video.tcpserversink:
-    path: samples/video/tcpserversink
-    catalog: video net socket
-    build_only: true
-    platform_whitelist: mimxrt1064_evk
-    depends_on: video netif
-    attribute: required
-  sample.video.capture:
-    path: samples/video/capture
-    catalog: video
-    build_only: true
-    platform_whitelist: mimxrt1064_evk
-    depends_on: video
-    attribute: required
-  utilities.lists:
-    path: tests/unit/list
-    catalog: utils lists
-    type: unit
-    attribute: required
-  utilities.intmath:
-    path: tests/unit/intmath
-    catalog: util intmath
-    type: unit
-    attribute: required
-  sample.net.sockets.net_mgmt.usermode:
-    path: samples/net/sockets/net_mgmt
-    catalog: userspace
-    extra_configs:
-    - CONFIG_USERSPACE=y
-    depends_on: netif
-    attribute: required
-  sample.userspace.prod_consumer:
-    path: samples/userspace/prod_consumer
-    catalog: userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  sample.kernel.memory_protection.shared_mem:
-    path: samples/userspace/shared_mem
-    catalog: userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_exclude: twr_ke18f
-    attribute: required
-  sample.usb.mass_flash:
-    path: samples/subsys/usb/mass
-    catalog: msd usb
-    extra_configs:
-    - CONFIG_LOG_DEFAULT_LEVEL=3
-    extra_args: OVERLAY_CONFIG="overlay-flash-disk.conf"
+  kernel.memory_pool.sys:
+    path: tests/kernel/mem_pool/sys_mem_pool
+    catalog: kernel userspace mem_pool
     min_ram: 32
-    depends_on: flash
     attribute: required
-  sample.usb.mass_ram:
-    path: samples/subsys/usb/mass
-    catalog: msd usb
-    extra_configs:
-    - CONFIG_LOG_DEFAULT_LEVEL=3
-    extra_args: OVERLAY_CONFIG="overlay-ram-disk.conf"
+  kernel.pipe:
+    path: tests/kernel/pipe/pipe
+    catalog: kernel userspace ignore_faults
+    attribute: required
+  kernel.common:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    min_flash: 33
     min_ram: 32
-    depends_on: usb_device gpio
     attribute: required
-  net.mqtt.packet:
-    path: tests/net/lib/mqtt_packet
-    catalog: mqtt net userspace
-    min_ram: 16
-    depends_on: netif
+  kernel.common.misra:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_MISRA_SANE=y
+    min_flash: 33
+    min_ram: 32
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
     attribute: required
-  sample.mpu.mpu_test:
-    path: samples/mpu/mpu_test
-    catalog: mpu
+  kernel.fp_sharing.float_disable.arm:
+    path: tests/kernel/fp_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_INTERRUPTS=y
     arch_whitelist: arm
-    filter: CONFIG_CPU_HAS_MPU
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
     attribute: required
-  kernel.memory_protection.x86.bootpage.validation:
-    path: tests/arch/x86/boot_page_table
-    catalog: mmu
+  kernel.fp_sharing.float_disable.x86:
+    path: tests/kernel/fp_sharing/float_disable
+    catalog: kernel userspace
+    extra_args: CONF_FILE=prj_x86.conf
     platform_whitelist: qemu_x86
     attribute: required
-  sample.board.bbc_microbit.pong:
-    path: samples/boards/bbc_microbit/pong
-    catalog: microbit mesh bluetooth
-    platform_whitelist: bbc_microbit
-    attribute: required
-  sample.board.bbc_microbit.line_follower_robot:
-    path: samples/boards/bbc_microbit/line_follower_robot
-    catalog: microbit line-follower robot car
-    platform_whitelist: bbc_microbit
-    attribute: required
-  kernel.memory_protection.stack_random:
-    path: tests/kernel/mem_protect/stack_random
-    catalog: memory_protection
-    arch_exclude: posix
-    attribute: required
-  samples.logger.usermode:
-    path: samples/subsys/logging/logger
-    catalog: logging usermode
-    extra_configs:
-    - CONFIG_USERSPACE=y
+  kernel.futex:
+    path: tests/kernel/mem_protect/futex
+    catalog: kernel userspace
     filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  samples.logger:
-    path: samples/subsys/logging/logger
-    catalog: logging
-    attribute: required
-  samples.logger.rtt:
-    path: samples/subsys/logging/logger
-    catalog: logging
-    extra_configs:
-    - CONFIG_LOG_BACKEND_RTT=y
-    - CONFIG_USE_SEGGER_RTT=y
-    filter: CONFIG_HAS_SEGGER_RTT
-    attribute: required
-  sample.subsys.logging.syst:
-    path: samples/subsys/logging/syst
-    catalog: logging
-    platform_whitelist: mps2_an385 sam_e70_xplained
-    attribute: required
-  logging.log_output:
-    path: tests/subsys/logging/log_output
-    catalog: log_output logging
-    attribute: required
-  logging.log_msg:
-    path: tests/subsys/logging/log_msg
-    catalog: log_msg logging
-    attribute: required
-  logging.log_list:
-    path: tests/subsys/logging/log_list
-    catalog: log_list logging
-    attribute: required
-  logging.log_core:
-    path: tests/subsys/logging/log_core
-    catalog: log_core logging
-    platform_exclude: nucleo_l053r8 nucleo_f030r8 stm32f0_disco native_posix native_posix_64
-      nrf52_bsim qemu_riscv64
-    attribute: required
-  sample.app_dev.code_relocation:
-    path: samples/application_development/code_relocation
-    catalog: linker
-    platform_whitelist: qemu_cortex_m3 mps2_an385 sam_e70_xplained
-    attribute: required
-  libraries.libc.sprintf:
-    path: tests/lib/sprintf
-    catalog: libc
-    filter: not CONFIG_SOC_MCIMX7_M4
-    attribute: required
-  libraries.sys.util.dec:
-    path: tests/unit/util
-    catalog: lib_sys_util_tests
-    type: unit
-    attribute: required
-  sample.blinky:
-    path: samples/basic/blinky
-    catalog: LED gpio
-    filter: dt_compat_enabled_with_alias("gpio-leds", "led0")
-    depends_on: gpio
-    attribute: required
-  sample.driver.led_lp5562:
-    path: samples/drivers/led_lp5562
-    catalog: led
-    platform_whitelist: nrf52840_pca10056
-    attribute: required
-  libraries.encoding.jwt:
-    path: tests/subsys/jwt
-    catalog: jwt
-    min_ram: 96
-    min_flash: 72
-    attribute: required
-  libraries.encoding.json:
-    path: tests/lib/json
-    catalog: json
-    filter: not CONFIG_NEWLIB_LIBC
-    min_flash: 34
-    attribute: required
-  sample.ipm:
-    path: samples/subsys/ipc/ipm_mhu_dual_core
-    catalog: ipm
-    platform_whitelist: v2m_musca v2m_musca_nonsecure v2m_musca_b1 v2m_musca_b1_nonsecure
-    attribute: required
-  sample.subsys.ipc.openamp:
-    path: samples/subsys/ipc/openamp
-    catalog: ipm
-    platform_whitelist: lpcxpresso54114_m4
-    attribute: required
-  sample.helloworld:
-    path: samples/hello_world
-    catalog: introduction
-    attribute: required
-  sample.philosopher.tracing:
-    path: samples/philosophers
-    catalog: introduction
-    extra_configs:
-    - CONFIG_SEGGER_SYSTEMVIEW=y
-    extra_args: " -DDEBUG_PRINTF=1"
-    min_ram: 32
-    attribute: required
-  sample.philosopher.static:
-    path: samples/philosophers
-    catalog: introduction
-    extra_args: "-DSTATIC_OBJS=1 -DDEBUG_PRINTF=1"
-    attribute: required
-  sample.philosopher.stacks:
-    path: samples/philosophers
-    catalog: introduction
-    extra_args: "-DFORKS=STACKS -DDEBUG_PRINTF=1"
-    attribute: required
-  sample.philosopher.fifos:
-    path: samples/philosophers
-    catalog: introduction
-    extra_args: "-DFORKS=FIFOS -DDEBUG_PRINTF=1"
-    attribute: required
-  sample.philosopher.lifos:
-    path: samples/philosophers
-    catalog: introduction
-    extra_args: "-DFORKS=LIFOS -DDEBUG_PRINTF=1"
-    attribute: required
-  sample.philosopher.preempt_only:
-    path: samples/philosophers
-    catalog: introduction
-    extra_configs:
-    - CONFIG_NUM_PREEMPT_PRIORITIES=6
-    - CONFIG_NUM_COOP_PRIORITIES=0
-    - CONFIG_BT=n
-    extra_args: " -DDEBUG_PRINTF=1"
-    attribute: required
-  sample.philosopher.coop_only:
-    path: samples/philosophers
-    catalog: introduction
-    extra_configs:
-    - CONFIG_NUM_PREEMPT_PRIORITIES=0
-    - CONFIG_NUM_COOP_PRIORITIES=6
-    extra_args: " -DDEBUG_PRINTF=1"
-    attribute: required
-  sample.smp_pi:
-    path: samples/smp/pi
-    catalog: introduction
-    platform_whitelist: nsim_hs_smp qemu_x86_64
-    attribute: required
-  arch.interrupt.gen_isr_table:
-    path: tests/kernel/gen_isr_table
-    catalog: interrupt isr_table
-    platform_exclude: nucleo_f103rb olimexino_stm32 stm32_min_dev_black stm32_min_dev_blue
-      usb_kw24d512 v2m_beetle
-    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    attribute: required
-  arch.interrupt:
-    path: tests/kernel/interrupt
-    catalog: interrupt
-    arch_exclude: nios2 riscv32
-    platform_exclude: qemu_x86 qemu_x86_coverage
-    attribute: required
-  arch.interrupt.nodyn:
-    path: tests/kernel/interrupt
-    catalog: interrupt
-    extra_configs:
-    - CONFIG_DYNAMIC_INTERRUPTS=n
-    arch_whitelist: arc qemu_x86 qemu_x86_coverage
-    attribute: required
-  arch.interrupt.x86:
-    path: tests/arch/x86/static_idt
-    catalog: ignore_faults interrupt idt
-    arch_whitelist: x86
-    platform_exclude: qemu_x86_64
-    attribute: required
-  sample.board.intel_s1000_crb.i2s:
-    path: samples/boards/intel_s1000_crb/i2s
-    catalog: i2s
-    platform_whitelist: intel_s1000_crb
-    attribute: required
-  boards.altera_max10.i2c_master:
-    path: tests/boards/altera_max10/i2c_master
-    catalog: i2c
-    platform_whitelist: altera_max10
-    attribute: required
-  net.http:
-    path: tests/net/lib/http_header_fields
-    catalog: http net
-    min_ram: 16
-    depends_on: netif
-    attribute: required
-  sample.board.up_squared.gpio_counter:
-    path: samples/boards/up_squared/gpio_counter
-    catalog: gpio
-    platform_whitelist: up_squared
-    attribute: required
-  buildsystem.include_file:
-    path: tests/application_development/gen_inc_file
-    catalog: gen_inc_file
-    attribute: required
-  sample.driver.flash_shell:
-    path: samples/drivers/flash_shell
-    catalog: flash shell
-    platform_whitelist: 96b_carbon frdm_k64f frdm_kw41z frdm_kl25z nucleo_f746zg
-    attribute: required
-  sample.driver.soc_flash_nrf:
-    path: samples/drivers/soc_flash_nrf
-    catalog: flash nrf52
-    platform_whitelist: nrf52_pca10040 nrf9160_pca10090 nrf9160_pca10090ns
-    attribute: required
-  storage.flash_map:
-    path: tests/subsys/storage/flash_map
-    catalog: flash_map
-    platform_whitelist: nrf51_pca10028 qemu_x86 native_posix native_posix_64
-    attribute: required
-  storage.flash_map_mpu:
-    path: tests/subsys/storage/flash_map
-    catalog: flash_map
-    extra_args: OVERLAY_CONFIG=overlay-mpu.conf
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 frdm_k64f hexiwear_k64 twr_ke18f
-    attribute: required
-  filesystem.fcb:
-    path: tests/subsys/fs/fcb
-    catalog: flash_circural_buffer
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028 native_posix
-      native_posix_64
-    attribute: required
-  sample.subsys.fs.fat_fs:
-    path: samples/subsys/fs/fat_fs
-    catalog: filesystem
-    build_only: true
-    platform_whitelist: nrf52840_blip olimexino_stm32 mimxrt1050_evk
-    attribute: required
-  sample.subsys.fs.littlefs:
-    path: samples/subsys/fs/littlefs
-    catalog: filesystem
-    build_only: true
-    platform_whitelist: nrf52840_pca10056 particle_xenon
-    attribute: required
-  filesystem.fat.api:
-    path: tests/subsys/fs/fat_fs_api
-    catalog: filesystem
-    platform_whitelist: native_posix native_posix_64
-    attribute: required
-  filesystem.fat.dual_drive:
-    path: tests/subsys/fs/fat_fs_dual_drive
-    catalog: filesystem
-    platform_whitelist: qemu_x86
-    attribute: required
-  filesystem.littlefs:
-    path: tests/subsys/fs/littlefs
-    catalog: filesystem
-    platform_whitelist: nrf52840_pca10056 native_posix native_posix_64
-    attribute: required
-  libraries.os.fdtable:
-    path: tests/lib/fdtable
-    catalog: fdtable
-    attribute: required
-  sample.app_dev.external_lib:
-    path: samples/application_development/external_lib
-    catalog: external
-    attribute: required
-  boards.altera_max10.dma:
-    path: tests/boards/altera_max10/msgdma
-    catalog: dma
-    platform_whitelist: altera_max10
-    attribute: required
-  libraries.gui.lvgl:
-    path: tests/lib/gui/lvgl
-    catalog: display gui
-    platform_whitelist: native_posix
-    attribute: required
-  libraries.gui.lvgl.dynamic.heap.libc:
-    path: tests/lib/gui/lvgl
-    catalog: display gui
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
-    - CONFIG_LVGL_MEM_POOL_HEAP_LIB_C=y
-    platform_whitelist: native_posix
-    attribute: required
-  libraries.gui.lvgl.dynamic.pool.user:
-    path: tests/lib/gui/lvgl
-    catalog: display gui
-    extra_configs:
-    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
-    - CONFIG_LVGL_MEM_POOL_USER=y
-    - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
-    - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
-    platform_whitelist: native_posix
-    attribute: required
-  libraries.gui.lvgl.dynamic.pool.kernel:
-    path: tests/lib/gui/lvgl
-    catalog: display gui
-    extra_configs:
-    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
-    - CONFIG_LVGL_MEM_POOL_KERNEL=y
-    - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
-    - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
-    platform_whitelist: native_posix
-    attribute: required
-  libraries.gui.lvgl.16bit:
-    path: tests/lib/gui/lvgl
-    catalog: display gui
-    extra_configs:
-    - CONFIG_LVGL_COLOR_DEPTH_16=y
-    platform_whitelist: native_posix
-    attribute: required
-  libraries.gui.lvgl.8bit:
-    path: tests/lib/gui/lvgl
-    catalog: display gui
-    extra_configs:
-    - CONFIG_LVGL_COLOR_DEPTH_8=y
-    platform_whitelist: native_posix
-    attribute: required
-  libraries.gui.lvgl.mono:
-    path: tests/lib/gui/lvgl
-    catalog: display gui
-    extra_configs:
-    - CONFIG_LVGL_COLOR_DEPTH_1=y
-    platform_whitelist: native_posix
-    attribute: required
-  libraries.gui.lvgl.16bit.swap:
-    path: tests/lib/gui/lvgl
-    catalog: display gui
-    extra_configs:
-    - CONFIG_LVGL_COLOR_DEPTH_16=y
-    - CONFIG_LVGL_COLOR_16_SWAP=y
-    platform_whitelist: native_posix
-    attribute: required
-  sample.board.bbc_microbit.display:
-    path: samples/boards/bbc_microbit/display
-    catalog: display
-    platform_whitelist: bbc_microbit
-    attribute: required
-  sample.display.cfb.ssd16xx:
-    path: samples/display/cfb
-    catalog: display
-    platform_whitelist: reel_board
-    attribute: required
-  sample.display.cfb_custom_font.ssd16xx:
-    path: samples/display/cfb_custom_font
-    catalog: display
-    platform_whitelist: reel_board
-    attribute: required
-  sample.display.cfb_shell.ssd16xx:
-    path: samples/display/cfb_shell
-    catalog: display
-    platform_whitelist: reel_board
-    attribute: required
-  sample.display.ili9340:
-    path: samples/display/ili9340
-    catalog: display
-    build_only: true
-    platform_whitelist: nucleo_l476rg nrf52_pca10040
-    attribute: required
-  sample.display.st7789v:
-    path: samples/display/st7789v
-    catalog: display
-    build_only: true
-    platform_whitelist: nrf52_pca10040
-    attribute: required
-  sample.driver.lcd_hd44780:
-    path: samples/drivers/lcd_hd44780
-    catalog: display
-    platform_whitelist: arduino_due
-    depends_on: gpio
-    attribute: required
-  dfu.mcuboot:
-    path: tests/subsys/dfu/mcuboot
-    catalog: dfu_mcuboot
-    platform_whitelist: nrf52840_pca10056 native_posix native_posix_64
-    attribute: required
-  dfu.image_util:
-    path: tests/subsys/dfu/img_util
-    catalog: dfu_image_util
-    platform_whitelist: nrf52840_pca10056 native_posix native_posix_64
-    attribute: required
-  kernel.device:
-    path: tests/kernel/device
-    catalog: device
-    platform_whitelist: native_posix native_posix_64 qemu_x86
-    attribute: required
-  kernel.device.pm:
-    path: tests/kernel/device
-    catalog: device
-    extra_configs:
-    - CONFIG_DEVICE_POWER_MANAGEMENT=y
-    platform_whitelist: native_posix native_posix_64 qemu_x86
-    attribute: required
-  crypto.rand32:
-    path: tests/crypto/rand32
-    catalog: crypto security
-    min_ram: 16
-    attribute: required
-  crypto.rand32.random_sw_systimer:
-    path: tests/crypto/rand32
-    catalog: crypto security
-    extra_args: CONF_FILE=prj_sw_random_systimer.conf
-    min_ram: 16
-    attribute: required
-  crypto.rand32.random_ctr_drbg:
-    path: tests/crypto/rand32
-    catalog: crypto security
-    extra_args: CONF_FILE=prj_ctr_drbg.conf
-    filter: CONFIG_ENTROPY_HAS_DRIVER
-    min_ram: 16
-    attribute: required
-  crypto.mbedtls:
-    path: tests/crypto/mbedtls
-    catalog: crypto mbedtls userspace
-    filter: not CONFIG_DEBUG
-    min_flash: 65
     min_ram: 36
     attribute: required
-  sample.driver.crypto.mbedtls:
-    path: samples/drivers/crypto
-    catalog: crypto
-    extra_args: CONF_FILE=prj_mtls_shim.conf
+  kernel.memory_protection.sys_sem:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel userspace
+    min_ram: 36
+    attribute: required
+  kernel.message_queue:
+    path: tests/kernel/msgq/msgq_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.mutex:
+    path: tests/kernel/mutex/mutex_api
+    catalog: kernel userspace
+    attribute: required
+  sys.mutex:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel userspace
+    min_ram: 32
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.pipe.api:
+    path: tests/kernel/pipe/pipe_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.poll:
+    path: tests/kernel/poll
+    catalog: kernel userspace
+    min_ram: 16
     min_flash: 34
-    min_ram: 20
-    arch_exclude: xtensa
+    platform_exclude: nrf52810_pca10040
     attribute: required
-  sample.driver.crypto.mbedtls.micro:
-    path: samples/drivers/crypto
-    catalog: crypto
-    min_ram: 20
-    arch_exclude: xtensa
+  kernel.queue:
+    path: tests/kernel/queue
+    catalog: kernel userspace
     attribute: required
-  sample.driver.entropy:
-    path: samples/drivers/entropy
-    catalog: crypto
-    filter: CONFIG_ENTROPY_HAS_DRIVER
+  kernel.queue.poll:
+    path: tests/kernel/queue
+    catalog: kernel userspace
+    extra_args: CONF_FILE="prj_poll.conf"
     attribute: required
-  benchmark.mbedtls:
-    path: tests/benchmarks/mbedtls
-    catalog: crypto
-    platform_whitelist: qemu_x86 frdm_k64f sam_e70_xplained nrf52840_pca10056
+  kernel.semaphore.api:
+    path: tests/kernel/semaphore/sema_api
+    catalog: kernel userspace
     attribute: required
-  sample.cpp_syncronisation:
-    path: samples/cpp_synchronization
-    catalog: cpp
-    arch_exclude: posix
+  kernel.semaphore:
+    path: tests/kernel/semaphore/semaphore
+    catalog: kernel userspace
+    min_ram: 32
     attribute: required
-  misc.app_dev.cpp:
-    path: tests/application_development/cpp
-    catalog: cpp
-    arch_exclude: posix
-    build_only: true
+  kernel.stack:
+    path: tests/kernel/stack/stack_api
+    catalog: kernel userspace
     attribute: required
-  misc.app_dev.libcxx:
-    path: tests/application_development/libcxx
-    catalog: cpp
-    arch_exclude: posix
-    platform_exclude: qemu_x86_coverage
-    min_flash: 54
+  kernel.stack.usage:
+    path: tests/kernel/stack/stack_usage
+    catalog: kernel userspace
     attribute: required
-  misc.app_dev.libcxx.zephyr_cpp:
-    path: tests/application_development/libcxx
-    catalog: cpp
+  kernel.timer:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel userspace
+    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+    attribute: required
+  kernel.workqueue.api:
+    path: tests/kernel/workq/work_queue_api
+    catalog: kernel userspace
+    min_flash: 34
+    attribute: required
+  kernel.threads.dynamic:
+    path: tests/kernel/threads/dynamic_thread
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.threads.apis:
+    path: tests/kernel/threads/thread_apis
+    catalog: kernel threads userspace ignore_faults
+    min_flash: 34
+    attribute: required
+  kernel.threads.init:
+    path: tests/kernel/threads/thread_init
+    catalog: kernel threads userspace
+    attribute: required
+  kernel.sched:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
     extra_configs:
-    - CONFIG_ZEPHYR_CPLUSPLUS=y
-    arch_exclude: posix
-    platform_exclude: qemu_x86_coverage
+    - CONFIG_TIMESLICING=y
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 40
     attribute: required
-  misc.app_dev.libcxx.exceptions:
-    path: tests/application_development/libcxx
-    catalog: cpp
+  kernel.sched_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
     extra_configs:
-    - CONFIG_EXCEPTIONS=y
-    arch_exclude: posix
-    platform_exclude: qemu_x86_coverage
-    min_flash: 54
+    - CONFIG_TIMESLICING=n
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 40
     attribute: required
-  sample.subsys.console.echo:
-    path: samples/subsys/console/echo
-    catalog: console
-    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+  kernel.sched.multiq:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    extra_args: CONF_FILE=prj_multiq.conf
+    min_ram: 40
     attribute: required
-  sample.subsys.console.getchar:
-    path: samples/subsys/console/getchar
-    catalog: console
-    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+  kernel.sched.multiq_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_multiq.conf
+    min_ram: 40
     attribute: required
-  sample.subsys.console.getline:
-    path: samples/subsys/console/getline
-    catalog: console
-    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
-    attribute: required
-  sample.portability.cmsis_rtos_v2.timer_synchronization:
-    path: samples/portability/cmsis_rtos_v2/timer_synchronization
-    catalog: cmsis_rtos_v2_synchronization
-    min_ram: 32
-    min_flash: 34
-    attribute: required
-  sample.philosopher:
-    path: samples/portability/cmsis_rtos_v2/philosophers
-    catalog: cmsis_rtos_v2_philosopher
-    extra_args: " -DDEBUG_PRINTF=1"
-    min_ram: 32
-    min_flash: 34
-    platform_exclude: qemu_xtensa qemu_x86_64
-    attribute: required
-  sample.philosopher.same_prio:
-    path: samples/portability/cmsis_rtos_v2/philosophers
-    catalog: cmsis_rtos_v2_philosopher
-    extra_args: "-DSAME_PRIO=1 -DDEBUG_PRINTF=1"
-    min_ram: 32
-    min_flash: 34
-    platform_exclude: qemu_xtensa qemu_x86_64
-    attribute: required
-  sample.philosopher.semaphores:
-    path: samples/portability/cmsis_rtos_v2/philosophers
-    catalog: cmsis_rtos_v2_philosopher
-    extra_args: "-DFORKS=SEMAPHORES -DDEBUG_PRINTF=1"
-    min_ram: 32
-    min_flash: 34
-    platform_exclude: qemu_xtensa qemu_x86_64
-    attribute: required
-  portability.cmsis_rtos_v2:
-    path: tests/portability/cmsis_rtos_v2
-    catalog: cmsis_rtos_v2
-    platform_exclude: qemu_x86_64 m2gl025_miv
-    min_ram: 32
-    min_flash: 34
-    attribute: required
-  sample.portability.cmsis_rtos_v1.timer_synchronization:
-    path: samples/portability/cmsis_rtos_v1/timer_synchronization
-    catalog: cmsis_rtos_v1_synchronization
-    min_ram: 32
-    min_flash: 34
-    attribute: required
-  portability.cmsis_rtos_v1:
-    path: tests/portability/cmsis_rtos_v1
-    catalog: cmsis_rtos_v1
-    min_ram: 32
-    min_flash: 34
-    attribute: required
-  libraries.libc.newlib:
-    path: tests/lib/mem_alloc
-    catalog: clib newlib userspace
-    extra_args: CONF_FILE=prj_newlib.conf
-    arch_exclude: posix
-    platform_exclude: twr_ke18f
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    attribute: required
-  libraries.libc.minimal.mem_alloc:
-    path: tests/lib/mem_alloc
-    catalog: clib minimal_libc userspace
-    extra_args: CONF_FILE=prj.conf
-    arch_exclude: posix
-    platform_exclude: twr_ke18f
-    attribute: required
-  libraries.libc:
-    path: tests/lib/c_lib
-    catalog: clib
-    attribute: required
-  sample.drivers.can:
-    path: samples/drivers/CAN
-    catalog: CAN
-    depends_on: can
-    attribute: required
-  sample.button:
-    path: samples/basic/button
-    catalog: button gpio
-    filter: dt_compat_enabled_with_alias("gpio-keys", "sw0")
+  sample.threads:
+    path: samples/basic/threads
+    catalog: kernel threads gpio
+    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
+      "led1")
     depends_on: gpio
     attribute: required
-  test_debug:
-    path: tests/misc/test_build
-    catalog: build_test
-    extra_args: CONF_FILE=debug.conf
-    build_only: true
-    attribute: required
-  test_mcuboot_bootloader:
-    path: tests/misc/test_build
-    catalog: build_test
-    extra_configs:
-    - CONFIG_BOOTLOADER_MCUBOOT=y
-    build_only: true
-    platform_whitelist: nrf51_pca10028 nrf52_pca10040
-    attribute: required
-  boards.s1000_crb:
-    path: tests/boards/intel_s1000_crb/cache
-    catalog: boards
-    platform_whitelist: intel_s1000_crb
-    attribute: required
-  sample.board.nrf91.nrfx:
-    path: samples/boards/nrf91/nrfx
-    catalog: board
-    platform_whitelist: nrf9160_pca10090
-    attribute: required
-  sample.board.olimex_stm32_e407.ccm:
-    path: samples/boards/olimex_stm32_e407/ccm
-    catalog: board
-    platform_whitelist: olimex_stm32_e407
-    attribute: required
-  bluetooth.gatt:
-    path: tests/bluetooth/uuid
-    catalog: bluetooth uuid
-    platform_whitelist: native_posix native_posix_64 qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.bluetooth.hci_spi:
-    path: samples/bluetooth/hci_spi
-    catalog: bluetooth spi
-    platform_whitelist: 96b_carbon_nrf51 nrf51_pca10028
-    depends_on: spi
-    attribute: required
-  sample.bluetooth.ipsp:
-    path: samples/bluetooth/ipsp
-    catalog: bluetooth net
-    platform_whitelist: qemu_x86 qemu_cortex_m3
-    attribute: required
-  sample.bluetooth.ipsp.zep1656:
-    path: samples/bluetooth/ipsp
-    catalog: bluetooth net
-    extra_args: CONF_FILE="prj_zep1656.conf"
-    platform_whitelist: qemu_x86 qemu_cortex_m3
-    attribute: required
-  mesh:
-    path: tests/bluetooth/mesh
-    catalog: bluetooth mesh
-    build_only: true
-    platform_whitelist: qemu_x86 nrf51_pca10028 nrf52840_pca10056
-    attribute: required
-  mesh.dbg:
-    path: tests/bluetooth/mesh
-    catalog: bluetooth mesh
-    extra_args: CONF_FILE=dbg.conf
-    build_only: true
-    platform_whitelist: qemu_x86 nrf51_pca10028 nrf52840_pca10056
-    attribute: required
-  mesh.friend:
-    path: tests/bluetooth/mesh
-    catalog: bluetooth mesh
-    extra_args: CONF_FILE=friend.conf
-    build_only: true
-    platform_whitelist: qemu_x86 nrf51_pca10028 nrf52840_pca10056
-    attribute: required
-  mesh.gatt:
-    path: tests/bluetooth/mesh
-    catalog: bluetooth mesh
-    extra_args: CONF_FILE=gatt.conf
-    build_only: true
-    platform_whitelist: qemu_x86 nrf51_pca10028 nrf52840_pca10056
-    attribute: required
-  mesh.lpn:
-    path: tests/bluetooth/mesh
-    catalog: bluetooth mesh
-    extra_args: CONF_FILE=lpn.conf
-    build_only: true
-    platform_whitelist: qemu_x86 nrf51_pca10028 nrf52840_pca10056
-    attribute: required
-  mesh.microbit:
-    path: tests/bluetooth/mesh
-    catalog: bluetooth mesh
-    extra_args: CONF_FILE=microbit.conf
-    build_only: true
-    platform_whitelist: bbc_microbit
-    attribute: required
-  mesh.pb_gatt:
-    path: tests/bluetooth/mesh
-    catalog: bluetooth mesh
-    extra_args: CONF_FILE=pb_gatt.conf
-    build_only: true
-    platform_whitelist: qemu_x86 nrf51_pca10028 nrf52840_pca10056
-    attribute: required
-  mesh.proxy:
-    path: tests/bluetooth/mesh
-    catalog: bluetooth mesh
-    extra_args: CONF_FILE=proxy.conf
-    build_only: true
-    platform_whitelist: qemu_x86 nrf51_pca10028 nrf52840_pca10056
-    attribute: required
-  bluetooth.hci_prop_evt:
-    path: tests/bluetooth/hci_prop_evt
-    catalog: bluetooth hci prop event
-    platform_whitelist: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
-    attribute: required
-  sample.bluetooth.beacon:
-    path: samples/bluetooth/beacon
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86 nrf52_pca10040
-    attribute: required
-  sample.bluetooth.central:
-    path: samples/bluetooth/central
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.central_hr:
-    path: samples/bluetooth/central_hr
-    catalog: bluetooth
-    arch_whitelist: x86
-    attribute: required
-  sample.bluetooth.eddystone:
-    path: samples/bluetooth/eddystone
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.handsfree:
-    path: samples/bluetooth/handsfree
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.ibeacon:
-    path: samples/bluetooth/ibeacon
-    catalog: bluetooth
-    platform_whitelist: bbc_microbit qemu_x86
-    attribute: required
-  sample.bluetooth.mesh:
-    path: samples/bluetooth/mesh
-    catalog: bluetooth
-    platform_whitelist: bbc_microbit nrf51_blenano qemu_x86
-    attribute: required
-  sample.bluetooth.mesh_demo:
-    path: samples/bluetooth/mesh_demo
-    catalog: bluetooth
-    platform_whitelist: bbc_microbit nrf51_blenano qemu_x86
-    attribute: required
-  sample.bluetooth.peripheral:
-    path: samples/bluetooth/peripheral
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.peripheral_csc:
-    path: samples/bluetooth/peripheral_csc
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.peripheral_dis:
-    path: samples/bluetooth/peripheral_dis
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.peripheral_esp:
-    path: samples/bluetooth/peripheral_esp
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.peripheral_hids:
-    path: samples/bluetooth/peripheral_hids
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.peripheral_hr:
-    path: samples/bluetooth/peripheral_hr
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.peripheral_hr_rv32m1_vega_ri5cy:
-    path: samples/bluetooth/peripheral_hr
-    catalog: bluetooth
-    platform_whitelist: rv32m1_vega_ri5cy
-    build_only: true
-    attribute: required
-  sample.bluetooth.peripheral_hr.frdm_kw41z_shield:
-    path: samples/bluetooth/peripheral_hr
-    catalog: bluetooth
-    extra_args: SHIELD=frdm_kw41z
-    platform_whitelist: mimxrt1020_evk mimxrt1050_evk mimxrt1060_evk frdm_k64f
-    attribute: required
-  sample.bluetooth.peripheral_ht:
-    path: samples/bluetooth/peripheral_ht
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.peripheral_ht.frdm_kw41z_shield:
-    path: samples/bluetooth/peripheral_ht
-    catalog: bluetooth
-    extra_args: SHIELD=frdm_kw41z
-    platform_whitelist: mimxrt1020_evk mimxrt1050_evk mimxrt1060_evk frdm_k64f
-    attribute: required
-  sample.bluetooth.peripheral_sc_only:
-    path: samples/bluetooth/peripheral_sc_only
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.scan_adv:
-    path: samples/bluetooth/scan_adv
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
-    attribute: required
-  sample.bluetooth.mesh.onoff:
-    path: samples/boards/nrf52/mesh/onoff-app
-    catalog: bluetooth
-    platform_whitelist: nrf52840_pca10056
-    attribute: required
-  sample.bluetooth.mesh.onoff_level_lighting_vnd:
-    path: samples/boards/nrf52/mesh/onoff_level_lighting_vnd_app
-    catalog: bluetooth
-    platform_whitelist: nrf52840_pca10056
-    attribute: required
-  sample.net.sockets.echo_client.bt:
-    path: samples/net/sockets/echo_client
-    catalog: bluetooth
-    extra_args: OVERLAY_CONFIG="overlay-bt.conf"
-    platform_whitelist: qemu_x86
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.net.sockets.echo_server.bt:
-    path: samples/net/sockets/echo_server
-    catalog: bluetooth
-    extra_args: OVERLAY_CONFIG="overlay-bt.conf"
-    platform_whitelist: qemu_x86
-    depends_on: netif
-    min_flash: 140
-    attribute: required
-  sample.mcumg.smp_svr.nrf51:
-    path: samples/subsys/mgmt/mcumgr/smp_svr
-    catalog: bluetooth
-    extra_args: CONF_FILE="prj_tiny.conf"
-    platform_whitelist: nrf51_pca10028
-    attribute: required
-  sample.mcumg.smp_svr.nrf52:
-    path: samples/subsys/mgmt/mcumgr/smp_svr
-    catalog: bluetooth
-    platform_whitelist: nrf52_pca10040 nrf52840_pca10056
-    attribute: required
-  bluetooth.at:
-    path: tests/bluetooth/at
-    catalog: bluetooth
-    build_only: true
-    min_ram: 16
-    platform_whitelist: qemu_x86 qemu_cortex_m3
-    attribute: required
-  bluetooth.general:
-    path: tests/bluetooth/bluetooth
-    catalog: bluetooth
-    platform_whitelist: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
-    attribute: required
-  bluetooth.ctrl_user_ext.test:
-    path: tests/bluetooth/ctrl_user_ext
-    catalog: bluetooth
-    platform_whitelist: nrf52_bsim
-    build_only: true
-    attribute: required
-  bluetooth.init.test:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_0:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_0.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_1:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_1.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_10:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_10.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_11:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_11.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_12:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_12.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_13:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_13.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_14:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_14.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_15:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_15.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_16:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_16.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_17:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_17.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_18:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_18.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_19:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_19.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_2:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_2.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_20:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_20.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_21:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_21.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_22:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_22.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_3:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_3.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_4:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_4.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_5:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_5.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_6:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_6.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_7:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_7.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_8:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_8.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_9:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_9.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_controller:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller.conf
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028 96b_nitrogen
-    build_only: true
-    attribute: required
-  bluetooth.init.test_controller_4_0:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_4_0.conf
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
-    build_only: true
-    attribute: required
-  bluetooth.init.test_controller_tiny:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_tiny.conf
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
-    build_only: true
-    attribute: required
-  bluetooth.init.test_controller_dbg:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_dbg.conf
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028 96b_nitrogen
-    build_only: true
-    attribute: required
-  bluetooth.init.test_controller_ll_sw_split:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_ll_sw_split.conf
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
-    build_only: true
-    attribute: required
-  bluetooth.init.test_controller_4_0_ll_sw_split:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_4_0_ll_sw_split.conf
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
-    build_only: true
-    attribute: required
-  bluetooth.init.test_controller_tiny_ll_sw_split:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_tiny_ll_sw_split.conf
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
-    build_only: true
-    attribute: required
-  bluetooth.init.test_controller_dbg_ll_sw_split:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_dbg_ll_sw_split.conf
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
-    build_only: true
-    attribute: required
-  bluetooth.init.test_h5:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_h5.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.init.test_h5_dbg:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_h5_dbg.conf
-    platform_whitelist: qemu_cortex_m3
-    build_only: true
-    attribute: required
-  bluetooth.ll_settings:
-    path: tests/bluetooth/ll_settings
-    catalog: bluetooth
-    platform_whitelist: nrf52_bsim
-    attribute: required
-  bluetooth.mesh_shell:
-    path: tests/bluetooth/mesh_shell
-    catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86 nrf51_pca10028
-    platform_exclude: nrf52810_pca10040
-    attribute: required
-  bluetooth.shell:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
-    platform_whitelist: qemu_cortex_m3 qemu_x86 native_posix native_posix_64 nrf52840_pca10056
-    platform_exclude: nrf52810_pca10040
-    min_flash: 145
-    attribute: required
-  bluetooth.shell_br:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
-    extra_args: CONF_FILE="prj_br.conf"
-    platform_whitelist: qemu_cortex_m3 qemu_x86 native_posix native_posix_64
-    platform_exclude: nrf52810_pca10040
-    attribute: required
-  bluetooth.general.tester:
-    path: tests/bluetooth/tester
-    catalog: bluetooth
-    platform_whitelist: qemu_x86
-    attribute: required
-  benchmark.timing.userspace:
-    path: tests/benchmarks/timing_info
-    catalog: benchmark userspace
-    extra_args: CONF_FILE=prj_userspace.conf
+  sample.synchronization:
+    path: samples/synchronization
+    catalog: kernel synchronization
+    attribute: required
+  kernel.memory_protection:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    min_ram: 32
     filter: CONFIG_ARCH_HAS_USERSPACE
-    arch_whitelist: x86 arm arc
+    platform_exclude: twr_ke18f
     attribute: required
-  benchmark.application:
-    path: tests/benchmarks/app_kernel
-    catalog: benchmark
-    arch_whitelist: x86 arm
+  kernel.memory_protection.armv8m_gap_filling:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    arch_whitelist: arm
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    min_ram: 32
+    attribute: required
+  kernel.memory_protection.syscalls:
+    path: tests/kernel/mem_protect/syscalls
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.userspace:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    min_ram: 36
+    attribute: required
+  kernel.memory_protection.userspace.armv8m_gap_filling:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    arch_whitelist: arm
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    min_ram: 36
+    attribute: required
+  kernel.memory_protection.obj_validation:
+    path: tests/kernel/mem_protect/obj_validation
+    catalog: kernel security userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.protection:
+    path: tests/kernel/mem_protect/protection
+    catalog: kernel security ignore_faults
+    platform_exclude: twr_ke18f
+    filter: CONFIG_MEMORY_PROTECTION
+    attribute: required
+  kernel.memory_pool:
+    path: tests/kernel/mem_pool/mem_pool
+    catalog: kernel mem_pool
+    min_ram: 32
+    attribute: required
+  kernel.memory_pool.api:
+    path: tests/kernel/mem_pool/mem_pool_api
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.memory_pool.concept:
+    path: tests/kernel/mem_pool/mem_pool_concept
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.memory_pool.threadsafe:
+    path: tests/kernel/mem_pool/mem_pool_threadsafe
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.common.stack_protection:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    attribute: required
+  kernel.common.stack_protection_arm_fp_sharing:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_arm_fp_sharing.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
+    attribute: required
+  kernel.common.stack_protection_armv8m_mpu_stack_guard:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_whitelist: arm
+    attribute: required
+  kernel.memory_protection.stackprot:
+    path: tests/kernel/mem_protect/stackprot
+    catalog: kernel ignore_faults userspace
+    arch_exclude: nios2 xtensa posix
+    attribute: required
+  kernel.common.stack_protection_no_userspace:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults memory_protection
+    extra_args: CONF_FILE=protection_no_userspace.conf
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    arch_whitelist: arm
+    attribute: required
+  kernel.memory_protection.mmu:
+    path: tests/arch/x86/x86_mmu_api
+    catalog: kernel
+    platform_whitelist: qemu_x86
+    attribute: required
+  kernel.context:
+    path: tests/kernel/context
+    catalog: kernel
+    min_ram: 20
+    attribute: required
+  kernel.critical:
+    path: tests/kernel/critical
+    catalog: kernel
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: not CONFIG_WDT_SAM
+    attribute: required
+  kernel.critical.sam:
+    path: tests/kernel/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_WDT_DISABLE_AT_BOOT=y
+    filter: CONFIG_WDT_SAM
+    attribute: required
+  kernel.critical.nsim:
+    path: tests/kernel/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    attribute: required
+  kernel.fifo:
+    path: tests/kernel/fifo/fifo_api
+    catalog: kernel
+    attribute: required
+  kernel.fifo.poll:
+    path: tests/kernel/fifo/fifo_api
+    catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
+    attribute: required
+  kernel.fifo.timeout:
+    path: tests/kernel/fifo/fifo_timeout
+    catalog: kernel
+    min_ram: 32
+    attribute: required
+  kernel.fifo.timeout.poll:
+    path: tests/kernel/fifo/fifo_timeout
+    catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
+    min_ram: 32
+    attribute: required
+  kernel.fifo.usage:
+    path: tests/kernel/fifo/fifo_usage
+    catalog: kernel
+    attribute: required
+  kernel.fifo.usage.poll:
+    path: tests/kernel/fifo/fifo_usage
+    catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
+    attribute: required
+  kernel.fp_sharing:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_ram: 16
+    attribute: required
+  kernel.fp_sharing.x86:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_whitelist: qemu_x86
+    attribute: required
+  kernel.fp_sharing.arc:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_ARCV2 and CONFIG_CPU_HAS_FPU
+    min_ram: 16
+    attribute: required
+  kernel.lifo:
+    path: tests/kernel/lifo/lifo_api
+    catalog: kernel
+    attribute: required
+  kernel.lifo.usage:
+    path: tests/kernel/lifo/lifo_usage
+    catalog: kernel
+    min_ram: 32
+    platform_exclude: m2gl025_miv
+    attribute: required
+  kernel.mailbox.api:
+    path: tests/kernel/mbox/mbox_api
+    catalog: kernel
+    min_ram: 20
+    attribute: required
+  kernel.mailbox.usage:
+    path: tests/kernel/mbox/mbox_usage
+    catalog: kernel
+    attribute: required
+  kernel.memory_heap:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
+    attribute: required
+  kernel.memory_protection.sys_sem.nouser:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+    attribute: required
+  kernel.memory_slabs.api.test:
+    path: tests/kernel/mem_slab/mslab
+    catalog: kernel
+    min_ram: 16
+    attribute: required
+  kernel.memory_slabs.api:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
+    attribute: required
+  kernel.memory_slabs.concept:
+    path: tests/kernel/mem_slab/mslab_concept
+    catalog: kernel
+    attribute: required
+  kernel.memory_slabs.threadsafe:
+    path: tests/kernel/mem_slab/mslab_threadsafe
+    catalog: kernel
+    attribute: required
+  sys.mutex.nouser:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+    attribute: required
+  kernel.object_tracing:
+    path: tests/kernel/obj_tracing
+    catalog: kernel
+    min_ram: 32
+    attribute: required
+  kernel.pending:
+    path: tests/kernel/pending
+    catalog: kernel
+    min_ram: 16
+    attribute: required
+  kernel.profiling:
+    path: tests/kernel/profiling/profiling_api
+    catalog: kernel
+    arch_exclude: nios2 riscv32
+    platform_exclude: em_starterkit
+    attribute: required
+  kernel.sched.deadline:
+    path: tests/kernel/sched/deadline
+    catalog: kernel
+    attribute: required
+  kernel.sched.preempt:
+    path: tests/kernel/sched/preempt
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52810_pca10040
+    attribute: required
+  kernel.timing:
+    path: tests/kernel/sleep
+    catalog: kernel
+    attribute: required
+  kernel.threads.no-multithreading:
+    path: tests/kernel/threads/no-multithreading
+    catalog: kernel
+    filter: not CONFIG_SMP
+    attribute: required
+  kernel.tickless.concept:
+    path: tests/kernel/tickless/tickless_concept
+    catalog: kernel
+    arch_exclude: riscv32 nios2
+    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+    attribute: required
+  kernel.timer.tickless:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel
+    extra_args: CONF_FILE="prj_tickless.conf"
+    build_only: true
+    arch_exclude: riscv32 nios2 posix
+    attribute: required
+  kernel.workqueue:
+    path: tests/kernel/workq/work_queue
+    catalog: kernel
     min_flash: 34
-    min_ram: 32
-    attribute: required
-  benchmark.application.posix:
-    path: tests/benchmarks/app_kernel
-    catalog: benchmark
-    arch_whitelist: posix
-    min_ram: 32
-    attribute: required
-  benchmark.boot_time:
-    path: tests/benchmarks/boot_time
-    catalog: benchmark
-    arch_whitelist: x86 arm posix
-    platform_exclude: qemu_x86 qemu_x86_coverage qemu_x86_64 qemu_x86_nommu minnowboard
-      acrn
-    filter: CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC >= 1000000
-    attribute: required
-  benchmark.latency:
-    path: tests/benchmarks/latency_measure
-    catalog: benchmark
-    arch_whitelist: x86 arm posix
-    platform_exclude: qemu_x86_64
-    filter: CONFIG_PRINTK
-    attribute: required
-  benchmark.scheduler:
-    path: tests/benchmarks/sched
-    catalog: benchmark
-    attribute: required
-  benchmark.kernel:
-    path: tests/benchmarks/sys_kernel
-    catalog: benchmark
-    arch_exclude: nios2 riscv32 xtensa
-    platform_exclude: qemu_x86_64
-    min_ram: 32
-    attribute: required
-  benchmark.timing.default_kernel:
-    path: tests/benchmarks/timing_info
-    catalog: benchmark
-    arch_exclude: posix
-    attribute: required
-  libraries.encoding.base64:
-    path: tests/unit/base64
-    catalog: base64
-    type: unit
-    attribute: required
-  sample.board.intel_s1000_crb.audio:
-    path: samples/boards/intel_s1000_crb/audio
-    catalog: audio
-    platform_whitelist: intel_s1000_crb
-    attribute: required
-  arch.ramfunc:
-    path: tests/arch/arm/arm_ramfunc
-    catalog: arm userspace
-    filter: CONFIG_ARCH_HAS_RAMFUNC_SUPPORT
-    arch_whitelist: arm
-    attribute: required
-  arch.interrupt.arm.irq_vector_table:
-    path: tests/arch/arm/arm_irq_vector_table
-    catalog: arm interrupt vector_table
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_whitelist: arm
-    attribute: required
-  arch.interrupt.no_optimizations:
-    path: tests/arch/arm/arm_interrupt
-    catalog: arm interrupt ignore_faults
-    extra_configs:
-    - CONFIG_NO_OPTIMIZATIONS=y
-    - CONFIG_IDLE_STACK_SIZE=512
-    - CONFIG_MAIN_STACK_SIZE=1024
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_whitelist: arm
-    attribute: required
-  arch.zero_latency_interrupts:
-    path: tests/arch/arm/arm_zero_latency_irqs
-    catalog: arm interrupt
-    filter: CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_whitelist: arm
-    attribute: required
-  arch.arm.swap.common:
-    path: tests/arch/arm/arm_thread_swap
-    catalog: arm
-    arch_whitelist: arm
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    attribute: required
-  arch.arm.swap.common.no_optimizations:
-    path: tests/arch/arm/arm_thread_swap
-    catalog: arm
-    extra_configs:
-    - CONFIG_NO_OPTIMIZATIONS=y
-    - CONFIG_IDLE_STACK_SIZE=512
-    arch_whitelist: arm
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    min_flash: 192
-    attribute: required
-  arch.arm.swap.common.fp_sharing:
-    path: tests/arch/arm/arm_thread_swap
-    catalog: arm
-    extra_configs:
-    - CONFIG_FLOAT=y
-    - CONFIG_FP_SHARING=y
-    arch_whitelist: arm
-    filter: CONFIG_ARMV7_M_ARMV8_M_FP
-    attribute: required
-  arch.arm.swap.common.fp_sharing.no_optimizations:
-    path: tests/arch/arm/arm_thread_swap
-    catalog: arm
-    extra_configs:
-    - CONFIG_FLOAT=y
-    - CONFIG_FP_SHARING=y
-    - CONFIG_NO_OPTIMIZATIONS=y
-    - CONFIG_IDLE_STACK_SIZE=512
-    arch_whitelist: arm
-    filter: CONFIG_ARMV7_M_ARMV8_M_FP
-    min_flash: 192
-    attribute: required
-  peripheral.adc:
-    path: tests/drivers/adc/adc_api
-    catalog: adc drivers userspace
-    depends_on: adc
     attribute: required

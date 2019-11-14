@@ -11,6 +11,8 @@ require 'tenjin'
 require 'optparse'
 require 'ostruct'
 require 'digest'
+require 'parseconfig'
+
 require 'yml_merger'
 
 
@@ -58,14 +60,21 @@ end
 def load_board_data(search_base, board_name, board_settings)
   board = board_name.gsub('_m4', '').gsub('_m0', '')
   board_file = File.join(search_base, "boards", "arm", board,"#{board_name}.yaml")
+  board_info = {}
   if File.exist?(board_file)
     board_info =  YAML.load_file(board_file)
     board_info["settings"] = board_settings["settings"]
-    return board_info
   else
     puts "no such board file found #{board_name} in arm"
     exit
   end
+  config_file = File.join(search_base, "boards", "arm", board,"#{board_name}_defconfig")
+  if File.exist?(config_file)
+    my_config = ParseConfig.new(config_file)
+    board_info["configs"] = my_config.params
+    #puts board_info["configs"]
+  end
+  return board_info
 end
 
 
@@ -199,7 +208,6 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     next if @content["cases"][key].has_key?('result')
     next if ! @content["cases"][key].has_key?('path')
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
-
     catalog = @content["cases"][key]['catalog'].gsub(' ', '_')
     pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]

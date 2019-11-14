@@ -90,7 +90,7 @@ def scan(zephyr_path, output_records_path, output_records_fname)
 
     #move the boards yaml for arm
     Find.find(File.join(zephyr_base, "boards", "arm")) do |fn|
-      if File.file?(fn) and ( File.extname(fn) == ".yaml" or File.extname(fn) == ".dts") 
+      if File.file?(fn) and ( File.extname(fn) == ".yaml" or File.extname(fn) == ".dts" or fn =~ /_defconfig/) 
         dir_name = File.dirname(fn)
         rel_path = Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base))
         if ! File.exist?(File.join(output_records_path, rel_path))

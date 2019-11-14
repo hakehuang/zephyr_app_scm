@@ -1,25 +1,18 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="313" errors="0" failures="0" name="" skipped="12" time="0">
+    <testsuite tests="255" errors="0" failures="0" name="" skipped="7" time="0">
+      <testcase classname="mimxrt1015_evk:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:benchmark.latency.loop" name="benchmark.latency.loop" time="0">
+      </testcase>
+      <testcase classname="mimxrt1015_evk:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
+      </testcase>
       <testcase classname="mimxrt1015_evk:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1015_evk:net.dns.mdns_response" name="net.dns.mdns_response" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1015_evk:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
@@ -37,121 +30,7 @@
       <testcase classname="mimxrt1015_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.coop_resched_threads" name="kernel.multiprocessing.coop_resched_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.cpu_id_threads" name="kernel.multiprocessing.cpu_id_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.mp_start" name="kernel.multiprocessing.mp_start" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.preempt_resched_threads" name="kernel.multiprocessing.preempt_resched_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.sleep_threads" name="kernel.multiprocessing.sleep_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.smp_coop_threads" name="kernel.multiprocessing.smp_coop_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.wakeup_pending_threads" name="kernel.multiprocessing.wakeup_pending_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.wakeup_threads" name="kernel.multiprocessing.wakeup_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.yield_threads" name="kernel.multiprocessing.yield_threads" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
-      </testcase>
       <testcase classname="mimxrt1015_evk:tracing.openocd" name="tracing.openocd" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.bad_priorities" name="kernel.tickless.bad_priorities" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.busy_wait" name="kernel.tickless.busy_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.kernel_ctx_thread" name="kernel.tickless.kernel_ctx_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.lock_preemptible" name="kernel.tickless.lock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.pending_thread_wakeup" name="kernel.tickless.pending_thread_wakeup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.priority_cooperative" name="kernel.tickless.priority_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.priority_preemptible" name="kernel.tickless.priority_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.priority_scheduling" name="kernel.tickless.priority_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.sleep================================================" name="kernel.tickless.sleep================================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.sleep_cooperative" name="kernel.tickless.sleep_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.sleep_wake===============" name="kernel.tickless.sleep_wake===============" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.sleep_wakeup_preemp======" name="kernel.tickless.sleep_wakeup_preemp======" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.sleep_wakeup_preemptible" name="kernel.tickless.sleep_wakeup_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.slice_reset" name="kernel.tickless.slice_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.slice_scheduling" name="kernel.tickless.slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.tes===" name="kernel.tickless.tes===" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.test==========================" name="kernel.tickless.test==========================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.tickless" name="kernel.tickless.tickless" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.tickless_slice" name="kernel.tickless.tickless_slice" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.tickless_sysclock" name="kernel.tickless.tickless_sysclock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.time_slicing_disable_preemptible" name="kernel.tickless.time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.time_slicing_preemptible" name="kernel.tickless.time_slicing_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.tst - test_slice_reset" name="kernel.tickless.tst - test_slice_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.unlock_nested_sche test_time_slicing_disable_preemptible" name="kernel.tickless.unlock_nested_sche test_time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.unlock_nested_sched_lock" name="kernel.tickless.unlock_nested_sched_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.unlock_ning test - test_time_slicing_disable_preemptible" name="kernel.tickless.unlock_ning test - test_time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.unlock_preemptible" name="kernel.tickless.unlock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.unlock_preemptiting test - test_slice_scheduling" name="kernel.tickless.unlock_preemptiting test - test_slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.user_k_is_preempt" name="kernel.tickless.user_k_is_preempt" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.user_k_wakeup" name="kernel.tickless.user_k_wakeup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.wakeup_expired_timer_thread" name="kernel.tickless.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.wakeup_expired_tt" name="kernel.tickless.wakeup_expired_tt" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.wakeupslice_reset" name="kernel.tickless.wakeupslice_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.tickless.yield_cooperative" name="kernel.tickless.yield_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
       </testcase>
       <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
       </testcase>

@@ -6,6 +6,9 @@ module ZEPHER_FILTER
     #processing neg_list
     neg_list.each do |k|
         if case_hash.has_key?(k) 
+            if k == "skip" and case_hash[k] == true
+                return false
+            end
             if k == "skip" and case_hash[k] == "true"
                 return false
             end

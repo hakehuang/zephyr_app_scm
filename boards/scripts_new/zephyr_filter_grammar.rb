@@ -26,7 +26,7 @@ $log.level = Logger::WARN
 class ZephyrLex < Rly::Lex
 
   literals "=+><():[],\";\'"
-  ignore "\'\"\t\n\\"
+  ignore "\' \"\t\n\\"
   token :AND, /(and|AND)/ do |t|
     t
   end
@@ -40,10 +40,6 @@ class ZephyrLex < Rly::Lex
   end
 
   token :NOT, /(not|NOT)/ do |t|
-    t
-  end
-
-  token :SPACE, /\s+/ do |t|
     t
   end
 
@@ -190,25 +186,6 @@ class ZephyrParse < Rly::Yacc
     $log.info  "rule statement expression #{st.value}"
   end
 
-  rule 'statement : statement SPACE statement' do |st, s1, op, s2|
-    $log.info  "s1 #{s1.value}"
-    $log.info  "s2 #{s2.value}"
-    tv1 = [ ]
-    if s1.value.class == Array
-        tv1 = s1.value
-    else
-        tv1 = [s1.value]
-    end
-    tv2 = []
-    if s2.value.class == Array
-        tv2 = s2.value
-    else
-        tv2 = [s2.value]
-    end
-    st.value = tv1 | tv2
-    $log.info  "rule statement SPACE #{st.value}"
-  end
-
   rule 'statement : DATA "=" expression' do |st, n, _, e|
     self.names[n.value] = e.value
     st.value = self.names
@@ -217,6 +194,7 @@ class ZephyrParse < Rly::Yacc
   rule 'expression : expression AND expression
                    | expression OR expression' do |ex, e1, op, e2|
     ex.value = e1.value.send(op.value.upcase(), e2.value)
+    $log.info  "rule and or  #{ex.value}"
   end
 
 
@@ -226,7 +204,8 @@ class ZephyrParse < Rly::Yacc
                    | expression "<" expression
                    | expression GTE expression
                    | expression LTE expression' do |ex, e1, op, e2|
-    ex.value = { e1.value => [op.value.upcase(), e2.value]}
+    ex.value = { op.value => [e1.value, e2.value]}
+    $log.info  "rule ops  #{ex.value}"
   end
                    
 
@@ -244,7 +223,7 @@ class ZephyrParse < Rly::Yacc
   end
  
   rule 'expression : "(" expression ")"' do |ex, _, e, _|
-    ex.value = e.value
+    ex.value = [e.value]
     $log.info  "rule ()  #{ex.value}"
   end
 
@@ -323,63 +302,81 @@ def dt_parser(k, v, board_hash)
 end
 
 def simple_ast(data, board_hash)
-    case data.class.name
-        when "Hash"
-            data.each do |k, v|
-              if isDT_filter(k)
-                return dt_parser(k, v, board_hash)
-              end
-              if board_hash.has_key?(k)
-                return eval "#{board_hash[k]} #{v[0]} #{simple_ast[v1, board_hash]}"
-              end
-              if board_hash["settings"] and board_hash["settings"].has_key?(k)
-                bv = board_hash["settings"][k]
-                return eval "#{bv} #{v[0]} #{simple_ast[v1, board_hash]}"
-              end
+  configs = board_hash["configs"]
+  case data.class.name
+      when "Hash"
+          data.each do |k, v|
+            if isDT_filter(k)
+              return dt_parser(k, v, board_hash)
             end
-            return false
-        when "Array"
-            judge = ""
-            if board_hash["settings"] and board_hash["settings"]["no_filter"]
-                judge = board_hash["settings"]["no_filter"]
-                #puts "judge is #{judge}"
-            else
-                return true
+            if board_hash.has_key?(k)
+              return eval "#{board_hash[k]} #{v[0]} #{simple_ast[v[1], board_hash]}"
             end
-            case data[0]
-                when "AND"
-                    data[1..-1].each do |dst|
-                      case dst.class.name
-                        when "String"
-                          if judge and judge.include?(dst)
-                            return false
-                          end
-                        else
-                          return false if ! simple_ast(dst, board_hash)
-                      end
-                    end
-                    return true
-                when "OR"
-                    #to do urgly
-                    data[1..-1].each do |dst|
-                        case dst.class.name
-                            when "String"
-                                if judge and judge.include?(dst)
-                                    return false
-                                end
-                            else
-                                ret = false if ! simple_ast(dst, board_hash)
+            if configs.has_key?(k)
+              return eval "#{board_hash[k]} #{v[0]} #{simple_ast[v[1], board_hash]} "
+            end
+            if board_hash["settings"] and board_hash["settings"].has_key?(k)
+              bv = board_hash["settings"][k]
+              return eval "#{bv} #{v[0]} #{simple_ast[v1, board_hash]}"
+            end
+          end
+          return false
+      when "Array"
+          judge = configs.keys()
+=begin
+          if board_hash["settings"] and board_hash["settings"]["no_filter"]
+              judge = board_hash["settings"]["no_filter"]
+              #puts "judge is #{judge}"
+          else
+              return true
+          end
+=end
+          case data[0]
+              when "AND"
+                  data[1..-1].each do |dst|
+                    case dst.class.name
+                      when "String"
+                        if judge and ! judge.include?(dst)
+                          return false
                         end
+                      else
+                        return false if ! simple_ast(dst, board_hash)
                     end
-                    return true
-                when "NOT"
-                    # to do
-                    return true
-            end
-        else
-            #puts "class is #{data.class}"
-            return data
-    end
+                  end
+                  return true
+              when "OR"
+                data[1..-1].each do |dst|
+                  case dst.class.name
+                    when "String"
+                      if judge and judge.include?(dst)
+                        return true
+                      end
+                    else
+                      if simple_ast(dst, board_hash)
+                        return true
+                      end
+                  end
+                end
+                return false
+              when "NOT"
+                data[1..-1].each do |dst|  
+                  case dst.class.name
+                    when "String"
+                      if judge and judge.include?(dst)
+                        return false
+                      end
+                    else
+                      if simple_ast(dst, board_hash)
+                        return false
+                      end
+                  end                  
+                end
+                return true
+          end
+      else
+          #puts "class is #{data.class}"
+          return data
+  end
 end
 
 def zephyr_filter_parser(filters, board_hash)
@@ -402,7 +399,11 @@ end
 
 def zephyr_expr_parser(expr)
     parser = ZephyrParse.new(ZephyrLex.new)
-    return parser.parse(expr)
+    ret = []
+    expr.split().each do |expr|
+      ret = ret | [parser.parse(expr)]
+    end
+    return ret
 end
 
 
@@ -413,6 +414,12 @@ if __FILE__ == $0
     #lex.show()
     $log.level = Logger::INFO
     parser = ZephyrParse.new(ZephyrLex.new)
+    board_hash = {"configs" => {"CONFIG_ARM"=>"y", "CONFIG_CORTEX_M_SYSTICK"=>"y",
+      "CONFIG_SOC_SERIES_KINETIS_K8X"=>"y", "CONFIG_SOC_MK82F25615"=>"y",
+      "CONFIG_BOARD_FRDM_K82F"=>"y", "CONFIG_SERIAL"=>"y", "CONFIG_CONSOLE"=>"y",
+      "CONFIG_UART_CONSOLE"=>"y", "CONFIG_UART_INTERRUPT_DRIVEN"=>"y",
+      "CONFIG_PINMUX"=>"y", "CONFIG_GPIO"=>"y",
+      "CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC"=>"120000000", "CONFIG_OSC_LOW_POWER"=>"y", "CONFIG_ARM_MPU"=>"y"} }
 =begin  
     $log.info  parser.parse('A AND B')
     $log.info  parser.parse('NOT A')
@@ -430,24 +437,24 @@ if __FILE__ == $0
     $log.info  parser.parse("(SAND <= 4) AND (SAND >= 1)")
     $log.info  parser.parse("(SAND <= 4) OR (SAND >= 1)")
     $log.info  parser.parse("C == 0xA")
-    board_hash = {"settings" => { "no_filter" => ["CONFIG_CPU_HAS_MPU", "CONFIG_ARCH_HAS_USERSPACE"]} }
+
     $log.info  zephyr_filter_parser("CONFIG_ARCH_HAS_USERSPACE", board_hash)
     lex = ZephyrLex.new('dt_compat_enabled\(\"jedec,spi-nor\"\)')
     lex.show()
-    board_hash = {"settings" => { "no_filter" => ["CONFIG_CPU_HAS_MPU", "CONFIG_ARCH_HAS_USERSPACE"]} }
     $log.info  zephyr_filter_parser("dt_compat_enabled(\"jedec, spi-nor\")", board_hash)
     lex = ZephyrLex.new('dt_compat_enabled_with_alias("gpio-keys", "sw0")')
     lex.show()
-    board_hash = {"settings" => { "no_filter" => ["CONFIG_CPU_HAS_MPU", "CONFIG_ARCH_HAS_USERSPACE"]} }
     $log.info  zephyr_filter_parser('dt_compat_enabled_with_alias("gpio-keys", "sw0")', board_hash)
-    board_hash = {"settings" => { "no_filter" => ["CONFIG_CPU_HAS_MPU", "CONFIG_ARCH_HAS_USERSPACE", "CONFIG_CPU_ARCV2"]} }
     $log.info  zephyr_filter_parser("CONFIG_CPU_ARCV2 and CONFIG_CPU_HAS_FPU", board_hash)
-    board_hash = {"settings" => { "no_filter" => ["CONFIG_ARCH_HAS_USERSPACE", 
-       "CONFIG_ARMV7_M_ARMV8_M_FP",  "CONFIG_CPU_HAS_MPU","CONFIG_ENTROPY_HAS_DRIVER", "CONFIG_CPU_ARCV2"]} }
     $log.info  zephyr_filter_parser("CONFIG_ENTROPY_HAS_DRIVER", board_hash)
-    board_hash = {"settings" => { "no_filter" => ["CONFIG_ARCH_HAS_USERSPACE", 
-       "CONFIG_ARMV7_M_ARMV8_M_FP",  "CONFIG_CPU_HAS_MPU","CONFIG_ENTROPY_HAS_DRIVER", "CONFIG_CPU_ARCV2"]} }
     $log.info  parser.parse("CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;arm.conf'")
+    $log.info  parser.parse("(CONFIG_MP_NUM_CPUS > 1) and not CONFIG_ARC")
+    $log.info  zephyr_expr_parser("SHIELD=frdm_cr20a OVERLAY_CONFIG=overlay-802154.conf")
+
+
+    $log.info  zephyr_filter_parser("(CONFIG_MP_NUM_CPUS > 1) and not CONFIG_ARC", board_hash)
 =end
-    $log.info  parser.parse("SHIELD=frdm_cr20a OVERLAY_CONFIG=overlay-802154.conf")
+
+    $log.info  zephyr_filter_parser("CONFIG_X86 or (CONFIG_ARM and (CONFIG_SOC_MK64F12 or CONFIG_SOC_SERIES_SAM3X)) or CONFIG_ARCH_POSIX", board_hash)
+
 end
