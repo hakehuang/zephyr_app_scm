@@ -3,6 +3,10 @@ require 'awesome_print'
 require 'rly'
 require 'ruby_parser'
 require 'logger'
+require 'pathname'
+
+require_relative 'zephyr_utils'
+
 
 =begin
 expression “and” expression
@@ -383,14 +387,14 @@ def zephyr_filter_parser(filters, board_hash)
     parser = ZephyrParse.new(ZephyrLex.new)
     data = parser.parse(filters)
     if data.class == String
-        if board_hash["settings"] and board_hash["settings"]["no_filter"]
-            if board_hash["settings"]["no_filter"].include?(data)
-                return false
-            else
+        if board_hash["configs"]
+            if board_hash["configs"].include?(data) and board_hash["configs"][data] == "y"
                 return true
+            else
+                return false
             end
         else
-            return true
+            return false
         end
     else
         return simple_ast(data, board_hash)
@@ -414,13 +418,18 @@ if __FILE__ == $0
     #lex.show()
     $log.level = Logger::INFO
     parser = ZephyrParse.new(ZephyrLex.new)
+=begin
     board_hash = {"configs" => {"CONFIG_ARM"=>"y", "CONFIG_CORTEX_M_SYSTICK"=>"y",
       "CONFIG_SOC_SERIES_KINETIS_K8X"=>"y", "CONFIG_SOC_MK82F25615"=>"y",
       "CONFIG_BOARD_FRDM_K82F"=>"y", "CONFIG_SERIAL"=>"y", "CONFIG_CONSOLE"=>"y",
       "CONFIG_UART_CONSOLE"=>"y", "CONFIG_UART_INTERRUPT_DRIVEN"=>"y",
       "CONFIG_PINMUX"=>"y", "CONFIG_GPIO"=>"y",
       "CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC"=>"120000000", "CONFIG_OSC_LOW_POWER"=>"y", "CONFIG_ARM_MPU"=>"y"} }
-=begin  
+=end
+    search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
+    merge_hash = {"settings" => {}}
+    board_hash = load_board_data(search_path,"frdm_kw41z",merge_hash)
+=begin
     $log.info  parser.parse('A AND B')
     $log.info  parser.parse('NOT A')
     $log.info  parser.parse('(A)')
@@ -450,11 +459,8 @@ if __FILE__ == $0
     $log.info  parser.parse("CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;arm.conf'")
     $log.info  parser.parse("(CONFIG_MP_NUM_CPUS > 1) and not CONFIG_ARC")
     $log.info  zephyr_expr_parser("SHIELD=frdm_cr20a OVERLAY_CONFIG=overlay-802154.conf")
-
-
     $log.info  zephyr_filter_parser("(CONFIG_MP_NUM_CPUS > 1) and not CONFIG_ARC", board_hash)
-=end
-
     $log.info  zephyr_filter_parser("CONFIG_X86 or (CONFIG_ARM and (CONFIG_SOC_MK64F12 or CONFIG_SOC_SERIES_SAM3X)) or CONFIG_ARCH_POSIX", board_hash)
-
+=end
+    $log.info  zephyr_filter_parser("CONFIG_SPI_1", board_hash)
 end

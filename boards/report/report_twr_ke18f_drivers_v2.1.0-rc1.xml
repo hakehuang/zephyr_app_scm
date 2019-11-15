@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="319" errors="0" failures="0" name="" skipped="31" time="0">
+    <testsuite tests="319" errors="0" failures="0" name="" skipped="34" time="0">
       <testcase classname="twr_ke18f:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -59,6 +59,15 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="twr_ke18f:kernel.fp_sharing.x86" name="kernel.fp_sharing.x86" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="twr_ke18f:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
@@ -251,12 +260,6 @@
       <testcase classname="twr_ke18f:peripheral.watchdog" name="peripheral.watchdog" time="0">
       </testcase>
       <testcase classname="twr_ke18f:peripheral.watchdog.wdt" name="peripheral.watchdog.wdt" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.mailbox.array" name="kernel.mailbox.array" time="0">
       </testcase>

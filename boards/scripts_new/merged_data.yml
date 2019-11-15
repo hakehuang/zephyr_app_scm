@@ -18,6 +18,10 @@ cases:
     - ''
     build_only: true
     attribute: required
+  peripheral.spi:
+    comments: need add board support
+    build_only: true
+    attribute: required
   libraries.libc.newlibnano:
     comments: http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164
     build_only: true
@@ -68,6 +72,14 @@ cases:
     path: tests/kernel/fatal
     catalog: kernel ignore_faults
     extra_args: CONF_FILE=sentinel.conf
+    attribute: required
+  sample.net.sockets.echo_server.usbnet:
+    comments: not support
+    result: skip
+    attribute: required
+  sample.net.sockets.echo_server.usbnet_composite:
+    commetns: not support
+    result: skip
     attribute: required
   kernel.memory_pool.sys:
     path: tests/kernel/mem_pool/sys_mem_pool

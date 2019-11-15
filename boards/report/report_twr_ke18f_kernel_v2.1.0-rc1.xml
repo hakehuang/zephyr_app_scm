@@ -1,6 +1,75 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="2191" errors="0" failures="0" name="" skipped="68" time="0">
+    <testsuite tests="2294" errors="0" failures="0" name="" skipped="91" time="0">
+      <testcase classname="twr_ke18f:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:arch.arm.swap.common.fp_sharing.pool_block_get" name="arch.arm.swap.common.fp_sharing.pool_block_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing" name="kernel.fp_sharing" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm.k_float_disable_common" name="kernel.fp_sharing.float_disable.arm.k_float_disable_common" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm.k_float_disable_irq" name="kernel.fp_sharing.float_disable.arm.k_float_disable_irq" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm.k_float_disable_syscall" name="kernel.fp_sharing.float_disable.arm.k_float_disable_syscall" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm.memalloc_max" name="kernel.fp_sharing.float_disable.arm.memalloc_max" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.x86.k_float_disable_common" name="kernel.fp_sharing.float_disable.x86.k_float_disable_common" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.x86.k_float_disable_irq" name="kernel.fp_sharing.float_disable.x86.k_float_disable_irq" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.x86.k_float_disable_syscall" name="kernel.fp_sharing.float_disable.x86.k_float_disable_syscall" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.x86" name="kernel.fp_sharing.x86" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="twr_ke18f:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -1117,6 +1186,76 @@
       </testcase>
       <testcase classname="twr_ke18f:kernel.common.misra.version" name="kernel.common.misra.version" time="0">
       </testcase>
+      <testcase classname="twr_ke18f:arch.arm.swap.common.arm_thread_swap" name="arch.arm.swap.common.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.arm.swap.common.fp_sharing.pool_block_get" name="arch.arm.swap.common.fp_sharing.pool_block_get" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.ramfunc.arm_ramfunc" name="arch.ramfunc.arm_ramfunc" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.ramfunc.arm_thread_swap" name="arch.ramfunc.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm.k_float_disable_common" name="kernel.fp_sharing.float_disable.arm.k_float_disable_common" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm.k_float_disable_irq" name="kernel.fp_sharing.float_disable.arm.k_float_disable_irq" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm.k_float_disable_syscall" name="kernel.fp_sharing.float_disable.arm.k_float_disable_syscall" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm.memalloc_max" name="kernel.fp_sharing.float_disable.arm.memalloc_max" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:logging.log_msg.arm_irq_vector_table" name="logging.log_msg.arm_irq_vector_table" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.counter.cancelled_alarm_does_not_expire" name="peripheral.counter.cancelled_alarm_does_not_expire" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.counter.late_alarm" name="peripheral.counter.late_alarm" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.counter.late_alarm_error" name="peripheral.counter.late_alarm_error" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.counter.multiple_alarms" name="peripheral.counter.multiple_alarms" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.counter.set_top_value_with_alarm" name="peripheral.counter.set_top_value_with_alarm" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.counter.short_relative_alarm" name="peripheral.counter.short_relative_alarm" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.counter.single_shot_alarm_notop" name="peripheral.counter.single_shot_alarm_notop" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.counter.single_shot_alarm_top" name="peripheral.counter.single_shot_alarm_top" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:peripheral.rtc.rtc_alarm" name="peripheral.rtc.rtc_alarm" time="0">
+      </testcase>
       <testcase classname="twr_ke18f:kernel.message_queue.msgq_alloc" name="kernel.message_queue.msgq_alloc" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.message_queue.msgq_attrs_get" name="kernel.message_queue.msgq_attrs_get" time="0">
@@ -1146,6 +1285,76 @@
       <testcase classname="twr_ke18f:kernel.message_queue.msgq_user_thread" name="kernel.message_queue.msgq_user_thread" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.message_queue.msgq_user_thread_overflow" name="kernel.message_queue.msgq_user_thread_overflow" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.mutex" name="kernel.mutex.mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.mutex_lock_unlock" name="kernel.mutex.mutex_lock_unlock" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.mutex_reent_lock_forever" name="kernel.mutex.mutex_reent_lock_forever" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.mutex_reent_lock_no_wait" name="kernel.mutex.mutex_reent_lock_no_wait" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.mutex_reent_lock_timeout_fail" name="kernel.mutex.mutex_reent_lock_timeout_fail" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.mutex_reent_lock_timeout_pass" name="kernel.mutex.mutex_reent_lock_timeout_pass" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.queue_alloc" name="kernel.mutex.queue_alloc" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.queue_get_2threads" name="kernel.mutex.queue_get_2threads" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.queue_isr2thread" name="kernel.mutex.queue_isr2thread" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.queue_loop" name="kernel.mutex.queue_loop" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.mutex.queue_thread2isr" name="kernel.mutex.queue_thread2isr" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.cmsis_rtos_v1.mutex" name="portability.cmsis_rtos_v1.mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.cmsis_rtos_v1.mutex_lock_timeout" name="portability.cmsis_rtos_v1.mutex_lock_timeout" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.cmsis_rtos_v2.mutex" name="portability.cmsis_rtos_v2.mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.cmsis_rtos_v2.mutex_lock_timeout" name="portability.cmsis_rtos_v2.mutex_lock_timeout" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.posix.mutex.mutex_normal" name="portability.posix.mutex.mutex_normal" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.posix.mutex.recursive_mutex" name="portability.posix.mutex.recursive_mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.posix.newlib.posix_normal_mutex" name="portability.posix.newlib.posix_normal_mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.posix.newlib.posix_recursive_mutex" name="portability.posix.newlib.posix_recursive_mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.posix.posix_normal_mutex" name="portability.posix.posix_normal_mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.posix.posix_recursive_mutex" name="portability.posix.posix_recursive_mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.mslab_alloc_align" name="sys.mutex.mslab_alloc_align" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.mslab_alloc_free_thread" name="sys.mutex.mslab_alloc_free_thread" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.mslab_alloc_timeout" name="sys.mutex.mslab_alloc_timeout" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.mslab_kdefine_extern" name="sys.mutex.mslab_kdefine_extern" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.mutex" name="sys.mutex.mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.nouser.main" name="sys.mutex.nouser.main" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.nouser.mutex" name="sys.mutex.nouser.mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.nouser.supervisor_access" name="sys.mutex.nouser.supervisor_access" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.nouser.thread_06@119. Failed to take mutex 0x0012e088" name="sys.mutex.nouser.thread_06@119. Failed to take mutex 0x0012e088" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.nouser.user_access" name="sys.mutex.nouser.user_access" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.supervisor_access" name="sys.mutex.supervisor_access" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:sys.mutex.user_access" name="sys.mutex.user_access" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:testing.ztest.customized_output.mutex" name="testing.ztest.customized_output.mutex" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:testing.ztest.customized_output.mutex_lock_timeout" name="testing.ztest.customized_output.mutex_lock_timeout" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.mutex.mutex" name="kernel.mutex.mutex" time="0">
       </testcase>
@@ -2201,6 +2410,64 @@
       </testcase>
       <testcase classname="twr_ke18f:usb.device.usb_dc_api_read_write" name="usb.device.usb_dc_api_read_write" time="0">
       </testcase>
+      <testcase classname="twr_ke18f:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:ead_prio_dynamic" name="ead_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.device.bogus_dynamic_name" name="kernel.device.bogus_dynamic_name" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.device.dynamic_name" name="kernel.device.dynamic_name" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.device.pm.bogus_dynamic_name" name="kernel.device.pm.bogus_dynamic_name" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.device.pm.dynamic_name" name="kernel.device.pm.dynamic_name" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.dyn_thread_perms" name="kernel.threads.dynamic.dyn_thread_perms" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.kernel_create_dyn_user_thread" name="kernel.threads.dynamic.kernel_create_dyn_user_thread" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.stack_al==========================" name="kernel.threads.dynamic.stack_al==========================" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.stack_alloc_thread2thread" name="kernel.threads.dynamic.stack_alloc_thread2thread" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.stack_alloc_thread================" name="kernel.threads.dynamic.stack_alloc_thread================" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.stack_pop_fail" name="kernel.threads.dynamic.stack_pop_fail" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.stack_thread2isr" name="kernel.threads.dynamic.stack_thread2isr" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.stack_thread2thread" name="kernel.threads.dynamic.stack_thread2thread" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.stack_user_pop_fail" name="kernel.threads.dynamic.stack_user_pop_fail" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.stack_user_thread2thread" name="kernel.threads.dynamic.stack_user_thread2thread" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.tes====" name="kernel.threads.dynamic.tes====" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.thread_index_management" name="kernel.threads.dynamic.thread_index_management" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.threads.dynamic.user_create_dyn_user_thread" name="kernel.threads.dynamic.user_create_dyn_user_thread" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:libraries.encoding.shell_wildcards_dynamic" name="libraries.encoding.shell_wildcards_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.cmsis_rtos_v2.mempool_dynamic" name="portability.cmsis_rtos_v2.mempool_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.cmsis_rtos_v2.thread_apis_dynamic" name="portability.cmsis_rtos_v2.thread_apis_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:portability.cmsis_rtos_v2.thread_prio_dynamic" name="portability.cmsis_rtos_v2.thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:shell.shell_wildcards_dynamic" name="shell.shell_wildcards_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:testing.ztest.customized_output.mempool_dynamic" name="testing.ztest.customized_output.mempool_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:testing.ztest.customized_output.t- test_thread_prio_dynamic" name="testing.ztest.customized_output.t- test_thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:testing.ztest.customized_output.thread_apis_dynamic" name="testing.ztest.customized_output.thread_apis_dynamic" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:testing.ztest.customized_output.thread_prio_dynamic" name="testing.ztest.customized_output.thread_prio_dynamic" time="0">
+      </testcase>
       <testcase classname="twr_ke18f:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
       </testcase>
       <testcase classname="twr_ke18f:portability.cmsis_rtos_v2.kernel_apis" name="portability.cmsis_rtos_v2.kernel_apis" time="0">
@@ -2308,6 +2575,20 @@
       <testcase classname="twr_ke18f:net.websocket.websocket_init_server" name="net.websocket.websocket_init_server" time="0">
       </testcase>
       <testcase classname="twr_ke18f:system.settings.fcb.init" name="system.settings.fcb.init" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.arg64" name="kernel.memory_protection.syscalls.arg64" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.generic_object" name="kernel.memory_protection.syscalls.generic_object" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.string_nlen" name="kernel.memory_protection.syscalls.string_nlen" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.to_copy" name="kernel.memory_protection.syscalls.to_copy" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.user_string_alloc_copy" name="kernel.memory_protection.syscalls.user_string_alloc_copy" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.user_string_copy" name="kernel.memory_protection.syscalls.user_string_copy" time="0">
+      </testcase>
+      <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
       </testcase>
@@ -2496,58 +2777,6 @@
       <testcase classname="twr_ke18f:kernel.common.critical" name="kernel.common.critical" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.common.sam.critical" name="kernel.common.sam.critical" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.common.adc_repeated_sampling" name="kernel.common.adc_repeated_sampling" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.common.adc_repeated_samplings" name="kernel.common.adc_repeated_samplings" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.common.adc_sample_two_channels" name="kernel.common.adc_sample_two_channels" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" name="kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.common.adc_sample_with_interval" name="kernel.common.adc_sample_with_interval" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.common.sam.critical" name="kernel.common.sam.critical" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.memory_protection.change_same_duplex" name="kernel.memory_protection.change_same_duplex" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.memory_protection.change_same_duplex=================" name="kernel.memory_protection.change_same_duplex=================" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.memory_protection.change_same_link" name="kernel.memory_protection.change_same_link" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:kernel.memory_protection.change_to_same_promisc_mode" name="kernel.memory_protection.change_to_same_promisc_mode" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:net.ethernet_mgmt.change_same_duplex" name="net.ethernet_mgmt.change_same_duplex" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:net.ethernet_mgmt.change_same_link" name="net.ethernet_mgmt.change_same_link" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:net.ethernet_mgmt.change_to_same_auto_neg" name="net.ethernet_mgmt.change_to_same_auto_neg" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:net.ethernet_mgmt.change_to_same_promisc_mode" name="net.ethernet_mgmt.change_to_same_promisc_mode" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:net.ieee802154.fragment.fragment_sam00_dam00" name="net.ieee802154.fragment.fragment_sam00_dam00" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.adc_repeated_samplings" name="peripheral.adc.adc_repeated_samplings" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.adc_sample" name="peripheral.adc.adc_sample" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.adc_sample_one_channel" name="peripheral.adc.adc_sample_one_channel" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.adc_sample_two_channels" name="peripheral.adc.adc_sample_two_channels" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.adc_sample_with_interval" name="peripheral.adc.adc_sample_with_interval" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.poll_mode.adc_sample" name="peripheral.adc.poll_mode.adc_sample" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.resolution_10.adc_sample" name="peripheral.adc.resolution_10.adc_sample" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.resolution_12.adc_sample" name="peripheral.adc.resolution_12.adc_sample" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.resolution_6.adc_sample" name="peripheral.adc.resolution_6.adc_sample" time="0">
-      </testcase>
-      <testcase classname="twr_ke18f:peripheral.adc.resolution_8.adc_sample" name="peripheral.adc.resolution_8.adc_sample" time="0">
       </testcase>
       <testcase classname="twr_ke18f:kernel.fifo.fifo_cancel_wait" name="kernel.fifo.fifo_cancel_wait" time="0">
       </testcase>

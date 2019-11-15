@@ -11,7 +11,6 @@ require 'tenjin'
 require 'optparse'
 require 'ostruct'
 require 'digest'
-require 'parseconfig'
 
 require 'yml_merger'
 
@@ -55,26 +54,6 @@ class Parser
     opt_parser.parse!(options)
     return @args.to_h
   end
-end
-
-def load_board_data(search_base, board_name, board_settings)
-  board = board_name.gsub('_m4', '').gsub('_m0', '')
-  board_file = File.join(search_base, "boards", "arm", board,"#{board_name}.yaml")
-  board_info = {}
-  if File.exist?(board_file)
-    board_info =  YAML.load_file(board_file)
-    board_info["settings"] = board_settings["settings"]
-  else
-    puts "no such board file found #{board_name} in arm"
-    exit
-  end
-  config_file = File.join(search_base, "boards", "arm", board,"#{board_name}_defconfig")
-  if File.exist?(config_file)
-    my_config = ParseConfig.new(config_file)
-    board_info["configs"] = my_config.params
-    #puts board_info["configs"]
-  end
-  return board_info
 end
 
 

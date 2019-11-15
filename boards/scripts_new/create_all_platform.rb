@@ -15,6 +15,7 @@ require 'yml_merger'
 require 'pathname'
 require_relative 'create_pipefile'
 require_relative 'create_report'
+require_relative 'zephyr_utils'
 
 require_relative 'zephyr_filter'
 

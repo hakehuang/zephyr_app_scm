@@ -9,6 +9,9 @@ cases:
     comments: "no fp"
   peripheral.pinmux:
     comments: "no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/"
-    result: skip 
+    result: skip
+  peripheral.spi:
+    comments: "need add board support"
+    build_only: true
   # kernel.threads.dynamic:
   #   comments: "no CONFIG_ARCH_HAS_USERSPACE depends on MPU"

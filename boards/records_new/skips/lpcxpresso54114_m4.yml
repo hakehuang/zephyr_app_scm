@@ -18,3 +18,6 @@ cases:
   samples.net.google_iot_mqtt:
     comments: "dependency missing netif"
     result: skip
+  peripheral.spi:
+    comments: "need add board support"
+    build_only: true

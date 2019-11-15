@@ -9,3 +9,6 @@ cases:
     comments: "no fp"
   kernel.memory_protection.armv8m_gap_filling:
     comments: "no 4 MPU region"
+  peripheral.spi:
+    comments: "need add board support"
+    build_only: true

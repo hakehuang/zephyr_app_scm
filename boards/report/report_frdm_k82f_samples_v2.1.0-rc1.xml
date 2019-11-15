@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="138" errors="0" failures="0" name="" skipped="62" time="0">
+    <testsuite tests="141" errors="0" failures="0" name="" skipped="62" time="0">
       <testcase classname="frdm_k82f:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -15,6 +15,12 @@
       </testcase>
       <testcase classname="frdm_k82f:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
          <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
+      </testcase>
+      <testcase classname="frdm_k82f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
+      </testcase>
+      <testcase classname="frdm_k82f:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
       </testcase>
       <testcase classname="frdm_k82f:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
       </testcase>

@@ -1,7 +1,16 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="2202" errors="0" failures="0" name="" skipped="69" time="0">
+    <testsuite tests="2168" errors="0" failures="0" name="" skipped="72" time="0">
       <testcase classname="lpcxpresso54114_m0:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m0:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m0:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m0:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="lpcxpresso54114_m0:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
@@ -2392,31 +2401,9 @@
       </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.memory_slabs.mslab_threadsafe" name="kernel.memory_slabs.mslab_threadsafe" time="0">
       </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" name="kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
-      </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
       </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.userspace.stackprot" name="kernel.memory_protection.userspace.stackprot" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
       </testcase>
       <testcase classname="lpcxpresso54114_m0:benchmark.boot_time.dns_query_invalid_context" name="benchmark.boot_time.dns_query_invalid_context" time="0">
       </testcase>
@@ -2519,58 +2506,6 @@
       <testcase classname="lpcxpresso54114_m0:kernel.common.critical" name="kernel.common.critical" time="0">
       </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.common.sam.critical" name="kernel.common.sam.critical" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.adc_repeated_sampling" name="kernel.common.adc_repeated_sampling" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.adc_repeated_samplings" name="kernel.common.adc_repeated_samplings" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.adc_sample_two_channels" name="kernel.common.adc_sample_two_channels" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" name="kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.adc_sample_with_interval" name="kernel.common.adc_sample_with_interval" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.common.sam.critical" name="kernel.common.sam.critical" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.change_same_duplex" name="kernel.memory_protection.change_same_duplex" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.change_same_duplex=================" name="kernel.memory_protection.change_same_duplex=================" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.change_same_link" name="kernel.memory_protection.change_same_link" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:kernel.memory_protection.change_to_same_promisc_mode" name="kernel.memory_protection.change_to_same_promisc_mode" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:net.ethernet_mgmt.change_same_duplex" name="net.ethernet_mgmt.change_same_duplex" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:net.ethernet_mgmt.change_same_link" name="net.ethernet_mgmt.change_same_link" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:net.ethernet_mgmt.change_to_same_auto_neg" name="net.ethernet_mgmt.change_to_same_auto_neg" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:net.ethernet_mgmt.change_to_same_promisc_mode" name="net.ethernet_mgmt.change_to_same_promisc_mode" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:net.ieee802154.fragment.fragment_sam00_dam00" name="net.ieee802154.fragment.fragment_sam00_dam00" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.adc_repeated_samplings" name="peripheral.adc.adc_repeated_samplings" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.adc_sample" name="peripheral.adc.adc_sample" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.adc_sample_one_channel" name="peripheral.adc.adc_sample_one_channel" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.adc_sample_two_channels" name="peripheral.adc.adc_sample_two_channels" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.adc_sample_with_interval" name="peripheral.adc.adc_sample_with_interval" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.poll_mode.adc_sample" name="peripheral.adc.poll_mode.adc_sample" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.resolution_10.adc_sample" name="peripheral.adc.resolution_10.adc_sample" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.resolution_12.adc_sample" name="peripheral.adc.resolution_12.adc_sample" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.resolution_6.adc_sample" name="peripheral.adc.resolution_6.adc_sample" time="0">
-      </testcase>
-      <testcase classname="lpcxpresso54114_m0:peripheral.adc.resolution_8.adc_sample" name="peripheral.adc.resolution_8.adc_sample" time="0">
       </testcase>
       <testcase classname="lpcxpresso54114_m0:kernel.fifo.fifo_cancel_wait" name="kernel.fifo.fifo_cancel_wait" time="0">
       </testcase>
