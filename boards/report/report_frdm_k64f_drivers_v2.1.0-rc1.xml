@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="861" errors="0" failures="0" name="" skipped="19" time="0">
+    <testsuite tests="867" errors="0" failures="0" name="" skipped="19" time="0">
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
@@ -50,6 +50,12 @@
       <testcase classname="frdm_k64f:benchmark.latency.loop" name="benchmark.latency.loop" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
       </testcase>
       <testcase classname="frdm_k64f:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
          <skipped message="Skipped" type="skipped"/>
@@ -1329,6 +1335,12 @@
       <testcase classname="frdm_k64f:peripheral.watchdog" name="peripheral.watchdog" time="0">
       </testcase>
       <testcase classname="frdm_k64f:peripheral.watchdog.wdt" name="peripheral.watchdog.wdt" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.pwm.pwm_cycle" name="peripheral.pwm.pwm_cycle" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.pwm.pwm_usec" name="peripheral.pwm.pwm_usec" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.pwm.supervisor_access" name="peripheral.pwm.supervisor_access" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.mailbox.array" name="kernel.mailbox.array" time="0">
       </testcase>

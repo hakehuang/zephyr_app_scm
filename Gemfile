@@ -8,6 +8,7 @@ gem 'rly'
 gem 'ruby_parser'
 gem 'os'
 gem 'parseconfig'
+gem 'rbdtb'
 
 
 

@@ -5,6 +5,7 @@ require 'ruby_parser'
 require 'logger'
 require 'pathname'
 
+
 require_relative 'zephyr_utils'
 
 
@@ -296,12 +297,21 @@ def isDT_filter(key)
 end
 
 def dt_parser(k, v, board_hash)
+  if ! board_hash['dtb']
+    return false
+  end
   if k == "dt_compat_enabled"
-      return false 
+    return false 
   elsif k == "dt_alias_exists"
-      return false
+    return true if board_hash['dtb']['root']['aliases'].keys().include?(v)
+    return false
   elsif k == "dt_compat_enabled_with_alias"
-      return false
+    puts v.class, "------"
+    if board_hash['dtb']['root']['aliases'].keys().include?(v[1])
+      if board_hash['dtb']['root']['aliases'].keys().include?(v)
+
+    end
+    return false
   end
 end
 
@@ -428,7 +438,7 @@ if __FILE__ == $0
 =end
     search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
     merge_hash = {"settings" => {}}
-    board_hash = load_board_data(search_path,"frdm_kw41z",merge_hash)
+    board_hash = load_board_data(search_path,"frdm_k64f",merge_hash)
 =begin
     $log.info  parser.parse('A AND B')
     $log.info  parser.parse('NOT A')
@@ -462,5 +472,5 @@ if __FILE__ == $0
     $log.info  zephyr_filter_parser("(CONFIG_MP_NUM_CPUS > 1) and not CONFIG_ARC", board_hash)
     $log.info  zephyr_filter_parser("CONFIG_X86 or (CONFIG_ARM and (CONFIG_SOC_MK64F12 or CONFIG_SOC_SERIES_SAM3X)) or CONFIG_ARCH_POSIX", board_hash)
 =end
-    $log.info  zephyr_filter_parser("CONFIG_SPI_1", board_hash)
+    $log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\") or dt_alias_exists(\"i2c-1\") or dt_alias_exists(\"i2c-2\")", board_hash)
 end

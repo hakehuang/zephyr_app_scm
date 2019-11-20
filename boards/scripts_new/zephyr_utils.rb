@@ -3,6 +3,7 @@ require 'yaml'
 require 'fileutils'
 require 'pathname'
 require 'os'
+require 'rbdtb'
 
 
 def load_board_data(search_base, board_name, board_settings)
@@ -23,6 +24,11 @@ def load_board_data(search_base, board_name, board_settings)
     more_configs = load_core_config(search_base, board_name, board)
     board_info["configs"].merge!(more_configs)
     #puts board_info["configs"]
+  end
+  board_dtb_file = File.join(search_base, "boards", "arm", board,"#{board_name}.dts_compiled")
+  if File.exist?(board_dtb_file)
+    boards_dtb = dtb_parse_file(board_dtb_file)
+    board_info["dtb"] = boards_dtb
   end
   #puts board_info
   return board_info
