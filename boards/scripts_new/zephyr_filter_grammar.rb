@@ -296,6 +296,21 @@ def isDT_filter(key)
   return false
 end
 
+def dt_compatible_match(dt_root, compatible_name)
+  #To do 
+  return false
+  return dt_root.find { |k,v| k== "compatible" && v == compatible_name }
+end
+
+
+def dt_retrive_compatible_key(dt_root,alias_path)
+  dt = dt_root
+  alias_path.split("\/")[1..-1].each do |p|
+    dt = dt[p]
+  end
+  return dt
+end
+
 def dt_parser(k, v, board_hash)
   if ! board_hash['dtb']
     return false
@@ -306,10 +321,14 @@ def dt_parser(k, v, board_hash)
     return true if board_hash['dtb']['root']['aliases'].keys().include?(v)
     return false
   elsif k == "dt_compat_enabled_with_alias"
-    puts v.class, "------"
     if board_hash['dtb']['root']['aliases'].keys().include?(v[1])
-      if board_hash['dtb']['root']['aliases'].keys().include?(v)
-
+      if dt_retrive_compatible_key(board_hash['dtb']['root'], board_hash['dtb']['root']['aliases'][v[1]])
+        return true
+      else
+        return false
+      end
+    else
+      return false
     end
     return false
   end
@@ -472,5 +491,8 @@ if __FILE__ == $0
     $log.info  zephyr_filter_parser("(CONFIG_MP_NUM_CPUS > 1) and not CONFIG_ARC", board_hash)
     $log.info  zephyr_filter_parser("CONFIG_X86 or (CONFIG_ARM and (CONFIG_SOC_MK64F12 or CONFIG_SOC_SERIES_SAM3X)) or CONFIG_ARCH_POSIX", board_hash)
 =end
-    $log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\") or dt_alias_exists(\"i2c-1\") or dt_alias_exists(\"i2c-2\")", board_hash)
+    #$log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\") or dt_alias_exists(\"i2c-1\") or dt_alias_exists(\"i2c-2\")", board_hash)
+    hh = {'a' => {1=> '1'}, 'b' => {'compatible' => "a,b"}}
+    $log.info dt_compatible_match(hh, "a,b")
+
 end
