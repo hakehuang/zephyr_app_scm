@@ -235,9 +235,12 @@ settings:
 
 cases:
   mode: post-process-lib
-  libraries.libc.newlibnano:
+  #libraries.libc.newlibnano:
+  #  attribute: "required"
+  #  catalog: failure
+  sample.driver.gpio:
     attribute: "required"
-    catalog: failure       
+    catalog: failure
   # sample.net.dns_resolve.llmnr:
   #   attribute: "required"
   #   catalog: failure    

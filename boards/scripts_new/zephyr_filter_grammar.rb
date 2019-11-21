@@ -296,17 +296,32 @@ def isDT_filter(key)
   return false
 end
 
-def dt_compatible_match(dt_root, compatible_name)
-  #To do 
+def dt_compatible_match(dt_root, compatible_name, compatible_value)
+  #To do
+  if dt_root.class != Hash 
+    return false
+  end
+  if dt_root.keys.include?(compatible_name)
+      if dt_root[compatible_name] == compatible_value
+        return true
+      end
+  end
+  ret = false
+  dt_root.each do |k,v|
+    ret =  dt_compatible_match(v, compatible_name, compatible_value)
+    if ret 
+      return true
+    end
+  end
   return false
-  return dt_root.find { |k,v| k== "compatible" && v == compatible_name }
 end
 
 
 def dt_retrive_compatible_key(dt_root,alias_path)
   dt = dt_root
-  alias_path.split("\/")[1..-1].each do |p|
-    dt = dt[p]
+  #the apth will have two "s at begining and end
+  alias_path.split("\/")[1..-2].each do |item|
+    dt = dt[item]
   end
   return dt
 end
@@ -316,7 +331,7 @@ def dt_parser(k, v, board_hash)
     return false
   end
   if k == "dt_compat_enabled"
-    return false 
+    return dt_compatible_match(board_hash, "compatible", v)
   elsif k == "dt_alias_exists"
     return true if board_hash['dtb']['root']['aliases'].keys().include?(v)
     return false
@@ -490,9 +505,11 @@ if __FILE__ == $0
     $log.info  zephyr_expr_parser("SHIELD=frdm_cr20a OVERLAY_CONFIG=overlay-802154.conf")
     $log.info  zephyr_filter_parser("(CONFIG_MP_NUM_CPUS > 1) and not CONFIG_ARC", board_hash)
     $log.info  zephyr_filter_parser("CONFIG_X86 or (CONFIG_ARM and (CONFIG_SOC_MK64F12 or CONFIG_SOC_SERIES_SAM3X)) or CONFIG_ARCH_POSIX", board_hash)
-=end
-    #$log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\") or dt_alias_exists(\"i2c-1\") or dt_alias_exists(\"i2c-2\")", board_hash)
+    $log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\") or dt_alias_exists(\"i2c-1\") or dt_alias_exists(\"i2c-2\")", board_hash)
     hh = {'a' => {1=> '1'}, 'b' => {'compatible' => "a,b"}}
-    $log.info dt_compatible_match(hh, "a,b")
+    $log.info dt_compatible_match(hh, 'compatible', "a,b")
+=end
+    $log.info  zephyr_filter_parser("dt_compat_enabled_with_alias(\"gpio-keys\", \"sw0\")", board_hash)
+
 
 end

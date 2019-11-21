@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="3155" errors="0" failures="0" name="" skipped="72" time="0">
+    <testsuite tests="3238" errors="0" failures="0" name="" skipped="72" time="0">
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
@@ -3226,6 +3226,172 @@
       <testcase classname="frdm_k64f:kernel.sched.multiq_no_timeslicing.wakeup_expired_timer_thread" name="kernel.sched.multiq_no_timeslicing.wakeup_expired_timer_thread" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.sched.multiq_no_timeslicing.yield_cooperative" name="kernel.sched.multiq_no_timeslicing.yield_cooperative" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.fifo.timeout.poll.timeout_threads_pend_fail_on_fifo" name="kernel.fifo.timeout.poll.timeout_threads_pend_fail_on_fifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.fifo.timeout.poll.timeout_threads_pend_on_dual_fifos" name="kernel.fifo.timeout.poll.timeout_threads_pend_on_dual_fifos" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.fifo.timeout.poll.timeout_threads_pend_on_fifo" name="kernel.fifo.timeout.poll.timeout_threads_pend_on_fifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.fifo.timeout.timeout_threads_pend_fail_on_fifo" name="kernel.fifo.timeout.timeout_threads_pend_fail_on_fifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.fifo.timeout.timeout_threads_pend_on_dual_fifos" name="kernel.fifo.timeout.timeout_threads_pend_on_dual_fifos" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.fifo.timeout.timeout_threads_pend_on_fifo" name="kernel.fifo.timeout.timeout_threads_pend_on_fifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.futex.futex_multiple_threads_wait_wake" name="kernel.futex.futex_multiple_threads_wait_wake" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.lifo.usage.timeout_threads_pend_on_lifo" name="kernel.lifo.usage.timeout_threads_pend_on_lifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_pool.mpool_threadsafe" name="kernel.memory_pool.mpool_threadsafe" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_pool.timeout_threads_pend_fail_on_fifo" name="kernel.memory_pool.timeout_threads_pend_fail_on_fifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_multiple_threads_wait" name="kernel.memory_protection.sys_sem.nouser.sem_multiple_threads_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_multiple_threads_wait" name="kernel.memory_protection.sys_sem.sem_multiple_threads_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.memory_slabs.mslab_threadsafe" name="kernel.memory_slabs.mslab_threadsafe" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.multiprocessing.coop_resched_threads" name="kernel.multiprocessing.coop_resched_threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.multiprocessing.cpu_id_threads" name="kernel.multiprocessing.cpu_id_threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.multiprocessing.preempt_resched_threads" name="kernel.multiprocessing.preempt_resched_threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.multiprocessing.sleep_threads" name="kernel.multiprocessing.sleep_threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.multiprocessing.smp_coop_threads" name="kernel.multiprocessing.smp_coop_threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.multiprocessing.wakeup_pending_threads" name="kernel.multiprocessing.wakeup_pending_threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.multiprocessing.wakeup_threads" name="kernel.multiprocessing.wakeup_threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.multiprocessing.yield_threads" name="kernel.multiprocessing.yield_threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.mutex.queue_get_2threads" name="kernel.mutex.queue_get_2threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.poll.poll_threadstate" name="kernel.poll.poll_threadstate" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.queue.poll.queue_get_2threads" name="kernel.queue.poll.queue_get_2threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.queue.queue_get_2threads" name="kernel.queue.queue_get_2threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.semaphore.sem_multiple_threads_wait" name="kernel.semaphore.sem_multiple_threads_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.abort_handler" name="kernel.threads.abort_handler" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.customdata_get_set_coop" name="kernel.threads.customdata_get_set_coop" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.customdata_get_set_preempt" name="kernel.threads.customdata_get_set_preempt" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.delayed_thread_abort" name="kernel.threads.delayed_thread_abort" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dyn_thread_perms" name="kernel.threads.dyn_thread_perms" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dyn_threhave permission on k_sem 0x2000296c" name="kernel.threads.dyn_threhave permission on k_sem 0x2000296c" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.dyn_thread_perms" name="kernel.threads.dynamic.dyn_thread_perms" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.kernel_create_dyn_user_thread" name="kernel.threads.dynamic.kernel_create_dyn_user_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.stack_al==========================" name="kernel.threads.dynamic.stack_al==========================" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.stack_alloc_thread2thread" name="kernel.threads.dynamic.stack_alloc_thread2thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.stack_alloc_thread================" name="kernel.threads.dynamic.stack_alloc_thread================" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.stack_pop_fail" name="kernel.threads.dynamic.stack_pop_fail" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.stack_thread2isr" name="kernel.threads.dynamic.stack_thread2isr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.stack_thread2thread" name="kernel.threads.dynamic.stack_thread2thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.stack_user_pop_fail" name="kernel.threads.dynamic.stack_user_pop_fail" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.stack_user_thread2thread" name="kernel.threads.dynamic.stack_user_thread2thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.tes====" name="kernel.threads.dynamic.tes====" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.thread_index_management" name="kernel.threads.dynamic.thread_index_management" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.dynamic.user_create_dyn_user_thread" name="kernel.threads.dynamic.user_create_dyn_user_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.essential_thread_operation" name="kernel.threads.essential_thread_operation" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.k_thread_foreach" name="kernel.threads.k_thread_foreach" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.kdefine_coop_thread" name="kernel.threads.kdefine_coop_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.kdefine_preempt_thread" name="kernel.threads.kdefine_preempt_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.kinit_coop_thread" name="kernel.threads.kinit_coop_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.kinit_preempt_thread" name="kernel.threads.kinit_preempt_thread" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.no-multithreading" name="kernel.threads.no-multithreading" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.systhreads_idle" name="kernel.threads.systhreads_idle" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.systhreads_main" name="kernel.threads.systhreads_main" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.thread_index_management" name="kernel.threads.thread_index_management" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.thread_name_get_set" name="kernel.threads.thread_name_get_set" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.thread_name_user_get_set" name="kernel.threads.thread_name_user_get_set" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.thread_start" name="kernel.threads.thread_start" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_abort_others" name="kernel.threads.threads_abort_others" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_abort_repeat" name="kernel.threads.threads_abort_repeat" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_abort_self" name="kernel.threads.threads_abort_self" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_cpu_mask" name="kernel.threads.threads_cpu_mask" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_priority_set" name="kernel.threads.threads_priority_set" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_spawn_delay" name="kernel.threads.threads_spawn_delay" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_spawn_forever" name="kernel.threads.threads_spawn_forever" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_spawn_params" name="kernel.threads.threads_spawn_params" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_spawn_priority" name="kernel.threads.threads_spawn_priority" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_suspend_resume_cooperative" name="kernel.threads.threads_suspend_resume_cooperative" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.threads_suspend_resume_preemptible" name="kernel.threads.threads_suspend_resume_preemptible" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:kernel.threads.user_mode" name="kernel.threads.user_mode" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.dns.sem_multiple_threads_wait" name="net.dns.sem_multiple_threads_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.iface.with_userspace.queue_get_2threads" name="net.iface.with_userspace.queue_get_2threads" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_p 70, fifo 0x2000001c)" name="net.vlan.timeout_threads_p 70, fifo 0x2000001c)" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_pend_fail_on_fi00001c)" name="net.vlan.timeout_threads_pend_fail_on_fi00001c)" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_pend_fail_on_fifo" name="net.vlan.timeout_threads_pend_fail_on_fifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_pend_on_dual_fifos" name="net.vlan.timeout_threads_pend_on_dual_fifos" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:net.vlan.timeout_threads_pend_on_fifo" name="net.vlan.timeout_threads_pend_on_fifo" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:peripheral.adc.threads_spawn_params" name="peripheral.adc.threads_spawn_params" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:portability.posix.newlib.posix_multiple_threads_single_key" name="portability.posix.newlib.posix_multiple_threads_single_key" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:portability.posix.posix_multiple_threads_single_key" name="portability.posix.posix_multiple_threads_single_key" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:portability.posix.pthread_key.multiple_threads_single_key" name="portability.posix.pthread_key.multiple_threads_single_key" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:usb.osdesc.futex_multiple_threads_wait_wake" name="usb.osdesc.futex_multiple_threads_wait_wake" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.memory_protection.: syscall user_copy failed check: Memory region 0x200004fc (size 24) read access denied" name="kernel.memory_protection.: syscall user_copy failed check: Memory region 0x200004fc (size 24) read access denied" time="0">
       </testcase>

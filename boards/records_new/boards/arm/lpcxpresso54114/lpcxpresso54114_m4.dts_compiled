@@ -1,0 +1,163 @@
+/dts-v1/;
+
+/ {
+	#address-cells = <0x01>;
+	#size-cells = <0x01>;
+	model = "NXP LPCXpresso54114 board";
+	compatible = "nxp,lpc54xxx", "nxp,lpc";
+
+	chosen {
+		zephyr,sram = "/memory@20000000";
+		zephyr,flash = "/soc/flash@0";
+		zephyr,console = "/soc/usart@40086000";
+		zephyr,shell-uart = "/soc/usart@40086000";
+	};
+
+	aliases {
+		usart-0 = "/soc/usart@40086000";
+		mailbox-0 = "/soc/mailbox@4008b000";
+		led0 = "/leds/led_0";
+		led1 = "/leds/led_1";
+		led2 = "/leds/led_2";
+		sw0 = "/gpio_keys/button_0";
+		sw1 = "/gpio_keys/button_1";
+		sw2 = "/gpio_keys/button_2";
+	};
+
+	soc {
+		#address-cells = <0x01>;
+		#size-cells = <0x01>;
+		compatible = "simple-bus";
+		interrupt-parent = <0x01>;
+		ranges;
+
+		nvic: interrupt-controller@e000e100 {
+			compatible = "arm,v7m-nvic";
+			reg = <0xe000e100 0xc00>;
+			interrupt-controller;
+			#interrupt-cells = <0x02>;
+			arm,num-irq-priority-bits = <0x03>;
+			phandle = <0x01>;
+		};
+
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = <0xe000e010 0x10>;
+			status = "disabled";
+		};
+
+		flash0: flash@0 {
+			compatible = "soc-nv-flash";
+			reg = <0x00 0x40000>;
+		};
+
+		usart0: usart@40086000 {
+			compatible = "nxp,lpc-usart";
+			reg = <0x40086000 0xe44>;
+			interrupts = <0x0e 0x00>;
+			label = "USART_0";
+			status = "okay";
+			current-speed = <0x1c200>;
+		};
+
+		gpio0: gpio@0 {
+			compatible = "nxp,lpc-gpio";
+			reg = <0x4008c000 0x2488>;
+			interrupts = <0x04 0x02>, <0x05 0x02>, <0x06 0x02>, <0x07 0x02>;
+			label = "GPIO_0";
+			gpio-controller;
+			#gpio-cells = <0x02>;
+			phandle = <0x02>;
+		};
+
+		gpio1: gpio@1 {
+			compatible = "nxp,lpc-gpio";
+			reg = <0x4008c000 0x2488>;
+			interrupts = <0x20 0x02>, <0x21 0x02>, <0x22 0x02>, <0x23 0x02>;
+			label = "GPIO_1";
+			gpio-controller;
+			#gpio-cells = <0x02>;
+			phandle = <0x03>;
+		};
+
+		mailbox0: mailbox@4008b000 {
+			compatible = "nxp,lpc-mailbox";
+			reg = <0x4008b000 0xec>;
+			interrupts = <0x1f 0x00>;
+			label = "MAILBOX_0";
+			status = "okay";
+		};
+	};
+
+	cpus {
+		#address-cells = <0x01>;
+		#size-cells = <0x00>;
+
+		cpu0: cpu@0 {
+			compatible = "arm,cortex-m4f";
+			reg = <0x00>;
+			clock-frequency = <0x2dc6c00>;
+		};
+	};
+
+	sram0: memory@20000000 {
+		compatible = "mmio-sram";
+		reg = <0x20000000 0x10000>;
+	};
+
+	sram1: memory@20010000 {
+		compatible = "mmio-sram";
+		reg = <0x20010000 0x10000>;
+	};
+
+	sram2: memory@20020000 {
+		compatible = "mmio-sram";
+		reg = <0x20020000 0x8000>;
+	};
+
+	sramx: memory@40000000 {
+		compatible = "mmio-sram";
+		reg = <0x40000000 0x8000>;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		red_led: led_0 {
+			gpios = <0x02 0x1d 0x00>;
+			label = "User LD1";
+			status = "okay";
+		};
+
+		green_led: led_1 {
+			gpios = <0x03 0x0a 0x00>;
+			label = "User LD2";
+			status = "okay";
+		};
+
+		blue_led: led_2 {
+			gpios = <0x03 0x09 0x00>;
+			label = "User LD3";
+			status = "okay";
+		};
+	};
+
+	gpio_keys {
+		compatible = "gpio-keys";
+
+		user_button_1: button_0 {
+			label = "User SW1";
+			gpios = <0x02 0x18 0x00>;
+		};
+
+		user_button_2: button_1 {
+			label = "User SW2";
+			gpios = <0x02 0x1f 0x00>;
+		};
+
+		user_button_3: button_2 {
+			label = "User SW3";
+			gpios = <0x02 0x04 0x00>;
+		};
+	};
+};

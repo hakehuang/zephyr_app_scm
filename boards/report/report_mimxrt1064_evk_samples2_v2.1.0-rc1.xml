@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="264" errors="0" failures="0" name="" skipped="59" time="0">
+    <testsuite tests="736" errors="0" failures="0" name="" skipped="59" time="0">
       <testcase classname="mimxrt1064_evk:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
@@ -238,6 +238,42 @@
       </testcase>
       <testcase classname="mimxrt1064_evk:net.vlan.vlan_tci" name="net.vlan.vlan_tci" time="0">
       </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.fifo.timeout.poll.vlan_disable_all" name="kernel.fifo.timeout.poll.vlan_disable_all" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.dns.no_ipv6.vlan_disable_all" name="net.dns.no_ipv6.vlan_disable_all" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.dns.no_ipv6.vlan_send_data" name="net.dns.no_ipv6.vlan_send_data" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.address_setup" name="net.vlan.address_setup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.read (q order: 4, t/o: 70, fifo 0x2000001c)" name="net.vlan.read (q order: 4, t/o: 70, fifo 0x2000001c)" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.timeouer: 4, t/o: 70, fifo 0x2000001c)" name="net.vlan.timeouer: 4, t/o: 70, fifo 0x2000001c)" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.timeout_threads_p 70, fifo 0x2000001c)" name="net.vlan.timeout_threads_p 70, fifo 0x2000001c)" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.timeout_threads_pend_fail_on_fi00001c)" name="net.vlan.timeout_threads_pend_fail_on_fi00001c)" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.timeout_threads_pend_fail_on_fifo" name="net.vlan.timeout_threads_pend_fail_on_fifo" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.timeout_threads_pend_on_dual_fifos" name="net.vlan.timeout_threads_pend_on_dual_fifos" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.timeout_threads_pend_on_fifo" name="net.vlan.timeout_threads_pend_on_fifo" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.vlan_disable" name="net.vlan.vlan_disable" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.vlan_disable_all" name="net.vlan.vlan_disable_all" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.vlan_enable" name="net.vlan.vlan_enable" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.vlan_enable_all" name="net.vlan.vlan_enable_all" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.vlan_send_data" name="net.vlan.vlan_send_data" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.vlan_setup" name="net.vlan.vlan_setup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.vlan.vlan_tci" name="net.vlan.vlan_tci" time="0">
+      </testcase>
       <testcase classname="mimxrt1064_evk:net.util.addr_parse" name="net.util.addr_parse" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:net.util.net_addr" name="net.util.net_addr" time="0">
@@ -253,6 +289,598 @@
       <testcase classname="mimxrt1064_evk:net.util.verify_data" name="net.util.verify_data" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:usb.device.image_util.collecting" name="use.device.image_util.collecting" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.workqueue.timestamp_cleanup" name="kernel.workqueue.timestamp_cleanup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.timestamp.address_setup" name="net.timestamp.address_setup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.timestamp.check_timestamp_after_enabling" name="net.timestamp.check_timestamp_after_enabling" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.timestamp.check_timestamp_before_enabling" name="net.timestamp.check_timestamp_before_enabling" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.timestamp.rx_chksum_offload_enabled_test_v4" name="net.timestamp.rx_chksum_offload_enabled_test_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.timestamp.rx_chksum_offload_enabled_test_v6" name="net.timestamp.rx_chksum_offload_enabled_test_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.timestamp.timestamp_cleanup" name="net.timestamp.timestamp_cleanup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.timestamp.timestamp_setup" name="net.timestamp.timestamp_setup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.timestamp.timestamp_setup_2nd_iface" name="net.timestamp.timestamp_setup_2nd_iface" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.timestamp.timestamp_setup_all" name="net.timestamp.timestamp_setup_all" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.block1_size" name="net.trickle.block1_size" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.block2_siformed_opt_ext" name="net.trickle.block2_siformed_opt_ext" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.block2_size" name="net.trickle.block2_size" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.init" name="net.trickle.init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.match_path_uri" name="net.trickle.match_path_uri" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.parse_malformed_marker" name="net.trickle.parse_malformed_marker" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.parse_malformed_opt_ext" name="net.trickle.parse_malformed_opt_ext" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.parse_malformed_opt_len_ext" name="net.trickle.parse_malformed_opt_len_ext" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_1_status" name="net.trickle.trickle_1_status" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_1_stopped" name="net.trickle.trickle_1_stopped" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_1_update" name="net.trickle.trickle_1_update" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_1_wait" name="net.trickle.trickle_1_wait" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_1_wait_long" name="net.trickle.trickle_1_wait_long" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_2_inc" name="net.trickle.trickle_2_inc" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_2_status" name="net.trickle.trickle_2_status" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_2_wait" name="net.trickle.trickle_2_wait" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_create" name="net.trickle.trickle_create" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_start" name="net.trickle.trickle_start" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.trickle.trickle_stop" name="net.trickle.trickle_stop" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.tls_credentials" name="net.tls_credentials" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.tls_credentials.credential_add" name="net.tls_credentials.credential_add" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.tls_credentials.credential_delete" name="net.tls_credentials.credential_delete" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.tls_credentials.credential_get" name="net.tls_credentials.credential_get" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.tls_credentials.credential_internal_iterate" name="net.tls_credentials.credential_internal_iterate" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_hostname" name="net.app.app_tcp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_hostname_fail" name="net.app.app_tcp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_peer" name="net.app.app_tcp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_peer_addr" name="net.app.app_tcp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_peer_with_port" name="net.app.app_tcp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_hostname" name="net.app.app_tcp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_hostname_fail" name="net.app.app_tcp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_peer" name="net.app.app_tcp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_peer_addr" name="net.app.app_tcp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_peer_with_port" name="net.app.app_tcp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp_server_init" name="net.app.app_tcp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp_server_listen" name="net.app.app_tcp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_hostname" name="net.app.no-ipv4.app_tcp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_hostname_fail" name="net.app.no-ipv4.app_tcp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_peer" name="net.app.no-ipv4.app_tcp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_peer_addr" name="net.app.no-ipv4.app_tcp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_peer_with_port" name="net.app.no-ipv4.app_tcp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_hostname" name="net.app.no-ipv4.app_tcp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_hostname_fail" name="net.app.no-ipv4.app_tcp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_peer" name="net.app.no-ipv4.app_tcp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_peer_addr" name="net.app.no-ipv4.app_tcp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_peer_with_port" name="net.app.no-ipv4.app_tcp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp_server_init" name="net.app.no-ipv4.app_tcp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp_server_listen" name="net.app.no-ipv4.app_tcp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_hostname" name="net.app.no-ipv6.app_tcp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_hostname_fail" name="net.app.no-ipv6.app_tcp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_peer" name="net.app.no-ipv6.app_tcp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_peer_addr" name="net.app.no-ipv6.app_tcp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_peer_with_port" name="net.app.no-ipv6.app_tcp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_hostname" name="net.app.no-ipv6.app_tcp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_hostname_fail" name="net.app.no-ipv6.app_tcp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_peer" name="net.app.no-ipv6.app_tcp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_peer_addr" name="net.app.no-ipv6.app_tcp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_peer_with_port" name="net.app.no-ipv6.app_tcp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp_server_init" name="net.app.no-ipv6.app_tcp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp_server_listen" name="net.app.no-ipv6.app_tcp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_hostname" name="net.app.with-dns.app_tcp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_hostname_fail" name="net.app.with-dns.app_tcp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_peer" name="net.app.with-dns.app_tcp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_peer_addr" name="net.app.with-dns.app_tcp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_peer_with_port" name="net.app.with-dns.app_tcp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_hostname" name="net.app.with-dns.app_tcp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_hostname_fail" name="net.app.with-dns.app_tcp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_peer" name="net.app.with-dns.app_tcp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_peer_addr" name="net.app.with-dns.app_tcp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_peer_with_port" name="net.app.with-dns.app_tcp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp_server_init" name="net.app.with-dns.app_tcp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp_server_listen" name="net.app.with-dns.app_tcp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.tcp" name="net.tcp" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_protection.change_promisc_mode_off" name="kernel.memory_protection.change_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_protection.change_to_same_promisc_mode" name="kernel.memory_protection.change_to_same_promisc_mode" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_protection.sys_sem.sprintf_misc" name="kernel.memory_protection.sys_sem.sprintf_misc" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.check_promisc_mode_4_addr_add" name="kernel.timer.check_promisc_mode_4_addr_add" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.check_promisc_mode_off" name="kernel.timer.check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.check_promisc_mode_on" name="kernel.timer.check_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.set_promisc_mode_on" name="kernel.timer.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.v4_addr_add_usASS - check_promisc_mode_off" name="kernel.timer.v4_addr_add_usASS - check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:libraries.libc.sprintf_misc" name="libraries.libc.sprintf_misc" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:misc.app_dev.libcxx.array" name="misc.app_dev.libcxx.array" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:misc.app_dev.libcxx.exceptions.array" name="misc.app_dev.libcxx.exceptions.array" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:misc.app_dev.libcxx.exceptions.sched_is_preempt_thread" name="misc.app_dev.libcxx.exceptions.sched_is_preempt_thread" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:misc.app_dev.libcxx.exceptions.unlock_nested_sched_lock" name="misc.app_dev.libcxx.exceptions.unlock_nested_sched_lock" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:misc.app_dev.libcxx.exceptions.vector" name="misc.app_dev.libcxx.exceptions.vector" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:misc.app_dev.libcxx.msg_receiver_unlimited" name="misc.app_dev.libcxx.msg_receiver_unlimited" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:misc.app_dev.libcxx.vector" name="misc.app_dev.libcxx.vector" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_promisc_mode_off" name="net.ethernet_mgmt.change_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_promisc_mode_on" name="net.ethernet_mgmt.change_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_to_same_promisc_mode" name="net.ethernet_mgmt.change_to_same_promisc_mode" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.check_promisc_mode_off" name="net.iface.check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.check_promisc_mode_on" name="net.iface.check_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.check_promisc_mode_off" name="net.iface.no_userspace_allowed.check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.check_promisc_mode_on" name="net.iface.no_userspace_allowed.check_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_off" name="net.iface.no_userspace_allowed.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_on" name="net.iface.no_userspace_allowed.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_on_ag==========================" name="net.iface.no_userspace_allowed.set_promisc_mode_on_ag==========================" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_on_again" name="net.iface.no_userspace_allowed.set_promisc_mode_on_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.set_promisc_mode_off" name="net.iface.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.set_promisc_mode_on" name="net.iface.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.set_promisc_mode_on_again" name="net.iface.set_promisc_mode_on_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.check_promisc_mode_off" name="net.iface.with_userspace.check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.check_promisc_mode_on" name="net.iface.with_userspace.check_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.set_promisc_mode_off" name="net.iface.with_userspace.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.set_promisc_mode_on" name="net.iface.with_userspace.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.set_promisc_mode_on_again" name="net.iface.with_userspace.set_promisc_mode_on_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.iface_setup" name="net.promisc.iface_setup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.recv_data" name="net.promisc.recv_data" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.set_promisc_mode_off" name="net.promisc.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.set_promisc_mode_off_again" name="net.promisc.set_promisc_mode_off_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.set_promisc_mode_on" name="net.promisc.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.set_promisc_mode_on_again" name="net.promisc.set_promisc_mode_on_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.verify_data" name="net.promisc.verify_data" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.util.set_promisc_mode_off" name="net.util.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.util.set_promisc_mode_off_again" name="net.util.set_promisc_mode_off_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.select_src_iface" name="kernel.timer.select_src_iface" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.select_src_iface" name="net.iface.no_userspace_allowed.select_src_iface" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.select_src_iface" name="net.iface.select_src_iface" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.select_src_iface" name="net.iface.with_userspace.select_src_iface" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.select" name="net.socket.select" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:shell.cmd_select" name="shell.cmd_select" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:shell.select" name="shell.select" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_hostname" name="net.app.app_tcp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_hostname_fail" name="net.app.app_tcp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_peer" name="net.app.app_tcp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_peer_addr" name="net.app.app_tcp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp4_client_peer_with_port" name="net.app.app_tcp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_hostname" name="net.app.app_tcp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_hostname_fail" name="net.app.app_tcp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_peer" name="net.app.app_tcp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_peer_addr" name="net.app.app_tcp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp6_client_peer_with_port" name="net.app.app_tcp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp_server_init" name="net.app.app_tcp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_tcp_server_listen" name="net.app.app_tcp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_hostname" name="net.app.no-ipv4.app_tcp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_hostname_fail" name="net.app.no-ipv4.app_tcp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_peer" name="net.app.no-ipv4.app_tcp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_peer_addr" name="net.app.no-ipv4.app_tcp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp4_client_peer_with_port" name="net.app.no-ipv4.app_tcp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_hostname" name="net.app.no-ipv4.app_tcp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_hostname_fail" name="net.app.no-ipv4.app_tcp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_peer" name="net.app.no-ipv4.app_tcp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_peer_addr" name="net.app.no-ipv4.app_tcp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp6_client_peer_with_port" name="net.app.no-ipv4.app_tcp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp_server_init" name="net.app.no-ipv4.app_tcp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_tcp_server_listen" name="net.app.no-ipv4.app_tcp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_hostname" name="net.app.no-ipv6.app_tcp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_hostname_fail" name="net.app.no-ipv6.app_tcp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_peer" name="net.app.no-ipv6.app_tcp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_peer_addr" name="net.app.no-ipv6.app_tcp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp4_client_peer_with_port" name="net.app.no-ipv6.app_tcp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_hostname" name="net.app.no-ipv6.app_tcp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_hostname_fail" name="net.app.no-ipv6.app_tcp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_peer" name="net.app.no-ipv6.app_tcp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_peer_addr" name="net.app.no-ipv6.app_tcp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp6_client_peer_with_port" name="net.app.no-ipv6.app_tcp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp_server_init" name="net.app.no-ipv6.app_tcp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_tcp_server_listen" name="net.app.no-ipv6.app_tcp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_hostname" name="net.app.with-dns.app_tcp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_hostname_fail" name="net.app.with-dns.app_tcp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_peer" name="net.app.with-dns.app_tcp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_peer_addr" name="net.app.with-dns.app_tcp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp4_client_peer_with_port" name="net.app.with-dns.app_tcp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_hostname" name="net.app.with-dns.app_tcp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_hostname_fail" name="net.app.with-dns.app_tcp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_peer" name="net.app.with-dns.app_tcp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_peer_addr" name="net.app.with-dns.app_tcp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp6_client_peer_with_port" name="net.app.with-dns.app_tcp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp_server_init" name="net.app.with-dns.app_tcp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_tcp_server_listen" name="net.app.with-dns.app_tcp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.tcp" name="net.tcp" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp4_client_hostname" name="net.app.app_udp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp4_client_hostname_fail" name="net.app.app_udp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp4_client_peer" name="net.app.app_udp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp4_client_peer_addr" name="net.app.app_udp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp4_client_peer_with_port" name="net.app.app_udp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp6_client_hostname" name="net.app.app_udp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp6_client_hostname_fail" name="net.app.app_udp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp6_client_peer" name="net.app.app_udp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp6_client_peer_addr" name="net.app.app_udp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp6_client_peer_with_port" name="net.app.app_udp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp_server_init" name="net.app.app_udp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.app_udp_server_listen" name="net.app.app_udp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp4_client_hostname" name="net.app.no-ipv4.app_udp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp4_client_hostname_fail" name="net.app.no-ipv4.app_udp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp4_client_peer" name="net.app.no-ipv4.app_udp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp4_client_peer_addr" name="net.app.no-ipv4.app_udp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp4_client_peer_with_port" name="net.app.no-ipv4.app_udp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp6_client_hostname" name="net.app.no-ipv4.app_udp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp6_client_hostname_fail" name="net.app.no-ipv4.app_udp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp6_client_peer" name="net.app.no-ipv4.app_udp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp6_client_peer_addr" name="net.app.no-ipv4.app_udp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp6_client_peer_with_port" name="net.app.no-ipv4.app_udp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp_server_init" name="net.app.no-ipv4.app_udp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv4.app_udp_server_listen" name="net.app.no-ipv4.app_udp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp4_client_hostname" name="net.app.no-ipv6.app_udp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp4_client_hostname_fail" name="net.app.no-ipv6.app_udp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp4_client_peer" name="net.app.no-ipv6.app_udp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp4_client_peer_addr" name="net.app.no-ipv6.app_udp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp4_client_peer_with_port" name="net.app.no-ipv6.app_udp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp6_client_hostname" name="net.app.no-ipv6.app_udp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp6_client_hostname_fail" name="net.app.no-ipv6.app_udp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp6_client_peer" name="net.app.no-ipv6.app_udp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp6_client_peer_addr" name="net.app.no-ipv6.app_udp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp6_client_peer_with_port" name="net.app.no-ipv6.app_udp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp_server_init" name="net.app.no-ipv6.app_udp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.no-ipv6.app_udp_server_listen" name="net.app.no-ipv6.app_udp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp4_client_hostname" name="net.app.with-dns.app_udp4_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp4_client_hostname_fail" name="net.app.with-dns.app_udp4_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp4_client_peer" name="net.app.with-dns.app_udp4_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp4_client_peer_addr" name="net.app.with-dns.app_udp4_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp4_client_peer_with_port" name="net.app.with-dns.app_udp4_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp6_client_hostname" name="net.app.with-dns.app_udp6_client_hostname" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp6_client_hostname_fail" name="net.app.with-dns.app_udp6_client_hostname_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp6_client_peer" name="net.app.with-dns.app_udp6_client_peer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp6_client_peer_addr" name="net.app.with-dns.app_udp6_client_peer_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp6_client_peer_with_port" name="net.app.with-dns.app_udp6_client_peer_with_port" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp_server_init" name="net.app.with-dns.app_udp_server_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.app.with-dns.app_udp_server_listen" name="net.app.with-dns.app_udp_server_listen" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.ipv6.fragment.find_last_ipv6_fragment_hbho_udp" name="net.ipv6.fragment.find_last_ipv6_fragment_hbho_udp" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.ipv6.fragment.find_last_ipv6_fragment_udp" name="net.ipv6.fragment.find_last_ipv6_fragment_udp" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.udp.net_buf_test_fixed_pool" name="net.udp.net_buf_test_fixed_pool" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.udp.recv_ipv6_fragment" name="net.udp.recv_ipv6_fragment" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.udp.send_ipv6_fragment_without_hbho" name="net.udp.send_ipv6_fragment_without_hbho" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.udp.udp" name="net.udp.udp" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:bluetooth.gatt.gatt_register" name="bluetooth.gatt.gatt_register" time="0">
       </testcase>
@@ -384,6 +1012,60 @@
       </testcase>
       <testcase classname="mimxrt1064_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
       </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_add" name="kernel.stack.route_add" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_add_many" name="kernel.stack.route_add_many" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_adhop" name="kernel.stack.route_adhop" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_del" name="kernel.stack.route_del" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_del_again" name="kernel.stack.route_del_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_del_many" name="kernel.stack.route_del_many" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_del_nexthop" name="kernel.stack.route_del_nexthop" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_del_nexthop_again" name="kernel.stack.route_del_nexthop_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_delookup_ok" name="kernel.stack.route_delookup_ok" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_get_nexthop" name="kernel.stack.route_get_nexthop" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_lookup_fail" name="kernel.stack.route_lookup_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.stack.route_lookup_ok" name="kernel.stack.route_lookup_ok" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.init" name="net.route.init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.isr_stack_play" name="net.route.isr_stack_play" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.net_ctx_create" name="net.route.net_ctx_create" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.populate_nbr_cache" name="net.route.populate_nbr_cache" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_add" name="net.route.route_add" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_add_many" name="net.route.route_add_many" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_del" name="net.route.route_del" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_del_again" name="net.route.route_del_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_del_many" name="net.route.route_del_many" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_del_nexthop" name="net.route.route_del_nexthop" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_del_nexthop_again" name="net.route.route_del_nexthop_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_get_nexthop" name="net.route.route_get_nexthop" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_lookup_fail" name="net.route.route_lookup_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_lookup_ok" name="net.route.route_lookup_ok" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.route.route_update" name="net.route.route_update" time="0">
+      </testcase>
       <testcase classname="mimxrt1064_evk:kernel.common.clock_cycle" name="kernel.common.clock_cycle" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:kernel.common.clock_uptime" name="kernel.common.clock_uptime" time="0">
@@ -419,6 +1101,76 @@
       <testcase classname="mimxrt1064_evk:portability.posix.newlib.posix_clock" name="portability.posix.newlib.posix_clock" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:portability.posix.posix_clock" name="portability.posix.posix_clock" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_protection.change_promisc_mode_off" name="kernel.memory_protection.change_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_protection.change_to_same_promisc_mode" name="kernel.memory_protection.change_to_same_promisc_mode" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.check_promisc_mode_4_addr_add" name="kernel.timer.check_promisc_mode_4_addr_add" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.check_promisc_mode_off" name="kernel.timer.check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.check_promisc_mode_on" name="kernel.timer.check_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.set_promisc_mode_on" name="kernel.timer.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timer.v4_addr_add_usASS - check_promisc_mode_off" name="kernel.timer.v4_addr_add_usASS - check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_promisc_mode_off" name="net.ethernet_mgmt.change_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_promisc_mode_on" name="net.ethernet_mgmt.change_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_to_same_promisc_mode" name="net.ethernet_mgmt.change_to_same_promisc_mode" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.check_promisc_mode_off" name="net.iface.check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.check_promisc_mode_on" name="net.iface.check_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.check_promisc_mode_off" name="net.iface.no_userspace_allowed.check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.check_promisc_mode_on" name="net.iface.no_userspace_allowed.check_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_off" name="net.iface.no_userspace_allowed.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_on" name="net.iface.no_userspace_allowed.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_on_ag==========================" name="net.iface.no_userspace_allowed.set_promisc_mode_on_ag==========================" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_on_again" name="net.iface.no_userspace_allowed.set_promisc_mode_on_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.set_promisc_mode_off" name="net.iface.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.set_promisc_mode_on" name="net.iface.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.set_promisc_mode_on_again" name="net.iface.set_promisc_mode_on_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.check_promisc_mode_off" name="net.iface.with_userspace.check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.check_promisc_mode_on" name="net.iface.with_userspace.check_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.set_promisc_mode_off" name="net.iface.with_userspace.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.set_promisc_mode_on" name="net.iface.with_userspace.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.iface.with_userspace.set_promisc_mode_on_again" name="net.iface.with_userspace.set_promisc_mode_on_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.iface_setup" name="net.promisc.iface_setup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.recv_data" name="net.promisc.recv_data" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.set_promisc_mode_off" name="net.promisc.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.set_promisc_mode_off_again" name="net.promisc.set_promisc_mode_off_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.set_promisc_mode_on" name="net.promisc.set_promisc_mode_on" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.set_promisc_mode_on_again" name="net.promisc.set_promisc_mode_on_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.promisc.verify_data" name="net.promisc.verify_data" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.util.set_promisc_mode_off" name="net.util.set_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.util.set_promisc_mode_off_again" name="net.util.set_promisc_mode_off_again" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
       </testcase>
@@ -524,6 +1276,114 @@
       </testcase>
       <testcase classname="mimxrt1064_evk:shell.too_long_line_not_stored" name="shell.too_long_line_not_stored" time="0">
       </testcase>
+      <testcase classname="mimxrt1064_evk:benchmark.boot_time.dns_query_invalid_context" name="benchmark.boot_time.dns_query_invalid_context" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.common.errno.thread_context" name="kernel.common.errno.thread_context" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.common.misra.thread_context" name="kernel.common.misra.thread_context" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.common.thread_context" name="kernel.common.thread_context" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.fifo.timeout.dns_query_invalid_context" name="kernel.fifo.timeout.dns_query_invalid_context" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_protection.userspace.domain_add_part_context_switch" name="kernel.memory_protection.userspace.domain_add_part_context_switch" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_protection.userspace.domain_add_thread_context_switch" name="kernel.memory_protection.userspace.domain_add_thread_context_switch" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_protection.userspace.domain_remove_part_context_switch" name="kernel.memory_protection.userspace.domain_remove_part_context_switch" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_protection.userspace.domain_remove_thread_context_switch" name="kernel.memory_protection.userspace.domain_remove_thread_context_switch" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_slabs.domain_add_part_context_switch" name="kernel.memory_slabs.domain_add_part_context_switch" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_slabs.domain_add_part_context_switchruction address (r15/pc): 0x00000c34" name="kernel.memory_slabs.domain_add_part_context_switchruction address (r15/pc): 0x00000c34" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_slabs.domain_add_thread_context_switch" name="kernel.memory_slabs.domain_add_thread_context_switch" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_slabs.domain_remove_part_context_switch" name="kernel.memory_slabs.domain_remove_part_context_switch" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.memory_slabs.domain_remove_thread_context_switch" name="kernel.memory_slabs.domain_remove_thread_context_switch" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.init" name="net.context.init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_accept_v4" name="net.context.net_ctx_accept_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_accept_v6" name="net.context.net_ctx_accept_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_bind_fail" name="net.context.net_ctx_bind_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_bind_mcast_success" name="net.context.net_ctx_bind_mcast_success" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_bind_uni_success_v4" name="net.context.net_ctx_bind_uni_success_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_bind_uni_success_v6" name="net.context.net_ctx_bind_uni_success_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_connect_v4" name="net.context.net_ctx_connect_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_connect_v6" name="net.context.net_ctx_connect_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_create" name="net.context.net_ctx_create" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_get_all" name="net.context.net_ctx_get_all" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_get_fail" name="net.context.net_ctx_get_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_get_success" name="net.context.net_ctx_get_success" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_listen_v4" name="net.context.net_ctx_listen_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_listen_v6" name="net.context.net_ctx_listen_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_put" name="net.context.net_ctx_put" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v4" name="net.context.net_ctx_recv_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v4_again" name="net.context.net_ctx_recv_v4_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v4_fail" name="net.context.net_ctx_recv_v4_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v4_reconfig" name="net.context.net_ctx_recv_v4_reconfig" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v4_timeout" name="net.context.net_ctx_recv_v4_timeout" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v4_timeout_forever" name="net.context.net_ctx_recv_v4_timeout_forever" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v6" name="net.context.net_ctx_recv_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v6_again" name="net.context.net_ctx_recv_v6_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v6_fail" name="net.context.net_ctx_recv_v6_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v6_reconfig" name="net.context.net_ctx_recv_v6_reconfig" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v6_timeout" name="net.context.net_ctx_recv_v6_timeout" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_recv_v6_timeout_forever" name="net.context.net_ctx_recv_v6_timeout_forever" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_send_v4" name="net.context.net_ctx_send_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_send_v6" name="net.context.net_ctx_send_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_sendto_v4" name="net.context.net_ctx_sendto_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.context.net_ctx_sendto_v6" name="net.context.net_ctx_sendto_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.dns.dns_query_invalid_context" name="net.dns.dns_query_invalid_context" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.dns.no_ipv6.dns_query_invalid_context" name="net.dns.no_ipv6.dns_query_invalid_context" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.neighbour.addr_parse" name="net.neighbour.addr_parse" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.neighbour.neighbor" name="net.neighbour.neighbor" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.neighbour.net_addr" name="net.neighbour.net_addr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.neighbour.net_addrt - test_ipv4_ntop_3" name="net.neighbour.net_addrt - test_ipv4_ntop_3" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.neighbour.tetarting test - test_ipv4_ntop_3" name="net.neighbour.tetarting test - test_ipv4_ntop_3" time="0">
+      </testcase>
       <testcase classname="mimxrt1064_evk:net.coap.mqtt_packet" name="net.coap.mqtt_packet" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:net.mqtt.mqtt_connect" name="net.mqtt.mqtt_connect" time="0">
@@ -587,6 +1447,90 @@
       <testcase classname="mimxrt1064_evk:net.tls_credentials.credential_get" name="net.tls_credentials.credential_get" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:net.tls_credentials.credential_internal_iterate" name="net.tls_credentials.credential_internal_iterate" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mqtt.subscriber.mqtt_connect" name="net.mqtt.subscriber.mqtt_connect" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mqtt.subscriber.mqtt_disconnect" name="net.mqtt.subscriber.mqtt_disconnect" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mqtt.subscriber.mqtt_init" name="net.mqtt.subscriber.mqtt_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mqtt.subscriber.mqtt_subscribe" name="net.mqtt.subscriber.mqtt_subscribe" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mqtt.subscriber.mqtt_unsubscribe" name="net.mqtt.subscriber.mqtt_unsubscribe" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.allnodes" name="net.mld.allnodes" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.allny_join_group" name="net.mld.allny_join_group" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.catch_join_group" name="net.mld.catch_join_group" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.catch_leave_group" name="net.mld.catch_leave_group" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.catch_query" name="net.mld.catch_query" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.join_group" name="net.mld.join_group" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.leave_group" name="net.mld.leave_group" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.mld_setup" name="net.mld.mld_setup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_accept_v4" name="net.mld.net_ctx_accept_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_bind_fail" name="net.mld.net_ctx_bind_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_bind_mcast_success" name="net.mld.net_ctx_bind_mcast_success" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_bind_uni_success_v4" name="net.mld.net_ctx_bind_uni_success_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_bind_uni_success_v6" name="net.mld.net_ctx_bind_uni_success_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_lis net_ctx_sendto_v6" name="net.mld.net_ctx_lis net_ctx_sendto_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_liste=======" name="net.mld.net_ctx_liste=======" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_listen_v6" name="net.mld.net_ctx_listen_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_recv_v4" name="net.mld.net_ctx_recv_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_recv_v4_again" name="net.mld.net_ctx_recv_v4_again" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_recv_v4_reconfig" name="net.mld.net_ctx_recv_v4_reconfig" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_recv_v6" name="net.mld.net_ctx_recv_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_recv_v6_fail" name="net.mld.net_ctx_recv_v6_fail" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_recv_v6_reconfig" name="net.mld.net_ctx_recv_v6_reconfig" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_send_v4" name="net.mld.net_ctx_send_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_send_v6" name="net.mld.net_ctx_send_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_sendto_v4" name="net.mld.net_ctx_sendto_v4" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.net_ctx_sendto_v6" name="net.mld.net_ctx_sendto_v6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.solicit_node" name="net.mld.solicit_node" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.tesASS - verify_leave_group" name="net.mld.tesASS - verify_leave_group" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.verify_join- join_group" name="net.mld.verify_join- join_group" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.verify_join_group" name="net.mld.verify_join_group" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.verify_leave_group" name="net.mld.verify_leave_group" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.mld.verify_send_report" name="net.mld.verify_send_report" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.threads.dynamic.thread_index_management" name="kernel.threads.dynamic.thread_index_management" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.threads.thread_index_management" name="kernel.threads.thread_index_management" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.management.kdefine_preempt_thread" name="net.management.kdefine_preempt_thread" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:net.management.mgmt" name="net.management.mgmt" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:power_management.power_states.power_state" name="power_management.power_states.power_state" time="0">
       </testcase>
   </testsuite>
 </testsuites>

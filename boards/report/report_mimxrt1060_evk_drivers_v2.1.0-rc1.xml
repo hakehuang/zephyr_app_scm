@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="468" errors="0" failures="0" name="" skipped="12" time="0">
+    <testsuite tests="470" errors="0" failures="0" name="" skipped="7" time="0">
       <testcase classname="mimxrt1060_evk:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
@@ -13,21 +13,6 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1060_evk:net.dns.mdns_response" name="net.dns.mdns_response" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1060_evk:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1060_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1060_evk:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1060_evk:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1060_evk:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1060_evk:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
@@ -46,126 +31,6 @@
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1060_evk:tracing.openocd" name="tracing.openocd" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:crypto.rand32.random_sw_systimer.fatal" name="crypto.rand32.random_sw_systimer.fatal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:crypto.rand32.random_sw_systimer.te" name="crypto.rand32.random_sw_systimer.te" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.common.kernel_timer_interrupts" name="kernel.common.kernel_timer_interrupts" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.multiq.wakeup_expired_timer_thread" name="kernel.sched.multiq.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.multiq_no_timeslicing.wakeup_expired_timer_thread" name="kernel.sched.multiq_no_timeslicing.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.wakeup_expired_timer_thread" name="kernel.sched.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched_no_timeslicing.wakeup_expired_timer_thread" name="kernel.sched_no_timeslicing.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.tickless.wakeup_expired_timer_thread" name="kernel.tickless.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.check=========================================================" name="kernel.timer.check=========================================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.check_promisc_mode_4_addr_add" name="kernel.timer.check_promisc_mode_4_addr_add" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.check_promisc_mode_off" name="kernel.timer.check_promisc_mode_off" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.check_promisc_mode_on" name="kernel.timer.check_promisc_mode_on" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.gw_addr_add" name="kernel.timer.gw_addr_add" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.select_src_iface" name="kernel.timer.select_src_iface" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.send_iface1_up" name="kernel.timer.send_iface1_up" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.set_promisc_mode_on" name="kernel.timer.set_promisc_mode_on" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer" name="kernel.timer.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_duration_period" name="kernel.timer.timer_duration_period" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_expirefn_null" name="kernel.timer.timer_expirefn_null" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_k_define" name="kernel.timer.timer_k_define" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_period_0" name="kernel.timer.timer_period_0" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_status_get_anytime" name="kernel.timer.timer_status_get_anytime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v4_addr_add" name="kernel.timer.v4_addr_add" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v4_addr_add_usASS - check_promisc_mode_off" name="kernel.timer.v4_addr_add_usASS - check_promisc_mode_off" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v4_addr_add_user" name="kernel.timer.v4_addr_add_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v4_addr_lookup" name="kernel.timer.v4_addr_lookup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v4_addr_rm" name="kernel.timer.v4_addr_rm" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v6_addr_add" name="kernel.timer.v6_addr_add" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v6_addr_add_user" name="kernel.timer.v6_addr_add_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v6_addr_lookup" name="kernel.timer.v6_addr_lookup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v6_addr_lookup_ - v6_addr_add" name="kernel.timer.v6_addr_lookup_ - v6_addr_add" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v6_addr_lookup_user" name="kernel.timer.v6_addr_lookup_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v6_addr_rm" name="kernel.timer.v6_addr_rm" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.timer.v6ddr_add" name="kernel.timer.v6ddr_add" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:peripheral.counter.aon_periodic_timer" name="peripheral.counter.aon_periodic_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.cmsis_rtos_v1.timer" name="portability.cmsis_rtos_v1.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.cmsis_rtos_v2.timer" name="portability.cmsis_rtos_v2.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_timer" name="portability.posix.newlib.posix_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_timer" name="portability.posix.posix_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.timer" name="portability.posix.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.timer_support" name="portability.posix.timer_support" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.timer" name="testing.ztest.customized_output.timer" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
       </testcase>
@@ -188,6 +53,332 @@
       <testcase classname="mimxrt1060_evk:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.delay" name="testing.ztest.customized_output.delay" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.event_flags_isr" name="testing.ztest.customized_output.event_flags_isr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.event_flags_signalled" name="testing.ztest.customized_output.event_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.kernel_apis" name="testing.ztest.customized_output.kernel_apis" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.mempool" name="testing.ztest.customized_output.mempool" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.mempool_dynamic" name="testing.ztest.customized_output.mempool_dynamic" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.messageq" name="testing.ztest.customized_output.messageq" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.mutex" name="testing.ztest.customized_output.mutex" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.mutex_lock_timeout" name="testing.ztest.customized_output.mutex_lock_timeout" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.semaphore" name="testing.ztest.customized_output.semaphore" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.t- test_thread_prio_dynamic" name="testing.ztest.customized_output.t- test_thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.te6" name="testing.ztest.customized_output.te6" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.thrd B started." name="testing.ztest.customized_output.thrd B started." time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.thread_apis" name="testing.ztest.customized_output.thread_apis" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.thread_apis_dynamic" name="testing.ztest.customized_output.thread_apis_dynamic" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.thread_flags_isr" name="testing.ztest.customized_output.thread_flags_isr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.thread_flags_no_wait_timeout" name="testing.ztest.customized_output.thread_flags_no_wait_timeout" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.thread_flags_signalled" name="testing.ztest.customized_output.thread_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.thread_prio" name="testing.ztest.customized_output.thread_prio" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.thread_prio_dynamic" name="testing.ztest.customized_output.thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:testing.ztest.customized_output.timer" name="testing.ztest.customized_output.timer" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.multiprocessing.sleep_threads" name="kernel.multiprocessing.sleep_threads" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched.multiq.sleep_cooperative" name="kernel.sched.multiq.sleep_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched.multiq.sleep_wakeup_preemptible" name="kernel.sched.multiq.sleep_wakeup_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched.multiq_no_timeslicing.sleep_cooperative" name="kernel.sched.multiq_no_timeslicing.sleep_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched.multiq_no_timeslicing.sleep_wakeup_preemptible" name="kernel.sched.multiq_no_timeslicing.sleep_wakeup_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched.sleep_cooperative" name="kernel.sched.sleep_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched_no_timeslicing.sleep_cooperative" name="kernel.sched_no_timeslicing.sleep_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.sched_no_timeslicing.sleep_wakeup_preemptible" name="kernel.sched_no_timeslicing.sleep_wakeup_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.tickless.sleep================================================" name="kernel.tickless.sleep================================================" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.tickless.sleep_cooperative" name="kernel.tickless.sleep_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.tickless.sleep_wake===============" name="kernel.tickless.sleep_wake===============" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.tickless.sleep_wakeup_preemp======" name="kernel.tickless.sleep_wakeup_preemp======" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.tickless.sleep_wakeup_preemptible" name="kernel.tickless.sleep_wakeup_preemptible" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.byte_put_free" name="libraries.data_structures.byte_put_free" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.capacity" name="libraries.data_structures.capacity" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.rbtree.rbtree_spam" name="libraries.data_structures.rbtree.rbtree_spam" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.reset" name="libraries.data_structures.reset" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ring_buffer_main" name="libraries.data_structures.ring_buffer_main" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_alloc_put" name="libraries.data_structures.ringbuffer_alloc_put" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_declare_pow2" name="libraries.data_structures.ringbuffer_declare_pow2" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_declare_size" name="libraries.data_structures.ringbuffer_declare_size" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_init" name="libraries.data_structures.ringbuffer_init" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" name="libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_put_get_isr" name="libraries.data_structures.ringbuffer_put_get_isr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_put_get_thread" name="libraries.data_structures.ringbuffer_put_get_thread" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_put_get_thread_isr" name="libraries.data_structures.ringbuffer_put_get_thread_isr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_size_put_get_thread_isr" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fat.fat_fs" name="filesystem.fat.fat_fs" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fat_mount" name="filesystem.fs_shell.fat_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fat_open" name="filesystem.fs_shell.fat_open" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fat_read" name="filesystem.fs_shell.fat_read" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fat_readdir" name="filesystem.fs_shell.fat_readdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fat_rmdir" name="filesystem.fs_shell.fat_rmdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fat_unlink" name="filesystem.fs_shell.fat_unlink" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fat_write" name="filesystem.fs_shell.fat_write" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fs_help" name="filesystem.fs_shell.fs_help" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.fs_shell_exit" name="filesystem.fs_shell.fs_shell_exit" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fat_close" name="filesystem.multifs.fat_close" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fat_mkdir" name="filesystem.multifs.fat_mkdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fat_mount" name="filesystem.multifs.fat_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fat_open" name="filesystem.multifs.fat_open" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fat_read" name="filesystem.multifs.fat_read" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fat_readdir" name="filesystem.multifs.fat_readdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fat_rmdir" name="filesystem.multifs.fat_rmdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fat_unlink" name="filesystem.multifs.fat_unlink" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fat_write" name="filesystem.multifs.fat_write" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fs_help" name="filesystem.multifs.fs_help" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.nffs_mkdir" name="filesystem.multifs.nffs_mkdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.nffs_mount" name="filesystem.multifs.nffs_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.nffs_open" name="filesystem.multifs.nffs_open" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.nffs_read" name="filesystem.multifs.nffs_read" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.nffs_readdir" name="filesystem.multifs.nffs_readdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.nffs_unlink" name="filesystem.multifs.nffs_unlink" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.multifs.nffs_write" name="filesystem.multifs.nffs_write" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.append" name="filesystem.nffs.basic.append" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.corrupt_block" name="filesystem.nffs.basic.corrupt_block" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.corrupt_scratch" name="filesystem.nffs.basic.corrupt_scratch" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.fs_mount" name="filesystem.nffs.basic.fs_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.gc" name="filesystem.nffs.basic.gc" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.gc_on_oom" name="filesystem.nffs.basic.gc_on_oom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.incomplete_block" name="filesystem.nffs.basic.incomplete_block" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.large_write" name="filesystem.nffs.basic.large_write" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.long_filename" name="filesystem.nffs.basic.long_filename" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.lost_found" name="filesystem.nffs.basic.lost_found" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.many_children" name="filesystem.nffs.basic.many_children" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.mkdir" name="filesystem.nffs.basic.mkdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.open" name="filesystem.nffs.basic.open" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.overwrite_many" name="filesystem.nffs.basic.overwrite_many" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.overwrite_one" name="filesystem.nffs.basic.overwrite_one" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.overwrite_three" name="filesystem.nffs.basic.overwrite_three" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.overwrite_two" name="filesystem.nffs.basic.overwrite_two" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.read" name="filesystem.nffs.basic.read" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.readdir" name="filesystem.nffs.basic.readdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.rename" name="filesystem.nffs.basic.rename" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.split_file" name="filesystem.nffs.basic.split_file" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.unlink" name="filesystem.nffs.basic.unlink" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.basic.wear_level" name="filesystem.nffs.basic.wear_level" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.cache.cache_large_file" name="filesystem.nffs.cache.cache_large_file" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.cache.fs_mount" name="filesystem.nffs.cache.fs_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.large.fs_mount" name="filesystem.nffs.large.fs_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.large.large_system" name="filesystem.nffs.large.large_system" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.large.large_unlink" name="filesystem.nffs.large.large_unlink" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.performance.fs_mount" name="filesystem.nffs.performance.fs_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:filesystem.nffs.performance.performance" name="filesystem.nffs.performance.performance" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:kernel.memory_heap.fs_readdir" name="kernel.memory_heap.fs_readdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.fs_fd_leak" name="portability.posix.fs_fd_leak" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_fd_leak" name="portability.posix.newlib.fs_fd_leak" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_commit" name="system.settings.nffs.config_commit" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_compress_file" name="system.settings.nffs.config_compress_file" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_empty_file" name="system.settings.nffs.config_empty_file" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_empty_lookups" name="system.settings.nffs.config_empty_lookups" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_getset_bytes" name="system.settings.nffs.config_getset_bytes" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_getset_int" name="system.settings.nffs.config_getset_int" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_getset_int64" name="system.settings.nffs.config_getset_int64" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_getset_unknown" name="system.settings.nffs.config_getset_unknown" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_insert" name="system.settings.nffs.config_insert" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_multiple_in_file" name="system.settings.nffs.config_multiple_in_file" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_save_in_file" name="system.settings.nffs.config_save_in_file" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_save_one_file" name="system.settings.nffs.config_save_one_file" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_setup_nffs" name="system.settings.nffs.config_setup_nffs" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:system.settings.nffs.config_small_file" name="system.settings.nffs.config_small_file" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:arch.arm.swap.common.arm_thread_swap" name="arch.arm.swap.common.arm_thread_swap" time="0">
       </testcase>
@@ -418,198 +609,6 @@
       <testcase classname="mimxrt1060_evk:kernel.fp_sharing.float_disable.arm.k_float_disable_common" name="kernel.fp_sharing.float_disable.arm.k_float_disable_common" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:kernel.fp_sharing.float_disable.x86.k_float_disable_common" name="kernel.fp_sharing.float_disable.x86.k_float_disable_common" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.byte_put_free" name="libraries.data_structures.byte_put_free" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.capacity" name="libraries.data_structures.capacity" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.rbtree.rbtree_spam" name="libraries.data_structures.rbtree.rbtree_spam" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.reset" name="libraries.data_structures.reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ring_buffer_main" name="libraries.data_structures.ring_buffer_main" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_alloc_put" name="libraries.data_structures.ringbuffer_alloc_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_declare_pow2" name="libraries.data_structures.ringbuffer_declare_pow2" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_declare_size" name="libraries.data_structures.ringbuffer_declare_size" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_init" name="libraries.data_structures.ringbuffer_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" name="libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_put_get_isr" name="libraries.data_structures.ringbuffer_put_get_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_put_get_thread" name="libraries.data_structures.ringbuffer_put_get_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_put_get_thread_isr" name="libraries.data_structures.ringbuffer_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.ringbuffer_size_put_get_thread_isr" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:libraries.data_structures.rbtree.rbtree_spam" name="libraries.data_structures.rbtree.rbtree_spam" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.call_stacks_analyze_workq" name="portability.posix.call_stacks_analyze_workq" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.clock_support" name="portability.posix.clock_support" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.filter_handling" name="portability.posix.filter_handling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.fs_close" name="portability.posix.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.fs_fd_leak" name="portability.posix.fs_fd_leak" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.fs_mkdir" name="portability.posix.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.fs_mount" name="portability.posix.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.fs_open" name="portability.posix.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.fs_read" name="portability.posix.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.fs_readdir" name="portability.posix.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.fs_unlink" name="portability.posix.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.fs_write" name="portability.posix.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.mqueue" name="portability.posix.mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.mutex.mutex_normal" name="portability.posix.mutex.mutex_normal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.mutex.recursive_mutex" name="portability.posix.mutex.recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_close" name="portability.posix.newlib.fs_close" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_fd_leak" name="portability.posix.newlib.fs_fd_leak" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_mkdir" name="portability.posix.newlib.fs_mkdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_mount" name="portability.posix.newlib.fs_mount" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_open" name="portability.posix.newlib.fs_open" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_read" name="portability.posix.newlib.fs_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_readdir" name="portability.posix.newlib.fs_readdir" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_unlink" name="portability.posix.newlib.fs_unlink" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.fs_write" name="portability.posix.newlib.fs_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.gen_gz_inc_file_mtime_arg" name="portability.posix.newlib.gen_gz_inc_file_mtime_arg" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_clock" name="portability.posix.newlib.posix_clock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_mqueue" name="portability.posix.newlib.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_multiple_threads_single_key" name="portability.posix.newlib.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_normal_mutex" name="portability.posix.newlib.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_pthread_execution" name="portability.posix.newlib.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_pthread_termination" name="portability.posix.newlib.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_realtime" name="portability.posix.newlib.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_recursive_mutex" name="portability.posix.newlib.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_rw_lock" name="portability.posix.newlib.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_semaphore" name="portability.posix.newlib.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_single_thread_multiple_keys" name="portability.posix.newlib.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.posix_timer" name="portability.posix.newlib.posix_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.ring_buffer_main" name="portability.posix.newlib.ring_buffer_main" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.ringbuffer_raw" name="portability.posix.newlib.ringbuffer_raw" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.ringbuffer_size_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_size_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_clock" name="portability.posix.posix_clock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_mqueue" name="portability.posix.posix_mqueue" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_multiple_threads_single_key" name="portability.posix.posix_multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_normal_mutex" name="portability.posix.posix_normal_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_pthread_execution" name="portability.posix.posix_pthread_execution" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_pthread_termination" name="portability.posix.posix_pthread_termination" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_realtime" name="portability.posix.posix_realtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_recursive_mutex" name="portability.posix.posix_recursive_mutex" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_rw_lock" name="portability.posix.posix_rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_semaphore" name="portability.posix.posix_semaphore" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_single_thread_multiple_keys" name="portability.posix.posix_single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.posix_timer" name="portability.posix.posix_timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.pthread" name="portability.posix.pthread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.pthread_cancel" name="portability.posix.pthread_cancel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.pthread_equal" name="portability.posix.pthread_equal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.pthread_join" name="portability.posix.pthread_join" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.pthread_key.multiple_threads_single_key" name="portability.posix.pthread_key.multiple_threads_single_key" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.pthread_key.single_thread_multiple_keys" name="portability.posix.pthread_key.single_thread_multiple_keys" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.rw_lock" name="portability.posix.rw_lock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.sched_policy" name="portability.posix.sched_policy" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.sema" name="portability.posix.sema" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.timer" name="portability.posix.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:portability.posix.timer_support" name="portability.posix.timer_support" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
       </testcase>

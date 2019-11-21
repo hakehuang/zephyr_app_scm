@@ -1,8 +1,8 @@
 ---
 settings:
-  case_pipe_name: frdm_k64f_usb
+  case_pipe_name: twr_kv58f220m_kernel
   build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_elf.sh
+  run_script: run_elf_twrkv58f.sh
   no_filter:
   - CONFIG_ENTROPY_HAS_DRIVER
   - CONFIG_CPU_ARCV2
@@ -11,25 +11,15 @@ cases:
   misc.crc:
     bin: testbinary
     attribute: required
-  peripheral.spi:
-    build_only: true
-    attribute: required
-  peripheral.pinmux:
-    comments: no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/
-    result: skip
-    attribute: required
-  net.build:
-    comments: build error
-    result: skip
-    attribute: required
-  sample.net.sockets.echo_server.mcr20a:
-    result: skip
-    comments: run error http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_samples/detail/frdmk64f/2/pipeline/153/
-    attribute: required
   samples.net.google_iot_mqtt:
-    comments: no goolge web access so build only
+    result: skip
+    comments: code size issue
     scripts:
     - ''
+    build_only: true
+    attribute: required
+  peripheral.spi:
+    comments: need add board support
     build_only: true
     attribute: required
   libraries.libc.newlibnano:
@@ -79,6 +69,9 @@ cases:
   kernel.common.stack_sentinel:
     comments: no sentinel
     result: skip
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults
+    extra_args: CONF_FILE=sentinel.conf
     attribute: required
   sample.net.sockets.echo_server.usbnet:
     comments: not support
@@ -88,146 +81,449 @@ cases:
     commetns: not support
     result: skip
     attribute: required
-  usb.osdesc:
-    path: tests/subsys/usb/os_desc
-    catalog: usb osdesc
-    platform_whitelist: native_posix native_posix_64 frdm_k64f
-    attribute: required
-  sample.net.zperf.netusb_ecm:
-    path: samples/net/zperf
-    catalog: usb net zperf
-    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: usb_device
-    platform_exclude: native_posix native_posix_64 sam_e70_xplained
-    min_ram: 64
-    attribute: required
-  sample.net.zperf.netusb_eem:
-    path: samples/net/zperf
-    catalog: usb net zperf
-    extra_configs:
-    - CONFIG_USB_DEVICE_NETWORK_ECM=n
-    - CONFIG_USB_DEVICE_NETWORK_EEM=y
-    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: usb_device
-    platform_exclude: native_posix native_posix_64 sam_e70_xplained
-    min_ram: 64
-    attribute: required
-  sample.net.zperf.netusb_rndis:
-    path: samples/net/zperf
-    catalog: usb net zperf
-    extra_configs:
-    - CONFIG_USB_DEVICE_NETWORK_ECM=n
-    - CONFIG_USB_DEVICE_NETWORK_RNDIS=y
-    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: usb_device
-    platform_exclude: native_posix native_posix_64 sam_e70_xplained
-    min_ram: 64
-    attribute: required
-  usb.desc_sections:
-    path: tests/subsys/usb/desc_sections
-    catalog: usb desc_sections
-    depends_on: usb_device
-    attribute: required
-  usb.bos:
-    path: tests/subsys/usb/bos
-    catalog: usb bos
-    depends_on: usb_device
-    attribute: required
-  sample.bluetooth.hci_usb:
-    path: samples/bluetooth/hci_usb
-    catalog: usb bluetooth
-    depends_on: usb_device ble
-    platform_exclude: 96b_carbon
-    attribute: required
-  sample.net.sockets.dumb_http_server.netusb:
-    path: samples/net/sockets/dumb_http_server
-    catalog: usb
-    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: usb_device
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  kernel.memory_pool.sys:
+    path: tests/kernel/mem_pool/sys_mem_pool
+    catalog: kernel userspace mem_pool
     min_ram: 32
-    min_flash: 96
     attribute: required
-  sample.net.sockets.dumb_http_server.netusb_zeroconf:
-    path: samples/net/sockets/dumb_http_server
-    catalog: usb
-    extra_args: OVERLAY_CONFIG="overlay-netusb.conf;overlay-zeroconf.conf"
-    depends_on: usb_device
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  kernel.pipe:
+    path: tests/kernel/pipe/pipe
+    catalog: kernel userspace ignore_faults
+    attribute: required
+  kernel.common:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    min_flash: 33
     min_ram: 32
-    min_flash: 96
     attribute: required
-  sample.net.wpan.serial:
-    path: samples/net/wpan_serial
-    catalog: usb
-    depends_on: usb_device
-    skip: true
+  kernel.common.misra:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_MISRA_SANE=y
+    min_flash: 33
+    min_ram: 32
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
     attribute: required
-  sample.usb.hid-mouse:
-    path: samples/subsys/usb/hid-mouse
-    catalog: usb
-    depends_on: usb_device gpio
-    filter: dt_alias_exists("sw0")
+  kernel.fp_sharing.float_disable.arm:
+    path: tests/kernel/fp_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_INTERRUPTS=y
+    arch_whitelist: arm
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
     attribute: required
-  sample.usb.cdc-acm:
-    path: samples/subsys/usb/cdc_acm
-    catalog: usb
-    depends_on: usb_device gpio
+  kernel.fp_sharing.float_disable.x86:
+    path: tests/kernel/fp_sharing/float_disable
+    catalog: kernel userspace
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_whitelist: qemu_x86
     attribute: required
-  sample.usb.cdc-acm.comp:
-    path: samples/subsys/usb/cdc_acm
-    catalog: usb
-    extra_args: "-DOVERLAY_CONFIG=overlay-composite-cdc-msc.conf"
-    depends_on: usb_device gpio
+  kernel.futex:
+    path: tests/kernel/mem_protect/futex
+    catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    min_ram: 36
     attribute: required
-  sample.usb.cdc-acm-composite:
-    path: samples/subsys/usb/cdc_acm_composite
-    catalog: usb
-    depends_on: usb_device gpio
+  kernel.memory_protection.sys_sem:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel userspace
+    min_ram: 36
     attribute: required
-  sample.subsys.usb.console:
-    path: samples/subsys/usb/console
-    catalog: usb
-    depends_on: usb_device usb_cdc
+  kernel.message_queue:
+    path: tests/kernel/msgq/msgq_api
+    catalog: kernel userspace
     attribute: required
-  sample.subsys.usb.dfu:
-    path: samples/subsys/usb/dfu
-    catalog: usb
+  kernel.mutex:
+    path: tests/kernel/mutex/mutex_api
+    catalog: kernel userspace
+    attribute: required
+  sys.mutex:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel userspace
+    min_ram: 32
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.pipe.api:
+    path: tests/kernel/pipe/pipe_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.poll:
+    path: tests/kernel/poll
+    catalog: kernel userspace
+    min_ram: 16
+    min_flash: 34
+    platform_exclude: nrf52810_pca10040
+    attribute: required
+  kernel.queue:
+    path: tests/kernel/queue
+    catalog: kernel userspace
+    attribute: required
+  kernel.queue.poll:
+    path: tests/kernel/queue
+    catalog: kernel userspace
+    extra_args: CONF_FILE="prj_poll.conf"
+    attribute: required
+  kernel.semaphore.api:
+    path: tests/kernel/semaphore/sema_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.semaphore:
+    path: tests/kernel/semaphore/semaphore
+    catalog: kernel userspace
+    min_ram: 32
+    attribute: required
+  kernel.stack:
+    path: tests/kernel/stack/stack_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.stack.usage:
+    path: tests/kernel/stack/stack_usage
+    catalog: kernel userspace
+    attribute: required
+  kernel.timer:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel userspace
+    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+    attribute: required
+  kernel.workqueue.api:
+    path: tests/kernel/workq/work_queue_api
+    catalog: kernel userspace
+    min_flash: 34
+    attribute: required
+  kernel.threads.dynamic:
+    path: tests/kernel/threads/dynamic_thread
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.threads.apis:
+    path: tests/kernel/threads/thread_apis
+    catalog: kernel threads userspace ignore_faults
+    min_flash: 34
+    attribute: required
+  kernel.threads.init:
+    path: tests/kernel/threads/thread_init
+    catalog: kernel threads userspace
+    attribute: required
+  kernel.sched:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 40
+    attribute: required
+  kernel.sched_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 40
+    attribute: required
+  kernel.sched.multiq:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    extra_args: CONF_FILE=prj_multiq.conf
+    min_ram: 40
+    attribute: required
+  kernel.sched.multiq_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_multiq.conf
+    min_ram: 40
+    attribute: required
+  sample.threads:
+    path: samples/basic/threads
+    catalog: kernel threads gpio
+    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
+      "led1")
+    depends_on: gpio
+    attribute: required
+  sample.synchronization:
+    path: samples/synchronization
+    catalog: kernel synchronization
+    attribute: required
+  kernel.memory_protection:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    min_ram: 32
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: twr_ke18f
+    attribute: required
+  kernel.memory_protection.armv8m_gap_filling:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    arch_whitelist: arm
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    min_ram: 32
+    attribute: required
+  kernel.memory_protection.syscalls:
+    path: tests/kernel/mem_protect/syscalls
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.userspace:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    min_ram: 36
+    attribute: required
+  kernel.memory_protection.userspace.armv8m_gap_filling:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    arch_whitelist: arm
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    min_ram: 36
+    attribute: required
+  kernel.memory_protection.obj_validation:
+    path: tests/kernel/mem_protect/obj_validation
+    catalog: kernel security userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.protection:
+    path: tests/kernel/mem_protect/protection
+    catalog: kernel security ignore_faults
+    platform_exclude: twr_ke18f
+    filter: CONFIG_MEMORY_PROTECTION
+    attribute: required
+  kernel.memory_pool:
+    path: tests/kernel/mem_pool/mem_pool
+    catalog: kernel mem_pool
+    min_ram: 32
+    attribute: required
+  kernel.memory_pool.api:
+    path: tests/kernel/mem_pool/mem_pool_api
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.memory_pool.concept:
+    path: tests/kernel/mem_pool/mem_pool_concept
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.memory_pool.threadsafe:
+    path: tests/kernel/mem_pool/mem_pool_threadsafe
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.common.stack_protection:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    attribute: required
+  kernel.common.stack_protection_arm_fp_sharing:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_arm_fp_sharing.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
+    attribute: required
+  kernel.common.stack_protection_armv8m_mpu_stack_guard:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_whitelist: arm
+    attribute: required
+  kernel.memory_protection.stackprot:
+    path: tests/kernel/mem_protect/stackprot
+    catalog: kernel ignore_faults userspace
+    arch_exclude: nios2 xtensa posix
+    attribute: required
+  kernel.common.stack_protection_no_userspace:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults memory_protection
+    extra_args: CONF_FILE=protection_no_userspace.conf
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    arch_whitelist: arm
+    attribute: required
+  kernel.memory_protection.mmu:
+    path: tests/arch/x86/x86_mmu_api
+    catalog: kernel
+    platform_whitelist: qemu_x86
+    attribute: required
+  kernel.context:
+    path: tests/kernel/context
+    catalog: kernel
+    min_ram: 20
+    attribute: required
+  kernel.critical:
+    path: tests/kernel/critical
+    catalog: kernel
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: not CONFIG_WDT_SAM
+    attribute: required
+  kernel.critical.sam:
+    path: tests/kernel/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_WDT_DISABLE_AT_BOOT=y
+    filter: CONFIG_WDT_SAM
+    attribute: required
+  kernel.critical.nsim:
+    path: tests/kernel/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    attribute: required
+  kernel.fifo:
+    path: tests/kernel/fifo/fifo_api
+    catalog: kernel
+    attribute: required
+  kernel.fifo.poll:
+    path: tests/kernel/fifo/fifo_api
+    catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
+    attribute: required
+  kernel.fifo.timeout:
+    path: tests/kernel/fifo/fifo_timeout
+    catalog: kernel
+    min_ram: 32
+    attribute: required
+  kernel.fifo.timeout.poll:
+    path: tests/kernel/fifo/fifo_timeout
+    catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
+    min_ram: 32
+    attribute: required
+  kernel.fifo.usage:
+    path: tests/kernel/fifo/fifo_usage
+    catalog: kernel
+    attribute: required
+  kernel.fifo.usage.poll:
+    path: tests/kernel/fifo/fifo_usage
+    catalog: kernel
+    extra_args: CONF_FILE="prj_poll.conf"
+    attribute: required
+  kernel.fp_sharing:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_ram: 16
+    attribute: required
+  kernel.fp_sharing.x86:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_whitelist: qemu_x86
+    attribute: required
+  kernel.fp_sharing.arc:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_ARCV2 and CONFIG_CPU_HAS_FPU
+    min_ram: 16
+    attribute: required
+  kernel.lifo:
+    path: tests/kernel/lifo/lifo_api
+    catalog: kernel
+    attribute: required
+  kernel.lifo.usage:
+    path: tests/kernel/lifo/lifo_usage
+    catalog: kernel
+    min_ram: 32
+    platform_exclude: m2gl025_miv
+    attribute: required
+  kernel.mailbox.api:
+    path: tests/kernel/mbox/mbox_api
+    catalog: kernel
+    min_ram: 20
+    attribute: required
+  kernel.mailbox.usage:
+    path: tests/kernel/mbox/mbox_usage
+    catalog: kernel
+    attribute: required
+  kernel.memory_heap:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
+    attribute: required
+  kernel.memory_protection.sys_sem.nouser:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+    attribute: required
+  kernel.memory_slabs.api.test:
+    path: tests/kernel/mem_slab/mslab
+    catalog: kernel
+    min_ram: 16
+    attribute: required
+  kernel.memory_slabs.api:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
+    attribute: required
+  kernel.memory_slabs.concept:
+    path: tests/kernel/mem_slab/mslab_concept
+    catalog: kernel
+    attribute: required
+  kernel.memory_slabs.threadsafe:
+    path: tests/kernel/mem_slab/mslab_threadsafe
+    catalog: kernel
+    attribute: required
+  sys.mutex.nouser:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+    attribute: required
+  kernel.object_tracing:
+    path: tests/kernel/obj_tracing
+    catalog: kernel
+    min_ram: 32
+    attribute: required
+  kernel.pending:
+    path: tests/kernel/pending
+    catalog: kernel
+    min_ram: 16
+    attribute: required
+  kernel.profiling:
+    path: tests/kernel/profiling/profiling_api
+    catalog: kernel
+    arch_exclude: nios2 riscv32
+    platform_exclude: em_starterkit
+    attribute: required
+  kernel.sched.deadline:
+    path: tests/kernel/sched/deadline
+    catalog: kernel
+    attribute: required
+  kernel.sched.preempt:
+    path: tests/kernel/sched/preempt
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52810_pca10040
+    attribute: required
+  kernel.timing:
+    path: tests/kernel/sleep
+    catalog: kernel
+    attribute: required
+  kernel.threads.no-multithreading:
+    path: tests/kernel/threads/no-multithreading
+    catalog: kernel
+    filter: not CONFIG_SMP
+    attribute: required
+  kernel.tickless.concept:
+    path: tests/kernel/tickless/tickless_concept
+    catalog: kernel
+    arch_exclude: riscv32 nios2
+    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+    attribute: required
+  kernel.timer.tickless:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel
+    extra_args: CONF_FILE="prj_tickless.conf"
     build_only: true
-    platform_whitelist: nrf52840_pca10056 intel_s1000_crb
-    depends_on: usb_device
+    arch_exclude: riscv32 nios2 posix
     attribute: required
-  sample.usb.hid:
-    path: samples/subsys/usb/hid
-    catalog: usb
-    depends_on: usb_device
-    attribute: required
-  sample.usb.hid_composite:
-    path: samples/subsys/usb/hid
-    catalog: usb
-    extra_configs:
-    - CONFIG_USB_COMPOSITE_DEVICE=y
-    depends_on: usb_device
-    attribute: required
-  sample.usb.hid-cdc:
-    path: samples/subsys/usb/hid-cdc
-    catalog: usb
-    depends_on: usb_device
-    platform_whitelist: nrf52840_pca10056 nrf52840_pca10059
-    attribute: required
-  sample.usb.loopback:
-    path: samples/subsys/usb/testusb
-    catalog: usb
-    depends_on: usb_device
-    attribute: required
-  sample.usb.webusb:
-    path: samples/subsys/usb/webusb
-    catalog: usb
-    depends_on: usb_device
-    platform_exclude: native_posix native_posix_64
-    attribute: required
-  usb.device:
-    path: tests/subsys/usb/device
-    catalog: usb
-    depends_on: usb_device
+  kernel.workqueue:
+    path: tests/kernel/workq/work_queue
+    catalog: kernel
+    min_flash: 34
     attribute: required
