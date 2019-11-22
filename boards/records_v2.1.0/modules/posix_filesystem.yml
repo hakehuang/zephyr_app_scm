@@ -1,0 +1,17 @@
+---
+cases:
+  portability.posix.fs:
+    path: tests/posix/fs
+    catalog: posix filesystem
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    arch_exclude: nios2 posix
+    min_ram: 128
+  portability.posix.fs.newlib:
+    path: tests/posix/fs
+    catalog: posix filesystem
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    arch_exclude: nios2 posix
+    min_ram: 128

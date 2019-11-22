@@ -1,0 +1,11 @@
+---
+cases:
+  system.settings.functional.nvs:
+    path: tests/subsys/settings/functional/nvs
+    catalog: settings_nvs
+    platform_whitelist: qemu_x86 native_posix native_posix_64
+  system.settings.nvs:
+    path: tests/subsys/settings/nvs/raw
+    catalog: settings_nvs
+    depends_on: nvs
+    min_ram: 32

@@ -1,6 +1,64 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="377" errors="0" failures="0" name="" skipped="7" time="0">
+    <testsuite tests="409" errors="0" failures="0" name="" skipped="10" time="0">
+      <testcase classname="lpcxpresso54114_m4:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:ead_prio_dynamic" name="ead_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.device.bogus_dynamic_name" name="kernel.device.bogus_dynamic_name" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.device.dynamic_name" name="kernel.device.dynamic_name" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.device.pm.bogus_dynamic_name" name="kernel.device.pm.bogus_dynamic_name" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.device.pm.dynamic_name" name="kernel.device.pm.dynamic_name" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.dyn_thread_perms" name="kernel.threads.dynamic.dyn_thread_perms" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.kernel_create_dyn_user_thread" name="kernel.threads.dynamic.kernel_create_dyn_user_thread" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.stack_al==========================" name="kernel.threads.dynamic.stack_al==========================" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.stack_alloc_thread2thread" name="kernel.threads.dynamic.stack_alloc_thread2thread" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.stack_alloc_thread================" name="kernel.threads.dynamic.stack_alloc_thread================" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.stack_pop_fail" name="kernel.threads.dynamic.stack_pop_fail" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.stack_thread2isr" name="kernel.threads.dynamic.stack_thread2isr" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.stack_thread2thread" name="kernel.threads.dynamic.stack_thread2thread" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.stack_user_pop_fail" name="kernel.threads.dynamic.stack_user_pop_fail" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.stack_user_thread2thread" name="kernel.threads.dynamic.stack_user_thread2thread" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.tes====" name="kernel.threads.dynamic.tes====" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.thread_index_management" name="kernel.threads.dynamic.thread_index_management" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic.user_create_dyn_user_thread" name="kernel.threads.dynamic.user_create_dyn_user_thread" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:libraries.encoding.shell_wildcards_dynamic" name="libraries.encoding.shell_wildcards_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:portability.cmsis_rtos_v2.mempool_dynamic" name="portability.cmsis_rtos_v2.mempool_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:portability.cmsis_rtos_v2.thread_apis_dynamic" name="portability.cmsis_rtos_v2.thread_apis_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:portability.cmsis_rtos_v2.thread_prio_dynamic" name="portability.cmsis_rtos_v2.thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:shell.shell_wildcards_dynamic" name="shell.shell_wildcards_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:testing.ztest.customized_output.mempool_dynamic" name="testing.ztest.customized_output.mempool_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:testing.ztest.customized_output.t- test_thread_prio_dynamic" name="testing.ztest.customized_output.t- test_thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:testing.ztest.customized_output.thread_apis_dynamic" name="testing.ztest.customized_output.thread_apis_dynamic" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:testing.ztest.customized_output.thread_prio_dynamic" name="testing.ztest.customized_output.thread_prio_dynamic" time="0">
+      </testcase>
       <testcase classname="lpcxpresso54114_m4:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
       </testcase>
       <testcase classname="lpcxpresso54114_m4:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
@@ -8,6 +66,15 @@
       <testcase classname="lpcxpresso54114_m4:benchmark.latency.loop" name="benchmark.latency.loop" time="0">
       </testcase>
       <testcase classname="lpcxpresso54114_m4:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="lpcxpresso54114_m4:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="lpcxpresso54114_m4:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
          <skipped message="Skipped" type="skipped"/>

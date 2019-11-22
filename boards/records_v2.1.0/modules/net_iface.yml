@@ -1,0 +1,8 @@
+---
+cases:
+  net.iface:
+    path: tests/net/iface
+    catalog: net iface
+    min_ram: 16
+    depends_on: netif
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3

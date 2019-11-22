@@ -1,0 +1,8 @@
+---
+cases:
+  benchmark.timing.userspace:
+    path: tests/benchmarks/timing_info
+    catalog: benchmark userspace
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_whitelist: x86 arm arc

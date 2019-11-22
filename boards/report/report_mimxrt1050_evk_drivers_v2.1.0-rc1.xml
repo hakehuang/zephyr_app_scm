@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="476" errors="0" failures="0" name="" skipped="7" time="0">
+    <testsuite tests="479" errors="0" failures="0" name="" skipped="10" time="0">
+      <testcase classname="mimxrt1050_evk:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
+      </testcase>
       <testcase classname="mimxrt1050_evk:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
@@ -14,6 +20,15 @@
       <testcase classname="mimxrt1050_evk:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1050_evk:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1050_evk:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1050_evk:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
          <skipped message="Skipped" type="skipped"/>
@@ -619,12 +634,6 @@
       <testcase classname="mimxrt1050_evk:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:kernel.mailbox.array" name="kernel.mailbox.array" time="0">
       </testcase>

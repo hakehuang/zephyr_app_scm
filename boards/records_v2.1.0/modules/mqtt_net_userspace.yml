@@ -1,0 +1,7 @@
+---
+cases:
+  net.mqtt.packet:
+    path: tests/net/lib/mqtt_packet
+    catalog: mqtt net userspace
+    min_ram: 16
+    depends_on: netif

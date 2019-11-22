@@ -1,0 +1,8 @@
+---
+cases:
+  libraries.libc.minimal.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog: clib minimal_libc userspace
+    extra_args: CONF_FILE=prj.conf
+    arch_exclude: posix
+    platform_exclude: twr_ke18f

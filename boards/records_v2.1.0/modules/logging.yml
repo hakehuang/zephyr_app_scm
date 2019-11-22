@@ -1,0 +1,16 @@
+---
+cases:
+  samples.logger:
+    path: samples/subsys/logging/logger
+    catalog: logging
+  samples.logger.rtt:
+    path: samples/subsys/logging/logger
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_RTT=y
+    - CONFIG_USE_SEGGER_RTT=y
+    filter: CONFIG_HAS_SEGGER_RTT
+  sample.subsys.logging.syst:
+    path: samples/subsys/logging/syst
+    catalog: logging
+    platform_whitelist: mps2_an385 sam_e70_xplained

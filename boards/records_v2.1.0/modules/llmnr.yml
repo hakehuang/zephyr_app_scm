@@ -1,0 +1,10 @@
+---
+cases:
+  sample.net.dns_resolve.llmnr:
+    path: samples/net/dns_resolve
+    catalog: llmnr
+    extra_configs:
+    - CONFIG_MDNS_RESOLVER=n
+    - CONFIG_LLMNR_RESOLVER=y
+    - CONFIG_NET_DHCPV4=y
+    depends_on: netif

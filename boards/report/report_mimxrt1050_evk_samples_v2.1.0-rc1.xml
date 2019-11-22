@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="821" errors="0" failures="0" name="" skipped="59" time="0">
+    <testsuite tests="827" errors="0" failures="0" name="" skipped="62" time="0">
+      <testcase classname="mimxrt1050_evk:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
+      </testcase>
       <testcase classname="mimxrt1050_evk:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:peripheral.entropy.entropy_get_entropy" name="peripheral.entropy.entropy_get_entropy" time="0">
@@ -18,6 +24,15 @@
       <testcase classname="mimxrt1050_evk:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1050_evk:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1050_evk:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1050_evk:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
          <skipped message="Skipped" type="skipped"/>

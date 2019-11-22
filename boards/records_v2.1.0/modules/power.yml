@@ -1,0 +1,10 @@
+---
+cases:
+  sample.board.nrf52.pm.low_power_state:
+    path: samples/boards/nrf52/power_mgr
+    catalog: power
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
+  sample.power.ospm.dev_idle_pm:
+    path: samples/subsys/power/device_pm
+    catalog: power
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040

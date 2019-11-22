@@ -1,0 +1,7 @@
+---
+cases:
+  sample.net.ipv4_autoconf:
+    path: samples/net/ipv4_autoconf
+    catalog: net ipv4_autoconf
+    depends_on: netif
+    platform_whitelist: qemu_x86 native_posix native_posix_64

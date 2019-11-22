@@ -1,0 +1,363 @@
+---
+cases:
+  sample.bluetooth.beacon:
+    path: samples/bluetooth/beacon
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86 nrf52_pca10040
+  sample.bluetooth.central:
+    path: samples/bluetooth/central
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.central_hr:
+    path: samples/bluetooth/central_hr
+    catalog: bluetooth
+    arch_whitelist: x86
+  sample.bluetooth.eddystone:
+    path: samples/bluetooth/eddystone
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.handsfree:
+    path: samples/bluetooth/handsfree
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.ibeacon:
+    path: samples/bluetooth/ibeacon
+    catalog: bluetooth
+    platform_whitelist: bbc_microbit qemu_x86
+  sample.bluetooth.mesh:
+    path: samples/bluetooth/mesh
+    catalog: bluetooth
+    platform_whitelist: bbc_microbit nrf51_blenano qemu_x86
+  sample.bluetooth.mesh_demo:
+    path: samples/bluetooth/mesh_demo
+    catalog: bluetooth
+    platform_whitelist: bbc_microbit nrf51_blenano qemu_x86
+  sample.bluetooth.peripheral:
+    path: samples/bluetooth/peripheral
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.peripheral_csc:
+    path: samples/bluetooth/peripheral_csc
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.peripheral_dis:
+    path: samples/bluetooth/peripheral_dis
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.peripheral_esp:
+    path: samples/bluetooth/peripheral_esp
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.peripheral_hids:
+    path: samples/bluetooth/peripheral_hids
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.peripheral_hr:
+    path: samples/bluetooth/peripheral_hr
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.peripheral_hr_rv32m1_vega_ri5cy:
+    path: samples/bluetooth/peripheral_hr
+    catalog: bluetooth
+    platform_whitelist: rv32m1_vega_ri5cy
+    build_only: true
+  sample.bluetooth.peripheral_hr.frdm_kw41z_shield:
+    path: samples/bluetooth/peripheral_hr
+    catalog: bluetooth
+    extra_args: SHIELD=frdm_kw41z
+    platform_whitelist: mimxrt1020_evk mimxrt1050_evk mimxrt1060_evk frdm_k64f
+  sample.bluetooth.peripheral_ht:
+    path: samples/bluetooth/peripheral_ht
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.peripheral_ht.frdm_kw41z_shield:
+    path: samples/bluetooth/peripheral_ht
+    catalog: bluetooth
+    extra_args: SHIELD=frdm_kw41z
+    platform_whitelist: mimxrt1020_evk mimxrt1050_evk mimxrt1060_evk frdm_k64f
+  sample.bluetooth.peripheral_sc_only:
+    path: samples/bluetooth/peripheral_sc_only
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.scan_adv:
+    path: samples/bluetooth/scan_adv
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.mesh.onoff:
+    path: samples/boards/nrf52/mesh/onoff-app
+    catalog: bluetooth
+    platform_whitelist: nrf52840_pca10056
+  sample.bluetooth.mesh.onoff_level_lighting_vnd:
+    path: samples/boards/nrf52/mesh/onoff_level_lighting_vnd_app
+    catalog: bluetooth
+    platform_whitelist: nrf52840_pca10056
+  sample.net.sockets.echo_client.bt:
+    path: samples/net/sockets/echo_client
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-bt.conf"
+    platform_whitelist: qemu_x86
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.bt:
+    path: samples/net/sockets/echo_server
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-bt.conf"
+    platform_whitelist: qemu_x86
+    depends_on: netif
+    min_flash: 140
+  sample.mcumg.smp_svr.nrf51:
+    path: samples/subsys/mgmt/mcumgr/smp_svr
+    catalog: bluetooth
+    extra_args: CONF_FILE="prj_tiny.conf"
+    platform_whitelist: nrf51_pca10028
+  sample.mcumg.smp_svr.nrf52:
+    path: samples/subsys/mgmt/mcumgr/smp_svr
+    catalog: bluetooth
+    platform_whitelist: nrf52_pca10040 nrf52840_pca10056
+  bluetooth.at:
+    path: tests/bluetooth/at
+    catalog: bluetooth
+    build_only: true
+    min_ram: 16
+    platform_whitelist: qemu_x86 qemu_cortex_m3
+  bluetooth.general:
+    path: tests/bluetooth/bluetooth
+    catalog: bluetooth
+    platform_whitelist: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
+  bluetooth.ctrl_user_ext.test:
+    path: tests/bluetooth/ctrl_user_ext
+    catalog: bluetooth
+    platform_whitelist: nrf52_bsim
+    build_only: true
+  bluetooth.init.test:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_0:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_0.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_1:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_1.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_10:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_10.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_11:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_11.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_12:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_12.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_13:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_13.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_14:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_14.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_15:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_15.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_16:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_16.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_17:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_17.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_18:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_18.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_19:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_19.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_2:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_2.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_20:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_20.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_21:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_21.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_22:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_22.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_3:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_3.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_4:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_4.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_5:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_5.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_6:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_6.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_7:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_7.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_8:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_8.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_9:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_9.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_controller:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_controller.conf
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028 96b_nitrogen
+    build_only: true
+  bluetooth.init.test_controller_4_0:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_controller_4_0.conf
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
+    build_only: true
+  bluetooth.init.test_controller_tiny:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_controller_tiny.conf
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
+    build_only: true
+  bluetooth.init.test_controller_dbg:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_controller_dbg.conf
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028 96b_nitrogen
+    build_only: true
+  bluetooth.init.test_controller_ll_sw_split:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_controller_ll_sw_split.conf
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
+    build_only: true
+  bluetooth.init.test_controller_4_0_ll_sw_split:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_controller_4_0_ll_sw_split.conf
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
+    build_only: true
+  bluetooth.init.test_controller_tiny_ll_sw_split:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_controller_tiny_ll_sw_split.conf
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
+    build_only: true
+  bluetooth.init.test_controller_dbg_ll_sw_split:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_controller_dbg_ll_sw_split.conf
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
+    build_only: true
+  bluetooth.init.test_h5:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_h5.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_h5_dbg:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_h5_dbg.conf
+    platform_whitelist: qemu_cortex_m3
+    build_only: true
+  bluetooth.ll_settings:
+    path: tests/bluetooth/ll_settings
+    catalog: bluetooth
+    platform_whitelist: nrf52_bsim
+  bluetooth.mesh_shell:
+    path: tests/bluetooth/mesh_shell
+    catalog: bluetooth
+    platform_whitelist: qemu_cortex_m3 qemu_x86 nrf51_pca10028
+    platform_exclude: nrf52810_pca10040
+  bluetooth.shell:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    platform_whitelist: qemu_cortex_m3 qemu_x86 native_posix native_posix_64 nrf52840_pca10056
+    platform_exclude: nrf52810_pca10040
+    min_flash: 145
+  bluetooth.shell_br:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    extra_args: CONF_FILE="prj_br.conf"
+    platform_whitelist: qemu_cortex_m3 qemu_x86 native_posix native_posix_64
+    platform_exclude: nrf52810_pca10040
+  bluetooth.general.tester:
+    path: tests/bluetooth/tester
+    catalog: bluetooth
+    platform_whitelist: qemu_x86

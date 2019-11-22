@@ -1,0 +1,30 @@
+---
+cases:
+  sample.net.sockets.echo_client.nrf_openthread:
+    path: samples/net/sockets/echo_client
+    catalog: net openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_whitelist: nrf52840_pca10056
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.kw41z_openthread:
+    path: samples/net/sockets/echo_client
+    catalog: net openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_whitelist: frdm_kw41z
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.nrf_openthread:
+    path: samples/net/sockets/echo_server
+    catalog: net openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_whitelist: nrf52840_pca10056
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.kw41z_openthread:
+    path: samples/net/sockets/echo_server
+    catalog: net openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_whitelist: frdm_kw41z
+    depends_on: netif
+    min_flash: 140

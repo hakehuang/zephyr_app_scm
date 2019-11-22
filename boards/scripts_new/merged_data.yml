@@ -22,6 +22,10 @@ cases:
     comments: need add board support
     build_only: true
     attribute: required
+  sample.kernel.memory_protection.shared_mem:
+    build_only: true
+    comments: download error
+    attribute: required
   libraries.libc.newlibnano:
     comments: http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164
     build_only: true
@@ -37,6 +41,11 @@ cases:
   peripheral.i2c:
     comments: not all platform has such test devices
     build_only: true
+    attribute: required
+  arch.interrupt.no_optimizations:
+    comments: not console output
+    build_only: true
+    result: skip
     attribute: required
   test_utf8_in_kconfig_values:
     comments: build failure
@@ -79,6 +88,14 @@ cases:
     attribute: required
   sample.net.sockets.echo_server.usbnet_composite:
     commetns: not support
+    result: skip
+    attribute: required
+  sample.driver.i2c_fujitsu_fram:
+    comments: not support
+    result: skip
+    attribute: required
+  sample.servo_motor:
+    comments: not support
     result: skip
     attribute: required
   kernel.memory_pool.sys:

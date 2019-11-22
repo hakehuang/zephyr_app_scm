@@ -1,0 +1,12 @@
+---
+cases:
+  arch.common.xip:
+    path: tests/kernel/xip
+    catalog: xip
+    filter: CONFIG_XIP
+  arch.common.xip.nondefault:
+    path: tests/kernel/xip
+    catalog: xip
+    extra_configs:
+    - CONFIG_XIP=y
+    platform_whitelist: qemu_x86 qemu_x86_coverage

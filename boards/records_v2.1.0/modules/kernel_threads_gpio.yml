@@ -1,0 +1,8 @@
+---
+cases:
+  sample.threads:
+    path: samples/basic/threads
+    catalog: kernel threads gpio
+    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
+      "led1")
+    depends_on: gpio

@@ -9,7 +9,7 @@ require_relative 'zephyr_filter'
 
 board = File.basename(__FILE__, ".rb")
 @entry_yml = "#{board}.yml"
-@search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
+@search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_v2.1.0/').to_s
 merge_unit      = YML_Merger.new(
     @entry_yml, @search_path
     )

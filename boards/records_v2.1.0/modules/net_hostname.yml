@@ -1,0 +1,16 @@
+---
+cases:
+  net.hostname:
+    path: tests/net/hostname
+    catalog: net hostname
+    extra_configs:
+    - CONFIG_NET_HOSTNAME_UNIQUE=n
+    min_ram: 16
+    depends_on: netif
+  net.hostname.unique:
+    path: tests/net/hostname
+    catalog: net hostname
+    extra_configs:
+    - CONFIG_NET_HOSTNAME_UNIQUE=y
+    min_ram: 16
+    depends_on: netif

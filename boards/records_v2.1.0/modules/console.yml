@@ -1,0 +1,14 @@
+---
+cases:
+  sample.subsys.console.echo:
+    path: samples/subsys/console/echo
+    catalog: console
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+  sample.subsys.console.getchar:
+    path: samples/subsys/console/getchar
+    catalog: console
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+  sample.subsys.console.getline:
+    path: samples/subsys/console/getline
+    catalog: console
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT

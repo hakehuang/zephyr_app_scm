@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="72" errors="0" failures="0" name="" skipped="64" time="0">
+    <testsuite tests="75" errors="0" failures="0" name="" skipped="70" time="0">
       <testcase classname="frdm_k82f:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -22,15 +22,27 @@
       </testcase>
       <testcase classname="frdm_k82f:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
       </testcase>
+      <testcase classname="frdm_k82f:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_k82f:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="frdm_k82f:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
       </testcase>
       <testcase classname="frdm_k82f:peripheral.entropy.entropy_get_entropy" name="peripheral.entropy.entropy_get_entropy" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
-      </testcase>
-      <testcase classname="frdm_k82f:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
       </testcase>
       <testcase classname="frdm_k82f:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
          <skipped message="Skipped" type="skipped"/>

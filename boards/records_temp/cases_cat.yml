@@ -267,6 +267,10 @@ bluetooth:
     path: samples/bluetooth/handsfree
     catalog: bluetooth
     platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.hci_rpmsg:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    platform_whitelist: nrf5340_dk_nrf5340_cpunet
   sample.bluetooth.ibeacon:
     path: samples/bluetooth/ibeacon
     catalog: bluetooth
@@ -1195,7 +1199,7 @@ samples display gui:
   sample.gui.lvgl:
     path: samples/gui/lvgl
     catalog: samples display gui
-    platform_whitelist: reel_board mimxrt1050_evk mimxrt1060_evk
+    platform_whitelist: reel_board mimxrt1050_evk mimxrt1060_evk mimxrt1064_evk
 introduction:
   sample.helloworld:
     path: samples/hello_world
@@ -2051,19 +2055,12 @@ gen_inc_file:
   buildsystem.include_file:
     path: tests/application_development/gen_inc_file
     catalog: gen_inc_file
-interrupt:
-  arch.interrupt:
-    path: tests/kernel/interrupt
-    catalog: interrupt
-    arch_exclude: nios2 riscv32
-    platform_exclude: qemu_x86 qemu_x86_coverage
-  arch.interrupt.nodyn:
-    path: tests/kernel/interrupt
-    catalog: interrupt
-    extra_configs:
-    - CONFIG_DYNAMIC_INTERRUPTS=n
-    arch_whitelist: arc qemu_x86 qemu_x86_coverage
 arm interrupt ignore_faults:
+  arch.interrupt.arm:
+    path: tests/arch/arm/arm_interrupt
+    catalog: arm interrupt ignore_faults
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_whitelist: arm
   arch.interrupt.no_optimizations:
     path: tests/arch/arm/arm_interrupt
     catalog: arm interrupt ignore_faults
@@ -2264,6 +2261,11 @@ kernel:
   kernel.sched.deadline:
     path: tests/kernel/sched/deadline
     catalog: kernel
+  kernel.sched.metairq:
+    path: tests/kernel/sched/metairq
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52810_pca10040
   kernel.sched.preempt:
     path: tests/kernel/sched/preempt
     catalog: kernel
@@ -2694,18 +2696,12 @@ kernel userspace:
     path: tests/kernel/queue
     catalog: kernel userspace
     extra_args: CONF_FILE="prj_poll.conf"
-  kernel.semaphore.api:
-    path: tests/kernel/semaphore/sema_api
-    catalog: kernel userspace
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace
     min_ram: 32
-  kernel.stack:
-    path: tests/kernel/stack/stack_api
-    catalog: kernel userspace
   kernel.stack.usage:
-    path: tests/kernel/stack/stack_usage
+    path: tests/kernel/stack/stack
     catalog: kernel userspace
   kernel.timer:
     path: tests/kernel/timer/timer_api
@@ -2772,6 +2768,18 @@ interrupt isr_table:
     platform_exclude: nucleo_f103rb olimexino_stm32 stm32_min_dev_black stm32_min_dev_blue
       usb_kw24d512 v2m_beetle
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+interrupt:
+  arch.interrupt:
+    path: tests/kernel/interrupt
+    catalog: interrupt
+    arch_exclude: nios2 riscv32
+    platform_exclude: qemu_x86 qemu_x86_coverage
+  arch.interrupt.nodyn:
+    path: tests/kernel/interrupt
+    catalog: interrupt
+    extra_configs:
+    - CONFIG_DYNAMIC_INTERRUPTS=n
+    arch_whitelist: arc qemu_x86 qemu_x86_coverage
 kernel mem_pool:
   kernel.memory_pool:
     path: tests/kernel/mem_pool/mem_pool

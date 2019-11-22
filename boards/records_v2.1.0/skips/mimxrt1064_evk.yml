@@ -1,0 +1,8 @@
+__load__:
+  - skips/common.yml
+  - skips/build_only.yml
+
+cases:
+  peripheral.spi:
+    comments: "need add board support"
+    build_only: true
