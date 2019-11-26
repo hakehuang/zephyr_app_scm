@@ -1,39 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="290" errors="0" failures="0" name="" skipped="37" time="0">
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.pool_block_get" name="arch.arm.swap.common.fp_sharing.pool_block_get" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
+    <testsuite tests="570" errors="0" failures="0" name="" skipped="207" time="0">
       <testcase classname="frdm_kl25z:kernel.fp_sharing" name="kernel.fp_sharing" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -61,16 +28,193 @@
       <testcase classname="frdm_kl25z:kernel.fp_sharing.x86" name="kernel.fp_sharing.x86" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_kl25z:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
+      <testcase classname="frdm_kl25z:libraries.libc.bsearch" name="libraries.libc.bsearch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.filter_attach" name="libraries.libc.filter_attach" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.limits" name="libraries.libc.limits" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.memcmp" name="libraries.libc.memcmp" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.memset" name="libraries.libc.memset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.bsearch" name="libraries.libc.minimal.bsearch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.calloc" name="libraries.libc.minimal.calloc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.free" name="libraries.libc.minimal.free" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.gmtime" name="libraries.libc.minimal.gmtime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.malloc" name="libraries.libc.minimal.malloc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.memalloc_all" name="libraries.libc.minimal.memalloc_all" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.memalloc_max" name="libraries.libc.minimal.memalloc_max" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.memset" name="libraries.libc.minimal.memset" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.realloc" name="libraries.libc.minimal.realloc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.reallocarray" name="libraries.libc.minimal.reallocarray" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.s32" name="libraries.libc.minimal.s32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.s64" name="libraries.libc.minimal.s64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.strchr" name="libraries.libc.minimal.strchr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.strcmp" name="libraries.libc.minimal.strcmp" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.strcpy" name="libraries.libc.minimal.strcpy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.strlen" name="libraries.libc.minimal.strlen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.strncpy" name="libraries.libc.minimal.strncpy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.minimal.testarting test - test_strcpy" name="libraries.libc.minimal.testarting test - test_strcpy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.newlib.calloc" name="libraries.libc.newlib.calloc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.newlib.free" name="libraries.libc.newlib.free" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.newlib.malloc" name="libraries.libc.newlib.malloc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.newlib.memalloc_all" name="libraries.libc.newlib.memalloc_all" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.newlib.memalloc_max" name="libraries.libc.newlib.memalloc_max" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.newlib.realloc" name="libraries.libc.newlib.realloc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.newlib.reallocarray" name="libraries.libc.newlib.reallocarray" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.receive_timeout" name="libraries.libc.receive_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.se====" name="libraries.libc.se====" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.sen==================================================" name="libraries.libc.sen==================================================" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.send_and_forget" name="libraries.libc.send_and_forget" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.send_callback" name="libraries.libc.send_callback" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.send_receive_buffer" name="libraries.libc.send_receive_buffer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.send_receive_ext" name="libraries.libc.send_receive_ext" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.send_receive_ext_masked" name="libraries.libc.send_receive_ext_masked" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.send_receive_std" name="libraries.libc.send_receive_std" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.send_receive_std_masked" name="libraries.libc.send_receive_std_masked" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.send_receive_wrong_id" name="libraries.libc.send_receive_wrong_id" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.send_receivrting test - test_send_receive_std_masked" name="libraries.libc.send_receivrting test - test_send_receive_std_masked" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.set_loopback" name="libraries.libc.set_loopback" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.sprintf_double" name="libraries.libc.sprintf_double" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.sprintf_integer" name="libraries.libc.sprintf_integer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.sprintf_misc" name="libraries.libc.sprintf_misc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.sprintf_string" name="libraries.libc.sprintf_string" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.ssize_t" name="libraries.libc.ssize_t" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.stdbool" name="libraries.libc.stdbool" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.stddef" name="libraries.libc.stddef" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.stdint" name="libraries.libc.stdint" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.strchr" name="libraries.libc.strchr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.strcmp" name="libraries.libc.strcmp" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.strcpy" name="libraries.libc.strcpy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.strlen" name="libraries.libc.strlen" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.strncpy" name="libraries.libc.strncpy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.strxspn" name="libraries.libc.strxspn" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.tet_send_receive_ext" name="libraries.libc.tet_send_receive_ext" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.vsnprintf" name="libraries.libc.vsnprintf" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:libraries.libc.vsprintf" name="libraries.libc.vsprintf" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:benchmark.latency.loop" name="benchmark.latency.loop" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
@@ -82,19 +226,61 @@
       <testcase classname="frdm_kl25z:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_kl25z:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.fatal" name="arch.interrupt.fatal" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_kl25z:net.dns.mdns_query" name="net.dns.mdns_query" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_kl25z:net.dns.mdns_response" name="net.dns.mdns_response" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.main" name="arch.interrupt.main" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.sem_give_limit" name="arch.interrupt.sem_give_limit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.rand32" name="crypto.rand32.rand32" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
@@ -109,46 +295,418 @@
       <testcase classname="frdm_kl25z:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_sw_systimer.fatal" name="crypto.rand32.random_sw_systimer.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:crypto.rand32.random_sw_systimer.te" name="crypto.rand32.random_sw_systimer.te" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common" name="kernel.common" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.adc_00p 0x0000 0x0000" name="kernel.common.adc_00p 0x0000 0x0000" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.adc_asynchronous_call" name="kernel.common.adc_asynchronous_call" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.adc_invalid_request" name="kernel.common.adc_invalid_request" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.adc_repeated_sampling" name="kernel.common.adc_repeated_sampling" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.adc_repeated_samplings" name="kernel.common.adc_repeated_samplings" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.adc_sample_two_channels" name="kernel.common.adc_sample_two_channels" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" name="kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.adc_sample_with_interval" name="kernel.common.adc_sample_with_interval" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.atomic" name="kernel.common.atomic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.bitfield" name="kernel.common.bitfield" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.bounds_check_mitigation" name="kernel.common.bounds_check_mitigation" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.busy_wait" name="kernel.common.busy_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.byteorder_mem_swap" name="kernel.common.byteorder_mem_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.byteorder_memcpy_swap" name="kernel.common.byteorder_memcpy_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.clock_cycle" name="kernel.common.clock_cycle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.clock_uptime" name="kernel.common.clock_uptime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.critical" name="kernel.common.critical" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.dlist" name="kernel.common.dlist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.errno.thread_context" name="kernel.common.errno.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.init.verify_bootdelay" name="kernel.common.init.verify_bootdelay" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.intmath" name="kernel.common.intmath" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.irq_offload" name="kernel.common.irq_offload" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.k_yield" name="kernel.common.k_yield" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.kernel_cpu_idle" name="kernel.common.kernel_cpu_idle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.kernel_cpu_idle_atomic" name="kernel.common.kernel_cpu_idle_atomic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.kernel_ctx_thread" name="kernel.common.kernel_ctx_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.kernel_interrupts" name="kernel.common.kernel_interrupts" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.kernel_thread" name="kernel.common.kernel_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.kernel_timer_interrupts" name="kernel.common.kernel_timer_interrupts" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.main" name="kernel.common.main" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.atomic" name="kernel.common.misra.atomic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.bitfield" name="kernel.common.misra.bitfield" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.bounds_check_mitigation" name="kernel.common.misra.bounds_check_mitigation" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.byteorder_mem_swap" name="kernel.common.misra.byteorder_mem_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.byteorder_memcpy_swap" name="kernel.common.misra.byteorder_memcpy_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.clock_cycle" name="kernel.common.misra.clock_cycle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.clock_uptime" name="kernel.common.misra.clock_uptime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.dlist" name="kernel.common.misra.dlist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.intmath" name="kernel.common.misra.intmath" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.irq_offload" name="kernel.common.misra.irq_offload" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.msg_receive===" name="kernel.common.misra.msg_receive===" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.multilib" name="kernel.common.misra.multilib" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.printk" name="kernel.common.misra.printk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.slist" name="kernel.common.misra.slist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_get_be16" name="kernel.common.misra.sys_get_be16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_get_be32" name="kernel.common.misra.sys_get_be32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_get_be64" name="kernel.common.misra.sys_get_be64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_get_le16" name="kernel.common.misra.sys_get_le16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_get_le32" name="kernel.common.misra.sys_get_le32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_get_le64" name="kernel.common.misra.sys_get_le64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_put_be16" name="kernel.common.misra.sys_put_be16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_put_be32" name="kernel.common.misra.sys_put_be32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_put_be64" name="kernel.common.misra.sys_put_be64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_put_le16" name="kernel.common.misra.sys_put_le16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_put_le32" name="kernel.common.misra.sys_put_le32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.sys_put_le64" name="kernel.common.misra.sys_put_le64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.thread_context" name="kernel.common.misra.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.timeout_order" name="kernel.common.misra.timeout_order" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.vector" name="kernel.common.misra.vector" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.verify_bootdelay" name="kernel.common.misra.verify_bootdelay" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.misra.version" name="kernel.common.misra.version" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.multilib" name="kernel.common.multilib" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.obj_tracing" name="kernel.common.obj_tracing" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.printk" name="kernel.common.printk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.priority_cooperative" name="kernel.common.priority_cooperative" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sam.critical" name="kernel.common.sam.critical" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.slist" name="kernel.common.slist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" name="kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="frdm_kl25z:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_get_be16" name="kernel.common.sys_get_be16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_get_be32" name="kernel.common.sys_get_be32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_get_be64" name="kernel.common.sys_get_be64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_get_le16" name="kernel.common.sys_get_le16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_get_le32" name="kernel.common.sys_get_le32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_get_le64" name="kernel.common.sys_get_le64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_put_be16" name="kernel.common.sys_put_be16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_put_be32" name="kernel.common.sys_put_be32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_put_be64" name="kernel.common.sys_put_be64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_put_le16" name="kernel.common.sys_put_le16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_put_le32" name="kernel.common.sys_put_le32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.sys_put_le64" name="kernel.common.sys_put_le64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.te========" name="kernel.common.te========" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.thread_context" name="kernel.common.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.timeout_order" name="kernel.common.timeout_order" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.timing.assert_mem_equal" name="kernel.common.timing.assert_mem_equal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.timing.assert_tests" name="kernel.common.timing.assert_tests" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.timing.fatal" name="kernel.common.timing.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.verify_bootdelay" name="kernel.common.verify_bootdelay" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.common.version" name="kernel.common.version" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="frdm_kl25z:tracing.openocd" name="tracing.openocd" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.check=========================================================" name="kernel.timer.check=========================================================" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.check_promisc_mode_4_addr_add" name="kernel.timer.check_promisc_mode_4_addr_add" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.check_promisc_mode_off" name="kernel.timer.check_promisc_mode_off" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.check_promisc_mode_on" name="kernel.timer.check_promisc_mode_on" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.gw_addr_add" name="kernel.timer.gw_addr_add" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.select_src_iface" name="kernel.timer.select_src_iface" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.send_iface1_up" name="kernel.timer.send_iface1_up" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.set_promisc_mode_on" name="kernel.timer.set_promisc_mode_on" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer" name="kernel.timer.timer" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_duration_period" name="kernel.timer.timer_duration_period" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_expirefn_null" name="kernel.timer.timer_expirefn_null" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_k_define" name="kernel.timer.timer_k_define" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_period_0" name="kernel.timer.timer_period_0" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_status_get_anytime" name="kernel.timer.timer_status_get_anytime" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v4_addr_add" name="kernel.timer.v4_addr_add" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v4_addr_add_usASS - check_promisc_mode_off" name="kernel.timer.v4_addr_add_usASS - check_promisc_mode_off" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v4_addr_add_user" name="kernel.timer.v4_addr_add_user" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v4_addr_lookup" name="kernel.timer.v4_addr_lookup" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v4_addr_rm" name="kernel.timer.v4_addr_rm" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v6_addr_add" name="kernel.timer.v6_addr_add" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v6_addr_add_user" name="kernel.timer.v6_addr_add_user" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v6_addr_lookup" name="kernel.timer.v6_addr_lookup" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v6_addr_lookup_ - v6_addr_add" name="kernel.timer.v6_addr_lookup_ - v6_addr_add" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v6_addr_lookup_user" name="kernel.timer.v6_addr_lookup_user" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v6_addr_rm" name="kernel.timer.v6_addr_rm" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:kernel.timer.v6ddr_add" name="kernel.timer.v6ddr_add" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:testing.ztest.customized_output.delay" name="testing.ztest.customized_output.delay" time="0">
       </testcase>
@@ -192,45 +750,431 @@
       </testcase>
       <testcase classname="frdm_kl25z:testing.ztest.customized_output.timer" name="testing.ztest.customized_output.timer" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.empty_test" name="testing.ztest.empty_test" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.mock.multi_value_tests" name="testing.ztest.mock.multi_value_tests" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.mock.parameter_tests" name="testing.ztest.mock.parameter_tests" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.mock.return_value_tests" name="testing.ztest.mock.return_value_tests" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.multiprocessing.sleep_threads" name="kernel.multiprocessing.sleep_threads" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.multiq.sleep_cooperative" name="kernel.sched.multiq.sleep_cooperative" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.multiq.sleep_wakeup_preemptible" name="kernel.sched.multiq.sleep_wakeup_preemptible" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.multiq_no_timeslicing.sleep_cooperative" name="kernel.sched.multiq_no_timeslicing.sleep_cooperative" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.multiq_no_timeslicing.sleep_wakeup_preemptible" name="kernel.sched.multiq_no_timeslicing.sleep_wakeup_preemptible" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.sleep_cooperative" name="kernel.sched.sleep_cooperative" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.unit.multi_value_tests" name="testing.ztest.unit.multi_value_tests" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.unit.parameter_tests" name="testing.ztest.unit.parameter_tests" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched_no_timeslicing.sleep_cooperative" name="kernel.sched_no_timeslicing.sleep_cooperative" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.unit.return_value_tests" name="testing.ztest.unit.return_value_tests" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.sched_no_timeslicing.sleep_wakeup_preemptible" name="kernel.sched_no_timeslicing.sleep_wakeup_preemptible" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.tickless.sleep================================================" name="kernel.tickless.sleep================================================" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.tickless.sleep_cooperative" name="kernel.tickless.sleep_cooperative" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.tickless.sleep_wake===============" name="kernel.tickless.sleep_wake===============" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.tickless.sleep_wakeup_preemp======" name="kernel.tickless.sleep_wakeup_preemp======" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.tickless.sleep_wakeup_preemptible" name="kernel.tickless.sleep_wakeup_preemptible" time="0">
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.delay" name="testing.ztest.customized_output.delay" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.event_flags_isr" name="testing.ztest.customized_output.event_flags_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.event_flags_signalled" name="testing.ztest.customized_output.event_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.kernel_apis" name="testing.ztest.customized_output.kernel_apis" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mempool" name="testing.ztest.customized_output.mempool" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mempool_dynamic" name="testing.ztest.customized_output.mempool_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.messageq" name="testing.ztest.customized_output.messageq" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mutex" name="testing.ztest.customized_output.mutex" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mutex_lock_timeout" name="testing.ztest.customized_output.mutex_lock_timeout" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.semaphore" name="testing.ztest.customized_output.semaphore" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.t- test_thread_prio_dynamic" name="testing.ztest.customized_output.t- test_thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.te6" name="testing.ztest.customized_output.te6" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thrd B started." name="testing.ztest.customized_output.thrd B started." time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_apis" name="testing.ztest.customized_output.thread_apis" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_apis_dynamic" name="testing.ztest.customized_output.thread_apis_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_isr" name="testing.ztest.customized_output.thread_flags_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_no_wait_timeout" name="testing.ztest.customized_output.thread_flags_no_wait_timeout" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_signalled" name="testing.ztest.customized_output.thread_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_prio" name="testing.ztest.customized_output.thread_prio" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_prio_dynamic" name="testing.ztest.customized_output.thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.timer" name="testing.ztest.customized_output.timer" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.empty_test" name="testing.ztest.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.multi_value_tests" name="testing.ztest.mock.multi_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.parameter_tests" name="testing.ztest.mock.parameter_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.return_value_tests" name="testing.ztest.mock.return_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.multi_value_tests" name="testing.ztest.unit.multi_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.parameter_tests" name="testing.ztest.unit.parameter_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.return_value_tests" name="testing.ztest.unit.return_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.delay" name="testing.ztest.customized_output.delay" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.event_flags_isr" name="testing.ztest.customized_output.event_flags_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.event_flags_signalled" name="testing.ztest.customized_output.event_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.kernel_apis" name="testing.ztest.customized_output.kernel_apis" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mempool" name="testing.ztest.customized_output.mempool" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mempool_dynamic" name="testing.ztest.customized_output.mempool_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.messageq" name="testing.ztest.customized_output.messageq" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mutex" name="testing.ztest.customized_output.mutex" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mutex_lock_timeout" name="testing.ztest.customized_output.mutex_lock_timeout" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.semaphore" name="testing.ztest.customized_output.semaphore" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.t- test_thread_prio_dynamic" name="testing.ztest.customized_output.t- test_thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.te6" name="testing.ztest.customized_output.te6" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thrd B started." name="testing.ztest.customized_output.thrd B started." time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_apis" name="testing.ztest.customized_output.thread_apis" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_apis_dynamic" name="testing.ztest.customized_output.thread_apis_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_isr" name="testing.ztest.customized_output.thread_flags_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_no_wait_timeout" name="testing.ztest.customized_output.thread_flags_no_wait_timeout" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_signalled" name="testing.ztest.customized_output.thread_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_prio" name="testing.ztest.customized_output.thread_prio" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_prio_dynamic" name="testing.ztest.customized_output.thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.timer" name="testing.ztest.customized_output.timer" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.empty_test" name="testing.ztest.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.multi_value_tests" name="testing.ztest.mock.multi_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.parameter_tests" name="testing.ztest.mock.parameter_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.return_value_tests" name="testing.ztest.mock.return_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.multi_value_tests" name="testing.ztest.unit.multi_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.parameter_tests" name="testing.ztest.unit.parameter_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.return_value_tests" name="testing.ztest.unit.return_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.delay" name="testing.ztest.customized_output.delay" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.event_flags_isr" name="testing.ztest.customized_output.event_flags_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.event_flags_signalled" name="testing.ztest.customized_output.event_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.kernel_apis" name="testing.ztest.customized_output.kernel_apis" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mempool" name="testing.ztest.customized_output.mempool" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mempool_dynamic" name="testing.ztest.customized_output.mempool_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.messageq" name="testing.ztest.customized_output.messageq" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mutex" name="testing.ztest.customized_output.mutex" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mutex_lock_timeout" name="testing.ztest.customized_output.mutex_lock_timeout" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.semaphore" name="testing.ztest.customized_output.semaphore" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.t- test_thread_prio_dynamic" name="testing.ztest.customized_output.t- test_thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.te6" name="testing.ztest.customized_output.te6" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thrd B started." name="testing.ztest.customized_output.thrd B started." time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_apis" name="testing.ztest.customized_output.thread_apis" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_apis_dynamic" name="testing.ztest.customized_output.thread_apis_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_isr" name="testing.ztest.customized_output.thread_flags_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_no_wait_timeout" name="testing.ztest.customized_output.thread_flags_no_wait_timeout" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_signalled" name="testing.ztest.customized_output.thread_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_prio" name="testing.ztest.customized_output.thread_prio" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_prio_dynamic" name="testing.ztest.customized_output.thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.timer" name="testing.ztest.customized_output.timer" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.empty_test" name="testing.ztest.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.multi_value_tests" name="testing.ztest.mock.multi_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.parameter_tests" name="testing.ztest.mock.parameter_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.return_value_tests" name="testing.ztest.mock.return_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.multi_value_tests" name="testing.ztest.unit.multi_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.parameter_tests" name="testing.ztest.unit.parameter_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.return_value_tests" name="testing.ztest.unit.return_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.delay" name="testing.ztest.customized_output.delay" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.event_flags_isr" name="testing.ztest.customized_output.event_flags_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.event_flags_signalled" name="testing.ztest.customized_output.event_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.kernel_apis" name="testing.ztest.customized_output.kernel_apis" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mempool" name="testing.ztest.customized_output.mempool" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mempool_dynamic" name="testing.ztest.customized_output.mempool_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.messageq" name="testing.ztest.customized_output.messageq" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mutex" name="testing.ztest.customized_output.mutex" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.mutex_lock_timeout" name="testing.ztest.customized_output.mutex_lock_timeout" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.semaphore" name="testing.ztest.customized_output.semaphore" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.t- test_thread_prio_dynamic" name="testing.ztest.customized_output.t- test_thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.te6" name="testing.ztest.customized_output.te6" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thrd B started." name="testing.ztest.customized_output.thrd B started." time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_apis" name="testing.ztest.customized_output.thread_apis" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_apis_dynamic" name="testing.ztest.customized_output.thread_apis_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_isr" name="testing.ztest.customized_output.thread_flags_isr" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_no_wait_timeout" name="testing.ztest.customized_output.thread_flags_no_wait_timeout" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_flags_signalled" name="testing.ztest.customized_output.thread_flags_signalled" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_prio" name="testing.ztest.customized_output.thread_prio" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.thread_prio_dynamic" name="testing.ztest.customized_output.thread_prio_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.customized_output.timer" name="testing.ztest.customized_output.timer" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.empty_test" name="testing.ztest.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.multi_value_tests" name="testing.ztest.mock.multi_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.parameter_tests" name="testing.ztest.mock.parameter_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.mock.return_value_tests" name="testing.ztest.mock.return_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.multi_value_tests" name="testing.ztest.unit.multi_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.parameter_tests" name="testing.ztest.unit.parameter_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.unit.return_value_tests" name="testing.ztest.unit.return_value_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:libraries.data_structures.byte_put_free" name="libraries.data_structures.byte_put_free" time="0">
       </testcase>
@@ -262,79 +1206,43 @@
       </testcase>
       <testcase classname="frdm_kl25z:libraries.data_structures.ringbuffer_size_put_get_thread_isr" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
       </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+      </testcase>
       <testcase classname="frdm_kl25z:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.fatal" name="arch.interrupt.fatal" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.main" name="arch.interrupt.main" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.array" name="kernel.mailbox.array" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_async_multiple_put" name="kernel.mailbox.mbox_async_multiple_put" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_async_put_get_block" name="kernel.mailbox.mbox_async_put_get_block" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_async_put_get_buffer" name="kernel.mailbox.mbox_async_put_get_buffer" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_async_put_to_waiting_get" name="kernel.mailbox.mbox_async_put_to_waiting_get" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_block_get_buff_to_pool" name="kernel.mailbox.mbox_block_get_buff_to_pool" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_block_get_buff_to_smaller_pool" name="kernel.mailbox.mbox_block_get_buff_to_smaller_pool" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.sem_give_limit" name="arch.interrupt.sem_give_limit" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_block_get_invalid_pool" name="kernel.mailbox.mbox_block_get_invalid_pool" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_clean_up_tx_pool" name="kernel.mailbox.mbox_clean_up_tx_pool" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_dispose_size_0_msg" name="kernel.mailbox.mbox_dispose_size_0_msg" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_get_waiting_put_incorrect_tid" name="kernel.mailbox.mbox_get_waiting_put_incorrect_tid" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_incorrect_receiver_tid" name="kernel.mailbox.mbox_incorrect_receiver_tid" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_incorrect_transmit_tid" name="kernel.mailbox.mbox_incorrect_transmit_tid" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_kdefine" name="kernel.mailbox.mbox_kdefine" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_kinit" name="kernel.mailbox.mbox_kinit" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_msg_tid_mismatch" name="kernel.mailbox.mbox_msg_tid_mismatch" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_multiple_waiting_get" name="kernel.mailbox.mbox_multiple_waiting_get" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_put_get_buffer" name="kernel.mailbox.mbox_put_get_buffer" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_put_get_null" name="kernel.mailbox.mbox_put_get_null" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_target_source_thread_block" name="kernel.mailbox.mbox_target_source_thread_block" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_target_source_thread_buffer" name="kernel.mailbox.mbox_target_source_thread_buffer" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.mbox_timed_out_mbox_get" name="kernel.mailbox.mbox_timed_out_mbox_get" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.msg_receiver" name="kernel.mailbox.msg_receiver" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.msg_receiver_unlimited" name="kernel.mailbox.msg_receiver_unlimited" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.mailbox.vector" name="kernel.mailbox.vector" time="0">
+      <testcase classname="frdm_kl25z:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.mailbox.main" name="peripheral.mailbox.main" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.gpio.gpio_callback_add_remove" name="peripheral.gpio.gpio_callback_add_remove" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.gpio.gpio_callback_edge_high" name="peripheral.gpio.gpio_callback_edge_high" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.gpio.gpio_callback_edge_low" name="peripheral.gpio.gpio_callback_edge_low" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.gpio.gpio_callback_enable_disable" name="peripheral.gpio.gpio_callback_enable_disable" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.gpio.gpio_callback_level_high" name="peripheral.gpio.gpio_callback_level_high" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.gpio.gpio_callback_level_low" name="peripheral.gpio.gpio_callback_level_low" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.gpio.gpio_callback_self_remove" name="peripheral.gpio.gpio_callback_self_remove" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.gpio.gpio_pin_read_write" name="peripheral.gpio.gpio_pin_read_write" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart.poll.uart_fifo_fill" name="peripheral.uart.poll.uart_fifo_fill" time="0">
       </testcase>
@@ -370,122 +1278,6 @@
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.poll.create_sockets" name="kernel.fifo.poll.create_sockets" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.poll.fifo_cancel_wait" name="kernel.fifo.poll.fifo_cancel_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.poll.fifo_get_fail" name="kernel.fifo.poll.fifo_get_fail" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.poll.fifo_is_empty_isr" name="kernel.fifo.poll.fifo_is_empty_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.poll.fifo_is_empty_thread" name="kernel.fifo.poll.fifo_is_empty_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.poll.fifo_isr2thread" name="kernel.fifo.poll.fifo_isr2thread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.poll.fifo_loop" name="kernel.fifo.poll.fifo_loop" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.poll.fifo_thread2isr" name="kernel.fifo.poll.fifo_thread2isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.poll.fifo_thread2thread" name="kernel.fifo.poll.fifo_thread2thread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.dns_add_remove_two_callback6" name="kernel.fifo.timeout.poll.dns_add_remove_two_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.dns_remove_callback6" name="kernel.fifo.timeout.poll.dns_remove_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.dns_remove_none_callback6" name="kernel.fifo.timeout.poll.dns_remove_none_callback6" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.dns_remove_timeout_empty_fifo" name="kernel.fifo.timeout.poll.dns_remove_timeout_empty_fifo" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.timeout_empty_fifo" name="kernel.fifo.timeout.poll.timeout_empty_fifo" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.timeout_fifS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="kernel.fifo.timeout.poll.timeout_fifS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.timeout_fifo_thread" name="kernel.fifo.timeout.poll.timeout_fifo_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.timeout_non_empty_fifo" name="kernel.fifo.timeout.poll.timeout_non_empty_fifo" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.timeout_threads_pend_fail_on_fifo" name="kernel.fifo.timeout.poll.timeout_threads_pend_fail_on_fifo" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.timeout_threads_pend_on_dual_fifos" name="kernel.fifo.timeout.poll.timeout_threads_pend_on_dual_fifos" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.timeout_threads_pend_on_fifo" name="kernel.fifo.timeout.poll.timeout_threads_pend_on_fifo" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.timeout.poll.vlan_disable_all" name="kernel.fifo.timeout.poll.vlan_disable_all" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.dual_fifo_play" name="kernel.fifo.usage.poll.dual_fifo_play" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.isr_fifo_play" name="kernel.fifo.usage.poll.isr_fifo_play" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.json_esc======================================" name="kernel.fifo.usage.poll.json_esc======================================" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.json_escape" name="kernel.fifo.usage.poll.json_escape" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.json_escape_bounds_check" name="kernel.fifo.usage.poll.json_escape_bounds_check" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.json_escape_empty" name="kernel.fifo.usage.poll.json_escape_empty" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.json_escape_one" name="kernel.fifo.usage.poll.json_escape_one" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.json_key_not_in_descr" name="kernel.fifo.usage.poll.json_key_not_in_descr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.single_fifo_play" name="kernel.fifo.usage.poll.single_fifo_play" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.fifo.usage.poll.te=========================================================" name="kernel.fifo.usage.poll.te=========================================================" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.poll.device_id_get" name="kernel.poll.device_id_get" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.poll.poll_cancel_main_high_prio" name="kernel.poll.poll_cancel_main_high_prio" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.poll.poll_cancel_main_low_prio" name="kernel.poll.poll_cancel_main_low_prio" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.poll.poll_multi" name="kernel.poll.poll_multi" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.poll.poll_no_wait" name="kernel.poll.poll_no_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.poll.poll_threadstate" name="kernel.poll.poll_threadstate" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.poll.poll_wait" name="kernel.poll.poll_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.auto_free" name="kernel.queue.poll.auto_free" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_alloc" name="kernel.queue.poll.queue_alloc" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_alloc_append_user" name="kernel.queue.poll.queue_alloc_append_user" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_alloc_prepend_user" name="kernel.queue.poll.queue_alloc_prepend_user" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_get_2threads" name="kernel.queue.poll.queue_get_2threads" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_get_fail" name="kernel.queue.poll.queue_get_fail" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_isr2thread" name="kernel.queue.poll.queue_isr2thread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_loop" name="kernel.queue.poll.queue_loop" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_supv_to_user" name="kernel.queue.poll.queue_supv_to_user" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_thread2isr" name="kernel.queue.poll.queue_thread2isr" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.queue_thread2thread" name="kernel.queue.poll.queue_thread2thread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.queue.poll.z_free_fd" name="kernel.queue.poll.z_free_fd" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.workqueue.poll.delayed" name="kernel.workqueue.poll.delayed" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.workqueue.poll.delayed_cancel" name="kernel.workqueue.poll.delayed_cancel" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.workqueue.poll.delayed_resubmit" name="kernel.workqueue.poll.delayed_resubmit" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.workqueue.poll.delayed_resubmit_thread" name="kernel.workqueue.poll.delayed_resubmit_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.workqueue.poll.resubmit" name="kernel.workqueue.poll.resubmit" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:kernel.workqueue.poll.sequence" name="kernel.workqueue.poll.sequence" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.adc.poll_mode.adc_sample" name="peripheral.adc.poll_mode.adc_sample" time="0">
-      </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart.poll.uart_fifo_fill" name="peripheral.uart.poll.uart_fifo_fill" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart.poll.uart_fifo_read" name="peripheral.uart.poll.uart_fifo_read" time="0">
@@ -493,74 +1285,6 @@
       <testcase classname="frdm_kl25z:peripheral.uart.poll.uart_poll_in" name="peripheral.uart.poll.uart_poll_in" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart.poll.uart_poll_out" name="peripheral.uart.poll.uart_poll_out" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.uart.uart_poll_in" name="peripheral.uart.uart_poll_in" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:peripheral.uart.uart_poll_out" name="peripheral.uart.uart_poll_out" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_close" name="filesystem.fs_shell.fat_close" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_mkdir" name="filesystem.fs_shell.fat_mkdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_mount" name="filesystem.fs_shell.fat_mount" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_open" name="filesystem.fs_shell.fat_open" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_read" name="filesystem.fs_shell.fat_read" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_readdir" name="filesystem.fs_shell.fat_readdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_rmdir" name="filesystem.fs_shell.fat_rmdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_unlink" name="filesystem.fs_shell.fat_unlink" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fat_write" name="filesystem.fs_shell.fat_write" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fs_help" name="filesystem.fs_shell.fs_help" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.fs_shell_exit" name="filesystem.fs_shell.fs_shell_exit" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_mkdir" name="filesystem.fs_shell.nffs_mkdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_mount" name="filesystem.fs_shell.nffs_mount" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_open" name="filesystem.fs_shell.nffs_open" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_read" name="filesystem.fs_shell.nffs_read" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_readdir" name="filesystem.fs_shell.nffs_readdir" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_unlink" name="filesystem.fs_shell.nffs_unlink" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.fs_shell.nffs_write" name="filesystem.fs_shell.nffs_write" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:filesystem.multifs.fs_shell_exit" name="filesystem.multifs.fs_shell_exit" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.encoding.cmd_shell" name="libraries.encoding.cmd_shell" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.encoding.shell_wildcards_dynamic" name="libraries.encoding.shell_wildcards_dynamic" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:libraries.encoding.shell_wildcards_static" name="libraries.encoding.shell_wildcards_static" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.shell" name="net.shell" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.shell.ipv4_addresses" name="net.shell.ipv4_addresses" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.shell.net_shell" name="net.shell.net_shell" time="0">
-      </testcase>
-      <testcase classname="frdm_kl25z:net.shell.setup" name="net.shell.setup" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
       </testcase>
@@ -570,51 +1294,57 @@
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.app_handler" name="shell.app_handler" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.uart_fifo_fill" name="peripheral.uart.uart_fifo_fill" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.cmd_clear" name="shell.cmd_clear" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.uart_fifo_read" name="peripheral.uart.uart_fifo_read" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.cmd_help" name="shell.cmd_help" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.uart_poll_in" name="peripheral.uart.uart_poll_in" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.cmd_history" name="shell.cmd_history" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.uart_poll_out" name="peripheral.uart.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.cmd_resize" name="shell.cmd_resize" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.cmd_select" name="shell.cmd_select" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.cmd_shell" name="shell.cmd_shell" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.exit" name="shell.exit" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.help" name="shell.help" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.history_add_get" name="shell.history_add_get" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.poll.uart_fifo_fill" name="peripheral.uart.poll.uart_fifo_fill" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.history_get_up_and_down" name="shell.history_get_up_and_down" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.poll.uart_fifo_read" name="peripheral.uart.poll.uart_fifo_read" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.history_purge" name="shell.history_purge" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.poll.uart_poll_in" name="peripheral.uart.poll.uart_poll_in" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.log_output_raw_string" name="shell.log_output_raw_string" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.poll.uart_poll_out" name="peripheral.uart.poll.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.log_output_string" name="shell.log_output_string" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.module" name="shell.module" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_fifo_read" name="peripheral.uart.shell.uart_fifo_read" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.no_duplicates_in_a_row" name="shell.no_duplicates_in_a_row" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.select" name="shell.select" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.shell_module" name="shell.shell_module" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.uart_fifo_fill" name="peripheral.uart.uart_fifo_fill" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.shell_wildcards_dynamic" name="shell.shell_wildcards_dynamic" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.uart_fifo_read" name="peripheral.uart.uart_fifo_read" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.shell_wildcards_static" name="shell.shell_wildcards_static" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.uart_poll_in" name="peripheral.uart.uart_poll_in" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.storing_long_buffers" name="shell.storing_long_buffers" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart.uart_poll_out" name="peripheral.uart.uart_poll_out" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:shell.too_long_line_not_stored" name="shell.too_long_line_not_stored" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
       </testcase>
-      <testcase classname="frdm_kl25z:kernel.poll.device_id_get" name="kernel.poll.device_id_get" time="0">
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
+      </testcase>
+      <testcase classname="frdm_kl25z:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
       </testcase>
       <testcase classname="frdm_kl25z:peripheral.device_id.device_id_get" name="peripheral.device_id.device_id_get" time="0">
       </testcase>

@@ -1,37 +1,58 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="143" errors="0" failures="0" name="" skipped="60" time="0">
-      <testcase classname="mimxrt1020_evk:kernel.multiprocessing.spinlock_basic" name="kernel.multiprocessing.spinlock_basic" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.multiprocessing.spinlock_bounce" name="kernel.multiprocessing.spinlock_bounce" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:peripheral.entropy.entropy_get_entropy" name="peripheral.entropy.entropy_get_entropy" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" name="benchmark.latency.loo6lo_sac1_sam01_dac1_dam01" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:benchmark.latency.loop" name="benchmark.latency.loop" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_pool.arm_zero_latency_irqs" name="kernel.memory_pool.arm_zero_latency_irqs" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
+    <testsuite tests="203" errors="0" failures="0" name="" skipped="252" time="0">
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+      <testcase classname="mimxrt1020_evk:arch.interrupt.fatal" name="arch.interrupt.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.main" name="arch.interrupt.main" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.sem_give_limit" name="arch.interrupt.sem_give_limit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1020_evk:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
@@ -190,6 +211,9 @@
       <testcase classname="mimxrt1020_evk:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
+      <testcase classname="mimxrt1020_evk:crypto.rand32.rand32" name="crypto.rand32.rand32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="mimxrt1020_evk:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -202,88 +226,332 @@
       <testcase classname="mimxrt1020_evk:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
+      <testcase classname="mimxrt1020_evk:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:crypto.rand32.random_sw_systimer.fatal" name="crypto.rand32.random_sw_systimer.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:crypto.rand32.random_sw_systimer.te" name="crypto.rand32.random_sw_systimer.te" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common" name="kernel.common" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.adc_00p 0x0000 0x0000" name="kernel.common.adc_00p 0x0000 0x0000" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.adc_asynchronous_call" name="kernel.common.adc_asynchronous_call" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.adc_invalid_request" name="kernel.common.adc_invalid_request" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.adc_repeated_sampling" name="kernel.common.adc_repeated_sampling" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.adc_repeated_samplings" name="kernel.common.adc_repeated_samplings" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.adc_sample_two_channels" name="kernel.common.adc_sample_two_channels" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" name="kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.adc_sample_with_interval" name="kernel.common.adc_sample_with_interval" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.atomic" name="kernel.common.atomic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.bitfield" name="kernel.common.bitfield" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.bounds_check_mitigation" name="kernel.common.bounds_check_mitigation" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.busy_wait" name="kernel.common.busy_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.byteorder_mem_swap" name="kernel.common.byteorder_mem_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.byteorder_memcpy_swap" name="kernel.common.byteorder_memcpy_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.clock_cycle" name="kernel.common.clock_cycle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.clock_uptime" name="kernel.common.clock_uptime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.critical" name="kernel.common.critical" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.dlist" name="kernel.common.dlist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.errno.thread_context" name="kernel.common.errno.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.init.verify_bootdelay" name="kernel.common.init.verify_bootdelay" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.intmath" name="kernel.common.intmath" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.irq_offload" name="kernel.common.irq_offload" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.k_yield" name="kernel.common.k_yield" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.kernel_cpu_idle" name="kernel.common.kernel_cpu_idle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.kernel_cpu_idle_atomic" name="kernel.common.kernel_cpu_idle_atomic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.kernel_ctx_thread" name="kernel.common.kernel_ctx_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.kernel_interrupts" name="kernel.common.kernel_interrupts" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.kernel_thread" name="kernel.common.kernel_thread" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.kernel_timer_interrupts" name="kernel.common.kernel_timer_interrupts" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.main" name="kernel.common.main" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.atomic" name="kernel.common.misra.atomic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.bitfield" name="kernel.common.misra.bitfield" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.bounds_check_mitigation" name="kernel.common.misra.bounds_check_mitigation" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.byteorder_mem_swap" name="kernel.common.misra.byteorder_mem_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.byteorder_memcpy_swap" name="kernel.common.misra.byteorder_memcpy_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.clock_cycle" name="kernel.common.misra.clock_cycle" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.clock_uptime" name="kernel.common.misra.clock_uptime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.dlist" name="kernel.common.misra.dlist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.intmath" name="kernel.common.misra.intmath" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.irq_offload" name="kernel.common.misra.irq_offload" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.msg_receive===" name="kernel.common.misra.msg_receive===" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.multilib" name="kernel.common.misra.multilib" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.printk" name="kernel.common.misra.printk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.slist" name="kernel.common.misra.slist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_get_be16" name="kernel.common.misra.sys_get_be16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_get_be32" name="kernel.common.misra.sys_get_be32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_get_be64" name="kernel.common.misra.sys_get_be64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_get_le16" name="kernel.common.misra.sys_get_le16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_get_le32" name="kernel.common.misra.sys_get_le32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_get_le64" name="kernel.common.misra.sys_get_le64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_put_be16" name="kernel.common.misra.sys_put_be16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_put_be32" name="kernel.common.misra.sys_put_be32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_put_be64" name="kernel.common.misra.sys_put_be64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_put_le16" name="kernel.common.misra.sys_put_le16" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_put_le32" name="kernel.common.misra.sys_put_le32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.sys_put_le64" name="kernel.common.misra.sys_put_le64" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.thread_context" name="kernel.common.misra.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.timeout_order" name="kernel.common.misra.timeout_order" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.vector" name="kernel.common.misra.vector" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.verify_bootdelay" name="kernel.common.misra.verify_bootdelay" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.misra.version" name="kernel.common.misra.version" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.multilib" name="kernel.common.multilib" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.obj_tracing" name="kernel.common.obj_tracing" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.printk" name="kernel.common.printk" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.priority_cooperative" name="kernel.common.priority_cooperative" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.sam.critical" name="kernel.common.sam.critical" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.slist" name="kernel.common.slist" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" name="kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
+      <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+      </testcase>
       <testcase classname="mimxrt1020_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_async_put_get_buffer" name="kernel.mailbox.mbox_async_put_get_buffer" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_get_be16" name="kernel.common.sys_get_be16" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_block_get_buff_to_pool" name="kernel.mailbox.mbox_block_get_buff_to_pool" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_get_be32" name="kernel.common.sys_get_be32" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_block_get_buff_to_smaller_pool" name="kernel.mailbox.mbox_block_get_buff_to_smaller_pool" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_get_be64" name="kernel.common.sys_get_be64" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_put_get_buffer" name="kernel.mailbox.mbox_put_get_buffer" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_get_le16" name="kernel.common.sys_get_le16" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.mailbox.mbox_target_source_thread_buffer" name="kernel.mailbox.mbox_target_source_thread_buffer" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_get_le32" name="kernel.common.sys_get_le32" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_readable_read" name="kernel.memory_protection.mmu.buffer_readable_read" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_get_le64" name="kernel.common.sys_get_le64" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_readable_write" name="kernel.memory_protection.mmu.buffer_readable_write" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_put_be16" name="kernel.common.sys_put_be16" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_rw_read" name="kernel.memory_protection.mmu.buffer_rw_read" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_put_be32" name="kernel.common.sys_put_be32" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_supervisor_rw" name="kernel.memory_protection.mmu.buffer_supervisor_rw" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_put_be64" name="kernel.common.sys_put_be64" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_supervisor_w" name="kernel.memory_protection.mmu.buffer_supervisor_w" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_put_le16" name="kernel.common.sys_put_le16" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_user_rw_supervisor" name="kernel.memory_protection.mmu.buffer_user_rw_supervisor" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_put_le32" name="kernel.common.sys_put_le32" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_user_rw_user" name="kernel.memory_protection.mmu.buffer_user_rw_user" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.sys_put_le64" name="kernel.common.sys_put_le64" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.buffer_writeable_write" name="kernel.memory_protection.mmu.buffer_writeable_write" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.te========" name="kernel.common.te========" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_page_buffer_read" name="kernel.memory_protection.mmu.multi_page_buffer_read" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.thread_context" name="kernel.common.thread_context" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_page_buffer_read_user" name="kernel.memory_protection.mmu.multi_page_buffer_read_user" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.timeout_order" name="kernel.common.timeout_order" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_page_buffer_user" name="kernel.memory_protection.mmu.multi_page_buffer_user" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.timing.assert_mem_equal" name="kernel.common.timing.assert_mem_equal" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_page_buffer_write_user" name="kernel.memory_protection.mmu.multi_page_buffer_write_user" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.timing.assert_tests" name="kernel.common.timing.assert_tests" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_pde_buffer_readable_read" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_read" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.timing.fatal" name="kernel.common.timing.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_pde_buffer_readable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_write" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_pde_buffer_rw" name="kernel.memory_protection.mmu.multi_pde_buffer_rw" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_protection.userspace.stack_buffer" name="kernel.memory_protection.userspace.stack_buffer" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.verify_bootdelay" name="kernel.common.verify_bootdelay" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.memory_slabs.stack_buffer" name="kernel.memory_slabs.stack_buffer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.multiq_no_timeslicing.get_buff_to_pool" name="kernel.sched.multiq_no_timeslicing.get_buff_to_pool" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.multiq_no_timeslicing.mbox_block_get_buff_to_pool" name="kernel.sched.multiq_no_timeslicing.mbox_block_get_buff_to_pool" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.multiq_no_timeslicing.mbox_block_get_buff_to_smaller_pool" name="kernel.sched.multiq_no_timeslicing.mbox_block_get_buff_to_smaller_pool" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:kernel.sched.multiq_no_timeslicing.mbox_clean_up_tx_poolS - test_mbox_block_get_buff_to_pool" name="kernel.sched.multiq_no_timeslicing.mbox_clean_up_tx_poolS - test_mbox_block_get_buff_to_pool" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ring_buffer_main" name="libraries.data_structures.ring_buffer_main" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_alloc_put" name="libraries.data_structures.ringbuffer_alloc_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_declare_pow2" name="libraries.data_structures.ringbuffer_declare_pow2" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_declare_size" name="libraries.data_structures.ringbuffer_declare_size" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_init" name="libraries.data_structures.ringbuffer_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" name="libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_put_get_isr" name="libraries.data_structures.ringbuffer_put_get_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_put_get_thread" name="libraries.data_structures.ringbuffer_put_get_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_put_get_thread_isr" name="libraries.data_structures.ringbuffer_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.data_structures.ringbuffer_size_put_get_thread_isr" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.encoding.storing_long_buffers" name="libraries.encoding.storing_long_buffers" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:libraries.libc.send_receive_buffer" name="libraries.libc.send_receive_buffer" time="0">
+      <testcase classname="mimxrt1020_evk:kernel.common.version" name="kernel.common.version" time="0">
+         <skipped message="Skipped" type="skipped"/>
       </testcase>
       <testcase classname="mimxrt1020_evk:net.buf.net_buf_1" name="net.buf.net_buf_1" time="0">
       </testcase>
@@ -322,30 +590,6 @@
       <testcase classname="mimxrt1020_evk:net.buf.net_buf_var_pool" name="net.buf.net_buf_var_pool" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:net.buf.v6_sendmsg_with_txtime" name="net.buf.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:net.ipv6.fragment.net_buf_test_var_pool" name="net.ipv6.fragment.net_buf_test_var_pool" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:net.packet.net_pkt_allocate_with_buffer" name="net.packet.net_pkt_allocate_with_buffer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:net.packet.net_pkt_allocate_wo_buffer" name="net.packet.net_pkt_allocate_wo_buffer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:net.udp.net_buf_test_fixed_pool" name="net.udp.net_buf_test_fixed_pool" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.cmsis_rtos_v1.storing_long_buffers" name="portability.cmsis_rtos_v1.storing_long_buffers" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ring_buffer_main" name="portability.posix.newlib.ring_buffer_main" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ringbuffer_raw" name="portability.posix.newlib.ringbuffer_raw" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.ringbuffer_size_put_get_thread_isr" name="portability.posix.newlib.ringbuffer_size_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" name="portability.posix.newlib.te_ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:shell.storing_long_buffers" name="shell.storing_long_buffers" time="0">
       </testcase>
   </testsuite>
 </testsuites>

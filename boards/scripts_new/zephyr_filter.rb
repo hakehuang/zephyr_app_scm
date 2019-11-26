@@ -102,4 +102,20 @@ module ZEPHER_FILTER
   end
   module_function :get_board_name
 
+
+  def is_case_include?(case_name , key)
+    return true if case_name.include? key
+    if key.split('.').count > 2
+      #we need compare the former two things
+      new_key = key.split('.')[0..1].join('.')
+      return true if case_name.include? new_key
+    end
+    if case_name.include? "kernel.common"
+      new_key = key.split('.')[0..1].join('.')
+      new_case_name = case_name.gsub('kernel.common', 'kernel')
+      return true if new_case_name.include? new_key
+    end
+    return false
+  end
+  module_function :is_case_include?
 end
