@@ -1,573 +1,9 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="1162" errors="0" failures="0" name="" skipped="252" time="0">
-      <testcase classname="mimxrt1050_evk:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.fatal" name="arch.interrupt.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.main" name="arch.interrupt.main" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.sem_give_limit" name="arch.interrupt.sem_give_limit" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.delay" name="testing.ztest.customized_output.delay" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.event_flags_isr" name="testing.ztest.customized_output.event_flags_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.event_flags_signalled" name="testing.ztest.customized_output.event_flags_signalled" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.kernel_apis" name="testing.ztest.customized_output.kernel_apis" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.mempool" name="testing.ztest.customized_output.mempool" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.mempool_dynamic" name="testing.ztest.customized_output.mempool_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.messageq" name="testing.ztest.customized_output.messageq" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.mutex" name="testing.ztest.customized_output.mutex" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.mutex_lock_timeout" name="testing.ztest.customized_output.mutex_lock_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.semaphore" name="testing.ztest.customized_output.semaphore" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.t- test_thread_prio_dynamic" name="testing.ztest.customized_output.t- test_thread_prio_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.te6" name="testing.ztest.customized_output.te6" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.thrd B started." name="testing.ztest.customized_output.thrd B started." time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.thread_apis" name="testing.ztest.customized_output.thread_apis" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.thread_apis_dynamic" name="testing.ztest.customized_output.thread_apis_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.thread_flags_isr" name="testing.ztest.customized_output.thread_flags_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.thread_flags_no_wait_timeout" name="testing.ztest.customized_output.thread_flags_no_wait_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.thread_flags_signalled" name="testing.ztest.customized_output.thread_flags_signalled" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.thread_prio" name="testing.ztest.customized_output.thread_prio" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.thread_prio_dynamic" name="testing.ztest.customized_output.thread_prio_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.customized_output.timer" name="testing.ztest.customized_output.timer" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.empty_test" name="testing.ztest.empty_test" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.mock.multi_value_tests" name="testing.ztest.mock.multi_value_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.mock.parameter_tests" name="testing.ztest.mock.parameter_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.mock.return_value_tests" name="testing.ztest.mock.return_value_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.unit.multi_value_tests" name="testing.ztest.unit.multi_value_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.unit.parameter_tests" name="testing.ztest.unit.parameter_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.unit.return_value_tests" name="testing.ztest.unit.return_value_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:crypto.rand32.rand32" name="crypto.rand32.rand32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" name="crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:crypto.rand32.random_sw_systimer.fatal" name="crypto.rand32.random_sw_systimer.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:crypto.rand32.random_sw_systimer.te" name="crypto.rand32.random_sw_systimer.te" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common" name="kernel.common" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.adc_00p 0x0000 0x0000" name="kernel.common.adc_00p 0x0000 0x0000" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.adc_asynchronous_call" name="kernel.common.adc_asynchronous_call" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.adc_invalid_request" name="kernel.common.adc_invalid_request" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.adc_repeated_sampling" name="kernel.common.adc_repeated_sampling" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.adc_repeated_samplings" name="kernel.common.adc_repeated_samplings" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.adc_sample_two_channels" name="kernel.common.adc_sample_two_channels" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" name="kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.adc_sample_with_interval" name="kernel.common.adc_sample_with_interval" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.atomic" name="kernel.common.atomic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.bitfield" name="kernel.common.bitfield" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.bounds_check_mitigation" name="kernel.common.bounds_check_mitigation" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.busy_wait" name="kernel.common.busy_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.byteorder_mem_swap" name="kernel.common.byteorder_mem_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.byteorder_memcpy_swap" name="kernel.common.byteorder_memcpy_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.clock_cycle" name="kernel.common.clock_cycle" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.clock_uptime" name="kernel.common.clock_uptime" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.critical" name="kernel.common.critical" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.dlist" name="kernel.common.dlist" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.errno.thread_context" name="kernel.common.errno.thread_context" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.init.verify_bootdelay" name="kernel.common.init.verify_bootdelay" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.intmath" name="kernel.common.intmath" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.irq_offload" name="kernel.common.irq_offload" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.k_yield" name="kernel.common.k_yield" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.kernel_cpu_idle" name="kernel.common.kernel_cpu_idle" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.kernel_cpu_idle_atomic" name="kernel.common.kernel_cpu_idle_atomic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.kernel_ctx_thread" name="kernel.common.kernel_ctx_thread" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.kernel_interrupts" name="kernel.common.kernel_interrupts" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.kernel_thread" name="kernel.common.kernel_thread" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.kernel_timer_interrupts" name="kernel.common.kernel_timer_interrupts" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.main" name="kernel.common.main" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.atomic" name="kernel.common.misra.atomic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.bitfield" name="kernel.common.misra.bitfield" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.bounds_check_mitigation" name="kernel.common.misra.bounds_check_mitigation" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.byteorder_mem_swap" name="kernel.common.misra.byteorder_mem_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.byteorder_memcpy_swap" name="kernel.common.misra.byteorder_memcpy_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.clock_cycle" name="kernel.common.misra.clock_cycle" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.clock_uptime" name="kernel.common.misra.clock_uptime" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.dlist" name="kernel.common.misra.dlist" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.intmath" name="kernel.common.misra.intmath" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.irq_offload" name="kernel.common.misra.irq_offload" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.msg_receive===" name="kernel.common.misra.msg_receive===" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.multilib" name="kernel.common.misra.multilib" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.printk" name="kernel.common.misra.printk" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.slist" name="kernel.common.misra.slist" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_get_be16" name="kernel.common.misra.sys_get_be16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_get_be32" name="kernel.common.misra.sys_get_be32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_get_be64" name="kernel.common.misra.sys_get_be64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_get_le16" name="kernel.common.misra.sys_get_le16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_get_le32" name="kernel.common.misra.sys_get_le32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_get_le64" name="kernel.common.misra.sys_get_le64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_put_be16" name="kernel.common.misra.sys_put_be16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_put_be32" name="kernel.common.misra.sys_put_be32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_put_be64" name="kernel.common.misra.sys_put_be64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_put_le16" name="kernel.common.misra.sys_put_le16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_put_le32" name="kernel.common.misra.sys_put_le32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.sys_put_le64" name="kernel.common.misra.sys_put_le64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.thread_context" name="kernel.common.misra.thread_context" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.timeout_order" name="kernel.common.misra.timeout_order" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.vector" name="kernel.common.misra.vector" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.verify_bootdelay" name="kernel.common.misra.verify_bootdelay" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.misra.version" name="kernel.common.misra.version" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.multilib" name="kernel.common.multilib" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.obj_tracing" name="kernel.common.obj_tracing" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.printk" name="kernel.common.printk" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.priority_cooperative" name="kernel.common.priority_cooperative" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sam.critical" name="kernel.common.sam.critical" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.slist" name="kernel.common.slist" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" name="kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_get_be16" name="kernel.common.sys_get_be16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_get_be32" name="kernel.common.sys_get_be32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_get_be64" name="kernel.common.sys_get_be64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_get_le16" name="kernel.common.sys_get_le16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_get_le32" name="kernel.common.sys_get_le32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_get_le64" name="kernel.common.sys_get_le64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_put_be16" name="kernel.common.sys_put_be16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_put_be32" name="kernel.common.sys_put_be32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_put_be64" name="kernel.common.sys_put_be64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_put_le16" name="kernel.common.sys_put_le16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_put_le32" name="kernel.common.sys_put_le32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.sys_put_le64" name="kernel.common.sys_put_le64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.te========" name="kernel.common.te========" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.thread_context" name="kernel.common.thread_context" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.timeout_order" name="kernel.common.timeout_order" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.timing.assert_mem_equal" name="kernel.common.timing.assert_mem_equal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.timing.assert_tests" name="kernel.common.timing.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.timing.fatal" name="kernel.common.timing.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.verify_bootdelay" name="kernel.common.verify_bootdelay" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1050_evk:kernel.common.version" name="kernel.common.version" time="0">
-         <skipped message="Skipped" type="skipped"/>
+    <testsuite tests="222" errors="0" failures="0" name="" skipped="0" time="0">
+      <testcase classname="mimxrt1050_evk:net.vlan" name="net.vlan" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.vlan.address_setup" name="net.vlan.address_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.vlan.read (q order: 4, t/o: 70, fifo 0x2000001c)" name="net.vlan.read (q order: 4, t/o: 70, fifo 0x2000001c)" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.vlan.timeouer: 4, t/o: 70, fifo 0x2000001c)" name="net.vlan.timeouer: 4, t/o: 70, fifo 0x2000001c)" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.vlan.timeout_threads_p 70, fifo 0x2000001c)" name="net.vlan.timeout_threads_p 70, fifo 0x2000001c)" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.vlan.timeout_threads_pend_fail_on_fi00001c)" name="net.vlan.timeout_threads_pend_fail_on_fi00001c)" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.vlan.timeout_threads_pend_fail_on_fifo" name="net.vlan.timeout_threads_pend_fail_on_fifo" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.vlan.timeout_threads_pend_on_dual_fifos" name="net.vlan.timeout_threads_pend_on_dual_fifos" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.vlan.timeout_threads_pend_on_fifo" name="net.vlan.timeout_threads_pend_on_fifo" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.vlan.vlan_disable" name="net.vlan.vlan_disable" time="0">
       </testcase>
@@ -583,29 +19,23 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.vlan.vlan_tci" name="net.vlan.vlan_tci" time="0">
       </testcase>
+      <testcase classname="mimxrt1050_evk:net.util" name="net.util" time="0">
+      </testcase>
       <testcase classname="mimxrt1050_evk:net.util.addr_parse" name="net.util.addr_parse" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.util.net_addr" name="net.util.net_addr" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.util.net_pkt_addr_parse" name="net.util.net_pkt_addr_parse" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.util.set_promisc_mode_off" name="net.util.set_promisc_mode_off" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.util.set_promisc_mode_off_again" name="net.util.set_promisc_mode_off_again" time="0">
-      </testcase>
       <testcase classname="mimxrt1050_evk:net.util.utils" name="net.util.utils" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.util.verify_data" name="net.util.verify_data" time="0">
+      <testcase classname="mimxrt1050_evk:net.timestamp" name="net.timestamp" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.timestamp.address_setup" name="net.timestamp.address_setup" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.timestamp.check_timestamp_after_enabling" name="net.timestamp.check_timestamp_after_enabling" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.timestamp.check_timestamp_before_enabling" name="net.timestamp.check_timestamp_before_enabling" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.timestamp.rx_chksum_offload_enabled_test_v4" name="net.timestamp.rx_chksum_offload_enabled_test_v4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.timestamp.rx_chksum_offload_enabled_test_v6" name="net.timestamp.rx_chksum_offload_enabled_test_v6" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.timestamp.timestamp_cleanup" name="net.timestamp.timestamp_cleanup" time="0">
       </testcase>
@@ -615,21 +45,13 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.timestamp.timestamp_setup_all" name="net.timestamp.timestamp_setup_all" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.trickle.block1_size" name="net.trickle.block1_size" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.trickle.block2_siformed_opt_ext" name="net.trickle.block2_siformed_opt_ext" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.trickle.block2_size" name="net.trickle.block2_size" time="0">
+      <testcase classname="mimxrt1050_evk:net.trickle" name="net.trickle" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.trickle.init" name="net.trickle.init" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.trickle.match_path_uri" name="net.trickle.match_path_uri" time="0">
+      <testcase classname="mimxrt1050_evk:net.trickle.teTrickle 2 0x80000cc8 callback called" name="net.trickle.teTrickle 2 0x80000cc8 callback called" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.trickle.parse_malformed_marker" name="net.trickle.parse_malformed_marker" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.trickle.parse_malformed_opt_ext" name="net.trickle.parse_malformed_opt_ext" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.trickle.parse_malformed_opt_len_ext" name="net.trickle.parse_malformed_opt_len_ext" time="0">
+      <testcase classname="mimxrt1050_evk:net.trickle.trickTrickle 1 0x20000c00 callback called" name="net.trickle.trickTrickle 1 0x20000c00 callback called" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.trickle.trickle_1_status" name="net.trickle.trickle_1_status" time="0">
       </testcase>
@@ -637,15 +59,27 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.trickle.trickle_1_update" name="net.trickle.trickle_1_update" time="0">
       </testcase>
+      <testcase classname="mimxrt1050_evk:net.trickle.trickle_1_update Trickle 1 0x20000c00 callback called" name="net.trickle.trickle_1_update Trickle 1 0x20000c00 callback called" time="0">
+      </testcase>
       <testcase classname="mimxrt1050_evk:net.trickle.trickle_1_wait" name="net.trickle.trickle_1_wait" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.trickle.trickle_1_wait_long" name="net.trickle.trickle_1_wait_long" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.trickle.trickle_2" name="net.trickle.trickle_2" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.trickle.trickle_2_Trickle 1 0x80000c88 callback called" name="net.trickle.trickle_2_Trickle 1 0x80000c88 callback called" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.trickle.trickle_2_inc" name="net.trickle.trickle_2_inc" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.trickle.trickle_2_status" name="net.trickle.trickle_2_status" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.trickle.trickle_2_wait" name="net.trickle.trickle_2_wait" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.trickle.trickle_2_wait Trickle 1 0x20400108 callback called" name="net.trickle.trickle_2_wait Trickle 1 0x20400108 callback called" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.trickle.trickle_2_waitTrickle 1 0x20000c00 callback called" name="net.trickle.trickle_2_waitTrickle 1 0x20000c00 callback called" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.trickle.trickle_2_waitTrickle 1 0x80000c88 callback called" name="net.trickle.trickle_2_waitTrickle 1 0x80000c88 callback called" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.trickle.trickle_create" name="net.trickle.trickle_create" time="0">
       </testcase>
@@ -665,33 +99,85 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.tcp" name="net.tcp" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_name_info" name="net.socket.get_name_info" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.fd_set" name="net.socket.fd_set" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_name_info.getnameinfo_ipv4" name="net.socket.get_name_info.getnameinfo_ipv4" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_cancelled" name="net.socket.getaddrinfo_cancelled" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_name_info.getnameinfo_ipv6" name="net.socket.get_name_info.getnameinfo_ipv6" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_flags_numerichost" name="net.socket.getaddrinfo_flags_numerichost" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.misc" name="net.socket.misc" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv4_hints_ipv6" name="net.socket.getaddrinfo_ipv4_hints_ipv6" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.misc.gethostname" name="net.socket.misc.gethostname" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv6_hints_ipv4" name="net.socket.getaddrinfo_ipv6_hints_ipv4" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.misc.inet_pton" name="net.socket.misc.inet_pton" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_no_host" name="net.socket.getaddrinfo_no_host" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_num_ipv4" name="net.socket.getaddrinfo_num_ipv4" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.select.fd_set" name="net.socket.select.fd_set" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ok" name="net.socket.getaddrinfo_ok" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.select.select" name="net.socket.select.select" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_setup" name="net.socket.getaddrinfo_setup" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.tcp" name="net.socket.tcp" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.gethostname" name="net.socket.gethostname" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv4" name="net.socket.getnameinfo_ipv4" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv6" name="net.socket.getnameinfo_ipv6" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.inet_pton" name="net.socket.inet_pton" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp" name="net.socket.udp" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.register" name="net.socket.register" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.register.tls" name="net.socket.register.tls" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.register.tls" name="net.socket.register.tls" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.socket.mgmt" name="net.socket.mgmt" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_kernel" name="net.socket.mgmt.ethernet_get_qav_kernel" time="0">
       </testcase>
@@ -717,1451 +203,27 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_setup" name="net.socket.mgmt.net_mgmt_setup" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.tr==============================================" name="net.socket.mgmt.tr==============================================" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_addr_info" name="net.socket.get_addr_info" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_addr_info.getaddrinfo_cancelled" name="net.socket.get_addr_info.getaddrinfo_cancelled" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_addr_info.getaddrinfo_flags_numerichost" name="net.socket.get_addr_info.getaddrinfo_flags_numerichost" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_addr_info.getaddrinfo_ipv4_hints_ipv6" name="net.socket.get_addr_info.getaddrinfo_ipv4_hints_ipv6" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_addr_info.getaddrinfo_ipv6_hints_ipv4" name="net.socket.get_addr_info.getaddrinfo_ipv6_hints_ipv4" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_addr_info.getaddrinfo_no_host" name="net.socket.get_addr_info.getaddrinfo_no_host" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_addr_info.getaddrinfo_num_ipv4" name="net.socket.get_addr_info.getaddrinfo_num_ipv4" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_addr_info.getaddrinfo_ok" name="net.socket.get_addr_info.getaddrinfo_ok" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
+      <testcase classname="mimxrt1050_evk:net.socket.get_addr_info.getaddrinfo_setup" name="net.socket.get_addr_info.getaddrinfo_setup" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.icmpv6" name="net.socket.register.icmpv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_multiple_chunks" name="net.socket.register.tls.log_hexdump_data_get_multiple_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_two_chunks" name="net.socket.register.tls.log_hexdump_data_get_two_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.fd_set" name="net.socket.fd_set" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_cancelled" name="net.socket.getaddrinfo_cancelled" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_flags_numerichost" name="net.socket.getaddrinfo_flags_numerichost" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv4_hints_ipv6" name="net.socket.getaddrinfo_ipv4_hints_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv6_hints_ipv4" name="net.socket.getaddrinfo_ipv6_hints_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_no_host" name="net.socket.getaddrinfo_no_host" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_num_ipv4" name="net.socket.getaddrinfo_num_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ok" name="net.socket.getaddrinfo_ok" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_setup" name="net.socket.getaddrinfo_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.gethostname" name="net.socket.gethostname" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv4" name="net.socket.getnameinfo_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv6" name="net.socket.getnameinfo_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.inet_pton" name="net.socket.inet_pton" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_kernel" name="net.socket.mgmt.ethernet_get_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_user" name="net.socket.mgmt.ethernet_get_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_kernel" name="net.socket.mgmt.ethernet_get_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_user" name="net.socket.mgmt.ethernet_get_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_kernel" name="net.socket.mgmt.ethernet_set_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_user" name="net.socket.mgmt.ethernet_set_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_kernel" name="net.socket.mgmt.ethernet_set_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_user" name="net.socket.mgmt.ethernet_set_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_kernel" name="net.socket.mgmt.net_mgmt_catch_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_user" name="net.socket.mgmt.net_mgmt_catch_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_cleanup" name="net.socket.mgmt.net_mgmt_cleanup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_setup" name="net.socket.mgmt.net_mgmt_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.tr==============================================" name="net.socket.mgmt.tr==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.icmpv6" name="net.socket.register.icmpv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_multiple_chunks" name="net.socket.register.tls.log_hexdump_data_get_multiple_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_two_chunks" name="net.socket.register.tls.log_hexdump_data_get_two_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.fd_set" name="net.socket.fd_set" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_cancelled" name="net.socket.getaddrinfo_cancelled" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_flags_numerichost" name="net.socket.getaddrinfo_flags_numerichost" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv4_hints_ipv6" name="net.socket.getaddrinfo_ipv4_hints_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv6_hints_ipv4" name="net.socket.getaddrinfo_ipv6_hints_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_no_host" name="net.socket.getaddrinfo_no_host" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_num_ipv4" name="net.socket.getaddrinfo_num_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ok" name="net.socket.getaddrinfo_ok" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_setup" name="net.socket.getaddrinfo_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.gethostname" name="net.socket.gethostname" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv4" name="net.socket.getnameinfo_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv6" name="net.socket.getnameinfo_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.inet_pton" name="net.socket.inet_pton" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_kernel" name="net.socket.mgmt.ethernet_get_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_user" name="net.socket.mgmt.ethernet_get_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_kernel" name="net.socket.mgmt.ethernet_get_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_user" name="net.socket.mgmt.ethernet_get_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_kernel" name="net.socket.mgmt.ethernet_set_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_user" name="net.socket.mgmt.ethernet_set_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_kernel" name="net.socket.mgmt.ethernet_set_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_user" name="net.socket.mgmt.ethernet_set_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_kernel" name="net.socket.mgmt.net_mgmt_catch_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_user" name="net.socket.mgmt.net_mgmt_catch_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_cleanup" name="net.socket.mgmt.net_mgmt_cleanup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_setup" name="net.socket.mgmt.net_mgmt_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.tr==============================================" name="net.socket.mgmt.tr==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.icmpv6" name="net.socket.register.icmpv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_multiple_chunks" name="net.socket.register.tls.log_hexdump_data_get_multiple_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_two_chunks" name="net.socket.register.tls.log_hexdump_data_get_two_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.fd_set" name="net.socket.fd_set" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_cancelled" name="net.socket.getaddrinfo_cancelled" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_flags_numerichost" name="net.socket.getaddrinfo_flags_numerichost" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv4_hints_ipv6" name="net.socket.getaddrinfo_ipv4_hints_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv6_hints_ipv4" name="net.socket.getaddrinfo_ipv6_hints_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_no_host" name="net.socket.getaddrinfo_no_host" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_num_ipv4" name="net.socket.getaddrinfo_num_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ok" name="net.socket.getaddrinfo_ok" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_setup" name="net.socket.getaddrinfo_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.gethostname" name="net.socket.gethostname" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv4" name="net.socket.getnameinfo_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv6" name="net.socket.getnameinfo_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.inet_pton" name="net.socket.inet_pton" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_kernel" name="net.socket.mgmt.ethernet_get_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_user" name="net.socket.mgmt.ethernet_get_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_kernel" name="net.socket.mgmt.ethernet_get_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_user" name="net.socket.mgmt.ethernet_get_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_kernel" name="net.socket.mgmt.ethernet_set_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_user" name="net.socket.mgmt.ethernet_set_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_kernel" name="net.socket.mgmt.ethernet_set_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_user" name="net.socket.mgmt.ethernet_set_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_kernel" name="net.socket.mgmt.net_mgmt_catch_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_user" name="net.socket.mgmt.net_mgmt_catch_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_cleanup" name="net.socket.mgmt.net_mgmt_cleanup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_setup" name="net.socket.mgmt.net_mgmt_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.tr==============================================" name="net.socket.mgmt.tr==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.icmpv6" name="net.socket.register.icmpv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_multiple_chunks" name="net.socket.register.tls.log_hexdump_data_get_multiple_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_two_chunks" name="net.socket.register.tls.log_hexdump_data_get_two_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.fd_set" name="net.socket.fd_set" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_cancelled" name="net.socket.getaddrinfo_cancelled" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_flags_numerichost" name="net.socket.getaddrinfo_flags_numerichost" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv4_hints_ipv6" name="net.socket.getaddrinfo_ipv4_hints_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv6_hints_ipv4" name="net.socket.getaddrinfo_ipv6_hints_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_no_host" name="net.socket.getaddrinfo_no_host" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_num_ipv4" name="net.socket.getaddrinfo_num_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ok" name="net.socket.getaddrinfo_ok" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_setup" name="net.socket.getaddrinfo_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.gethostname" name="net.socket.gethostname" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv4" name="net.socket.getnameinfo_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv6" name="net.socket.getnameinfo_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.inet_pton" name="net.socket.inet_pton" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_kernel" name="net.socket.mgmt.ethernet_get_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_user" name="net.socket.mgmt.ethernet_get_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_kernel" name="net.socket.mgmt.ethernet_get_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_user" name="net.socket.mgmt.ethernet_get_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_kernel" name="net.socket.mgmt.ethernet_set_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_user" name="net.socket.mgmt.ethernet_set_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_kernel" name="net.socket.mgmt.ethernet_set_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_user" name="net.socket.mgmt.ethernet_set_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_kernel" name="net.socket.mgmt.net_mgmt_catch_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_user" name="net.socket.mgmt.net_mgmt_catch_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_cleanup" name="net.socket.mgmt.net_mgmt_cleanup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_setup" name="net.socket.mgmt.net_mgmt_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.tr==============================================" name="net.socket.mgmt.tr==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.icmpv6" name="net.socket.register.icmpv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_multiple_chunks" name="net.socket.register.tls.log_hexdump_data_get_multiple_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_two_chunks" name="net.socket.register.tls.log_hexdump_data_get_two_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.fd_set" name="net.socket.fd_set" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_cancelled" name="net.socket.getaddrinfo_cancelled" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_flags_numerichost" name="net.socket.getaddrinfo_flags_numerichost" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv4_hints_ipv6" name="net.socket.getaddrinfo_ipv4_hints_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv6_hints_ipv4" name="net.socket.getaddrinfo_ipv6_hints_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_no_host" name="net.socket.getaddrinfo_no_host" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_num_ipv4" name="net.socket.getaddrinfo_num_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ok" name="net.socket.getaddrinfo_ok" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_setup" name="net.socket.getaddrinfo_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.gethostname" name="net.socket.gethostname" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv4" name="net.socket.getnameinfo_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv6" name="net.socket.getnameinfo_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.inet_pton" name="net.socket.inet_pton" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_kernel" name="net.socket.mgmt.ethernet_get_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_user" name="net.socket.mgmt.ethernet_get_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_kernel" name="net.socket.mgmt.ethernet_get_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_user" name="net.socket.mgmt.ethernet_get_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_kernel" name="net.socket.mgmt.ethernet_set_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_user" name="net.socket.mgmt.ethernet_set_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_kernel" name="net.socket.mgmt.ethernet_set_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_user" name="net.socket.mgmt.ethernet_set_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_kernel" name="net.socket.mgmt.net_mgmt_catch_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_user" name="net.socket.mgmt.net_mgmt_catch_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_cleanup" name="net.socket.mgmt.net_mgmt_cleanup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_setup" name="net.socket.mgmt.net_mgmt_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.tr==============================================" name="net.socket.mgmt.tr==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.icmpv6" name="net.socket.register.icmpv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_multiple_chunks" name="net.socket.register.tls.log_hexdump_data_get_multiple_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_two_chunks" name="net.socket.register.tls.log_hexdump_data_get_two_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.fd_set" name="net.socket.fd_set" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_cancelled" name="net.socket.getaddrinfo_cancelled" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_flags_numerichost" name="net.socket.getaddrinfo_flags_numerichost" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv4_hints_ipv6" name="net.socket.getaddrinfo_ipv4_hints_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv6_hints_ipv4" name="net.socket.getaddrinfo_ipv6_hints_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_no_host" name="net.socket.getaddrinfo_no_host" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_num_ipv4" name="net.socket.getaddrinfo_num_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ok" name="net.socket.getaddrinfo_ok" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_setup" name="net.socket.getaddrinfo_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.gethostname" name="net.socket.gethostname" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv4" name="net.socket.getnameinfo_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv6" name="net.socket.getnameinfo_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.inet_pton" name="net.socket.inet_pton" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_kernel" name="net.socket.mgmt.ethernet_get_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_user" name="net.socket.mgmt.ethernet_get_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_kernel" name="net.socket.mgmt.ethernet_get_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_user" name="net.socket.mgmt.ethernet_get_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_kernel" name="net.socket.mgmt.ethernet_set_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_user" name="net.socket.mgmt.ethernet_set_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_kernel" name="net.socket.mgmt.ethernet_set_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_user" name="net.socket.mgmt.ethernet_set_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_kernel" name="net.socket.mgmt.net_mgmt_catch_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_user" name="net.socket.mgmt.net_mgmt_catch_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_cleanup" name="net.socket.mgmt.net_mgmt_cleanup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_setup" name="net.socket.mgmt.net_mgmt_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.tr==============================================" name="net.socket.mgmt.tr==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.icmpv6" name="net.socket.register.icmpv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_multiple_chunks" name="net.socket.register.tls.log_hexdump_data_get_multiple_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_two_chunks" name="net.socket.register.tls.log_hexdump_data_get_two_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.fd_set" name="net.socket.fd_set" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_cancelled" name="net.socket.getaddrinfo_cancelled" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_flags_numerichost" name="net.socket.getaddrinfo_flags_numerichost" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv4_hints_ipv6" name="net.socket.getaddrinfo_ipv4_hints_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv6_hints_ipv4" name="net.socket.getaddrinfo_ipv6_hints_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_no_host" name="net.socket.getaddrinfo_no_host" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_num_ipv4" name="net.socket.getaddrinfo_num_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ok" name="net.socket.getaddrinfo_ok" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_setup" name="net.socket.getaddrinfo_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.gethostname" name="net.socket.gethostname" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv4" name="net.socket.getnameinfo_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv6" name="net.socket.getnameinfo_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.inet_pton" name="net.socket.inet_pton" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_kernel" name="net.socket.mgmt.ethernet_get_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_user" name="net.socket.mgmt.ethernet_get_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_kernel" name="net.socket.mgmt.ethernet_get_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_user" name="net.socket.mgmt.ethernet_get_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_kernel" name="net.socket.mgmt.ethernet_set_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_user" name="net.socket.mgmt.ethernet_set_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_kernel" name="net.socket.mgmt.ethernet_set_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_user" name="net.socket.mgmt.ethernet_set_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_kernel" name="net.socket.mgmt.net_mgmt_catch_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_user" name="net.socket.mgmt.net_mgmt_catch_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_cleanup" name="net.socket.mgmt.net_mgmt_cleanup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_setup" name="net.socket.mgmt.net_mgmt_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.tr==============================================" name="net.socket.mgmt.tr==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.icmpv6" name="net.socket.register.icmpv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_multiple_chunks" name="net.socket.register.tls.log_hexdump_data_get_multiple_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_two_chunks" name="net.socket.register.tls.log_hexdump_data_get_two_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.arm_thread_swap" name="net.socket.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.fd_set" name="net.socket.fd_set" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_cancelled" name="net.socket.getaddrinfo_cancelled" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_flags_numerichost" name="net.socket.getaddrinfo_flags_numerichost" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv4_hints_ipv6" name="net.socket.getaddrinfo_ipv4_hints_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ipv6_hints_ipv4" name="net.socket.getaddrinfo_ipv6_hints_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_no_host" name="net.socket.getaddrinfo_no_host" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_num_ipv4" name="net.socket.getaddrinfo_num_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_ok" name="net.socket.getaddrinfo_ok" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getaddrinfo_setup" name="net.socket.getaddrinfo_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.gethostname" name="net.socket.gethostname" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv4" name="net.socket.getnameinfo_ipv4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.getnameinfo_ipv6" name="net.socket.getnameinfo_ipv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.inet_pton" name="net.socket.inet_pton" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_kernel" name="net.socket.mgmt.ethernet_get_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_qav_user" name="net.socket.mgmt.ethernet_get_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_kernel" name="net.socket.mgmt.ethernet_get_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_get_unknown_opt_user" name="net.socket.mgmt.ethernet_get_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_kernel" name="net.socket.mgmt.ethernet_set_qav_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_qav_user" name="net.socket.mgmt.ethernet_set_qav_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_kernel" name="net.socket.mgmt.ethernet_set_unknown_opt_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.ethernet_set_unknown_opt_user" name="net.socket.mgmt.ethernet_set_unknown_opt_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_kernel" name="net.socket.mgmt.net_mgmt_catch_kernel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_catch_user" name="net.socket.mgmt.net_mgmt_catch_user" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_cleanup" name="net.socket.mgmt.net_mgmt_cleanup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.net_mgmt_setup" name="net.socket.mgmt.net_mgmt_setup" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.tr==============================================" name="net.socket.mgmt.tr==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_status" name="net.socket.mgmt.trickle_1_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_stopped" name="net.socket.mgmt.trickle_1_stopped" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_update" name="net.socket.mgmt.trickle_1_update" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wa====================================" name="net.socket.mgmt.trickle_1_wa====================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait" name="net.socket.mgmt.trickle_1_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_1_wait_long" name="net.socket.mgmt.trickle_1_wait_long" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_inc" name="net.socket.mgmt.trickle_2_inc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.mgmt.trickle_2_status" name="net.socket.mgmt.trickle_2_status" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.create_sockets" name="net.socket.register.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.icmpv6" name="net.socket.register.icmpv6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.create_sockets" name="net.socket.register.tls.create_sockets" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_multiple_chunks" name="net.socket.register.tls.log_hexdump_data_get_multiple_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.register.tls.log_hexdump_data_get_two_chunks" name="net.socket.register.tls.log_hexdump_data_get_two_chunks" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.select" name="net.socket.select" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.arm_thread_swap" name="net.socket.tcp.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.open_close_immediately" name="net.socket.tcp.open_close_immediately" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_accept_timeout" name="net.socket.tcp.v4_accept_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_send_recv" name="net.socket.tcp.v4_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom" name="net.socket.tcp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v4_sendto_recvfrom_null_dest" name="net.socket.tcp.v4_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_send_recv" name="net.socket.tcp.v6_send_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom" name="net.socket.tcp.v6_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.tcp.v6_sendto_recvfrom_null_dest" name="net.socket.tcp.v6_sendto_recvfrom_null_dest" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.dst_org_scope_mcast_recv" name="net.socket.udp.dst_org_scope_mcast_recv" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.ms==================================" name="net.socket.udp.ms==================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq===============================================" name="net.socket.udp.msgq===============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_all=====================" name="net.socket.udp.msgq_all=====================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_alloc" name="net.socket.udp.msgq_alloc" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_attrs_get" name="net.socket.udp.msgq_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_get_fail" name="net.socket.udp.msgq_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_isr" name="net.socket.udp.msgq_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_pend_thread" name="net.socket.udp.msgq_pend_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_purge_when_put" name="net.socket.udp.msgq_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_put_fail" name="net.socket.udp.msgq_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_attrs_get" name="net.socket.udp.msgq_user_attrs_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_get_fail" name="net.socket.udp.msgq_user_get_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_purge_when_put" name="net.socket.udp.msgq_user_purge_when_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_put_fail" name="net.socket.udp.msgq_user_put_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread" name="net.socket.udp.msgq_user_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.msgq_user_thread_overflow" name="net.socket.udp.msgq_user_thread_overflow" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.poll" name="net.socket.udp.poll" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.send_recv_2_sock" name="net.socket.udp.send_recv_2_sock" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.setup_eth" name="net.socket.udp.setup_eth" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_priority" name="net.socket.udp.so_priority" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.so_txtime" name="net.socket.udp.so_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.tes===============================" name="net.socket.udp.tes===============================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.test==============================================" name="net.socket.udp.test==============================================" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_bind_sendto" name="net.socket.udp.v4_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom" name="net.socket.udp.v4_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendmsg_recvfrom_connected" name="net.socket.udp.v4_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v4_sendto_recvfrom" name="net.socket.udp.v4_sendto_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_bind_sendto" name="net.socket.udp.v6_bind_sendto" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom" name="net.socket.udp.v6_sendmsg_recvfrom" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_recvfrom_connected" name="net.socket.udp.v6_sendmsg_recvfrom_connected" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendmsg_with_txtime" name="net.socket.udp.v6_sendmsg_with_txtime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.socket.udp.v6_sendto_recvfrom" name="net.socket.udp.v6_sendto_recvfrom" time="0">
+      <testcase classname="mimxrt1050_evk:net.route" name="net.route" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.route.init" name="net.route.init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.route.isr_stack_play" name="net.route.isr_stack_play" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.route.net_ctx_create" name="net.route.net_ctx_create" time="0">
       </testcase>
@@ -2189,11 +251,11 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.route.route_update" name="net.route.route_update" time="0">
       </testcase>
+      <testcase classname="mimxrt1050_evk:net.ptp.clock" name="net.ptp.clock" time="0">
+      </testcase>
       <testcase classname="mimxrt1050_evk:net.ptp.clock.address_setup" name="net.ptp.clock.address_setup" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.ptp.clock.check_interfaces" name="net.ptp.clock.check_interfaces" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.ptp.clock.deadline" name="net.ptp.clock.deadline" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.ptp.clock.ptp_clock_get_by_index" name="net.ptp.clock.ptp_clock_get_by_index" time="0">
       </testcase>
@@ -2208,6 +270,8 @@
       <testcase classname="mimxrt1050_evk:net.ptp.clock.ptp_clock_iface_2" name="net.ptp.clock.ptp_clock_iface_2" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.ptp.clock.ptp_clock_interfaces" name="net.ptp.clock.ptp_clock_interfaces" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.promisc" name="net.promisc" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.promisc.iface_setup" name="net.promisc.iface_setup" time="0">
       </testcase>
@@ -2225,11 +289,11 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.shell" name="net.shell" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.shell.ipv4_addresses" name="net.shell.ipv4_addresses" time="0">
-      </testcase>
       <testcase classname="mimxrt1050_evk:net.shell.net_shell" name="net.shell.net_shell" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.shell.setup" name="net.shell.setup" time="0">
+      </testcase>
+      <testcase classname="mimxrt1050_evk:net.context" name="net.context" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.context.init" name="net.context.init" time="0">
       </testcase>
@@ -2295,16 +359,10 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.context.net_ctx_sendto_v6" name="net.context.net_ctx_sendto_v6" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.neighbour.addr_parse" name="net.neighbour.addr_parse" time="0">
+      <testcase classname="mimxrt1050_evk:net.neighbour" name="net.neighbour" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.neighbour.neighbor" name="net.neighbour.neighbor" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.neighbour.net_addr" name="net.neighbour.net_addr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.neighbour.net_addrt - test_ipv4_ntop_3" name="net.neighbour.net_addrt - test_ipv4_ntop_3" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.neighbour.tetarting test - test_ipv4_ntop_3" name="net.neighbour.tetarting test - test_ipv4_ntop_3" time="0">
-      </testcase>
       <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_connect" name="net.mqtt.mqtt_connect" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_disconnect" name="net.mqtt.mqtt_disconnect" time="0">
@@ -2315,9 +373,9 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_publish" name="net.mqtt.mqtt_publish" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
+      <testcase classname="mimxrt1050_evk:net.mqtt.packet" name="net.mqtt.packet" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.packet.neighbor" name="net.mqtt.packet.neighbor" time="0">
+      <testcase classname="mimxrt1050_evk:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_connect" name="net.mqtt.subscriber.mqtt_connect" time="0">
       </testcase>
@@ -2339,19 +397,15 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_publish" name="net.mqtt.tls.mqtt_publish" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_connect" name="net.mqtt.mqtt_connect" time="0">
+      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_connect" name="net.mqtt.tls.mqtt_connect" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_disconnect" name="net.mqtt.mqtt_disconnect" time="0">
+      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_disconnect" name="net.mqtt.tls.mqtt_disconnect" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_init" name="net.mqtt.mqtt_init" time="0">
+      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_init" name="net.mqtt.tls.mqtt_init" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_pingreq" name="net.mqtt.mqtt_pingreq" time="0">
+      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_pingreq" name="net.mqtt.tls.mqtt_pingreq" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_publish" name="net.mqtt.mqtt_publish" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.packet.neighbor" name="net.mqtt.packet.neighbor" time="0">
+      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_publish" name="net.mqtt.tls.mqtt_publish" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_connect" name="net.mqtt.subscriber.mqtt_connect" time="0">
       </testcase>
@@ -2363,87 +417,9 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_unsubscribe" name="net.mqtt.subscriber.mqtt_unsubscribe" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_connect" name="net.mqtt.tls.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_disconnect" name="net.mqtt.tls.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_init" name="net.mqtt.tls.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_pingreq" name="net.mqtt.tls.mqtt_pingreq" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_publish" name="net.mqtt.tls.mqtt_publish" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_connect" name="net.mqtt.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_disconnect" name="net.mqtt.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_init" name="net.mqtt.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_pingreq" name="net.mqtt.mqtt_pingreq" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_publish" name="net.mqtt.mqtt_publish" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.packet.neighbor" name="net.mqtt.packet.neighbor" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_connect" name="net.mqtt.subscriber.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_disconnect" name="net.mqtt.subscriber.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_init" name="net.mqtt.subscriber.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_subscribe" name="net.mqtt.subscriber.mqtt_subscribe" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_unsubscribe" name="net.mqtt.subscriber.mqtt_unsubscribe" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_connect" name="net.mqtt.tls.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_disconnect" name="net.mqtt.tls.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_init" name="net.mqtt.tls.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_pingreq" name="net.mqtt.tls.mqtt_pingreq" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_publish" name="net.mqtt.tls.mqtt_publish" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_connect" name="net.mqtt.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_disconnect" name="net.mqtt.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_init" name="net.mqtt.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_pingreq" name="net.mqtt.mqtt_pingreq" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.mqtt_publish" name="net.mqtt.mqtt_publish" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.packet.neighbor" name="net.mqtt.packet.neighbor" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_connect" name="net.mqtt.subscriber.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_disconnect" name="net.mqtt.subscriber.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_init" name="net.mqtt.subscriber.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_subscribe" name="net.mqtt.subscriber.mqtt_subscribe" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.subscriber.mqtt_unsubscribe" name="net.mqtt.subscriber.mqtt_unsubscribe" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_connect" name="net.mqtt.tls.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_disconnect" name="net.mqtt.tls.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_init" name="net.mqtt.tls.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_pingreq" name="net.mqtt.tls.mqtt_pingreq" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mqtt.tls.mqtt_publish" name="net.mqtt.tls.mqtt_publish" time="0">
+      <testcase classname="mimxrt1050_evk:net.mld" name="net.mld" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mld.allnodes" name="net.mld.allnodes" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.allny_join_group" name="net.mld.allny_join_group" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mld.catch_join_group" name="net.mld.catch_join_group" time="0">
       </testcase>
@@ -2457,47 +433,7 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mld.mld_setup" name="net.mld.mld_setup" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_accept_v4" name="net.mld.net_ctx_accept_v4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_bind_fail" name="net.mld.net_ctx_bind_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_bind_mcast_success" name="net.mld.net_ctx_bind_mcast_success" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_bind_uni_success_v4" name="net.mld.net_ctx_bind_uni_success_v4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_bind_uni_success_v6" name="net.mld.net_ctx_bind_uni_success_v6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_lis net_ctx_sendto_v6" name="net.mld.net_ctx_lis net_ctx_sendto_v6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_liste=======" name="net.mld.net_ctx_liste=======" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_listen_v6" name="net.mld.net_ctx_listen_v6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_recv_v4" name="net.mld.net_ctx_recv_v4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_recv_v4_again" name="net.mld.net_ctx_recv_v4_again" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_recv_v4_reconfig" name="net.mld.net_ctx_recv_v4_reconfig" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_recv_v6" name="net.mld.net_ctx_recv_v6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_recv_v6_fail" name="net.mld.net_ctx_recv_v6_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_recv_v6_reconfig" name="net.mld.net_ctx_recv_v6_reconfig" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_send_v4" name="net.mld.net_ctx_send_v4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_send_v6" name="net.mld.net_ctx_send_v6" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_sendto_v4" name="net.mld.net_ctx_sendto_v4" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.net_ctx_sendto_v6" name="net.mld.net_ctx_sendto_v6" time="0">
-      </testcase>
       <testcase classname="mimxrt1050_evk:net.mld.solicit_node" name="net.mld.solicit_node" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.tesASS - verify_leave_group" name="net.mld.tesASS - verify_leave_group" time="0">
-      </testcase>
-      <testcase classname="mimxrt1050_evk:net.mld.verify_join- join_group" name="net.mld.verify_join- join_group" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mld.verify_join_group" name="net.mld.verify_join_group" time="0">
       </testcase>
@@ -2505,7 +441,7 @@
       </testcase>
       <testcase classname="mimxrt1050_evk:net.mld.verify_send_report" name="net.mld.verify_send_report" time="0">
       </testcase>
-      <testcase classname="mimxrt1050_evk:net.management.kdefine_preempt_thread" name="net.management.kdefine_preempt_thread" time="0">
+      <testcase classname="mimxrt1050_evk:net.management" name="net.management" time="0">
       </testcase>
       <testcase classname="mimxrt1050_evk:net.management.mgmt" name="net.management.mgmt" time="0">
       </testcase>

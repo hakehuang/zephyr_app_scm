@@ -1,4 +1,5 @@
 require_relative 'zephyr_filter_grammar'
+require_relative 'case_map'
 
 module ZEPHER_FILTER
   #validate case according board supporting
@@ -105,16 +106,21 @@ module ZEPHER_FILTER
 
   def is_case_include?(case_name , key)
     return true if case_name.include? key
-    if key.split('.').count > 2
+    return true if CASE_MAP.has_key?(key) and case_name.include? CASE_MAP[key]
+=begin
+    if key.split('.').count > 2 and case_name.include? "kernel."
       #we need compare the former two things
       new_key = key.split('.')[0..1].join('.')
       return true if case_name.include? new_key
     end
+=end
+#=begin
     if case_name.include? "kernel.common"
       new_key = key.split('.')[0..1].join('.')
       new_case_name = case_name.gsub('kernel.common', 'kernel')
       return true if new_case_name.include? new_key
     end
+#=end
     return false
   end
   module_function :is_case_include?

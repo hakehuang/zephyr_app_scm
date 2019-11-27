@@ -3,13 +3,12 @@ __load__:
   - skips/build_only.yml
 
 cases:
-  __hierarchy__: 
-    result: skip
   kernel.fp_sharing:
     comments: "no fp"
+    result: skip
   peripheral.pinmux:
     comments: "no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/"
-    result: skip
+    result: FAILURE
   peripheral.spi:
     comments: "need add board support"
     build_only: true

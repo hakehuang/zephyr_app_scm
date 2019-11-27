@@ -42,61 +42,60 @@ cases:
     comments: not all platform has such test devices
     build_only: true
     attribute: required
-  arch.interrupt.no_optimizations:
-    comments: not console output
-    build_only: true
-    result: skip
-    attribute: required
   test_utf8_in_kconfig_values:
     comments: build failure
-    result: skip
+    result: FAILURE
     attribute: required
   section.subsection:
     comments: build failure
-    result: skip
+    result: FAILURE
     attribute: required
   sample.net.dns_resolve.mdns:
     comments: 'BUS Fault: http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f/detail/frdmk64f/7/pipeline'
-    result: skip
+    result: FAILURE
     attribute: required
   sample.nfc.hello:
     comments: meet bus fault
-    result: skip
+    result: FAILURE
     attribute: required
   testing.ztest:
     comments: 'build error #20205'
-    result: skip
+    result: FAILURE
     attribute: required
   peripheral.uart_async_api:
     comments: USER FAULT and not harness keyboard
-    result: skip
+    result: FAILURE
     attribute: required
   crypto.rand32.random_hw_xoroshiro:
     comments: not hw in chip
-    result: skip
+    result: FAILURE
     attribute: required
   kernel.common.stack_sentinel:
     comments: no sentinel
-    result: skip
+    result: FAILURE
     path: tests/kernel/fatal
     catalog: kernel ignore_faults
     extra_args: CONF_FILE=sentinel.conf
     attribute: required
   sample.net.sockets.echo_server.usbnet:
     comments: not support
-    result: skip
+    result: FAILURE
     attribute: required
   sample.net.sockets.echo_server.usbnet_composite:
     commetns: not support
-    result: skip
+    result: FAILURE
     attribute: required
   sample.driver.i2c_fujitsu_fram:
     comments: not support
-    result: skip
+    result: FAILURE
     attribute: required
   sample.servo_motor:
     comments: not support
-    result: skip
+    result: FAILURE
+    attribute: required
+  arch.interrupt.no_optimizations:
+    comments: no console output
+    result: FAILURE
     attribute: required
   kernel.memory_pool.sys:
     path: tests/kernel/mem_pool/sys_mem_pool

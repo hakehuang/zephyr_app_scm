@@ -112,7 +112,9 @@ def create_pipefile_from_commandline(data, board_info: nil)
   }
   @content["cases"].keys().each do |key|
     next if key == "attribute"
-    next if @content["cases"][key]['result'].upcase == "SKIP"
+    next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "SKIP"
+    next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "FAILURE"
+    next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "ERROR"
     next if ! @content["cases"][key].has_key?('path')
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
     catalog = @content["cases"][key]['catalog']
@@ -184,7 +186,10 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     key_words = ["mode", "attribute"]
     next if key_words.include?(key)
     next if @content["cases"][key].nil?
-    next if @content["cases"][key].has_key?('result')
+    #next if @content["cases"][key].has_key?('result')
+    next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "SKIP"
+    next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "FAILURE"
+    next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "ERROR"
     next if ! @content["cases"][key].has_key?('path')
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
     catalog = @content["cases"][key]['catalog'].gsub(' ', '_')

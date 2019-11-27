@@ -1,949 +1,45 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="854" errors="0" failures="0" name="" skipped="251" time="0">
-      <testcase classname="frdm_k64f:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
+    <testsuite tests="361" errors="0" failures="3" name="" skipped="2" time="0">
+      <testcase classname="frdm_k64f:benchmark.latency" name="benchmark.latency" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+      <testcase classname="frdm_k64f:benchmark.latency.rand32" name="benchmark.latency.rand32" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.fatal" name="arch.interrupt.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.main" name="arch.interrupt.main" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.sem_give_limit" name="arch.interrupt.sem_give_limit" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.assert_tests" name="testing.ztest.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.delay" name="testing.ztest.customized_output.delay" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.event_flags_isr" name="testing.ztest.customized_output.event_flags_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.event_flags_signalled" name="testing.ztest.customized_output.event_flags_signalled" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.kernel_apis" name="testing.ztest.customized_output.kernel_apis" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.mempool" name="testing.ztest.customized_output.mempool" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.mempool_dynamic" name="testing.ztest.customized_output.mempool_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.messageq" name="testing.ztest.customized_output.messageq" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.mutex" name="testing.ztest.customized_output.mutex" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.mutex_lock_timeout" name="testing.ztest.customized_output.mutex_lock_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.semaphore" name="testing.ztest.customized_output.semaphore" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.t- test_thread_prio_dynamic" name="testing.ztest.customized_output.t- test_thread_prio_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.te6" name="testing.ztest.customized_output.te6" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.thrd B started." name="testing.ztest.customized_output.thrd B started." time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.thread_apis" name="testing.ztest.customized_output.thread_apis" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.thread_apis_dynamic" name="testing.ztest.customized_output.thread_apis_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.thread_flags_isr" name="testing.ztest.customized_output.thread_flags_isr" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.thread_flags_no_wait_timeout" name="testing.ztest.customized_output.thread_flags_no_wait_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.thread_flags_signalled" name="testing.ztest.customized_output.thread_flags_signalled" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.thread_prio" name="testing.ztest.customized_output.thread_prio" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.thread_prio_dynamic" name="testing.ztest.customized_output.thread_prio_dynamic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.customized_output.timer" name="testing.ztest.customized_output.timer" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.empty_test" name="testing.ztest.empty_test" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.mock.multi_value_tests" name="testing.ztest.mock.multi_value_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.mock.parameter_tests" name="testing.ztest.mock.parameter_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.mock.return_value_tests" name="testing.ztest.mock.return_value_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.regular_output.poll_cancel_main_low_prio" name="testing.ztest.regular_output.poll_cancel_main_low_prio" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.regular_output.poll_no_wait" name="testing.ztest.regular_output.poll_no_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.poll_wai zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.regular_output.poll_wait" name="testing.ztest.regular_output.poll_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" name="testing.ztest.regular_output.test OS build zephyr-v2.0.0-1233-g3d4aef8f9987 *****" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.unit.multi_value_tests" name="testing.ztest.unit.multi_value_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.unit.parameter_tests" name="testing.ztest.unit.parameter_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.unit.return_value_tests" name="testing.ztest.unit.return_value_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.log_msg_dropped_notification" name="testing.ztest.verbose_1.log_msg_dropped_notification" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_1.log_panic" name="testing.ztest.verbose_1.log_panic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common" name="kernel.common" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.adc_00p 0x0000 0x0000" name="kernel.common.adc_00p 0x0000 0x0000" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.adc_asynchronous_call" name="kernel.common.adc_asynchronous_call" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.adc_invalid_request" name="kernel.common.adc_invalid_request" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.adc_repeated_sampling" name="kernel.common.adc_repeated_sampling" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.adc_repeated_samplings" name="kernel.common.adc_repeated_samplings" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.adc_sample_two_channels" name="kernel.common.adc_sample_two_channels" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" name="kernel.common.adc_sample_with_inter: 0x0150 0x0ck: done 5" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.adc_sample_with_interval" name="kernel.common.adc_sample_with_interval" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.atomic" name="kernel.common.atomic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.bitfield" name="kernel.common.bitfield" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.bounds_check_mitigation" name="kernel.common.bounds_check_mitigation" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.busy_wait" name="kernel.common.busy_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.byteorder_mem_swap" name="kernel.common.byteorder_mem_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.byteorder_memcpy_swap" name="kernel.common.byteorder_memcpy_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.clock_cycle" name="kernel.common.clock_cycle" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.clock_uptime" name="kernel.common.clock_uptime" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.critical" name="kernel.common.critical" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.dlist" name="kernel.common.dlist" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.errno.thread_context" name="kernel.common.errno.thread_context" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.init.verify_bootdelay" name="kernel.common.init.verify_bootdelay" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.intmath" name="kernel.common.intmath" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.irq_offload" name="kernel.common.irq_offload" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.k_yield" name="kernel.common.k_yield" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.kernel_cpu_idle" name="kernel.common.kernel_cpu_idle" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.kernel_cpu_idle_atomic" name="kernel.common.kernel_cpu_idle_atomic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.kernel_ctx_thread" name="kernel.common.kernel_ctx_thread" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.kernel_interrupts" name="kernel.common.kernel_interrupts" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.kernel_thread" name="kernel.common.kernel_thread" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.kernel_timer_interrupts" name="kernel.common.kernel_timer_interrupts" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.main" name="kernel.common.main" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.atomic" name="kernel.common.misra.atomic" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.bitfield" name="kernel.common.misra.bitfield" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.bounds_check_mitigation" name="kernel.common.misra.bounds_check_mitigation" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.byteorder_mem_swap" name="kernel.common.misra.byteorder_mem_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.byteorder_memcpy_swap" name="kernel.common.misra.byteorder_memcpy_swap" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.clock_cycle" name="kernel.common.misra.clock_cycle" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.clock_uptime" name="kernel.common.misra.clock_uptime" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.dlist" name="kernel.common.misra.dlist" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.intmath" name="kernel.common.misra.intmath" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.irq_offload" name="kernel.common.misra.irq_offload" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.msg_receive===" name="kernel.common.misra.msg_receive===" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.multilib" name="kernel.common.misra.multilib" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.printk" name="kernel.common.misra.printk" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.slist" name="kernel.common.misra.slist" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_get_be16" name="kernel.common.misra.sys_get_be16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_get_be32" name="kernel.common.misra.sys_get_be32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_get_be64" name="kernel.common.misra.sys_get_be64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_get_le16" name="kernel.common.misra.sys_get_le16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_get_le32" name="kernel.common.misra.sys_get_le32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_get_le64" name="kernel.common.misra.sys_get_le64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_put_be16" name="kernel.common.misra.sys_put_be16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_put_be32" name="kernel.common.misra.sys_put_be32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_put_be64" name="kernel.common.misra.sys_put_be64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_put_le16" name="kernel.common.misra.sys_put_le16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_put_le32" name="kernel.common.misra.sys_put_le32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.sys_put_le64" name="kernel.common.misra.sys_put_le64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.thread_context" name="kernel.common.misra.thread_context" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.timeout_order" name="kernel.common.misra.timeout_order" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.vector" name="kernel.common.misra.vector" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.verify_bootdelay" name="kernel.common.misra.verify_bootdelay" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.misra.version" name="kernel.common.misra.version" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.multilib" name="kernel.common.multilib" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.obj_tracing" name="kernel.common.obj_tracing" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.printk" name="kernel.common.printk" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.priority_cooperative" name="kernel.common.priority_cooperative" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sam.critical" name="kernel.common.sam.critical" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.slist" name="kernel.common.slist" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" name="kernel.common.stack_protection.fata0000000  s[2]:  0x00000000  s[3]:  0x00000000" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" name="kernel.common.stack_protection_arm_fp_sharing.pipe_forever_wait" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_invalid_size" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" name="kernel.common.stack_protection_arm_fp_sharing.pipe_get_on_empty_pipe" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeoung test - test_pipe_get_invalid_size" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" name="kernel.common.stack_protection_arm_fp_sharing.pipe_timeout" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
+      <testcase classname="frdm_k64f:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
+          <failure message="failed" type="failure">
+          </failure>
       </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_get_be16" name="kernel.common.sys_get_be16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_get_be32" name="kernel.common.sys_get_be32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_get_be64" name="kernel.common.sys_get_be64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_get_le16" name="kernel.common.sys_get_le16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_get_le32" name="kernel.common.sys_get_le32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_get_le64" name="kernel.common.sys_get_le64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_put_be16" name="kernel.common.sys_put_be16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_put_be32" name="kernel.common.sys_put_be32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_put_be64" name="kernel.common.sys_put_be64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_put_le16" name="kernel.common.sys_put_le16" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_put_le32" name="kernel.common.sys_put_le32" time="0">
-         <skipped message="Skipped" type="skipped"/>
+      <testcase classname="frdm_k64f:arch.interrupt.no_optimizations.arm_interrupt" name="arch.interrupt.no_optimizations.arm_interrupt" time="0">
+          <failure message="failed" type="failure">
+          </failure>
       </testcase>
-      <testcase classname="frdm_k64f:kernel.common.sys_put_le64" name="kernel.common.sys_put_le64" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.te========" name="kernel.common.te========" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.thread_context" name="kernel.common.thread_context" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.timeout_order" name="kernel.common.timeout_order" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.timing.assert_mem_equal" name="kernel.common.timing.assert_mem_equal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.timing.assert_tests" name="kernel.common.timing.assert_tests" time="0">
-         <skipped message="Skipped" type="skipped"/>
+      <testcase classname="frdm_k64f:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
+          <failure message="failed" type="failure">
+          </failure>
       </testcase>
-      <testcase classname="frdm_k64f:kernel.common.timing.fatal" name="kernel.common.timing.fatal" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.verify_bootdelay" name="kernel.common.verify_bootdelay" time="0">
-         <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.common.version" name="kernel.common.version" time="0">
-         <skipped message="Skipped" type="skipped"/>
+      <testcase classname="frdm_k64f:arch.common.xip" name="arch.common.xip" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.common.xip.nondefault.globals" name="arch.common.xip.nondefault.globals" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.mqtt_connect" name="net.mqtt.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.mqtt_disconnect" name="net.mqtt.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.mqtt_init" name="net.mqtt.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.mqtt_pingreq" name="net.mqtt.mqtt_pingreq" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.mqtt_publish" name="net.mqtt.mqtt_publish" time="0">
+      <testcase classname="frdm_k64f:net.mqtt.packet" name="net.mqtt.packet" time="0">
       </testcase>
       <testcase classname="frdm_k64f:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.packet.neighbor" name="net.mqtt.packet.neighbor" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.subscriber.mqtt_connect" name="net.mqtt.subscriber.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.subscriber.mqtt_disconnect" name="net.mqtt.subscriber.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.subscriber.mqtt_init" name="net.mqtt.subscriber.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.subscriber.mqtt_subscribe" name="net.mqtt.subscriber.mqtt_subscribe" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.subscriber.mqtt_unsubscribe" name="net.mqtt.subscriber.mqtt_unsubscribe" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.tls.mqtt_connect" name="net.mqtt.tls.mqtt_connect" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.tls.mqtt_disconnect" name="net.mqtt.tls.mqtt_disconnect" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.tls.mqtt_init" name="net.mqtt.tls.mqtt_init" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.tls.mqtt_pingreq" name="net.mqtt.tls.mqtt_pingreq" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.mqtt.tls.mqtt_publish" name="net.mqtt.tls.mqtt_publish" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.: syscall user_copy failed check: Memory region 0x200004fc (size 24) read access denied" name="kernel.memory_protection.: syscall user_copy failed check: Memory region 0x200004fc (size 24) read access denied" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.access_kobject_without_init_access" name="kernel.memory_protection.access_kobject_without_init_access" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.access_kobject_without_init_with_access" name="kernel.memory_protection.access_kobject_without_init_with_access" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.app_memory" name="kernel.memory_protection.app_memory" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.arg64" name="kernel.memory_protection.arg64" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.boot_page_table" name="kernel.memory_protection.boot_page_table" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.change_duplex" name="kernel.memory_protection.change_duplex" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.change_promisc_mode_off" name="kernel.memory_protection.change_promisc_mode_off" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.change_s===========================" name="kernel.memory_protection.change_s===========================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.change_same_duplex" name="kernel.memory_protection.change_same_duplex" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.change_same_duplex=================" name="kernel.memory_protection.change_same_duplex=================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.change_same_link" name="kernel.memory_protection.change_same_link" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.change_to_same_promisc_mode" name="kernel.memory_protection.change_to_same_promisc_mode" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.change_unsupported_link" name="kernel.memory_protection.change_unsupported_link" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.create_alt_thread" name="kernel.memory_protection.create_alt_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.create_new_essential_thread_from_user" name="kernel.memory_protection.create_new_essential_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.create_new_higher_prio_thread_from_user" name="kernel.memory_protection.create_new_higher_prio_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.create_new_invalid_prio_thread_from_user" name="kernel.memory_protection.create_new_invalid_prio_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.create_new_supervisor_thread_from_user" name="kernel.memory_protection.create_new_supervisor_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.create_new_thread_from_user" name="kernel.memory_protection.create_new_thread_from_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.create_new_thread_from_user_huge_stacksize" name="kernel.memory_protection.create_new_thread_from_user_huge_stacksize" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.create_new_thread_from_user_invalid_stacksize" name="kernel.memory_protection.create_new_thread_from_user_invalid_stacksize" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.create_new_thread_from_user_no_access_stack" name="kernel.memory_protection.create_new_thread_from_user_no_access_stack" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.kobject_access_all_grant" name="kernel.memory_protection.kobject_access_all_grant" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.kobject_access_grant" name="kernel.memory_protection.kobject_access_grant" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.kobject_access_grant_to_invalid_thread" name="kernel.memory_protection.kobject_access_grant_to_invalid_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.kobject_access_invalid_kobject" name="kernel.memory_protection.kobject_access_invalid_kobject" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.kobject_grant_access_kobj" name="kernel.memory_protection.kobject_grant_access_kobj" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.kobject_grant_access_kobj_invalid" name="kernel.memory_protection.kobject_grant_access_kobj_invalid" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.kobject_reinitialize_thread_kobj" name="kernel.memory_protection.kobject_reinitialize_thread_kobj" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.kobject_release_from_user" name="kernel.memory_protection.kobject_release_from_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.kobject_revoke_access" name="kernel.memory_protection.kobject_revoke_access" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_add_partitions_invalid" name="kernel.memory_protection.mem_domain_add_partitions_invalid" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_add_partitions_simple" name="kernel.memory_protection.mem_domain_add_partitions_simple" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_destroy" name="kernel.memory_protection.mem_domain_destroy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_invalid_access" name="kernel.memory_protection.mem_domain_invalid_access" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_partitions_supervisor_rw" name="kernel.memory_protection.mem_domain_partitions_supervisor_rw" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_partitions_user_ro" name="kernel.memory_protection.mem_domain_partitions_user_ro" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_partitions_user_rw" name="kernel.memory_protection.mem_domain_partitions_user_rw" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_remove_partitions" name="kernel.memory_protection.mem_domain_remove_partitions" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_remove_partitions_simple" name="kernel.memory_protection.mem_domain_remove_partitions_simple" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_remove_thread" name="kernel.memory_protection.mem_domain_remove_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mem_domain_valid_access" name="kernel.memory_protection.mem_domain_valid_access" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.buffer_readable_read" name="kernel.memory_protection.mmu.buffer_readable_read" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.buffer_readable_write" name="kernel.memory_protection.mmu.buffer_readable_write" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.buffer_rw_read" name="kernel.memory_protection.mmu.buffer_rw_read" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.buffer_supervisor_rw" name="kernel.memory_protection.mmu.buffer_supervisor_rw" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.buffer_supervisor_w" name="kernel.memory_protection.mmu.buffer_supervisor_w" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.buffer_user_rw_supervisor" name="kernel.memory_protection.mmu.buffer_user_rw_supervisor" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.buffer_user_rw_user" name="kernel.memory_protection.mmu.buffer_user_rw_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.buffer_writeable_write" name="kernel.memory_protection.mmu.buffer_writeable_write" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.multi_page_buffer_read" name="kernel.memory_protection.mmu.multi_page_buffer_read" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.multi_page_buffer_read_user" name="kernel.memory_protection.mmu.multi_page_buffer_read_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.multi_page_buffer_user" name="kernel.memory_protection.mmu.multi_page_buffer_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.multi_page_buffer_write_user" name="kernel.memory_protection.mmu.multi_page_buffer_write_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.multi_pde_buffer_readable_read" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_read" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.multi_pde_buffer_readable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_readable_write" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.multi_pde_buffer_rw" name="kernel.memory_protection.mmu.multi_pde_buffer_rw" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.permission_inheritance" name="kernel.memory_protection.permission_inheritance" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.protection.exec_data" name="kernel.memory_protection.protection.exec_data" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.protection.exec_heap" name="kernel.memory_protection.protection.exec_heap" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.protection.exec_stack" name="kernel.memory_protection.protection.exec_stack" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.protection.write_ro" name="kernel.memory_protection.protection.write_ro" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.protection.write_text" name="kernel.memory_protection.protection.write_text" time="0">
+      <testcase classname="frdm_k64f:kernel.memory_protection.stack_random" name="kernel.memory_protection.stack_random" time="0">
       </testcase>
       <testcase classname="frdm_k64f:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.basic_sem_test" name="kernel.memory_protection.sys_sem.basic_sem_test" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.==================" name="kernel.memory_protection.sys_sem.nouser.==================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delaad" name="kernel.memory_protection.sys_sem.nouser.delaad" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_cancel_from_queue_isr" name="kernel.memory_protection.sys_sem.nouser.delayed_work_cancel_from_queue_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_cancel_from_queue_thread" name="kernel.memory_protection.sys_sem.nouser.delayed_work_cancel_from_queue_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_cancel_isr" name="kernel.memory_protection.sys_sem.nouser.delayed_work_cancel_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_cancel_thread" name="kernel.memory_protection.sys_sem.nouser.delayed_work_cancel_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_s test_delayed_work_submit_to_queue_thread" name="kernel.memory_protection.sys_sem.nouser.delayed_work_s test_delayed_work_submit_to_queue_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_submit_isr" name="kernel.memory_protection.sys_sem.nouser.delayed_work_submit_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_submit_submit_thread" name="kernel.memory_protection.sys_sem.nouser.delayed_work_submit_submit_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_submit_thread" name="kernel.memory_protection.sys_sem.nouser.delayed_work_submit_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_submit_to_queue_i=================================================" name="kernel.memory_protection.sys_sem.nouser.delayed_work_submit_to_queue_i=================================================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_submit_to_queue_isr" name="kernel.memory_protection.sys_sem.nouser.delayed_work_submit_to_queue_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_submit_to_queue_tead" name="kernel.memory_protection.sys_sem.nouser.delayed_work_submit_to_queue_tead" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_work_submit_to_queue_thread" name="kernel.memory_protection.sys_sem.nouser.delayed_work_submit_to_queue_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.delayed_wotest_work_submit_thread" name="kernel.memory_protection.sys_sem.nouser.delayed_wotest_work_submit_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.se=================" name="kernel.memory_protection.sys_sem.nouser.se=================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_give_limit" name="kernel.memory_protection.sys_sem.nouser.sem_give_limit" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_give_take_from_isr" name="kernel.memory_protection.sys_sem.nouser.sem_give_take_from_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_multiple_threads_wait" name="kernel.memory_protection.sys_sem.nouser.sem_multiple_threads_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_t========" name="kernel.memory_protection.sys_sem.nouser.sem_t========" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_take_multiple" name="kernel.memory_protection.sys_sem.nouser.sem_take_multiple" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_take_no_=======" name="kernel.memory_protection.sys_sem.nouser.sem_take_no_=======" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_take_no_wait" name="kernel.memory_protection.sys_sem.nouser.sem_take_no_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_take_no_wait_fails" name="kernel.memory_protection.sys_sem.nouser.sem_take_no_wait_fails" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_take_no_wait_failstarting test - test_sem_give_take_from_isr" name="kernel.memory_protection.sys_sem.nouser.sem_take_no_wait_failstarting test - test_sem_give_take_from_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_take_timeout" name="kernel.memory_protection.sys_sem.nouser.sem_take_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_take_timeout_fails" name="kernel.memory_protection.sys_sem.nouser.sem_take_timeout_fails" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_take_timeout_forever" name="kernel.memory_protection.sys_sem.nouser.sem_take_timeout_forever" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.sem_take_timeout_isr" name="kernel.memory_protection.sys_sem.nouser.sem_take_timeout_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.simple_sem_from_isr" name="kernel.memory_protection.sys_sem.nouser.simple_sem_from_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.simple_sem_from_task" name="kernel.memory_protection.sys_sem.nouser.simple_sem_from_task" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_r" name="kernel.memory_protection.sys_sem.nouser.triggered_r" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_cancel_from_queue_isr" name="kernel.memory_protection.sys_sem.nouser.triggered_work_cancel_from_queue_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_cancel_from_queue_thread" name="kernel.memory_protection.sys_sem.nouser.triggered_work_cancel_from_queue_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submit_isr" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submit_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submit_thread" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submit_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submit_to_queue_isr" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submit_to_queue_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submit_to_queue_thread" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submit_to_queue_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.triggered_work_submitest_delayed_work_cancel_from_queue_isr" name="kernel.memory_protection.sys_sem.nouser.triggered_work_submitest_delayed_work_cancel_from_queue_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.user_work_submit_to_queue_thread" name="kernel.memory_protection.sys_sem.nouser.user_work_submit_to_queue_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.user_workq_granted_access" name="kernel.memory_protection.sys_sem.nouser.user_workq_granted_access" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.user_workq_granted_access_setup" name="kernel.memory_protection.sys_sem.nouser.user_workq_granted_access_setup" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.user_workq_start_before_submit" name="kernel.memory_protection.sys_sem.nouser.user_workq_start_before_submit" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.work_resubmit_to_queue" name="kernel.memory_protection.sys_sem.nouser.work_resubmit_to_queue" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.work_submit_isr" name="kernel.memory_protection.sys_sem.nouser.work_submit_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.work_submit_thread" name="kernel.memory_protection.sys_sem.nouser.work_submit_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.work_submit_to_multipleq" name="kernel.memory_protection.sys_sem.nouser.work_submit_to_multipleq" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.work_submit_to_queue_isr" name="kernel.memory_protection.sys_sem.nouser.work_submit_to_queue_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.work_submit_to_queue_thread" name="kernel.memory_protection.sys_sem.nouser.work_submit_to_queue_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.nouser.work_submitork_submit_to_multipleq" name="kernel.memory_protection.sys_sem.nouser.work_submitork_submit_to_multipleq" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_give_limit" name="kernel.memory_protection.sys_sem.sem_give_limit" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_give_take_from_isr" name="kernel.memory_protection.sys_sem.sem_give_take_from_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_multiple_threads_wait" name="kernel.memory_protection.sys_sem.sem_multiple_threads_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_take_multiple" name="kernel.memory_protection.sys_sem.sem_take_multiple" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_take_no_wait" name="kernel.memory_protection.sys_sem.sem_take_no_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_take_no_wait_fails" name="kernel.memory_protection.sys_sem.sem_take_no_wait_fails" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_take_timeout" name="kernel.memory_protection.sys_sem.sem_take_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_take_timeout_fails" name="kernel.memory_protection.sys_sem.sem_take_timeout_fails" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_take_timeout_forever" name="kernel.memory_protection.sys_sem.sem_take_timeout_forever" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sem_take_timeout_isr" name="kernel.memory_protection.sys_sem.sem_take_timeout_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.simple_sem_from_isr" name="kernel.memory_protection.sys_sem.simple_sem_from_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.simple_sem_from_task" name="kernel.memory_protection.sys_sem.simple_sem_from_task" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.sys_sem.sprintf_misc" name="kernel.memory_protection.sys_sem.sprintf_misc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.syscall_invalid_kobject" name="kernel.memory_protection.syscall_invalid_kobject" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.syscalls.arg64" name="kernel.memory_protection.syscalls.arg64" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.syscalls.generic_object" name="kernel.memory_protection.syscalls.generic_object" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.syscalls.string_nlen" name="kernel.memory_protection.syscalls.string_nlen" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.syscalls.to_copy" name="kernel.memory_protection.syscalls.to_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.syscalls.user_string_alloc_copy" name="kernel.memory_protection.syscalls.user_string_alloc_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.syscalls.user_string_copy" name="kernel.memory_protection.syscalls.user_string_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.te======================================" name="kernel.memory_protection.te======================================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.thread_has_residual_permissions" name="kernel.memory_protection.thread_has_residual_permissions" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.thread_without_kobject_permission" name="kernel.memory_protection.thread_without_kobject_permission" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.user_string_alloc_copy" name="kernel.memory_protection.user_string_alloc_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.user_string_copy" name="kernel.memory_protection.user_string_copy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.access_after_revoke" name="kernel.memory_protection.userspace.access_after_revoke" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.access_other_memdomain" name="kernel.memory_protection.userspace.access_other_memdomain" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.bad_syscall" name="kernel.memory_protection.userspace.bad_syscall" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.disable_mmu_mpu" name="kernel.memory_protection.userspace.disable_mmu_mpu" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.domain_add_part_context_switch" name="kernel.memory_protection.userspace.domain_add_part_context_switch" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.domain_add_part_drop_to_user" name="kernel.memory_protection.userspace.domain_add_part_drop_to_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.domain_add_thread_context_switch" name="kernel.memory_protection.userspace.domain_add_thread_context_switch" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.domain_add_thread_drop_to_user" name="kernel.memory_protection.userspace.domain_add_thread_drop_to_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.domain_remove_part_context_switch" name="kernel.memory_protection.userspace.domain_remove_part_context_switch" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.domain_remove_part_drop_to_user" name="kernel.memory_protection.userspace.domain_remove_part_drop_to_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.domain_remove_thread_context_switch" name="kernel.memory_protection.userspace.domain_remove_thread_context_switch" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.domain_remove_thread_drop_to_user" name="kernel.memory_protection.userspace.domain_remove_thread_drop_to_user" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.is_usermode" name="kernel.memory_protection.userspace.is_usermode" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.object_recycle" name="kernel.memory_protection.userspace.object_recycle" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.oops_exception" name="kernel.memory_protection.userspace.oops_exception" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.oops_maxint" name="kernel.memory_protection.userspace.oops_maxint" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.oops_oops" name="kernel.memory_protection.userspace.oops_oops" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.oops_panic" name="kernel.memory_protection.userspace.oops_panic" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.oops_stackcheck" name="kernel.memory_protection.userspace.oops_stackcheck" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.pass_noperms_object" name="kernel.memory_protection.userspace.pass_noperms_object" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.pass_user_object" name="kernel.memory_protection.userspace.pass_user_object" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.read_kernel_data" name="kernel.memory_protection.userspace.read_kernel_data" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.read_kernram" name="kernel.memory_protection.userspace.read_kernram" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.read_kobject_user_pipe" name="kernel.memory_protection.userspace.read_kobject_user_pipe" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.read_other_stack" name="kernel.memory_protection.userspace.read_other_stack" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.read_priv_stack" name="kernel.memory_protection.userspace.read_priv_stack" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.revoke_noperms_object" name="kernel.memory_protection.userspace.revoke_noperms_object" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.stack_buffer" name="kernel.memory_protection.userspace.stack_buffer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.stackprot" name="kernel.memory_protection.userspace.stackprot" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.start_kernel_thread" name="kernel.memory_protection.userspace.start_kernel_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.unimplemented_syscall" name="kernel.memory_protection.userspace.unimplemented_syscall" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.user_mode_enter" name="kernel.memory_protection.userspace.user_mode_enter" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.write_control" name="kernel.memory_protection.userspace.write_control" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.write_kernel_data" name="kernel.memory_protection.userspace.write_kernel_data" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.write_kernram" name="kernel.memory_protection.userspace.write_kernram" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.write_kernro" name="kernel.memory_protection.userspace.write_kernro" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.write_kerntext" name="kernel.memory_protection.userspace.write_kerntext" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.write_kobject_user_pipe" name="kernel.memory_protection.userspace.write_kobject_user_pipe" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.write_other_stack" name="kernel.memory_protection.userspace.write_other_stack" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:kernel.memory_protection.userspace.write_priv_stack" name="kernel.memory_protection.userspace.write_priv_stack" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:logging.log_output.log_list" name="logging.log_output.log_list" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:logging.log_output.log_list_multiple_items" name="logging.log_output.log_list_multiple_items" time="0">
+      <testcase classname="frdm_k64f:logging.log_output" name="logging.log_output" time="0">
       </testcase>
       <testcase classname="frdm_k64f:logging.log_output.log_output_raw_string" name="logging.log_output.log_output_raw_string" time="0">
       </testcase>
       <testcase classname="frdm_k64f:logging.log_output.log_output_string" name="logging.log_output.log_output_string" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:logging.log_msg.arm_irq_vector_table" name="logging.log_msg.arm_irq_vector_table" time="0">
+      <testcase classname="frdm_k64f:logging.log_msg" name="logging.log_msg" time="0">
       </testcase>
       <testcase classname="frdm_k64f:logging.log_msg.log_hexdump_data_get_multiple_chunks" name="logging.log_msg.log_hexdump_data_get_multiple_chunks" time="0">
       </testcase>
@@ -955,19 +51,13 @@
       </testcase>
       <testcase classname="frdm_k64f:logging.log_msg.log_std_msg" name="logging.log_msg.log_std_msg" time="0">
       </testcase>
+      <testcase classname="frdm_k64f:logging.log_list" name="logging.log_list" time="0">
+      </testcase>
       <testcase classname="frdm_k64f:logging.log_list.log_list" name="logging.log_list.log_list" time="0">
       </testcase>
       <testcase classname="frdm_k64f:logging.log_list.log_list_multiple_items" name="logging.log_list.log_list_multiple_items" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:logging.log_list.osdesc_feature" name="logging.log_list.osdesc_feature" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:logging.log_list.usb_dc_api" name="logging.log_list.usb_dc_api" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:logging.log_list.usb_dc_api_read_write" name="logging.log_list.usb_dc_api_read_write" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:logging.log_list.usb_deconfig" name="logging.log_list.usb_deconfig" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:logging.log_list.usb_disable" name="logging.log_list.usb_disable" time="0">
+      <testcase classname="frdm_k64f:logging.log_core" name="logging.log_core" time="0">
       </testcase>
       <testcase classname="frdm_k64f:logging.log_core.log_arguments" name="logging.log_core.log_arguments" time="0">
       </testcase>
@@ -987,93 +77,19 @@
       </testcase>
       <testcase classname="frdm_k64f:logging.log_core.strdup_trimming" name="logging.log_core.strdup_trimming" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.bsearch" name="libraries.libc.bsearch" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.filter_attach" name="libraries.libc.filter_attach" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.sprintf_double" name="libraries.libc.sprintf.sprintf_double" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.limits" name="libraries.libc.limits" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.sprintf_integer" name="libraries.libc.sprintf.sprintf_integer" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.memcmp" name="libraries.libc.memcmp" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.sprintf_misc" name="libraries.libc.sprintf.sprintf_misc" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.memset" name="libraries.libc.memset" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.sprintf_string" name="libraries.libc.sprintf.sprintf_string" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.bsearch" name="libraries.libc.minimal.bsearch" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.vsnprintf" name="libraries.libc.sprintf.vsnprintf" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.calloc" name="libraries.libc.minimal.calloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.free" name="libraries.libc.minimal.free" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.gmtime" name="libraries.libc.minimal.gmtime" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.malloc" name="libraries.libc.minimal.malloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.memalloc_all" name="libraries.libc.minimal.memalloc_all" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.memalloc_max" name="libraries.libc.minimal.memalloc_max" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.memset" name="libraries.libc.minimal.memset" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.realloc" name="libraries.libc.minimal.realloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.reallocarray" name="libraries.libc.minimal.reallocarray" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.s32" name="libraries.libc.minimal.s32" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.s64" name="libraries.libc.minimal.s64" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strchr" name="libraries.libc.minimal.strchr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strcmp" name="libraries.libc.minimal.strcmp" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strcpy" name="libraries.libc.minimal.strcpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strlen" name="libraries.libc.minimal.strlen" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strncpy" name="libraries.libc.minimal.strncpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.testarting test - test_strcpy" name="libraries.libc.minimal.testarting test - test_strcpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.calloc" name="libraries.libc.newlib.calloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.free" name="libraries.libc.newlib.free" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.malloc" name="libraries.libc.newlib.malloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.memalloc_all" name="libraries.libc.newlib.memalloc_all" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.memalloc_max" name="libraries.libc.newlib.memalloc_max" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.realloc" name="libraries.libc.newlib.realloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.reallocarray" name="libraries.libc.newlib.reallocarray" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.receive_timeout" name="libraries.libc.receive_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.se====" name="libraries.libc.se====" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.sen==================================================" name="libraries.libc.sen==================================================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_and_forget" name="libraries.libc.send_and_forget" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_callback" name="libraries.libc.send_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_buffer" name="libraries.libc.send_receive_buffer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_ext" name="libraries.libc.send_receive_ext" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_ext_masked" name="libraries.libc.send_receive_ext_masked" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_std" name="libraries.libc.send_receive_std" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_std_masked" name="libraries.libc.send_receive_std_masked" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_wrong_id" name="libraries.libc.send_receive_wrong_id" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receivrting test - test_send_receive_std_masked" name="libraries.libc.send_receivrting test - test_send_receive_std_masked" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.set_loopback" name="libraries.libc.set_loopback" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.vsprintf" name="libraries.libc.sprintf.vsprintf" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.sprintf_double" name="libraries.libc.sprintf_double" time="0">
       </testcase>
@@ -1083,39 +99,47 @@
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.sprintf_string" name="libraries.libc.sprintf_string" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.ssize_t" name="libraries.libc.ssize_t" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.stdbool" name="libraries.libc.stdbool" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.jwt.jwt" name="libraries.encoding.jwt.jwt" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.stddef" name="libraries.libc.stddef" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json" name="libraries.encoding.json" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.stdint" name="libraries.libc.stdint" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_decoding" name="libraries.encoding.json.json_decoding" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strchr" name="libraries.libc.strchr" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_decoding_array_array" name="libraries.encoding.json.json_decoding_array_array" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strcmp" name="libraries.libc.strcmp" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_encoding" name="libraries.encoding.json.json_encoding" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strcpy" name="libraries.libc.strcpy" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_escape" name="libraries.encoding.json.json_escape" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strlen" name="libraries.libc.strlen" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_escape_bounds_check" name="libraries.encoding.json.json_escape_bounds_check" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strncpy" name="libraries.libc.strncpy" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_escape_empty" name="libraries.encoding.json.json_escape_empty" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strxspn" name="libraries.libc.strxspn" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_escape_no_op" name="libraries.encoding.json.json_escape_no_op" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.tet_send_receive_ext" name="libraries.libc.tet_send_receive_ext" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_escape_one" name="libraries.encoding.json.json_escape_one" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.vsnprintf" name="libraries.libc.vsnprintf" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_invalid_bool" name="libraries.encoding.json.json_invalid_bool" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.vsprintf" name="libraries.libc.vsprintf" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_invalid_null" name="libraries.encoding.json.json_invalid_null" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.base64_codec" name="libraries.encoding.base64_codec" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_invalid_number" name="libraries.encoding.json.json_invalid_number" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.cmd_history" name="libraries.encoding.cmd_history" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_invalid_string" name="libraries.encoding.json.json_invalid_string" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.cmd_resize" name="libraries.encoding.cmd_resize" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_item_wrong_type" name="libraries.encoding.json.json_item_wrong_type" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.cmd_shell" name="libraries.encoding.cmd_shell" time="0">
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_key_not_in_descr" name="libraries.encoding.json.json_key_not_in_descr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_missing_quote" name="libraries.encoding.json.json_missing_quote" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_obj_arr_decoding" name="libraries.encoding.json.json_obj_arr_decoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_obj_arr_encoding" name="libraries.encoding.json.json_obj_arr_encoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.encoding.json.json_wrong_token" name="libraries.encoding.json.json_wrong_token" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.encoding.json_decoding" name="libraries.encoding.json_decoding" time="0">
       </testcase>
@@ -1133,14 +157,6 @@
       </testcase>
       <testcase classname="frdm_k64f:libraries.encoding.json_escape_one" name="libraries.encoding.json_escape_one" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_invalid_bool" name="libraries.encoding.json_invalid_bool" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_invalid_null" name="libraries.encoding.json_invalid_null" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_invalid_number" name="libraries.encoding.json_invalid_number" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_invalid_string" name="libraries.encoding.json_invalid_string" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:libraries.encoding.json_invalid_unicode" name="libraries.encoding.json_invalid_unicode" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.encoding.json_item_wrong_type" name="libraries.encoding.json_item_wrong_type" time="0">
@@ -1155,77 +171,41 @@
       </testcase>
       <testcase classname="frdm_k64f:libraries.encoding.json_wrong_token" name="libraries.encoding.json_wrong_token" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.no_duplicates_in_a_row" name="libraries.encoding.no_duplicates_in_a_row" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.gen_isr_table.main" name="arch.interrupt.gen_isr_table.main" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.shell_wildcards_dynamic" name="libraries.encoding.shell_wildcards_dynamic" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt" name="arch.interrupt" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.shell_wildcards_static" name="libraries.encoding.shell_wildcards_static" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arc" name="arch.interrupt.arc" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.storing_long_buffers" name="libraries.encoding.storing_long_buffers" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arc.main" name="arch.interrupt.arc.main" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.base64_codec" name="libraries.encoding.base64_codec" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.cmd_history" name="libraries.encoding.cmd_history" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.cmd_resize" name="libraries.encoding.cmd_resize" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.cmd_shell" name="libraries.encoding.cmd_shell" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm.irq_vector_table.arm_thread_swap" name="arch.interrupt.arm.irq_vector_table.arm_thread_swap" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_decoding" name="libraries.encoding.json_decoding" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_decoding_array_array" name="libraries.encoding.json_decoding_array_array" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_encoding" name="libraries.encoding.json_encoding" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_escape" name="libraries.encoding.json_escape" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_escape_bounds_check" name="libraries.encoding.json_escape_bounds_check" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_escape_empty" name="libraries.encoding.json_escape_empty" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_escape_no_op" name="libraries.encoding.json_escape_no_op" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_escape_one" name="libraries.encoding.json_escape_one" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_invalid_bool" name="libraries.encoding.json_invalid_bool" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_invalid_null" name="libraries.encoding.json_invalid_null" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_invalid_number" name="libraries.encoding.json_invalid_number" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_invalid_string" name="libraries.encoding.json_invalid_string" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_invalid_unicode" name="libraries.encoding.json_invalid_unicode" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_item_wrong_type" name="libraries.encoding.json_item_wrong_type" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_key_not_in_descr" name="libraries.encoding.json_key_not_in_descr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_missing_quote" name="libraries.encoding.json_missing_quote" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_obj_arr_decoding" name="libraries.encoding.json_obj_arr_decoding" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_obj_arr_encoding" name="libraries.encoding.json_obj_arr_encoding" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.json_wrong_token" name="libraries.encoding.json_wrong_token" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.no_duplicates_in_a_row" name="libraries.encoding.no_duplicates_in_a_row" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.shell_wildcards_dynamic" name="libraries.encoding.shell_wildcards_dynamic" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.shell_wildcards_static" name="libraries.encoding.shell_wildcards_static" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.encoding.storing_long_buffers" name="libraries.encoding.storing_long_buffers" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm_interrupt" name="arch.interrupt.arm_interrupt" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.fatal" name="arch.interrupt.fatal" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm_thread_swap" name="arch.interrupt.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.gen_isr_table.main" name="arch.interrupt.gen_isr_table.main" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
       </testcase>
@@ -1233,67 +213,61 @@
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.main" name="arch.interrupt.main" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_async_multiple_put" name="arch.interrupt.mbox_async_multiple_put" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_async_put_get_block" name="arch.interrupt.mbox_async_put_get_block" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_async_put_to_waiting_get" name="arch.interrupt.mbox_async_put_to_waiting_get" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_block_get_buff_to_pool" name="arch.interrupt.mbox_block_get_buff_to_pool" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_block_get_buff_to_smaller_pool" name="arch.interrupt.mbox_block_get_buff_to_smaller_pool" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_block_get_invalid_pool" name="arch.interrupt.mbox_block_get_invalid_pool" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_clean_up_tx_pool" name="arch.interrupt.mbox_clean_up_tx_pool" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_dispose_size_0_msg" name="arch.interrupt.mbox_dispose_size_0_msg" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_get_waiting_put_incorrect_tid" name="arch.interrupt.mbox_get_waiting_put_incorrect_tid" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_incorrect_receiver_tid" name="arch.interrupt.mbox_incorrect_receiver_tid" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_incorrect_transmit_tid" name="arch.interrupt.mbox_incorrect_transmit_tid" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_msg_tid_mismatch" name="arch.interrupt.mbox_msg_tid_mismatch" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_multiple_waiting_get" name="arch.interrupt.mbox_multiple_waiting_get" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_target_source_thread_block" name="arch.interrupt.mbox_target_source_thread_block" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_target_source_thread_buffer" name="arch.interrupt.mbox_target_source_thread_buffer" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.mbox_timed_out_mbox_get" name="arch.interrupt.mbox_timed_out_mbox_get" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.no_optimizations.arm_interrupt" name="arch.interrupt.no_optimizations.arm_interrupt" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.nodyn" name="arch.interrupt.nodyn" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.sem_give_limit" name="arch.interrupt.sem_give_limit" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.x86.idt_stub" name="arch.interrupt.x86.idt_stub" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.x86.static_idt" name="arch.interrupt.x86.static_idt" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.fatal" name="arch.interrupt.fatal" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.main" name="arch.interrupt.main" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.sem_give_limit" name="arch.interrupt.sem_give_limit" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.delayed" name="net.http.delayed" time="0">
+      <testcase classname="frdm_k64f:net.http" name="net.http" time="0">
       </testcase>
       <testcase classname="frdm_k64f:net.http.header_nread_value" name="net.http.header_nread_value" time="0">
       </testcase>
@@ -1305,15 +279,7 @@
       </testcase>
       <testcase classname="frdm_k64f:net.http.preserve_data" name="net.http.preserve_data" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:net.http.preservt_delayed" name="net.http.preservt_delayed" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.resubmit" name="net.http.resubmit" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.sequence" name="net.http.sequence" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:net.http.tePASS - test_delayed" name="net.http.tePASS - test_delayed" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:buildsystem.include_file.assert_mem_equal" name="buildsystem.include_file.assert_mem_equal" time="0">
+      <testcase classname="frdm_k64f:buildsystem.include_file" name="buildsystem.include_file" time="0">
       </testcase>
       <testcase classname="frdm_k64f:buildsystem.include_file.gen_gz_inc_file" name="buildsystem.include_file.gen_gz_inc_file" time="0">
       </testcase>
@@ -1323,19 +289,9 @@
       </testcase>
       <testcase classname="frdm_k64f:buildsystem.include_file.gen_inc_file" name="buildsystem.include_file.gen_inc_file" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:storage.flash_map_mpu.supervisor_access" name="storage.flash_map_mpu.supervisor_access" time="0">
+      <testcase classname="frdm_k64f:storage.flash_map_mpu.flash_area_get_sectors" name="storage.flash_map_mpu.flash_area_get_sectors" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.os.fdtable.fifo_get_fail" name="libraries.os.fdtable.fifo_get_fail" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.os.fdtable.fifo_isr2thread" name="libraries.os.fdtable.fifo_isr2thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.os.fdtable.fifo_loop" name="libraries.os.fdtable.fifo_loop" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.os.fdtable.fifo_thread2isr" name="libraries.os.fdtable.fifo_thread2isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.os.fdtable.fifo_thread2thread" name="libraries.os.fdtable.fifo_thread2thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.os.fdtable.tesut ---&gt; isr fifo get" name="libraries.os.fdtable.tesut ---&gt; isr fifo get" time="0">
+      <testcase classname="frdm_k64f:libraries.os.fdtable" name="libraries.os.fdtable" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.os.fdtable.z_alloc_fd" name="libraries.os.fdtable.z_alloc_fd" time="0">
       </testcase>
@@ -1349,85 +305,75 @@
       </testcase>
       <testcase classname="frdm_k64f:libraries.os.fdtable.z_reserve_fd" name="libraries.os.fdtable.z_reserve_fd" time="0">
       </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32" name="crypto.rand32" time="0">
+      </testcase>
       <testcase classname="frdm_k64f:crypto.rand32.rand32" name="crypto.rand32.rand32" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
+      <testcase classname="frdm_k64f:crypto.rand32.random_ctr_drbg" name="crypto.rand32.random_ctr_drbg" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" time="0">
+      <testcase classname="frdm_k64f:crypto.rand32.random_ctr_drbg.rand32" name="crypto.rand32.random_ctr_drbg.rand32" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" name="crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" time="0">
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro" name="crypto.rand32.random_hw_xoroshiro" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.arm_zero_latency_irqs" name="crypto.rand32.random_hw_xoroshiro.arm_zero_latency_irqs" time="0">
       </testcase>
       <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
       </testcase>
       <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer.fatal" name="crypto.rand32.random_sw_systimer.fatal" time="0">
+      <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer.early_sleep" name="crypto.rand32.random_sw_systimer.early_sleep" time="0">
       </testcase>
       <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer.te" name="crypto.rand32.random_sw_systimer.te" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.rand32" name="crypto.rand32.rand32" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_free_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" name="crypto.rand32.random_hw_xoroshiro.mpool_alloc_size" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" name="crypto.rand32.random_hw_xoroshiro.mpool_kdefine_extern" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_hw_xoroshiro.rand32" name="crypto.rand32.random_hw_xoroshiro.rand32" time="0">
       </testcase>
       <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer.fatal" name="crypto.rand32.random_sw_systimer.fatal" time="0">
+      <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer.early_sleep" name="crypto.rand32.random_sw_systimer.early_sleep" time="0">
       </testcase>
       <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:crypto.rand32.random_sw_systimer.te" name="crypto.rand32.random_sw_systimer.te" time="0">
+      <testcase classname="frdm_k64f:crypto.mbedtls" name="crypto.mbedtls" time="0">
       </testcase>
       <testcase classname="frdm_k64f:crypto.mbedtls.mbedtls" name="crypto.mbedtls.mbedtls" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.array" name="misc.app_dev.libcxx.array" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.array" name="misc.app_dev.libcxx.exceptions.array" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.sched_is_preempt_thread" name="misc.app_dev.libcxx.exceptions.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.unlock_nested_sched_lock" name="misc.app_dev.libcxx.exceptions.unlock_nested_sched_lock" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.vector" name="misc.app_dev.libcxx.exceptions.vector" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.msg_receiver_unlimited" name="misc.app_dev.libcxx.msg_receiver_unlimited" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.vector" name="misc.app_dev.libcxx.vector" time="0">
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx" name="misc.app_dev.libcxx" time="0">
       </testcase>
       <testcase classname="frdm_k64f:misc.app_dev.libcxx.array" name="misc.app_dev.libcxx.array" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.array" name="misc.app_dev.libcxx.exceptions.array" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.sched_is_preempt_thread" name="misc.app_dev.libcxx.exceptions.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.unlock_nested_sched_lock" name="misc.app_dev.libcxx.exceptions.unlock_nested_sched_lock" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.vector" name="misc.app_dev.libcxx.exceptions.vector" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.msg_receiver_unlimited" name="misc.app_dev.libcxx.msg_receiver_unlimited" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.vector" name="misc.app_dev.libcxx.vector" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.array" name="misc.app_dev.libcxx.array" time="0">
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions" name="misc.app_dev.libcxx.exceptions" time="0">
       </testcase>
       <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.array" name="misc.app_dev.libcxx.exceptions.array" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.sched_is_preempt_thread" name="misc.app_dev.libcxx.exceptions.sched_is_preempt_thread" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.unlock_nested_sched_lock" name="misc.app_dev.libcxx.exceptions.unlock_nested_sched_lock" time="0">
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.make_unique" name="misc.app_dev.libcxx.exceptions.make_unique" time="0">
       </testcase>
       <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.vector" name="misc.app_dev.libcxx.exceptions.vector" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:misc.app_dev.libcxx.msg_receiver_unlimited" name="misc.app_dev.libcxx.msg_receiver_unlimited" time="0">
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.make_unique" name="misc.app_dev.libcxx.make_unique" time="0">
       </testcase>
       <testcase classname="frdm_k64f:misc.app_dev.libcxx.vector" name="misc.app_dev.libcxx.vector" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.zephyr_cpp" name="misc.app_dev.libcxx.zephyr_cpp" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.zephyr_cpp.array" name="misc.app_dev.libcxx.zephyr_cpp.array" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.zephyr_cpp.make_unique" name="misc.app_dev.libcxx.zephyr_cpp.make_unique" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.zephyr_cpp.vector" name="misc.app_dev.libcxx.zephyr_cpp.vector" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.zephyr_cpp" name="misc.app_dev.libcxx.zephyr_cpp" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.zephyr_cpp.array" name="misc.app_dev.libcxx.zephyr_cpp.array" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.zephyr_cpp.make_unique" name="misc.app_dev.libcxx.zephyr_cpp.make_unique" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.zephyr_cpp.vector" name="misc.app_dev.libcxx.zephyr_cpp.vector" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions" name="misc.app_dev.libcxx.exceptions" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.array" name="misc.app_dev.libcxx.exceptions.array" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.make_unique" name="misc.app_dev.libcxx.exceptions.make_unique" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:misc.app_dev.libcxx.exceptions.vector" name="misc.app_dev.libcxx.exceptions.vector" time="0">
       </testcase>
       <testcase classname="frdm_k64f:portability.cmsis_rtos_v2" name="portability.cmsis_rtos_v2" time="0">
       </testcase>
@@ -1477,6 +423,8 @@
       </testcase>
       <testcase classname="frdm_k64f:portability.cmsis_rtos_v2.timer" name="portability.cmsis_rtos_v2.timer" time="0">
       </testcase>
+      <testcase classname="frdm_k64f:portability.cmsis_rtos_v1" name="portability.cmsis_rtos_v1" time="0">
+      </testcase>
       <testcase classname="frdm_k64f:portability.cmsis_rtos_v1.kernel_start" name="portability.cmsis_rtos_v1.kernel_start" time="0">
       </testcase>
       <testcase classname="frdm_k64f:portability.cmsis_rtos_v1.kernel_systick" name="portability.cmsis_rtos_v1.kernel_systick" time="0">
@@ -1501,8 +449,6 @@
       </testcase>
       <testcase classname="frdm_k64f:portability.cmsis_rtos_v1.signal_events_timeout" name="portability.cmsis_rtos_v1.signal_events_timeout" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:portability.cmsis_rtos_v1.storing_long_buffers" name="portability.cmsis_rtos_v1.storing_long_buffers" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
       </testcase>
       <testcase classname="frdm_k64f:portability.cmsis_rtos_v1.thread_instances" name="portability.cmsis_rtos_v1.thread_instances" time="0">
@@ -1511,9 +457,25 @@
       </testcase>
       <testcase classname="frdm_k64f:portability.cmsis_rtos_v1.timer" name="portability.cmsis_rtos_v1.timer" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.bsearch" name="libraries.libc.bsearch" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc" name="libraries.libc.minimal.mem_alloc" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.filter_attach" name="libraries.libc.filter_attach" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.calloc" name="libraries.libc.minimal.mem_alloc.calloc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.free" name="libraries.libc.minimal.mem_alloc.free" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.malloc" name="libraries.libc.minimal.mem_alloc.malloc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.memalloc_all" name="libraries.libc.minimal.mem_alloc.memalloc_all" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.memalloc_max" name="libraries.libc.minimal.mem_alloc.memalloc_max" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.realloc" name="libraries.libc.minimal.mem_alloc.realloc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.reallocarray" name="libraries.libc.minimal.mem_alloc.reallocarray" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc" name="libraries.libc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.bsearch" name="libraries.libc.bsearch" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.limits" name="libraries.libc.limits" time="0">
       </testcase>
@@ -1521,43 +483,37 @@
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.memset" name="libraries.libc.memset" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.bsearch" name="libraries.libc.minimal.bsearch" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:libraries.libc.minimal.calloc" name="libraries.libc.minimal.calloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.minimal.free" name="libraries.libc.minimal.free" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.gmtime" name="libraries.libc.minimal.gmtime" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:libraries.libc.minimal.malloc" name="libraries.libc.minimal.malloc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc" name="libraries.libc.minimal.mem_alloc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.calloc" name="libraries.libc.minimal.mem_alloc.calloc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.free" name="libraries.libc.minimal.mem_alloc.free" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.malloc" name="libraries.libc.minimal.mem_alloc.malloc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.memalloc_all" name="libraries.libc.minimal.mem_alloc.memalloc_all" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.memalloc_max" name="libraries.libc.minimal.mem_alloc.memalloc_max" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.realloc" name="libraries.libc.minimal.mem_alloc.realloc" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:libraries.libc.minimal.mem_alloc.reallocarray" name="libraries.libc.minimal.mem_alloc.reallocarray" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.minimal.memalloc_all" name="libraries.libc.minimal.memalloc_all" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.minimal.memalloc_max" name="libraries.libc.minimal.memalloc_max" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.memset" name="libraries.libc.minimal.memset" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:libraries.libc.minimal.realloc" name="libraries.libc.minimal.realloc" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.minimal.reallocarray" name="libraries.libc.minimal.reallocarray" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.s32" name="libraries.libc.minimal.s32" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.s64" name="libraries.libc.minimal.s64" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strchr" name="libraries.libc.minimal.strchr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strcmp" name="libraries.libc.minimal.strcmp" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strcpy" name="libraries.libc.minimal.strcpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strlen" name="libraries.libc.minimal.strlen" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strncpy" name="libraries.libc.minimal.strncpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.testarting test - test_strcpy" name="libraries.libc.minimal.testarting test - test_strcpy" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.newlib" name="libraries.libc.newlib" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.newlib.calloc" name="libraries.libc.newlib.calloc" time="0">
       </testcase>
@@ -1573,31 +529,19 @@
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.newlib.reallocarray" name="libraries.libc.newlib.reallocarray" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.receive_timeout" name="libraries.libc.receive_timeout" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.se====" name="libraries.libc.se====" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.sprintf_double" name="libraries.libc.sprintf.sprintf_double" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.sen==================================================" name="libraries.libc.sen==================================================" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.sprintf_integer" name="libraries.libc.sprintf.sprintf_integer" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_and_forget" name="libraries.libc.send_and_forget" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.sprintf_misc" name="libraries.libc.sprintf.sprintf_misc" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_callback" name="libraries.libc.send_callback" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.sprintf_string" name="libraries.libc.sprintf.sprintf_string" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_buffer" name="libraries.libc.send_receive_buffer" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.vsnprintf" name="libraries.libc.sprintf.vsnprintf" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_ext" name="libraries.libc.send_receive_ext" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_ext_masked" name="libraries.libc.send_receive_ext_masked" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_std" name="libraries.libc.send_receive_std" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_std_masked" name="libraries.libc.send_receive_std_masked" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_wrong_id" name="libraries.libc.send_receive_wrong_id" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receivrting test - test_send_receive_std_masked" name="libraries.libc.send_receivrting test - test_send_receive_std_masked" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.set_loopback" name="libraries.libc.set_loopback" time="0">
+      <testcase classname="frdm_k64f:libraries.libc.sprintf.vsprintf" name="libraries.libc.sprintf.vsprintf" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.sprintf_double" name="libraries.libc.sprintf_double" time="0">
       </testcase>
@@ -1627,231 +571,143 @@
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.strxspn" name="libraries.libc.strxspn" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.tet_send_receive_ext" name="libraries.libc.tet_send_receive_ext" time="0">
-      </testcase>
       <testcase classname="frdm_k64f:libraries.libc.vsnprintf" name="libraries.libc.vsnprintf" time="0">
       </testcase>
       <testcase classname="frdm_k64f:libraries.libc.vsprintf" name="libraries.libc.vsprintf" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.bsearch" name="libraries.libc.bsearch" time="0">
+      <testcase classname="frdm_k64f:benchmark.timing.userspace" name="benchmark.timing.userspace" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.filter_attach" name="libraries.libc.filter_attach" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.limits" name="libraries.libc.limits" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.memcmp" name="libraries.libc.memcmp" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.memset" name="libraries.libc.memset" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.bsearch" name="libraries.libc.minimal.bsearch" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.calloc" name="libraries.libc.minimal.calloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.entropy_get_entropy" name="libraries.libc.minimal.entropy_get_entropy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.free" name="libraries.libc.minimal.free" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.gmtime" name="libraries.libc.minimal.gmtime" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.malloc" name="libraries.libc.minimal.malloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.memalloc_all" name="libraries.libc.minimal.memalloc_all" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.memalloc_max" name="libraries.libc.minimal.memalloc_max" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.memset" name="libraries.libc.minimal.memset" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.realloc" name="libraries.libc.minimal.realloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.reallocarray" name="libraries.libc.minimal.reallocarray" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.s32" name="libraries.libc.minimal.s32" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.s64" name="libraries.libc.minimal.s64" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strchr" name="libraries.libc.minimal.strchr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strcmp" name="libraries.libc.minimal.strcmp" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strcpy" name="libraries.libc.minimal.strcpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strlen" name="libraries.libc.minimal.strlen" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.strncpy" name="libraries.libc.minimal.strncpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.minimal.testarting test - test_strcpy" name="libraries.libc.minimal.testarting test - test_strcpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.calloc" name="libraries.libc.newlib.calloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.free" name="libraries.libc.newlib.free" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.malloc" name="libraries.libc.newlib.malloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.memalloc_all" name="libraries.libc.newlib.memalloc_all" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.memalloc_max" name="libraries.libc.newlib.memalloc_max" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.realloc" name="libraries.libc.newlib.realloc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.newlib.reallocarray" name="libraries.libc.newlib.reallocarray" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.receive_timeout" name="libraries.libc.receive_timeout" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.se====" name="libraries.libc.se====" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.sen==================================================" name="libraries.libc.sen==================================================" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_and_forget" name="libraries.libc.send_and_forget" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_callback" name="libraries.libc.send_callback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_buffer" name="libraries.libc.send_receive_buffer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_ext" name="libraries.libc.send_receive_ext" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_ext_masked" name="libraries.libc.send_receive_ext_masked" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_std" name="libraries.libc.send_receive_std" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_std_masked" name="libraries.libc.send_receive_std_masked" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receive_wrong_id" name="libraries.libc.send_receive_wrong_id" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.send_receivrting test - test_send_receive_std_masked" name="libraries.libc.send_receivrting test - test_send_receive_std_masked" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.set_loopback" name="libraries.libc.set_loopback" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.sprintf_double" name="libraries.libc.sprintf_double" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.sprintf_integer" name="libraries.libc.sprintf_integer" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.sprintf_misc" name="libraries.libc.sprintf_misc" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.sprintf_string" name="libraries.libc.sprintf_string" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.ssize_t" name="libraries.libc.ssize_t" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.stdbool" name="libraries.libc.stdbool" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.stddef" name="libraries.libc.stddef" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.stdint" name="libraries.libc.stdint" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strchr" name="libraries.libc.strchr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strcmp" name="libraries.libc.strcmp" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strcpy" name="libraries.libc.strcpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strlen" name="libraries.libc.strlen" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strncpy" name="libraries.libc.strncpy" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.strxspn" name="libraries.libc.strxspn" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.tet_send_receive_ext" name="libraries.libc.tet_send_receive_ext" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.vsnprintf" name="libraries.libc.vsnprintf" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:libraries.libc.vsprintf" name="libraries.libc.vsprintf" time="0">
+      <testcase classname="frdm_k64f:benchmark.kernel" name="benchmark.kernel" time="0">
       </testcase>
       <testcase classname="frdm_k64f:benchmark.timing.default_kernel" name="benchmark.timing.default_kernel" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:benchmark.timing.userspace" name="benchmark.timing.userspace" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.timing.default_kernel" name="benchmark.timing.default_kernel" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:benchmark.timing.userspace" name="benchmark.timing.userspace" time="0">
+      <testcase classname="frdm_k64f:arch.ramfunc" name="arch.ramfunc" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.ramfunc.arm_ramfunc" name="arch.ramfunc.arm_ramfunc" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.ramfunc.arm_thread_swap" name="arch.ramfunc.arm_thread_swap" time="0">
+      <testcase classname="frdm_k64f:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.interrupt.arm.irq_vector_table.arm_thread_swap" name="arch.interrupt.arm.irq_vector_table.arm_thread_swap" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
+      <testcase classname="frdm_k64f:arch.zero_latency_interrupts" name="arch.zero_latency_interrupts" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.fatal" name="arch.interrupt.fatal" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.main" name="arch.interrupt.main" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nmi_test_isr" name="arch.interrupt.nmi_test_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.obj_tracing" name="arch.interrupt.obj_tracing" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.philosophers_tracing" name="arch.interrupt.philosophers_tracing" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.sem_give_limit" name="arch.interrupt.sem_give_limit" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.sem_multiple_threads_wait" name="arch.interrupt.sem_multiple_threads_wait" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
+      <testcase classname="frdm_k64f:arch.zero_latency_interrupts.arm_interrupt" name="arch.zero_latency_interrupts.arm_interrupt" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.arm_thread_swap" name="arch.arm.swap.common.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.pool_block_get" name="arch.arm.swap.common.fp_sharing.pool_block_get" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+      <testcase classname="frdm_k64f:arch.arm.swap.common" name="arch.arm.swap.common" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.arm.swap.common.arm_thread_swap" name="arch.arm.swap.common.arm_thread_swap" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.pool_block_get" name="arch.arm.swap.common.fp_sharing.pool_block_get" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.arm_thread_swap" name="arch.arm.swap.common.arm_thread_swap" time="0">
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing" name="arch.arm.swap.common.fp_sharing" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
       </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_decoding" name="arch.arm.swap.common.fp_sharing.json_decoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_decoding_array_array" name="arch.arm.swap.common.fp_sharing.json_decoding_array_array" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_encoding" name="arch.arm.swap.common.fp_sharing.json_encoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape" name="arch.arm.swap.common.fp_sharing.json_escape" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape_bounds_check" name="arch.arm.swap.common.fp_sharing.json_escape_bounds_check" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape_empty" name="arch.arm.swap.common.fp_sharing.json_escape_empty" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape_no_op" name="arch.arm.swap.common.fp_sharing.json_escape_no_op" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape_one" name="arch.arm.swap.common.fp_sharing.json_escape_one" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_invalid_bool" name="arch.arm.swap.common.fp_sharing.json_invalid_bool" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_invalid_null" name="arch.arm.swap.common.fp_sharing.json_invalid_null" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_invalid_number" name="arch.arm.swap.common.fp_sharing.json_invalid_number" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_invalid_string" name="arch.arm.swap.common.fp_sharing.json_invalid_string" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_item_wrong_type" name="arch.arm.swap.common.fp_sharing.json_item_wrong_type" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_key_not_in_descr" name="arch.arm.swap.common.fp_sharing.json_key_not_in_descr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_missing_quote" name="arch.arm.swap.common.fp_sharing.json_missing_quote" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_obj_arr_decoding" name="arch.arm.swap.common.fp_sharing.json_obj_arr_decoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_obj_arr_encoding" name="arch.arm.swap.common.fp_sharing.json_obj_arr_encoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_wrong_token" name="arch.arm.swap.common.fp_sharing.json_wrong_token" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations" name="arch.arm.swap.common.fp_sharing.no_optimizations" time="0">
+      </testcase>
       <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.pool_block_get" name="arch.arm.swap.common.fp_sharing.pool_block_get" time="0">
+      <testcase classname="frdm_k64f:arch.arm.swap.common.no_optimizations" name="arch.arm.swap.common.no_optimizations" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.arm_thread_swap" name="arch.arm.swap.common.arm_thread_swap" time="0">
+      <testcase classname="frdm_k64f:arch.arm.swap.common.no_optimizations" name="arch.arm.swap.common.no_optimizations" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing" name="arch.arm.swap.common.fp_sharing" time="0">
       </testcase>
       <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
       </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_decoding" name="arch.arm.swap.common.fp_sharing.json_decoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_decoding_array_array" name="arch.arm.swap.common.fp_sharing.json_decoding_array_array" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_encoding" name="arch.arm.swap.common.fp_sharing.json_encoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape" name="arch.arm.swap.common.fp_sharing.json_escape" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape_bounds_check" name="arch.arm.swap.common.fp_sharing.json_escape_bounds_check" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape_empty" name="arch.arm.swap.common.fp_sharing.json_escape_empty" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape_no_op" name="arch.arm.swap.common.fp_sharing.json_escape_no_op" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_escape_one" name="arch.arm.swap.common.fp_sharing.json_escape_one" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_invalid_bool" name="arch.arm.swap.common.fp_sharing.json_invalid_bool" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_invalid_null" name="arch.arm.swap.common.fp_sharing.json_invalid_null" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_invalid_number" name="arch.arm.swap.common.fp_sharing.json_invalid_number" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_invalid_string" name="arch.arm.swap.common.fp_sharing.json_invalid_string" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_item_wrong_type" name="arch.arm.swap.common.fp_sharing.json_item_wrong_type" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_key_not_in_descr" name="arch.arm.swap.common.fp_sharing.json_key_not_in_descr" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_missing_quote" name="arch.arm.swap.common.fp_sharing.json_missing_quote" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_obj_arr_decoding" name="arch.arm.swap.common.fp_sharing.json_obj_arr_decoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_obj_arr_encoding" name="arch.arm.swap.common.fp_sharing.json_obj_arr_encoding" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.json_wrong_token" name="arch.arm.swap.common.fp_sharing.json_wrong_token" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations" name="arch.arm.swap.common.fp_sharing.no_optimizations" time="0">
+      </testcase>
       <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" name="arch.arm.swap.common.fp_sharing.no_optimizations.hostname_set" time="0">
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.pool_block_get" name="arch.arm.swap.common.fp_sharing.pool_block_get" time="0">
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations" name="arch.arm.swap.common.fp_sharing.no_optimizations" time="0">
       </testcase>
-      <testcase classname="frdm_k64f:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="frdm_k64f:arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs" time="0">
       </testcase>
       <testcase classname="frdm_k64f:peripheral.adc.adc" name="peripheral.adc.adc" time="0">
       </testcase>
@@ -1878,12 +734,6 @@
       <testcase classname="frdm_k64f:peripheral.adc.resolution_6.adc_sample" name="peripheral.adc.resolution_6.adc_sample" time="0">
       </testcase>
       <testcase classname="frdm_k64f:peripheral.adc.resolution_8.adc_sample" name="peripheral.adc.resolution_8.adc_sample" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:peripheral.adc.s32" name="peripheral.adc.s32" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:peripheral.adc.s64" name="peripheral.adc.s64" time="0">
-      </testcase>
-      <testcase classname="frdm_k64f:peripheral.adc.threads_spawn_params" name="peripheral.adc.threads_spawn_params" time="0">
       </testcase>
   </testsuite>
 </testsuites>

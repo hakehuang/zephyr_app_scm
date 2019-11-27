@@ -103,6 +103,7 @@ def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: 
     key_words = ["mode", "attribute"]
     next if key_words.include?(key)
     next if @content["cases"][key].nil?
+    next if ! @content["cases"][key].has_key?('path')
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
     catelog = @content["cases"][key]['catelog']
 
@@ -115,14 +116,18 @@ def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: 
       pipe_data[:catalog][catelog]['catalog']       = catelog
     end
     matched = false
+    matched_hash = {}
     data.keys.each do |case_name|
+      next if matched_hash.has_key?(case_name)
       if ZEPHER_FILTER::is_case_include?(case_name, key)
         matched = true
         if @content["cases"][key]['result'].nil?
+          matched_hash[case_name] = 1
+          section_name = data[case_name]
           if ! @content["cases"][key]['build_only'].nil?
             pipe_data[:catalog][catelog]['skipped_cases'] += 1
+            pipe_data[:catalog][catelog]['cases'].insert(-1, {'case_name':case_name, 'section_name':"#{board_name}:#{section_name}", 'result':'SKIP'})
           else
-            section_name = data[case_name]
             pipe_data[:catalog][catelog]['cases'].insert(-1, {'case_name':case_name, 'section_name':"#{board_name}:#{section_name}", 'result':'PASS'})
             pipe_data[:catalog][catelog]['total_cases'] += 1
           end
@@ -130,11 +135,13 @@ def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: 
           result = @content["cases"][key]['result'].strip.upcase
           if result == 'SKIP'
             pipe_data[:catalog][catelog]['skipped_cases'] += 1
+            puts "skip case #{case_name}"
           elsif result == 'FAILURE'
             pipe_data[:catalog][catelog]['failure_cases'] += 1
           else
             pipe_data[:catalog][catelog]['error_cases'] += 1
           end
+          matched_hash[case_name] = 1
           section_name = data[case_name]
           pipe_data[:catalog][catelog]['total_cases'] += 1
           pipe_data[:catalog][catelog]['cases'].insert(-1, {'case_name':case_name, 'section_name':"#{board_name}:#{section_name}", 'result':result})
