@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="146" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="152" errors="0" failures="0" name="" skipped="0" time="0">
       <testcase classname="mimxrt1060_evk:tracing.openocd" name="tracing.openocd" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:kernel.timer" name="kernel.timer" time="0">
@@ -82,12 +82,6 @@
       <testcase classname="mimxrt1060_evk:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:testing.ztest.customized_output" name="testing.ztest.customized_output" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sleep" name="kernel.sleep" time="0">
-      </testcase>
-      <testcase classname="mimxrt1060_evk:kernel.sleep.early_sleep" name="kernel.sleep.early_sleep" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:libraries.data_structures" name="libraries.data_structures" time="0">
       </testcase>
@@ -238,6 +232,24 @@
       <testcase classname="mimxrt1060_evk:peripheral.mailbox" name="peripheral.mailbox" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:peripheral.mailbox.main" name="peripheral.mailbox.main" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:peripheral.gpio.gpio_callback_add_remove" name="peripheral.gpio.gpio_callback_add_remove" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:peripheral.gpio.gpio_callback_edge_high" name="peripheral.gpio.gpio_callback_edge_high" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:peripheral.gpio.gpio_callback_edge_low" name="peripheral.gpio.gpio_callback_edge_low" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:peripheral.gpio.gpio_callback_enable_disable" name="peripheral.gpio.gpio_callback_enable_disable" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:peripheral.gpio.gpio_callback_level_high" name="peripheral.gpio.gpio_callback_level_high" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:peripheral.gpio.gpio_callback_level_low" name="peripheral.gpio.gpio_callback_level_low" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:peripheral.gpio.gpio_callback_self_remove" name="peripheral.gpio.gpio_callback_self_remove" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:peripheral.gpio.gpio_pin_read_write" name="peripheral.gpio.gpio_pin_read_write" time="0">
+      </testcase>
+      <testcase classname="mimxrt1060_evk:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
       </testcase>
       <testcase classname="mimxrt1060_evk:peripheral.uart.poll.uart_fifo_fill" name="peripheral.uart.poll.uart_fifo_fill" time="0">
       </testcase>

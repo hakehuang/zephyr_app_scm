@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="339" errors="0" failures="3" name="" skipped="2" time="0">
+    <testsuite tests="354" errors="0" failures="3" name="" skipped="2" time="0">
       <testcase classname="mimxrt1020_evk:benchmark.latency" name="benchmark.latency" time="0">
          <skipped message="Skipped" type="skipped"/>
       </testcase>
@@ -24,6 +24,10 @@
       <testcase classname="mimxrt1020_evk:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:arch.common.xip.nondefault.globals" name="arch.common.xip.nondefault.globals" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.mqtt.packet" name="net.mqtt.packet" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:kernel.memory_protection.stack_random" name="kernel.memory_protection.stack_random" time="0">
       </testcase>
@@ -263,6 +267,18 @@
       </testcase>
       <testcase classname="mimxrt1020_evk:arch.interrupt.x86.static_idt" name="arch.interrupt.x86.static_idt" time="0">
       </testcase>
+      <testcase classname="mimxrt1020_evk:net.http" name="net.http" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.http.header_nread_value" name="net.http.header_nread_value" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.http.http_header_fields" name="net.http.http_header_fields" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.http.method_str" name="net.http.method_str" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.http.parse_url" name="net.http.parse_url" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:net.http.preserve_data" name="net.http.preserve_data" time="0">
+      </testcase>
       <testcase classname="mimxrt1020_evk:buildsystem.include_file" name="buildsystem.include_file" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:buildsystem.include_file.gen_gz_inc_file" name="buildsystem.include_file.gen_gz_inc_file" time="0">
@@ -332,14 +348,6 @@
       <testcase classname="mimxrt1020_evk:misc.app_dev.libcxx.make_unique" name="misc.app_dev.libcxx.make_unique" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:misc.app_dev.libcxx.vector" name="misc.app_dev.libcxx.vector" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:misc.app_dev.libcxx.zephyr_cpp" name="misc.app_dev.libcxx.zephyr_cpp" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:misc.app_dev.libcxx.zephyr_cpp.array" name="misc.app_dev.libcxx.zephyr_cpp.array" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:misc.app_dev.libcxx.zephyr_cpp.make_unique" name="misc.app_dev.libcxx.zephyr_cpp.make_unique" time="0">
-      </testcase>
-      <testcase classname="mimxrt1020_evk:misc.app_dev.libcxx.zephyr_cpp.vector" name="misc.app_dev.libcxx.zephyr_cpp.vector" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:misc.app_dev.libcxx.zephyr_cpp" name="misc.app_dev.libcxx.zephyr_cpp" time="0">
       </testcase>
@@ -574,6 +582,28 @@
       <testcase classname="mimxrt1020_evk:arch.interrupt.arm.irq_vector_table.arm_thread_swap" name="arch.interrupt.arm.irq_vector_table.arm_thread_swap" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm.irq_vector_table.arm_thread_swap" name="arch.interrupt.arm.irq_vector_table.arm_thread_swap" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm_interrupt" name="arch.interrupt.arm_interrupt" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
+      </testcase>
+      <testcase classname="mimxrt1020_evk:arch.interrupt.arm_thread_swap" name="arch.interrupt.arm_thread_swap" time="0">
       </testcase>
       <testcase classname="mimxrt1020_evk:arch.zero_latency_interrupts" name="arch.zero_latency_interrupts" time="0">
       </testcase>

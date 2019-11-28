@@ -61,18 +61,12 @@ cases:
     path: tests/kernel/queue
     catalog: kernel userspace
     extra_args: CONF_FILE="prj_poll.conf"
-  kernel.semaphore.api:
-    path: tests/kernel/semaphore/sema_api
-    catalog: kernel userspace
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace
     min_ram: 32
-  kernel.stack:
-    path: tests/kernel/stack/stack_api
-    catalog: kernel userspace
   kernel.stack.usage:
-    path: tests/kernel/stack/stack_usage
+    path: tests/kernel/stack/stack
     catalog: kernel userspace
   kernel.timer:
     path: tests/kernel/timer/timer_api

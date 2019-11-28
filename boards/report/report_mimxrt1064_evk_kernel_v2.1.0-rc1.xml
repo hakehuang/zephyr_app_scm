@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="1669" errors="0" failures="2" name="" skipped="10" time="0">
+    <testsuite tests="1623" errors="0" failures="2" name="" skipped="10" time="0">
       <testcase classname="mimxrt1064_evk:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -702,108 +702,6 @@
       <testcase classname="mimxrt1064_evk:kernel.semaphore.simple_sem_from_isr" name="kernel.semaphore.simple_sem_from_isr" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:kernel.semaphore.simple_sem_from_task" name="kernel.semaphore.simple_sem_from_task" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore" name="kernel.semaphore" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.api" name="kernel.semaphore.api" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.api.sema_count_get" name="kernel.semaphore.api.sema_count_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.api.sema_reset" name="kernel.semaphore.api.sema_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.api.sema_thread2isr" name="kernel.semaphore.api.sema_thread2isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.api.sema_thread2thread" name="kernel.semaphore.api.sema_thread2thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_give_take_from_isr" name="kernel.semaphore.sem_give_take_from_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_measure_timeout_from_thread" name="kernel.semaphore.sem_measure_timeout_from_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_measure_timeouts" name="kernel.semaphore.sem_measure_timeouts" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_multi_take_timeout_diff_sem" name="kernel.semaphore.sem_multi_take_timeout_diff_sem" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_multiple_take_and_timeouts" name="kernel.semaphore.sem_multiple_take_and_timeouts" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_multiple_threads_wait" name="kernel.semaphore.sem_multiple_threads_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_take_multiple" name="kernel.semaphore.sem_take_multiple" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_take_no_wait" name="kernel.semaphore.sem_take_no_wait" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_take_no_wait_fails" name="kernel.semaphore.sem_take_no_wait_fails" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_take_timeout" name="kernel.semaphore.sem_take_timeout" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_take_timeout_fails" name="kernel.semaphore.sem_take_timeout_fails" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_take_timeout_forever" name="kernel.semaphore.sem_take_timeout_forever" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sem_take_timeout_isr" name="kernel.semaphore.sem_take_timeout_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sema_count_get" name="kernel.semaphore.sema_count_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sema_reset" name="kernel.semaphore.sema_reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sema_thread2isr" name="kernel.semaphore.sema_thread2isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.sema_thread2thread" name="kernel.semaphore.sema_thread2thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.simple_sem_from_isr" name="kernel.semaphore.simple_sem_from_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.semaphore.simple_sem_from_task" name="kernel.semaphore.simple_sem_from_task" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.stack_protection" name="kernel.common.stack_protection" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_arm_fp_sharing" name="kernel.common.stack_protection_arm_fp_sharing" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_no_userspace" name="kernel.common.stack_protection_no_userspace" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_no_userspace.arm_interrupt" name="kernel.common.stack_protection_no_userspace.arm_interrupt" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack" name="kernel.stack" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.stack_alloc_thread2thread" name="kernel.stack.stack_alloc_thread2thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.stack_pop_fail" name="kernel.stack.stack_pop_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.stack_thread2isr" name="kernel.stack.stack_thread2isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.stack_thread2thread" name="kernel.stack.stack_thread2thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.stack_user_pop_fail" name="kernel.stack.stack_user_pop_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.stack_user_thread2thread" name="kernel.stack.stack_user_thread2thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage" name="kernel.stack.usage" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage.dual_stack_play" name="kernel.stack.usage.dual_stack_play" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage.isr_stack_play" name="kernel.stack.usage.isr_stack_play" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage.single_stack_play" name="kernel.stack.usage.single_stack_play" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage.stack_alloc_thread2thread" name="kernel.stack.usage.stack_alloc_thread2thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage.stack_pop_fail" name="kernel.stack.usage.stack_pop_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage.stack_thread2isr" name="kernel.stack.usage.stack_thread2isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage.stack_thread2thread" name="kernel.stack.usage.stack_thread2thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage.stack_user_pop_fail" name="kernel.stack.usage.stack_user_pop_fail" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.stack.usage.stack_user_thread2thread" name="kernel.stack.usage.stack_user_thread2thread" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:kernel.common.stack_protection" name="kernel.common.stack_protection" time="0">
       </testcase>
@@ -1694,6 +1592,24 @@
       <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.wakeup_expired_timer_thread" name="kernel.sched.multiq_no_timeslicing.wakeup_expired_timer_thread" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.yield_cooperative" name="kernel.sched.multiq_no_timeslicing.yield_cooperative" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.sleep" name="kernel.sleep" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.sleep.early_sleep" name="kernel.sleep.early_sleep" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timing" name="kernel.timing" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timing.sleep" name="kernel.timing.sleep" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timing.sleep_forever" name="kernel.timing.sleep_forever" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.timing.usleep" name="kernel.timing.usleep" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:kernel.memory_protection" name="kernel.memory_protection" time="0">
       </testcase>
@@ -3179,21 +3095,13 @@
       </testcase>
       <testcase classname="mimxrt1064_evk:kernel.sched.deadline.mutex_reent_lock_no_wait" name="kernel.sched.deadline.mutex_reent_lock_no_wait" time="0">
       </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.sched.metairq" name="kernel.sched.metairq" time="0">
+      </testcase>
+      <testcase classname="mimxrt1064_evk:kernel.sched.metairq.preempt" name="kernel.sched.metairq.preempt" time="0">
+      </testcase>
       <testcase classname="mimxrt1064_evk:kernel.sched.preempt" name="kernel.sched.preempt" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:kernel.sched.preempt.preempt" name="kernel.sched.preempt.preempt" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.timing" name="kernel.timing" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.timing.sleep" name="kernel.timing.sleep" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.timing.sleep_forever" name="kernel.timing.sleep_forever" time="0">
-      </testcase>
-      <testcase classname="mimxrt1064_evk:kernel.timing.usleep" name="kernel.timing.usleep" time="0">
       </testcase>
       <testcase classname="mimxrt1064_evk:kernel.threads.no-multithreading" name="kernel.threads.no-multithreading" time="0">
       </testcase>

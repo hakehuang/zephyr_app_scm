@@ -122,14 +122,16 @@ cases:
   kernel.sched.deadline:
     path: tests/kernel/sched/deadline
     catalog: kernel
+  kernel.sched.metairq:
+    path: tests/kernel/sched/metairq
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52810_pca10040
   kernel.sched.preempt:
     path: tests/kernel/sched/preempt
     catalog: kernel
     filter: not CONFIG_SMP
     platform_exclude: nrf52810_pca10040
-  kernel.timing:
-    path: tests/kernel/sleep
-    catalog: kernel
   kernel.threads.no-multithreading:
     path: tests/kernel/threads/no-multithreading
     catalog: kernel

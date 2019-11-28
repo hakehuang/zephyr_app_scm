@@ -20,6 +20,10 @@ cases:
     path: samples/bluetooth/handsfree
     catalog: bluetooth
     platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.hci_rpmsg:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    platform_whitelist: nrf5340_dk_nrf5340_cpunet
   sample.bluetooth.ibeacon:
     path: samples/bluetooth/ibeacon
     catalog: bluetooth

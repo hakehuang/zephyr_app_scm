@@ -180,21 +180,13 @@ cases:
     catalog: kernel userspace
     extra_args: CONF_FILE="prj_poll.conf"
     attribute: required
-  kernel.semaphore.api:
-    path: tests/kernel/semaphore/sema_api
-    catalog: kernel userspace
-    attribute: required
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace
     min_ram: 32
     attribute: required
-  kernel.stack:
-    path: tests/kernel/stack/stack_api
-    catalog: kernel userspace
-    attribute: required
   kernel.stack.usage:
-    path: tests/kernel/stack/stack_usage
+    path: tests/kernel/stack/stack
     catalog: kernel userspace
     attribute: required
   kernel.timer:
@@ -263,6 +255,14 @@ cases:
   sample.synchronization:
     path: samples/synchronization
     catalog: kernel synchronization
+    attribute: required
+  kernel.sleep:
+    path: tests/kernel/early_sleep
+    catalog: kernel sleep
+    attribute: required
+  kernel.timing:
+    path: tests/kernel/sleep
+    catalog: kernel sleep
     attribute: required
   kernel.memory_protection:
     path: tests/kernel/mem_protect/mem_protect
@@ -510,15 +510,17 @@ cases:
     path: tests/kernel/sched/deadline
     catalog: kernel
     attribute: required
+  kernel.sched.metairq:
+    path: tests/kernel/sched/metairq
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52810_pca10040
+    attribute: required
   kernel.sched.preempt:
     path: tests/kernel/sched/preempt
     catalog: kernel
     filter: not CONFIG_SMP
     platform_exclude: nrf52810_pca10040
-    attribute: required
-  kernel.timing:
-    path: tests/kernel/sleep
-    catalog: kernel
     attribute: required
   kernel.threads.no-multithreading:
     path: tests/kernel/threads/no-multithreading

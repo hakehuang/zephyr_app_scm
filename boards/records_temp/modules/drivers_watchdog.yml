@@ -4,6 +4,7 @@ cases:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     depends_on: watchdog
+    filter: not CONFIG_WDT_SAM
     platform_exclude: nucleo_l496zg nucleo_f401re
   peripheral.window_watchdog_nucleo_l496zg:
     path: tests/drivers/watchdog/wdt_basic_api

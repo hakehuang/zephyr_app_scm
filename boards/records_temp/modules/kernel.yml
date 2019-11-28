@@ -132,9 +132,6 @@ cases:
     catalog: kernel
     filter: not CONFIG_SMP
     platform_exclude: nrf52810_pca10040
-  kernel.timing:
-    path: tests/kernel/sleep
-    catalog: kernel
   kernel.threads.no-multithreading:
     path: tests/kernel/threads/no-multithreading
     catalog: kernel
