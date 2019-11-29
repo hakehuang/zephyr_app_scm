@@ -1,24 +1,30 @@
 <?xml version="1.0"?>
 <testsuites>
   <?rb for k, items in @catalog ?>
-    <?rb next if items['total_cases'] == items['skipped_cases']  ?>
     <testsuite tests="${items['total_cases']}" errors="${items['error_cases']}" 
       failures="${items['failure_cases']}" name="${items['catalog']}" skipped="${items['skipped_cases']}" time="0">
     <?rb items['cases'].each do |item| ?>
-      <testcase classname="${item[:section_name]}" name="${item[:case_name]}" time="0">
-        <?rb next if item[:result].nil?  ?>
         <?rb if item[:result].include? 'ERROR' ?>
+          <testcase classname="${item[:section_name]}" name="${item[:case_name]}" time="0">
           <error message="failed" type="failure"/>
+          </testcase>
         <?rb elsif item[:result].include? "FAILURE" ?>
+          <testcase classname="${item[:section_name]}" name="${item[:case_name]}" time="0">
           <failure message="failed" type="failure">
+          </testcase>
           </failure>
         <?rb elsif item[:result].include? "SKIP" ?>
+         <testcase classname="${item[:section_name]}" name="${item[:case_name]}" time="0">
          <skipped message="Skipped" type="skipped"/>
+         </testcase>
         <?rb elsif item[:result].include? "PASS" ?>
+          <testcase classname="${item[:section_name]}" name="${item[:case_name]}" time="0">
+          </testcase>
         <?rb else ?>
-          <b>"${item}"</b>
+          <testcase classname="${item[:section_name]}" name="${item[:case_name]}" time="0">
+            <skipped message="Skipped" type="skipped"/>
+          </testcase>
         <?rb end ?>
-      </testcase>
     <?rb end ?>
   </testsuite>
 <?rb end ?>

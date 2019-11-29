@@ -42,6 +42,10 @@ cases:
     comments: not all platform has such test devices
     build_only: true
     attribute: required
+  peripheral.gpio:
+    commnets: no loop back
+    build_only: true
+    attribute: required
   test_utf8_in_kconfig_values:
     comments: build failure
     result: FAILURE

@@ -98,7 +98,7 @@ def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: 
   }
 
   data = YAML.load_file(data_file)
-
+  matched_hash = {}
   @content["cases"].keys().each do |key|
     key_words = ["mode", "attribute"]
     next if key_words.include?(key)
@@ -116,7 +116,6 @@ def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: 
       pipe_data[:catalog][catelog]['catalog']       = catelog
     end
     matched = false
-    matched_hash = {}
     data.keys.each do |case_name|
       next if matched_hash.has_key?(case_name)
       if ZEPHER_FILTER::is_case_include?(case_name, key)

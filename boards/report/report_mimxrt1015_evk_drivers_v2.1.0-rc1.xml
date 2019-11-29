@@ -1,213 +1,206 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="98" errors="0" failures="0" name="" skipped="4" time="0">
-      <testcase classname="mimxrt1015_evk:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
+    <testsuite tests="81" errors="0" failures="0" name="" skipped="13" time="0">
+         <testcase classname="mimxrt1015_evk:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
          <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
          <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.i2c.test" name="peripheral.i2c.test" time="0">
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
          <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.i2c.test" name="peripheral.i2c.test" time="0">
          <skipped message="Skipped" type="skipped"/>
-      </testcase>
-      <testcase classname="mimxrt1015_evk:tracing.openocd" name="tracing.openocd" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer" name="kernel.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.monotonic" name="kernel.timer.monotonic" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.monotonic.timer" name="kernel.timer.monotonic.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.time_conversions" name="kernel.timer.time_conversions" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer" name="kernel.timer.timer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_duration_period" name="kernel.timer.timer_duration_period" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_expirefn_null" name="kernel.timer.timer_expirefn_null" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_k_define" name="kernel.timer.timer_k_define" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_period_0" name="kernel.timer.timer_period_0" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_status_get_anytime" name="kernel.timer.timer_status_get_anytime" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0" name="testing.ztest.verbose_0" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1" name="testing.ztest.verbose_1" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2" name="testing.ztest.verbose_2" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.regular_output" name="testing.ztest.regular_output" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:testing.ztest.customized_output" name="testing.ztest.customized_output" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures" name="libraries.data_structures" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.byte_put_free" name="libraries.data_structures.byte_put_free" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.capacity" name="libraries.data_structures.capacity" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.rbtree.rbtree_spam" name="libraries.data_structures.rbtree.rbtree_spam" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.reset" name="libraries.data_structures.reset" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ring_buffer_main" name="libraries.data_structures.ring_buffer_main" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_alloc_put" name="libraries.data_structures.ringbuffer_alloc_put" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_declare_pow2" name="libraries.data_structures.ringbuffer_declare_pow2" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_declare_size" name="libraries.data_structures.ringbuffer_declare_size" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_init" name="libraries.data_structures.ringbuffer_init" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" name="libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_put_get_isr" name="libraries.data_structures.ringbuffer_put_get_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_put_get_thread" name="libraries.data_structures.ringbuffer_put_get_thread" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_put_get_thread_isr" name="libraries.data_structures.ringbuffer_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_size_put_get_thread_isr" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.mailbox" name="peripheral.mailbox" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.mailbox.main" name="peripheral.mailbox.main" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_add_remove" name="peripheral.gpio.gpio_callback_add_remove" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_edge_high" name="peripheral.gpio.gpio_callback_edge_high" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_edge_low" name="peripheral.gpio.gpio_callback_edge_low" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_enable_disable" name="peripheral.gpio.gpio_callback_enable_disable" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_level_high" name="peripheral.gpio.gpio_callback_level_high" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_level_low" name="peripheral.gpio.gpio_callback_level_low" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_self_remove" name="peripheral.gpio.gpio_callback_self_remove" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_pin_read_write" name="peripheral.gpio.gpio_pin_read_write" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.pinmux.pinmux_gpio" name="peripheral.pinmux.pinmux_gpio" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_fifo_fill" name="peripheral.uart.poll.uart_fifo_fill" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_fifo_read" name="peripheral.uart.poll.uart_fifo_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_poll_in" name="peripheral.uart.poll.uart_poll_in" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_poll_out" name="peripheral.uart.poll.uart_poll_out" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_read" name="peripheral.uart.shell.uart_fifo_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.uart_fifo_fill" name="peripheral.uart.uart_fifo_fill" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.uart_fifo_read" name="peripheral.uart.uart_fifo_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.uart_poll_in" name="peripheral.uart.uart_poll_in" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.uart_poll_out" name="peripheral.uart.uart_poll_out" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_fifo_fill" name="peripheral.uart.poll.uart_fifo_fill" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_fifo_read" name="peripheral.uart.poll.uart_fifo_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_poll_in" name="peripheral.uart.poll.uart_poll_in" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_poll_out" name="peripheral.uart.poll.uart_poll_out" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_read" name="peripheral.uart.shell.uart_fifo_read" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.device_id" name="peripheral.device_id" time="0">
-      </testcase>
-      <testcase classname="mimxrt1015_evk:peripheral.device_id.device_id_get" name="peripheral.device_id.device_id_get" time="0">
-      </testcase>
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_add_remove" name="peripheral.gpio.gpio_callback_add_remove" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_edge_high" name="peripheral.gpio.gpio_callback_edge_high" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_edge_low" name="peripheral.gpio.gpio_callback_edge_low" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_enable_disable" name="peripheral.gpio.gpio_callback_enable_disable" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_level_high" name="peripheral.gpio.gpio_callback_level_high" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_level_low" name="peripheral.gpio.gpio_callback_level_low" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_callback_self_remove" name="peripheral.gpio.gpio_callback_self_remove" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1015_evk:peripheral.gpio.gpio_pin_read_write" name="peripheral.gpio.gpio_pin_read_write" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="mimxrt1015_evk:tracing.openocd" name="tracing.openocd" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer" name="kernel.timer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.monotonic" name="kernel.timer.monotonic" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.monotonic.timer" name="kernel.timer.monotonic.timer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.time_conversions" name="kernel.timer.time_conversions" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer" name="kernel.timer.timer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_duration_period" name="kernel.timer.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_expirefn_null" name="kernel.timer.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_k_define" name="kernel.timer.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_period_0" name="kernel.timer.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_status_get_anytime" name="kernel.timer.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0" name="testing.ztest.verbose_0" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1" name="testing.ztest.verbose_1" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2" name="testing.ztest.verbose_2" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.regular_output" name="testing.ztest.regular_output" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:testing.ztest.customized_output" name="testing.ztest.customized_output" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures" name="libraries.data_structures" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.byte_put_free" name="libraries.data_structures.byte_put_free" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.capacity" name="libraries.data_structures.capacity" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.rbtree.rbtree_spam" name="libraries.data_structures.rbtree.rbtree_spam" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.reset" name="libraries.data_structures.reset" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ring_buffer_main" name="libraries.data_structures.ring_buffer_main" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_alloc_put" name="libraries.data_structures.ringbuffer_alloc_put" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_declare_pow2" name="libraries.data_structures.ringbuffer_declare_pow2" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_declare_size" name="libraries.data_structures.ringbuffer_declare_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_init" name="libraries.data_structures.ringbuffer_init" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" name="libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_put_get_isr" name="libraries.data_structures.ringbuffer_put_get_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_put_get_thread" name="libraries.data_structures.ringbuffer_put_get_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_put_get_thread_isr" name="libraries.data_structures.ringbuffer_put_get_thread_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.data_structures.ringbuffer_size_put_get_thread_isr" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.mailbox" name="peripheral.mailbox" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.mailbox.main" name="peripheral.mailbox.main" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_fifo_fill" name="peripheral.uart.poll.uart_fifo_fill" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_fifo_read" name="peripheral.uart.poll.uart_fifo_read" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_poll_in" name="peripheral.uart.poll.uart_poll_in" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.poll.uart_poll_out" name="peripheral.uart.poll.uart_poll_out" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_fifo_read" name="peripheral.uart.shell.uart_fifo_read" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.uart_fifo_fill" name="peripheral.uart.uart_fifo_fill" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.uart_fifo_read" name="peripheral.uart.uart_fifo_read" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.uart_poll_in" name="peripheral.uart.uart_poll_in" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart.uart_poll_out" name="peripheral.uart.uart_poll_out" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.device_id" name="peripheral.device_id" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:peripheral.device_id.device_id_get" name="peripheral.device_id.device_id_get" time="0">
+          </testcase>
   </testsuite>
 </testsuites>

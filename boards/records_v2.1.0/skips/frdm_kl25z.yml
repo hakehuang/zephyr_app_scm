@@ -14,3 +14,6 @@ cases:
     build_only: true
   # kernel.threads.dynamic:
   #   comments: "no CONFIG_ARCH_HAS_USERSPACE depends on MPU"
+  samples.net.google_iot_mqtt:
+    result: skip
+    comments: "not support"

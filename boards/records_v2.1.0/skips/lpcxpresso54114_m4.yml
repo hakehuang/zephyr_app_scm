@@ -27,3 +27,9 @@ cases:
   kernel.memory_protection:
     comments: "no console output"
     build_only: true
+  arch.interrupt.arm:
+    comments: "no console output"
+    result: FAILURE
+  kernel.common.stack_protection:
+    comments: "no console output"
+    result: FAILURE
