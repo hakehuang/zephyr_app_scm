@@ -942,20 +942,13 @@ cpp:
     path: tests/application_development/cpp
     catalog: cpp
     arch_exclude: posix
-    build_only: true
+    platform_exclude: qemu_x86_coverage
   misc.app_dev.libcxx:
     path: tests/application_development/libcxx
     catalog: cpp
     arch_exclude: posix
     platform_exclude: qemu_x86_coverage
     min_flash: 54
-  misc.app_dev.libcxx.zephyr_cpp:
-    path: tests/application_development/libcxx
-    catalog: cpp
-    extra_configs:
-    - CONFIG_ZEPHYR_CPLUSPLUS=y
-    arch_exclude: posix
-    platform_exclude: qemu_x86_coverage
   misc.app_dev.libcxx.exceptions:
     path: tests/application_development/libcxx
     catalog: cpp
@@ -2271,9 +2264,6 @@ kernel:
     catalog: kernel
     filter: not CONFIG_SMP
     platform_exclude: nrf52810_pca10040
-  kernel.timing:
-    path: tests/kernel/sleep
-    catalog: kernel
   kernel.threads.no-multithreading:
     path: tests/kernel/threads/no-multithreading
     catalog: kernel
@@ -2627,6 +2617,7 @@ drivers watchdog:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     depends_on: watchdog
+    filter: not CONFIG_WDT_SAM
     platform_exclude: nucleo_l496zg nucleo_f401re
   peripheral.window_watchdog_nucleo_l496zg:
     path: tests/drivers/watchdog/wdt_basic_api
@@ -2722,10 +2713,13 @@ device:
     extra_configs:
     - CONFIG_DEVICE_POWER_MANAGEMENT=y
     platform_whitelist: native_posix native_posix_64 qemu_x86
-sleep:
+kernel sleep:
   kernel.sleep:
     path: tests/kernel/early_sleep
-    catalog: sleep
+    catalog: kernel sleep
+  kernel.timing:
+    path: tests/kernel/sleep
+    catalog: kernel sleep
 kernel ignore_faults userspace:
   kernel.common.stack_protection:
     path: tests/kernel/fatal
@@ -2899,6 +2893,10 @@ tickless kernel:
     filter: CONFIG_X86 or (CONFIG_ARM and (CONFIG_SOC_MK64F12 or CONFIG_SOC_SERIES_SAM3X))
       or CONFIG_ARCH_POSIX
 timer:
+  kernel.timer.starve:
+    path: tests/kernel/timer/starve
+    catalog: timer
+    build_only: true
   kernel.timer.monotonic:
     path: tests/kernel/timer/timer_monotonic
     catalog: timer
@@ -3942,6 +3940,11 @@ settings_nvs:
     catalog: settings_nvs
     depends_on: nvs
     min_ram: 32
+settings_fs settings_littlefs:
+  system.settings.littlefs:
+    path: tests/subsys/settings/littlefs/raw
+    catalog: settings_fs settings_littlefs
+    platform_whitelist: nrf52840_pca10056 native_posix native_posix_64
 settings_fs:
   system.settings.nffs:
     path: tests/subsys/settings/nffs/raw

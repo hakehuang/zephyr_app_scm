@@ -2610,6 +2610,10 @@ cases:
     catalog: kernel
     arch_exclude: riscv32 nios2
     platform_exclude: qemu_x86_coverage qemu_cortex_m0
+  kernel.timer.starve:
+    path: tests/kernel/timer/starve
+    catalog: timer
+    build_only: true
   kernel.timer:
     path: tests/kernel/timer/timer_api
     catalog: kernel userspace

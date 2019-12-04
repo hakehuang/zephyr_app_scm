@@ -9,6 +9,10 @@ gem 'ruby_parser'
 gem 'os'
 gem 'parseconfig'
 gem 'rbdtb'
+gem 'xmlhasher'
+gem 'builder'
+gem 'activesupport'
+gem 'git'
 
 
 

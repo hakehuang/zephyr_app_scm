@@ -2893,6 +2893,10 @@ tickless kernel:
     filter: CONFIG_X86 or (CONFIG_ARM and (CONFIG_SOC_MK64F12 or CONFIG_SOC_SERIES_SAM3X))
       or CONFIG_ARCH_POSIX
 timer:
+  kernel.timer.starve:
+    path: tests/kernel/timer/starve
+    catalog: timer
+    build_only: true
   kernel.timer.monotonic:
     path: tests/kernel/timer/timer_monotonic
     catalog: timer

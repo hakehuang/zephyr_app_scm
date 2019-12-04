@@ -1456,7 +1456,7 @@ cases:
     path: tests/application_development/cpp
     catalog: cpp
     arch_exclude: posix
-    build_only: true
+    platform_exclude: qemu_x86_coverage
   buildsystem.include_file:
     path: tests/application_development/gen_inc_file
     catalog: gen_inc_file
@@ -1466,13 +1466,6 @@ cases:
     arch_exclude: posix
     platform_exclude: qemu_x86_coverage
     min_flash: 54
-  misc.app_dev.libcxx.zephyr_cpp:
-    path: tests/application_development/libcxx
-    catalog: cpp
-    extra_configs:
-    - CONFIG_ZEPHYR_CPLUSPLUS=y
-    arch_exclude: posix
-    platform_exclude: qemu_x86_coverage
   misc.app_dev.libcxx.exceptions:
     path: tests/application_development/libcxx
     catalog: cpp
@@ -2212,6 +2205,7 @@ cases:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     depends_on: watchdog
+    filter: not CONFIG_WDT_SAM
     platform_exclude: nucleo_l496zg nucleo_f401re
   peripheral.window_watchdog_nucleo_l496zg:
     path: tests/drivers/watchdog/wdt_basic_api
@@ -2265,7 +2259,7 @@ cases:
     platform_whitelist: native_posix native_posix_64 qemu_x86
   kernel.sleep:
     path: tests/kernel/early_sleep
-    catalog: sleep
+    catalog: kernel sleep
   kernel.common.stack_protection:
     path: tests/kernel/fatal
     catalog: kernel ignore_faults userspace
@@ -2578,7 +2572,7 @@ cases:
     min_ram: 32
   kernel.timing:
     path: tests/kernel/sleep
-    catalog: kernel
+    catalog: kernel sleep
   kernel.multiprocessing.smp:
     path: tests/kernel/smp
     catalog: unknown
@@ -2616,6 +2610,10 @@ cases:
     catalog: kernel
     arch_exclude: riscv32 nios2
     platform_exclude: qemu_x86_coverage qemu_cortex_m0
+  kernel.timer.starve:
+    path: tests/kernel/timer/starve
+    catalog: timer
+    build_only: true
   kernel.timer:
     path: tests/kernel/timer/timer_api
     catalog: kernel userspace
@@ -3683,6 +3681,10 @@ cases:
     path: tests/subsys/settings/functional/nvs
     catalog: settings_nvs
     platform_whitelist: qemu_x86 native_posix native_posix_64
+  system.settings.littlefs:
+    path: tests/subsys/settings/littlefs/raw
+    catalog: settings_fs settings_littlefs
+    platform_whitelist: nrf52840_pca10056 native_posix native_posix_64
   system.settings.nffs:
     path: tests/subsys/settings/nffs/raw
     catalog: settings_fs
