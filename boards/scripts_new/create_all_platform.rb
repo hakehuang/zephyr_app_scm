@@ -60,10 +60,10 @@ platforms.each do |plat, v|
         filename = ""
         template_name = ""
         if surfix == ""
-            filename = File.join("..","records_new", plat + ".yml")
+            filename = File.join("..","records_v2.1.0", plat + ".yml")
             template_name = File.join("..","template", "board_template.yml")
         else
-            filename = File.join("..","records_new",plat + "_" + surfix + ".yml")
+            filename = File.join("..","records_v2.1.0",plat + "_" + surfix + ".yml")
             template_name = File.join("..","template", "board_" + surfix + "_template.yml")
         end
         if File.exist?(filename)

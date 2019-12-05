@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="235" errors="0" failures="3" name="" skipped="2" time="0">
+    <testsuite tests="208" errors="0" failures="3" name="" skipped="2" time="0">
          <testcase classname="frdm_kl25z:benchmark.latency" name="benchmark.latency" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -18,82 +18,6 @@
           <testcase classname="frdm_kl25z:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
           <failure message="failed" type="failure">
           </failure>
-          </testcase>
-          <testcase classname="frdm_kl25z:arch.common.xip" name="arch.common.xip" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:arch.common.xip.nondefault.globals" name="arch.common.xip.nondefault.globals" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:kernel.memory_protection.stack_random" name="kernel.memory_protection.stack_random" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:kernel.memory_protection.stack_random.stack_pt_randomization" name="kernel.memory_protection.stack_random.stack_pt_randomization" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_output" name="logging.log_output" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_output.log_output_raw_string" name="logging.log_output.log_output_raw_string" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_output.log_output_string" name="logging.log_output.log_output_string" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_msg" name="logging.log_msg" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_msg.log_hexdump_data_get_multiple_chunks" name="logging.log_msg.log_hexdump_data_get_multiple_chunks" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_msg.log_hexdump_data_get_single_chunk" name="logging.log_msg.log_hexdump_data_get_single_chunk" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_msg.log_hexdump_data_get_two_chunks" name="logging.log_msg.log_hexdump_data_get_two_chunks" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_msg.log_hexdump_msg" name="logging.log_msg.log_hexdump_msg" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_msg.log_std_msg" name="logging.log_msg.log_std_msg" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_list" name="logging.log_list" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_list.log_list" name="logging.log_list.log_list" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_list.log_list_multiple_items" name="logging.log_list.log_list_multiple_items" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core" name="logging.log_core" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core.log_arguments" name="logging.log_core.log_arguments" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core.log_backend_runtime_filtering" name="logging.log_core.log_backend_runtime_filtering" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core.log_from_declared_module" name="logging.log_core.log_from_declared_module" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core.log_msg_dropped_notification" name="logging.log_core.log_msg_dropped_notification" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core.log_overflow" name="logging.log_core.log_overflow" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core.log_panic" name="logging.log_core.log_panic" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core.log_strdup_detect_miss" name="logging.log_core.log_strdup_detect_miss" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core.log_strdup_gc" name="logging.log_core.log_strdup_gc" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:logging.log_core.strdup_trimming" name="logging.log_core.strdup_trimming" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf.sprintf_double" name="libraries.libc.sprintf.sprintf_double" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf.sprintf_integer" name="libraries.libc.sprintf.sprintf_integer" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf.sprintf_misc" name="libraries.libc.sprintf.sprintf_misc" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf.sprintf_string" name="libraries.libc.sprintf.sprintf_string" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf.vsnprintf" name="libraries.libc.sprintf.vsnprintf" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf.vsprintf" name="libraries.libc.sprintf.vsprintf" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf_double" name="libraries.libc.sprintf_double" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf_integer" name="libraries.libc.sprintf_integer" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf_misc" name="libraries.libc.sprintf_misc" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:libraries.libc.sprintf_string" name="libraries.libc.sprintf_string" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:libraries.encoding.json" name="libraries.encoding.json" time="0">
           </testcase>
@@ -372,6 +296,28 @@
           <testcase classname="frdm_kl25z:libraries.libc.newlib.realloc" name="libraries.libc.newlib.realloc" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:libraries.libc.newlib.reallocarray" name="libraries.libc.newlib.reallocarray" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf.sprintf_double" name="libraries.libc.sprintf.sprintf_double" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf.sprintf_integer" name="libraries.libc.sprintf.sprintf_integer" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf.sprintf_misc" name="libraries.libc.sprintf.sprintf_misc" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf.sprintf_string" name="libraries.libc.sprintf.sprintf_string" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf.vsnprintf" name="libraries.libc.sprintf.vsnprintf" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf.vsprintf" name="libraries.libc.sprintf.vsprintf" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf_double" name="libraries.libc.sprintf_double" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf_integer" name="libraries.libc.sprintf_integer" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf_misc" name="libraries.libc.sprintf_misc" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf_string" name="libraries.libc.sprintf_string" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:libraries.libc.ssize_t" name="libraries.libc.ssize_t" time="0">
           </testcase>
