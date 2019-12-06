@@ -47,4 +47,9 @@ pipeline {
     }
     <?rb end ?>
   }
+  post {
+      always {
+          junit '*.xml'
+      }
+  }
 }
