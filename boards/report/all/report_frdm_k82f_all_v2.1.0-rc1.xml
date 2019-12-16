@@ -1889,7 +1889,82 @@
           </testcase>
           <testcase classname="frdm_k82f:kernel.workqueue.workq_start_before_submit" name="kernel.workqueue.workq_start_before_submit" time="0">
           </testcase>
-  </testsuite><testsuite tests="539" errors="0" failures="0" name="" skipped="0" time="0">
+  </testsuite><testsuite tests="514" errors="0" failures="0" name="" skipped="25" time="0">
+         <testcase classname="frdm_k82f:kernel.timer" name="kernel.timer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.monotonic" name="kernel.timer.monotonic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.monotonic.timer" name="kernel.timer.monotonic.timer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.time_conversions" name="kernel.timer.time_conversions" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer" name="kernel.timer.timer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_duration_period" name="kernel.timer.timer_duration_period" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_expirefn_null" name="kernel.timer.timer_expirefn_null" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_k_define" name="kernel.timer.timer_k_define" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_period_0" name="kernel.timer.timer_period_0" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_status_get_anytime" name="kernel.timer.timer_status_get_anytime" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k82f:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="frdm_k82f:kernel.memory_pool.sys" name="kernel.memory_pool.sys" time="0">
           </testcase>
           <testcase classname="frdm_k82f:kernel.memory_pool.sys.sys_mem_pool_alloc_align4" name="kernel.memory_pool.sys.sys_mem_pool_alloc_align4" time="0">
@@ -2439,56 +2514,6 @@
           <testcase classname="frdm_k82f:kernel.stack.usage.stack_user_pop_fail" name="kernel.stack.usage.stack_user_pop_fail" time="0">
           </testcase>
           <testcase classname="frdm_k82f:kernel.stack.usage.stack_user_thread2thread" name="kernel.stack.usage.stack_user_thread2thread" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer" name="kernel.timer" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.monotonic" name="kernel.timer.monotonic" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.monotonic.timer" name="kernel.timer.monotonic.timer" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.time_conversions" name="kernel.timer.time_conversions" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer" name="kernel.timer.timer" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_duration_period" name="kernel.timer.timer_duration_period" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_expirefn_null" name="kernel.timer.timer_expirefn_null" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_k_define" name="kernel.timer.timer_k_define" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_period_0" name="kernel.timer.timer_period_0" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_status_get_anytime" name="kernel.timer.timer_status_get_anytime" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
-          </testcase>
-          <testcase classname="frdm_k82f:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
           </testcase>
           <testcase classname="frdm_k82f:kernel.workqueue" name="kernel.workqueue" time="0">
           </testcase>

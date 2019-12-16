@@ -1,6 +1,7 @@
 require 'logger'
 require 'nokogiri'
 require 'fileutils'
+require 'cgi'
 
 require_relative 'platform_config'
 
@@ -35,7 +36,9 @@ if __FILE__ == $0
 	if ! File.exist?("../report/all/")
 		FileUtils.mkdir "../report/all/"
 	end
+	
 	platforms.each do |plat, v|
+		no_pass = get_no_pass_cases_by_plat(plat)
 		platform_reports = nil
 	    v.each do |surfix|
 	        filename = ""
@@ -50,6 +53,14 @@ if __FILE__ == $0
 	        	xml_data = xml_load(file_path)
 	        	platform_reports = merge_by_compare(xml_data, platform_reports)
 	        end
+	    end
+	    no_pass.each do |item|
+	    	data = platform_reports.xpath(("//*[@name()=#{item['name']}]"))
+	    	testsuite = platform_reports.xpath("//testsuite")
+	    	testsuite[item("result")] = (testsuite.attribute(item("result")).to_i + 1).to_s
+	    	type = item("result")
+	    	sub_data = "<#{type} message=\"#{type}\" type=\"#{type}\">"
+	    	data.add_next_sibling sub_data
 	    end
 	    out_file = File.join("../report", "all", "report_" + plat + "_all" + "_#{tag}.xml")
 	    File.open(out_file, 'w') do |file|
