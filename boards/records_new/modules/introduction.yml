@@ -1,47 +1,60 @@
 ---
 cases:
-  sample.helloworld:
+  sample.basic.helloworld:
     path: samples/hello_world
     catalog: introduction
-  sample.philosopher.tracing:
+  sample.kernel.philosopher:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: " -DDEBUG_PRINTF=1"
+  sample.kernel.philosopher.tracing:
     path: samples/philosophers
     catalog: introduction
     extra_configs:
     - CONFIG_SEGGER_SYSTEMVIEW=y
     extra_args: " -DDEBUG_PRINTF=1"
     min_ram: 32
-  sample.philosopher.static:
+  sample.kernel.philosopher.same_prio:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DSAME_PRIO=1 -DDEBUG_PRINTF=1"
+  sample.kernel.philosopher.static:
     path: samples/philosophers
     catalog: introduction
     extra_args: "-DSTATIC_OBJS=1 -DDEBUG_PRINTF=1"
-  sample.philosopher.stacks:
+  sample.kernel.philosopher.semaphores:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DFORKS=SEMAPHORES -DDEBUG_PRINTF=1"
+  sample.kernel.philosopher.stacks:
     path: samples/philosophers
     catalog: introduction
     extra_args: "-DFORKS=STACKS -DDEBUG_PRINTF=1"
-  sample.philosopher.fifos:
+  sample.kernel.philosopher.fifos:
     path: samples/philosophers
     catalog: introduction
     extra_args: "-DFORKS=FIFOS -DDEBUG_PRINTF=1"
-  sample.philosopher.lifos:
+  sample.kernel.philosopher.lifos:
     path: samples/philosophers
     catalog: introduction
     extra_args: "-DFORKS=LIFOS -DDEBUG_PRINTF=1"
-  sample.philosopher.preempt_only:
+  sample.kernel.philosopher.preempt_only:
     path: samples/philosophers
     catalog: introduction
     extra_configs:
     - CONFIG_NUM_PREEMPT_PRIORITIES=6
     - CONFIG_NUM_COOP_PRIORITIES=0
     - CONFIG_BT=n
+    - CONFIG_NETWORKING=n
     extra_args: " -DDEBUG_PRINTF=1"
-  sample.philosopher.coop_only:
+  sample.kernel.philosopher.coop_only:
     path: samples/philosophers
     catalog: introduction
     extra_configs:
     - CONFIG_NUM_PREEMPT_PRIORITIES=0
     - CONFIG_NUM_COOP_PRIORITIES=6
     extra_args: " -DDEBUG_PRINTF=1"
-  sample.smp_pi:
+  sample.smp.pi:
     path: samples/smp/pi
     catalog: introduction
     platform_whitelist: nsim_hs_smp qemu_x86_64

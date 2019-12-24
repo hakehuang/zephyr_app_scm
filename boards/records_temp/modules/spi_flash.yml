@@ -1,11 +1,11 @@
 ---
 cases:
-  sample.driver.spi_flash:
+  sample.drivers.spi.flash:
     path: samples/drivers/spi_flash
     catalog: spi flash
     filter: dt_compat_enabled("jedec,spi-nor")
     depends_on: spi
-  sample.driver.spi_flash_dpd:
+  sample.drivers.spi.flash_dpd:
     path: samples/drivers/spi_flash
     catalog: spi flash
     extra_configs:

@@ -1,0 +1,7 @@
+---
+cases:
+  sample.sensor.usb.fxos8700-hid:
+    path: samples/sensor/fxos8700-hid
+    catalog: usb sensors
+    depends_on: usb_device
+    platform_whitelist: frdm_k64f

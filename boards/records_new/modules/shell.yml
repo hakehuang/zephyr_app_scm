@@ -1,25 +1,31 @@
 ---
 cases:
-  sample.subsys.shell.shell_module:
+  sample.sensor.shell:
+    path: samples/sensor/sensor_shell
+    catalog: shell
+    filter: "( CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT )"
+    min_ram: 20
+    min_flash: 33
+  sample.shell.shell_module:
     path: samples/subsys/shell/shell_module
     catalog: shell
     filter: "( CONFIG_SERIAL and CONFIG_UART_SHELL_ON_DEV_NAME )"
     min_ram: 40
-  sample.subsys.shell.shell_module.minimal:
+  sample.shell.shell_module.minimal:
     path: samples/subsys/shell/shell_module
     catalog: shell
     extra_args: CONF_FILE="prj_minimal.conf"
     filter: "( CONFIG_SERIAL and CONFIG_UART_SHELL_ON_DEV_NAME )"
-  sample.subsys.shell.shell_module.minimal_rtt:
+  sample.shell.shell_module.minimal_rtt:
     path: samples/subsys/shell/shell_module
     catalog: shell
     extra_args: CONF_FILE="prj_minimal_rtt.conf"
     filter: CONFIG_HAS_SEGGER_RTT
-  board.shell:
+  boards.shell.shell:
     path: tests/boards/board_shell
     catalog: shell
     platform_whitelist: nrf52840_pca10056 frdm_k64f
-  shell:
+  shell.core:
     path: tests/shell
     catalog: shell
     min_flash: 64

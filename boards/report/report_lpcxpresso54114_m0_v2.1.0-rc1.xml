@@ -1,12 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="239" errors="0" failures="3" name="" skipped="2" time="0">
-         <testcase classname="lpcxpresso54114_m0:benchmark.latency" name="benchmark.latency" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="lpcxpresso54114_m0:benchmark.latency.rand32" name="benchmark.latency.rand32" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
+    <testsuite tests="155" errors="0" failures="3" name="" skipped="0" time="0">
           <testcase classname="lpcxpresso54114_m0:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -18,160 +12,6 @@
           <testcase classname="lpcxpresso54114_m0:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
           <failure message="failed" type="failure">
           </failure>
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json" name="libraries.encoding.json" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_decoding" name="libraries.encoding.json.json_decoding" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_decoding_array_array" name="libraries.encoding.json.json_decoding_array_array" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_encoding" name="libraries.encoding.json.json_encoding" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_escape" name="libraries.encoding.json.json_escape" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_escape_bounds_check" name="libraries.encoding.json.json_escape_bounds_check" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_escape_empty" name="libraries.encoding.json.json_escape_empty" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_escape_no_op" name="libraries.encoding.json.json_escape_no_op" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_escape_one" name="libraries.encoding.json.json_escape_one" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_invalid_bool" name="libraries.encoding.json.json_invalid_bool" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_invalid_null" name="libraries.encoding.json.json_invalid_null" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_invalid_number" name="libraries.encoding.json.json_invalid_number" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_invalid_string" name="libraries.encoding.json.json_invalid_string" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_item_wrong_type" name="libraries.encoding.json.json_item_wrong_type" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_key_not_in_descr" name="libraries.encoding.json.json_key_not_in_descr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_missing_quote" name="libraries.encoding.json.json_missing_quote" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_obj_arr_decoding" name="libraries.encoding.json.json_obj_arr_decoding" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_obj_arr_encoding" name="libraries.encoding.json.json_obj_arr_encoding" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json.json_wrong_token" name="libraries.encoding.json.json_wrong_token" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_decoding" name="libraries.encoding.json_decoding" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_decoding_array_array" name="libraries.encoding.json_decoding_array_array" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_encoding" name="libraries.encoding.json_encoding" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_escape" name="libraries.encoding.json_escape" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_escape_bounds_check" name="libraries.encoding.json_escape_bounds_check" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_escape_empty" name="libraries.encoding.json_escape_empty" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_escape_no_op" name="libraries.encoding.json_escape_no_op" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_escape_one" name="libraries.encoding.json_escape_one" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_invalid_unicode" name="libraries.encoding.json_invalid_unicode" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_item_wrong_type" name="libraries.encoding.json_item_wrong_type" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_key_not_in_descr" name="libraries.encoding.json_key_not_in_descr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_missing_quote" name="libraries.encoding.json_missing_quote" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_obj_arr_decoding" name="libraries.encoding.json_obj_arr_decoding" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_obj_arr_encoding" name="libraries.encoding.json_obj_arr_encoding" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.encoding.json_wrong_token" name="libraries.encoding.json_wrong_token" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt" name="arch.interrupt" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arc" name="arch.interrupt.arc" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arc.main" name="arch.interrupt.arc.main" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.irq_vector_table.arm_thread_swap" name="arch.interrupt.arm.irq_vector_table.arm_thread_swap" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_interrupt" name="arch.interrupt.arm_interrupt" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_thread_swap" name="arch.interrupt.arm_thread_swap" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.gen_isr_table.main" name="arch.interrupt.gen_isr_table.main" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_async_multiple_put" name="arch.interrupt.mbox_async_multiple_put" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_async_put_get_block" name="arch.interrupt.mbox_async_put_get_block" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_async_put_to_waiting_get" name="arch.interrupt.mbox_async_put_to_waiting_get" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_block_get_buff_to_pool" name="arch.interrupt.mbox_block_get_buff_to_pool" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_block_get_buff_to_smaller_pool" name="arch.interrupt.mbox_block_get_buff_to_smaller_pool" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_block_get_invalid_pool" name="arch.interrupt.mbox_block_get_invalid_pool" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_clean_up_tx_pool" name="arch.interrupt.mbox_clean_up_tx_pool" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_dispose_size_0_msg" name="arch.interrupt.mbox_dispose_size_0_msg" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_get_waiting_put_incorrect_tid" name="arch.interrupt.mbox_get_waiting_put_incorrect_tid" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_incorrect_receiver_tid" name="arch.interrupt.mbox_incorrect_receiver_tid" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_incorrect_transmit_tid" name="arch.interrupt.mbox_incorrect_transmit_tid" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_msg_tid_mismatch" name="arch.interrupt.mbox_msg_tid_mismatch" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_multiple_waiting_get" name="arch.interrupt.mbox_multiple_waiting_get" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_target_source_thread_block" name="arch.interrupt.mbox_target_source_thread_block" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_target_source_thread_buffer" name="arch.interrupt.mbox_target_source_thread_buffer" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.mbox_timed_out_mbox_get" name="arch.interrupt.mbox_timed_out_mbox_get" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.nodyn" name="arch.interrupt.nodyn" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.x86.idt_stub" name="arch.interrupt.x86.idt_stub" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.x86.static_idt" name="arch.interrupt.x86.static_idt" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:buildsystem.include_file" name="buildsystem.include_file" time="0">
           </testcase>
@@ -217,29 +57,39 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m0:crypto.rand32.random_sw_systimer.rand32" name="crypto.rand32.random_sw_systimer.rand32" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx" name="misc.app_dev.libcxx" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1" name="portability.cmsis_rtos_v1" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.array" name="misc.app_dev.libcxx.array" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.kernel_start" name="portability.cmsis_rtos_v1.kernel_start" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.exceptions" name="misc.app_dev.libcxx.exceptions" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.kernel_systick" name="portability.cmsis_rtos_v1.kernel_systick" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.exceptions.array" name="misc.app_dev.libcxx.exceptions.array" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.mailq" name="portability.cmsis_rtos_v1.mailq" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.exceptions.make_unique" name="misc.app_dev.libcxx.exceptions.make_unique" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.mempool" name="portability.cmsis_rtos_v1.mempool" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.exceptions.vector" name="misc.app_dev.libcxx.exceptions.vector" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.messageq" name="portability.cmsis_rtos_v1.messageq" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.make_unique" name="misc.app_dev.libcxx.make_unique" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.mutex" name="portability.cmsis_rtos_v1.mutex" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.vector" name="misc.app_dev.libcxx.vector" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.mutex_lock_timeout" name="portability.cmsis_rtos_v1.mutex_lock_timeout" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.zephyr_cpp" name="misc.app_dev.libcxx.zephyr_cpp" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.semaphore" name="portability.cmsis_rtos_v1.semaphore" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.zephyr_cpp.array" name="misc.app_dev.libcxx.zephyr_cpp.array" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.signal_events_isr" name="portability.cmsis_rtos_v1.signal_events_isr" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.zephyr_cpp.make_unique" name="misc.app_dev.libcxx.zephyr_cpp.make_unique" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.signal_events_no_wait" name="portability.cmsis_rtos_v1.signal_events_no_wait" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:misc.app_dev.libcxx.zephyr_cpp.vector" name="misc.app_dev.libcxx.zephyr_cpp.vector" time="0">
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.signal_events_signalled" name="portability.cmsis_rtos_v1.signal_events_signalled" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.signal_events_timeout" name="portability.cmsis_rtos_v1.signal_events_timeout" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.thread_instances" name="portability.cmsis_rtos_v1.thread_instances" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.thread_prio" name="portability.cmsis_rtos_v1.thread_prio" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.timer" name="portability.cmsis_rtos_v1.timer" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v2" name="portability.cmsis_rtos_v2" time="0">
           </testcase>
@@ -288,40 +138,6 @@
           <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v2.thread_prio_dynamic" name="portability.cmsis_rtos_v2.thread_prio_dynamic" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v2.timer" name="portability.cmsis_rtos_v2.timer" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1" name="portability.cmsis_rtos_v1" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.kernel_start" name="portability.cmsis_rtos_v1.kernel_start" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.kernel_systick" name="portability.cmsis_rtos_v1.kernel_systick" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.mailq" name="portability.cmsis_rtos_v1.mailq" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.mempool" name="portability.cmsis_rtos_v1.mempool" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.messageq" name="portability.cmsis_rtos_v1.messageq" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.mutex" name="portability.cmsis_rtos_v1.mutex" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.mutex_lock_timeout" name="portability.cmsis_rtos_v1.mutex_lock_timeout" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.semaphore" name="portability.cmsis_rtos_v1.semaphore" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.signal_events_isr" name="portability.cmsis_rtos_v1.signal_events_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.signal_events_no_wait" name="portability.cmsis_rtos_v1.signal_events_no_wait" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.signal_events_signalled" name="portability.cmsis_rtos_v1.signal_events_signalled" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.signal_events_timeout" name="portability.cmsis_rtos_v1.signal_events_timeout" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.thread_apis" name="portability.cmsis_rtos_v1.thread_apis" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.thread_instances" name="portability.cmsis_rtos_v1.thread_instances" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.thread_prio" name="portability.cmsis_rtos_v1.thread_prio" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:portability.cmsis_rtos_v1.timer" name="portability.cmsis_rtos_v1.timer" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:libraries.libc.minimal.mem_alloc" name="libraries.libc.minimal.mem_alloc" time="0">
           </testcase>
@@ -425,13 +241,27 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m0:libraries.libc.vsprintf" name="libraries.libc.vsprintf" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:benchmark.kernel" name="benchmark.kernel" time="0">
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:benchmark.timing.default_kernel" name="benchmark.timing.default_kernel" time="0">
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.ramfunc" name="arch.ramfunc" time="0">
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.irq_vector_table.arm_thread_swap" name="arch.interrupt.arm.irq_vector_table.arm_thread_swap" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.ramfunc.arm_ramfunc" name="arch.ramfunc.arm_ramfunc" time="0">
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_interrupt" name="arch.interrupt.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm_thread_swap" name="arch.interrupt.arm_thread_swap" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:arch.arm.swap.common" name="arch.arm.swap.common" time="0">
           </testcase>

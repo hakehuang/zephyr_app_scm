@@ -1,20 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="140" errors="0" failures="0" name="" skipped="4" time="0">
-         <testcase classname="frdm_kw41z:peripheral.i2c.i2c_burst_gy271" name="peripheral.i2c.i2c_burst_gy271" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="frdm_kw41z:peripheral.i2c.i2c_gy271" name="peripheral.i2c.i2c_gy271" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="frdm_kw41z:peripheral.i2c.test" name="peripheral.i2c.test" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="frdm_kw41z:peripheral.i2c_slave.eeprom_slave" name="peripheral.i2c_slave.eeprom_slave" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-          <testcase classname="frdm_kw41z:tracing.openocd" name="tracing.openocd" time="0">
-          </testcase>
+    <testsuite tests="113" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="frdm_kw41z:kernel.timer" name="kernel.timer" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:kernel.timer.monotonic" name="kernel.timer.monotonic" time="0">
@@ -240,50 +226,6 @@
           <testcase classname="frdm_kw41z:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.spi.testing_spi" name="peripheral.spi.testing_spi" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.mailbox" name="peripheral.mailbox" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.mailbox.main" name="peripheral.mailbox.main" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.poll.uart_fifo_fill" name="peripheral.uart.poll.uart_fifo_fill" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.poll.uart_fifo_read" name="peripheral.uart.poll.uart_fifo_read" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.poll.uart_poll_in" name="peripheral.uart.poll.uart_poll_in" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.poll.uart_poll_out" name="peripheral.uart.poll.uart_poll_out" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.shell.uart_fifo_fill" name="peripheral.uart.shell.uart_fifo_fill" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.shell.uart_fifo_read" name="peripheral.uart.shell.uart_fifo_read" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.shell.uart_poll_in" name="peripheral.uart.shell.uart_poll_in" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.shell.uart_poll_out" name="peripheral.uart.shell.uart_poll_out" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.uart_fifo_fill" name="peripheral.uart.uart_fifo_fill" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.uart_fifo_read" name="peripheral.uart.uart_fifo_read" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.uart_poll_in" name="peripheral.uart.uart_poll_in" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart.uart_poll_out" name="peripheral.uart.uart_poll_out" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart_async_api.chained_read" name="peripheral.uart_async_api.chained_read" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart_async_api.double_buffer" name="peripheral.uart_async_api.double_buffer" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart_async_api.read_abort" name="peripheral.uart_async_api.read_abort" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart_async_api.single_read" name="peripheral.uart_async_api.single_read" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.uart_async_api.write_abort" name="peripheral.uart_async_api.write_abort" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.device_id" name="peripheral.device_id" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:peripheral.device_id.device_id_get" name="peripheral.device_id.device_id_get" time="0">
           </testcase>
   </testsuite>
 </testsuites>

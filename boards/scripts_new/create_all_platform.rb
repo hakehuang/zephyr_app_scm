@@ -21,7 +21,7 @@ require_relative 'zephyr_filter'
 
 board = File.basename(__FILE__, ".rb")
 @entry_yml = "#\{board\}.yml"
-@search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_v2.1.0/').to_s
+@search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
 merge_unit      = YML_Merger.new(
     @entry_yml, @search_path
     )
@@ -31,7 +31,7 @@ File.write('./merged_data.yml', YAML.dump(merged_data))
 board_name = ZEPHER_FILTER::get_board_name(board)
 board_info = load_board_data(@search_path,board_name,merged_data)
 create_pipefile_from_config(config: merged_data, board_name: board_name, board_info: board_info)
-create_report_from_config(config: merged_data, board_name: board_name, board_info: board_info)
+create_report_from_config(config: merged_data, board_name: board_name, board_info: board_info, release: 'daily')
 }
 
 
@@ -60,10 +60,10 @@ platforms.each do |plat, v|
         filename = ""
         template_name = ""
         if surfix == ""
-            filename = File.join("..","records_v2.1.0", plat + ".yml")
+            filename = File.join("..","records_new", plat + ".yml")
             template_name = File.join("..","template", "board_template.yml")
         else
-            filename = File.join("..","records_v2.1.0",plat + "_" + surfix + ".yml")
+            filename = File.join("..","records_new",plat + "_" + surfix + ".yml")
             template_name = File.join("..","template", "board_" + surfix + "_template.yml")
         end
         if File.exist?(filename)

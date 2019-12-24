@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="539" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="373" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="mimxrt1064_evk:kernel.memory_pool.sys" name="kernel.memory_pool.sys" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.memory_pool.sys.sys_mem_pool_alloc_align4" name="kernel.memory_pool.sys.sys_mem_pool_alloc_align4" time="0">
@@ -97,56 +97,6 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.pipe.resource_pool_auto_free" name="kernel.pipe.resource_pool_auto_free" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common" name="kernel.common" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.atomic" name="kernel.common.atomic" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.bitfield" name="kernel.common.bitfield" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.bounds_check_mitigation" name="kernel.common.bounds_check_mitigation" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.busy_wait" name="kernel.common.busy_wait" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.byteorder_mem_swap" name="kernel.common.byteorder_mem_swap" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.byteorder_memcpy_swap" name="kernel.common.byteorder_memcpy_swap" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.clock_cycle" name="kernel.common.clock_cycle" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.clock_uptime" name="kernel.common.clock_uptime" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.critical" name="kernel.common.critical" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.dlist" name="kernel.common.dlist" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.errno.thread_context" name="kernel.common.errno.thread_context" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.init.verify_bootdelay" name="kernel.common.init.verify_bootdelay" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.intmath" name="kernel.common.intmath" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.irq_offload" name="kernel.common.irq_offload" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.k_yield" name="kernel.common.k_yield" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.kernel_cpu_idle" name="kernel.common.kernel_cpu_idle" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.kernel_cpu_idle_atomic" name="kernel.common.kernel_cpu_idle_atomic" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.kernel_ctx_thread" name="kernel.common.kernel_ctx_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.kernel_interrupts" name="kernel.common.kernel_interrupts" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.kernel_thread" name="kernel.common.kernel_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.kernel_timer_interrupts" name="kernel.common.kernel_timer_interrupts" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:kernel.common.misra" name="kernel.common.misra" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.common.misra.atomic" name="kernel.common.misra.atomic" time="0">
@@ -206,66 +156,6 @@
           <testcase classname="mimxrt1064_evk:kernel.common.misra.verify_bootdelay" name="kernel.common.misra.verify_bootdelay" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.common.misra.version" name="kernel.common.misra.version" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.multilib" name="kernel.common.multilib" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.printk" name="kernel.common.printk" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.slist" name="kernel.common.slist" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection" name="kernel.common.stack_protection" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_arm_fp_sharing" name="kernel.common.stack_protection_arm_fp_sharing" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_no_userspace" name="kernel.common.stack_protection_no_userspace" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_no_userspace.arm_interrupt" name="kernel.common.stack_protection_no_userspace.arm_interrupt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_get_be16" name="kernel.common.sys_get_be16" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_get_be32" name="kernel.common.sys_get_be32" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_get_be64" name="kernel.common.sys_get_be64" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_get_le16" name="kernel.common.sys_get_le16" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_get_le32" name="kernel.common.sys_get_le32" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_get_le64" name="kernel.common.sys_get_le64" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_put_be16" name="kernel.common.sys_put_be16" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_put_be32" name="kernel.common.sys_put_be32" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_put_be64" name="kernel.common.sys_put_be64" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_put_le16" name="kernel.common.sys_put_le16" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_put_le32" name="kernel.common.sys_put_le32" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.sys_put_le64" name="kernel.common.sys_put_le64" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.thread_context" name="kernel.common.thread_context" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.timeout_order" name="kernel.common.timeout_order" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.verify_bootdelay" name="kernel.common.verify_bootdelay" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.common.version" name="kernel.common.version" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.fp_sharing.float_disable.arm" name="kernel.fp_sharing.float_disable.arm" time="0">
           </testcase>
@@ -397,28 +287,6 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.mutex.mutex_reent_lock_timeout_pass" name="kernel.mutex.mutex_reent_lock_timeout_pass" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex" name="sys.mutex" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.mutex" name="sys.mutex.mutex" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.nouser" name="sys.mutex.nouser" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.nouser.mutex" name="sys.mutex.nouser.mutex" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.nouser.supervisor_access" name="sys.mutex.nouser.supervisor_access" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.nouser.thread_06@119" name="sys.mutex.nouser.thread_06@119" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.nouser.thread_06@119. Failed to take mutex 0x0012e088" name="sys.mutex.nouser.thread_06@119. Failed to take mutex 0x0012e088" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.nouser.thread_06@119. Failed to take mutex 0x20002288" name="sys.mutex.nouser.thread_06@119. Failed to take mutex 0x20002288" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.supervisor_access" name="sys.mutex.supervisor_access" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.thread_06@119. Failed to take mutex 0x00110060" name="sys.mutex.thread_06@119. Failed to take mutex 0x00110060" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sys.mutex.user_access" name="sys.mutex.user_access" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:kernel.poll" name="kernel.poll" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.poll.poll_cancel_main_high_prio" name="kernel.poll.poll_cancel_main_high_prio" time="0">
@@ -530,6 +398,24 @@
           <testcase classname="mimxrt1064_evk:kernel.semaphore.simple_sem_from_isr" name="kernel.semaphore.simple_sem_from_isr" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.semaphore.simple_sem_from_task" name="kernel.semaphore.simple_sem_from_task" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection" name="kernel.common.stack_protection" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_arm_fp_sharing" name="kernel.common.stack_protection_arm_fp_sharing" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_no_userspace" name="kernel.common.stack_protection_no_userspace" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_no_userspace.arm_interrupt" name="kernel.common.stack_protection_no_userspace.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.stack.usage" name="kernel.stack.usage" time="0">
           </testcase>
@@ -860,224 +746,6 @@
           <testcase classname="mimxrt1064_evk:kernel.threads.threads_suspend_resume_preemptible" name="kernel.threads.threads_suspend_resume_preemptible" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.threads.user_mode" name="kernel.threads.user_mode" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched" name="kernel.sched" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.bad_priorities" name="kernel.sched.bad_priorities" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.deadline" name="kernel.sched.deadline" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.deadline.deadline" name="kernel.sched.deadline.deadline" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.deadline.mutex_lock_unlock" name="kernel.sched.deadline.mutex_lock_unlock" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.deadline.mutex_reent_lock_forever" name="kernel.sched.deadline.mutex_reent_lock_forever" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.deadline.mutex_reent_lock_no_wait" name="kernel.sched.deadline.mutex_reent_lock_no_wait" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.lock_preemptible" name="kernel.sched.lock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.metairq" name="kernel.sched.metairq" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.metairq.preempt" name="kernel.sched.metairq.preempt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq" name="kernel.sched.multiq" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.bad_priorities" name="kernel.sched.multiq.bad_priorities" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.lock_preemptible" name="kernel.sched.multiq.lock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.pending_thread_wakeup" name="kernel.sched.multiq.pending_thread_wakeup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.priority_cooperative" name="kernel.sched.multiq.priority_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.priority_preemptible" name="kernel.sched.multiq.priority_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.priority_scheduling" name="kernel.sched.multiq.priority_scheduling" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.sched_is_preempt_thread" name="kernel.sched.multiq.sched_is_preempt_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.sleep_cooperative" name="kernel.sched.multiq.sleep_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.sleep_wakeup_preemptible" name="kernel.sched.multiq.sleep_wakeup_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.slice_reset" name="kernel.sched.multiq.slice_reset" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.slice_scheduling" name="kernel.sched.multiq.slice_scheduling" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.time_slicing_disable_preemptible" name="kernel.sched.multiq.time_slicing_disable_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.time_slicing_preemptible" name="kernel.sched.multiq.time_slicing_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.unlock_nested_sched_lock" name="kernel.sched.multiq.unlock_nested_sched_lock" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.unlock_preemptible" name="kernel.sched.multiq.unlock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.user_k_is_preempt" name="kernel.sched.multiq.user_k_is_preempt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.user_k_wakeup" name="kernel.sched.multiq.user_k_wakeup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.wakeup_expired_timer_thread" name="kernel.sched.multiq.wakeup_expired_timer_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq.yield_cooperative" name="kernel.sched.multiq.yield_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing" name="kernel.sched.multiq_no_timeslicing" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.bad_priorities" name="kernel.sched.multiq_no_timeslicing.bad_priorities" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.lock_preemptible" name="kernel.sched.multiq_no_timeslicing.lock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_alloc" name="kernel.sched.multiq_no_timeslicing.msgq_alloc" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_attrs_get" name="kernel.sched.multiq_no_timeslicing.msgq_attrs_get" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_get_fail" name="kernel.sched.multiq_no_timeslicing.msgq_get_fail" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_isr" name="kernel.sched.multiq_no_timeslicing.msgq_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_pend_thread" name="kernel.sched.multiq_no_timeslicing.msgq_pend_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_purge_when_put" name="kernel.sched.multiq_no_timeslicing.msgq_purge_when_put" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_put_fail" name="kernel.sched.multiq_no_timeslicing.msgq_put_fail" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_user_attrs_get" name="kernel.sched.multiq_no_timeslicing.msgq_user_attrs_get" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_user_get_fail" name="kernel.sched.multiq_no_timeslicing.msgq_user_get_fail" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_user_purge_when_put" name="kernel.sched.multiq_no_timeslicing.msgq_user_purge_when_put" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_user_put_fail" name="kernel.sched.multiq_no_timeslicing.msgq_user_put_fail" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_user_thread" name="kernel.sched.multiq_no_timeslicing.msgq_user_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.msgq_user_thread_overflow" name="kernel.sched.multiq_no_timeslicing.msgq_user_thread_overflow" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.pending_thread_wakeup" name="kernel.sched.multiq_no_timeslicing.pending_thread_wakeup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.priority_cooperative" name="kernel.sched.multiq_no_timeslicing.priority_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.priority_preemptible" name="kernel.sched.multiq_no_timeslicing.priority_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.priority_scheduling" name="kernel.sched.multiq_no_timeslicing.priority_scheduling" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.sched_is_preempt_thread" name="kernel.sched.multiq_no_timeslicing.sched_is_preempt_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.sleep_cooperative" name="kernel.sched.multiq_no_timeslicing.sleep_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.sleep_wakeup_preemptible" name="kernel.sched.multiq_no_timeslicing.sleep_wakeup_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.unlock_nested_sched_lock" name="kernel.sched.multiq_no_timeslicing.unlock_nested_sched_lock" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.unlock_preemptible" name="kernel.sched.multiq_no_timeslicing.unlock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.user_k_is_preempt" name="kernel.sched.multiq_no_timeslicing.user_k_is_preempt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.user_k_wakeup" name="kernel.sched.multiq_no_timeslicing.user_k_wakeup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.wakeup_expired_timer_thread" name="kernel.sched.multiq_no_timeslicing.wakeup_expired_timer_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.multiq_no_timeslicing.yield_cooperative" name="kernel.sched.multiq_no_timeslicing.yield_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.lock_preemptible" name="kernel.sched.native_posix.lock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.pending_thread_wakeup" name="kernel.sched.native_posix.pending_thread_wakeup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.priority_cooperative" name="kernel.sched.native_posix.priority_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.priority_preemptible" name="kernel.sched.native_posix.priority_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.priority_scheduling" name="kernel.sched.native_posix.priority_scheduling" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.sched_is_preempt_thread" name="kernel.sched.native_posix.sched_is_preempt_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.sleep_cooperative" name="kernel.sched.native_posix.sleep_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.sleep_wakeup_preemptible" name="kernel.sched.native_posix.sleep_wakeup_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.slice_reset" name="kernel.sched.native_posix.slice_reset" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.slice_scheduling" name="kernel.sched.native_posix.slice_scheduling" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.time_slicing_disable_preemptible" name="kernel.sched.native_posix.time_slicing_disable_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.time_slicing_preemptible" name="kernel.sched.native_posix.time_slicing_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.unlock_preemptible" name="kernel.sched.native_posix.unlock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.wakeup_expired_timer_thread" name="kernel.sched.native_posix.wakeup_expired_timer_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.native_posix.yield_cooperative" name="kernel.sched.native_posix.yield_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.pending_thread_wakeup" name="kernel.sched.pending_thread_wakeup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.preempt" name="kernel.sched.preempt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.preempt.preempt" name="kernel.sched.preempt.preempt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.priority_cooperative" name="kernel.sched.priority_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.priority_preemptible" name="kernel.sched.priority_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.priority_scheduling" name="kernel.sched.priority_scheduling" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.sched_is_preempt_thread" name="kernel.sched.sched_is_preempt_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.sleep_cooperative" name="kernel.sched.sleep_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.sleep_wakeup_preemptible" name="kernel.sched.sleep_wakeup_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.slice_reset" name="kernel.sched.slice_reset" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.slice_scheduling" name="kernel.sched.slice_scheduling" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.time_slicing_disable_preemptible" name="kernel.sched.time_slicing_disable_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.time_slicing_preemptible" name="kernel.sched.time_slicing_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.unlock_nested_sched_lock" name="kernel.sched.unlock_nested_sched_lock" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.unlock_preemptible" name="kernel.sched.unlock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.user_k_is_preempt" name="kernel.sched.user_k_is_preempt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.user_k_wakeup" name="kernel.sched.user_k_wakeup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.wakeup_expired_timer_thread" name="kernel.sched.wakeup_expired_timer_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched.yield_cooperative" name="kernel.sched.yield_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing" name="kernel.sched_no_timeslicing" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.bad_priorities" name="kernel.sched_no_timeslicing.bad_priorities" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.lock_preemptible" name="kernel.sched_no_timeslicing.lock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.pending_thread_wakeup" name="kernel.sched_no_timeslicing.pending_thread_wakeup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.priority_cooperative" name="kernel.sched_no_timeslicing.priority_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.priority_preemptible" name="kernel.sched_no_timeslicing.priority_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.priority_scheduling" name="kernel.sched_no_timeslicing.priority_scheduling" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.sched_is_preempt_thread" name="kernel.sched_no_timeslicing.sched_is_preempt_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.sleep_cooperative" name="kernel.sched_no_timeslicing.sleep_cooperative" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.sleep_wakeup_preemptible" name="kernel.sched_no_timeslicing.sleep_wakeup_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.unlock_nested_sched_lock" name="kernel.sched_no_timeslicing.unlock_nested_sched_lock" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.unlock_preemptible" name="kernel.sched_no_timeslicing.unlock_preemptible" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.user_k_is_preempt" name="kernel.sched_no_timeslicing.user_k_is_preempt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.user_k_wakeup" name="kernel.sched_no_timeslicing.user_k_wakeup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.wakeup_expired_timer_thread" name="kernel.sched_no_timeslicing.wakeup_expired_timer_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.sched_no_timeslicing.yield_cooperative" name="kernel.sched_no_timeslicing.yield_cooperative" time="0">
           </testcase>
   </testsuite>
 </testsuites>

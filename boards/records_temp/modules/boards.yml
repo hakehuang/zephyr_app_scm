@@ -1,5 +1,9 @@
 ---
 cases:
+  boards.s1000_crb.main:
+    path: tests/boards/intel_s1000_crb
+    catalog: boards
+    platform_whitelist: intel_s1000_crb
   boards.s1000_crb:
     path: tests/boards/intel_s1000_crb/cache
     catalog: boards

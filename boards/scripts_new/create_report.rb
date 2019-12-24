@@ -80,14 +80,14 @@ def create_report_from_commandline(data)
     else
       pipe_data[:catalog][catelog]['cases'].insert(-1, [key, @content["cases"][key]['path']])
     end
-  end 
+  end
   output = engine.render(@command_lines[:template], pipe_data)
   File.open( "Jenkinsfile_" + @command_lines[:board_name], 'w') {|f| f.write(YAML.dump(output)) }
 end
 
 
 def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: "../report/", 
-  release: "v2.1.0-rc1", template: "../template/junit_template", data_file: "../cases_lib/data.yml", board_info: nil)
+  release: "daily", template: "../template/junit_template", data_file: "../cases_lib/data.yml", board_info: nil)
   engine = Tenjin::Engine.new()
   @content = config
   pipe_data = {

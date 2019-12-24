@@ -38,7 +38,7 @@ cases:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
     platform_whitelist: qemu_x86
-  net.coap:
+  net.coap.simple:
     path: tests/net/lib/coap
     catalog: net
     min_ram: 16

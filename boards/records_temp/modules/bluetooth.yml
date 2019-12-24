@@ -20,6 +20,11 @@ cases:
     path: samples/bluetooth/handsfree
     catalog: bluetooth
     platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.hci_pwr_ctrl:
+    path: samples/bluetooth/hci_pwr_ctrl
+    catalog: bluetooth
+    platform_whitelist: bbc_microbit nrf51_pca10028 nrf52_pca10040 qemu_cortex_m3
+      qemu_x86
   sample.bluetooth.hci_rpmsg:
     path: samples/bluetooth/hci_rpmsg
     catalog: bluetooth
@@ -87,12 +92,16 @@ cases:
     path: samples/bluetooth/scan_adv
     catalog: bluetooth
     platform_whitelist: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.st_ble_sensor:
+    path: samples/bluetooth/st_ble_sensor
+    catalog: bluetooth
+    platform_whitelist: nucleo_wb55rg
   sample.bluetooth.mesh.onoff:
-    path: samples/boards/nrf52/mesh/onoff-app
+    path: samples/boards/nrf/mesh/onoff-app
     catalog: bluetooth
     platform_whitelist: nrf52840_pca10056
   sample.bluetooth.mesh.onoff_level_lighting_vnd:
-    path: samples/boards/nrf52/mesh/onoff_level_lighting_vnd_app
+    path: samples/boards/nrf/mesh/onoff_level_lighting_vnd_app
     catalog: bluetooth
     platform_whitelist: nrf52840_pca10056
   sample.net.sockets.echo_client.bt:
@@ -128,6 +137,11 @@ cases:
     path: tests/bluetooth/bluetooth
     catalog: bluetooth
     platform_whitelist: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
+  bluetooth.ctrl_sw_privacy.test:
+    path: tests/bluetooth/ctrl_sw_privacy
+    catalog: bluetooth
+    platform_whitelist: nrf52_bsim
+    build_only: true
   bluetooth.ctrl_user_ext.test:
     path: tests/bluetooth/ctrl_user_ext
     catalog: bluetooth
@@ -340,12 +354,12 @@ cases:
     path: tests/bluetooth/ll_settings
     catalog: bluetooth
     platform_whitelist: nrf52_bsim
-  bluetooth.mesh_shell:
+  bluetooth.mesh.mesh_shell:
     path: tests/bluetooth/mesh_shell
     catalog: bluetooth
     platform_whitelist: qemu_cortex_m3 qemu_x86 nrf51_pca10028
     platform_exclude: nrf52810_pca10040
-  bluetooth.shell:
+  bluetooth.shell.main:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_configs:
@@ -353,7 +367,7 @@ cases:
     platform_whitelist: qemu_cortex_m3 qemu_x86 native_posix native_posix_64 nrf52840_pca10056
     platform_exclude: nrf52810_pca10040
     min_flash: 145
-  bluetooth.shell_br:
+  bluetooth.shell.shell_br:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_configs:

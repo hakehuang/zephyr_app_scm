@@ -4,8 +4,10 @@ __load__:
   - modules/usb_bluetooth.yml
   - modules/usb_bos.yml
   - modules/usb_desc_sections.yml
+  - modules/usb_ieee802154.yml
   - modules/usb_net_zperf.yml
   - modules/usb_osdesc.yml
+  - modules/usb_sensors.yml
   - skips/${@board}.yml
   - boards/${@board}.yml
 

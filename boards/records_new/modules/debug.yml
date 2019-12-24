@@ -1,0 +1,7 @@
+---
+cases:
+  buildsystem.debug.build:
+    path: tests/misc/test_build
+    catalog: debug
+    extra_args: CONF_FILE=debug.conf
+    build_only: true

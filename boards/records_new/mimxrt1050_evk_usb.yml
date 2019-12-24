@@ -1,0 +1,21 @@
+
+__load__:
+  - modules/usb.yml
+  - modules/usb_bluetooth.yml
+  - modules/usb_bos.yml
+  - modules/usb_desc_sections.yml
+  - modules/usb_ieee802154.yml
+  - modules/usb_net_zperf.yml
+  - modules/usb_osdesc.yml
+  - modules/usb_sensors.yml
+  - skips/mimxrt1050_evk.yml
+  - boards/mimxrt1050_evk.yml
+
+
+settings:
+  case_pipe_name: mimxrt1050_evk_usb
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"

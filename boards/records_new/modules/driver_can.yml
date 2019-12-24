@@ -1,10 +1,10 @@
 ---
 cases:
-  peripheral.can:
+  drivers.can:
     path: tests/drivers/can/api
     catalog: driver can
     depends_on: can
-  peripheral.can.stm32:
+  drivers.can.stm32:
     path: tests/drivers/can/stm32
     catalog: driver can
     depends_on: can

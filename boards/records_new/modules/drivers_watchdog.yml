@@ -1,11 +1,12 @@
 ---
 cases:
-  peripheral.watchdog:
+  drivers.watchdog:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     depends_on: watchdog
+    filter: not CONFIG_WDT_SAM
     platform_exclude: nucleo_l496zg nucleo_f401re
-  peripheral.window_watchdog_nucleo_l496zg:
+  drivers.watchdog.nucleo_l496zg:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     extra_args: CONF_FILE="prj.conf;nucleo_l496zg.conf"

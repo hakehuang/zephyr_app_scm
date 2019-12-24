@@ -1,23 +1,34 @@
 __load__:
+  - modules/i2c.yml
+  - modules/i2s.yml
+  - modules/ignore_faults_interrupt_idt.yml
+  - modules/interrupt.yml
+  - modules/interrupt_isr_table.yml
+  - modules/introduction.yml
+  - modules/ipm.yml
+  - modules/json.yml
+  - modules/jwt.yml
   - modules/LED.yml
   - modules/LED_gpio.yml
   - modules/lib_sys_util_tests.yml
   - modules/libc.yml
   - modules/linker.yml
+  - modules/llmnr.yml
   - modules/log_core_logging.yml
   - modules/log_list_logging.yml
   - modules/log_msg_logging.yml
   - modules/log_output_logging.yml
   - modules/logging.yml
   - modules/logging_usermode.yml
+  - modules/lora.yml
+  - modules/mcuboot.yml
+  - modules/mdns.yml
   - modules/memory_protection.yml
   - modules/microbit_line-follower_robot_car.yml
   - modules/microbit_mesh_bluetooth.yml
   - modules/mmu.yml
   - modules/mpu.yml
-  - modules/mqtt_net_userspace.yml
-  - modules/msd_usb.yml
-  - modules/my_tags.yml
+  - modules/kconfig.yml
   - modules/userspace.yml
   - modules/util_intmath.yml
   - modules/utils_lists.yml

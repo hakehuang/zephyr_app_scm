@@ -1,15 +1,11 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="40" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="120" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="mimxrt1060_evk:arch.common.xip" name="arch.common.xip" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:arch.common.xip.nondefault.globals" name="arch.common.xip.nondefault.globals" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.mqtt.packet" name="net.mqtt.packet" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.mqtt.packet.mqtt_packet" name="net.mqtt.packet.mqtt_packet" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:kernel.memory_protection.stack_random" name="kernel.memory_protection.stack_random" time="0">
           </testcase>
@@ -80,6 +76,170 @@
           <testcase classname="mimxrt1060_evk:libraries.libc.sprintf_misc" name="libraries.libc.sprintf_misc" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:libraries.libc.sprintf_string" name="libraries.libc.sprintf_string" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.jwt.jwt" name="libraries.encoding.jwt.jwt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json" name="libraries.encoding.json" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_decoding" name="libraries.encoding.json.json_decoding" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_decoding_array_array" name="libraries.encoding.json.json_decoding_array_array" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_encoding" name="libraries.encoding.json.json_encoding" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_escape" name="libraries.encoding.json.json_escape" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_escape_bounds_check" name="libraries.encoding.json.json_escape_bounds_check" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_escape_empty" name="libraries.encoding.json.json_escape_empty" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_escape_no_op" name="libraries.encoding.json.json_escape_no_op" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_escape_one" name="libraries.encoding.json.json_escape_one" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_invalid_bool" name="libraries.encoding.json.json_invalid_bool" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_invalid_null" name="libraries.encoding.json.json_invalid_null" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_invalid_number" name="libraries.encoding.json.json_invalid_number" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_invalid_string" name="libraries.encoding.json.json_invalid_string" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_item_wrong_type" name="libraries.encoding.json.json_item_wrong_type" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_key_not_in_descr" name="libraries.encoding.json.json_key_not_in_descr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_missing_quote" name="libraries.encoding.json.json_missing_quote" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_obj_arr_decoding" name="libraries.encoding.json.json_obj_arr_decoding" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_obj_arr_encoding" name="libraries.encoding.json.json_obj_arr_encoding" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json.json_wrong_token" name="libraries.encoding.json.json_wrong_token" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_decoding" name="libraries.encoding.json_decoding" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_decoding_array_array" name="libraries.encoding.json_decoding_array_array" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_encoding" name="libraries.encoding.json_encoding" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_escape" name="libraries.encoding.json_escape" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_escape_bounds_check" name="libraries.encoding.json_escape_bounds_check" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_escape_empty" name="libraries.encoding.json_escape_empty" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_escape_no_op" name="libraries.encoding.json_escape_no_op" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_escape_one" name="libraries.encoding.json_escape_one" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_invalid_unicode" name="libraries.encoding.json_invalid_unicode" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_item_wrong_type" name="libraries.encoding.json_item_wrong_type" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_key_not_in_descr" name="libraries.encoding.json_key_not_in_descr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_missing_quote" name="libraries.encoding.json_missing_quote" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_obj_arr_decoding" name="libraries.encoding.json_obj_arr_decoding" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_obj_arr_encoding" name="libraries.encoding.json_obj_arr_encoding" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:libraries.encoding.json_wrong_token" name="libraries.encoding.json_wrong_token" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.gen_isr_table.main" name="arch.interrupt.gen_isr_table.main" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt" name="arch.interrupt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arc" name="arch.interrupt.arc" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arc.main" name="arch.interrupt.arc.main" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm.irq_vector_table.arm_thread_swap" name="arch.interrupt.arm.irq_vector_table.arm_thread_swap" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm_interrupt" name="arch.interrupt.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.arm_thread_swap" name="arch.interrupt.arm_thread_swap" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_async_multiple_put" name="arch.interrupt.mbox_async_multiple_put" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_async_put_get_block" name="arch.interrupt.mbox_async_put_get_block" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_async_put_to_waiting_get" name="arch.interrupt.mbox_async_put_to_waiting_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_block_get_buff_to_pool" name="arch.interrupt.mbox_block_get_buff_to_pool" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_block_get_buff_to_smaller_pool" name="arch.interrupt.mbox_block_get_buff_to_smaller_pool" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_block_get_invalid_pool" name="arch.interrupt.mbox_block_get_invalid_pool" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_clean_up_tx_pool" name="arch.interrupt.mbox_clean_up_tx_pool" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_dispose_size_0_msg" name="arch.interrupt.mbox_dispose_size_0_msg" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_get_waiting_put_incorrect_tid" name="arch.interrupt.mbox_get_waiting_put_incorrect_tid" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_incorrect_receiver_tid" name="arch.interrupt.mbox_incorrect_receiver_tid" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_incorrect_transmit_tid" name="arch.interrupt.mbox_incorrect_transmit_tid" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_msg_tid_mismatch" name="arch.interrupt.mbox_msg_tid_mismatch" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_multiple_waiting_get" name="arch.interrupt.mbox_multiple_waiting_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_target_source_thread_block" name="arch.interrupt.mbox_target_source_thread_block" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_target_source_thread_buffer" name="arch.interrupt.mbox_target_source_thread_buffer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.mbox_timed_out_mbox_get" name="arch.interrupt.mbox_timed_out_mbox_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.no_optimizations.arm_interrupt" name="arch.interrupt.no_optimizations.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.nodyn" name="arch.interrupt.nodyn" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.x86.idt_stub" name="arch.interrupt.x86.idt_stub" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:arch.interrupt.x86.static_idt" name="arch.interrupt.x86.static_idt" time="0">
           </testcase>
   </testsuite>
 </testsuites>

@@ -75,7 +75,7 @@ cases:
     path: samples/net/sockets/civetweb
     catalog: unknown
     platform_whitelist: sam_e70_xplained
-  test_fs_shell:
+  sample.filesystem.shell:
     path: samples/subsys/shell/fs
     catalog: unknown
     platform_whitelist: reel_board
@@ -97,21 +97,21 @@ cases:
     catalog: unknown
     platform_whitelist: native_posix native_posix_64
     build_only: true
-  test_clock:
+  drivers.clock.build:
     path: tests/drivers/build_all
     catalog: unknown
     extra_configs:
     - CONFIG_CLOCK_CONTROL=y
     build_only: true
     depends_on: gpio spi i2c
-  test_build_gpio:
+  drivers.gpio.build:
     path: tests/drivers/build_all
     catalog: unknown
     extra_args: CONF_FILE=gpio.conf
     build_only: true
     min_ram: 32
     depends_on: gpio spi i2c
-  test_build_eeprom:
+  drivers.eeprom.build:
     path: tests/drivers/build_all
     catalog: unknown
     extra_args: CONF_FILE=eeprom.conf
@@ -142,7 +142,7 @@ cases:
     path: tests/subsys/fs/nvs
     catalog: unknown
     platform_whitelist: qemu_x86
-  misc.math_extras:
+  utilities.math:
     path: tests/unit/math_extras
     catalog: unknown
     type: unit

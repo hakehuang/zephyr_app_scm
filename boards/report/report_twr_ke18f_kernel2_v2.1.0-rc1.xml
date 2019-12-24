@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="392" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="335" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="twr_ke18f:kernel.memory_pool.sys" name="kernel.memory_pool.sys" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.sys.sys_mem_pool_alloc_align4" name="kernel.memory_pool.sys.sys_mem_pool_alloc_align4" time="0">
@@ -97,56 +97,6 @@
           </testcase>
           <testcase classname="twr_ke18f:kernel.pipe.resource_pool_auto_free" name="kernel.pipe.resource_pool_auto_free" time="0">
           </testcase>
-          <testcase classname="twr_ke18f:kernel.common" name="kernel.common" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.atomic" name="kernel.common.atomic" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.bitfield" name="kernel.common.bitfield" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.bounds_check_mitigation" name="kernel.common.bounds_check_mitigation" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.busy_wait" name="kernel.common.busy_wait" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.byteorder_mem_swap" name="kernel.common.byteorder_mem_swap" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.byteorder_memcpy_swap" name="kernel.common.byteorder_memcpy_swap" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.clock_cycle" name="kernel.common.clock_cycle" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.clock_uptime" name="kernel.common.clock_uptime" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.critical" name="kernel.common.critical" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.dlist" name="kernel.common.dlist" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.early_sleep" name="kernel.common.early_sleep" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.errno.newlib.thread_context" name="kernel.common.errno.newlib.thread_context" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.errno.thread_context" name="kernel.common.errno.thread_context" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.init.verify_bootdelay" name="kernel.common.init.verify_bootdelay" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.intmath" name="kernel.common.intmath" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.irq_offload" name="kernel.common.irq_offload" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.k_sleep" name="kernel.common.k_sleep" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.k_yield" name="kernel.common.k_yield" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.kernel_cpu_idle" name="kernel.common.kernel_cpu_idle" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.kernel_cpu_idle_atomic" name="kernel.common.kernel_cpu_idle_atomic" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.kernel_ctx_thread" name="kernel.common.kernel_ctx_thread" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.kernel_interrupts" name="kernel.common.kernel_interrupts" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.kernel_thread" name="kernel.common.kernel_thread" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.kernel_timer_interrupts" name="kernel.common.kernel_timer_interrupts" time="0">
-          </testcase>
           <testcase classname="twr_ke18f:kernel.common.misra" name="kernel.common.misra" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.common.misra.atomic" name="kernel.common.misra.atomic" time="0">
@@ -207,66 +157,6 @@
           </testcase>
           <testcase classname="twr_ke18f:kernel.common.misra.version" name="kernel.common.misra.version" time="0">
           </testcase>
-          <testcase classname="twr_ke18f:kernel.common.multilib" name="kernel.common.multilib" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.printk" name="kernel.common.printk" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.slist" name="kernel.common.slist" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_protection" name="kernel.common.stack_protection" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing" name="kernel.common.stack_protection_arm_fp_sharing" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_protection_no_userspace" name="kernel.common.stack_protection_no_userspace" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_protection_no_userspace.arm_interrupt" name="kernel.common.stack_protection_no_userspace.arm_interrupt" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_get_be16" name="kernel.common.sys_get_be16" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_get_be32" name="kernel.common.sys_get_be32" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_get_be64" name="kernel.common.sys_get_be64" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_get_le16" name="kernel.common.sys_get_le16" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_get_le32" name="kernel.common.sys_get_le32" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_get_le64" name="kernel.common.sys_get_le64" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_put_be16" name="kernel.common.sys_put_be16" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_put_be32" name="kernel.common.sys_put_be32" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_put_be64" name="kernel.common.sys_put_be64" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_put_le16" name="kernel.common.sys_put_le16" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_put_le32" name="kernel.common.sys_put_le32" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sys_put_le64" name="kernel.common.sys_put_le64" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.thread_context" name="kernel.common.thread_context" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.timeout_order" name="kernel.common.timeout_order" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.verify_bootdelay" name="kernel.common.verify_bootdelay" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.version" name="kernel.common.version" time="0">
-          </testcase>
           <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm" name="kernel.fp_sharing.float_disable.arm" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.fp_sharing.float_disable.arm.k_float_disable_common" name="kernel.fp_sharing.float_disable.arm.k_float_disable_common" time="0">
@@ -320,28 +210,6 @@
           <testcase classname="twr_ke18f:kernel.mutex.mutex_reent_lock_timeout_fail" name="kernel.mutex.mutex_reent_lock_timeout_fail" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.mutex.mutex_reent_lock_timeout_pass" name="kernel.mutex.mutex_reent_lock_timeout_pass" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex" name="sys.mutex" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.mutex" name="sys.mutex.mutex" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.nouser" name="sys.mutex.nouser" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.nouser.mutex" name="sys.mutex.nouser.mutex" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.nouser.supervisor_access" name="sys.mutex.nouser.supervisor_access" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.nouser.thread_06@119" name="sys.mutex.nouser.thread_06@119" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.nouser.thread_06@119. Failed to take mutex 0x0012e088" name="sys.mutex.nouser.thread_06@119. Failed to take mutex 0x0012e088" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.nouser.thread_06@119. Failed to take mutex 0x20002288" name="sys.mutex.nouser.thread_06@119. Failed to take mutex 0x20002288" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.supervisor_access" name="sys.mutex.supervisor_access" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.thread_06@119. Failed to take mutex 0x00110060" name="sys.mutex.thread_06@119. Failed to take mutex 0x00110060" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:sys.mutex.user_access" name="sys.mutex.user_access" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.poll" name="kernel.poll" time="0">
           </testcase>
@@ -454,6 +322,24 @@
           <testcase classname="twr_ke18f:kernel.semaphore.simple_sem_from_isr" name="kernel.semaphore.simple_sem_from_isr" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.semaphore.simple_sem_from_task" name="kernel.semaphore.simple_sem_from_task" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.stack_protection" name="kernel.common.stack_protection" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing" name="kernel.common.stack_protection_arm_fp_sharing" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.stack_protection_no_userspace" name="kernel.common.stack_protection_no_userspace" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.stack_protection_no_userspace.arm_interrupt" name="kernel.common.stack_protection_no_userspace.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.stack.usage" name="kernel.stack.usage" time="0">
           </testcase>

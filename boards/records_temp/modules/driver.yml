@@ -1,14 +1,14 @@
 ---
 cases:
-  peripheral.entropy:
+  drivers.entropy:
     path: tests/drivers/entropy/api
     catalog: driver
     filter: CONFIG_ENTROPY_HAS_DRIVER
-  peripheral.flash_simulator:
+  drivers.flash.flash_simulator:
     path: tests/drivers/flash_simulator
     catalog: driver
     platform_whitelist: qemu_x86
-  peripheral.device_id:
+  drivers.device_id:
     path: tests/drivers/hwinfo/api
     catalog: driver
     depends_on: hwinfo

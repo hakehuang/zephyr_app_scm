@@ -1,17 +1,17 @@
 ---
 cases:
-  peripheral.dma:
+  drivers.dma:
     path: tests/drivers/dma/chan_blen_transfer
     catalog: drivers dma
     min_ram: 16
     depends_on: dma
-  peripheral.dma.interactive:
+  drivers.dma.interactive:
     path: tests/drivers/dma/chan_blen_transfer
     catalog: drivers dma
     extra_args: CONF_FILE=prj_shell.conf
     depends_on: dma
     min_ram: 16
-  driver.dma.loop_transfer:
+  drivers.dma.loop_transfer:
     path: tests/drivers/dma/loop_transfer
     catalog: drivers dma
     depends_on: dma

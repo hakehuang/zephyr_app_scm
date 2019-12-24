@@ -4,22 +4,22 @@ cases:
     path: tests/arch/x86/x86_mmu_api
     catalog: kernel
     platform_whitelist: qemu_x86
-  kernel.context:
+  kernel.common:
     path: tests/kernel/context
     catalog: kernel
     min_ram: 20
-  kernel.critical:
+  kernel.common.critical:
     path: tests/kernel/critical
     catalog: kernel
     platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
     filter: not CONFIG_WDT_SAM
-  kernel.critical.sam:
+  kernel.common.critical.sam:
     path: tests/kernel/critical
     catalog: kernel
     extra_configs:
     - CONFIG_WDT_DISABLE_AT_BOOT=y
     filter: CONFIG_WDT_SAM
-  kernel.critical.nsim:
+  kernel.common.critical.nsim:
     path: tests/kernel/critical
     catalog: kernel
     extra_configs:
@@ -48,18 +48,18 @@ cases:
     path: tests/kernel/fifo/fifo_usage
     catalog: kernel
     extra_args: CONF_FILE="prj_poll.conf"
-  kernel.fp_sharing:
+  kernel.float.fp_sharing:
     path: tests/kernel/fp_sharing/generic
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=70000
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
     min_ram: 16
-  kernel.fp_sharing.x86:
+  kernel.float.fp_sharing.x86:
     path: tests/kernel/fp_sharing/generic
     catalog: kernel
     extra_args: CONF_FILE=prj_x86.conf
     platform_whitelist: qemu_x86
-  kernel.fp_sharing.arc:
+  kernel.float.fp_sharing.arc:
     path: tests/kernel/fp_sharing/generic
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=500
@@ -88,10 +88,6 @@ cases:
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_USERSPACE=n
-  kernel.memory_slabs.api.test:
-    path: tests/kernel/mem_slab/mslab
-    catalog: kernel
-    min_ram: 16
   kernel.memory_slabs.api:
     path: tests/kernel/mem_slab/mslab_api
     catalog: kernel
@@ -101,40 +97,37 @@ cases:
   kernel.memory_slabs.threadsafe:
     path: tests/kernel/mem_slab/mslab_threadsafe
     catalog: kernel
-  sys.mutex.nouser:
+  system.mutex.nouser:
     path: tests/kernel/mutex/sys_mutex
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_USERSPACE=n
-  kernel.object_tracing:
+  kernel.objects.tracing:
     path: tests/kernel/obj_tracing
     catalog: kernel
     min_ram: 32
-  kernel.pending:
+  kernel.objects:
     path: tests/kernel/pending
     catalog: kernel
     min_ram: 16
-  kernel.profiling:
+  kernel.common.profiling:
     path: tests/kernel/profiling/profiling_api
     catalog: kernel
     arch_exclude: nios2 riscv32
     platform_exclude: em_starterkit
-  kernel.sched.deadline:
+  kernel.scheduler.deadline:
     path: tests/kernel/sched/deadline
     catalog: kernel
-  kernel.sched.metairq:
+  kernel.scheduler.metairq:
     path: tests/kernel/sched/metairq
     catalog: kernel
     filter: not CONFIG_SMP
     platform_exclude: nrf52810_pca10040
-  kernel.sched.preempt:
+  kernel.scheduler.preempt:
     path: tests/kernel/sched/preempt
     catalog: kernel
     filter: not CONFIG_SMP
     platform_exclude: nrf52810_pca10040
-  kernel.timing:
-    path: tests/kernel/sleep
-    catalog: kernel
   kernel.threads.no-multithreading:
     path: tests/kernel/threads/no-multithreading
     catalog: kernel
@@ -144,12 +137,6 @@ cases:
     catalog: kernel
     arch_exclude: riscv32 nios2
     platform_exclude: qemu_x86_coverage qemu_cortex_m0
-  kernel.timer.tickless:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel
-    extra_args: CONF_FILE="prj_tickless.conf"
-    build_only: true
-    arch_exclude: riscv32 nios2 posix
   kernel.workqueue:
     path: tests/kernel/workq/work_queue
     catalog: kernel

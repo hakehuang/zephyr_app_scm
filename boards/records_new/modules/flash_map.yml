@@ -4,7 +4,7 @@ cases:
     path: tests/subsys/storage/flash_map
     catalog: flash_map
     platform_whitelist: nrf51_pca10028 qemu_x86 native_posix native_posix_64
-  storage.flash_map_mpu:
+  storage.flash_map.mpu:
     path: tests/subsys/storage/flash_map
     catalog: flash_map
     extra_args: OVERLAY_CONFIG=overlay-mpu.conf

@@ -1,0 +1,9 @@
+---
+cases:
+  bootloader.mcuboot.build:
+    path: tests/misc/test_build
+    catalog: mcuboot
+    extra_configs:
+    - CONFIG_BOOTLOADER_MCUBOOT=y
+    build_only: true
+    platform_whitelist: nrf51_pca10028 nrf52_pca10040

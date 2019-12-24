@@ -1,25 +1,25 @@
 ---
 cases:
-  tracing.sysview:
+  tracing.backends.sysview:
     path: tests/subsys/debug/tracing
     catalog: tracing debug
     extra_configs:
     - CONFIG_SEGGER_SYSTEMVIEW=y
     - CONFIG_USE_SEGGER_RTT=y
     platform_whitelist: nrf52840_pca10056
-  tracing.ctf:
+  tracing.backends.ctf:
     path: tests/subsys/debug/tracing
     catalog: tracing debug
     extra_configs:
     - CONFIG_TRACING_CTF=y
     platform_whitelist: native_posix
-  tracing.cpu_stats:
+  tracing.backends.cpu_stats:
     path: tests/subsys/debug/tracing
     catalog: tracing debug
     extra_configs:
     - CONFIG_TRACING_CPU_STATS=y
     platform_whitelist: nrf52840_pca10056
-  tracing.openocd:
+  tracing.backends.openocd:
     path: tests/subsys/debug/tracing
     catalog: tracing debug
     extra_configs:
