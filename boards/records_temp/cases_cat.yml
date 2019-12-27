@@ -1813,7 +1813,7 @@ net usb:
     path: samples/net/sockets/echo_server
     catalog: net usb
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: netif
+    depends_on: netif usb_device
     min_flash: 140
   sample.net.sockets.echo_server.usbnet_composite:
     path: samples/net/sockets/echo_server
@@ -1821,7 +1821,7 @@ net usb:
     extra_configs:
     - CONFIG_USB_COMPOSITE_DEVICE=y
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: netif
+    depends_on: netif usb_device
     min_flash: 140
 net http http_client:
   sample.net.sockets.http_client:
@@ -1904,7 +1904,7 @@ usb ieee802154:
   sample.net.wpan.serial:
     path: samples/net/wpan_serial
     catalog: usb ieee802154
-    depends_on: usb_device
+    depends_on: usb_device ieee802154
   sample.net.wpan_serial.frdm_cr20a:
     path: samples/net/wpan_serial
     catalog: usb ieee802154
@@ -1915,7 +1915,7 @@ net ieee802154 usb:
   sample.net.wpanusb:
     path: samples/net/wpanusb
     catalog: net ieee802154 usb
-    depends_on: usb_device
+    depends_on: usb_device ieee802154
   sample.net.wpanusb_frdm_cr20a:
     path: samples/net/wpanusb
     catalog: net ieee802154 usb

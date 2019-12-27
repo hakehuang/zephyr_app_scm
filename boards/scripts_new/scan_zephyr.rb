@@ -155,9 +155,15 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 sample_hash['tests'].keys.each do |k|
                   extra_args = sample_hash['tests'][k]['extra_args']
                   if sample_hash['common']
+                    depends_on = sample_hash['tests'][k]['depends_on']
                     tags = sample_hash['common']['tags']
                     tags = sample_hash['tests'][k]['tags'] if sample_hash['tests'][k].has_key?('tags')
                     sample_hash['tests'][k].merge!(sample_hash['common'])
+                    if ! depends_on.nil? and sample_hash['tests'][k].has_key?('depends_on') and 
+                      depends_on != sample_hash['tests'][k]['depends_on']
+                      #if there is depends_on in each case, merge common depends manually, as hash merged does not work
+                      sample_hash['tests'][k]['depends_on'] =  sample_hash['tests'][k]['depends_on'] + " " + depends_on
+                    end
                   else
                     tags = sample_hash['tests'][k]['tags'] if sample_hash['tests'][k].has_key?('tags')
                   end

@@ -3,7 +3,7 @@ cases:
   sample.net.wpan.serial:
     path: samples/net/wpan_serial
     catalog: usb ieee802154
-    depends_on: usb_device
+    depends_on: usb_device ieee802154
   sample.net.wpan_serial.frdm_cr20a:
     path: samples/net/wpan_serial
     catalog: usb ieee802154

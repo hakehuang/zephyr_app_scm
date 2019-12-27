@@ -4,7 +4,7 @@ cases:
     path: samples/net/sockets/echo_server
     catalog: net usb
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: netif
+    depends_on: netif usb_device
     min_flash: 140
   sample.net.sockets.echo_server.usbnet_composite:
     path: samples/net/sockets/echo_server
@@ -12,5 +12,5 @@ cases:
     extra_configs:
     - CONFIG_USB_COMPOSITE_DEVICE=y
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: netif
+    depends_on: netif usb_device
     min_flash: 140
