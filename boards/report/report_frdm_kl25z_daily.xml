@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="156" errors="0" failures="5" name="" skipped="8" time="0">
+    <testsuite tests="172" errors="0" failures="5" name="" skipped="8" time="0">
          <testcase classname="frdm_kl25z:libraries.libc.newlibnano.calloc" name="libraries.libc.newlibnano.calloc" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -177,6 +177,36 @@
           </testcase>
           <testcase classname="frdm_kl25z:libraries.libc.newlib.free" name="libraries.libc.newlib.free" time="0">
           </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_escape" name="libraries.libc.newlib.json_escape" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_escape_bounds_check" name="libraries.libc.newlib.json_escape_bounds_check" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_escape_empty" name="libraries.libc.newlib.json_escape_empty" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_escape_no_op" name="libraries.libc.newlib.json_escape_no_op" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_escape_one" name="libraries.libc.newlib.json_escape_one" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_invalid_bool" name="libraries.libc.newlib.json_invalid_bool" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_invalid_null" name="libraries.libc.newlib.json_invalid_null" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_invalid_number" name="libraries.libc.newlib.json_invalid_number" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_invalid_string" name="libraries.libc.newlib.json_invalid_string" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_item_wrong_type" name="libraries.libc.newlib.json_item_wrong_type" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_key_not_in_descr" name="libraries.libc.newlib.json_key_not_in_descr" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_missing_quote" name="libraries.libc.newlib.json_missing_quote" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_obj_arr_decoding" name="libraries.libc.newlib.json_obj_arr_decoding" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_obj_arr_encoding" name="libraries.libc.newlib.json_obj_arr_encoding" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.newlib.json_wrong_token" name="libraries.libc.newlib.json_wrong_token" time="0">
+          </testcase>
           <testcase classname="frdm_kl25z:libraries.libc.newlib.malloc" name="libraries.libc.newlib.malloc" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:libraries.libc.newlib.memalloc_all" name="libraries.libc.newlib.memalloc_all" time="0">
@@ -188,6 +218,8 @@
           <testcase classname="frdm_kl25z:libraries.libc.newlib.reallocarray" name="libraries.libc.newlib.reallocarray" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:libraries.libc.sprintf.arm_interrupt" name="libraries.libc.sprintf.arm_interrupt" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:libraries.libc.sprintf.sprintf_double" name="libraries.libc.sprintf.sprintf_double" time="0">
           </testcase>

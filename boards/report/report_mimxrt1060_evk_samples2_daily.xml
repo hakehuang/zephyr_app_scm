@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="256" errors="0" failures="3" name="" skipped="0" time="0">
+    <testsuite tests="258" errors="0" failures="3" name="" skipped="0" time="0">
           <testcase classname="mimxrt1060_evk:sample.nfc.hello" name="sample.nfc.hello" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -69,6 +69,8 @@
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.teTrickle 2 0x80000cc8 callback called" name="net.trickle.teTrickle 2 0x80000cc8 callback called" time="0">
           </testcase>
+          <testcase classname="mimxrt1060_evk:net.trickle.trTrickle 1 0x20400108 callback called" name="net.trickle.trTrickle 1 0x20400108 callback called" time="0">
+          </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.triTrickle 1 0x20400108 callback called" name="net.trickle.triTrickle 1 0x20400108 callback called" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.trickTrickle 1 0x20000c00 callback called" name="net.trickle.trickTrickle 1 0x20000c00 callback called" time="0">
@@ -130,6 +132,8 @@
           <testcase classname="mimxrt1060_evk:sample.net.syslog.without_timefuncs" name="sample.net.syslog.without_timefuncs" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:sample.net.stats" name="sample.net.stats" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.socket.poll.poll" name="net.socket.poll.poll" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.socket.get_name_info" name="net.socket.get_name_info" time="0">
           </testcase>

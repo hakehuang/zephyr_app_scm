@@ -369,9 +369,16 @@ cases:
     catalog: shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
     platform_whitelist: nrf52840_pca10056
-  sample.display.st7789v:
+  sample.display.st7789v_tl019fqv01:
     path: samples/display/st7789v
-    catalog: display
+    catalog: display shield
+    extra_args: SHIELD=st7789v_tl019fqv01
+    build_only: true
+    platform_whitelist: nrf52_pca10040
+  sample.display.st7789v_waveshare_240x240:
+    path: samples/display/st7789v
+    catalog: display shield
+    extra_args: SHIELD=st7789v_waveshare_240x240
     build_only: true
     platform_whitelist: nrf52_pca10040
   sample.drivers.can:
@@ -816,7 +823,7 @@ cases:
     path: samples/net/sockets/echo_server
     catalog: net usb
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: netif
+    depends_on: netif usb_device
     min_flash: 140
   sample.net.sockets.echo_server.usbnet_composite:
     path: samples/net/sockets/echo_server
@@ -824,7 +831,7 @@ cases:
     extra_configs:
     - CONFIG_USB_COMPOSITE_DEVICE=y
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
-    depends_on: netif
+    depends_on: netif usb_device
     min_flash: 140
   sample.net.sockets.echo_server.nrf_openthread:
     path: samples/net/sockets/echo_server
@@ -947,7 +954,7 @@ cases:
   sample.net.wpan.serial:
     path: samples/net/wpan_serial
     catalog: usb ieee802154
-    depends_on: usb_device
+    depends_on: usb_device ieee802154
   sample.net.wpan_serial.frdm_cr20a:
     path: samples/net/wpan_serial
     catalog: usb ieee802154
@@ -957,7 +964,7 @@ cases:
   sample.net.wpanusb:
     path: samples/net/wpanusb
     catalog: net ieee802154 usb
-    depends_on: usb_device
+    depends_on: usb_device ieee802154
   sample.net.wpanusb_frdm_cr20a:
     path: samples/net/wpanusb
     catalog: net ieee802154 usb
@@ -1546,7 +1553,6 @@ cases:
   application_development.cpp.main:
     path: tests/application_development/cpp
     catalog: cpp
-    arch_exclude: posix
     platform_exclude: qemu_x86_coverage
   buildsystem.include_file:
     path: tests/application_development/gen_inc_file
@@ -1554,7 +1560,6 @@ cases:
   application_development.cpp.libcxx:
     path: tests/application_development/libcxx
     catalog: cpp
-    arch_exclude: posix
     platform_exclude: qemu_x86_coverage
     min_flash: 54
   application_development.cpp.libcxx.exceptions:
@@ -1562,7 +1567,6 @@ cases:
     catalog: cpp
     extra_configs:
     - CONFIG_EXCEPTIONS=y
-    arch_exclude: posix
     platform_exclude: qemu_x86_coverage
     min_flash: 54
   arch.interrupt.arm:
@@ -3090,9 +3094,9 @@ cases:
     catalog: net socket net_mgmt userspace
     min_ram: 21
     depends_on: netif
-  net.socket.udp:
-    path: tests/net/socket/udp
-    catalog: net socket udp
+  net.socket.poll:
+    path: tests/net/socket/poll
+    catalog: net socket poll
     min_ram: 21
     depends_on: netif
   net.socket.register:
@@ -3125,6 +3129,11 @@ cases:
     path: tests/net/socket/tcp
     catalog: net socket userspace
     min_ram: 32
+    depends_on: netif
+  net.socket.udp:
+    path: tests/net/socket/udp
+    catalog: net socket udp
+    min_ram: 21
     depends_on: netif
   net.tcp.simple:
     path: tests/net/tcp
@@ -3696,7 +3705,7 @@ cases:
   filesystem.fat.api:
     path: tests/subsys/fs/fat_fs_api
     catalog: filesystem
-    platform_whitelist: native_posix native_posix_64
+    platform_whitelist: native_posix
   filesystem.fat.dual_drive:
     path: tests/subsys/fs/fat_fs_dual_drive
     catalog: filesystem

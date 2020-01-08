@@ -888,11 +888,6 @@ display:
     catalog: display
     build_only: true
     platform_whitelist: nucleo_l476rg nrf52_pca10040
-  sample.display.st7789v:
-    path: samples/display/st7789v
-    catalog: display
-    build_only: true
-    platform_whitelist: nrf52_pca10040
   sample.drivers.lcd.hd44780:
     path: samples/drivers/lcd_hd44780
     catalog: display
@@ -972,12 +967,10 @@ cpp:
   application_development.cpp.main:
     path: tests/application_development/cpp
     catalog: cpp
-    arch_exclude: posix
     platform_exclude: qemu_x86_coverage
   application_development.cpp.libcxx:
     path: tests/application_development/libcxx
     catalog: cpp
-    arch_exclude: posix
     platform_exclude: qemu_x86_coverage
     min_flash: 54
   application_development.cpp.libcxx.exceptions:
@@ -985,7 +978,6 @@ cpp:
     catalog: cpp
     extra_configs:
     - CONFIG_EXCEPTIONS=y
-    arch_exclude: posix
     platform_exclude: qemu_x86_coverage
     min_flash: 54
 shield:
@@ -1189,6 +1181,19 @@ drivers:
     extra_args: CONF_FILE=prj_shell.conf
     min_flash: 64
     filter: CONFIG_UART_CONSOLE
+display shield:
+  sample.display.st7789v_tl019fqv01:
+    path: samples/display/st7789v
+    catalog: display shield
+    extra_args: SHIELD=st7789v_tl019fqv01
+    build_only: true
+    platform_whitelist: nrf52_pca10040
+  sample.display.st7789v_waveshare_240x240:
+    path: samples/display/st7789v
+    catalog: display shield
+    extra_args: SHIELD=st7789v_waveshare_240x240
+    build_only: true
+    platform_whitelist: nrf52_pca10040
 CAN:
   sample.drivers.can:
     path: samples/drivers/CAN
@@ -2127,7 +2132,7 @@ filesystem:
   filesystem.fat.api:
     path: tests/subsys/fs/fat_fs_api
     catalog: filesystem
-    platform_whitelist: native_posix native_posix_64
+    platform_whitelist: native_posix
   filesystem.fat.dual_drive:
     path: tests/subsys/fs/fat_fs_dual_drive
     catalog: filesystem
@@ -3373,10 +3378,10 @@ net socket net_mgmt userspace:
     catalog: net socket net_mgmt userspace
     min_ram: 21
     depends_on: netif
-net socket udp:
-  net.socket.udp:
-    path: tests/net/socket/udp
-    catalog: net socket udp
+net socket poll:
+  net.socket.poll:
+    path: tests/net/socket/poll
+    catalog: net socket poll
     min_ram: 21
     depends_on: netif
 net socket socket.register:
@@ -3400,6 +3405,12 @@ net socket socket.register:
     - CONFIG_NET_SOCKETS_ENABLE_DTLS=y
     - CONFIG_NET_SOCKETS_DTLS_TIMEOUT=30000
     - CONFIG_MAIN_STACK_SIZE=2048
+    depends_on: netif
+net socket udp:
+  net.socket.udp:
+    path: tests/net/socket/udp
+    catalog: net socket udp
+    min_ram: 21
     depends_on: netif
 net tcp:
   net.tcp.simple:

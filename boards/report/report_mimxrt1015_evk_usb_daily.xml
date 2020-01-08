@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="32" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="33" errors="0" failures="0" name="" skipped="1" time="0">
+         <testcase classname="mimxrt1015_evk:sample.usb.cdc-acm.comp" name="sample.usb.cdc-acm.comp" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="mimxrt1015_evk:usb.desc_sections" name="usb.desc_sections" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:usb.desc_sections.desc_sections" name="usb.desc_sections.desc_sections" time="0">
@@ -14,8 +17,6 @@
           <testcase classname="mimxrt1015_evk:sample.usb.cdc-acm" name="sample.usb.cdc-acm" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:sample.usb.cdc-acm-composite" name="sample.usb.cdc-acm-composite" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:sample.usb.cdc-acm.comp" name="sample.usb.cdc-acm.comp" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:sample.usb.hid" name="sample.usb.hid" time="0">
           </testcase>
@@ -52,6 +53,8 @@
           <testcase classname="mimxrt1015_evk:usb.device.us: USB detected" name="usb.device.us: USB detected" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:usb.device.usb_d: USB detected" name="usb.device.usb_d: USB detected" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:usb.device.usb_dc_aD: USB detected" name="usb.device.usb_dc_aD: USB detected" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:usb.device.usb_dc_api" name="usb.device.usb_dc_api" time="0">
           </testcase>

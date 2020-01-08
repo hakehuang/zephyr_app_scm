@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="268" errors="0" failures="2" name="" skipped="0" time="0">
+    <testsuite tests="272" errors="0" failures="2" name="" skipped="0" time="0">
           <testcase classname="mimxrt1020_evk:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -188,6 +188,14 @@
           <testcase classname="mimxrt1020_evk:kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" name="kernel.memory_protection.mmu.multi_pde_buffer_writeable_write" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.memory_protection.obj_validation" name="kernel.memory_protection.obj_validation" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.obj_validation.fifo_cancel_wait" name="kernel.memory_protection.obj_validation.fifo_cancel_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.obj_validation.fifo_is_empty_isr" name="kernel.memory_protection.obj_validation.fifo_is_empty_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.obj_validation.fifo_is_empty_thread" name="kernel.memory_protection.obj_validation.fifo_is_empty_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.obj_validation.fifo_loop" name="kernel.memory_protection.obj_validation.fifo_loop" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
           </testcase>

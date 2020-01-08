@@ -1,0 +1,14 @@
+---
+cases:
+  sample.display.st7789v_tl019fqv01:
+    path: samples/display/st7789v
+    catalog: display shield
+    extra_args: SHIELD=st7789v_tl019fqv01
+    build_only: true
+    platform_whitelist: nrf52_pca10040
+  sample.display.st7789v_waveshare_240x240:
+    path: samples/display/st7789v
+    catalog: display shield
+    extra_args: SHIELD=st7789v_waveshare_240x240
+    build_only: true
+    platform_whitelist: nrf52_pca10040

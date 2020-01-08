@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="149" errors="0" failures="0" name="" skipped="1" time="0">
+    <testsuite tests="152" errors="0" failures="0" name="" skipped="1" time="0">
          <testcase classname="twr_kv58f220m:sample.kernel.memory_protection.shared_mem" name="sample.kernel.memory_protection.shared_mem" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -41,6 +41,8 @@
           <testcase classname="twr_kv58f220m:logging.log_output.log_panic" name="logging.log_output.log_panic" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:logging.log_msg" name="logging.log_msg" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:logging.log_msg.jwt" name="logging.log_msg.jwt" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:logging.log_msg.log_hexdump_data_get_multiple_chunks" name="logging.log_msg.log_hexdump_data_get_multiple_chunks" time="0">
           </testcase>
@@ -90,6 +92,8 @@
           </testcase>
           <testcase classname="twr_kv58f220m:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
           </testcase>
+          <testcase classname="twr_kv58f220m:libraries.libc.sprintf.arm_interrupt" name="libraries.libc.sprintf.arm_interrupt" time="0">
+          </testcase>
           <testcase classname="twr_kv58f220m:libraries.libc.sprintf.sprintf_double" name="libraries.libc.sprintf.sprintf_double" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:libraries.libc.sprintf.sprintf_integer" name="libraries.libc.sprintf.sprintf_integer" time="0">
@@ -115,6 +119,8 @@
           <testcase classname="twr_kv58f220m:libraries.encoding.jwt.jwt" name="libraries.encoding.jwt.jwt" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:libraries.encoding.json" name="libraries.encoding.json" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.encoding.json.arm_interrupt" name="libraries.encoding.json.arm_interrupt" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:libraries.encoding.json.json_decoding" name="libraries.encoding.json.json_decoding" time="0">
           </testcase>

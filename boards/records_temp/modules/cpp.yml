@@ -7,12 +7,10 @@ cases:
   application_development.cpp.main:
     path: tests/application_development/cpp
     catalog: cpp
-    arch_exclude: posix
     platform_exclude: qemu_x86_coverage
   application_development.cpp.libcxx:
     path: tests/application_development/libcxx
     catalog: cpp
-    arch_exclude: posix
     platform_exclude: qemu_x86_coverage
     min_flash: 54
   application_development.cpp.libcxx.exceptions:
@@ -20,6 +18,5 @@ cases:
     catalog: cpp
     extra_configs:
     - CONFIG_EXCEPTIONS=y
-    arch_exclude: posix
     platform_exclude: qemu_x86_coverage
     min_flash: 54

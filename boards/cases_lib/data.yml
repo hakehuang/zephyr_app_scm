@@ -1,3 +1,4 @@
+C: C
 application_development.cpp.libcxx: application_development.cpp.libcxx
 application_development.cpp.libcxx.array: application_development.cpp.libcxx.array
 application_development.cpp.libcxx.exceptions: application_development.cpp.libcxx.exceptions
@@ -44,8 +45,15 @@ arch.arm.swap.common.usb_dc_api_invalid: arch.arm.swap.common.usb_dc_api_invalid
 arch.arm.swap.common.usb_dc_api_read_write: arch.arm.swap.common.usb_dc_api_read_write
 arch.arm.swap.common.usb_deconfig: arch.arm.swap.common.usb_deconfig
 arch.arm.swap.common.usb_disable: arch.arm.swap.common.usb_disable
+arch.arm.zero_latency_interrupts.arm_interrupt: arch.arm.zero_latency_interrupts.arm_interrupt
 arch.arm.zero_latency_interrupts.arm_zero_latency_irqs: arch.arm.zero_latency_interrupts.arm_zero_latency_irqs
+arch.arm.zero_latency_interrupts.calloc: arch.arm.zero_latency_interrupts.calloc
+arch.arm.zero_latency_interrupts.free: arch.arm.zero_latency_interrupts.free
+arch.arm.zero_latency_interrupts.malloc: arch.arm.zero_latency_interrupts.malloc
+arch.arm.zero_latency_interrupts.memalloc_all: arch.arm.zero_latency_interrupts.memalloc_all
+arch.arm.zero_latency_interrupts.memalloc_max: arch.arm.zero_latency_interrupts.memalloc_max
 arch.arm.zero_latency_interrupts.rand32: arch.arm.zero_latency_interrupts.rand32
+arch.arm.zero_latency_interrupts.realloc: arch.arm.zero_latency_interrupts.realloc
 arch.common.xip: arch.common.xip
 arch.common.xip.globals: arch.common.xip.globals
 arch.common.xip.nondefault.globals: arch.common.xip.nondefault.globals
@@ -952,6 +960,10 @@ kernel.memory_protection.mmu.multi_pde_buffer_readable_write: kernel.memory_prot
 kernel.memory_protection.mmu.multi_pde_buffer_rw: kernel.memory_protection.mmu.multi_pde_buffer_rw
 kernel.memory_protection.mmu.multi_pde_buffer_writeable_write: kernel.memory_protection.mmu.multi_pde_buffer_writeable_write
 kernel.memory_protection.obj_validation: kernel.memory_protection.obj_validation
+kernel.memory_protection.obj_validation.fifo_cancel_wait: kernel.memory_protection.obj_validation.fifo_cancel_wait
+kernel.memory_protection.obj_validation.fifo_is_empty_isr: kernel.memory_protection.obj_validation.fifo_is_empty_isr
+kernel.memory_protection.obj_validation.fifo_is_empty_thread: kernel.memory_protection.obj_validation.fifo_is_empty_thread
+kernel.memory_protection.obj_validation.fifo_loop: kernel.memory_protection.obj_validation.fifo_loop
 kernel.memory_protection.obj_validation.generic_object: kernel.memory_protection.obj_validation.generic_object
 kernel.memory_protection.permission_inheritance: kernel.memory_protection.permission_inheritance
 kernel.memory_protection.protection: kernel.memory_protection.protection
@@ -1212,6 +1224,7 @@ kernel.poll.poll_multi: kernel.poll.poll_multi
 kernel.poll.poll_no_wait: kernel.poll.poll_no_wait
 kernel.poll.poll_threadstate: kernel.poll.poll_threadstate
 kernel.poll.poll_wait: kernel.poll.poll_wait
+kernel.poll.poll_zero_events: kernel.poll.poll_zero_events
 kernel.profiling: kernel.profiling
 kernel.profiling.call_stacks_analyze_idle: kernel.profiling.call_stacks_analyze_idle
 kernel.profiling.call_stacks_analyze_main: kernel.profiling.call_stacks_analyze_main
@@ -1667,6 +1680,7 @@ libraries.data_structures.ringbuffer_raw: libraries.data_structures.ringbuffer_r
 libraries.data_structures.ringbuffer_size_put_get_thread_isr: libraries.data_structures.ringbuffer_size_put_get_thread_isr
 libraries.encoding.base64_codec: libraries.encoding.base64_codec
 libraries.encoding.json: libraries.encoding.json
+libraries.encoding.json.arm_interrupt: libraries.encoding.json.arm_interrupt
 libraries.encoding.json.json_decoding: libraries.encoding.json.json_decoding
 libraries.encoding.json.json_decoding_array_array: libraries.encoding.json.json_decoding_array_array
 libraries.encoding.json.json_encoding: libraries.encoding.json.json_encoding
@@ -1749,6 +1763,21 @@ libraries.libc.minimal.reallocarray: libraries.libc.minimal.reallocarray
 libraries.libc.newlib: libraries.libc.newlib
 libraries.libc.newlib.calloc: libraries.libc.newlib.calloc
 libraries.libc.newlib.free: libraries.libc.newlib.free
+libraries.libc.newlib.json_escape: libraries.libc.newlib.json_escape
+libraries.libc.newlib.json_escape_bounds_check: libraries.libc.newlib.json_escape_bounds_check
+libraries.libc.newlib.json_escape_empty: libraries.libc.newlib.json_escape_empty
+libraries.libc.newlib.json_escape_no_op: libraries.libc.newlib.json_escape_no_op
+libraries.libc.newlib.json_escape_one: libraries.libc.newlib.json_escape_one
+libraries.libc.newlib.json_invalid_bool: libraries.libc.newlib.json_invalid_bool
+libraries.libc.newlib.json_invalid_null: libraries.libc.newlib.json_invalid_null
+libraries.libc.newlib.json_invalid_number: libraries.libc.newlib.json_invalid_number
+libraries.libc.newlib.json_invalid_string: libraries.libc.newlib.json_invalid_string
+libraries.libc.newlib.json_item_wrong_type: libraries.libc.newlib.json_item_wrong_type
+libraries.libc.newlib.json_key_not_in_descr: libraries.libc.newlib.json_key_not_in_descr
+libraries.libc.newlib.json_missing_quote: libraries.libc.newlib.json_missing_quote
+libraries.libc.newlib.json_obj_arr_decoding: libraries.libc.newlib.json_obj_arr_decoding
+libraries.libc.newlib.json_obj_arr_encoding: libraries.libc.newlib.json_obj_arr_encoding
+libraries.libc.newlib.json_wrong_token: libraries.libc.newlib.json_wrong_token
 libraries.libc.newlib.malloc: libraries.libc.newlib.malloc
 libraries.libc.newlib.memalloc_all: libraries.libc.newlib.memalloc_all
 libraries.libc.newlib.memalloc_max: libraries.libc.newlib.memalloc_max
@@ -1762,6 +1791,7 @@ libraries.libc.newlibnano.memalloc_max: libraries.libc.newlibnano.memalloc_max
 libraries.libc.newlibnano.realloc: libraries.libc.newlibnano.realloc
 libraries.libc.newlibnano.reallocarray: libraries.libc.newlibnano.reallocarray
 libraries.libc.sprintf: libraries.libc.sprintf
+libraries.libc.sprintf.arm_interrupt: libraries.libc.sprintf.arm_interrupt
 libraries.libc.sprintf.sprintf_double: libraries.libc.sprintf.sprintf_double
 libraries.libc.sprintf.sprintf_integer: libraries.libc.sprintf.sprintf_integer
 libraries.libc.sprintf.sprintf_misc: libraries.libc.sprintf.sprintf_misc
@@ -1809,6 +1839,7 @@ logging.log_list.jwt: logging.log_list.jwt
 logging.log_list.log_list: logging.log_list.log_list
 logging.log_list.log_list_multiple_items: logging.log_list.log_list_multiple_items
 logging.log_msg: logging.log_msg
+logging.log_msg.jwt: logging.log_msg.jwt
 logging.log_msg.log_hexdump_data_get_multiple_chunks: logging.log_msg.log_hexdump_data_get_multiple_chunks
 logging.log_msg.log_hexdump_data_get_single_chunk: logging.log_msg.log_hexdump_data_get_single_chunk
 logging.log_msg.log_hexdump_data_get_two_chunks: logging.log_msg.log_hexdump_data_get_two_chunks
@@ -2468,6 +2499,7 @@ net.socket.mgmt.net_mgmt_setup: net.socket.mgmt.net_mgmt_setup
 net.socket.misc: net.socket.misc
 net.socket.misc.gethostname: net.socket.misc.gethostname
 net.socket.misc.inet_pton: net.socket.misc.inet_pton
+net.socket.poll.poll: net.socket.poll.poll
 net.socket.register: net.socket.register
 net.socket.register.create_sockets: net.socket.register.create_sockets
 net.socket.register.tls: net.socket.register.tls
@@ -4118,6 +4150,8 @@ net.trickle.tTrickle 1 0x20000c00 callback called: net.trickle.tTrickle 1 0x2000
   callback called
 net.trickle.teTrickle 2 0x80000cc8 callback called: net.trickle.teTrickle 2 0x80000cc8
   callback called
+net.trickle.trTrickle 1 0x20400108 callback called: net.trickle.trTrickle 1 0x20400108
+  callback called
 net.trickle.triTrickle 1 0x20400108 callback called: net.trickle.triTrickle 1 0x20400108
   callback called
 net.trickle.trickTrickle 1 0x20000c00 callback called: net.trickle.trickTrickle 1
@@ -4320,6 +4354,7 @@ portability.cmsis_rtos_v1.mempool: portability.cmsis_rtos_v1.mempool
 portability.cmsis_rtos_v1.messageq: portability.cmsis_rtos_v1.messageq
 portability.cmsis_rtos_v1.mutex: portability.cmsis_rtos_v1.mutex
 portability.cmsis_rtos_v1.mutex_lock_timeout: portability.cmsis_rtos_v1.mutex_lock_timeout
+portability.cmsis_rtos_v1.mutexxx: portability.cmsis_rtos_v1.mutexxx
 portability.cmsis_rtos_v1.semaphore: portability.cmsis_rtos_v1.semaphore
 portability.cmsis_rtos_v1.signal_events_isr: portability.cmsis_rtos_v1.signal_events_isr
 portability.cmsis_rtos_v1.signal_events_no_wait: portability.cmsis_rtos_v1.signal_events_no_wait
@@ -4875,6 +4910,11 @@ system.settings.nvs.config_getset_int: system.settings.nvs.config_getset_int
 system.settings.nvs.config_getset_int64: system.settings.nvs.config_getset_int64
 system.settings.nvs.config_getset_unknown: system.settings.nvs.config_getset_unknown
 system.settings.nvs.config_insert: system.settings.nvs.config_insert
+test1.test: test1.test
+test100.test.test1: test100.test.test1
+test2.test: test2.test
+test3.test: test3.test
+test4.test: test4.test
 testing.ztest.assert: testing.ztest.assert
 testing.ztest.assert_mem_equal: testing.ztest.assert_mem_equal
 testing.ztest.assert_tests: testing.ztest.assert_tests
@@ -4926,6 +4966,7 @@ usb.device.tD: usb.device.tD
 usb.device.us: usb.device.us
 'usb.device.us: USB detected': 'usb.device.us: USB detected'
 'usb.device.usb_d: USB detected': 'usb.device.usb_d: USB detected'
+'usb.device.usb_dc_aD: USB detected': 'usb.device.usb_dc_aD: USB detected'
 usb.device.usb_dc_api: usb.device.usb_dc_api
 usb.device.usb_dc_api_invalid: usb.device.usb_dc_api_invalid
 usb.device.usb_dc_api_read_write: usb.device.usb_dc_api_read_write

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="59" errors="0" failures="2" name="" skipped="0" time="0">
+    <testsuite tests="63" errors="0" failures="2" name="" skipped="0" time="0">
           <testcase classname="twr_ke18f:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -34,6 +34,14 @@
           <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.user_string_copy" name="kernel.memory_protection.syscalls.user_string_copy" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation" name="kernel.memory_protection.obj_validation" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.fifo_cancel_wait" name="kernel.memory_protection.obj_validation.fifo_cancel_wait" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.fifo_is_empty_isr" name="kernel.memory_protection.obj_validation.fifo_is_empty_isr" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.fifo_is_empty_thread" name="kernel.memory_protection.obj_validation.fifo_is_empty_thread" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.fifo_loop" name="kernel.memory_protection.obj_validation.fifo_loop" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
           </testcase>
