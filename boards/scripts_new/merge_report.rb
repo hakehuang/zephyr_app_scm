@@ -31,7 +31,7 @@ end
 
 
 if __FILE__ == $0
-	tag = "v2.1.0-rc1"
+	tag = "mainline"
 	$log.level = Logger::INFO
 	if ! File.exist?("../report/all/")
 		FileUtils.mkdir "../report/all/"

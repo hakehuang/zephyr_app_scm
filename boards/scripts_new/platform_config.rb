@@ -8,6 +8,20 @@ $logger = Logger.new(STDOUT)
 $logger.level = Logger::WARN
 $site = "http://92.120.145.179:8080"
 
+class String
+    def scan(m)
+        results = []
+        logs = self.match(m).to_a
+        istring = self.match(m).string
+        while not logs.nil?
+            istring = istring.sub(logs[0], '')
+            results.insert(-1, logs[0])
+            logs = istring.match(m)
+        end
+        return results
+    end
+end
+
 def platforms()
     platforms_config = {
     "frdm_kl25z" => ["", "2", "drivers", "samples", "kernel", "kernel2"],
@@ -82,10 +96,11 @@ end
 
 def get_build_full_log(build_url)
     if get_build_status(build_url) == "SUCCESS"
+        results = []
         url  = URI::join(build_url, 'consoleFull').to_s
         fulllog = RestClient::Request.execute method: :get, url: url, user: 'zephyr', password: 'zephyr'
         html_log = CGI.unescapeHTML(fulllog.to_s)
-        results = html_log.match(/<testsuites((?!<\/testsuites>).|\n)+<\/testsuites>/m)
+        results = html_log.scan(/<testsuites((?!<\/testsuites>).|\n)+<\/testsuites>/)
         return results
     end
 end
@@ -126,7 +141,7 @@ def jobs_in_platfrom(vname, tplat = nil)
     return false
 end
 
-def get_no_pass_cases_by_plat(plat)
+def get_no_pass_cases_by_plat()
   jobs_hash = get_jobs()
   ret = {}
   jobs_hash.each do |v|
@@ -154,14 +169,17 @@ if __FILE__ == $0
 
 
   #puts jobs_in_platfrom("frdm_kl25_kernel2")
-
+=begin
   build_hash = get_latest_build("http://92.120.145.179:8080/job/failure_cases")
-  
+  puts build_hash['url']
   log = get_build_full_log(build_hash['url'])
-  log.to_a.each do |ll|
-    puts parser_log(ll)
-  end
-#=begin
+  puts log
+=end
+  #log.each do |ll|
+  #  puts ll
+  #  puts parser_log(ll)
+  #end
+=begin
   jobs_hash.each do |v|
     vname = v['name']
     if ! jobs_in_platfrom(vname)
@@ -174,9 +192,9 @@ if __FILE__ == $0
         end
     end
   end
+=end
 
-  get_no_pass_cases_by_plat("frdm_k64f")
-#=end
+ puts get_no_pass_cases_by_plat()
 
  return 0
 end
