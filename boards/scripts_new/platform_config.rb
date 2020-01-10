@@ -8,6 +8,7 @@ $logger = Logger.new(STDOUT)
 $logger.level = Logger::WARN
 $site = "http://92.120.145.179:8080"
 
+=begin
 class String
     def scan(m)
         results = []
@@ -21,6 +22,7 @@ class String
         return results
     end
 end
+=end
 
 def platforms()
     platforms_config = {
@@ -100,7 +102,8 @@ def get_build_full_log(build_url)
         url  = URI::join(build_url, 'consoleFull').to_s
         fulllog = RestClient::Request.execute method: :get, url: url, user: 'zephyr', password: 'zephyr'
         html_log = CGI.unescapeHTML(fulllog.to_s)
-        results = html_log.scan(/<testsuites((?!<\/testsuites>).|\n)+<\/testsuites>/)
+        #regex with no capture starting witn ?: which will return the whole group
+        results = html_log.scan(/<testsuites(?:(?!<\/testsuites>).|\n)+<\/testsuites>/)
         return results
     end
 end

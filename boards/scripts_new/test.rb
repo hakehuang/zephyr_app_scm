@@ -52,7 +52,7 @@ test result: Pass
 
 puts "use default scan does not work for global search"
 
-puts html_log.scan(/<testsuites((?!<\/testsuites>).|\n)+<\/testsuites>/m).to_a
+puts html_log.scan(/<testsuites(?:(?!<\/testsuites>).|\n)+<\/testsuites>/m).to_a
 
 
 puts "=========================="
