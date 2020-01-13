@@ -2,6 +2,7 @@ require 'rest-client'
 require 'logger'
 require 'json'
 require 'nokogiri'
+require 'awesome_print'
 
 
 $logger = Logger.new(STDOUT)
@@ -97,7 +98,7 @@ end
 
 
 def get_build_full_log(build_url)
-    if get_build_status(build_url) == "SUCCESS"
+    if get_build_status(build_url) != ""
         results = []
         url  = URI::join(build_url, 'consoleFull').to_s
         fulllog = RestClient::Request.execute method: :get, url: url, user: 'zephyr', password: 'zephyr'
@@ -149,6 +150,7 @@ def get_no_pass_cases_by_plat()
   ret = {}
   jobs_hash.each do |v|
     vname = v['name']
+    ret[vname] = []
     if ! jobs_in_platfrom(vname)
         puts "missing for #{vname}!!!!!!!"
     else
@@ -157,18 +159,23 @@ def get_no_pass_cases_by_plat()
         log = get_build_full_log(build_hash['url'])
         log.to_a.each do |ll|
             pll = parser_log(ll)
+            #puts pll
             if pll and pll["result"] != "pass"
-                ret.merge!(pll)
+                #puts pll
+                if ret[vname] and ! ret[vname].include?(pll)
+                    ret[vname].insert(-1, pll)
+                end
             end
         end
     end
   end
+  puts "============"
   return ret
 end
 
 if __FILE__ == $0
   #$logger.level = Logger::INFO
-  jobs_hash = get_jobs()
+  #jobs_hash = get_jobs()
 
 
   #puts jobs_in_platfrom("frdm_kl25_kernel2")
@@ -197,7 +204,7 @@ if __FILE__ == $0
   end
 =end
 
- puts get_no_pass_cases_by_plat()
+ ap get_no_pass_cases_by_plat()
 
  return 0
 end
