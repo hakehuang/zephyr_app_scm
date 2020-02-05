@@ -36,7 +36,7 @@ def platforms()
     "frdm_kw41z" => ["", "2", "drivers", "samples", "kernel", "kernel2"],
     "lpcxpresso54114_m0" => ["", "2", "drivers", "samples",  "kernel", "kernel2"],
     "lpcxpresso54114_m4" => ["", "2", "drivers", "samples",  "kernel", "kernel2"],
-
+    "mimxrt1010_evk" => ["", "2", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "mimxrt1015_evk" => ["", "2", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "mimxrt1020_evk" => ["", "2", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "mimxrt1050_evk" => ["", "2", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],

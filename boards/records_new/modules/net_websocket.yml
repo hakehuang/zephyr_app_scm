@@ -1,0 +1,8 @@
+---
+cases:
+  net.socket.websocket:
+    path: tests/net/socket/websocket
+    catalog: net websocket
+    min_ram: 21
+    platform_exclude: native_posix_64
+    depends_on: netif

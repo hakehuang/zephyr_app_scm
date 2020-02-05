@@ -193,8 +193,8 @@ cases:
     path: tests/kernel/timer/timer_api
     catalog: kernel userspace
     extra_args: CONF_FILE="prj_tickless.conf"
-    build_only: true
     arch_exclude: riscv32 nios2 posix
+    platform_exclude: qemu_x86_coverage qemu_cortex_m0
     attribute: required
   kernel.workqueue.api:
     path: tests/kernel/workq/work_queue_api
@@ -205,6 +205,7 @@ cases:
     path: tests/kernel/threads/dynamic_thread
     catalog: kernel threads userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_exclude: x86
     attribute: required
   kernel.threads.apis:
     path: tests/kernel/threads/thread_apis

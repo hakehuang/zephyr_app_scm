@@ -1,4 +1,3 @@
-C: C
 application_development.cpp.libcxx: application_development.cpp.libcxx
 application_development.cpp.libcxx.array: application_development.cpp.libcxx.array
 application_development.cpp.libcxx.exceptions: application_development.cpp.libcxx.exceptions
@@ -9,6 +8,8 @@ application_development.cpp.libcxx.make_unique: application_development.cpp.libc
 application_development.cpp.libcxx.vector: application_development.cpp.libcxx.vector
 application_development.cpp.main: application_development.cpp.main
 application_development.cpp.main.new_delete: application_development.cpp.main.new_delete
+arch.arm.irq_advanced_features.arm_dynamic_direct_interrupts: arch.arm.irq_advanced_features.arm_dynamic_direct_interrupts
+arch.arm.irq_advanced_features.arm_zero_latency_irqs: arch.arm.irq_advanced_features.arm_zero_latency_irqs
 arch.arm.ramfunc.arm_ramfunc: arch.arm.ramfunc.arm_ramfunc
 arch.arm.swap.common: arch.arm.swap.common
 arch.arm.swap.common.arm_thread_swap: arch.arm.swap.common.arm_thread_swap
@@ -36,9 +37,19 @@ arch.arm.swap.common.fp_sharing.no_optimizations: arch.arm.swap.common.fp_sharin
 arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap: arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap
 arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs: arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs
 arch.arm.swap.common.no_optimizations: arch.arm.swap.common.no_optimizations
+arch.arm.swap.common.no_optimizations.arm_interrupt: arch.arm.swap.common.no_optimizations.arm_interrupt
 arch.arm.swap.common.no_optimizations.arm_thread_swap: arch.arm.swap.common.no_optimizations.arm_thread_swap
+arch.arm.swap.common.no_optimizations.dhcp: arch.arm.swap.common.no_optimizations.dhcp
 arch.arm.swap.common.no_optimizations.log_hexdump_data_get_multiple_chunks: arch.arm.swap.common.no_optimizations.log_hexdump_data_get_multiple_chunks
 arch.arm.swap.common.no_optimizations.log_hexdump_data_get_two_chunks: arch.arm.swap.common.no_optimizations.log_hexdump_data_get_two_chunks
+arch.arm.swap.common.no_optimizations.rand32: arch.arm.swap.common.no_optimizations.rand32
+arch.arm.swap.common.ptp_clock_get_by_index: arch.arm.swap.common.ptp_clock_get_by_index
+arch.arm.swap.common.ptp_clock_get_by_index_user: arch.arm.swap.common.ptp_clock_get_by_index_user
+arch.arm.swap.common.ptp_clock_get_kernel: arch.arm.swap.common.ptp_clock_get_kernel
+arch.arm.swap.common.ptp_clock_get_user: arch.arm.swap.common.ptp_clock_get_user
+arch.arm.swap.common.ptp_clock_iface_1: arch.arm.swap.common.ptp_clock_iface_1
+arch.arm.swap.common.ptp_clock_iface_2: arch.arm.swap.common.ptp_clock_iface_2
+arch.arm.swap.common.ptp_clock_interfaces: arch.arm.swap.common.ptp_clock_interfaces
 arch.arm.swap.common.rand32: arch.arm.swap.common.rand32
 arch.arm.swap.common.usb_dc_api: arch.arm.swap.common.usb_dc_api
 arch.arm.swap.common.usb_dc_api_invalid: arch.arm.swap.common.usb_dc_api_invalid
@@ -61,6 +72,7 @@ arch.interrupt: arch.interrupt
 arch.interrupt.arc: arch.interrupt.arc
 arch.interrupt.arc.main: arch.interrupt.arc.main
 arch.interrupt.arm.arm_interrupt: arch.interrupt.arm.arm_interrupt
+arch.interrupt.arm.arm_user_interrupt: arch.interrupt.arm.arm_user_interrupt
 arch.interrupt.arm.irq_vector_table: arch.interrupt.arm.irq_vector_table
 arch.interrupt.arm.irq_vector_table.arm_irq_vector_table: arch.interrupt.arm.irq_vector_table.arm_irq_vector_table
 arch.interrupt.arm.irq_vector_table.arm_thread_swap: arch.interrupt.arm.irq_vector_table.arm_thread_swap
@@ -95,6 +107,7 @@ arch.interrupt.mbox_timed_out_mbox_get: arch.interrupt.mbox_timed_out_mbox_get
 arch.interrupt.nested_isr: arch.interrupt.nested_isr
 arch.interrupt.no_optimizations: arch.interrupt.no_optimizations
 arch.interrupt.no_optimizations.arm_interrupt: arch.interrupt.no_optimizations.arm_interrupt
+arch.interrupt.no_optimizations.arm_user_interrupt: arch.interrupt.no_optimizations.arm_user_interrupt
 arch.interrupt.no_optimizations.fatal: arch.interrupt.no_optimizations.fatal
 arch.interrupt.no_optimizations.usb_deconfig: arch.interrupt.no_optimizations.usb_deconfig
 arch.interrupt.no_optimizations.usb_disable: arch.interrupt.no_optimizations.usb_disable
@@ -117,7 +130,6 @@ arch.zero_latency_interrupts.log_output_string: arch.zero_latency_interrupts.log
 benchmark.boot_time: benchmark.boot_time
 benchmark.boot_time.main: benchmark.boot_time.main
 benchmark.crypto.mbedtls: benchmark.crypto.mbedtls
-benchmark.kernel: benchmark.kernel
 benchmark.kernel.application: benchmark.kernel.application
 benchmark.kernel.application.posix: benchmark.kernel.application.posix
 benchmark.kernel.boot_time: benchmark.kernel.boot_time
@@ -131,6 +143,7 @@ benchmark.latency.rand32: benchmark.latency.rand32
 benchmark.timing.default_kernel: benchmark.timing.default_kernel
 benchmark.timing.userspace: benchmark.timing.userspace
 bluetooth.at.at_test1: bluetooth.at.at_test1
+bluetooth.ctrl_sw_privacy.test.ctrl_sw_privacy: bluetooth.ctrl_sw_privacy.test.ctrl_sw_privacy
 bluetooth.ctrl_user_ext.test.ctrl_user_ext: bluetooth.ctrl_user_ext.test.ctrl_user_ext
 bluetooth.gatt.gatt_foreach: bluetooth.gatt.gatt_foreach
 bluetooth.gatt.gatt_read: bluetooth.gatt.gatt_read
@@ -244,6 +257,7 @@ crypto.hmac.hmac_6: crypto.hmac.hmac_6
 crypto.hmac.hmac_7: crypto.hmac.hmac_7
 crypto.hmac_prng.hmac_prng: crypto.hmac_prng.hmac_prng
 crypto.mbedtls: crypto.mbedtls
+crypto.mbedtls.arm_thread_swap: crypto.mbedtls.arm_thread_swap
 crypto.mbedtls.mbedtls: crypto.mbedtls.mbedtls
 crypto.mbedtls.rand32: crypto.mbedtls.rand32
 crypto.rand32: crypto.rand32
@@ -316,6 +330,7 @@ crypto.tinycrypt.sha256_7: crypto.tinycrypt.sha256_7
 crypto.tinycrypt.sha256_8: crypto.tinycrypt.sha256_8
 crypto.tinycrypt.sha256_9: crypto.tinycrypt.sha256_9
 dfu.image_util.collecting: dfu.image_util.collecting
+dfu.image_util.progressive.collecting: dfu.image_util.progressive.collecting
 dfu.mcuboot.bank_erase: dfu.mcuboot.bank_erase
 dfu.mcuboot.request_upgrade: dfu.mcuboot.request_upgrade
 dfu.mcuboot.write_confirm: dfu.mcuboot.write_confirm
@@ -361,6 +376,7 @@ drivers.counter.late_alarm_error: drivers.counter.late_alarm_error
 drivers.counter.multiple_alarms: drivers.counter.multiple_alarms
 drivers.counter.set_custom_top_value_fails: drivers.counter.set_custom_top_value_fails
 drivers.counter.set_top_value_with_alarm: drivers.counter.set_top_value_with_alarm
+drivers.counter.set_top_value_without_alarm: drivers.counter.set_top_value_without_alarm
 drivers.counter.short_relative_alarm: drivers.counter.short_relative_alarm
 drivers.counter.single_shot_alarm_notop: drivers.counter.single_shot_alarm_notop
 drivers.counter.single_shot_alarm_top: drivers.counter.single_shot_alarm_top
@@ -479,6 +495,15 @@ filesystem.fs_shell.fat_unlink: filesystem.fs_shell.fat_unlink
 filesystem.fs_shell.fat_write: filesystem.fs_shell.fat_write
 filesystem.fs_shell.fs_help: filesystem.fs_shell.fs_help
 filesystem.fs_shell.fs_shell_exit: filesystem.fs_shell.fs_shell_exit
+filesystem.fs_shell.littlefs_close: filesystem.fs_shell.littlefs_close
+filesystem.fs_shell.littlefs_mkdir: filesystem.fs_shell.littlefs_mkdir
+filesystem.fs_shell.littlefs_mount: filesystem.fs_shell.littlefs_mount
+filesystem.fs_shell.littlefs_open: filesystem.fs_shell.littlefs_open
+filesystem.fs_shell.littlefs_read: filesystem.fs_shell.littlefs_read
+filesystem.fs_shell.littlefs_readdir: filesystem.fs_shell.littlefs_readdir
+filesystem.fs_shell.littlefs_rmdir: filesystem.fs_shell.littlefs_rmdir
+filesystem.fs_shell.littlefs_unlink: filesystem.fs_shell.littlefs_unlink
+filesystem.fs_shell.littlefs_write: filesystem.fs_shell.littlefs_write
 filesystem.fs_shell.nffs_mkdir: filesystem.fs_shell.nffs_mkdir
 filesystem.fs_shell.nffs_mount: filesystem.fs_shell.nffs_mount
 filesystem.fs_shell.nffs_open: filesystem.fs_shell.nffs_open
@@ -506,6 +531,15 @@ filesystem.multifs.fat_unlink: filesystem.multifs.fat_unlink
 filesystem.multifs.fat_write: filesystem.multifs.fat_write
 filesystem.multifs.fs_help: filesystem.multifs.fs_help
 filesystem.multifs.fs_shell_exit: filesystem.multifs.fs_shell_exit
+filesystem.multifs.littlefs_close: filesystem.multifs.littlefs_close
+filesystem.multifs.littlefs_mkdir: filesystem.multifs.littlefs_mkdir
+filesystem.multifs.littlefs_mount: filesystem.multifs.littlefs_mount
+filesystem.multifs.littlefs_open: filesystem.multifs.littlefs_open
+filesystem.multifs.littlefs_read: filesystem.multifs.littlefs_read
+filesystem.multifs.littlefs_readdir: filesystem.multifs.littlefs_readdir
+filesystem.multifs.littlefs_rmdir: filesystem.multifs.littlefs_rmdir
+filesystem.multifs.littlefs_unlink: filesystem.multifs.littlefs_unlink
+filesystem.multifs.littlefs_write: filesystem.multifs.littlefs_write
 filesystem.multifs.nffs_mkdir: filesystem.multifs.nffs_mkdir
 filesystem.multifs.nffs_mount: filesystem.multifs.nffs_mount
 filesystem.multifs.nffs_open: filesystem.multifs.nffs_open
@@ -1083,6 +1117,7 @@ kernel.memory_protection.userspace.read_priv_stack: kernel.memory_protection.use
 kernel.memory_protection.userspace.revoke_noperms_object: kernel.memory_protection.userspace.revoke_noperms_object
 kernel.memory_protection.userspace.stack_buffer: kernel.memory_protection.userspace.stack_buffer
 kernel.memory_protection.userspace.start_kernel_thread: kernel.memory_protection.userspace.start_kernel_thread
+kernel.memory_protection.userspace.syscall_context: kernel.memory_protection.userspace.syscall_context
 kernel.memory_protection.userspace.unimplemented_syscall: kernel.memory_protection.userspace.unimplemented_syscall
 kernel.memory_protection.userspace.user_mode_enter: kernel.memory_protection.userspace.user_mode_enter
 kernel.memory_protection.userspace.write_control: kernel.memory_protection.userspace.write_control
@@ -1457,6 +1492,7 @@ kernel.semaphore.api.sema_count_get: kernel.semaphore.api.sema_count_get
 kernel.semaphore.api.sema_reset: kernel.semaphore.api.sema_reset
 kernel.semaphore.api.sema_thread2isr: kernel.semaphore.api.sema_thread2isr
 kernel.semaphore.api.sema_thread2thread: kernel.semaphore.api.sema_thread2thread
+kernel.semaphore.k_sema_init: kernel.semaphore.k_sema_init
 kernel.semaphore.sem_give_take_from_isr: kernel.semaphore.sem_give_take_from_isr
 kernel.semaphore.sem_measure_timeout_from_thread: kernel.semaphore.sem_measure_timeout_from_thread
 kernel.semaphore.sem_measure_timeouts: kernel.semaphore.sem_measure_timeouts
@@ -1741,6 +1777,7 @@ libraries.gui.lvgl.mono.add_delete_screen: libraries.gui.lvgl.mono.add_delete_sc
 libraries.gui.lvgl.mono.add_img: libraries.gui.lvgl.mono.add_img
 libraries.gui.lvgl.mono.get_default_screen: libraries.gui.lvgl.mono.get_default_screen
 libraries.libc: libraries.libc
+libraries.libc.arm_interrupt: libraries.libc.arm_interrupt
 libraries.libc.bsearch: libraries.libc.bsearch
 libraries.libc.limits: libraries.libc.limits
 libraries.libc.memcmp: libraries.libc.memcmp
@@ -1814,6 +1851,18 @@ libraries.libc.strncpy: libraries.libc.strncpy
 libraries.libc.strxspn: libraries.libc.strxspn
 libraries.libc.vsnprintf: libraries.libc.vsnprintf
 libraries.libc.vsprintf: libraries.libc.vsprintf
+libraries.onoff.async: libraries.onoff.async
+libraries.onoff.blocked_restart: libraries.onoff.blocked_restart
+libraries.onoff.cancel_release: libraries.onoff.cancel_release
+libraries.onoff.cancel_request_ok: libraries.onoff.cancel_request_ok
+libraries.onoff.cancel_request_waits: libraries.onoff.cancel_request_waits
+libraries.onoff.client_init_validation: libraries.onoff.client_init_validation
+libraries.onoff.half_sync: libraries.onoff.half_sync
+libraries.onoff.request: libraries.onoff.request
+libraries.onoff.reset: libraries.onoff.reset
+libraries.onoff.service_init_validation: libraries.onoff.service_init_validation
+libraries.onoff.sync: libraries.onoff.sync
+libraries.onoff.validate_args: libraries.onoff.validate_args
 libraries.os.fdtable: libraries.os.fdtable
 libraries.os.fdtable.arm_interrupt: libraries.os.fdtable.arm_interrupt
 libraries.os.fdtable.z_alloc_fd: libraries.os.fdtable.z_alloc_fd
@@ -2070,6 +2119,13 @@ net.context.net_ctx_sendto_v4: net.context.net_ctx_sendto_v4
 net.context.net_ctx_sendto_v6: net.context.net_ctx_sendto_v6
 net.dhcp: net.dhcp
 net.dhcp.dhcp: net.dhcp.dhcp
+net.dhcp.ptp_clock_get_by_index: net.dhcp.ptp_clock_get_by_index
+net.dhcp.ptp_clock_get_by_index_user: net.dhcp.ptp_clock_get_by_index_user
+net.dhcp.ptp_clock_get_kernel: net.dhcp.ptp_clock_get_kernel
+net.dhcp.ptp_clock_get_user: net.dhcp.ptp_clock_get_user
+net.dhcp.ptp_clock_iface_1: net.dhcp.ptp_clock_iface_1
+net.dhcp.ptp_clock_iface_2: net.dhcp.ptp_clock_iface_2
+net.dhcp.ptp_clock_interfaces: net.dhcp.ptp_clock_interfaces
 net.dns: net.dns
 net.dns.addremove: net.dns.addremove
 net.dns.addremove.dns_add_callback: net.dns.addremove.dns_add_callback
@@ -2403,6 +2459,13 @@ net.packet.fragment_compact: net.packet.fragment_compact
 net.packet.fragment_copy: net.packet.fragment_copy
 net.packet.fragment_split: net.packet.fragment_split
 net.packet.ipv6_multi_frags: net.packet.ipv6_multi_frags
+net.packet.large_buffer.net_pkt_advanced_basics: net.packet.large_buffer.net_pkt_advanced_basics
+net.packet.large_buffer.net_pkt_allocate_with_buffer: net.packet.large_buffer.net_pkt_allocate_with_buffer
+net.packet.large_buffer.net_pkt_allocate_wo_buffer: net.packet.large_buffer.net_pkt_allocate_wo_buffer
+net.packet.large_buffer.net_pkt_basics_of_rw: net.packet.large_buffer.net_pkt_basics_of_rw
+net.packet.large_buffer.net_pkt_copy: net.packet.large_buffer.net_pkt_copy
+net.packet.large_buffer.net_pkt_easier_rw_usage: net.packet.large_buffer.net_pkt_easier_rw_usage
+net.packet.large_buffer.net_pkt_pull: net.packet.large_buffer.net_pkt_pull
 net.packet.net_pkt_advanced_basics: net.packet.net_pkt_advanced_basics
 net.packet.net_pkt_allocate_with_buffer: net.packet.net_pkt_allocate_with_buffer
 net.packet.net_pkt_allocate_wo_buffer: net.packet.net_pkt_allocate_wo_buffer
@@ -2410,6 +2473,7 @@ net.packet.net_pkt_append_memset: net.packet.net_pkt_append_memset
 net.packet.net_pkt_basics_of_rw: net.packet.net_pkt_basics_of_rw
 net.packet.net_pkt_copy: net.packet.net_pkt_copy
 net.packet.net_pkt_easier_rw_usage: net.packet.net_pkt_easier_rw_usage
+net.packet.net_pkt_pull: net.packet.net_pkt_pull
 net.packet.pkt_pull: net.packet.pkt_pull
 net.packet.pkt_read_append: net.packet.pkt_read_append
 net.packet.pkt_read_write_insert: net.packet.pkt_read_write_insert
@@ -2436,6 +2500,7 @@ net.promisc.verify_data: net.promisc.verify_data
 net.ptp.clock: net.ptp.clock
 net.ptp.clock.address_setup: net.ptp.clock.address_setup
 net.ptp.clock.check_interfaces: net.ptp.clock.check_interfaces
+net.ptp.clock.loop: net.ptp.clock.loop
 net.ptp.clock.ptp_clock_get_by_index: net.ptp.clock.ptp_clock_get_by_index
 net.ptp.clock.ptp_clock_get_by_index_user: net.ptp.clock.ptp_clock_get_by_index_user
 net.ptp.clock.ptp_clock_get_kernel: net.ptp.clock.ptp_clock_get_kernel
@@ -2531,6 +2596,19 @@ net.socket.udp.v6_sendmsg_recvfrom: net.socket.udp.v6_sendmsg_recvfrom
 net.socket.udp.v6_sendmsg_recvfrom_connected: net.socket.udp.v6_sendmsg_recvfrom_connected
 net.socket.udp.v6_sendmsg_with_txtime: net.socket.udp.v6_sendmsg_with_txtime
 net.socket.udp.v6_sendto_recvfrom: net.socket.udp.v6_sendto_recvfrom
+net.socket.websocket.recv_10_byte: net.socket.websocket.recv_10_byte
+net.socket.websocket.recv_12_byte: net.socket.websocket.recv_12_byte
+net.socket.websocket.recv_1_byte: net.socket.websocket.recv_1_byte
+net.socket.websocket.recv_2_byte: net.socket.websocket.recv_2_byte
+net.socket.websocket.recv_3_byte: net.socket.websocket.recv_3_byte
+net.socket.websocket.recv_6_byte: net.socket.websocket.recv_6_byte
+net.socket.websocket.recv_7_byte: net.socket.websocket.recv_7_byte
+net.socket.websocket.recv_8_byte: net.socket.websocket.recv_8_byte
+net.socket.websocket.recv_9_byte: net.socket.websocket.recv_9_byte
+net.socket.websocket.recv_two_large_split_msg: net.socket.websocket.recv_two_large_split_msg
+net.socket.websocket.recv_two_msg: net.socket.websocket.recv_two_msg
+net.socket.websocket.recv_whole_msg: net.socket.websocket.recv_whole_msg
+net.socket.websocket.send_and_recv_lorem_ipsum: net.socket.websocket.send_and_recv_lorem_ipsum
 net.tcp: net.tcp
 net.tcp.simple: net.tcp.simple
 net.timestamp: net.timestamp
@@ -4148,9 +4226,13 @@ net.trickle.Trickle 1 0x80000c88 callback called: net.trickle.Trickle 1 0x80000c
 net.trickle.init: net.trickle.init
 net.trickle.tTrickle 1 0x20000c00 callback called: net.trickle.tTrickle 1 0x20000c00
   callback called
+net.trickle.tTrickle 1 0x20400108 callback called: net.trickle.tTrickle 1 0x20400108
+  callback called
 net.trickle.teTrickle 2 0x80000cc8 callback called: net.trickle.teTrickle 2 0x80000cc8
   callback called
 net.trickle.trTrickle 1 0x20400108 callback called: net.trickle.trTrickle 1 0x20400108
+  callback called
+net.trickle.trTrickle 1 0x80000c88 callback called: net.trickle.trTrickle 1 0x80000c88
   callback called
 net.trickle.triTrickle 1 0x20400108 callback called: net.trickle.triTrickle 1 0x20400108
   callback called
@@ -4158,6 +4240,8 @@ net.trickle.trickTrickle 1 0x20000c00 callback called: net.trickle.trickTrickle 
   0x20000c00 callback called
 net.trickle.tricklTrickle 1 0x20000c00 callback called: net.trickle.tricklTrickle
   1 0x20000c00 callback called
+net.trickle.trickle_1_Trickle 2 0x80000cc8 callback called: net.trickle.trickle_1_Trickle
+  2 0x80000cc8 callback called
 net.trickle.trickle_1_staTrickle 2 0x80000cc8 callback called: net.trickle.trickle_1_staTrickle
   2 0x80000cc8 callback called
 net.trickle.trickle_1_status: net.trickle.trickle_1_status
@@ -4176,6 +4260,8 @@ net.trickle.trickle_2_Trickle 1 0x80000c88 callback called: net.trickle.trickle_
   1 0x80000c88 callback called
 net.trickle.trickle_2_inc: net.trickle.trickle_2_inc
 net.trickle.trickle_2_status: net.trickle.trickle_2_status
+net.trickle.trickle_2_wTrickle 1 0x80000c88 callback called: net.trickle.trickle_2_wTrickle
+  1 0x80000c88 callback called
 net.trickle.trickle_2_wait: net.trickle.trickle_2_wait
 ? 'net.trickle.trickle_2_wait
 
@@ -4283,6 +4369,14 @@ peripheral.dma.interactive.dma_m2m_chan0_burst16: peripheral.dma.interactive.dma
 peripheral.dma.interactive.dma_m2m_chan0_burst8: peripheral.dma.interactive.dma_m2m_chan0_burst8
 peripheral.dma.interactive.dma_m2m_chan1_burst16: peripheral.dma.interactive.dma_m2m_chan1_burst16
 peripheral.dma.interactive.dma_m2m_chan1_burst8: peripheral.dma.interactive.dma_m2m_chan1_burst8
+peripheral.eeprom.generic.out_of_bounds: peripheral.eeprom.generic.out_of_bounds
+peripheral.eeprom.generic.size: peripheral.eeprom.generic.size
+peripheral.eeprom.generic.write_and_verify: peripheral.eeprom.generic.write_and_verify
+peripheral.eeprom.generic.zero_length_write: peripheral.eeprom.generic.zero_length_write
+peripheral.eeprom.out_of_bounds: peripheral.eeprom.out_of_bounds
+peripheral.eeprom.size: peripheral.eeprom.size
+peripheral.eeprom.write_and_verify: peripheral.eeprom.write_and_verify
+peripheral.eeprom.zero_length_write: peripheral.eeprom.zero_length_write
 peripheral.entropy: peripheral.entropy
 peripheral.entropy.entropy_get_entropy: peripheral.entropy.entropy_get_entropy
 peripheral.flash_simulator.access: peripheral.flash_simulator.access
@@ -4354,7 +4448,6 @@ portability.cmsis_rtos_v1.mempool: portability.cmsis_rtos_v1.mempool
 portability.cmsis_rtos_v1.messageq: portability.cmsis_rtos_v1.messageq
 portability.cmsis_rtos_v1.mutex: portability.cmsis_rtos_v1.mutex
 portability.cmsis_rtos_v1.mutex_lock_timeout: portability.cmsis_rtos_v1.mutex_lock_timeout
-portability.cmsis_rtos_v1.mutexxx: portability.cmsis_rtos_v1.mutexxx
 portability.cmsis_rtos_v1.semaphore: portability.cmsis_rtos_v1.semaphore
 portability.cmsis_rtos_v1.signal_events_isr: portability.cmsis_rtos_v1.signal_events_isr
 portability.cmsis_rtos_v1.signal_events_no_wait: portability.cmsis_rtos_v1.signal_events_no_wait
@@ -4517,19 +4610,17 @@ power_management.power_states.power_state: power_management.power_states.power_s
 sample.app_dev.external_lib: sample.app_dev.external_lib
 sample.app_dev.out_of_tree: sample.app_dev.out_of_tree
 sample.application_development.code_relocation: sample.application_development.code_relocation
-sample.basic.blink_led: sample.basic.blink_led
-sample.basic.blinky: sample.basic.blinky
 sample.basic.button: sample.basic.button
 sample.basic.fade_led: sample.basic.fade_led
 sample.basic.helloworld: sample.basic.helloworld
 sample.basic.rgb_led: sample.basic.rgb_led
-sample.basic.servo_motor: sample.basic.servo_motor
 sample.basic.threads: sample.basic.threads
 sample.bluetooth.beacon: sample.bluetooth.beacon
 sample.bluetooth.central: sample.bluetooth.central
 sample.bluetooth.central_hr: sample.bluetooth.central_hr
 sample.bluetooth.eddystone: sample.bluetooth.eddystone
 sample.bluetooth.handsfree: sample.bluetooth.handsfree
+sample.bluetooth.hci_pwr_ctrl: sample.bluetooth.hci_pwr_ctrl
 sample.bluetooth.hci_rpmsg: sample.bluetooth.hci_rpmsg
 sample.bluetooth.hci_spi: sample.bluetooth.hci_spi
 sample.bluetooth.hci_uart.arm: sample.bluetooth.hci_uart.arm
@@ -4555,6 +4646,7 @@ sample.bluetooth.peripheral_ht: sample.bluetooth.peripheral_ht
 sample.bluetooth.peripheral_ht.frdm_kw41z_shield: sample.bluetooth.peripheral_ht.frdm_kw41z_shield
 sample.bluetooth.peripheral_sc_only: sample.bluetooth.peripheral_sc_only
 sample.bluetooth.scan_adv: sample.bluetooth.scan_adv
+sample.bluetooth.st_ble_sensor: sample.bluetooth.st_ble_sensor
 sample.board.96b_argonkey.microphone: sample.board.96b_argonkey.microphone
 sample.board.96b_argonkey.sensors: sample.board.96b_argonkey.sensors
 sample.board.arc_secure_services: sample.board.arc_secure_services
@@ -4582,10 +4674,13 @@ sample.display.cfb_shell.ssd1306: sample.display.cfb_shell.ssd1306
 sample.display.cfb_shell.ssd16xx: sample.display.cfb_shell.ssd16xx
 sample.display.grove_display: sample.display.grove_display
 sample.display.ili9340: sample.display.ili9340
-sample.display.st7789v: sample.display.st7789v
+sample.display.st7789v_tl019fqv01: sample.display.st7789v_tl019fqv01
+sample.display.st7789v_waveshare_240x240: sample.display.st7789v_waveshare_240x240
 sample.display.waveshare_epaper_gdeh0213b1: sample.display.waveshare_epaper_gdeh0213b1
 sample.display.waveshare_epaper_gdeh0213b72: sample.display.waveshare_epaper_gdeh0213b72
 sample.display.waveshare_epaper_gdeh029a1: sample.display.waveshare_epaper_gdeh029a1
+sample.driver.lora.receive: sample.driver.lora.receive
+sample.driver.lora.send: sample.driver.lora.send
 sample.drivers.can: sample.drivers.can
 sample.drivers.counter.alarm: sample.drivers.counter.alarm
 sample.drivers.crypto.mbedtls: sample.drivers.crypto.mbedtls
@@ -4618,7 +4713,6 @@ sample.filesystem.littlefs: sample.filesystem.littlefs
 sample.filesystem.shell: sample.filesystem.shell
 sample.gui.lvgl: sample.gui.lvgl
 sample.ipc.ipm.ipm_imx: sample.ipc.ipm.ipm_imx
-sample.ipc.ipm.ipm_mcux: sample.ipc.ipm.ipm_mcux
 sample.ipc.ipm.ipm_mhu_dual_core: sample.ipc.ipm.ipm_mhu_dual_core
 sample.ipc.openamp: sample.ipc.openamp
 sample.kernel.memory_protection.shared_mem: sample.kernel.memory_protection.shared_mem
@@ -4650,6 +4744,7 @@ sample.minimal.no-mt-no-timers.x86: sample.minimal.no-mt-no-timers.x86
 sample.minimal.no-mt.arm: sample.minimal.no-mt.arm
 sample.minimal.no-mt.x86: sample.minimal.no-mt.x86
 sample.mpu.mpu_test: sample.mpu.mpu_test
+sample.net.cloud.mqtt_azure: sample.net.cloud.mqtt_azure
 sample.net.dhcpv4_client: sample.net.dhcpv4_client
 sample.net.dns_resolve.llmnr: sample.net.dns_resolve.llmnr
 sample.net.dns_resolve.mdns: sample.net.dns_resolve.mdns
@@ -4717,6 +4812,8 @@ sample.net.telnet: sample.net.telnet
 sample.net.vlan: sample.net.vlan
 sample.net.wifi: sample.net.wifi
 sample.net.wpan.serial: sample.net.wpan.serial
+sample.net.wpan_serial.frdm_cr20a: sample.net.wpan_serial.frdm_cr20a
+sample.net.wpanusb: sample.net.wpanusb
 sample.net.wpanusb_frdm_cr20a: sample.net.wpanusb_frdm_cr20a
 sample.net.zperf: sample.net.zperf
 sample.net.zperf.netusb_ecm: sample.net.zperf.netusb_ecm
@@ -4747,6 +4844,7 @@ sample.sensor.bme680: sample.sensor.bme680
 sample.sensor.bmg160: sample.sensor.bmg160
 sample.sensor.bmm150: sample.sensor.bmm150
 sample.sensor.ccs811: sample.sensor.ccs811
+sample.sensor.dht: sample.sensor.dht
 sample.sensor.ens210: sample.sensor.ens210
 sample.sensor.fxas21002: sample.sensor.fxas21002
 sample.sensor.fxos8700: sample.sensor.fxos8700
@@ -4755,8 +4853,10 @@ sample.sensor.grove_temperature: sample.sensor.grove_temperature
 sample.sensor.hmc5883l: sample.sensor.hmc5883l
 sample.sensor.hts221: sample.sensor.hts221
 sample.sensor.iaqcore: sample.sensor.iaqcore
+sample.sensor.isl29035: sample.sensor.isl29035
 sample.sensor.lis2dh: sample.sensor.lis2dh
 sample.sensor.lps22hb: sample.sensor.lps22hb
+sample.sensor.lps22hh.nrf52.iks01a3: sample.sensor.lps22hh.nrf52.iks01a3
 sample.sensor.lsm303dlhc: sample.sensor.lsm303dlhc
 sample.sensor.lsm6dsl: sample.sensor.lsm6dsl
 sample.sensor.magn_polling: sample.sensor.magn_polling
@@ -4764,6 +4864,7 @@ sample.sensor.max30101: sample.sensor.max30101
 sample.sensor.max44009: sample.sensor.max44009
 sample.sensor.mcp9808: sample.sensor.mcp9808
 sample.sensor.ms5837: sample.sensor.ms5837
+sample.sensor.shell: sample.sensor.shell
 sample.sensor.sht3xd: sample.sensor.sht3xd
 sample.sensor.sht3xd.trigger: sample.sensor.sht3xd.trigger
 sample.sensor.sx9500: sample.sensor.sx9500
@@ -4797,6 +4898,7 @@ sample.usb.webusb: sample.usb.webusb
 sample.userspace.prod_consumer: sample.userspace.prod_consumer
 sample.video.capture: sample.video.capture
 sample.video.tcpserversink: sample.video.tcpserversink
+section.subsection.test1: section.subsection.test1
 sensors.build.a_h: sensors.build.a_h
 sensors.build.i_z: sensors.build.i_z
 sensors.build.stmemsc: sensors.build.stmemsc
@@ -4910,11 +5012,6 @@ system.settings.nvs.config_getset_int: system.settings.nvs.config_getset_int
 system.settings.nvs.config_getset_int64: system.settings.nvs.config_getset_int64
 system.settings.nvs.config_getset_unknown: system.settings.nvs.config_getset_unknown
 system.settings.nvs.config_insert: system.settings.nvs.config_insert
-test1.test: test1.test
-test100.test.test1: test100.test.test1
-test2.test: test2.test
-test3.test: test3.test
-test4.test: test4.test
 testing.ztest.assert: testing.ztest.assert
 testing.ztest.assert_mem_equal: testing.ztest.assert_mem_equal
 testing.ztest.assert_tests: testing.ztest.assert_tests
@@ -4966,12 +5063,19 @@ usb.device.tD: usb.device.tD
 usb.device.us: usb.device.us
 'usb.device.us: USB detected': 'usb.device.us: USB detected'
 'usb.device.usb_d: USB detected': 'usb.device.usb_d: USB detected'
+'usb.device.usb_dD: USB detected': 'usb.device.usb_dD: USB detected'
 'usb.device.usb_dc_aD: USB detected': 'usb.device.usb_dc_aD: USB detected'
 usb.device.usb_dc_api: usb.device.usb_dc_api
 usb.device.usb_dc_api_invalid: usb.device.usb_dc_api_invalid
 usb.device.usb_dc_api_read_write: usb.device.usb_dc_api_read_write
 'usb.device.usb_deD: USB detected': 'usb.device.usb_deD: USB detected'
 usb.device.usb_deconfig: usb.device.usb_deconfig
+? 'usb.device.usb_deconfig
+
+  D: USB detected'
+: 'usb.device.usb_deconfig
+
+  D: USB detected'
 usb.device.usb_disable: usb.device.usb_disable
 usb.osdesc.osdesc_feature: usb.osdesc.osdesc_feature
 usb.osdesc.osdesc_string: usb.osdesc.osdesc_string
@@ -4987,6 +5091,7 @@ utilities.crc.crc7_be: utilities.crc.crc7_be
 utilities.crc.crc8_ccitt: utilities.crc.crc8_ccitt
 utilities.dec.COND_CODE_0: utilities.dec.COND_CODE_0
 utilities.dec.COND_CODE_1: utilities.dec.COND_CODE_1
+utilities.dec.IF_ENABLED: utilities.dec.IF_ENABLED
 utilities.dec.UTIL_LISTIFY: utilities.dec.UTIL_LISTIFY
 utilities.dec.u8_to_dec: utilities.dec.u8_to_dec
 utilities.dec.z_max_z_min: utilities.dec.z_max_z_min

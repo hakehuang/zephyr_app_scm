@@ -151,6 +151,11 @@ cases:
     catalog: sensors
     depends_on: i2c
     filter: dt_compat_enabled("microchip,mcp9808")
+  sample.sensor.mpu6050:
+    path: samples/sensor/mpu6050
+    catalog: sensors
+    build_only: true
+    platform_whitelist: nrf52_pca10040
   sample.sensor.ms5837:
     path: samples/sensor/ms5837
     catalog: sensors

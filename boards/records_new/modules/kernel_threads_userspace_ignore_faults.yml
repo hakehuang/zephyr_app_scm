@@ -4,6 +4,7 @@ cases:
     path: tests/kernel/threads/dynamic_thread
     catalog: kernel threads userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_exclude: x86
   kernel.threads.apis:
     path: tests/kernel/threads/thread_apis
     catalog: kernel threads userspace ignore_faults

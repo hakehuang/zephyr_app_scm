@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="209" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="224" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="mimxrt1060_evk:net.ipv6.fragment" name="net.ipv6.fragment" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.ipv6.fragment.find_last_ipv6_fragment_hbho_1" name="net.ipv6.fragment.find_last_ipv6_fragment_hbho_1" time="0">
@@ -261,6 +261,20 @@
           </testcase>
           <testcase classname="mimxrt1060_evk:net.dhcp.dhcp" name="net.dhcp.dhcp" time="0">
           </testcase>
+          <testcase classname="mimxrt1060_evk:net.dhcp.ptp_clock_get_by_index" name="net.dhcp.ptp_clock_get_by_index" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.dhcp.ptp_clock_get_by_index_user" name="net.dhcp.ptp_clock_get_by_index_user" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.dhcp.ptp_clock_get_kernel" name="net.dhcp.ptp_clock_get_kernel" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.dhcp.ptp_clock_get_user" name="net.dhcp.ptp_clock_get_user" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.dhcp.ptp_clock_iface_1" name="net.dhcp.ptp_clock_iface_1" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.dhcp.ptp_clock_iface_2" name="net.dhcp.ptp_clock_iface_2" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.dhcp.ptp_clock_interfaces" name="net.dhcp.ptp_clock_interfaces" time="0">
+          </testcase>
           <testcase classname="mimxrt1060_evk:net.offload" name="net.offload" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.offload.address_setup" name="net.offload.address_setup" time="0">
@@ -391,6 +405,20 @@
           </testcase>
           <testcase classname="mimxrt1060_evk:net.packet.ipv6_multi_frags" name="net.packet.ipv6_multi_frags" time="0">
           </testcase>
+          <testcase classname="mimxrt1060_evk:net.packet.large_buffer.net_pkt_advanced_basics" name="net.packet.large_buffer.net_pkt_advanced_basics" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.packet.large_buffer.net_pkt_allocate_with_buffer" name="net.packet.large_buffer.net_pkt_allocate_with_buffer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.packet.large_buffer.net_pkt_allocate_wo_buffer" name="net.packet.large_buffer.net_pkt_allocate_wo_buffer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.packet.large_buffer.net_pkt_basics_of_rw" name="net.packet.large_buffer.net_pkt_basics_of_rw" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.packet.large_buffer.net_pkt_copy" name="net.packet.large_buffer.net_pkt_copy" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.packet.large_buffer.net_pkt_easier_rw_usage" name="net.packet.large_buffer.net_pkt_easier_rw_usage" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.packet.large_buffer.net_pkt_pull" name="net.packet.large_buffer.net_pkt_pull" time="0">
+          </testcase>
           <testcase classname="mimxrt1060_evk:net.packet.net_pkt_advanced_basics" name="net.packet.net_pkt_advanced_basics" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.packet.net_pkt_allocate_with_buffer" name="net.packet.net_pkt_allocate_with_buffer" time="0">
@@ -404,6 +432,8 @@
           <testcase classname="mimxrt1060_evk:net.packet.net_pkt_copy" name="net.packet.net_pkt_copy" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.packet.net_pkt_easier_rw_usage" name="net.packet.net_pkt_easier_rw_usage" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.packet.net_pkt_pull" name="net.packet.net_pkt_pull" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.packet.pkt_pull" name="net.packet.pkt_pull" time="0">
           </testcase>

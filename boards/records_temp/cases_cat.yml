@@ -52,6 +52,9 @@ out_of_tree:
     path: samples/application_development/out_of_tree_board
     catalog: out_of_tree
     platform_whitelist: nrf52840_pca10056 nrf52_pca10040
+  drivers.out_of_tree:
+    path: samples/application_development/out_of_tree_driver
+    catalog: out_of_tree
 drivers pwm:
   sample.basic.blink_led:
     path: samples/basic/blink_led
@@ -158,12 +161,17 @@ unknown:
     extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;x86.conf'
     build_only: true
     platform_whitelist: qemu_x86
-  sample.bluetooth.peripheral_hr.x_nucleo_idb05a1_shield:
+  sample.bluetooth.peripheral.x_nucleo_idb05a1_shield:
     path: samples/bluetooth/peripheral
     catalog: unknown
     extra_args: SHIELD=x_nucleo_idb05a1
     platform_whitelist: nucleo_l4r5zi
     depends_on: arduino_spi arduino_gpio
+  sample.display.shield.waveshare_epaper_gdeh0213b1:
+    path: samples/drivers/display
+    catalog: unknown
+    extra_args: SHIELD=waveshare_epaper_gdeh0213b1
+    platform_whitelist: nrf52840_pca10056
   sample.net.sockets.civetweb:
     path: samples/net/sockets/civetweb
     catalog: unknown
@@ -291,7 +299,7 @@ bluetooth:
   sample.bluetooth.peripheral:
     path: samples/bluetooth/peripheral
     catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
+    platform_whitelist: qemu_cortex_m3 qemu_x86 nucleo_wb55rg
   sample.bluetooth.peripheral_csc:
     path: samples/bluetooth/peripheral_csc
     catalog: bluetooth
@@ -389,6 +397,10 @@ bluetooth:
     catalog: bluetooth
     platform_whitelist: nrf52_bsim
     build_only: true
+  bluetooth.privacy.test:
+    path: tests/bluetooth/ctrl_sw_privacy_unit
+    catalog: bluetooth
+    platform_whitelist: native_posix
   bluetooth.ctrl_user_ext.test:
     path: tests/bluetooth/ctrl_user_ext
     catalog: bluetooth
@@ -810,6 +822,11 @@ sensors:
     catalog: sensors
     depends_on: i2c
     filter: dt_compat_enabled("microchip,mcp9808")
+  sample.sensor.mpu6050:
+    path: samples/sensor/mpu6050
+    catalog: sensors
+    build_only: true
+    platform_whitelist: nrf52_pca10040
   sample.sensor.ms5837:
     path: samples/sensor/ms5837
     catalog: sensors
@@ -883,11 +900,23 @@ display:
     path: samples/display/cfb_shell
     catalog: display
     platform_whitelist: reel_board
-  sample.display.ili9340:
-    path: samples/display/ili9340
+  sample.display.mcux_elcdif:
+    path: samples/drivers/display
+    catalog: display
+    platform_whitelist: mimxrt1050_evk
+  sample.display.sdl:
+    path: samples/drivers/display
     catalog: display
     build_only: true
-    platform_whitelist: nucleo_l476rg nrf52_pca10040
+    platform_whitelist: native_posix_64
+  sample.display.dummy:
+    path: samples/drivers/display
+    catalog: display
+    extra_configs:
+    - CONFIG_DUMMY_DISPLAY=y
+    - CONFIG_SDL_DISPLAY=n
+    - CONFIG_TEST=y
+    platform_whitelist: native_posix
   sample.drivers.lcd.hd44780:
     path: samples/drivers/lcd_hd44780
     catalog: display
@@ -918,6 +947,12 @@ i2s:
     path: samples/boards/intel_s1000_crb/i2s
     catalog: i2s
     platform_whitelist: intel_s1000_crb
+battery:
+  sample.boards.nrf.battery:
+    path: samples/boards/nrf/battery
+    catalog: battery
+    build_only: true
+    platform_whitelist: particle_xenon nrf52_pca20020
 board:
   sample.board.nrf91.nrfx:
     path: samples/boards/nrf/nrfx
@@ -992,25 +1027,30 @@ shield:
     extra_args: SHIELD=ssd1306_128x32
     platform_whitelist: frdm_k64f
   sample.display.adafruit_2_8_tft_touch_v2:
-    path: samples/gui/lvgl
+    path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
     platform_whitelist: nrf52840_pca10056
   sample.display.waveshare_epaper_gdeh0213b1:
-    path: samples/gui/lvgl
+    path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh0213b1
     platform_whitelist: nrf52840_pca10056
   sample.display.waveshare_epaper_gdeh0213b72:
-    path: samples/gui/lvgl
+    path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh0213b72
     platform_whitelist: nrf52840_pca10056
   sample.display.waveshare_epaper_gdeh029a1:
-    path: samples/gui/lvgl
+    path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh029a1
     platform_whitelist: nrf52840_pca10056
+  sample.shields.lmp90100_evb.rtd:
+    path: samples/shields/lmp90100_evb/rtd
+    catalog: shield
+    platform_whitelist: frdm_k64f
+    depends_on: arduino_spi
   sample.shields.x_nucleo_iks01a1:
     path: samples/shields/x_nucleo_iks01a1
     catalog: shield
@@ -1047,11 +1087,6 @@ drivers:
     catalog: drivers
     depends_on: i2c
     filter: dt_alias_exists("i2c-0")
-  sample.drivers.i2c_scanner:
-    path: samples/drivers/i2c_scanner
-    catalog: drivers
-    platform_whitelist: nrf52840_blip nrf51_ble400
-    depends_on: i2c
   sample.drivers.kscan:
     path: samples/drivers/kscan
     catalog: drivers
@@ -1157,11 +1192,6 @@ drivers:
     path: tests/drivers/counter/counter_cmos
     catalog: drivers
     arch_whitelist: x86
-  drivers.pinmux:
-    path: tests/drivers/pinmux/pinmux_basic_api
-    catalog: drivers
-    filter: dt_alias_exists("gpio-0") or dt_alias_exists("gpio-1")
-    depends_on: gpio
   drivers.uart.uart_async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
@@ -1181,24 +1211,21 @@ drivers:
     extra_args: CONF_FILE=prj_shell.conf
     min_flash: 64
     filter: CONFIG_UART_CONSOLE
-display shield:
-  sample.display.st7789v_tl019fqv01:
-    path: samples/display/st7789v
-    catalog: display shield
-    extra_args: SHIELD=st7789v_tl019fqv01
-    build_only: true
-    platform_whitelist: nrf52_pca10040
-  sample.display.st7789v_waveshare_240x240:
-    path: samples/display/st7789v
-    catalog: display shield
-    extra_args: SHIELD=st7789v_waveshare_240x240
-    build_only: true
-    platform_whitelist: nrf52_pca10040
+samples display gui:
+  sample.gui.lvgl:
+    path: samples/display/lvgl
+    catalog: samples display gui
+    platform_whitelist: reel_board mimxrt1050_evk mimxrt1060_evk mimxrt1064_evk
 CAN:
   sample.drivers.can:
     path: samples/drivers/CAN
     catalog: CAN
     depends_on: can
+  sample.subsys.canbus.canopen:
+    path: samples/subsys/canbus/canopen
+    catalog: CAN
+    depends_on: can
+    platform_whitelist: twr_ke18f frdm_k64f
 crypto:
   sample.drivers.crypto.mbedtls:
     path: samples/drivers/crypto
@@ -1212,14 +1239,41 @@ crypto:
     catalog: crypto
     min_ram: 20
     arch_exclude: xtensa
-  sample.drivers.entropy:
-    path: samples/drivers/entropy
-    catalog: crypto
-    filter: CONFIG_ENTROPY_HAS_DRIVER
   benchmark.crypto.mbedtls:
     path: tests/benchmarks/mbedtls
     catalog: crypto
     platform_whitelist: qemu_x86 frdm_k64f sam_e70_xplained nrf52840_pca10056
+display shield:
+  sample.display.shield.adafruit_2_8_tft_touch_v2:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=adafruit_2_8_tft_touch_v2
+    platform_whitelist: nrf52840_pca10056
+  sample.display.shield.ssd1306_128x32:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=ssd1306_128x32
+    platform_whitelist: nrf52840_pca10056
+  sample.display.shield.ssd1306_128x64:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=ssd1306_128x64
+    platform_whitelist: nrf52840_pca10056
+  sample.display.st7789v_tl019fqv01:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=st7789v_tl019fqv01
+    platform_whitelist: nrf52_pca10040
+  sample.display.st7789v_waveshare_240x240:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=st7789v_waveshare_240x240
+    platform_whitelist: nrf52_pca10040
+crypto entropy:
+  sample.drivers.entropy:
+    path: samples/drivers/entropy
+    catalog: crypto entropy
+    filter: CONFIG_ENTROPY_HAS_DRIVER
 flash shell:
   sample.drivers.flash.shell:
     path: samples/drivers/flash_shell
@@ -1270,10 +1324,10 @@ lora:
     path: samples/drivers/lora/send
     catalog: lora
     platform_whitelist: 96b_wistrio
-flash nrf52:
-  'sample.drivers.flash.soc_flash_nrf:':
+flash nrf52 nrf9160:
+  sample.drivers.flash.soc_flash_nrf:
     path: samples/drivers/soc_flash_nrf
-    catalog: flash nrf52
+    catalog: flash nrf52 nrf9160
     platform_whitelist: nrf52_pca10040 nrf9160_pca10090 nrf9160_pca10090ns
 spi flash:
   sample.drivers.spi.flash:
@@ -1294,12 +1348,7 @@ drivers fram:
     path: samples/drivers/spi_fujitsu_fram
     catalog: drivers fram
     depends_on: gpio spi
-    filter: CONFIG_SPI_1
-samples display gui:
-  sample.gui.lvgl:
-    path: samples/gui/lvgl
-    catalog: samples display gui
-    platform_whitelist: reel_board mimxrt1050_evk mimxrt1060_evk mimxrt1064_evk
+    filter: dt_alias_exists("spi-1")
 introduction:
   sample.basic.helloworld:
     path: samples/hello_world
@@ -1446,6 +1495,14 @@ net:
     catalog: net
     min_ram: 20
     depends_on: netif
+  net.packet.large_buffer:
+    path: tests/net/net_pkt
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_BUF_FIXED_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_SIZE=512
+    min_ram: 20
+    depends_on: netif
   net.udp:
     path: tests/net/udp
     catalog: net
@@ -1536,11 +1593,6 @@ net mqtt bluetooth:
     path: samples/net/mqtt_publisher
     catalog: net mqtt bluetooth
     platform_whitelist: 96b_nitrogen
-net nats:
-  sample.net.nats:
-    path: samples/net/nats
-    catalog: net nats
-    depends_on: netif
 net promisc:
   sample.net.promiscuous_mode:
     path: samples/net/promiscuous_mode
@@ -1855,7 +1907,7 @@ userspace:
     path: samples/userspace/shared_mem
     catalog: userspace
     filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_exclude: twr_ke18f
+    platform_exclude: twr_ke18f qemu_x86_64
 net sockets packet-socket:
   sample.net.sockets.packet:
     path: samples/net/sockets/packet
@@ -2189,6 +2241,10 @@ settings:
     catalog: settings
     depends_on: nvs
     platform_exclude: qemu_x86
+  sample.subsys.settings:
+    path: samples/subsys/settings
+    catalog: settings
+    platform_whitelist: qemu_x86 native_posix native_posix_64
 msd usb:
   sample.usb.mass_flash:
     path: samples/subsys/usb/mass
@@ -2234,6 +2290,12 @@ arm interrupt ignore_faults:
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=1024
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_whitelist: arm
+arm interrupt:
+  arch.arm.irq_advanced_features:
+    path: tests/arch/arm/arm_irq_advanced_features
+    catalog: arm interrupt
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_whitelist: arm
 arm interrupt vector_table:
@@ -2287,12 +2349,6 @@ arm:
     arch_whitelist: arm
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
     min_flash: 192
-arm interrupt:
-  arch.arm.zero_latency_interrupts:
-    path: tests/arch/arm/arm_zero_latency_irqs
-    catalog: arm interrupt
-    filter: CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_whitelist: arm
 mmu:
   kernel.memory_protection.x86.bootpage.validation:
     path: tests/arch/x86/boot_page_table
@@ -2585,25 +2641,26 @@ crypto mbedtls userspace:
     filter: not CONFIG_DEBUG
     min_flash: 65
     min_ram: 36
-crypto security:
+crypto random security:
   crypto.rand32:
     path: tests/crypto/rand32
-    catalog: crypto security
+    catalog: crypto random security
     min_ram: 16
   crypto.rand32.random_sw_systimer:
     path: tests/crypto/rand32
-    catalog: crypto security
+    catalog: crypto random security
     extra_args: CONF_FILE=prj_sw_random_systimer.conf
     min_ram: 16
+crypto entropy random security:
   crypto.rand32.random_hw_xoroshiro:
     path: tests/crypto/rand32
-    catalog: crypto security
+    catalog: crypto entropy random security
     extra_args: CONF_FILE=prj_hw_random_xoroshiro.conf
     filter: CONFIG_ENTROPY_HAS_DRIVER
     min_ram: 16
   crypto.rand32.random_ctr_drbg:
     path: tests/crypto/rand32
-    catalog: crypto security
+    catalog: crypto entropy random security
     extra_args: CONF_FILE=prj_ctr_drbg.conf
     filter: CONFIG_ENTROPY_HAS_DRIVER
     min_ram: 16
@@ -2648,10 +2705,10 @@ drivers dma:
     catalog: drivers dma
     depends_on: dma
 drivers userspace:
-  drivers.eeprom:
+  peripheral.eeprom:
     path: tests/drivers/eeprom
     catalog: drivers userspace
-    platform_whitelist: native_posix native_posix_64
+    platform_whitelist: native_posix native_posix_64 qemu_x86
   peripheral.eeprom.generic:
     path: tests/drivers/eeprom
     catalog: drivers userspace
@@ -2660,11 +2717,12 @@ drivers userspace:
     path: tests/drivers/i2s/i2s_api
     catalog: drivers userspace
     depends_on: i2s
-driver:
+driver entropy:
   drivers.entropy:
     path: tests/drivers/entropy/api
-    catalog: driver
+    catalog: driver entropy
     filter: CONFIG_ENTROPY_HAS_DRIVER
+driver:
   drivers.flash.flash_simulator:
     path: tests/drivers/flash_simulator
     catalog: driver
@@ -2803,8 +2861,8 @@ kernel userspace:
     path: tests/kernel/timer/timer_api
     catalog: kernel userspace
     extra_args: CONF_FILE="prj_tickless.conf"
-    build_only: true
     arch_exclude: riscv32 nios2 posix
+    platform_exclude: qemu_x86_coverage qemu_cortex_m0
   kernel.workqueue.api:
     path: tests/kernel/workq/work_queue_api
     catalog: kernel userspace
@@ -2984,6 +3042,7 @@ kernel threads userspace ignore_faults:
     path: tests/kernel/threads/dynamic_thread
     catalog: kernel threads userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_exclude: x86
   kernel.threads.apis:
     path: tests/kernel/threads/thread_apis
     catalog: kernel threads userspace ignore_faults
@@ -3107,6 +3166,10 @@ clib newlib userspace:
     path: tests/lib/mem_alloc
     catalog: clib newlib userspace
     extra_args: CONF_FILE=prj_newlibnano.conf
+onoff timer:
+  libraries.onoff:
+    path: tests/lib/onoff
+    catalog: onoff timer
 ring_buffer circular_buffer:
   libraries.data_structures:
     path: tests/lib/ringbuffer
@@ -3411,6 +3474,13 @@ net socket udp:
     path: tests/net/socket/udp
     catalog: net socket udp
     min_ram: 21
+    depends_on: netif
+net websocket:
+  net.socket.websocket:
+    path: tests/net/socket/websocket
+    catalog: net websocket
+    min_ram: 21
+    platform_exclude: native_posix_64
     depends_on: netif
 net tcp:
   net.tcp.simple:
@@ -3964,40 +4034,17 @@ flash_circural_buffer:
     catalog: flash_circural_buffer
     platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028 native_posix
       native_posix_64
-nffs fatfs filesystem:
+littlefs fatfs filesystem qemu_x86:
   filesystem.multifs:
     path: tests/subsys/fs/multi-fs
-    catalog: nffs fatfs filesystem
-    platform_whitelist: qemu_x86
+    catalog: littlefs fatfs filesystem qemu_x86
+    platform_whitelist: native_posix qemu_x86
+littlefs fatfs filesystem:
   filesystem.fs_shell:
     path: tests/subsys/fs/multi-fs
-    catalog: nffs fatfs filesystem
+    catalog: littlefs fatfs filesystem
     extra_args: CONF_FILE="prj_fs_shell.conf"
-    platform_whitelist: qemu_x86
-nffs filesystem:
-  filesystem.nffs.basic:
-    path: tests/subsys/fs/nffs_fs_api/basic
-    catalog: nffs filesystem
-    extra_args: TEST=basic
-    platform_whitelist: qemu_x86 nrf52840_pca10056
-  filesystem.nffs.cache:
-    path: tests/subsys/fs/nffs_fs_api/cache
-    catalog: nffs filesystem
-    extra_configs:
-    - CONFIG_FS_NFFS_NUM_CACHE_BLOCKS=64
-    - CONFIG_FS_NFFS_NUM_CACHE_INODES=4
-    extra_args: TEST=cache
-    platform_whitelist: qemu_x86 nrf52840_pca10056
-  filesystem.nffs.large:
-    path: tests/subsys/fs/nffs_fs_api/large
-    catalog: nffs filesystem
-    extra_args: TEST=large
-    platform_whitelist: qemu_x86 nrf52840_pca10056
-  filesystem.nffs.performance:
-    path: tests/subsys/fs/nffs_fs_api/performance
-    catalog: nffs filesystem
-    extra_args: TEST=performance
-    platform_whitelist: qemu_x86 nrf52840_pca10056
+    platform_whitelist: native_posix qemu_x86
 jwt:
   libraries.encoding.jwt:
     path: tests/subsys/jwt
@@ -4056,11 +4103,6 @@ settings_fs settings_littlefs:
     path: tests/subsys/settings/littlefs/raw
     catalog: settings_fs settings_littlefs
     platform_whitelist: nrf52840_pca10056 native_posix native_posix_64
-settings_fs:
-  system.settings.nffs:
-    path: tests/subsys/settings/nffs/raw
-    catalog: settings_fs
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 native_posix native_posix_64
 flash_map:
   storage.flash_map:
     path: tests/subsys/storage/flash_map

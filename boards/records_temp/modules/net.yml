@@ -48,6 +48,14 @@ cases:
     catalog: net
     min_ram: 20
     depends_on: netif
+  net.packet.large_buffer:
+    path: tests/net/net_pkt
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_BUF_FIXED_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_SIZE=512
+    min_ram: 20
+    depends_on: netif
   net.udp:
     path: tests/net/udp
     catalog: net

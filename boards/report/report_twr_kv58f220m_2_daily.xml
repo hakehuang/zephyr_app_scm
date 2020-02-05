@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="152" errors="0" failures="0" name="" skipped="1" time="0">
+    <testsuite tests="154" errors="0" failures="0" name="" skipped="1" time="0">
          <testcase classname="twr_kv58f220m:sample.kernel.memory_protection.shared_mem" name="sample.kernel.memory_protection.shared_mem" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -222,6 +222,8 @@
           </testcase>
           <testcase classname="twr_kv58f220m:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
           </testcase>
+          <testcase classname="twr_kv58f220m:arch.interrupt.arm.arm_user_interrupt" name="arch.interrupt.arm.arm_user_interrupt" time="0">
+          </testcase>
           <testcase classname="twr_kv58f220m:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
@@ -285,6 +287,8 @@
           <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations.arm_interrupt" name="arch.interrupt.no_optimizations.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations.arm_user_interrupt" name="arch.interrupt.no_optimizations.arm_user_interrupt" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
           </testcase>

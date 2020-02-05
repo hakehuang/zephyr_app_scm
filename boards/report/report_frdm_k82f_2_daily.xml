@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="154" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="155" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="frdm_k82f:arch.common.xip" name="arch.common.xip" time="0">
           </testcase>
           <testcase classname="frdm_k82f:arch.common.xip.globals" name="arch.common.xip.globals" time="0">
@@ -113,8 +113,6 @@
           </testcase>
           <testcase classname="frdm_k82f:libraries.libc.sprintf_string" name="libraries.libc.sprintf_string" time="0">
           </testcase>
-          <testcase classname="frdm_k82f:sample.basic.blinky" name="sample.basic.blinky" time="0">
-          </testcase>
           <testcase classname="frdm_k82f:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
           </testcase>
           <testcase classname="frdm_k82f:libraries.encoding.jwt.jwt" name="libraries.encoding.jwt.jwt" time="0">
@@ -223,6 +221,8 @@
           </testcase>
           <testcase classname="frdm_k82f:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
           </testcase>
+          <testcase classname="frdm_k82f:arch.interrupt.arm.arm_user_interrupt" name="arch.interrupt.arm.arm_user_interrupt" time="0">
+          </testcase>
           <testcase classname="frdm_k82f:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
           </testcase>
           <testcase classname="frdm_k82f:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
@@ -286,6 +286,8 @@
           <testcase classname="frdm_k82f:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
           </testcase>
           <testcase classname="frdm_k82f:arch.interrupt.no_optimizations.arm_interrupt" name="arch.interrupt.no_optimizations.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="frdm_k82f:arch.interrupt.no_optimizations.arm_user_interrupt" name="arch.interrupt.no_optimizations.arm_user_interrupt" time="0">
           </testcase>
           <testcase classname="frdm_k82f:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
           </testcase>

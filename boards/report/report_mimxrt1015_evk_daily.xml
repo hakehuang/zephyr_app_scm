@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="230" errors="0" failures="5" name="" skipped="8" time="0">
+    <testsuite tests="235" errors="0" failures="6" name="" skipped="8" time="0">
          <testcase classname="mimxrt1015_evk:libraries.libc.newlibnano.calloc" name="libraries.libc.newlibnano.calloc" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -27,6 +27,10 @@
           </failure>
           </testcase>
           <testcase classname="mimxrt1015_evk:arch.interrupt.no_optimizations.arm_interrupt" name="arch.interrupt.no_optimizations.arm_interrupt" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.interrupt.no_optimizations.arm_user_interrupt" name="arch.interrupt.no_optimizations.arm_user_interrupt" time="0">
           <failure message="failed" type="failure">
           </failure>
           </testcase>
@@ -165,8 +169,6 @@
           </testcase>
           <testcase classname="mimxrt1015_evk:portability.cmsis_rtos_v1.mutex_lock_timeout" name="portability.cmsis_rtos_v1.mutex_lock_timeout" time="0">
           </testcase>
-          <testcase classname="mimxrt1015_evk:portability.cmsis_rtos_v1.mutexxx" name="portability.cmsis_rtos_v1.mutexxx" time="0">
-          </testcase>
           <testcase classname="mimxrt1015_evk:portability.cmsis_rtos_v1.semaphore" name="portability.cmsis_rtos_v1.semaphore" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:portability.cmsis_rtos_v1.signal_events_isr" name="portability.cmsis_rtos_v1.signal_events_isr" time="0">
@@ -250,6 +252,8 @@
           <testcase classname="mimxrt1015_evk:libraries.libc.minimal.mem_alloc.reallocarray" name="libraries.libc.minimal.mem_alloc.reallocarray" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:libraries.libc" name="libraries.libc" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:libraries.libc.arm_interrupt" name="libraries.libc.arm_interrupt" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:libraries.libc.bsearch" name="libraries.libc.bsearch" time="0">
           </testcase>
@@ -395,6 +399,8 @@
           </testcase>
           <testcase classname="mimxrt1015_evk:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
           </testcase>
+          <testcase classname="mimxrt1015_evk:arch.interrupt.arm.arm_user_interrupt" name="arch.interrupt.arm.arm_user_interrupt" time="0">
+          </testcase>
           <testcase classname="mimxrt1015_evk:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
@@ -407,23 +413,9 @@
           </testcase>
           <testcase classname="mimxrt1015_evk:arch.interrupt.arm_thread_swap" name="arch.interrupt.arm_thread_swap" time="0">
           </testcase>
-          <testcase classname="mimxrt1015_evk:arch.arm.zero_latency_interrupts.arm_interrupt" name="arch.arm.zero_latency_interrupts.arm_interrupt" time="0">
+          <testcase classname="mimxrt1015_evk:arch.arm.irq_advanced_features.arm_dynamic_direct_interrupts" name="arch.arm.irq_advanced_features.arm_dynamic_direct_interrupts" time="0">
           </testcase>
-          <testcase classname="mimxrt1015_evk:arch.arm.zero_latency_interrupts.arm_zero_latency_irqs" name="arch.arm.zero_latency_interrupts.arm_zero_latency_irqs" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:arch.arm.zero_latency_interrupts.calloc" name="arch.arm.zero_latency_interrupts.calloc" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:arch.arm.zero_latency_interrupts.free" name="arch.arm.zero_latency_interrupts.free" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:arch.arm.zero_latency_interrupts.malloc" name="arch.arm.zero_latency_interrupts.malloc" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:arch.arm.zero_latency_interrupts.memalloc_all" name="arch.arm.zero_latency_interrupts.memalloc_all" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:arch.arm.zero_latency_interrupts.memalloc_max" name="arch.arm.zero_latency_interrupts.memalloc_max" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:arch.arm.zero_latency_interrupts.rand32" name="arch.arm.zero_latency_interrupts.rand32" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:arch.arm.zero_latency_interrupts.realloc" name="arch.arm.zero_latency_interrupts.realloc" time="0">
+          <testcase classname="mimxrt1015_evk:arch.arm.irq_advanced_features.arm_zero_latency_irqs" name="arch.arm.irq_advanced_features.arm_zero_latency_irqs" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:arch.arm.swap.common" name="arch.arm.swap.common" time="0">
           </testcase>
@@ -477,11 +469,31 @@
           </testcase>
           <testcase classname="mimxrt1015_evk:arch.arm.swap.common.no_optimizations" name="arch.arm.swap.common.no_optimizations" time="0">
           </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.no_optimizations.arm_interrupt" name="arch.arm.swap.common.no_optimizations.arm_interrupt" time="0">
+          </testcase>
           <testcase classname="mimxrt1015_evk:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.no_optimizations.dhcp" name="arch.arm.swap.common.no_optimizations.dhcp" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:arch.arm.swap.common.no_optimizations.log_hexdump_data_get_multiple_chunks" name="arch.arm.swap.common.no_optimizations.log_hexdump_data_get_multiple_chunks" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:arch.arm.swap.common.no_optimizations.log_hexdump_data_get_two_chunks" name="arch.arm.swap.common.no_optimizations.log_hexdump_data_get_two_chunks" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.no_optimizations.rand32" name="arch.arm.swap.common.no_optimizations.rand32" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.ptp_clock_get_by_index" name="arch.arm.swap.common.ptp_clock_get_by_index" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.ptp_clock_get_by_index_user" name="arch.arm.swap.common.ptp_clock_get_by_index_user" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.ptp_clock_get_kernel" name="arch.arm.swap.common.ptp_clock_get_kernel" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.ptp_clock_get_user" name="arch.arm.swap.common.ptp_clock_get_user" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.ptp_clock_iface_1" name="arch.arm.swap.common.ptp_clock_iface_1" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.ptp_clock_iface_2" name="arch.arm.swap.common.ptp_clock_iface_2" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:arch.arm.swap.common.ptp_clock_interfaces" name="arch.arm.swap.common.ptp_clock_interfaces" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:arch.arm.swap.common.rand32" name="arch.arm.swap.common.rand32" time="0">
           </testcase>

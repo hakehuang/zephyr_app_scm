@@ -19,11 +19,6 @@ cases:
     catalog: drivers
     depends_on: i2c
     filter: dt_alias_exists("i2c-0")
-  sample.drivers.i2c_scanner:
-    path: samples/drivers/i2c_scanner
-    catalog: drivers
-    platform_whitelist: nrf52840_blip nrf51_ble400
-    depends_on: i2c
   sample.drivers.kscan:
     path: samples/drivers/kscan
     catalog: drivers
@@ -129,11 +124,6 @@ cases:
     path: tests/drivers/counter/counter_cmos
     catalog: drivers
     arch_whitelist: x86
-  drivers.pinmux:
-    path: tests/drivers/pinmux/pinmux_basic_api
-    catalog: drivers
-    filter: dt_alias_exists("gpio-0") or dt_alias_exists("gpio-1")
-    depends_on: gpio
   drivers.uart.uart_async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers

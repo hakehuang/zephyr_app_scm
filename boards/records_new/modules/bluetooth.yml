@@ -44,7 +44,7 @@ cases:
   sample.bluetooth.peripheral:
     path: samples/bluetooth/peripheral
     catalog: bluetooth
-    platform_whitelist: qemu_cortex_m3 qemu_x86
+    platform_whitelist: qemu_cortex_m3 qemu_x86 nucleo_wb55rg
   sample.bluetooth.peripheral_csc:
     path: samples/bluetooth/peripheral_csc
     catalog: bluetooth
@@ -142,6 +142,10 @@ cases:
     catalog: bluetooth
     platform_whitelist: nrf52_bsim
     build_only: true
+  bluetooth.privacy.test:
+    path: tests/bluetooth/ctrl_sw_privacy_unit
+    catalog: bluetooth
+    platform_whitelist: native_posix
   bluetooth.ctrl_user_ext.test:
     path: tests/bluetooth/ctrl_user_ext
     catalog: bluetooth

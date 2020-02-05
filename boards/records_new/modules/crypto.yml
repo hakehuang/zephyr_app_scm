@@ -12,10 +12,6 @@ cases:
     catalog: crypto
     min_ram: 20
     arch_exclude: xtensa
-  sample.drivers.entropy:
-    path: samples/drivers/entropy
-    catalog: crypto
-    filter: CONFIG_ENTROPY_HAS_DRIVER
   benchmark.crypto.mbedtls:
     path: tests/benchmarks/mbedtls
     catalog: crypto

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="258" errors="0" failures="3" name="" skipped="0" time="0">
+    <testsuite tests="263" errors="0" failures="3" name="" skipped="0" time="0">
           <testcase classname="mimxrt1060_evk:sample.nfc.hello" name="sample.nfc.hello" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -67,15 +67,21 @@
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.tTrickle 1 0x20000c00 callback called" name="net.trickle.tTrickle 1 0x20000c00 callback called" time="0">
           </testcase>
+          <testcase classname="mimxrt1060_evk:net.trickle.tTrickle 1 0x20400108 callback called" name="net.trickle.tTrickle 1 0x20400108 callback called" time="0">
+          </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.teTrickle 2 0x80000cc8 callback called" name="net.trickle.teTrickle 2 0x80000cc8 callback called" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.trTrickle 1 0x20400108 callback called" name="net.trickle.trTrickle 1 0x20400108 callback called" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.trickle.trTrickle 1 0x80000c88 callback called" name="net.trickle.trTrickle 1 0x80000c88 callback called" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.triTrickle 1 0x20400108 callback called" name="net.trickle.triTrickle 1 0x20400108 callback called" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.trickTrickle 1 0x20000c00 callback called" name="net.trickle.trickTrickle 1 0x20000c00 callback called" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.tricklTrickle 1 0x20000c00 callback called" name="net.trickle.tricklTrickle 1 0x20000c00 callback called" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.trickle.trickle_1_Trickle 2 0x80000cc8 callback called" name="net.trickle.trickle_1_Trickle 2 0x80000cc8 callback called" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.trickle_1_staTrickle 2 0x80000cc8 callback called" name="net.trickle.trickle_1_staTrickle 2 0x80000cc8 callback called" time="0">
           </testcase>
@@ -98,6 +104,8 @@
           <testcase classname="mimxrt1060_evk:net.trickle.trickle_2_inc" name="net.trickle.trickle_2_inc" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.trickle_2_status" name="net.trickle.trickle_2_status" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.trickle.trickle_2_wTrickle 1 0x80000c88 callback called" name="net.trickle.trickle_2_wTrickle 1 0x80000c88 callback called" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.trickle.trickle_2_wait" name="net.trickle.trickle_2_wait" time="0">
           </testcase>
@@ -334,6 +342,8 @@
           <testcase classname="mimxrt1060_evk:net.ptp.clock.address_setup" name="net.ptp.clock.address_setup" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.ptp.clock.check_interfaces" name="net.ptp.clock.check_interfaces" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.ptp.clock.loop" name="net.ptp.clock.loop" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:net.ptp.clock.ptp_clock_get_by_index" name="net.ptp.clock.ptp_clock_get_by_index" time="0">
           </testcase>

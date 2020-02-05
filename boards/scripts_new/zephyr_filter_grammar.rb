@@ -511,6 +511,6 @@ if __FILE__ == $0
     #$log.info  zephyr_filter_parser("dt_compat_enabled_with_alias(\"gpio-keys\", \"sw0\")", board_hash)
 =end
     $log.info  zephyr_filter_parser("CONFIG_ENTROPY_HAS_DRIVER", board_hash)    
-
+    $log.info  parser.parse("(SAND < 4)")
 
 end

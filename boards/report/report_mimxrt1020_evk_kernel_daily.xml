@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="272" errors="0" failures="2" name="" skipped="0" time="0">
+    <testsuite tests="273" errors="0" failures="2" name="" skipped="0" time="0">
           <testcase classname="mimxrt1020_evk:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -434,6 +434,8 @@
           <testcase classname="mimxrt1020_evk:kernel.memory_protection.userspace.stack_buffer" name="kernel.memory_protection.userspace.stack_buffer" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.memory_protection.userspace.start_kernel_thread" name="kernel.memory_protection.userspace.start_kernel_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.userspace.syscall_context" name="kernel.memory_protection.userspace.syscall_context" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.memory_protection.userspace.unimplemented_syscall" name="kernel.memory_protection.userspace.unimplemented_syscall" time="0">
           </testcase>

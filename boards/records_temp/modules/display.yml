@@ -16,11 +16,23 @@ cases:
     path: samples/display/cfb_shell
     catalog: display
     platform_whitelist: reel_board
-  sample.display.ili9340:
-    path: samples/display/ili9340
+  sample.display.mcux_elcdif:
+    path: samples/drivers/display
+    catalog: display
+    platform_whitelist: mimxrt1050_evk
+  sample.display.sdl:
+    path: samples/drivers/display
     catalog: display
     build_only: true
-    platform_whitelist: nucleo_l476rg nrf52_pca10040
+    platform_whitelist: native_posix_64
+  sample.display.dummy:
+    path: samples/drivers/display
+    catalog: display
+    extra_configs:
+    - CONFIG_DUMMY_DISPLAY=y
+    - CONFIG_SDL_DISPLAY=n
+    - CONFIG_TEST=y
+    platform_whitelist: native_posix
   sample.drivers.lcd.hd44780:
     path: samples/drivers/lcd_hd44780
     catalog: display

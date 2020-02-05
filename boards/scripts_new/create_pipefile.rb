@@ -192,6 +192,7 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "ERROR"
     next if ! @content["cases"][key].has_key?('path')
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
+
     catalog = @content["cases"][key]['catalog'].gsub(' ', '_')
     pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]

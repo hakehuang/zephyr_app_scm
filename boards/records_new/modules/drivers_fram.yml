@@ -4,4 +4,4 @@ cases:
     path: samples/drivers/spi_fujitsu_fram
     catalog: drivers fram
     depends_on: gpio spi
-    filter: CONFIG_SPI_1
+    filter: dt_alias_exists("spi-1")

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="157" errors="0" failures="1" name="" skipped="0" time="0">
+    <testsuite tests="158" errors="0" failures="1" name="" skipped="0" time="0">
           <testcase classname="frdm_k64f:sample.net.dns_resolve.mdns" name="sample.net.dns_resolve.mdns" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -121,8 +121,6 @@
           </testcase>
           <testcase classname="frdm_k64f:libraries.libc.sprintf_string" name="libraries.libc.sprintf_string" time="0">
           </testcase>
-          <testcase classname="frdm_k64f:sample.basic.blinky" name="sample.basic.blinky" time="0">
-          </testcase>
           <testcase classname="frdm_k64f:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
           </testcase>
           <testcase classname="frdm_k64f:libraries.encoding.jwt.jwt" name="libraries.encoding.jwt.jwt" time="0">
@@ -231,6 +229,8 @@
           </testcase>
           <testcase classname="frdm_k64f:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
           </testcase>
+          <testcase classname="frdm_k64f:arch.interrupt.arm.arm_user_interrupt" name="arch.interrupt.arm.arm_user_interrupt" time="0">
+          </testcase>
           <testcase classname="frdm_k64f:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
           </testcase>
           <testcase classname="frdm_k64f:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
@@ -294,6 +294,8 @@
           <testcase classname="frdm_k64f:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
           </testcase>
           <testcase classname="frdm_k64f:arch.interrupt.no_optimizations.arm_interrupt" name="arch.interrupt.no_optimizations.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:arch.interrupt.no_optimizations.arm_user_interrupt" name="arch.interrupt.no_optimizations.arm_user_interrupt" time="0">
           </testcase>
           <testcase classname="frdm_k64f:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
           </testcase>

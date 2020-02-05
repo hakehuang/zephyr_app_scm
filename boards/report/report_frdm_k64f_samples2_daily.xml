@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="262" errors="0" failures="4" name="" skipped="0" time="0">
+    <testsuite tests="268" errors="0" failures="4" name="" skipped="0" time="0">
           <testcase classname="frdm_k64f:sample.net.sockets.echo_server.mcr20a" name="sample.net.sockets.echo_server.mcr20a" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -71,15 +71,21 @@
           </testcase>
           <testcase classname="frdm_k64f:net.trickle.tTrickle 1 0x20000c00 callback called" name="net.trickle.tTrickle 1 0x20000c00 callback called" time="0">
           </testcase>
+          <testcase classname="frdm_k64f:net.trickle.tTrickle 1 0x20400108 callback called" name="net.trickle.tTrickle 1 0x20400108 callback called" time="0">
+          </testcase>
           <testcase classname="frdm_k64f:net.trickle.teTrickle 2 0x80000cc8 callback called" name="net.trickle.teTrickle 2 0x80000cc8 callback called" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.trickle.trTrickle 1 0x20400108 callback called" name="net.trickle.trTrickle 1 0x20400108 callback called" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:net.trickle.trTrickle 1 0x80000c88 callback called" name="net.trickle.trTrickle 1 0x80000c88 callback called" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.trickle.triTrickle 1 0x20400108 callback called" name="net.trickle.triTrickle 1 0x20400108 callback called" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.trickle.trickTrickle 1 0x20000c00 callback called" name="net.trickle.trickTrickle 1 0x20000c00 callback called" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.trickle.tricklTrickle 1 0x20000c00 callback called" name="net.trickle.tricklTrickle 1 0x20000c00 callback called" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:net.trickle.trickle_1_Trickle 2 0x80000cc8 callback called" name="net.trickle.trickle_1_Trickle 2 0x80000cc8 callback called" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.trickle.trickle_1_staTrickle 2 0x80000cc8 callback called" name="net.trickle.trickle_1_staTrickle 2 0x80000cc8 callback called" time="0">
           </testcase>
@@ -102,6 +108,8 @@
           <testcase classname="frdm_k64f:net.trickle.trickle_2_inc" name="net.trickle.trickle_2_inc" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.trickle.trickle_2_status" name="net.trickle.trickle_2_status" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:net.trickle.trickle_2_wTrickle 1 0x80000c88 callback called" name="net.trickle.trickle_2_wTrickle 1 0x80000c88 callback called" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.trickle.trickle_2_wait" name="net.trickle.trickle_2_wait" time="0">
           </testcase>
@@ -337,6 +345,8 @@
           </testcase>
           <testcase classname="frdm_k64f:net.ptp.clock.check_interfaces" name="net.ptp.clock.check_interfaces" time="0">
           </testcase>
+          <testcase classname="frdm_k64f:net.ptp.clock.loop" name="net.ptp.clock.loop" time="0">
+          </testcase>
           <testcase classname="frdm_k64f:net.ptp.clock.ptp_clock_get_by_index" name="net.ptp.clock.ptp_clock_get_by_index" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.ptp.clock.ptp_clock_get_by_index_user" name="net.ptp.clock.ptp_clock_get_by_index_user" time="0">
@@ -446,6 +456,8 @@
           <testcase classname="frdm_k64f:net.neighbour.neighbor" name="net.neighbour.neighbor" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.net.nats" name="sample.net.nats" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.cloud.mqtt_azure" name="sample.net.cloud.mqtt_azure" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.net.mqtt_publisher" name="sample.net.mqtt_publisher" time="0">
           </testcase>

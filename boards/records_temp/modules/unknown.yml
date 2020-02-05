@@ -65,12 +65,17 @@ cases:
     extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;x86.conf'
     build_only: true
     platform_whitelist: qemu_x86
-  sample.bluetooth.peripheral_hr.x_nucleo_idb05a1_shield:
+  sample.bluetooth.peripheral.x_nucleo_idb05a1_shield:
     path: samples/bluetooth/peripheral
     catalog: unknown
     extra_args: SHIELD=x_nucleo_idb05a1
     platform_whitelist: nucleo_l4r5zi
     depends_on: arduino_spi arduino_gpio
+  sample.display.shield.waveshare_epaper_gdeh0213b1:
+    path: samples/drivers/display
+    catalog: unknown
+    extra_args: SHIELD=waveshare_epaper_gdeh0213b1
+    platform_whitelist: nrf52840_pca10056
   sample.net.sockets.civetweb:
     path: samples/net/sockets/civetweb
     catalog: unknown

@@ -5,3 +5,7 @@ cases:
     catalog: settings
     depends_on: nvs
     platform_exclude: qemu_x86
+  sample.subsys.settings:
+    path: samples/subsys/settings
+    catalog: settings
+    platform_whitelist: qemu_x86 native_posix native_posix_64
