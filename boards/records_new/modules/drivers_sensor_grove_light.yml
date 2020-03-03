@@ -3,4 +3,5 @@ cases:
   sample.sensor.grove_light:
     path: samples/sensor/grove_light
     catalog: drivers sensor grove light
+    platform_whitelist: nrf52_pca10040
     depends_on: adc

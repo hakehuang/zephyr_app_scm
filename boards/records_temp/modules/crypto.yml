@@ -12,6 +12,14 @@ cases:
     catalog: crypto
     min_ram: 20
     arch_exclude: xtensa
+  sample.drivers.crypto.stm32:
+    path: samples/drivers/crypto
+    catalog: crypto
+    extra_args: CONF_FILE=prj_stm32.conf
+    platform_whitelist: mikroe_mini_m4_for_stm32
+    build_only: true
+    min_ram: 20
+    arch_exclude: xtensa
   benchmark.crypto.mbedtls:
     path: tests/benchmarks/mbedtls
     catalog: crypto

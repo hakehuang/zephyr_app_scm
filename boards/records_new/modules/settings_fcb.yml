@@ -1,5 +1,13 @@
 ---
 cases:
+  system.settings.fcb.base64:
+    path: tests/subsys/settings/fcb/base64
+    catalog: settings_fcb
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 native_posix native_posix_64
+  system.settings.fcb.raw:
+    path: tests/subsys/settings/fcb/raw
+    catalog: settings_fcb
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 native_posix native_posix_64
   system.settings.functional.fcb:
     path: tests/subsys/settings/functional/fcb
     catalog: settings_fcb

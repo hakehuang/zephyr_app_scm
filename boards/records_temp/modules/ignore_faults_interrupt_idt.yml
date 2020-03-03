@@ -4,4 +4,4 @@ cases:
     path: tests/arch/x86/static_idt
     catalog: ignore_faults interrupt idt
     arch_whitelist: x86
-    platform_exclude: qemu_x86_64
+    filter: not CONFIG_X86_64

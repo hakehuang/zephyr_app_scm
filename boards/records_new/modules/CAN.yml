@@ -9,3 +9,7 @@ cases:
     catalog: CAN
     depends_on: can
     platform_whitelist: twr_ke18f frdm_k64f
+  sample.subsys.canbus.isotp:
+    path: samples/subsys/canbus/isotp
+    catalog: CAN
+    depends_on: can

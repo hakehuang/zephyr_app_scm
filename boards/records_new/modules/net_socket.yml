@@ -134,5 +134,6 @@ cases:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: cc3220sf_launchxl cc3235sf_launchxl
     min_ram: 32
     min_flash: 80

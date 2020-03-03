@@ -670,6 +670,10 @@ bluetooth net:
     catalog: bluetooth net
     extra_args: CONF_FILE="prj_zep1656.conf"
     platform_whitelist: qemu_x86 qemu_cortex_m3
+Bluetooth Mesh Provisioner:
+  samples.bluetooth.mesh_provisioner:
+    path: samples/bluetooth/mesh_provisioner
+    catalog: Bluetooth Mesh Provisioner
 sensors:
   sample.board.96b_argonkey.microphone:
     path: samples/boards/96b_argonkey/microphone
@@ -882,6 +886,7 @@ secure:
   sample.board.arc_secure_services:
     path: samples/boards/arc_secure_services
     catalog: secure
+    build_only: true
     platform_whitelist: nsim_sem em_starterkit_em7d_secure
 display:
   sample.board.bbc_microbit.display:
@@ -1061,7 +1066,12 @@ shield:
     catalog: shield
     depends_on: arduino_i2c arduino_gpio
     platform_exclude: disco_l475_iot1 stm32mp157c_dk2
-  sample.shields.x_nucleo_iks01a3:
+  sample.shields.x_nucleo_iks01a3.sensorhub:
+    path: samples/shields/x_nucleo_iks01a3/sensorhub
+    catalog: shield
+    depends_on: arduino_i2c arduino_gpio
+    platform_exclude: disco_l475_iot1 stm32mp157c_dk2
+  sample.shields.x_nucleo_iks01a3.standard:
     path: samples/shields/x_nucleo_iks01a3/standard
     catalog: shield
     depends_on: arduino_i2c arduino_gpio
@@ -1226,6 +1236,10 @@ CAN:
     catalog: CAN
     depends_on: can
     platform_whitelist: twr_ke18f frdm_k64f
+  sample.subsys.canbus.isotp:
+    path: samples/subsys/canbus/isotp
+    catalog: CAN
+    depends_on: can
 crypto:
   sample.drivers.crypto.mbedtls:
     path: samples/drivers/crypto
@@ -1237,6 +1251,14 @@ crypto:
   sample.drivers.crypto.mbedtls.micro:
     path: samples/drivers/crypto
     catalog: crypto
+    min_ram: 20
+    arch_exclude: xtensa
+  sample.drivers.crypto.stm32:
+    path: samples/drivers/crypto
+    catalog: crypto
+    extra_args: CONF_FILE=prj_stm32.conf
+    platform_whitelist: mikroe_mini_m4_for_stm32
+    build_only: true
     min_ram: 20
     arch_exclude: xtensa
   benchmark.crypto.mbedtls:
@@ -1278,7 +1300,8 @@ flash shell:
   sample.drivers.flash.shell:
     path: samples/drivers/flash_shell
     catalog: flash shell
-    platform_whitelist: 96b_carbon frdm_k64f frdm_kw41z frdm_kl25z nucleo_f746zg
+    filter: CONFIG_FLASH_HAS_DRIVER_ENABLED
+    min_ram: 12
 LED:
   sample.drivers.ht16k33:
     path: samples/drivers/ht16k33
@@ -1309,7 +1332,7 @@ LED:
   sample.drivers.led.ws2812:
     path: samples/drivers/led_ws2812
     catalog: LED
-    platform_whitelist: 96b_carbon bbc_microbit
+    platform_whitelist: bbc_microbit nrf51_pca10028 nrf52_pca10040
 led:
   sample.drivers.led.lp5562:
     path: samples/drivers/led_lp5562
@@ -1404,10 +1427,14 @@ introduction:
     - CONFIG_NUM_PREEMPT_PRIORITIES=0
     - CONFIG_NUM_COOP_PRIORITIES=6
     extra_args: " -DDEBUG_PRINTF=1"
+  sample.metairq_dispatch:
+    path: samples/scheduler/metairq_dispatch
+    catalog: introduction
+    filter: not CONFIG_ARCH_POSIX
   sample.smp.pi:
     path: samples/smp/pi
     catalog: introduction
-    platform_whitelist: nsim_hs_smp qemu_x86_64
+    filter: "(CONFIG_MP_NUM_CPUS > 1)"
 mpu:
   sample.mpu.mpu_test:
     path: samples/mpu/mpu_test
@@ -1509,7 +1536,7 @@ net:
     min_ram: 20
     depends_on: netif
   can.frame:
-    path: tests/subsys/can/frame
+    path: tests/subsys/canbus/frame
     catalog: net
     platform_whitelist: native_posix native_posix_64 qemu_x86 qemu_cortex_m3
 net gptp:
@@ -1518,6 +1545,13 @@ net gptp:
     catalog: net gptp
     platform_whitelist: frdm_k64f sam_e70_xplained native_posix native_posix_64
     depends_on: netif
+net ppp modem gsm:
+  sample.net.ppp.gsm.modem:
+    path: samples/net/gsm_modem
+    catalog: net ppp modem gsm
+    extra_configs:
+    - CONFIG_TEST_RANDOM_GENERATOR=y
+    depends_on: serial-net
 net ipv4_autoconf:
   sample.net.ipv4_autoconf:
     path: samples/net/ipv4_autoconf
@@ -1738,6 +1772,7 @@ net socket:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: cc3220sf_launchxl cc3235sf_launchxl
     min_ram: 32
     min_flash: 80
 net socket can CAN:
@@ -2112,12 +2147,14 @@ drivers sensor grove light:
   sample.sensor.grove_light:
     path: samples/sensor/grove_light
     catalog: drivers sensor grove light
+    platform_whitelist: nrf52_pca10040
     depends_on: adc
 drivers sensor grove temperature:
   sample.sensor.grove_temperature:
     path: samples/sensor/grove_temperature
     catalog: drivers sensor grove temperature
     min_flash: 33
+    platform_whitelist: nrf52_pca10040
     depends_on: adc
 shell:
   sample.sensor.shell:
@@ -2188,7 +2225,7 @@ filesystem:
   filesystem.fat.dual_drive:
     path: tests/subsys/fs/fat_fs_dual_drive
     catalog: filesystem
-    platform_whitelist: qemu_x86
+    platform_whitelist: qemu_x86 native_posix
   filesystem.littlefs:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
@@ -2359,7 +2396,7 @@ ignore_faults interrupt idt:
     path: tests/arch/x86/static_idt
     catalog: ignore_faults interrupt idt
     arch_whitelist: x86
-    platform_exclude: qemu_x86_64
+    filter: not CONFIG_X86_64
 kernel:
   kernel.memory_protection.mmu:
     path: tests/arch/x86/x86_mmu_api
@@ -2730,13 +2767,21 @@ driver:
   drivers.device_id:
     path: tests/drivers/hwinfo/api
     catalog: driver
-    depends_on: hwinfo
+    filter: CONFIG_HWINFO
 drivers gpio:
-  drivers.gpio:
+  peripheral.gpio.1pin:
+    path: tests/drivers/gpio/gpio_api_1pin
+    catalog: drivers gpio
+    depends_on: gpio
+    min_flash: 48
+    platform_exclude: mps2_an385 mps2_an521
+    filter: DT_ALIAS_LED0_GPIOS_CONTROLLER
+  drivers.gpio.2pin:
     path: tests/drivers/gpio/gpio_basic_api
     catalog: drivers gpio
     depends_on: gpio
-    filter: dt_alias_exists("gpio-0") or dt_alias_exists("gpio-1")
+    min_flash: 34
+    filter: dt_compat_enabled("test,gpio_basic_api")
 drivers i2c:
   drivers.i2c:
     path: tests/drivers/i2c/i2c_api
@@ -3986,33 +4031,15 @@ posix filesystem:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     arch_exclude: nios2 posix
     min_ram: 128
-tracing debug:
-  tracing.backends.sysview:
-    path: tests/subsys/debug/tracing
-    catalog: tracing debug
-    extra_configs:
-    - CONFIG_SEGGER_SYSTEMVIEW=y
-    - CONFIG_USE_SEGGER_RTT=y
-    platform_whitelist: nrf52840_pca10056
-  tracing.backends.ctf:
-    path: tests/subsys/debug/tracing
-    catalog: tracing debug
-    extra_configs:
-    - CONFIG_TRACING_CTF=y
-    platform_whitelist: native_posix
-  tracing.backends.cpu_stats:
-    path: tests/subsys/debug/tracing
-    catalog: tracing debug
-    extra_configs:
-    - CONFIG_TRACING_CPU_STATS=y
-    platform_whitelist: nrf52840_pca10056
-  tracing.backends.openocd:
-    path: tests/subsys/debug/tracing
-    catalog: tracing debug
-    extra_configs:
-    - CONFIG_OPENOCD_SUPPORT=y
-    arch_exclude: posix xtensa
-    platform_exclude: qemu_x86_64
+can isotp:
+  can.isotp.conformance:
+    path: tests/subsys/canbus/isotp/conformance
+    catalog: can isotp
+    depends_on: can
+  can.isotp.implemmentation:
+    path: tests/subsys/canbus/isotp/implementation
+    catalog: can isotp
+    depends_on: can
 dfu_image_util:
   dfu.image_util:
     path: tests/subsys/dfu/img_util
@@ -4073,16 +4100,24 @@ log_output logging:
   logging.log_output:
     path: tests/subsys/logging/log_output
     catalog: log_output logging
+settings_fcb:
+  system.settings.fcb.base64:
+    path: tests/subsys/settings/fcb/base64
+    catalog: settings_fcb
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 native_posix native_posix_64
+  system.settings.fcb.raw:
+    path: tests/subsys/settings/fcb/raw
+    catalog: settings_fcb
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 native_posix native_posix_64
+  system.settings.functional.fcb:
+    path: tests/subsys/settings/functional/fcb
+    catalog: settings_fcb
+    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 native_posix native_posix_64
 settings_intialization_fcb:
   system.settings.fcb:
     path: tests/subsys/settings/fcb_init
     catalog: settings_intialization_fcb
     platform_whitelist: nrf52840_pca10056 nrf52_pca10040
-settings_fcb:
-  system.settings.functional.fcb:
-    path: tests/subsys/settings/functional/fcb
-    catalog: settings_fcb
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 native_posix native_posix_64
 settings_file:
   system.settings.file:
     path: tests/subsys/settings/functional/file
@@ -4098,8 +4133,13 @@ settings_nvs:
     catalog: settings_nvs
     depends_on: nvs
     min_ram: 32
+settings_fs filesystem:
+  system.settings.littlefs.base64:
+    path: tests/subsys/settings/littlefs/base64
+    catalog: settings_fs filesystem
+    platform_whitelist: nrf52840_pca10056 native_posix native_posix_64
 settings_fs settings_littlefs:
-  system.settings.littlefs:
+  system.settings.littlefs.raw:
     path: tests/subsys/settings/littlefs/raw
     catalog: settings_fs settings_littlefs
     platform_whitelist: nrf52840_pca10056 native_posix native_posix_64
@@ -4113,6 +4153,59 @@ flash_map:
     catalog: flash_map
     extra_args: OVERLAY_CONFIG=overlay-mpu.conf
     platform_whitelist: nrf52840_pca10056 nrf52_pca10040 frdm_k64f hexiwear_k64 twr_ke18f
+tracing debug:
+  tracing.backends.sysview:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_configs:
+    - CONFIG_SEGGER_SYSTEMVIEW=y
+    - CONFIG_USE_SEGGER_RTT=y
+    platform_whitelist: nrf52840_pca10056
+  tracing.backends.cpu_stats:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_configs:
+    - CONFIG_TRACING_CPU_STATS=y
+    platform_whitelist: nrf52840_pca10056
+  tracing.backends.openocd:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_configs:
+    - CONFIG_OPENOCD_SUPPORT=y
+    arch_exclude: posix xtensa
+    platform_exclude: qemu_x86_64
+  tracing.uart:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_uart.conf"
+    platform_whitelist: qemu_x86 qemu_x86_64
+  tracing.usb:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_usb.conf"
+    platform_whitelist: sam_e70_xplained
+    depends_on: usb_device
+  tracing.uart.ctf:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_uart_ctf.conf"
+    platform_whitelist: qemu_x86 qemu_x86_64
+  tracing.usb.ctf:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_usb_ctf.conf"
+    platform_whitelist: sam_e70_xplained
+    depends_on: usb_device
+  tracing.posix:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_native_posix.conf"
+    platform_whitelist: native_posix
+  tracing.posix.ctf:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_native_posix_ctf.conf"
+    platform_whitelist: native_posix
 usb bos:
   usb.bos:
     path: tests/subsys/usb/bos

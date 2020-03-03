@@ -1,0 +1,8 @@
+---
+cases:
+  sample.net.ppp.gsm.modem:
+    path: samples/net/gsm_modem
+    catalog: net ppp modem gsm
+    extra_configs:
+    - CONFIG_TEST_RANDOM_GENERATOR=y
+    depends_on: serial-net

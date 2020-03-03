@@ -472,7 +472,7 @@ if __FILE__ == $0
 =end
     search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
     merge_hash = {"settings" => {}}
-    board_hash = load_board_data(search_path,"frdm_kl25z",merge_hash)
+    board_hash = load_board_data(search_path,"twr_kv58f220m",merge_hash)
 =begin
     $log.info  parser.parse('A AND B')
     $log.info  parser.parse('NOT A')
@@ -510,7 +510,7 @@ if __FILE__ == $0
     $log.info dt_compatible_match(hh, 'compatible', "a,b")
     #$log.info  zephyr_filter_parser("dt_compat_enabled_with_alias(\"gpio-keys\", \"sw0\")", board_hash)
 =end
-    $log.info  zephyr_filter_parser("CONFIG_ENTROPY_HAS_DRIVER", board_hash)    
+    $log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\")", board_hash)    
     $log.info  parser.parse("(SAND < 4)")
 
 end

@@ -62,6 +62,6 @@ cases:
     min_ram: 20
     depends_on: netif
   can.frame:
-    path: tests/subsys/can/frame
+    path: tests/subsys/canbus/frame
     catalog: net
     platform_whitelist: native_posix native_posix_64 qemu_x86 qemu_cortex_m3

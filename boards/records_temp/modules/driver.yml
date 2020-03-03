@@ -7,4 +7,4 @@ cases:
   drivers.device_id:
     path: tests/drivers/hwinfo/api
     catalog: driver
-    depends_on: hwinfo
+    filter: CONFIG_HWINFO

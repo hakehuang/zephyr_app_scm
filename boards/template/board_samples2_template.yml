@@ -18,6 +18,7 @@ __load__:
   - modules/net_ptp_gptp_userspace.yml
   - modules/net_route.yml
   - modules/net_socket.yml
+  - modules/net_ppp_modem_gsm.yml
   - modules/net_socket_can_CAN.yml
   - modules/net_socket_getaddrinfo_userspace.yml
   - modules/net_socket_http.yml
@@ -45,6 +46,7 @@ __load__:
   - modules/nfc.yml
   - modules/nffs_fatfs_filesystem.yml
   - modules/nffs_filesystem.yml
+  - modules/Bluetooth_Mesh_Provisioner.yml
   - skips/${@board}.yml
   - boards/${@board}.yml
 

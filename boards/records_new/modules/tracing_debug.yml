@@ -1,28 +1,54 @@
 ---
 cases:
   tracing.backends.sysview:
-    path: tests/subsys/debug/tracing
+    path: tests/subsys/tracing
     catalog: tracing debug
     extra_configs:
     - CONFIG_SEGGER_SYSTEMVIEW=y
     - CONFIG_USE_SEGGER_RTT=y
     platform_whitelist: nrf52840_pca10056
-  tracing.backends.ctf:
-    path: tests/subsys/debug/tracing
-    catalog: tracing debug
-    extra_configs:
-    - CONFIG_TRACING_CTF=y
-    platform_whitelist: native_posix
   tracing.backends.cpu_stats:
-    path: tests/subsys/debug/tracing
+    path: tests/subsys/tracing
     catalog: tracing debug
     extra_configs:
     - CONFIG_TRACING_CPU_STATS=y
     platform_whitelist: nrf52840_pca10056
   tracing.backends.openocd:
-    path: tests/subsys/debug/tracing
+    path: tests/subsys/tracing
     catalog: tracing debug
     extra_configs:
     - CONFIG_OPENOCD_SUPPORT=y
     arch_exclude: posix xtensa
     platform_exclude: qemu_x86_64
+  tracing.uart:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_uart.conf"
+    platform_whitelist: qemu_x86 qemu_x86_64
+  tracing.usb:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_usb.conf"
+    platform_whitelist: sam_e70_xplained
+    depends_on: usb_device
+  tracing.uart.ctf:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_uart_ctf.conf"
+    platform_whitelist: qemu_x86 qemu_x86_64
+  tracing.usb.ctf:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_usb_ctf.conf"
+    platform_whitelist: sam_e70_xplained
+    depends_on: usb_device
+  tracing.posix:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_native_posix.conf"
+    platform_whitelist: native_posix
+  tracing.posix.ctf:
+    path: tests/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_native_posix_ctf.conf"
+    platform_whitelist: native_posix
