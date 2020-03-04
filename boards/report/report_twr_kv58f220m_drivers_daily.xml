@@ -1,7 +1,27 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="173" errors="0" failures="1" name="" skipped="1" time="0">
+    <testsuite tests="184" errors="0" failures="6" name="" skipped="1" time="0">
           <testcase classname="twr_kv58f220m:sample.nfc.hello" name="sample.nfc.hello" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="twr_kv58f220m:drivers.i2c.i2c_burst_gy271" name="drivers.i2c.i2c_burst_gy271" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="twr_kv58f220m:drivers.i2c.i2c_gy271" name="drivers.i2c.i2c_gy271" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="twr_kv58f220m:drivers.i2c_slave.eeprom_slave" name="drivers.i2c_slave.eeprom_slave" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="twr_kv58f220m:sample.drivers.i2c.fujitsu_fram" name="sample.drivers.i2c.fujitsu_fram" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="twr_kv58f220m:sample.drivers.i2c_scanner" name="sample.drivers.i2c_scanner" time="0">
           <failure message="failed" type="failure">
           </failure>
           </testcase>
@@ -292,6 +312,30 @@
           </testcase>
           <testcase classname="twr_kv58f220m:portability.posix.common.posix_timer" name="portability.posix.common.posix_timer" time="0">
           </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.async" name="libraries.onoff.async" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.blocked_restart" name="libraries.onoff.blocked_restart" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.cancel_release" name="libraries.onoff.cancel_release" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.cancel_request_ok" name="libraries.onoff.cancel_request_ok" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.cancel_request_waits" name="libraries.onoff.cancel_request_waits" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.client_init_validation" name="libraries.onoff.client_init_validation" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.half_sync" name="libraries.onoff.half_sync" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.request" name="libraries.onoff.request" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.reset" name="libraries.onoff.reset" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.service_init_validation" name="libraries.onoff.service_init_validation" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.sync" name="libraries.onoff.sync" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:libraries.onoff.validate_args" name="libraries.onoff.validate_args" time="0">
+          </testcase>
           <testcase classname="twr_kv58f220m:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
@@ -299,16 +343,6 @@
           <testcase classname="twr_kv58f220m:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:drivers.ipc.mailbox" name="drivers.ipc.mailbox" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:drivers.i2c.i2c_burst_gy271" name="drivers.i2c.i2c_burst_gy271" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:drivers.i2c.i2c_gy271" name="drivers.i2c.i2c_gy271" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:drivers.i2c_slave.eeprom_slave" name="drivers.i2c_slave.eeprom_slave" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:sample.drivers.i2c.fujitsu_fram" name="sample.drivers.i2c.fujitsu_fram" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:sample.drivers.i2c_scanner" name="sample.drivers.i2c_scanner" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:sample.display.grove_display" name="sample.display.grove_display" time="0">
           </testcase>
@@ -349,8 +383,6 @@
           <testcase classname="twr_kv58f220m:drivers.uart.uart_poll_in" name="drivers.uart.uart_poll_in" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:drivers.uart.uart_poll_out" name="drivers.uart.uart_poll_out" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:drivers.device_id.device_id_get" name="drivers.device_id.device_id_get" time="0">
           </testcase>
   </testsuite>
 </testsuites>

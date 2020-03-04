@@ -1,7 +1,23 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="141" errors="0" failures="1" name="" skipped="1" time="0">
+    <testsuite tests="153" errors="0" failures="5" name="" skipped="1" time="0">
           <testcase classname="lpcxpresso54114_m4:sample.nfc.hello" name="sample.nfc.hello" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:drivers.spi.spi_loopback" name="drivers.spi.spi_loopback" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:sample.drivers.spi.flash" name="sample.drivers.spi.flash" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:sample.drivers.spi.flash_dpd" name="sample.drivers.spi.flash_dpd" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:sample.drivers.spi.fujitsu_fram" name="sample.drivers.spi.fujitsu_fram" time="0">
           <failure message="failed" type="failure">
           </failure>
           </testcase>
@@ -234,19 +250,35 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m4:portability.posix.common.posix_timer" name="portability.posix.common.posix_timer" time="0">
           </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.async" name="libraries.onoff.async" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.blocked_restart" name="libraries.onoff.blocked_restart" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.cancel_release" name="libraries.onoff.cancel_release" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.cancel_request_ok" name="libraries.onoff.cancel_request_ok" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.cancel_request_waits" name="libraries.onoff.cancel_request_waits" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.client_init_validation" name="libraries.onoff.client_init_validation" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.half_sync" name="libraries.onoff.half_sync" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.request" name="libraries.onoff.request" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.reset" name="libraries.onoff.reset" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.service_init_validation" name="libraries.onoff.service_init_validation" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.sync" name="libraries.onoff.sync" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:libraries.onoff.validate_args" name="libraries.onoff.validate_args" time="0">
+          </testcase>
           <testcase classname="lpcxpresso54114_m4:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:drivers.spi.spi_loopback" name="drivers.spi.spi_loopback" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.drivers.spi.flash" name="sample.drivers.spi.flash" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.drivers.spi.flash_dpd" name="sample.drivers.spi.flash_dpd" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.drivers.spi.fujitsu_fram" name="sample.drivers.spi.fujitsu_fram" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:drivers.ipc.mailbox" name="drivers.ipc.mailbox" time="0">
           </testcase>

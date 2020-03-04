@@ -26,6 +26,9 @@ cases:
     build_only: true
     comments: download error
     attribute: required
+  benchmark.kernel.latency:
+    comments: need update test condition for clock setting
+    attribute: required
   libraries.libc.newlibnano:
     comments: http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164
     build_only: true
@@ -96,6 +99,30 @@ cases:
     attribute: required
   arch.interrupt.no_optimizations:
     comments: no console output
+    result: FAILURE
+    attribute: required
+  google_iot_mqtt:
+    comments: compilation error
+    result: FAILURE
+    attribute: required
+  drivers.spi:
+    comments: not support well test case need update
+    result: FAILURE
+    attribute: required
+  drivers.i2c:
+    comments: not support well test case need update
+    result: FAILURE
+    attribute: required
+  sample.drivers.i2c.fujitsu_fram:
+    comments: not support
+    result: FAILURE
+    attribute: required
+  sample.basic.servo_motor:
+    comments: no motor
+    result: FAILURE
+    attribute: required
+  drivers.pwm:
+    comments: need add support
     result: FAILURE
     attribute: required
   kernel.memory_pool.sys:

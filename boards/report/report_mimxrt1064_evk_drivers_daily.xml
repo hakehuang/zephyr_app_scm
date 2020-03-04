@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="179" errors="0" failures="1" name="" skipped="1" time="0">
+    <testsuite tests="181" errors="0" failures="1" name="" skipped="1" time="0">
           <testcase classname="mimxrt1064_evk:sample.nfc.hello" name="sample.nfc.hello" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -294,6 +294,30 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:portability.posix.common.posix_timer" name="portability.posix.common.posix_timer" time="0">
           </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.async" name="libraries.onoff.async" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.blocked_restart" name="libraries.onoff.blocked_restart" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.cancel_release" name="libraries.onoff.cancel_release" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.cancel_request_ok" name="libraries.onoff.cancel_request_ok" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.cancel_request_waits" name="libraries.onoff.cancel_request_waits" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.client_init_validation" name="libraries.onoff.client_init_validation" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.half_sync" name="libraries.onoff.half_sync" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.request" name="libraries.onoff.request" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.reset" name="libraries.onoff.reset" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.service_init_validation" name="libraries.onoff.service_init_validation" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.sync" name="libraries.onoff.sync" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:libraries.onoff.validate_args" name="libraries.onoff.validate_args" time="0">
+          </testcase>
           <testcase classname="mimxrt1064_evk:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
@@ -303,24 +327,6 @@
           <testcase classname="mimxrt1064_evk:sample.basic.fade_led" name="sample.basic.fade_led" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:drivers.ipc.mailbox" name="drivers.ipc.mailbox" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.gpio.build" name="drivers.gpio.build" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.gpio.gpio_callback_add_remove" name="drivers.gpio.gpio_callback_add_remove" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.gpio.gpio_callback_edge_high" name="drivers.gpio.gpio_callback_edge_high" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.gpio.gpio_callback_edge_low" name="drivers.gpio.gpio_callback_edge_low" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.gpio.gpio_callback_enable_disable" name="drivers.gpio.gpio_callback_enable_disable" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.gpio.gpio_callback_level_high" name="drivers.gpio.gpio_callback_level_high" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.gpio.gpio_callback_level_low" name="drivers.gpio.gpio_callback_level_low" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.gpio.gpio_callback_self_remove" name="drivers.gpio.gpio_callback_self_remove" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.gpio.gpio_pin_read_write" name="drivers.gpio.gpio_pin_read_write" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:sample.display.grove_display" name="sample.display.grove_display" time="0">
           </testcase>
@@ -361,8 +367,6 @@
           <testcase classname="mimxrt1064_evk:drivers.uart.uart_poll_in" name="drivers.uart.uart_poll_in" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:drivers.uart.uart_poll_out" name="drivers.uart.uart_poll_out" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:drivers.device_id.device_id_get" name="drivers.device_id.device_id_get" time="0">
           </testcase>
   </testsuite>
 </testsuites>

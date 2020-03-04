@@ -28,3 +28,7 @@ ruby ./create_all_platform.rb
 the result will be in local folders platform.rb according to the platform_config.rb
 and records_new/platform.yml accordingly
 
+
+#create all platform pipe files
+ruby ./run_all.rb
+
