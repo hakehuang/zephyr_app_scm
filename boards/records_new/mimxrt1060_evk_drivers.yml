@@ -3,6 +3,7 @@ __load__:
   - modules/driver.yml
   - modules/driver_can.yml
   - modules/drivers.yml
+  - modules/drivers_console.yml
   - modules/driver_entropy.yml
   - modules/drivers_dma.yml
   - modules/drivers_fram.yml
@@ -26,6 +27,8 @@ __load__:
   - modules/onoff_timer.yml
   - modules/posix.yml
   - modules/posix_filesystem.yml
+  - modules/posix_net.yml
+  - modules/posix_pthread_eventfd.yml
   - modules/power.yml
   - modules/qspi_flash.yml
   - modules/rbtree.yml

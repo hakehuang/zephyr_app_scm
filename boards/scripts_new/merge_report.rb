@@ -31,14 +31,14 @@ end
 
 
 if __FILE__ == $0
-	tag = "mainline"
+	tag = "v2.3.0-rc1"
 	$log.level = Logger::INFO
 	if ! File.exist?("../report/all/")
 		FileUtils.mkdir "../report/all/"
 	end
-	
+	no_pass = get_no_pass_cases_by_plat()
 	platforms.each do |plat, v|
-		no_pass = get_no_pass_cases_by_plat(plat)
+		
 		platform_reports = nil
 	    v.each do |surfix|
 	        filename = ""

@@ -1,0 +1,9 @@
+---
+cases:
+  samples.net.openthread.ncp:
+    path: samples/net/openthread/ncp
+    catalog: OpenThread Network Co-Processor
+    harness: net
+    tags: net
+    depends_on: netif
+    min_flash: 140

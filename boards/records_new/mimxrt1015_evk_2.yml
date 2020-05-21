@@ -1,4 +1,10 @@
 __load__:
+  - modules/flash_shell.yml
+  - modules/gen_inc_file.yml
+  - modules/google_iot_mqtt.yml
+  - modules/gpio.yml
+  - modules/http_net.yml
+  - modules/heap.yml
   - modules/i2c.yml
   - modules/i2s.yml
   - modules/ignore_faults_interrupt_idt.yml
@@ -31,6 +37,9 @@ __load__:
   - modules/mmu.yml
   - modules/mpu.yml
   - modules/kconfig.yml
+  - modules/ot_radio.yml
+  - modules/OpenThread_Network_Co-Processor.yml
+  - modules/stream_flash.yml
   - modules/userspace.yml
   - modules/util_intmath.yml
   - modules/utils_lists.yml

@@ -6,10 +6,10 @@ cases:
     extra_args: CONF_FILE=prj.conf
     platform_exclude: twr_ke18f
     filter: CONFIG_ARCH_HAS_STACK_PROTECTION
-  kernel.common.stack_protection_arm_fp_sharing:
+  kernel.common.stack_protection_arm_fpu_sharing:
     path: tests/kernel/fatal
     catalog: kernel ignore_faults userspace
-    extra_args: CONF_FILE=prj_arm_fp_sharing.conf
+    extra_args: CONF_FILE=prj_arm_fpu_sharing.conf
     platform_exclude: twr_ke18f
     filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
   kernel.common.stack_protection_armv8m_mpu_stack_guard:

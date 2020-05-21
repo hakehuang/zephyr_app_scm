@@ -19,6 +19,7 @@ __load__:
   - modules/net_route.yml
   - modules/net_socket.yml
   - modules/net_ppp_modem_gsm.yml
+  - modules/net_socket_af_packet.yml
   - modules/net_socket_can_CAN.yml
   - modules/net_socket_getaddrinfo_userspace.yml
   - modules/net_socket_http.yml
@@ -32,6 +33,7 @@ __load__:
   - modules/net_statistics.yml
   - modules/net_syslog.yml
   - modules/net_tcp.yml
+  - modules/net_tcp2.yml
   - modules/net_telnet.yml
   - modules/net_tls.yml
   - modules/net_traffic_class.yml
@@ -45,7 +47,7 @@ __load__:
   - modules/net_zperf.yml
   - modules/nfc.yml
   - modules/nffs_fatfs_filesystem.yml
-  - modules/nffs_filesystem.yml
+#  - modules/nffs_filesystem.yml
   - modules/Bluetooth_Mesh_Provisioner.yml
   - skips/mimxrt1050_evk.yml
   - boards/mimxrt1050_evk.yml

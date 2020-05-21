@@ -7,6 +7,7 @@ cases:
   peripheral.eeprom.generic:
     path: tests/drivers/eeprom
     catalog: drivers userspace
+    build_only: true
     depends_on: eeprom
   drivers.i2s:
     path: tests/drivers/i2s/i2s_api

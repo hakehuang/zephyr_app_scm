@@ -17,6 +17,13 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 128
+  sample.net.sockets.big_http_download.ci:
+    path: samples/net/sockets/big_http_download
+    catalog: net socket
+    extra_args: OVERLAY_CONFIG=overlay-ci.conf
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 128
   sample.net.sockets.coap_client:
     path: samples/net/sockets/coap_client
     catalog: net socket
@@ -64,6 +71,15 @@ cases:
   sample.net.sockets.echo_async_select:
     path: samples/net/sockets/echo_async_select
     catalog: net socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    platform_whitelist: qemu_x86
+  sample.net.sockets.echo_async_select.posix:
+    path: samples/net/sockets/echo_async_select
+    catalog: net socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
     platform_whitelist: qemu_x86
   sample.net.sockets.echo_client:
     path: samples/net/sockets/echo_client
@@ -89,7 +105,7 @@ cases:
     path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
-    platform_whitelist: nrf52840_pca10056
+    platform_whitelist: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server:
@@ -116,7 +132,7 @@ cases:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
-    platform_whitelist: nrf52840_pca10056
+    platform_whitelist: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
   sample.net.sockets.http_get:

@@ -193,6 +193,9 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                     'path' => Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)).to_path,
                     'catalog' => sample_hash['sample']['name']
                   }
+                  if sample_hash['common']
+                    cases['cases'][kk].merge!(sample_hash['common'])
+                  end
                 end
               end
             end

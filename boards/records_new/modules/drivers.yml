@@ -7,8 +7,8 @@ cases:
   sample.drivers.counter.alarm:
     path: samples/drivers/counter/alarm
     catalog: drivers
-    platform_whitelist: nucleo_f746zg nrf51_pca10028 nrf52_pca10040 nrf52840_pca10056
-      nrf9160_pca10090
+    platform_whitelist: nucleo_f746zg nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+      nrf9160dk_nrf9160 atsamd20_xpro
     depends_on: counter
   sample.drivers.espi:
     path: samples/drivers/espi
@@ -23,6 +23,14 @@ cases:
     path: samples/drivers/kscan
     catalog: drivers
     depends_on: kscan
+  sample.drivers.kscan_touch:
+    path: samples/drivers/kscan_touch
+    catalog: drivers
+    depends_on: kscan:touch
+  sample.drivers.peci:
+    path: samples/drivers/peci
+    catalog: drivers
+    depends_on: peci
   sample.drivers.espi.ps2:
     path: samples/drivers/ps2
     catalog: drivers
@@ -105,25 +113,33 @@ cases:
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
     catalog: drivers
-    platform_whitelist: nrf51_pca10028 nrf52_pca10040 nrf52840_pca10056 nrf9160_pca10090
+    platform_whitelist: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
   drivers.clock.clock_control_nrf5_lfclk_rc:
     path: tests/drivers/clock_control/clock_control_api
     catalog: drivers
     extra_args: CONF_FILE="nrf_lfclk_rc.conf"
-    platform_whitelist: nrf51_pca10028 nrf52_pca10040 nrf52840_pca10056
+    platform_whitelist: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
   drivers.clock.nrf5_clock_calibration:
     path: tests/drivers/clock_control/nrf_clock_calibration
     catalog: drivers
-    platform_whitelist: nrf51_pca10028 nrf52_pca10040 nrf52840_pca10056
+    platform_whitelist: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
   drivers.counter:
     path: tests/drivers/counter/counter_nrf_rtc/fixed_top
     catalog: drivers
     depends_on: counter
-    platform_whitelist: nrf52840_pca0056
+    platform_whitelist: nrf52840dk_nrf52840
   drivers.counter.cmos:
     path: tests/drivers/counter/counter_cmos
     catalog: drivers
     arch_whitelist: x86
+  drivers.counter.maxim_ds3231:
+    path: tests/drivers/counter/maxim_ds3231_api
+    catalog: drivers
+    depends_on: counter
+    min_ram: 16
+    filter: dt_compat_enabled("maxim,ds3231")
+    platform_whitelist: efr32mg_sltb004a frdm_k64f nrf51dk_nrf51422 nrf52840dk_nrf52840
+      nucleo_l476rg particle_xenon
   drivers.uart.uart_async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers

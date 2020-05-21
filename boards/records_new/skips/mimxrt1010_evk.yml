@@ -15,3 +15,9 @@ cases:
   sample.usb.cdc-acm.comp:
     result: skip
     commnets: "size issue" 
+  samples.subsys.usb.audio.headphones_microphone:
+    result: skip
+    commnets: "not support usbd"
+  samples.subsys.usb.audio.headset:
+    result: skip
+    commnets: "not support usbd"

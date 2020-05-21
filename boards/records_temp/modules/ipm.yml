@@ -11,4 +11,9 @@ cases:
   sample.ipc.openamp:
     path: samples/subsys/ipc/openamp
     catalog: ipm
-    platform_whitelist: lpcxpresso54114_m4
+    platform_whitelist: lpcxpresso54114_m4 mps2_an521 v2m_musca v2m_musca_b1
+  sample.subsys.ipc.openamp_rs_table:
+    path: samples/subsys/ipc/openamp_rsc_table
+    catalog: ipm
+    build_only: true
+    platform_whitelist: stm32mp157c_dk2

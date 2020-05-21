@@ -6,11 +6,10 @@ cases:
     min_ram: 32
     filter: CONFIG_ARCH_HAS_USERSPACE
     platform_exclude: twr_ke18f
-  kernel.memory_protection.armv8m_gap_filling:
+  kernel.memory_protection.gap_filling:
     path: tests/kernel/mem_protect/mem_protect
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
-    arch_whitelist: arm
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     min_ram: 32
   kernel.memory_protection.syscalls:
@@ -22,10 +21,9 @@ cases:
     catalog: kernel security userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
     min_ram: 36
-  kernel.memory_protection.userspace.armv8m_gap_filling:
+  kernel.memory_protection.userspace.gap_filling:
     path: tests/kernel/mem_protect/userspace
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
-    arch_whitelist: arm
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     min_ram: 36

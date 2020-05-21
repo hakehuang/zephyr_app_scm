@@ -7,7 +7,7 @@ cases:
   sample.sensor.bme680:
     path: samples/sensor/bme680
     catalog: samples sensor
-    depends_on: i2c bme680
+    platform_whitelist: nrf52840dk_nrf52840
   sample.sensor.lis2dh:
     path: samples/sensor/lis2dh
     catalog: samples sensor

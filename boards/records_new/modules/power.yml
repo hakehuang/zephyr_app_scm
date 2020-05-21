@@ -4,8 +4,13 @@ cases:
     path: samples/boards/nrf/system_off
     catalog: power
     build_only: true
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040 nrf51_pca10028
+    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+  sample.boards.ti.cc13x2_cc26x2.system_off:
+    path: samples/boards/ti/cc13x2_cc26x2/system_off
+    catalog: power
+    build_only: true
+    platform_whitelist: cc1352r1_launchxl
   sample.power.ospm.dev_idle_pm:
     path: samples/subsys/power/device_pm
     catalog: power
-    platform_whitelist: nrf52840_pca10056 nrf52_pca10040
+    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832

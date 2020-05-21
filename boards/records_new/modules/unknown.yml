@@ -5,35 +5,35 @@ cases:
     catalog: unknown
     extra_args: CONF_FILE='common.conf;mt.conf;arm.conf'
     build_only: true
-    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51_pca10028 nucleo_f429zi
+    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.mt-no-preempt.arm:
     path: samples/basic/minimal
     catalog: unknown
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;arm.conf'
     build_only: true
-    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51_pca10028 nucleo_f429zi
+    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.mt-no-preempt-no-timers.arm:
     path: samples/basic/minimal
     catalog: unknown
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;arm.conf'
     build_only: true
-    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51_pca10028 nucleo_f429zi
+    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.no-mt.arm:
     path: samples/basic/minimal
     catalog: unknown
     extra_args: CONF_FILE='common.conf;no-mt.conf;arm.conf'
     build_only: true
-    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51_pca10028 nucleo_f429zi
+    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.no-mt-no-timers.arm:
     path: samples/basic/minimal
     catalog: unknown
     extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;arm.conf'
     build_only: true
-    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51_pca10028 nucleo_f429zi
+    platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.mt.x86:
     path: samples/basic/minimal
@@ -71,11 +71,16 @@ cases:
     extra_args: SHIELD=x_nucleo_idb05a1
     platform_whitelist: nucleo_l4r5zi
     depends_on: arduino_spi arduino_gpio
+  sample.basic.maxim_ds3231:
+    path: samples/drivers/counter/maxim_ds3231
+    catalog: unknown
+    build_only: true
+    platform_whitelist: efr32mg_sltb004a frdm_k64f nrf51_pca10028 nucleo_l476rg particle_xenon
   sample.display.shield.waveshare_epaper_gdeh0213b1:
     path: samples/drivers/display
     catalog: unknown
     extra_args: SHIELD=waveshare_epaper_gdeh0213b1
-    platform_whitelist: nrf52840_pca10056
+    platform_whitelist: nrf52840dk_nrf52840
   sample.net.sockets.civetweb:
     path: samples/net/sockets/civetweb
     catalog: unknown
@@ -102,6 +107,11 @@ cases:
     catalog: unknown
     platform_whitelist: native_posix native_posix_64
     build_only: true
+  dts.build.build:
+    path: tests/deprecated/dts
+    catalog: unknown
+    build_only: true
+    platform_whitelist: frdm_k64f
   drivers.clock.build:
     path: tests/drivers/build_all
     catalog: unknown
@@ -134,7 +144,7 @@ cases:
   kernel.multiprocessing:
     path: tests/kernel/mp
     catalog: unknown
-    filter: "(CONFIG_MP_NUM_CPUS > 1) and not CONFIG_ARC"
+    filter: CONFIG_MP_NUM_CPUS > 1
   kernel.multiprocessing.smp:
     path: tests/kernel/smp
     catalog: unknown

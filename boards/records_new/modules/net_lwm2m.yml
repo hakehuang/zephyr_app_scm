@@ -15,9 +15,15 @@ cases:
     path: samples/net/lwm2m_client
     catalog: net lwm2m
     extra_args: OVERLAY_CONFIG=overlay-bt.conf
-    platform_whitelist: nrf52_pca10040 nrf52840_pca10056 disco_l475_iot1
+    platform_whitelist: nrf52dk_nrf52832 nrf52840dk_nrf52840 disco_l475_iot1
+  sample.net.lwm2m_client.queue_mode:
+    path: samples/net/lwm2m_client
+    catalog: net lwm2m
+    extra_args: OVERLAY_CONFIG=overlay-queue.conf
+    depends_on: netif
+    platform_whitelist: qemu_x86
   sample.net.lwm2m_client.wnc_m14a2a:
     path: samples/net/lwm2m_client
     catalog: net lwm2m
     extra_args: SHIELD=wnc_m14a2a
-    platform_whitelist: frdm_k64f nrf52840_pca10056
+    platform_whitelist: frdm_k64f nrf52840dk_nrf52840

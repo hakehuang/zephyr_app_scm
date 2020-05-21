@@ -8,15 +8,26 @@ cases:
     min_flash: 33
     min_ram: 32
     filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
-  kernel.fp_sharing.float_disable.arm:
-    path: tests/kernel/fp_sharing/float_disable
+  kernel.fpu_sharing.float_disable.arm:
+    path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     extra_configs:
     - CONFIG_DYNAMIC_INTERRUPTS=y
     arch_whitelist: arm
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
-  kernel.fp_sharing.float_disable.x86:
-    path: tests/kernel/fp_sharing/float_disable
+  kernel.fpu_sharing.float_disable.riscv32:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_whitelist: riscv32
+    build_only: true
+  kernel.fpu_sharing.float_disable.riscv64:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_whitelist: riscv64
+  kernel.fpu_sharing.float_disable.x86:
+    path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     extra_args: CONF_FILE=prj_x86.conf
     platform_whitelist: qemu_x86
@@ -48,7 +59,7 @@ cases:
     catalog: kernel userspace
     min_ram: 16
     min_flash: 34
-    platform_exclude: nrf52810_pca10040
+    platform_exclude: nrf52dk_nrf52810
   kernel.queue:
     path: tests/kernel/queue
     catalog: kernel userspace

@@ -9,7 +9,9 @@ require 'tenjin'
 
 require_relative 'platform_config'
 
-
+=begin
+update the relase version here
+=end
 generator = %{ 
 require 'yml_merger'
 require 'pathname'
@@ -31,7 +33,7 @@ File.write('./merged_data.yml', YAML.dump(merged_data))
 board_name = ZEPHER_FILTER::get_board_name(board)
 board_info = load_board_data(@search_path,board_name,merged_data)
 create_pipefile_from_config(config: merged_data, board_name: board_name, board_info: board_info)
-create_report_from_config(config: merged_data, board_name: board_name, board_info: board_info, release: 'daily')
+create_report_from_config(config: merged_data, board_name: board_name, board_info: board_info, release: 'v2.3.0-rc1')
 }
 
 
@@ -78,11 +80,3 @@ platforms.each do |plat, v|
         File.open(filename, 'w') {|f| f.write(out_line) }  
     end
 end
-
-  
-  
-
-
-
-
-
