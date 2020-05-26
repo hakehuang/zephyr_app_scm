@@ -20,11 +20,11 @@ __load__:
   - modules/board.yml
   - modules/boards.yml
   - modules/button_gpio.yml
-  - skips/lpcxpresso55s69.yml
-  - boards/lpcxpresso55s69.yml
+  - skips/lpcxpresso55s69_cpu0.yml
+  - boards/lpcxpresso55s69_cpu0.yml
 
 settings:
-  case_pipe_name: lpcxpresso55s69
+  case_pipe_name: lpcxpresso55s69_cpu0
 
 cases:
   attribute: "required"

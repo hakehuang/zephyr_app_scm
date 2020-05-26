@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="61" errors="0" failures="2" name="" skipped="0" time="0">
+    <testsuite tests="65" errors="0" failures="2" name="" skipped="0" time="0">
           <testcase classname="twr_ke18f:kernel.common" name="kernel.common" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -10,6 +10,14 @@
           </failure>
           </testcase>
           <testcase classname="twr_ke18f:sample.kernel.synchronization" name="sample.kernel.synchronization" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.timing.sleep_forever" name="kernel.common.timing.sleep_forever" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_protection" name="kernel.memory_protection" time="0">
           </testcase>

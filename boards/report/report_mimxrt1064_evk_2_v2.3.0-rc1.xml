@@ -1,14 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="35" errors="0" failures="2" name="" skipped="2" time="0">
-          <testcase classname="mimxrt1064_evk:net.dns" name="net.dns" time="0">
-          <failure message="failed" type="failure">
-          </failure>
-          </testcase>
-          <testcase classname="mimxrt1064_evk:sample.net.dns_resolve.mdns" name="sample.net.dns_resolve.mdns" time="0">
-          <failure message="failed" type="failure">
-          </failure>
-          </testcase>
+    <testsuite tests="37" errors="0" failures="0" name="" skipped="2" time="0">
           <testcase classname="mimxrt1064_evk:arch.common.xip" name="arch.common.xip" time="0">
           </testcase>
          <testcase classname="mimxrt1064_evk:sample.video.tcpserversink" name="sample.video.tcpserversink" time="0">
@@ -29,6 +21,10 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.memory_protection.stack_random" name="kernel.memory_protection.stack_random" time="0">
           </testcase>
+          <testcase classname="mimxrt1064_evk:net.dns" name="net.dns" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.dns_resolve.mdns" name="sample.net.dns_resolve.mdns" time="0">
+          </testcase>
           <testcase classname="mimxrt1064_evk:sample.logger" name="sample.logger" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:sample.logger.usermode" name="sample.logger.usermode" time="0">
@@ -43,6 +39,8 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:logging.log_core" name="logging.log_core" time="0">
           </testcase>
+          <testcase classname="mimxrt1064_evk:logging.log_immediate.log_immediate_preemption" name="logging.log_immediate.log_immediate_preemption" time="0">
+          </testcase>
           <testcase classname="mimxrt1064_evk:sample.net.dns_resolve.llmnr" name="sample.net.dns_resolve.llmnr" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:libraries.libc" name="libraries.libc" time="0">
@@ -56,6 +54,8 @@
           <testcase classname="mimxrt1064_evk:sample.basic.helloworld" name="sample.basic.helloworld" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:sample.kernel.philosopher" name="sample.kernel.philosopher" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.kernel.philosopher.tracing" name="sample.kernel.philosopher.tracing" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:sample.kernel.philosopher.same_prio" name="sample.kernel.philosopher.same_prio" time="0">
           </testcase>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="62" errors="0" failures="2" name="" skipped="0" time="0">
+    <testsuite tests="66" errors="0" failures="2" name="" skipped="0" time="0">
           <testcase classname="mimxrt1010_evk:kernel.common" name="kernel.common" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -10,6 +10,14 @@
           </failure>
           </testcase>
           <testcase classname="mimxrt1010_evk:sample.kernel.synchronization" name="sample.kernel.synchronization" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.common.timing.sleep_forever" name="kernel.common.timing.sleep_forever" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
           </testcase>
           <testcase classname="mimxrt1010_evk:kernel.memory_protection" name="kernel.memory_protection" time="0">
           </testcase>

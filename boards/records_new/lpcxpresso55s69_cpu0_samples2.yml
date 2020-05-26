@@ -49,11 +49,11 @@ __load__:
 #  - modules/nffs_fatfs_filesystem.yml
 #  - modules/nffs_filesystem.yml
   - modules/Bluetooth_Mesh_Provisioner.yml
-  - skips/lpcxpresso55s69.yml
-  - boards/lpcxpresso55s69.yml
+  - skips/lpcxpresso55s69_cpu0.yml
+  - boards/lpcxpresso55s69_cpu0.yml
 
 settings:
-  case_pipe_name: lpcxpresso55s69_samples2
+  case_pipe_name: lpcxpresso55s69_cpu0_samples2
 
 cases:
   attribute: "required"

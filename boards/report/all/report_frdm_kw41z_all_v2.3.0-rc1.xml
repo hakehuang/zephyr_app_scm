@@ -1,10 +1,172 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="14" errors="0" failures="0" name="" skipped="2" time="0">
+    <testsuite tests="67" errors="0" failures="0" name="" skipped="56" time="0">
          <testcase classname="frdm_kw41z:arch.interrupt" name="arch.interrupt" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arc" name="arch.interrupt.arc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arc.main" name="arch.interrupt.arc.main" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.arm_syscalls" name="arch.interrupt.arm.arm_syscalls" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.arm_thread_swap" name="arch.interrupt.arm.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.arm_user_interrupt" name="arch.interrupt.arm.arm_user_interrupt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.irq_vector_table.arm_syscalls" name="arch.interrupt.arm.irq_vector_table.arm_syscalls" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.irq_vector_table.arm_thread_swap" name="arch.interrupt.arm.irq_vector_table.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.irq_vector_table.rand32" name="arch.interrupt.arm.irq_vector_table.rand32" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm_interrupt" name="arch.interrupt.arm_interrupt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.arm_thread_swap" name="arch.interrupt.arm_thread_swap" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.gen_isr_table.main" name="arch.interrupt.gen_isr_table.main" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.idt_stub" name="arch.interrupt.idt_stub" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.irq_offload" name="arch.interrupt.irq_offload" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.isr_dynamic" name="arch.interrupt.isr_dynamic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_async_multiple_put" name="arch.interrupt.mbox_async_multiple_put" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_async_put_get_block" name="arch.interrupt.mbox_async_put_get_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_async_put_to_waiting_get" name="arch.interrupt.mbox_async_put_to_waiting_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_block_get_buff_to_pool" name="arch.interrupt.mbox_block_get_buff_to_pool" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_block_get_buff_to_smaller_pool" name="arch.interrupt.mbox_block_get_buff_to_smaller_pool" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_block_get_invalid_pool" name="arch.interrupt.mbox_block_get_invalid_pool" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_clean_up_tx_pool" name="arch.interrupt.mbox_clean_up_tx_pool" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_dispose_size_0_msg" name="arch.interrupt.mbox_dispose_size_0_msg" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_get_waiting_put_incorrect_tid" name="arch.interrupt.mbox_get_waiting_put_incorrect_tid" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_incorrect_receiver_tid" name="arch.interrupt.mbox_incorrect_receiver_tid" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_incorrect_transmit_tid" name="arch.interrupt.mbox_incorrect_transmit_tid" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_msg_tid_mismatch" name="arch.interrupt.mbox_msg_tid_mismatch" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_multiple_waiting_get" name="arch.interrupt.mbox_multiple_waiting_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_target_source_thread_block" name="arch.interrupt.mbox_target_source_thread_block" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_target_source_thread_buffer" name="arch.interrupt.mbox_target_source_thread_buffer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.mbox_timed_out_mbox_get" name="arch.interrupt.mbox_timed_out_mbox_get" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.nested_isr" name="arch.interrupt.nested_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
          <testcase classname="frdm_kw41z:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.no_optimizations.arm_interrupt" name="arch.interrupt.no_optimizations.arm_interrupt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.no_optimizations.arm_syscalls" name="arch.interrupt.no_optimizations.arm_syscalls" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.no_optimizations.arm_user_interrupt" name="arch.interrupt.no_optimizations.arm_user_interrupt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.no_optimizations.usb_deconfig" name="arch.interrupt.no_optimizations.usb_deconfig" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.no_optimizations.usb_disable" name="arch.interrupt.no_optimizations.usb_disable" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.nodyn" name="arch.interrupt.nodyn" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.nodyn.isr_dynamic" name="arch.interrupt.nodyn.isr_dynamic" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.nodyn.nested_isr" name="arch.interrupt.nodyn.nested_isr" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.nodyn.prevent_interruption" name="arch.interrupt.nodyn.prevent_interruption" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.prevent_interruption" name="arch.interrupt.prevent_interruption" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.static_idt" name="arch.interrupt.static_idt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.x86.idt_stub" name="arch.interrupt.x86.idt_stub" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.x86.static_idt" name="arch.interrupt.x86.static_idt" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
           <testcase classname="frdm_kw41z:sample.basic.button" name="sample.basic.button" time="0">
@@ -23,16 +185,14 @@
           </testcase>
           <testcase classname="frdm_kw41z:kernel.timing" name="kernel.timing" time="0">
           </testcase>
-          <testcase classname="frdm_kw41z:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
+          <testcase classname="frdm_kw41z:arch.arm.irq_advanced_features.arm_dynamic_direct_interrupts" name="arch.arm.irq_advanced_features.arm_dynamic_direct_interrupts" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:arch.arm.swap.common" name="arch.arm.swap.common" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:arch.arm.swap.common.no_optimizations" name="arch.arm.swap.common.no_optimizations" time="0">
           </testcase>
   </testsuite>
-<testsuite tests="25" errors="0" failures="0" name="" skipped="0" time="0">
+<testsuite tests="27" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="frdm_kw41z:arch.common.xip" name="arch.common.xip" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:kernel.memory_protection" name="kernel.memory_protection" time="0">
@@ -51,6 +211,8 @@
           </testcase>
           <testcase classname="frdm_kw41z:logging.log_core" name="logging.log_core" time="0">
           </testcase>
+          <testcase classname="frdm_kw41z:logging.log_immediate.log_immediate_preemption" name="logging.log_immediate.log_immediate_preemption" time="0">
+          </testcase>
           <testcase classname="frdm_kw41z:libraries.libc" name="libraries.libc" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
@@ -62,6 +224,8 @@
           <testcase classname="frdm_kw41z:sample.basic.helloworld" name="sample.basic.helloworld" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:sample.kernel.philosopher" name="sample.kernel.philosopher" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:sample.kernel.philosopher.tracing" name="sample.kernel.philosopher.tracing" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:sample.kernel.philosopher.same_prio" name="sample.kernel.philosopher.same_prio" time="0">
           </testcase>
@@ -147,7 +311,7 @@
           </testcase>
           <testcase classname="frdm_kw41z:libraries.libc.minimal.mem_alloc" name="libraries.libc.minimal.mem_alloc" time="0">
           </testcase>
-  </testsuite><testsuite tests="54" errors="0" failures="2" name="" skipped="5" time="0">
+  </testsuite><testsuite tests="55" errors="0" failures="2" name="" skipped="5" time="0">
           <testcase classname="frdm_kw41z:sample.nfc.hello" name="sample.nfc.hello" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -165,6 +329,8 @@
          <testcase classname="frdm_kw41z:drivers.eeprom.build" name="drivers.eeprom.build" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
+          <testcase classname="frdm_kw41z:tracing.backends.openocd" name="tracing.backends.openocd" time="0">
+          </testcase>
          <testcase classname="frdm_kw41z:kernel.timer" name="kernel.timer" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -268,24 +434,46 @@
           </testcase>
           <testcase classname="frdm_kw41z:drivers.ipc.mailbox" name="drivers.ipc.mailbox" time="0">
           </testcase>
-          <testcase classname="frdm_kw41z:drivers.console.uart" name="drivers.console.uart" time="0">
+          <testcase classname="frdm_kw41z:sample.drivers.spi.fujitsu_fram" name="sample.drivers.spi.fujitsu_fram" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:sample.display.grove_display" name="sample.display.grove_display" time="0">
           </testcase>
          <testcase classname="frdm_kw41z:drivers.build.build" name="drivers.build.build" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
-  </testsuite><testsuite tests="4" errors="0" failures="0" name="" skipped="1" time="0">
+  </testsuite><testsuite tests="15" errors="0" failures="0" name="" skipped="1" time="0">
          <testcase classname="frdm_kw41z:net.ieee802154.fragment" name="net.ieee802154.fragment" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp" name="net.tcp" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp.simple" name="net.tcp.simple" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp2.simple.client_closing_ipv6" name="net.tcp2.simple.client_closing_ipv6" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp2.simple.client_fin_wait_2_ipv4" name="net.tcp2.simple.client_fin_wait_2_ipv4" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp2.simple.client_ipv4" name="net.tcp2.simple.client_ipv4" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp2.simple.client_ipv6" name="net.tcp2.simple.client_ipv6" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp2.simple.client_syn_resend" name="net.tcp2.simple.client_syn_resend" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp2.simple.presetup" name="net.tcp2.simple.presetup" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp2.simple.server_ipv4" name="net.tcp2.simple.server_ipv4" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp2.simple.server_ipv6" name="net.tcp2.simple.server_ipv6" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:net.tcp2.simple.server_with_options_ipv4" name="net.tcp2.simple.server_with_options_ipv4" time="0">
+          </testcase>
           <testcase classname="frdm_kw41z:sample.net.sockets.websocket_client" name="sample.net.sockets.websocket_client" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:sample.net.sockets.http_client" name="sample.net.sockets.http_client" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:net.buf" name="net.buf" time="0">
           </testcase>
-  </testsuite><testsuite tests="57" errors="0" failures="2" name="" skipped="0" time="0">
+  </testsuite><testsuite tests="61" errors="0" failures="2" name="" skipped="0" time="0">
           <testcase classname="frdm_kw41z:kernel.common" name="kernel.common" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -295,6 +483,14 @@
           </failure>
           </testcase>
           <testcase classname="frdm_kw41z:sample.kernel.synchronization" name="sample.kernel.synchronization" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.common.timing.sleep_forever" name="kernel.common.timing.sleep_forever" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:kernel.memory_pool" name="kernel.memory_pool" time="0">
           </testcase>
@@ -404,7 +600,7 @@
           </testcase>
           <testcase classname="frdm_kw41z:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
           </testcase>
-  </testsuite><testsuite tests="216" errors="0" failures="0" name="" skipped="0" time="0">
+  </testsuite><testsuite tests="288" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="frdm_kw41z:kernel.memory_pool" name="kernel.memory_pool" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:kernel.memory_pool.sys" name="kernel.memory_pool.sys" time="0">
@@ -554,6 +750,32 @@
           <testcase classname="frdm_kw41z:kernel.stack.usage" name="kernel.stack.usage" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:kernel.timer" name="kernel.timer" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.time_conversions" name="kernel.timer.tickless.time_conversions" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timeout_abs" name="kernel.timer.tickless.timeout_abs" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_remaining" name="kernel.timer.tickless.timer_remaining" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:kernel.workqueue" name="kernel.workqueue" time="0">
           </testcase>
@@ -834,6 +1056,124 @@
           <testcase classname="frdm_kw41z:kernel.threads.user_mode" name="kernel.threads.user_mode" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:kernel.sched" name="kernel.sched" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.bad_priorities" name="kernel.scheduler.no_timeslicing.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.lock_preemptible" name="kernel.scheduler.no_timeslicing.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.pending_thread_wakeup" name="kernel.scheduler.no_timeslicing.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.priority_cooperative" name="kernel.scheduler.no_timeslicing.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.priority_preemptible" name="kernel.scheduler.no_timeslicing.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.priority_scheduling" name="kernel.scheduler.no_timeslicing.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.sched_is_preempt_thread" name="kernel.scheduler.no_timeslicing.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.sleep_cooperative" name="kernel.scheduler.no_timeslicing.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.sleep_wakeup_preempConsole now belongs to simulator." name="kernel.scheduler.no_timeslicing.sleep_wakeup_preempConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.sleep_wakeup_preemptible" name="kernel.scheduler.no_timeslicing.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.slice_reset" name="kernel.scheduler.no_timeslicing.slice_reset" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.slice_scheduling" name="kernel.scheduler.no_timeslicing.slice_scheduling" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.time_slicing_disable_preemptible" name="kernel.scheduler.no_timeslicing.time_slicing_disable_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.time_slicing_preemptible" name="kernel.scheduler.no_timeslicing.time_slicing_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.unlock_nested_sched_lock" name="kernel.scheduler.no_timeslicing.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.unlock_preemptible" name="kernel.scheduler.no_timeslicing.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.user_k_is_preempt" name="kernel.scheduler.no_timeslicing.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.user_k_wakeup" name="kernel.scheduler.no_timeslicing.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.wakeup_expired_timer_thread" name="kernel.scheduler.no_timeslicing.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.no_timeslicing.yield_cooperative" name="kernel.scheduler.no_timeslicing.yield_cooperative" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.bad_priorities" name="kernel.scheduler.multiq.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.lock_preemptible" name="kernel.scheduler.multiq.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.pending_thread_wakeup" name="kernel.scheduler.multiq.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.priority_cooperative" name="kernel.scheduler.multiq.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.priority_preemptible" name="kernel.scheduler.multiq.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.priority_scheduling" name="kernel.scheduler.multiq.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.sched_is_preempt_thread" name="kernel.scheduler.multiq.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.sleep_cooperative" name="kernel.scheduler.multiq.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.sleep_wakeup_preemptible" name="kernel.scheduler.multiq.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.slice_reset" name="kernel.scheduler.multiq.slice_reset" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.slice_scheduling" name="kernel.scheduler.multiq.slice_scheduling" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.time_slicing_disable_preemptible" name="kernel.scheduler.multiq.time_slicing_disable_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.time_slicing_preemptible" name="kernel.scheduler.multiq.time_slicing_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.unlock_nested_sched_lock" name="kernel.scheduler.multiq.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.unlock_preemptible" name="kernel.scheduler.multiq.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.user_k_is_preempt" name="kernel.scheduler.multiq.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.user_k_wakeup" name="kernel.scheduler.multiq.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.wakeup_expired_timer_thread" name="kernel.scheduler.multiq.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq.yield_cooperative" name="kernel.scheduler.multiq.yield_cooperative" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.bad_priorities" name="kernel.scheduler.multiq_no_timeslicing.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.lock_preemptible" name="kernel.scheduler.multiq_no_timeslicing.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.pending_thread_wakeup" name="kernel.scheduler.multiq_no_timeslicing.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.priority_cooperative" name="kernel.scheduler.multiq_no_timeslicing.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.priority_preemptible" name="kernel.scheduler.multiq_no_timeslicing.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.priority_scheduling" name="kernel.scheduler.multiq_no_timeslicing.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.sched_is_preempt_thread" name="kernel.scheduler.multiq_no_timeslicing.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.sleep_cooperative" name="kernel.scheduler.multiq_no_timeslicing.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.sleep_wakeup_preemptible" name="kernel.scheduler.multiq_no_timeslicing.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.slice_reset" name="kernel.scheduler.multiq_no_timeslicing.slice_reset" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.slice_scheduling" name="kernel.scheduler.multiq_no_timeslicing.slice_scheduling" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.time_slicing_disable_preemptible" name="kernel.scheduler.multiq_no_timeslicing.time_slicing_disable_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.time_slicing_preemptible" name="kernel.scheduler.multiq_no_timeslicing.time_slicing_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.unlock_nested_sched_lock" name="kernel.scheduler.multiq_no_timeslicing.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.unlock_preemptible" name="kernel.scheduler.multiq_no_timeslicing.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.user_k_is_preempt" name="kernel.scheduler.multiq_no_timeslicing.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.user_k_wakeup" name="kernel.scheduler.multiq_no_timeslicing.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_threConsole now belongs to simulator." name="kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_threConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_thread" name="kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:kernel.scheduler.multiq_no_timeslicing.yield_cooperative" name="kernel.scheduler.multiq_no_timeslicing.yield_cooperative" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:sample.basic.threads" name="sample.basic.threads" time="0">
           </testcase>

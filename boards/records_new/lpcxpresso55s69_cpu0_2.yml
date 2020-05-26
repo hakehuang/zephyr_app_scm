@@ -46,12 +46,12 @@ __load__:
   - modules/video.yml
   - modules/video_net_socket.yml
   - modules/xip.yml
-  - skips/lpcxpresso55s69.yml
-  - boards/lpcxpresso55s69.yml
+  - skips/lpcxpresso55s69_cpu0.yml
+  - boards/lpcxpresso55s69_cpu0.yml
 
 
 settings:
-  case_pipe_name: lpcxpresso55s69_2
+  case_pipe_name: lpcxpresso55s69_cpu0_2
 
 cases:
   attribute: "required"

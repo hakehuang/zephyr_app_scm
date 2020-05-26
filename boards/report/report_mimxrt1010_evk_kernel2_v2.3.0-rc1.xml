@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="212" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="231" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="mimxrt1010_evk:kernel.memory_pool" name="kernel.memory_pool" time="0">
           </testcase>
           <testcase classname="mimxrt1010_evk:kernel.memory_pool.sys" name="kernel.memory_pool.sys" time="0">
@@ -14,6 +14,18 @@
           <testcase classname="mimxrt1010_evk:kernel.message_queue" name="kernel.message_queue" time="0">
           </testcase>
           <testcase classname="mimxrt1010_evk:kernel.mutex" name="kernel.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:system.mutex.mutex" name="system.mutex.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:system.mutex.nouser.mutex" name="system.mutex.nouser.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:system.mutex.nouser.supervisor_access" name="system.mutex.nouser.supervisor_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:system.mutex.nouser.user_access" name="system.mutex.nouser.user_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:system.mutex.supervisor_access" name="system.mutex.supervisor_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:system.mutex.user_access" name="system.mutex.user_access" time="0">
           </testcase>
           <testcase classname="mimxrt1010_evk:kernel.pipe.api" name="kernel.pipe.api" time="0">
           </testcase>
@@ -146,6 +158,32 @@
           <testcase classname="mimxrt1010_evk:kernel.stack.usage" name="kernel.stack.usage" time="0">
           </testcase>
           <testcase classname="mimxrt1010_evk:kernel.timer" name="kernel.timer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.time_conversions" name="kernel.timer.tickless.time_conversions" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timeout_abs" name="kernel.timer.tickless.timeout_abs" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_remaining" name="kernel.timer.tickless.timer_remaining" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="mimxrt1010_evk:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
           </testcase>
           <testcase classname="mimxrt1010_evk:kernel.workqueue" name="kernel.workqueue" time="0">
           </testcase>

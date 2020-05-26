@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="28" errors="0" failures="0" name="" skipped="1" time="0">
+    <testsuite tests="30" errors="0" failures="0" name="" skipped="1" time="0">
          <testcase classname="twr_ke18f:sample.userspace.prod_consumer" name="sample.userspace.prod_consumer" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -26,6 +26,8 @@
           </testcase>
           <testcase classname="twr_ke18f:logging.log_core" name="logging.log_core" time="0">
           </testcase>
+          <testcase classname="twr_ke18f:logging.log_immediate.log_immediate_preemption" name="logging.log_immediate.log_immediate_preemption" time="0">
+          </testcase>
           <testcase classname="twr_ke18f:libraries.libc" name="libraries.libc" time="0">
           </testcase>
           <testcase classname="twr_ke18f:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
@@ -35,6 +37,8 @@
           <testcase classname="twr_ke18f:sample.basic.helloworld" name="sample.basic.helloworld" time="0">
           </testcase>
           <testcase classname="twr_ke18f:sample.kernel.philosopher" name="sample.kernel.philosopher" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher.tracing" name="sample.kernel.philosopher.tracing" time="0">
           </testcase>
           <testcase classname="twr_ke18f:sample.kernel.philosopher.same_prio" name="sample.kernel.philosopher.same_prio" time="0">
           </testcase>

@@ -62,11 +62,11 @@ __load__:
   - modules/tracing_debug.yml
   - modules/uart_bluetooth.yml
   - modules/unknown.yml
-  - skips/lpcxpresso55s69.yml
-  - boards/lpcxpresso55s69.yml
+  - skips/lpcxpresso55s69_ns.yml
+  - boards/lpcxpresso55s69_ns.yml
 
 settings:
-  case_pipe_name: lpcxpresso55s69_drivers
+  case_pipe_name: lpcxpresso55s69_ns_drivers
 
 cases:
   attribute: "required"

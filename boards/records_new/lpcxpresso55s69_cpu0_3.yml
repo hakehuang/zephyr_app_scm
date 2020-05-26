@@ -34,11 +34,11 @@ __load__:
   - modules/flash_map.yml
   - modules/flash_nrf52_nrf9160.yml
   #- modules/flash_nrf52.yml
-  - skips/lpcxpresso55s69.yml
-  - boards/lpcxpresso55s69.yml
+  - skips/lpcxpresso55s69_cpu0.yml
+  - boards/lpcxpresso55s69_cpu0.yml
 
 settings:
-  case_pipe_name: lpcxpresso55s69_3
+  case_pipe_name: lpcxpresso55s69_cpu0_3
 
 cases:
   attribute: "required"

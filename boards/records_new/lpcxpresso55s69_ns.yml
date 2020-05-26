@@ -1,0 +1,32 @@
+
+__load__:
+  - modules/adc_drivers_userspace.yml
+  - modules/arm.yml
+  - modules/arm_interrupt.yml
+  - modules/arm_interrupt_ignore_faults.yml
+  - modules/arm_interrupt_vector_table.yml
+  - modules/arm_userspace.yml
+  - modules/audio.yml
+  - modules/base64.yml
+  - modules/benchmark.yml
+  - modules/benchmark_userspace.yml
+  - modules/battery.yml
+  - modules/bluetooth.yml
+  - modules/bluetooth_hci_prop_event.yml
+#  - modules/bluetooth_mesh.yml
+  - modules/bluetooth_net.yml
+  - modules/bluetooth_spi.yml
+  - modules/bluetooth_uuid.yml
+  - modules/board.yml
+  - modules/boards.yml
+  - modules/button_gpio.yml
+  - skips/lpcxpresso55s69_ns.yml
+  - boards/lpcxpresso55s69_ns.yml
+
+settings:
+  case_pipe_name: lpcxpresso55s69_ns
+
+cases:
+  attribute: "required"
+  __common__:
+    attribute: "required"

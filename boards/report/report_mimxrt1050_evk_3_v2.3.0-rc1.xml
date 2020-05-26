@@ -1,14 +1,15 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="28" errors="0" failures="0" name="" skipped="3" time="0">
+    <testsuite tests="27" errors="0" failures="0" name="" skipped="4" time="0">
          <testcase classname="mimxrt1050_evk:libraries.libc" name="libraries.libc" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
          <testcase classname="mimxrt1050_evk:libraries.libc.newlib" name="libraries.libc.newlib" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
-          <testcase classname="mimxrt1050_evk:sample.filesystem.fat_fs" name="sample.filesystem.fat_fs" time="0">
-          </testcase>
+         <testcase classname="mimxrt1050_evk:sample.filesystem.fat_fs" name="sample.filesystem.fat_fs" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="mimxrt1050_evk:libraries.os.fdtable" name="libraries.os.fdtable" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:sample.app_dev.external_lib" name="sample.app_dev.external_lib" time="0">

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="216" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="296" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="mimxrt1020_evk:kernel.memory_pool" name="kernel.memory_pool" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.memory_pool.sys" name="kernel.memory_pool.sys" time="0">
@@ -11,6 +11,10 @@
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.common.misra" name="kernel.common.misra" time="0">
           </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.fp_sharing" name="kernel.fp_sharing" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.fp_sharing.float_disable.arm" name="kernel.fp_sharing.float_disable.arm" time="0">
+          </testcase>
           <testcase classname="mimxrt1020_evk:kernel.futex" name="kernel.futex" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.memory_protection" name="kernel.memory_protection" time="0">
@@ -20,6 +24,18 @@
           <testcase classname="mimxrt1020_evk:kernel.message_queue" name="kernel.message_queue" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.mutex" name="kernel.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.mutex" name="system.mutex.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.nouser.mutex" name="system.mutex.nouser.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.nouser.supervisor_access" name="system.mutex.nouser.supervisor_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.nouser.user_access" name="system.mutex.nouser.user_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.supervisor_access" name="system.mutex.supervisor_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.user_access" name="system.mutex.user_access" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.pipe.api" name="kernel.pipe.api" time="0">
           </testcase>
@@ -152,6 +168,32 @@
           <testcase classname="mimxrt1020_evk:kernel.stack.usage" name="kernel.stack.usage" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.timer" name="kernel.timer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.time_conversions" name="kernel.timer.tickless.time_conversions" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timeout_abs" name="kernel.timer.tickless.timeout_abs" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_remaining" name="kernel.timer.tickless.timer_remaining" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.workqueue" name="kernel.workqueue" time="0">
           </testcase>
@@ -432,6 +474,124 @@
           <testcase classname="mimxrt1020_evk:kernel.threads.user_mode" name="kernel.threads.user_mode" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.sched" name="kernel.sched" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.bad_priorities" name="kernel.scheduler.no_timeslicing.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.lock_preemptible" name="kernel.scheduler.no_timeslicing.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.pending_thread_wakeup" name="kernel.scheduler.no_timeslicing.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.priority_cooperative" name="kernel.scheduler.no_timeslicing.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.priority_preemptible" name="kernel.scheduler.no_timeslicing.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.priority_scheduling" name="kernel.scheduler.no_timeslicing.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.sched_is_preempt_thread" name="kernel.scheduler.no_timeslicing.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.sleep_cooperative" name="kernel.scheduler.no_timeslicing.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.sleep_wakeup_preempConsole now belongs to simulator." name="kernel.scheduler.no_timeslicing.sleep_wakeup_preempConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.sleep_wakeup_preemptible" name="kernel.scheduler.no_timeslicing.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.slice_reset" name="kernel.scheduler.no_timeslicing.slice_reset" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.slice_scheduling" name="kernel.scheduler.no_timeslicing.slice_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.time_slicing_disable_preemptible" name="kernel.scheduler.no_timeslicing.time_slicing_disable_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.time_slicing_preemptible" name="kernel.scheduler.no_timeslicing.time_slicing_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.unlock_nested_sched_lock" name="kernel.scheduler.no_timeslicing.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.unlock_preemptible" name="kernel.scheduler.no_timeslicing.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.user_k_is_preempt" name="kernel.scheduler.no_timeslicing.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.user_k_wakeup" name="kernel.scheduler.no_timeslicing.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.wakeup_expired_timer_thread" name="kernel.scheduler.no_timeslicing.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.yield_cooperative" name="kernel.scheduler.no_timeslicing.yield_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.bad_priorities" name="kernel.scheduler.multiq.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.lock_preemptible" name="kernel.scheduler.multiq.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.pending_thread_wakeup" name="kernel.scheduler.multiq.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.priority_cooperative" name="kernel.scheduler.multiq.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.priority_preemptible" name="kernel.scheduler.multiq.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.priority_scheduling" name="kernel.scheduler.multiq.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.sched_is_preempt_thread" name="kernel.scheduler.multiq.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.sleep_cooperative" name="kernel.scheduler.multiq.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.sleep_wakeup_preemptible" name="kernel.scheduler.multiq.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.slice_reset" name="kernel.scheduler.multiq.slice_reset" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.slice_scheduling" name="kernel.scheduler.multiq.slice_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.time_slicing_disable_preemptible" name="kernel.scheduler.multiq.time_slicing_disable_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.time_slicing_preemptible" name="kernel.scheduler.multiq.time_slicing_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.unlock_nested_sched_lock" name="kernel.scheduler.multiq.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.unlock_preemptible" name="kernel.scheduler.multiq.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.user_k_is_preempt" name="kernel.scheduler.multiq.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.user_k_wakeup" name="kernel.scheduler.multiq.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.wakeup_expired_timer_thread" name="kernel.scheduler.multiq.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.yield_cooperative" name="kernel.scheduler.multiq.yield_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.bad_priorities" name="kernel.scheduler.multiq_no_timeslicing.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.lock_preemptible" name="kernel.scheduler.multiq_no_timeslicing.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.pending_thread_wakeup" name="kernel.scheduler.multiq_no_timeslicing.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.priority_cooperative" name="kernel.scheduler.multiq_no_timeslicing.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.priority_preemptible" name="kernel.scheduler.multiq_no_timeslicing.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.priority_scheduling" name="kernel.scheduler.multiq_no_timeslicing.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.sched_is_preempt_thread" name="kernel.scheduler.multiq_no_timeslicing.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.sleep_cooperative" name="kernel.scheduler.multiq_no_timeslicing.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.sleep_wakeup_preemptible" name="kernel.scheduler.multiq_no_timeslicing.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.slice_reset" name="kernel.scheduler.multiq_no_timeslicing.slice_reset" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.slice_scheduling" name="kernel.scheduler.multiq_no_timeslicing.slice_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.time_slicing_disable_preemptible" name="kernel.scheduler.multiq_no_timeslicing.time_slicing_disable_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.time_slicing_preemptible" name="kernel.scheduler.multiq_no_timeslicing.time_slicing_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.unlock_nested_sched_lock" name="kernel.scheduler.multiq_no_timeslicing.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.unlock_preemptible" name="kernel.scheduler.multiq_no_timeslicing.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.user_k_is_preempt" name="kernel.scheduler.multiq_no_timeslicing.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.user_k_wakeup" name="kernel.scheduler.multiq_no_timeslicing.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_threConsole now belongs to simulator." name="kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_threConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_thread" name="kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.yield_cooperative" name="kernel.scheduler.multiq_no_timeslicing.yield_cooperative" time="0">
           </testcase>
   </testsuite>
 </testsuites>

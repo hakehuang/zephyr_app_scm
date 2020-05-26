@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<testsuites>
+    <testsuite tests="56" errors="0" failures="2" name="" skipped="12" time="0">
+          <testcase classname="frdm_k22f:sample.nfc.hello" name="sample.nfc.hello" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="frdm_k22f:sample.drivers.i2c.fujitsu_fram" name="sample.drivers.i2c.fujitsu_fram" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+         <testcase classname="frdm_k22f:drivers.clock.build" name="drivers.clock.build" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:drivers.gpio.build" name="drivers.gpio.build" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:drivers.eeprom.build" name="drivers.eeprom.build" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="frdm_k22f:tracing.backends.openocd" name="tracing.backends.openocd" time="0">
+          </testcase>
+         <testcase classname="frdm_k22f:kernel.timer" name="kernel.timer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.monotonic" name="kernel.timer.monotonic" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.monotonic.timer" name="kernel.timer.monotonic.timer" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.starve.starve" name="kernel.timer.starve.starve" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.time_conversions" name="kernel.timer.tickless.time_conversions" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timeout_abs" name="kernel.timer.tickless.timeout_abs" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_remaining" name="kernel.timer.tickless.timer_remaining" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timConsole now belongs to simulator." name="kernel.timer.timConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.time_conversions" name="kernel.timer.time_conversions" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timeout_abs" name="kernel.timer.timeout_abs" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer" name="kernel.timer.timer" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_duration_period" name="kernel.timer.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_expirefn_null" name="kernel.timer.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_k_define" name="kernel.timer.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_period_0" name="kernel.timer.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_remaining" name="kernel.timer.timer_remaining" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_status_get_anytime" name="kernel.timer.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:testing.ztest.verbose_0" name="testing.ztest.verbose_0" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:testing.ztest.verbose_1" name="testing.ztest.verbose_1" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:testing.ztest.verbose_2" name="testing.ztest.verbose_2" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:testing.ztest.regular_output" name="testing.ztest.regular_output" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:testing.ztest.customized_output" name="testing.ztest.customized_output" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:sample.shell.shell_module" name="sample.shell.shell_module" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:sample.shell.shell_module.minimal" name="sample.shell.shell_module.minimal" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:sample.shell.shell_module.minimal_rtt" name="sample.shell.shell_module.minimal_rtt" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:shell" name="shell" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:shell.shell_module" name="shell.shell_module" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:system.settings.nvs" name="system.settings.nvs" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:sample.nvs" name="sample.nvs" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:sample.drivers.current_sensing" name="sample.drivers.current_sensing" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:sample.sensor.thermometer" name="sample.sensor.thermometer" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:libraries.data_structures" name="libraries.data_structures" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:portability.posix.common" name="portability.posix.common" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:arch.interrupt" name="arch.interrupt" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:drivers.ipc.mailbox" name="drivers.ipc.mailbox" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:sample.drivers.spi.fujitsu_fram" name="sample.drivers.spi.fujitsu_fram" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:sample.display.grove_display" name="sample.display.grove_display" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:sample.drivers.watchdog" name="sample.drivers.watchdog" time="0">
+          </testcase>
+         <testcase classname="frdm_k22f:drivers.build.build" name="drivers.build.build" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:net.ethernet.build" name="net.ethernet.build" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:sensors.build.trigger_a_h" name="sensors.build.trigger_a_h" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:sensors.build.trigger_i_z" name="sensors.build.trigger_i_z" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:sensors.build.a_h" name="sensors.build.a_h" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:sensors.build.i_z" name="sensors.build.i_z" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:sensors.build.stmemsc" name="sensors.build.stmemsc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:sensors.build.stmemsc_trigger" name="sensors.build.stmemsc_trigger" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+  </testsuite>
+</testsuites>
