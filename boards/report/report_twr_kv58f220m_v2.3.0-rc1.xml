@@ -1,163 +1,35 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="73" errors="0" failures="6" name="" skipped="0" time="0">
+    <testsuite tests="12" errors="0" failures="0" name="" skipped="2" time="0">
           <testcase classname="twr_kv58f220m:benchmark.kernel.latency" name="benchmark.kernel.latency" time="0">
           </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
-          <failure message="failed" type="failure">
-          </failure>
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations.arm_interrupt" name="arch.interrupt.no_optimizations.arm_interrupt" time="0">
-          <failure message="failed" type="failure">
-          </failure>
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations.arm_user_interrupt" name="arch.interrupt.no_optimizations.arm_user_interrupt" time="0">
-          <failure message="failed" type="failure">
-          </failure>
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations.fatal" name="arch.interrupt.no_optimizations.fatal" time="0">
-          <failure message="failed" type="failure">
-          </failure>
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations.usb_deconfig" name="arch.interrupt.no_optimizations.usb_deconfig" time="0">
-          <failure message="failed" type="failure">
-          </failure>
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations.usb_disable" name="arch.interrupt.no_optimizations.usb_disable" time="0">
-          <failure message="failed" type="failure">
-          </failure>
-          </testcase>
+         <testcase classname="twr_kv58f220m:arch.interrupt" name="arch.interrupt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="twr_kv58f220m:arch.interrupt.no_optimizations" name="arch.interrupt.no_optimizations" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="twr_kv58f220m:benchmark.kernel.timing.userspace" name="benchmark.kernel.timing.userspace" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:kernel.timing" name="kernel.timing" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:benchmark.kernel.application" name="benchmark.kernel.application" time="0">
           </testcase>
-          <testcase classname="twr_kv58f220m:benchmark.kernel.application.posix" name="benchmark.kernel.application.posix" time="0">
-          </testcase>
           <testcase classname="twr_kv58f220m:benchmark.kernel.scheduler" name="benchmark.kernel.scheduler" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:kernel.sched" name="kernel.sched" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:benchmark.kernel.core" name="benchmark.kernel.core" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:benchmark.kernel.timing.default" name="benchmark.kernel.timing.default" time="0">
           </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.ramfunc.arm_ramfunc" name="arch.arm.ramfunc.arm_ramfunc" time="0">
-          </testcase>
           <testcase classname="twr_kv58f220m:arch.interrupt.arm.irq_vector_table" name="arch.interrupt.arm.irq_vector_table" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" name="arch.interrupt.arm.irq_vector_table.arm_irq_vector_table" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm.irq_vector_table.arm_thread_swap" name="arch.interrupt.arm.irq_vector_table.arm_thread_swap" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:arch.interrupt.arm_irq_vector_table" name="arch.interrupt.arm_irq_vector_table" time="0">
           </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm.arm_interrupt" name="arch.interrupt.arm.arm_interrupt" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm.arm_user_interrupt" name="arch.interrupt.arm.arm_user_interrupt" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm_interrupt" name="arch.interrupt.arm_interrupt" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm_runtime_nmi" name="arch.interrupt.arm_runtime_nmi" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.interrupt.arm_thread_swap" name="arch.interrupt.arm_thread_swap" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.irq_advanced_features.arm_dynamic_direct_interrupts" name="arch.arm.irq_advanced_features.arm_dynamic_direct_interrupts" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.irq_advanced_features.arm_zero_latency_irqs" name="arch.arm.irq_advanced_features.arm_zero_latency_irqs" time="0">
-          </testcase>
           <testcase classname="twr_kv58f220m:arch.arm.swap.common" name="arch.arm.swap.common" time="0">
           </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.arm_thread_swap" name="arch.arm.swap.common.arm_thread_swap" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing" name="arch.arm.swap.common.fp_sharing" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.arm_thread_swap" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_decoding" name="arch.arm.swap.common.fp_sharing.json_decoding" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_decoding_array_array" name="arch.arm.swap.common.fp_sharing.json_decoding_array_array" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_encoding" name="arch.arm.swap.common.fp_sharing.json_encoding" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_escape" name="arch.arm.swap.common.fp_sharing.json_escape" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_escape_bounds_check" name="arch.arm.swap.common.fp_sharing.json_escape_bounds_check" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_escape_empty" name="arch.arm.swap.common.fp_sharing.json_escape_empty" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_escape_no_op" name="arch.arm.swap.common.fp_sharing.json_escape_no_op" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_escape_one" name="arch.arm.swap.common.fp_sharing.json_escape_one" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_invalid_bool" name="arch.arm.swap.common.fp_sharing.json_invalid_bool" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_invalid_null" name="arch.arm.swap.common.fp_sharing.json_invalid_null" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_invalid_number" name="arch.arm.swap.common.fp_sharing.json_invalid_number" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_invalid_string" name="arch.arm.swap.common.fp_sharing.json_invalid_string" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_item_wrong_type" name="arch.arm.swap.common.fp_sharing.json_item_wrong_type" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_key_not_in_descr" name="arch.arm.swap.common.fp_sharing.json_key_not_in_descr" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_missing_quote" name="arch.arm.swap.common.fp_sharing.json_missing_quote" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_obj_arr_decoding" name="arch.arm.swap.common.fp_sharing.json_obj_arr_decoding" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_obj_arr_encoding" name="arch.arm.swap.common.fp_sharing.json_obj_arr_encoding" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.json_wrong_token" name="arch.arm.swap.common.fp_sharing.json_wrong_token" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.no_optimizations" name="arch.arm.swap.common.fp_sharing.no_optimizations" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_thread_swap" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs" name="arch.arm.swap.common.fp_sharing.no_optimizations.arm_zero_latency_irqs" time="0">
-          </testcase>
           <testcase classname="twr_kv58f220m:arch.arm.swap.common.no_optimizations" name="arch.arm.swap.common.no_optimizations" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.no_optimizations.arm_interrupt" name="arch.arm.swap.common.no_optimizations.arm_interrupt" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.no_optimizations.arm_thread_swap" name="arch.arm.swap.common.no_optimizations.arm_thread_swap" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.no_optimizations.dhcp" name="arch.arm.swap.common.no_optimizations.dhcp" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.no_optimizations.log_hexdump_data_get_multiple_chunks" name="arch.arm.swap.common.no_optimizations.log_hexdump_data_get_multiple_chunks" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.no_optimizations.log_hexdump_data_get_two_chunks" name="arch.arm.swap.common.no_optimizations.log_hexdump_data_get_two_chunks" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.no_optimizations.rand32" name="arch.arm.swap.common.no_optimizations.rand32" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.ptp_clock_get_by_index" name="arch.arm.swap.common.ptp_clock_get_by_index" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.ptp_clock_get_by_index_user" name="arch.arm.swap.common.ptp_clock_get_by_index_user" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.ptp_clock_get_kernel" name="arch.arm.swap.common.ptp_clock_get_kernel" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.ptp_clock_get_user" name="arch.arm.swap.common.ptp_clock_get_user" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.ptp_clock_iface_1" name="arch.arm.swap.common.ptp_clock_iface_1" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.ptp_clock_iface_2" name="arch.arm.swap.common.ptp_clock_iface_2" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.ptp_clock_interfaces" name="arch.arm.swap.common.ptp_clock_interfaces" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.rand32" name="arch.arm.swap.common.rand32" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.usb_dc_api" name="arch.arm.swap.common.usb_dc_api" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.usb_dc_api_invalid" name="arch.arm.swap.common.usb_dc_api_invalid" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.usb_dc_api_read_write" name="arch.arm.swap.common.usb_dc_api_read_write" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.usb_deconfig" name="arch.arm.swap.common.usb_deconfig" time="0">
-          </testcase>
-          <testcase classname="twr_kv58f220m:arch.arm.swap.common.usb_disable" name="arch.arm.swap.common.usb_disable" time="0">
           </testcase>
   </testsuite>
 </testsuites>

@@ -1,453 +1,47 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="224" errors="0" failures="0" name="" skipped="0" time="0">
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment" name="net.ipv6.fragment" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.find_last_ipv6_fragment_hbho_1" name="net.ipv6.fragment.find_last_ipv6_fragment_hbho_1" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.find_last_ipv6_fragment_hbho_2" name="net.ipv6.fragment.find_last_ipv6_fragment_hbho_2" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.find_last_ipv6_fragment_hbho_3" name="net.ipv6.fragment.find_last_ipv6_fragment_hbho_3" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.find_last_ipv6_fragment_hbho_frag" name="net.ipv6.fragment.find_last_ipv6_fragment_hbho_frag" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.find_last_ipv6_fragment_hbho_frag_1" name="net.ipv6.fragment.find_last_ipv6_fragment_hbho_frag_1" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.find_last_ipv6_fragment_hbho_udp" name="net.ipv6.fragment.find_last_ipv6_fragment_hbho_udp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.find_last_ipv6_fragment_udp" name="net.ipv6.fragment.find_last_ipv6_fragment_udp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.recv_ipv6_fragment" name="net.ipv6.fragment.recv_ipv6_fragment" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.send_ipv6_fragment" name="net.ipv6.fragment.send_ipv6_fragment" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.send_ipv6_fragment_large_hbho" name="net.ipv6.fragment.send_ipv6_fragment_large_hbho" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.send_ipv6_fragment_without_hbho" name="net.ipv6.fragment.send_ipv6_fragment_without_hbho" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.fragment.setup" name="net.ipv6.fragment.setup" time="0">
-          </testcase>
+    <testsuite tests="21" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="mimxrt1064_evk:net.ipv6" name="net.ipv6" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.add_max_neighbors" name="net.ipv6.add_max_neighbors" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.add_neighbor" name="net.ipv6.add_neighbor" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.address_lifetime" name="net.ipv6.address_lifetime" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.change_ll_addr" name="net.ipv6.change_ll_addr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.cmp_prefix" name="net.ipv6.cmp_prefix" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.dad_timeout" name="net.ipv6.dad_timeout" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.dst_iface_scope_mcast_recv" name="net.ipv6.dst_iface_scope_mcast_recv" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.dst_iface_scope_mcast_send" name="net.ipv6.dst_iface_scope_mcast_send" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.dst_localaddr_recv" name="net.ipv6.dst_localaddr_recv" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.dst_org_scope_mcast_recv" name="net.ipv6.dst_org_scope_mcast_recv" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.dst_site_scope_mcast_recv_drop" name="net.ipv6.dst_site_scope_mcast_recv_drop" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.dst_site_scope_mcast_recv_ok" name="net.ipv6.dst_site_scope_mcast_recv_ok" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.dst_zero_scope_mcast_recv" name="net.ipv6.dst_zero_scope_mcast_recv" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.hbho_message" name="net.ipv6.hbho_message" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.hbho_message_1" name="net.ipv6.hbho_message_1" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.hbho_message_2" name="net.ipv6.hbho_message_2" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.hbho_message_3" name="net.ipv6.hbho_message_3" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.init" name="net.ipv6.init" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.nbr_lookup_fail" name="net.ipv6.nbr_lookup_fail" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.nbr_lookup_ok" name="net.ipv6.nbr_lookup_ok" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.prefix_timeout" name="net.ipv6.prefix_timeout" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.prefix_timeout_long" name="net.ipv6.prefix_timeout_long" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.ra_message" name="net.ipv6.ra_message" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.rs_message" name="net.ipv6.rs_message" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.send_ns_extra_options" name="net.ipv6.send_ns_extra_options" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.send_ns_no_options" name="net.ipv6.send_ns_no_options" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ipv6.src_localaddr_recv" name="net.ipv6.src_localaddr_recv" time="0">
+          <testcase classname="mimxrt1064_evk:net.ipv6.fragment" name="net.ipv6.fragment" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:net.ip-addr" name="net.ip-addr" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:net.ip-addr.ip_addresses" name="net.ip-addr.ip_addresses" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ip-addr.ipv4_addresses" name="net.ip-addr.ipv4_addresses" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ip-addr.ipv6_addresses" name="net.ip-addr.ipv6_addresses" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:net.iface.with_userspace" name="net.iface.with_userspace" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.check_promisc_mode_off" name="net.iface.with_userspace.check_promisc_mode_off" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.check_promisc_mode_on" name="net.iface.with_userspace.check_promisc_mode_on" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.gw_addr_add" name="net.iface.with_userspace.gw_addr_add" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.iface_setup" name="net.iface.with_userspace.iface_setup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.netmask_addr_add" name="net.iface.with_userspace.netmask_addr_add" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.select_src_iface" name="net.iface.with_userspace.select_src_iface" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.send_iface1" name="net.iface.with_userspace.send_iface1" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.send_iface1_down" name="net.iface.with_userspace.send_iface1_down" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.send_iface1_up" name="net.iface.with_userspace.send_iface1_up" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.send_iface2" name="net.iface.with_userspace.send_iface2" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.send_iface3" name="net.iface.with_userspace.send_iface3" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.set_promisc_mode_off" name="net.iface.with_userspace.set_promisc_mode_off" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.set_promisc_mode_on" name="net.iface.with_userspace.set_promisc_mode_on" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.set_promisc_mode_on_again" name="net.iface.with_userspace.set_promisc_mode_on_again" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v4_addr_add" name="net.iface.with_userspace.v4_addr_add" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v4_addr_add_user" name="net.iface.with_userspace.v4_addr_add_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v4_addr_lookup" name="net.iface.with_userspace.v4_addr_lookup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v4_addr_lookup_user" name="net.iface.with_userspace.v4_addr_lookup_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v4_addr_rm" name="net.iface.with_userspace.v4_addr_rm" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v4_addr_rm_user" name="net.iface.with_userspace.v4_addr_rm_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v6_addr_add" name="net.iface.with_userspace.v6_addr_add" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v6_addr_add_user" name="net.iface.with_userspace.v6_addr_add_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v6_addr_lookup" name="net.iface.with_userspace.v6_addr_lookup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v6_addr_lookup_user" name="net.iface.with_userspace.v6_addr_lookup_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v6_addr_rm" name="net.iface.with_userspace.v6_addr_rm" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.with_userspace.v6_addr_rm_user" name="net.iface.with_userspace.v6_addr_rm_user" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed" name="net.iface.no_userspace_allowed" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.check_promisc_mode_off" name="net.iface.no_userspace_allowed.check_promisc_mode_off" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.check_promisc_mode_on" name="net.iface.no_userspace_allowed.check_promisc_mode_on" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.gw_addr_add" name="net.iface.no_userspace_allowed.gw_addr_add" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.iface_setup" name="net.iface.no_userspace_allowed.iface_setup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.netmask_addr_add" name="net.iface.no_userspace_allowed.netmask_addr_add" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.select_src_iface" name="net.iface.no_userspace_allowed.select_src_iface" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.send_iface1" name="net.iface.no_userspace_allowed.send_iface1" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.send_iface1_down" name="net.iface.no_userspace_allowed.send_iface1_down" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.send_iface1_up" name="net.iface.no_userspace_allowed.send_iface1_up" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.send_iface2" name="net.iface.no_userspace_allowed.send_iface2" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.send_iface3" name="net.iface.no_userspace_allowed.send_iface3" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_off" name="net.iface.no_userspace_allowed.set_promisc_mode_off" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_on" name="net.iface.no_userspace_allowed.set_promisc_mode_on" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.set_promisc_mode_on_again" name="net.iface.no_userspace_allowed.set_promisc_mode_on_again" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v4_addr_add" name="net.iface.no_userspace_allowed.v4_addr_add" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v4_addr_add_user" name="net.iface.no_userspace_allowed.v4_addr_add_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v4_addr_lookup" name="net.iface.no_userspace_allowed.v4_addr_lookup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v4_addr_lookup_user" name="net.iface.no_userspace_allowed.v4_addr_lookup_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v4_addr_rm" name="net.iface.no_userspace_allowed.v4_addr_rm" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v4_addr_rm_user" name="net.iface.no_userspace_allowed.v4_addr_rm_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v6_addr_add" name="net.iface.no_userspace_allowed.v6_addr_add" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v6_addr_add_user" name="net.iface.no_userspace_allowed.v6_addr_add_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v6_addr_lookup" name="net.iface.no_userspace_allowed.v6_addr_lookup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v6_addr_lookup_user" name="net.iface.no_userspace_allowed.v6_addr_lookup_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v6_addr_rm" name="net.iface.no_userspace_allowed.v6_addr_rm" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.iface.no_userspace_allowed.v6_addr_rm_user" name="net.iface.no_userspace_allowed.v6_addr_rm_user" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:net.icmpv6" name="net.icmpv6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.icmpv6.icmpv4" name="net.icmpv6.icmpv4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.icmpv6.icmpv6" name="net.icmpv6.icmpv6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.icmpv6.test4" name="net.icmpv6.test4" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:sample.net.sockets.websocket_client" name="sample.net.sockets.websocket_client" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:sample.net.sockets.http_client" name="sample.net.sockets.http_client" time="0">
           </testcase>
+          <testcase classname="mimxrt1064_evk:net.dhcp" name="net.dhcp" time="0">
+          </testcase>
           <testcase classname="mimxrt1064_evk:sample.net.dhcpv4_client" name="sample.net.dhcpv4_client" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:net.hostname" name="net.hostname" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:net.hostname.hostname_get" name="net.hostname.hostname_get" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.hostname.hostname_set" name="net.hostname.hostname_set" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.hostname.iface_setup" name="net.hostname.iface_setup" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:net.hostname.unique" name="net.hostname.unique" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.hostname.unique.hostname_get" name="net.hostname.unique.hostname_get" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.hostname.unique.hostname_set" name="net.hostname.unique.hostname_set" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.hostname.unique.iface_setup" name="net.hostname.unique.iface_setup" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:net.ethernet_mgmt" name="net.ethernet_mgmt" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_auto_neg" name="net.ethernet_mgmt.change_auto_neg" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_duplex" name="net.ethernet_mgmt.change_duplex" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_link" name="net.ethernet_mgmt.change_link" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_mac_when_down" name="net.ethernet_mgmt.change_mac_when_down" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_mac_when_up" name="net.ethernet_mgmt.change_mac_when_up" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_promisc_mode_off" name="net.ethernet_mgmt.change_promisc_mode_off" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_promisc_mode_on" name="net.ethernet_mgmt.change_promisc_mode_on" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_qav_params" name="net.ethernet_mgmt.change_qav_params" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_same_duplex" name="net.ethernet_mgmt.change_same_duplex" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_same_link" name="net.ethernet_mgmt.change_same_link" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_to_same_auto_neg" name="net.ethernet_mgmt.change_to_same_auto_neg" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_to_same_promisc_mode" name="net.ethernet_mgmt.change_to_same_promisc_mode" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.ethernet_mgmt.change_unsupported_link" name="net.ethernet_mgmt.change_unsupported_link" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dhcp" name="net.dhcp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dhcp.dhcp" name="net.dhcp.dhcp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dhcp.ptp_clock_get_by_index" name="net.dhcp.ptp_clock_get_by_index" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dhcp.ptp_clock_get_by_index_user" name="net.dhcp.ptp_clock_get_by_index_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dhcp.ptp_clock_get_kernel" name="net.dhcp.ptp_clock_get_kernel" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dhcp.ptp_clock_get_user" name="net.dhcp.ptp_clock_get_user" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dhcp.ptp_clock_iface_1" name="net.dhcp.ptp_clock_iface_1" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dhcp.ptp_clock_iface_2" name="net.dhcp.ptp_clock_iface_2" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dhcp.ptp_clock_interfaces" name="net.dhcp.ptp_clock_interfaces" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:net.offload" name="net.offload" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.address_setup" name="net.offload.address_setup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.eth_setup" name="net.offload.eth_setup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.rx_chksum_offload_disabled_test_v4" name="net.offload.rx_chksum_offload_disabled_test_v4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.rx_chksum_offload_disabled_test_v6" name="net.offload.rx_chksum_offload_disabled_test_v6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.rx_chksum_offload_disabled_v4" name="net.offload.rx_chksum_offload_disabled_v4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.rx_chksum_offload_disabled_v6" name="net.offload.rx_chksum_offload_disabled_v6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.rx_chksum_offload_enabled_test_v4" name="net.offload.rx_chksum_offload_enabled_test_v4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.rx_chksum_offload_enabled_test_v6" name="net.offload.rx_chksum_offload_enabled_test_v6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.rx_chksum_offload_enabled_v4" name="net.offload.rx_chksum_offload_enabled_v4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.rx_chksum_offload_enabled_v6" name="net.offload.rx_chksum_offload_enabled_v6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.tx_chksum_offload_disabled_test_v4" name="net.offload.tx_chksum_offload_disabled_test_v4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.tx_chksum_offload_disabled_test_v6" name="net.offload.tx_chksum_offload_disabled_test_v6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.tx_chksum_offload_disabled_v4" name="net.offload.tx_chksum_offload_disabled_v4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.tx_chksum_offload_disabled_v6" name="net.offload.tx_chksum_offload_disabled_v6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.tx_chksum_offload_enabled_test_v4" name="net.offload.tx_chksum_offload_enabled_test_v4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.tx_chksum_offload_enabled_test_v6" name="net.offload.tx_chksum_offload_enabled_test_v6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.tx_chksum_offload_enabled_v4" name="net.offload.tx_chksum_offload_enabled_v4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.offload.tx_chksum_offload_enabled_v6" name="net.offload.tx_chksum_offload_enabled_v6" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:net.buf" name="net.buf" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_1" name="net.buf.net_buf_1" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_2" name="net.buf.net_buf_2" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_3" name="net.buf.net_buf_3" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_4" name="net.buf.net_buf_4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_big_buf" name="net.buf.net_buf_big_buf" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_byte_order" name="net.buf.net_buf_byte_order" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_clone" name="net.buf.net_buf_clone" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_fixed_pool" name="net.buf.net_buf_fixed_pool" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_multi_frags" name="net.buf.net_buf_multi_frags" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_test_1" name="net.buf.net_buf_test_1" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_test_2" name="net.buf.net_buf_test_2" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_test_3" name="net.buf.net_buf_test_3" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_test_4" name="net.buf.net_buf_test_4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_test_big_buf" name="net.buf.net_buf_test_big_buf" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_test_clone" name="net.buf.net_buf_test_clone" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_test_fixed_pool" name="net.buf.net_buf_test_fixed_pool" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_test_multi_frags" name="net.buf.net_buf_test_multi_frags" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_test_var_pool" name="net.buf.net_buf_test_var_pool" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.buf.net_buf_var_pool" name="net.buf.net_buf_var_pool" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:net.arp" name="net.arp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.arp.arp" name="net.arp.arp" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:net.6lo" name="net.6lo" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:net.6lo.loop" name="net.6lo.loop" time="0">
+          <testcase classname="mimxrt1064_evk:net.coap" name="net.coap" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:net.coap.simple" name="net.coap.simple" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.block1_size" name="net.coap.simple.block1_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.block2_size" name="net.coap.simple.block2_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.build_empty_pdu" name="net.coap.simple.build_empty_pdu" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.build_simple_pdu" name="net.coap.simple.build_simple_pdu" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.match_path_uri" name="net.coap.simple.match_path_uri" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.observer_client" name="net.coap.simple.observer_client" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.observer_server" name="net.coap.simple.observer_server" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.parse_empty_pdu" name="net.coap.simple.parse_empty_pdu" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.parse_empty_pdu_1" name="net.coap.simple.parse_empty_pdu_1" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.parse_malformed_marker" name="net.coap.simple.parse_malformed_marker" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.parse_malformed_opt" name="net.coap.simple.parse_malformed_opt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.parse_malformed_opt_ext" name="net.coap.simple.parse_malformed_opt_ext" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.parse_malformed_opt_len" name="net.coap.simple.parse_malformed_opt_len" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.parse_malformed_opt_len_ext" name="net.coap.simple.parse_malformed_opt_len_ext" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.parse_simple_pdu" name="net.coap.simple.parse_simple_pdu" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.coap.simple.retransmit_second_round" name="net.coap.simple.retransmit_second_round" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:net.packet" name="net.packet" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.fragment_compact" name="net.packet.fragment_compact" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.fragment_copy" name="net.packet.fragment_copy" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.fragment_split" name="net.packet.fragment_split" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.ipv6_multi_frags" name="net.packet.ipv6_multi_frags" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.large_buffer.net_pkt_advanced_basics" name="net.packet.large_buffer.net_pkt_advanced_basics" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.large_buffer.net_pkt_allocate_with_buffer" name="net.packet.large_buffer.net_pkt_allocate_with_buffer" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.large_buffer.net_pkt_allocate_wo_buffer" name="net.packet.large_buffer.net_pkt_allocate_wo_buffer" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.large_buffer.net_pkt_basics_of_rw" name="net.packet.large_buffer.net_pkt_basics_of_rw" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.large_buffer.net_pkt_copy" name="net.packet.large_buffer.net_pkt_copy" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.large_buffer.net_pkt_easier_rw_usage" name="net.packet.large_buffer.net_pkt_easier_rw_usage" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.large_buffer.net_pkt_pull" name="net.packet.large_buffer.net_pkt_pull" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.net_pkt_advanced_basics" name="net.packet.net_pkt_advanced_basics" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.net_pkt_allocate_with_buffer" name="net.packet.net_pkt_allocate_with_buffer" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.net_pkt_allocate_wo_buffer" name="net.packet.net_pkt_allocate_wo_buffer" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.net_pkt_append_memset" name="net.packet.net_pkt_append_memset" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.net_pkt_basics_of_rw" name="net.packet.net_pkt_basics_of_rw" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.net_pkt_copy" name="net.packet.net_pkt_copy" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.net_pkt_easier_rw_usage" name="net.packet.net_pkt_easier_rw_usage" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.net_pkt_pull" name="net.packet.net_pkt_pull" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.pkt_pull" name="net.packet.pkt_pull" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.pkt_read_append" name="net.packet.pkt_read_append" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.packet.pkt_read_write_insert" name="net.packet.pkt_read_write_insert" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:net.udp" name="net.udp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.udp.dyn_thread_perms" name="net.udp.dyn_thread_perms" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.udp.thread_index_management" name="net.udp.thread_index_management" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.udp.udp" name="net.udp.udp" time="0">
           </testcase>
   </testsuite>
 </testsuites>

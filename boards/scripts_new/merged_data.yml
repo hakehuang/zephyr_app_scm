@@ -1,8 +1,8 @@
 ---
 settings:
-  case_pipe_name: twr_kv58f220m_kernel2
+  case_pipe_name: frdm_k64f_3
   build_script: build_zephyr_elf.sh
-  run_script: run_elf_twrkv58f.sh
+  run_script: run_zephyr_elf.sh
   no_filter:
   - CONFIG_ENTROPY_HAS_DRIVER
   - CONFIG_CPU_ARCV2
@@ -11,27 +11,33 @@ cases:
   misc.crc:
     bin: testbinary
     attribute: required
+  peripheral.spi:
+    build_only: true
+    attribute: required
+  peripheral.pinmux:
+    comments: no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/
+    result: FAILURE
+    attribute: required
+  net.build:
+    comments: build error
+    result: FAILURE
+    attribute: required
+  sample.net.sockets.echo_server.mcr20a:
+    result: FAILURE
+    comments: run error http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_samples/detail/frdmk64f/2/pipeline/153/
+    attribute: required
   samples.net.google_iot_mqtt:
-    result: skip
-    comments: code size issue
+    comments: no goolge web access so build only
     scripts:
     - ''
     build_only: true
     attribute: required
-  peripheral.spi:
-    comments: need add board support
-    build_only: true
-    attribute: required
-  sample.kernel.memory_protection.shared_mem:
-    build_only: true
-    comments: download error
-    attribute: required
-  benchmark.kernel.latency:
-    comments: need update test condition for clock setting
-    attribute: required
   libraries.libc.newlibnano:
     comments: http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164
     build_only: true
+    path: tests/lib/mem_alloc
+    catalog: clib newlib userspace
+    extra_args: CONF_FILE=prj_newlibnano.conf
     attribute: required
   peripheral.entropy:
     comments: no entropy
@@ -49,16 +55,16 @@ cases:
     commnets: no loop back
     build_only: true
     attribute: required
+  arch.interrupt.no_optimizations:
+    comments: no console output too slow
+    build_only: true
+    attribute: required
   test_utf8_in_kconfig_values:
     comments: build failure
     result: FAILURE
     attribute: required
   section.subsection:
     comments: build failure
-    result: FAILURE
-    attribute: required
-  sample.net.dns_resolve.mdns:
-    comments: 'BUS Fault: http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f/detail/frdmk64f/7/pipeline'
     result: FAILURE
     attribute: required
   sample.nfc.hello:
@@ -76,6 +82,11 @@ cases:
   crypto.rand32.random_hw_xoroshiro:
     comments: not hw in chip
     result: FAILURE
+    path: tests/crypto/rand32
+    catalog: crypto entropy random security
+    extra_args: CONF_FILE=prj_hw_random_xoroshiro.conf
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+    min_ram: 16
     attribute: required
   kernel.common.stack_sentinel:
     comments: no sentinel
@@ -95,10 +106,6 @@ cases:
     attribute: required
   sample.servo_motor:
     comments: not support
-    result: FAILURE
-    attribute: required
-  arch.interrupt.no_optimizations:
-    comments: no console output
     result: FAILURE
     attribute: required
   google_iot_mqtt:
@@ -125,173 +132,737 @@ cases:
     comments: need add support
     result: FAILURE
     attribute: required
-  kernel.memory_pool.sys:
-    path: tests/kernel/mem_pool/sys_mem_pool
-    catalog: kernel userspace mem_pool
-    min_ram: 32
+  sample.drivers.flash.soc_flash_nrf:
+    path: samples/drivers/soc_flash_nrf
+    catalog: flash nrf52 nrf9160
+    platform_whitelist: nrf52dk_nrf52832 nrf9160dk_nrf9160 nrf9160dk_nrf9160ns
     attribute: required
-  kernel.pipe:
-    path: tests/kernel/pipe/pipe
-    catalog: kernel userspace ignore_faults
+  storage.flash_map:
+    path: tests/subsys/storage/flash_map
+    catalog: flash_map
+    platform_whitelist: nrf51dk_nrf51422 qemu_x86 native_posix native_posix_64
     attribute: required
-  kernel.common.misra:
-    path: tests/kernel/common
-    catalog: kernel userspace
+  storage.flash_map.mpu:
+    path: tests/subsys/storage/flash_map
+    catalog: flash_map
+    extra_args: OVERLAY_CONFIG=overlay-mpu.conf
+    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 frdm_k64f hexiwear_k64
+      twr_ke18f
+    attribute: required
+  filesystem.fcb:
+    path: tests/subsys/fs/fcb
+    catalog: flash_circural_buffer
+    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 native_posix
+      native_posix_64
+    attribute: required
+  sample.filesystem.fat_fs:
+    path: samples/subsys/fs/fat_fs
+    catalog: filesystem
+    depends_on: sdhc
+    attribute: required
+  sample.filesystem.fat_fs.overlay:
+    path: samples/subsys/fs/fat_fs
+    catalog: filesystem
+    platform_whitelist: nrf52840_blip
+    attribute: required
+  sample.filesystem.littlefs:
+    path: samples/subsys/fs/littlefs
+    catalog: filesystem
+    build_only: true
+    platform_whitelist: nrf52840dk_nrf52840 particle_xenon
+    attribute: required
+  filesystem.fat.api:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    platform_whitelist: native_posix
+    attribute: required
+  filesystem.fat.dual_drive:
+    path: tests/subsys/fs/fat_fs_dual_drive
+    catalog: filesystem
+    platform_whitelist: qemu_x86 native_posix
+    attribute: required
+  filesystem.littlefs:
+    path: tests/subsys/fs/littlefs
+    catalog: filesystem
+    platform_whitelist: nrf52840dk_nrf52840 native_posix native_posix_64
+    attribute: required
+  libraries.os.fdtable:
+    path: tests/lib/fdtable
+    catalog: fdtable
+    attribute: required
+  sample.app_dev.external_lib:
+    path: samples/application_development/external_lib
+    catalog: external
+    attribute: required
+  boards.altera_max10.dma:
+    path: tests/boards/altera_max10/msgdma
+    catalog: dma
+    platform_whitelist: altera_max10
+    attribute: required
+  libraries.gui.lvgl:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    platform_whitelist: native_posix
+    attribute: required
+  libraries.gui.lvgl.dynamic.heap.libc:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
     extra_configs:
-    - CONFIG_MISRA_SANE=y
-    min_flash: 33
-    min_ram: 32
-    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LVGL_MEM_POOL_HEAP_LIB_C=y
+    platform_whitelist: native_posix
     attribute: required
-  kernel.fpu_sharing.float_disable.arm:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
+  libraries.gui.lvgl.dynamic.pool.user:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
     extra_configs:
-    - CONFIG_DYNAMIC_INTERRUPTS=y
-    arch_whitelist: arm
-    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LVGL_MEM_POOL_USER=y
+    - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
+    - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
+    platform_whitelist: native_posix
     attribute: required
-  kernel.fpu_sharing.float_disable.riscv32:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    filter: CONFIG_CPU_HAS_FPU
-    arch_whitelist: riscv32
+  libraries.gui.lvgl.dynamic.pool.kernel:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LVGL_MEM_POOL_KERNEL=y
+    - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
+    - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
+    platform_whitelist: native_posix
+    attribute: required
+  libraries.gui.lvgl.16bit:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_COLOR_DEPTH_16=y
+    platform_whitelist: native_posix
+    attribute: required
+  libraries.gui.lvgl.8bit:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_COLOR_DEPTH_8=y
+    platform_whitelist: native_posix
+    attribute: required
+  libraries.gui.lvgl.mono:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_COLOR_DEPTH_1=y
+    platform_whitelist: native_posix
+    attribute: required
+  libraries.gui.lvgl.16bit.swap:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_COLOR_DEPTH_16=y
+    - CONFIG_LVGL_COLOR_16_SWAP=y
+    platform_whitelist: native_posix
+    attribute: required
+  sample.display.shield.adafruit_2_8_tft_touch_v2:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=adafruit_2_8_tft_touch_v2
+    platform_whitelist: nrf52840dk_nrf52840
+    attribute: required
+  sample.display.shield.ssd1306_128x32:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=ssd1306_128x32
+    platform_whitelist: nrf52840dk_nrf52840
+    attribute: required
+  sample.display.shield.ssd1306_128x64:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=ssd1306_128x64
+    platform_whitelist: nrf52840dk_nrf52840
+    attribute: required
+  sample.display.st7789v_tl019fqv01:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=st7789v_tl019fqv01
+    platform_whitelist: nrf52dk_nrf52832
+    attribute: required
+  sample.display.st7789v_waveshare_240x240:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=st7789v_waveshare_240x240
+    platform_whitelist: nrf52dk_nrf52832
+    attribute: required
+  sample.board.bbc_microbit.display:
+    path: samples/boards/bbc_microbit/display
+    catalog: display
+    platform_whitelist: bbc_microbit
+    attribute: required
+  sample.display.cfb.ssd16xx:
+    path: samples/display/cfb
+    catalog: display
+    platform_whitelist: reel_board
+    attribute: required
+  sample.display.cfb_custom_font.ssd16xx:
+    path: samples/display/cfb_custom_font
+    catalog: display
+    platform_whitelist: reel_board
+    attribute: required
+  sample.display.cfb_shell.ssd16xx:
+    path: samples/display/cfb_shell
+    catalog: display
+    platform_whitelist: reel_board
+    attribute: required
+  sample.display.mcux_elcdif:
+    path: samples/drivers/display
+    catalog: display
+    platform_whitelist: mimxrt1050_evk
+    attribute: required
+  sample.display.sdl:
+    path: samples/drivers/display
+    catalog: display
+    build_only: true
+    platform_whitelist: native_posix_64
+    attribute: required
+  sample.display.dummy:
+    path: samples/drivers/display
+    catalog: display
+    extra_configs:
+    - CONFIG_DUMMY_DISPLAY=y
+    - CONFIG_SDL_DISPLAY=n
+    - CONFIG_TEST=y
+    platform_whitelist: native_posix
+    attribute: required
+  sample.drivers.lcd.hd44780:
+    path: samples/drivers/lcd_hd44780
+    catalog: display
+    platform_whitelist: arduino_due
+    depends_on: gpio
+    attribute: required
+  dfu.mcuboot:
+    path: tests/subsys/dfu/mcuboot
+    catalog: dfu_mcuboot
+    platform_whitelist: nrf52840dk_nrf52840 native_posix native_posix_64
+    attribute: required
+  dfu.image_util:
+    path: tests/subsys/dfu/img_util
+    catalog: dfu_image_util
+    platform_whitelist: nrf52840dk_nrf52840 native_posix native_posix_64
+    attribute: required
+  dfu.image_util.progressive:
+    path: tests/subsys/dfu/img_util
+    catalog: dfu_image_util
+    extra_args: OVERLAY_CONFIG=progressively_overlay.conf
+    platform_whitelist: nrf52840dk_nrf52840 native_posix native_posix_64
+    attribute: required
+  libraries.devicetree:
+    path: tests/lib/devicetree
+    catalog: devicetree
+    platform_whitelist: native_posix
+    attribute: required
+  kernel.device:
+    path: tests/kernel/device
+    catalog: device
+    platform_whitelist: native_posix native_posix_64 qemu_x86
+    attribute: required
+  kernel.device.pm:
+    path: tests/kernel/device
+    catalog: device
+    extra_configs:
+    - CONFIG_DEVICE_POWER_MANAGEMENT=y
+    platform_whitelist: native_posix native_posix_64 qemu_x86
+    attribute: required
+  buildsystem.debug.build:
+    path: tests/misc/test_build
+    catalog: debug
+    extra_args: CONF_FILE=debug.conf
     build_only: true
     attribute: required
-  kernel.fpu_sharing.float_disable.riscv64:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    filter: CONFIG_CPU_HAS_FPU
-    arch_whitelist: riscv64
+  sample.drivers.dac:
+    path: samples/drivers/dac
+    catalog: DAC
+    platform_whitelist: frdm_k64f nucleo_l073rz twr_ke18f
+    depends_on: dac
     attribute: required
-  kernel.fpu_sharing.float_disable.x86:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    extra_args: CONF_FILE=prj_x86.conf
-    platform_whitelist: qemu_x86
+  drivers.dac:
+    path: tests/drivers/dac/dac_loopback
+    catalog: dac drivers userspace
+    platform_whitelist: frdm_k64f nucleo_l073rz twr_ke18f
+    depends_on: dac
     attribute: required
-  kernel.futex:
-    path: tests/kernel/mem_protect/futex
-    catalog: kernel userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    min_ram: 36
+  sample.drivers.entropy:
+    path: samples/drivers/entropy
+    catalog: crypto entropy
+    filter: CONFIG_ENTROPY_HAS_DRIVER
     attribute: required
-  kernel.memory_protection.sys_sem:
-    path: tests/kernel/mem_protect/sys_sem
-    catalog: kernel userspace
-    min_ram: 36
-    attribute: required
-  kernel.message_queue:
-    path: tests/kernel/msgq/msgq_api
-    catalog: kernel userspace
-    attribute: required
-  kernel.mutex:
-    path: tests/kernel/mutex/mutex_api
-    catalog: kernel userspace
-    attribute: required
-  system.mutex:
-    path: tests/kernel/mutex/sys_mutex
-    catalog: kernel userspace
-    min_ram: 32
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  kernel.pipe.api:
-    path: tests/kernel/pipe/pipe_api
-    catalog: kernel userspace
-    attribute: required
-  kernel.poll:
-    path: tests/kernel/poll
-    catalog: kernel userspace
+  crypto.rand32.random_ctr_drbg:
+    path: tests/crypto/rand32
+    catalog: crypto entropy random security
+    extra_args: CONF_FILE=prj_ctr_drbg.conf
+    filter: CONFIG_ENTROPY_HAS_DRIVER
     min_ram: 16
+    attribute: required
+  crypto.rand32:
+    path: tests/crypto/rand32
+    catalog: crypto random security
+    min_ram: 16
+    attribute: required
+  crypto.rand32.random_sw_systimer:
+    path: tests/crypto/rand32
+    catalog: crypto random security
+    extra_args: CONF_FILE=prj_sw_random_systimer.conf
+    min_ram: 16
+    attribute: required
+  crypto.mbedtls:
+    path: tests/crypto/mbedtls
+    catalog: crypto mbedtls userspace
+    filter: not CONFIG_DEBUG
+    min_flash: 65
+    min_ram: 36
+    attribute: required
+  sample.drivers.crypto.mbedtls:
+    path: samples/drivers/crypto
+    catalog: crypto
+    extra_args: CONF_FILE=prj_mtls_shim.conf
     min_flash: 34
-    platform_exclude: nrf52dk_nrf52810
+    min_ram: 20
+    arch_exclude: xtensa
     attribute: required
-  kernel.queue:
-    path: tests/kernel/queue
-    catalog: kernel userspace
+  sample.drivers.crypto.mbedtls.micro:
+    path: samples/drivers/crypto
+    catalog: crypto
+    min_ram: 20
+    arch_exclude: xtensa
     attribute: required
-  kernel.queue.poll:
-    path: tests/kernel/queue
-    catalog: kernel userspace
-    extra_args: CONF_FILE="prj_poll.conf"
+  sample.drivers.crypto.stm32:
+    path: samples/drivers/crypto
+    catalog: crypto
+    extra_args: CONF_FILE=prj_stm32.conf
+    platform_whitelist: mikroe_mini_m4_for_stm32
+    build_only: true
+    min_ram: 20
+    arch_exclude: xtensa
     attribute: required
-  kernel.semaphore:
-    path: tests/kernel/semaphore/semaphore
-    catalog: kernel userspace
+  benchmark.crypto.mbedtls:
+    path: tests/benchmarks/mbedtls
+    catalog: crypto
+    platform_whitelist: qemu_x86 frdm_k64f sam_e70_xplained nrf52840dk_nrf52840
+    attribute: required
+  sample.cpp.synchronization:
+    path: samples/cpp_synchronization
+    catalog: cpp
+    arch_exclude: posix
+    attribute: required
+  application_development.cpp.main:
+    path: tests/application_development/cpp
+    catalog: cpp
+    platform_exclude: qemu_x86_coverage
+    attribute: required
+  application_development.cpp.libcxx:
+    path: tests/application_development/libcxx
+    catalog: cpp
+    platform_exclude: qemu_x86_coverage
+    min_flash: 54
+    attribute: required
+  application_development.cpp.libcxx.exceptions:
+    path: tests/application_development/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_EXCEPTIONS=y
+    platform_exclude: qemu_x86_coverage
+    min_flash: 54
+    attribute: required
+  sample.console.echo:
+    path: samples/subsys/console/echo
+    catalog: console
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+    attribute: required
+  sample.console.getchar:
+    path: samples/subsys/console/getchar
+    catalog: console
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+    attribute: required
+  sample.console.getline:
+    path: samples/subsys/console/getline
+    catalog: console
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+    attribute: required
+  benchmark.cmsis_dsp.basicmath:
+    path: tests/benchmarks/cmsis_dsp/basicmath
+    catalog: benchmark cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+    attribute: required
+  sample.portability.cmsis_rtos_v1.philosopher:
+    path: samples/portability/cmsis_rtos_v1/philosophers
+    catalog: cmsis_rtos
+    extra_args: " DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
+    attribute: required
+  sample.portability.cmsis_rtos_v1.philosopher.same_prio:
+    path: samples/portability/cmsis_rtos_v1/philosophers
+    catalog: cmsis_rtos
+    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
+    attribute: required
+  sample.portability.cmsis_rtos_v1.philosopher.semaphores:
+    path: samples/portability/cmsis_rtos_v1/philosophers
+    catalog: cmsis_rtos
+    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
+    attribute: required
+  sample.portability.cmsis_rtos_v1.timer_synchronization:
+    path: samples/portability/cmsis_rtos_v1/timer_synchronization
+    catalog: cmsis_rtos
+    min_ram: 32
+    min_flash: 34
+    attribute: required
+  sample.portability.cmsis_rtos_v2.philosopher:
+    path: samples/portability/cmsis_rtos_v2/philosophers
+    catalog: cmsis_rtos
+    extra_args: " DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
+    attribute: required
+  sample.portability.cmsis_rtos_v2.philosopher.same_prio:
+    path: samples/portability/cmsis_rtos_v2/philosophers
+    catalog: cmsis_rtos
+    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
+    attribute: required
+  sample.portability.cmsis_rtos_v2.philosopher.semaphores:
+    path: samples/portability/cmsis_rtos_v2/philosophers
+    catalog: cmsis_rtos
+    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
+    attribute: required
+  sample.portability.cmsis_rtos_v2.timer_synchronization:
+    path: samples/portability/cmsis_rtos_v2/timer_synchronization
+    catalog: cmsis_rtos
+    min_ram: 32
+    min_flash: 34
+    attribute: required
+  portability.cmsis_rtos_v1:
+    path: tests/portability/cmsis_rtos_v1
+    catalog: cmsis_rtos
+    min_ram: 32
+    min_flash: 34
+    attribute: required
+  portability.cmsis_rtos_v2:
+    path: tests/portability/cmsis_rtos_v2
+    catalog: cmsis_rtos
+    platform_exclude: qemu_x86_64 m2gl025_miv
+    min_ram: 32
+    min_flash: 34
+    attribute: required
+  libraries.cmsis_dsp.basicmath:
+    path: tests/lib/cmsis_dsp/basicmath
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+    attribute: required
+  libraries.cmsis_dsp.bayes:
+    path: tests/lib/cmsis_dsp/bayes
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 64
     min_ram: 32
     attribute: required
-  kernel.stack.usage:
-    path: tests/kernel/stack/stack
-    catalog: kernel userspace
+  libraries.cmsis_dsp.complexmath:
+    path: tests/lib/cmsis_dsp/complexmath
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
     attribute: required
-  kernel.timer:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel userspace
-    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+  libraries.cmsis_dsp.distance:
+    path: tests/lib/cmsis_dsp/distance
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 64
+    min_ram: 32
     attribute: required
-  kernel.timer.tickless:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel userspace
-    extra_args: CONF_FILE="prj_tickless.conf"
-    arch_exclude: riscv32 nios2 posix
-    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+  libraries.cmsis_dsp.fastmath:
+    path: tests/lib/cmsis_dsp/fastmath
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
     attribute: required
-  kernel.workqueue.api:
-    path: tests/kernel/workq/work_queue_api
-    catalog: kernel userspace
-    min_flash: 34
+  libraries.cmsis_dsp.filtering:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    skip: true
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
     attribute: required
-  kernel.threads.dynamic:
-    path: tests/kernel/threads/dynamic_thread
-    catalog: kernel threads userspace ignore_faults
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    arch_exclude: x86
-    attribute: required
-  kernel.threads.apis:
-    path: tests/kernel/threads/thread_apis
-    catalog: kernel threads userspace ignore_faults
-    min_flash: 34
-    attribute: required
-  kernel.threads.init:
-    path: tests/kernel/threads/thread_init
-    catalog: kernel threads userspace
-    attribute: required
-  kernel.scheduler:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+  libraries.cmsis_dsp.filtering.biquad:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
     extra_configs:
-    - CONFIG_TIMESLICING=y
-    filter: not CONFIG_SCHED_MULTIQ
-    min_ram: 40
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_BIQUAD=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
     attribute: required
-  kernel.scheduler.no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+  libraries.cmsis_dsp.filtering.fir:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
     extra_configs:
-    - CONFIG_TIMESLICING=n
-    filter: not CONFIG_SCHED_MULTIQ
-    min_ram: 40
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_FIR=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
     attribute: required
-  kernel.scheduler.multiq:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+  libraries.cmsis_dsp.filtering.misc:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
     extra_configs:
-    - CONFIG_TIMESLICING=y
-    extra_args: CONF_FILE=prj_multiq.conf
-    min_ram: 40
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_MISC=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 256
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
     attribute: required
-  kernel.scheduler.multiq_no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+  libraries.cmsis_dsp.matrix:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    skip: true
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.matrix.unary_q15:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
     extra_configs:
-    - CONFIG_TIMESLICING=n
-    extra_args: CONF_FILE=prj_multiq.conf
-    min_ram: 40
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q15=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
     attribute: required
-  sample.basic.threads:
-    path: samples/basic/threads
-    catalog: kernel threads gpio
-    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
-      "led1")
-    depends_on: gpio
+  libraries.cmsis_dsp.matrix.unary_q31:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.matrix.unary_f32:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.matrix.unary_f64:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F64=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.matrix.binary_q15:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
+    extra_args: CONF_FILE=prj_base.conf
+    platform_exclude: mps2_an521
+    min_flash: 128
+    min_ram: 128
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.matrix.binary_q31:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 128
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.matrix.binary_f32:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 128
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.statistics:
+    path: tests/lib/cmsis_dsp/statistics
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+    attribute: required
+  libraries.cmsis_dsp.support:
+    path: tests/lib/cmsis_dsp/support
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+    attribute: required
+  libraries.cmsis_dsp.svm:
+    path: tests/lib/cmsis_dsp/svm
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+    attribute: required
+  libraries.cmsis_dsp.transform:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    skip: true
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.transform.cq15:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ15=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 512
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.transform.rq15:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ15=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 512
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.transform.cq31:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.transform.rq31:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.transform.cf32:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.transform.rf32:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 512
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.transform.cf64:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF64=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.cmsis_dsp.transform.rf64:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF64=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    attribute: required
+  libraries.libc.newlib:
+    path: tests/lib/mem_alloc
+    catalog: clib newlib userspace
+    extra_args: CONF_FILE=prj_newlib.conf
+    arch_exclude: posix
+    platform_exclude: twr_ke18f
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    attribute: required
+  libraries.libc.minimal.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog: clib minimal_libc userspace
+    extra_args: CONF_FILE=prj.conf
+    arch_exclude: posix
+    platform_exclude: twr_ke18f
+    attribute: required
+  libraries.libc:
+    path: tests/lib/c_lib
+    catalog: clib
+    attribute: required
+  can.isotp.conformance:
+    path: tests/subsys/canbus/isotp/conformance
+    catalog: can isotp
+    depends_on: can
+    attribute: required
+  can.isotp.implemmentation:
+    path: tests/subsys/canbus/isotp/implementation
+    catalog: can isotp
+    depends_on: can
+    attribute: required
+  sample.drivers.can:
+    path: samples/drivers/can
+    catalog: CAN
+    depends_on: can
+    attribute: required
+  sample.subsys.canbus.canopen:
+    path: samples/subsys/canbus/canopen
+    catalog: CAN
+    depends_on: can
+    platform_whitelist: twr_ke18f frdm_k64f
+    attribute: required
+  sample.subsys.canbus.isotp:
+    path: samples/subsys/canbus/isotp
+    catalog: CAN
+    depends_on: can
     attribute: required

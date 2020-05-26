@@ -1,16 +1,18 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="79" errors="0" failures="0" name="" skipped="1" time="0">
-         <testcase classname="lpcxpresso54114_m0:kernel.timer.starve.starve" name="kernel.timer.starve.starve" time="0">
+    <testsuite tests="46" errors="0" failures="0" name="" skipped="1" time="0">
+         <testcase classname="lpcxpresso54114_m0:kernel.timer" name="kernel.timer" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
-          <testcase classname="lpcxpresso54114_m0:kernel.timer" name="kernel.timer" time="0">
-          </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.monotonic" name="kernel.timer.monotonic" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.monotonic.timer" name="kernel.timer.monotonic.timer" time="0">
           </testcase>
+          <testcase classname="lpcxpresso54114_m0:kernel.timer.starve.starve" name="kernel.timer.starve.starve" time="0">
+          </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.tickless.time_conversions" name="kernel.timer.tickless.time_conversions" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:kernel.timer.tickless.timeout_abs" name="kernel.timer.tickless.timeout_abs" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
           </testcase>
@@ -22,6 +24,8 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
           </testcase>
+          <testcase classname="lpcxpresso54114_m0:kernel.timer.tickless.timer_remaining" name="kernel.timer.tickless.timer_remaining" time="0">
+          </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
@@ -32,7 +36,11 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
           </testcase>
+          <testcase classname="lpcxpresso54114_m0:kernel.timer.timConsole now belongs to simulator." name="kernel.timer.timConsole now belongs to simulator." time="0">
+          </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.time_conversions" name="kernel.timer.time_conversions" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:kernel.timer.timeout_abs" name="kernel.timer.timeout_abs" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.timer" name="kernel.timer.timer" time="0">
           </testcase>
@@ -46,6 +54,8 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
           </testcase>
+          <testcase classname="lpcxpresso54114_m0:kernel.timer.timer_remaining" name="kernel.timer.timer_remaining" time="0">
+          </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
@@ -58,109 +68,33 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_0" name="testing.ztest.verbose_0" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_0.assert_mem_equal" name="testing.ztest.verbose_0.assert_mem_equal" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_0.assert_tests" name="testing.ztest.verbose_0.assert_tests" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_0.empty_test" name="testing.ztest.verbose_0.empty_test" time="0">
-          </testcase>
           <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_1" name="testing.ztest.verbose_1" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_1.assert_mem_equal" name="testing.ztest.verbose_1.assert_mem_equal" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_1.assert_tests" name="testing.ztest.verbose_1.assert_tests" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_1.empty_test" name="testing.ztest.verbose_1.empty_test" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_2" name="testing.ztest.verbose_2" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_2.assert_mem_equal" name="testing.ztest.verbose_2.assert_mem_equal" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_2.assert_tests" name="testing.ztest.verbose_2.assert_tests" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.verbose_2.empty_test" name="testing.ztest.verbose_2.empty_test" time="0">
-          </testcase>
           <testcase classname="lpcxpresso54114_m0:testing.ztest.regular_output" name="testing.ztest.regular_output" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.regular_output.assert_pass" name="testing.ztest.regular_output.assert_pass" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.regular_output.assert_skip" name="testing.ztest.regular_output.assert_skip" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:testing.ztest.customized_output" name="testing.ztest.customized_output" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.customized_output.assert_pass" name="testing.ztest.customized_output.assert_pass" time="0">
+          <testcase classname="lpcxpresso54114_m0:sample.shell.shell_module" name="sample.shell.shell_module" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:testing.ztest.customized_output.assert_skip" name="testing.ztest.customized_output.assert_skip" time="0">
+          <testcase classname="lpcxpresso54114_m0:sample.shell.shell_module.minimal" name="sample.shell.shell_module.minimal" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:sample.shell.shell_module.minimal_rtt" name="sample.shell.shell_module.minimal_rtt" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:shell" name="shell" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m0:shell.shell_module" name="shell.shell_module" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:sample.sensor.thermometer" name="sample.sensor.thermometer" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:libraries.data_structures" name="libraries.data_structures" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.byte_put_free" name="libraries.data_structures.byte_put_free" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.capacity" name="libraries.data_structures.capacity" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.rbtree.rbtree_spam" name="libraries.data_structures.rbtree.rbtree_spam" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.reset" name="libraries.data_structures.reset" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ring_buffer_main" name="libraries.data_structures.ring_buffer_main" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_alloc_put" name="libraries.data_structures.ringbuffer_alloc_put" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_declare_pow2" name="libraries.data_structures.ringbuffer_declare_pow2" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_declare_size" name="libraries.data_structures.ringbuffer_declare_size" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_init" name="libraries.data_structures.ringbuffer_init" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" name="libraries.data_structures.ringbuffer_pow2_put_get_thread_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_put_get_isr" name="libraries.data_structures.ringbuffer_put_get_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_put_get_thread" name="libraries.data_structures.ringbuffer_put_get_thread" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_put_get_thread_isr" name="libraries.data_structures.ringbuffer_put_get_thread_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_raw" name="libraries.data_structures.ringbuffer_raw" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.data_structures.ringbuffer_size_put_get_thread_isr" name="libraries.data_structures.ringbuffer_size_put_get_thread_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.async" name="libraries.onoff.async" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.blocked_restart" name="libraries.onoff.blocked_restart" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.cancel_release" name="libraries.onoff.cancel_release" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.cancel_request_ok" name="libraries.onoff.cancel_request_ok" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.cancel_request_waits" name="libraries.onoff.cancel_request_waits" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.client_init_validation" name="libraries.onoff.client_init_validation" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.half_sync" name="libraries.onoff.half_sync" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.request" name="libraries.onoff.request" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.reset" name="libraries.onoff.reset" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.service_init_validation" name="libraries.onoff.service_init_validation" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.sync" name="libraries.onoff.sync" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:libraries.onoff.validate_args" name="libraries.onoff.validate_args" time="0">
+          <testcase classname="lpcxpresso54114_m0:arch.interrupt" name="arch.interrupt" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.nmi.arm_runtime_nmi" name="arch.interrupt.arm.nmi.arm_runtime_nmi" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:arch.interrupt.arm.nmi.nmi_test_isr" name="arch.interrupt.arm.nmi.nmi_test_isr" time="0">
-          </testcase>
           <testcase classname="lpcxpresso54114_m0:drivers.ipc.mailbox" name="drivers.ipc.mailbox" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m0:drivers.device_id.device_id_get" name="drivers.device_id.device_id_get" time="0">
           </testcase>
   </testsuite>
 </testsuites>

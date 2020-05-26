@@ -1,53 +1,37 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="63" errors="0" failures="2" name="" skipped="0" time="0">
-          <testcase classname="twr_ke18f:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
+    <testsuite tests="61" errors="0" failures="2" name="" skipped="0" time="0">
+          <testcase classname="twr_ke18f:kernel.common" name="kernel.common" time="0">
           <failure message="failed" type="failure">
           </failure>
           </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
+          <testcase classname="twr_ke18f:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
           <failure message="failed" type="failure">
           </failure>
           </testcase>
           <testcase classname="twr_ke18f:sample.kernel.synchronization" name="sample.kernel.synchronization" time="0">
           </testcase>
-          <testcase classname="twr_ke18f:kernel.common.sleep.early_sleep" name="kernel.common.sleep.early_sleep" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.timing.sleep_forever" name="kernel.common.timing.sleep_forever" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
+          <testcase classname="twr_ke18f:kernel.memory_protection" name="kernel.memory_protection" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_protection.syscalls" name="kernel.memory_protection.syscalls" time="0">
           </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.arg64" name="kernel.memory_protection.syscalls.arg64" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.string_nlen" name="kernel.memory_protection.syscalls.string_nlen" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.to_copy" name="kernel.memory_protection.syscalls.to_copy" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.user_string_alloc_copy" name="kernel.memory_protection.syscalls.user_string_alloc_copy" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.syscalls.user_string_copy" name="kernel.memory_protection.syscalls.user_string_copy" time="0">
-          </testcase>
           <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation" name="kernel.memory_protection.obj_validation" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.fifo_cancel_wait" name="kernel.memory_protection.obj_validation.fifo_cancel_wait" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.fifo_is_empty_isr" name="kernel.memory_protection.obj_validation.fifo_is_empty_isr" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.fifo_is_empty_thread" name="kernel.memory_protection.obj_validation.fifo_is_empty_thread" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.fifo_loop" name="kernel.memory_protection.obj_validation.fifo_loop" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.obj_validation.generic_object" name="kernel.memory_protection.obj_validation.generic_object" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool" name="kernel.memory_pool" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.api" name="kernel.memory_pool.api" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.api.legacy.mpool_alloc_free_isr" name="kernel.memory_pool.api.legacy.mpool_alloc_free_isr" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.api.legacy.mpool_alloc_free_thread" name="kernel.memory_pool.api.legacy.mpool_alloc_free_thread" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.api.legacy.mpool_alloc_size" name="kernel.memory_pool.api.legacy.mpool_alloc_size" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.api.legacy.mpool_alloc_timeout" name="kernel.memory_pool.api.legacy.mpool_alloc_timeout" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.api.legacy.mpool_kdefine_extern" name="kernel.memory_pool.api.legacy.mpool_kdefine_extern" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.api.legacy.sys_heap_mem_pool_assign" name="kernel.memory_pool.api.legacy.sys_heap_mem_pool_assign" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.api.mpool_alloc_free_isr" name="kernel.memory_pool.api.mpool_alloc_free_isr" time="0">
           </testcase>
@@ -63,6 +47,14 @@
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.concept" name="kernel.memory_pool.concept" time="0">
           </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_parent" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_size" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.concept.legacy.mpool_alloc_size_roundup" name="kernel.memory_pool.concept.legacy.mpool_alloc_size_roundup" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.concept.legacy.mpool_alloc_wait_prio" name="kernel.memory_pool.concept.legacy.mpool_alloc_wait_prio" time="0">
+          </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_parent" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_size" time="0">
@@ -70,6 +62,14 @@
           <testcase classname="twr_ke18f:kernel.memory_pool.concept.mpool_alloc_size_roundup" name="kernel.memory_pool.concept.mpool_alloc_size_roundup" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.concept.mpool_alloc_wait_prio" name="kernel.memory_pool.concept.mpool_alloc_wait_prio" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.legacy.pool_block_get" name="kernel.memory_pool.legacy.pool_block_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.legacy.pool_block_get_timeout" name="kernel.memory_pool.legacy.pool_block_get_timeout" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.legacy.pool_block_get_wait" name="kernel.memory_pool.legacy.pool_block_get_wait" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.legacy.pool_malloc" name="kernel.memory_pool.legacy.pool_malloc" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.mpool_alloc_free_isr" name="kernel.memory_pool.mpool_alloc_free_isr" time="0">
           </testcase>
@@ -117,19 +117,15 @@
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.threadsafe" name="kernel.memory_pool.threadsafe" time="0">
           </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_pool.threadsafe.legacy.mpool_threadsafe" name="kernel.memory_pool.threadsafe.legacy.mpool_threadsafe" time="0">
+          </testcase>
           <testcase classname="twr_ke18f:kernel.memory_pool.threadsafe.mpool_threadsafe" name="kernel.memory_pool.threadsafe.mpool_threadsafe" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
           </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.stackprot.create_alt_thread" name="kernel.memory_protection.stackprot.create_alt_thread" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.memory_protection.stackprot.stackprot" name="kernel.memory_protection.stackprot.stackprot" time="0">
+          <testcase classname="twr_ke18f:kernel.common.stack_protection" name="kernel.common.stack_protection" time="0">
           </testcase>
           <testcase classname="twr_ke18f:kernel.common.stack_protection_no_userspace" name="kernel.common.stack_protection_no_userspace" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_protection_no_userspace.arm_interrupt" name="kernel.common.stack_protection_no_userspace.arm_interrupt" time="0">
-          </testcase>
-          <testcase classname="twr_ke18f:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
           </testcase>
   </testsuite>
 </testsuites>

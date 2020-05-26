@@ -1,7 +1,7 @@
 ---
 cases:
   sample.basic.blink_led:
-    path: samples/basic/blinky_pwm
+    path: samples/basic/blink_led
     catalog: drivers pwm
     filter: dt_alias_exists("pwm-led0")
     depends_on: pwm
@@ -20,7 +20,7 @@ cases:
     path: samples/basic/servo_motor
     catalog: drivers pwm
     depends_on: pwm
-    filter: dt_alias_exists("pwm-servo")
+    filter: dt_alias_exists("pwm-0")
   drivers.pwm:
     path: tests/drivers/pwm/pwm_api
     catalog: drivers pwm

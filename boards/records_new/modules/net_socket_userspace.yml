@@ -15,10 +15,6 @@ cases:
     catalog: net socket userspace
     min_ram: 21
     depends_on: netif
-  net.socket.socketpair:
-    path: tests/net/socket/socketpair
-    catalog: net socket userspace
-    min_ram: 21
   net.socket.tcp:
     path: tests/net/socket/tcp
     catalog: net socket userspace

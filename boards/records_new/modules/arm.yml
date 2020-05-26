@@ -14,20 +14,20 @@ cases:
     arch_whitelist: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     min_flash: 192
-  arch.arm.swap.common.fpu_sharing:
+  arch.arm.swap.common.fp_sharing:
     path: tests/arch/arm/arm_thread_swap
     catalog: arm
     extra_configs:
-    - CONFIG_FPU=y
-    - CONFIG_FPU_SHARING=y
+    - CONFIG_FLOAT=y
+    - CONFIG_FP_SHARING=y
     arch_whitelist: arm
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
-  arch.arm.swap.common.fpu_sharing.no_optimizations:
+  arch.arm.swap.common.fp_sharing.no_optimizations:
     path: tests/arch/arm/arm_thread_swap
     catalog: arm
     extra_configs:
-    - CONFIG_FPU=y
-    - CONFIG_FPU_SHARING=y
+    - CONFIG_FLOAT=y
+    - CONFIG_FP_SHARING=y
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_IDLE_STACK_SIZE=512
     arch_whitelist: arm

@@ -9,6 +9,23 @@ cases:
     catalog: kernel
     min_ram: 20
     platform_exclude: qemu_cortex_r5
+  kernel.common.critical:
+    path: tests/kernel/critical
+    catalog: kernel
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: not CONFIG_WDT_SAM
+  kernel.common.critical.sam:
+    path: tests/kernel/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_WDT_DISABLE_AT_BOOT=y
+    filter: CONFIG_WDT_SAM
+  kernel.common.critical.nsim:
+    path: tests/kernel/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
@@ -32,38 +49,23 @@ cases:
     path: tests/kernel/fifo/fifo_usage
     catalog: kernel
     extra_args: CONF_FILE="prj_poll.conf"
-  kernel.fpu_sharing.generic.arc:
-    path: tests/kernel/fpu_sharing/generic
-    catalog: kernel
-    extra_args: PI_NUM_ITERATIONS=500
-    filter: CONFIG_CPU_ARCV2 and CONFIG_CPU_HAS_FPU
-    min_ram: 16
-  kernel.fpu_sharing.generic.arm:
-    path: tests/kernel/fpu_sharing/generic
+  kernel.float.fp_sharing:
+    path: tests/kernel/fp_sharing/generic
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=70000
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
     min_ram: 16
-  kernel.fpu_sharing.generic.riscv32:
-    path: tests/kernel/fpu_sharing/generic
-    catalog: kernel
-    extra_args: PI_NUM_ITERATIONS=500
-    filter: CONFIG_CPU_HAS_FPU
-    arch_whitelist: riscv32
-    min_ram: 16
-    build_only: true
-  kernel.fpu_sharing.generic.riscv64:
-    path: tests/kernel/fpu_sharing/generic
-    catalog: kernel
-    extra_args: PI_NUM_ITERATIONS=500
-    filter: CONFIG_CPU_HAS_FPU
-    arch_whitelist: riscv64
-    min_ram: 16
-  kernel.fpu_sharing.generic.x86:
-    path: tests/kernel/fpu_sharing/generic
+  kernel.float.fp_sharing.x86:
+    path: tests/kernel/fp_sharing/generic
     catalog: kernel
     extra_args: CONF_FILE=prj_x86.conf
     platform_whitelist: qemu_x86
+  kernel.float.fp_sharing.arc:
+    path: tests/kernel/fp_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_ARCV2 and CONFIG_CPU_HAS_FPU
+    min_ram: 16
   kernel.lifo:
     path: tests/kernel/lifo/lifo_api
     catalog: kernel
@@ -140,15 +142,3 @@ cases:
     path: tests/kernel/workq/work_queue
     catalog: kernel
     min_flash: 34
-  kernel.workqueue.sam:
-    path: tests/kernel/workq/critical
-    catalog: kernel
-    extra_configs:
-    - CONFIG_WDT_DISABLE_AT_BOOT=y
-    filter: CONFIG_WDT_SAM
-  kernel.workqueue.nsim:
-    path: tests/kernel/workq/critical
-    catalog: kernel
-    extra_configs:
-    - CONFIG_TEST_HW_STACK_PROTECTION=n
-    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard

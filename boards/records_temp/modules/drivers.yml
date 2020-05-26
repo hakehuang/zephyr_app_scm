@@ -8,7 +8,7 @@ cases:
     path: samples/drivers/counter/alarm
     catalog: drivers
     platform_whitelist: nucleo_f746zg nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
-      nrf9160dk_nrf9160 atsamd20_xpro
+      nrf9160dk_nrf9160
     depends_on: counter
   sample.drivers.espi:
     path: samples/drivers/espi
@@ -23,10 +23,6 @@ cases:
     path: samples/drivers/kscan
     catalog: drivers
     depends_on: kscan
-  sample.drivers.kscan_touch:
-    path: samples/drivers/kscan_touch
-    catalog: drivers
-    depends_on: kscan:touch
   sample.drivers.peci:
     path: samples/drivers/peci
     catalog: drivers
@@ -127,19 +123,11 @@ cases:
     path: tests/drivers/counter/counter_nrf_rtc/fixed_top
     catalog: drivers
     depends_on: counter
-    platform_whitelist: nrf52840dk_nrf52840
+    platform_whitelist: nrf52840_pca0056
   drivers.counter.cmos:
     path: tests/drivers/counter/counter_cmos
     catalog: drivers
     arch_whitelist: x86
-  drivers.counter.maxim_ds3231:
-    path: tests/drivers/counter/maxim_ds3231_api
-    catalog: drivers
-    depends_on: counter
-    min_ram: 16
-    filter: dt_compat_enabled("maxim,ds3231")
-    platform_whitelist: efr32mg_sltb004a frdm_k64f nrf51dk_nrf51422 nrf52840dk_nrf52840
-      nucleo_l476rg particle_xenon
   drivers.uart.uart_async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers

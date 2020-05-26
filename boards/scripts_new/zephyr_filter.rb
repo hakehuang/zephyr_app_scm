@@ -105,7 +105,7 @@ module ZEPHER_FILTER
 
 
   def is_case_include?(case_name , key)
-    return true if case_name.include? key
+    return true if key.include? case_name
     return true if CASE_MAP.has_key?(key) and case_name.include? CASE_MAP[key]
 =begin
     if key.split('.').count > 2 and case_name.include? "kernel."
@@ -124,4 +124,11 @@ module ZEPHER_FILTER
     return false
   end
   module_function :is_case_include?
+end
+
+
+if __FILE__ == $0
+
+ puts ZEPHER_FILTER::is_case_include?( "arch.interrupt", "arch.interrupt.gen_isr_table")
+
 end

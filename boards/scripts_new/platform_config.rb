@@ -30,12 +30,13 @@ def platforms()
     "frdm_kl25z" => ["", "2", "3", "drivers", "samples", "kernel", "kernel2"],
     "frdm_k64f" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
 #    "frdm_k32l2b3" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
-#    "frdm_k22f" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2"],
+    "frdm_k22f" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
 #    "frdm_kl46z" => ["", "2", "3", "drivers", "kernel", "kernel2"],
     "frdm_k82f" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "frdm_kw41z" => ["", "2", "3", "drivers", "samples", "kernel", "kernel2"],
     "lpcxpresso54114_m0" => ["", "2", "3", "drivers", "samples",  "kernel", "kernel2"],
     "lpcxpresso54114_m4" => ["", "2", "3", "drivers", "samples",  "kernel", "kernel2"],
+    "lpcxpresso55s69"  => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2"],
     "mimxrt1010_evk" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "mimxrt1015_evk" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "mimxrt1020_evk" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
@@ -161,7 +162,7 @@ def get_no_pass_cases_by_plat()
             pll = parser_log(ll)
             #puts pll
             if pll and pll["result"] != "pass"
-                #puts pll
+                puts pll
                 if ret[vname] and ! ret[vname].include?(pll)
                     ret[vname].insert(-1, pll)
                 end

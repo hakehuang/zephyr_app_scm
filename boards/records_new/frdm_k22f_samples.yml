@@ -1,8 +1,5 @@
 
 __load__:
-  - modules/dns_net.yml
-  - modules/llmnr.yml
-  - modules/mdns.yml
   - modules/net.yml
   - modules/net_6loWPAN.yml
   - modules/net_arp.yml
@@ -26,6 +23,7 @@ __load__:
   - modules/net_ipv6.yml
   - modules/net_ipv6_fragment.yml
   - modules/net_lldp.yml
+  - modules/tcp.yml
   - skips/frdm_k22f.yml
   - boards/frdm_k22f.yml
 
