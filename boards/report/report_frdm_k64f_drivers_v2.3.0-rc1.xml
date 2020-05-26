@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="68" errors="0" failures="2" name="" skipped="20" time="0">
+    <testsuite tests="71" errors="0" failures="2" name="" skipped="20" time="0">
           <testcase classname="frdm_k64f:sample.nfc.hello" name="sample.nfc.hello" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -33,6 +33,8 @@
          <testcase classname="frdm_k64f:drivers.eeprom.build" name="drivers.eeprom.build" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
+          <testcase classname="frdm_k64f:tracing.backends.openocd" name="tracing.backends.openocd" time="0">
+          </testcase>
          <testcase classname="frdm_k64f:kernel.timer" name="kernel.timer" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -97,6 +99,12 @@
           <testcase classname="frdm_k64f:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
           </testcase>
           <testcase classname="frdm_k64f:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:kernel.tickless.tickless" name="kernel.tickless.tickless" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:kernel.tickless.tickless_slice" name="kernel.tickless.tickless_slice" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:kernel.tickless.tickless_sysclock" name="kernel.tickless.tickless_sysclock" time="0">
           </testcase>
           <testcase classname="frdm_k64f:testing.ztest.verbose_0" name="testing.ztest.verbose_0" time="0">
           </testcase>
@@ -170,8 +178,6 @@
           <testcase classname="frdm_k64f:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
           </testcase>
           <testcase classname="frdm_k64f:drivers.ipc.mailbox" name="drivers.ipc.mailbox" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:drivers.console.uart" name="drivers.console.uart" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.display.grove_display" name="sample.display.grove_display" time="0">
           </testcase>

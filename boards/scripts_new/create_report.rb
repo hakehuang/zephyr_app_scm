@@ -116,9 +116,15 @@ def create_report_from_config(config: "", board_name: "frdm_k64f", output_path: 
       pipe_data[:catalog][catelog]['catalog']       = catelog
     end
     matched = false
-    next if matched_hash.has_key?(key)
+    if matched_hash.has_key?(key)
+      matched = true
+      next
+    end
     data.keys.each do |case_name|
-      next if matched_hash.has_key?(case_name)
+      if matched_hash.has_key?(case_name)
+        matched = true
+        next
+      end
       if ZEPHER_FILTER::is_case_include?(case_name, key)
         matched = true
         if @content["cases"][key]['result'].nil?

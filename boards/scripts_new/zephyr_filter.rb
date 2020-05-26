@@ -103,7 +103,6 @@ module ZEPHER_FILTER
   end
   module_function :get_board_name
 
-
   def is_case_include?(case_name , key)
     return true if key.include? case_name
     return true if CASE_MAP.has_key?(key) and case_name.include? CASE_MAP[key]
@@ -129,6 +128,6 @@ end
 
 if __FILE__ == $0
 
- puts ZEPHER_FILTER::is_case_include?( "arch.interrupt", "arch.interrupt.gen_isr_table")
+ puts ZEPHER_FILTER::is_case_include?("kernel.scheduler.multiq_no_timeslicing.xxxx", "kernel.scheduler.multiq_no_timeslicing")
 
 end
