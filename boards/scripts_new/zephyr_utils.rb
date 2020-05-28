@@ -39,6 +39,8 @@ def load_core_config(search_base, board_name, board)
   config_file = File.join(search_base, "boards", "arm", board, ".config")
   config_file_board = File.join(search_base, "boards", "arm", board, "#{board_name}.config")
   my_config = nil
+  puts config_file
+  puts config_file_board
   if File.exist?(config_file)
     my_config = ParseConfig.new(config_file)
     #puts my_config.params
