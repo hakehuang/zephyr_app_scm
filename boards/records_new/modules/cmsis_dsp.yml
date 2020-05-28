@@ -1,0 +1,228 @@
+---
+cases:
+  libraries.cmsis_dsp.basicmath:
+    path: tests/lib/cmsis_dsp/basicmath
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.bayes:
+    path: tests/lib/cmsis_dsp/bayes
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 64
+    min_ram: 32
+  libraries.cmsis_dsp.complexmath:
+    path: tests/lib/cmsis_dsp/complexmath
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.distance:
+    path: tests/lib/cmsis_dsp/distance
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 64
+    min_ram: 32
+  libraries.cmsis_dsp.fastmath:
+    path: tests/lib/cmsis_dsp/fastmath
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.filtering:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    skip: true
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.filtering.biquad:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_BIQUAD=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.filtering.fir:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_FIR=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.filtering.misc:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_MISC=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 256
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.matrix:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    skip: true
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.matrix.unary_q15:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q15=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.matrix.unary_q31:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.matrix.unary_f32:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.matrix.unary_f64:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F64=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.matrix.binary_q15:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
+    extra_args: CONF_FILE=prj_base.conf
+    platform_exclude: mps2_an521
+    min_flash: 128
+    min_ram: 128
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.matrix.binary_q31:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 128
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.matrix.binary_f32:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 128
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.statistics:
+    path: tests/lib/cmsis_dsp/statistics
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.support:
+    path: tests/lib/cmsis_dsp/support
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.svm:
+    path: tests/lib/cmsis_dsp/svm
+    catalog: cmsis_dsp
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.transform:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    skip: true
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.transform.cq15:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ15=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 512
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.transform.rq15:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ15=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 512
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.transform.cq31:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.transform.rq31:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.transform.cf32:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.transform.rf32:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 512
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.transform.cf64:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF64=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+  libraries.cmsis_dsp.transform.rf64:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF64=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521

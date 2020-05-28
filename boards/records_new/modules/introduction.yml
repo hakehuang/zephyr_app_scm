@@ -6,38 +6,31 @@ cases:
   sample.kernel.philosopher:
     path: samples/philosophers
     catalog: introduction
-    extra_args: " -DDEBUG_PRINTF=1"
-  sample.kernel.philosopher.tracing:
-    path: samples/philosophers
-    catalog: introduction
-    extra_configs:
-    - CONFIG_SEGGER_SYSTEMVIEW=y
-    extra_args: " -DDEBUG_PRINTF=1"
-    min_ram: 32
+    extra_args: " DEBUG_PRINTF=1"
   sample.kernel.philosopher.same_prio:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DSAME_PRIO=1 -DDEBUG_PRINTF=1"
+    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
   sample.kernel.philosopher.static:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DSTATIC_OBJS=1 -DDEBUG_PRINTF=1"
+    extra_args: "-DSTATIC_OBJS=1 DEBUG_PRINTF=1"
   sample.kernel.philosopher.semaphores:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=SEMAPHORES -DDEBUG_PRINTF=1"
+    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
   sample.kernel.philosopher.stacks:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=STACKS -DDEBUG_PRINTF=1"
+    extra_args: "-DFORKS=STACKS DEBUG_PRINTF=1"
   sample.kernel.philosopher.fifos:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=FIFOS -DDEBUG_PRINTF=1"
+    extra_args: "-DFORKS=FIFOS DEBUG_PRINTF=1"
   sample.kernel.philosopher.lifos:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=LIFOS -DDEBUG_PRINTF=1"
+    extra_args: "-DFORKS=LIFOS DEBUG_PRINTF=1"
   sample.kernel.philosopher.preempt_only:
     path: samples/philosophers
     catalog: introduction
@@ -46,15 +39,15 @@ cases:
     - CONFIG_NUM_COOP_PRIORITIES=0
     - CONFIG_BT=n
     - CONFIG_NETWORKING=n
-    extra_args: " -DDEBUG_PRINTF=1"
+    extra_args: " DEBUG_PRINTF=1"
   sample.kernel.philosopher.coop_only:
     path: samples/philosophers
     catalog: introduction
     extra_configs:
     - CONFIG_NUM_PREEMPT_PRIORITIES=0
     - CONFIG_NUM_COOP_PRIORITIES=6
-    extra_args: " -DDEBUG_PRINTF=1"
-  sample.metairq_dispatch:
+    extra_args: " DEBUG_PRINTF=1"
+  sample.kernel.metairq_dispatch:
     path: samples/scheduler/metairq_dispatch
     catalog: introduction
     filter: not CONFIG_ARCH_POSIX
@@ -62,3 +55,7 @@ cases:
     path: samples/smp/pi
     catalog: introduction
     filter: "(CONFIG_MP_NUM_CPUS > 1)"
+  sample.tfm_ipc:
+    path: samples/tfm_integration/tfm_ipc
+    catalog: introduction
+    platform_whitelist: mps2_an521_nonsecure

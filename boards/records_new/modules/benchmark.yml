@@ -23,7 +23,13 @@ cases:
     catalog: benchmark
     arch_whitelist: x86 arm posix
     platform_exclude: qemu_x86_64
-    filter: CONFIG_PRINTK
+    filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
+  benchmark.kernel.latency.stm32:
+    path: tests/benchmarks/latency_measure
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=20
+    filter: CONFIG_PRINTK and CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.scheduler:
     path: tests/benchmarks/sched
     catalog: benchmark

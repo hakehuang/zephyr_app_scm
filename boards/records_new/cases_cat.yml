@@ -82,7 +82,7 @@ drivers pwm:
     path: samples/basic/servo_motor
     catalog: drivers pwm
     depends_on: pwm
-    filter: dt_alias_exists("pwm-servo")
+    platform_whitelist: bbc_microbit
   drivers.pwm:
     path: tests/drivers/pwm/pwm_api
     catalog: drivers pwm
@@ -189,7 +189,7 @@ unknown:
     path: tests/arch/x86/info
     catalog: unknown
     arch_whitelist: x86
-    platform_whitelist: up_squared
+    platform_whitelist: up_squared up_squared_32
   boards.native_posix.native_tasks:
     path: tests/boards/native_posix/native_tasks
     catalog: unknown
@@ -1033,7 +1033,7 @@ gpio:
   sample.board.up_squared.gpio_counter:
     path: samples/boards/up_squared/gpio_counter
     catalog: gpio
-    platform_whitelist: up_squared
+    platform_whitelist: up_squared up_squared_32
 cpp:
   sample.cpp.synchronization:
     path: samples/cpp_synchronization
@@ -1263,11 +1263,9 @@ drivers:
   drivers.counter.maxim_ds3231:
     path: tests/drivers/counter/maxim_ds3231_api
     catalog: drivers
-    depends_on: counter
+    depends_on: counter i2c
     min_ram: 16
     filter: dt_compat_enabled("maxim,ds3231")
-    platform_whitelist: efr32mg_sltb004a frdm_k64f nrf51dk_nrf51422 nrf52840dk_nrf52840
-      nucleo_l476rg particle_xenon
   drivers.uart.uart_async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
@@ -1605,6 +1603,11 @@ net:
     - CONFIG_NET_BUF_DATA_SIZE=512
     min_ram: 20
     depends_on: netif
+  net.pm:
+    path: tests/net/pm
+    catalog: net
+    platform_whitelist: qemu_x86
+    depends_on: netif
   net.udp:
     path: tests/net/udp
     catalog: net
@@ -1880,6 +1883,9 @@ net socket:
     platform_exclude: cc3220sf_launchxl cc3235sf_launchxl
     min_ram: 32
     min_flash: 80
+  sample.net.sockets.socketpair:
+    path: samples/net/sockets/socketpair
+    catalog: net socket
 net socket can CAN:
   sample.net.sockets.can.test_with_one_socket:
     path: samples/net/sockets/can
@@ -1912,6 +1918,16 @@ usb:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 96
+  sample.usb.audio.headphones_microphone:
+    path: samples/subsys/usb/audio/headphones_microphone
+    catalog: usb
+    depends_on: usb_device
+    platform_whitelist: nrf52840dk_nrf52840
+  sample.usb.audio.headset:
+    path: samples/subsys/usb/audio/headset
+    catalog: usb
+    depends_on: usb_device
+    platform_whitelist: nrf52840dk_nrf52840
   sample.usb.cdc-acm:
     path: samples/subsys/usb/cdc_acm
     catalog: usb
@@ -2086,6 +2102,27 @@ net telnet:
     path: samples/net/telnet
     catalog: net telnet
     depends_on: netif
+net wifi:
+  sample.net.updatehub:
+    path: samples/net/updatehub
+    catalog: net wifi
+    extra_configs:
+    - CONFIG_UPDATEHUB_PRODUCT_UID="e4d37cfe6ec48a2d069cc0bbb8b078677e9a0d8df3a027c4d8ea131130c4265f"
+    - CONFIG_UPDATEHUB_POLL_INTERVAL=1
+    - CONFIG_UPDATEHUB_CE=y
+    - CONFIG_UPDATEHUB_SERVER="10.5.3.67"
+    depends_on: netif
+    build_only: true
+    platform_whitelist: frdm_k64f sam_v71_xult
+  sample.net.wifi:
+    path: samples/net/wifi
+    catalog: net wifi
+    platform_whitelist: cc3220sf_launchxl disco_l475_iot1
+  sample.net.wifi.esp_8266:
+    path: samples/net/wifi
+    catalog: net wifi
+    extra_args: SHIELD=esp_8266
+    platform_whitelist: frdm_k64f sam4e_xpro disco_l475_iot1
 net vlan:
   sample.net.vlan:
     path: samples/net/vlan
@@ -2096,11 +2133,6 @@ net vlan:
     catalog: net vlan
     min_ram: 32
     depends_on: netif
-net wifi:
-  sample.net.wifi:
-    path: samples/net/wifi
-    catalog: net wifi
-    platform_whitelist: cc3220sf_launchxl disco_l475_iot1
 usb ieee802154:
   sample.net.wpan.serial:
     path: samples/net/wpan_serial
@@ -2458,13 +2490,6 @@ tracing debug:
     catalog: tracing debug
     extra_args: CONF_FILE="prj_native_posix_ctf.conf"
     platform_whitelist: native_posix
-USB audio sample:
-  samples.subsys.usb.audio.headphones_microphone:
-    path: samples/subsys/usb/audio/headphones_microphone
-    catalog: USB audio sample
-  samples.subsys.usb.audio.headset:
-    path: samples/subsys/usb/audio/headset
-    catalog: USB audio sample
 msd usb:
   sample.usb.mass_flash:
     path: samples/subsys/usb/mass
@@ -2590,7 +2615,6 @@ kernel:
     path: tests/kernel/context
     catalog: kernel
     min_ram: 20
-    platform_exclude: qemu_cortex_r5
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
@@ -2758,7 +2782,13 @@ benchmark:
     catalog: benchmark
     arch_whitelist: x86 arm posix
     platform_exclude: qemu_x86_64
-    filter: CONFIG_PRINTK
+    filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
+  benchmark.kernel.latency.stm32:
+    path: tests/benchmarks/latency_measure
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=20
+    filter: CONFIG_PRINTK and CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.scheduler:
     path: tests/benchmarks/sched
     catalog: benchmark
@@ -4595,6 +4625,11 @@ log_core logging:
     path: tests/subsys/logging/log_immediate
     catalog: log_core logging
     platform_exclude: nucleo_l053r8 nucleo_f030r8 stm32f0_disco nrf52_bsim
+  logging.log_immediate.clean_output:
+    path: tests/subsys/logging/log_immediate
+    catalog: log_core logging
+    extra_args: CONFIG_LOG_IMMEDIATE_CLEAN_OUTPUT=y
+    platform_exclude: nucleo_l053r8 nucleo_f030r8 stm32f0_disco nrf52_bsim
 log_list logging:
   logging.log_list:
     path: tests/subsys/logging/log_list
@@ -4670,6 +4705,11 @@ stream_flash:
   storage.stream_flash:
     path: tests/subsys/storage/stream/stream_flash
     catalog: stream_flash
+    platform_whitelist: native_posix native_posix_64
+  storage.stream_flash.dword_wbs:
+    path: tests/subsys/storage/stream/stream_flash
+    catalog: stream_flash
+    extra_args: DTC_OVERLAY_FILE=unaligned_flush.overlay
     platform_whitelist: native_posix native_posix_64
   storage.stream_flash.no_erase:
     path: tests/subsys/storage/stream/stream_flash

@@ -9,3 +9,8 @@ cases:
     path: tests/subsys/logging/log_immediate
     catalog: log_core logging
     platform_exclude: nucleo_l053r8 nucleo_f030r8 stm32f0_disco nrf52_bsim
+  logging.log_immediate.clean_output:
+    path: tests/subsys/logging/log_immediate
+    catalog: log_core logging
+    extra_args: CONFIG_LOG_IMMEDIATE_CLEAN_OUTPUT=y
+    platform_exclude: nucleo_l053r8 nucleo_f030r8 stm32f0_disco nrf52_bsim

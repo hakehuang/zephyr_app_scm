@@ -16,6 +16,16 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 96
+  sample.usb.audio.headphones_microphone:
+    path: samples/subsys/usb/audio/headphones_microphone
+    catalog: usb
+    depends_on: usb_device
+    platform_whitelist: nrf52840dk_nrf52840
+  sample.usb.audio.headset:
+    path: samples/subsys/usb/audio/headset
+    catalog: usb
+    depends_on: usb_device
+    platform_whitelist: nrf52840dk_nrf52840
   sample.usb.cdc-acm:
     path: samples/subsys/usb/cdc_acm
     catalog: usb

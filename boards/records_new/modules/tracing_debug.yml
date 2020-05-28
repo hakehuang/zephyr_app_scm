@@ -1,55 +1,53 @@
 ---
 cases:
-  tracing.backends.sysview:
-    path: tests/subsys/tracing
+  tracing.format.sysview:
+    path: samples/subsys/tracing
     catalog: tracing debug
     extra_configs:
+    - CONFIG_TRACING=y
     - CONFIG_SEGGER_SYSTEMVIEW=y
     - CONFIG_USE_SEGGER_RTT=y
     platform_whitelist: nrf52840dk_nrf52840
-  tracing.backends.cpu_stats:
-    path: tests/subsys/tracing
+  tracing.format.cpu_stats:
+    path: samples/subsys/tracing
     catalog: tracing debug
     extra_configs:
+    - CONFIG_TRACING=y
     - CONFIG_TRACING_CPU_STATS=y
     platform_whitelist: nrf52840dk_nrf52840
-  tracing.backends.openocd:
-    path: tests/subsys/tracing
+  tracing.osawareness.openocd:
+    path: samples/subsys/tracing
     catalog: tracing debug
     extra_configs:
+    - CONFIG_MP_NUM_CPUS=1
     - CONFIG_OPENOCD_SUPPORT=y
     - CONFIG_SMP=n
     arch_exclude: posix xtensa
     platform_exclude: qemu_x86_64
-  tracing.uart:
-    path: tests/subsys/tracing
+  tracing.transport.uart:
+    path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_uart.conf"
     platform_whitelist: qemu_x86 qemu_x86_64
-  tracing.usb:
-    path: tests/subsys/tracing
+  tracing.transport.usb:
+    path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_usb.conf"
     platform_whitelist: sam_e70_xplained
     depends_on: usb_device
-  tracing.uart.ctf:
-    path: tests/subsys/tracing
-    catalog: tracing debug
-    extra_args: CONF_FILE="prj_uart_ctf.conf"
-    platform_whitelist: qemu_x86 qemu_x86_64
-  tracing.usb.ctf:
-    path: tests/subsys/tracing
+  tracing.transport.ctf:
+    path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_usb_ctf.conf"
     platform_whitelist: sam_e70_xplained
     depends_on: usb_device
-  tracing.posix:
-    path: tests/subsys/tracing
+  tracing.transport.native_posix:
+    path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_native_posix.conf"
     platform_whitelist: native_posix
-  tracing.posix.ctf:
-    path: tests/subsys/tracing
+  tracing.transport.posix.ctf:
+    path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_native_posix_ctf.conf"
     platform_whitelist: native_posix

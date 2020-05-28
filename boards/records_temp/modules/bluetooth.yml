@@ -12,6 +12,10 @@ cases:
     path: samples/bluetooth/central_hr
     catalog: bluetooth
     arch_whitelist: x86
+  sample.bluetooth.central_ht:
+    path: samples/bluetooth/central_ht
+    catalog: bluetooth
+    arch_whitelist: x86
   sample.bluetooth.eddystone:
     path: samples/bluetooth/eddystone
     catalog: bluetooth
@@ -118,15 +122,21 @@ cases:
     platform_whitelist: qemu_x86
     depends_on: netif
     min_flash: 140
-  sample.mcumg.smp_svr.nrf51:
+  sample.mcumg.smp_svr.bt_tiny:
     path: samples/subsys/mgmt/mcumgr/smp_svr
     catalog: bluetooth
-    extra_args: CONF_FILE="prj_tiny.conf"
+    extra_args: OVERLAY_CONFIG="overlay-bt-tiny.conf"
     platform_whitelist: nrf51dk_nrf51422
-  sample.mcumg.smp_svr.nrf52:
+  sample.mcumg.smp_svr.bt:
     path: samples/subsys/mgmt/mcumgr/smp_svr
     catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-bt.conf"
     platform_whitelist: nrf52dk_nrf52832 nrf52840dk_nrf52840
+  sample.mcumg.smp_svr.udp:
+    path: samples/subsys/mgmt/mcumgr/smp_svr
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-udp.conf"
+    platform_whitelist: frdm_k64f
   bluetooth.at:
     path: tests/bluetooth/at
     catalog: bluetooth
@@ -294,30 +304,6 @@ cases:
     extra_args: CONF_FILE=prj_9.conf
     platform_whitelist: qemu_cortex_m3
     build_only: true
-  bluetooth.init.test_controller:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller.conf
-    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 96b_nitrogen
-    build_only: true
-  bluetooth.init.test_controller_4_0:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_4_0.conf
-    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_controller_tiny:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_tiny.conf
-    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_controller_dbg:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_dbg.conf
-    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 96b_nitrogen
-    build_only: true
   bluetooth.init.test_controller_ll_sw_split:
     path: tests/bluetooth/init
     catalog: bluetooth
@@ -379,16 +365,10 @@ cases:
     extra_args: CONF_FILE="prj_br.conf"
     platform_whitelist: qemu_cortex_m3 qemu_x86 native_posix native_posix_64
     platform_exclude: nrf52dk_nrf52810
-  bluetooth.shell.adv_ext:
+  bluetooth.shell.no_privacy:
     path: tests/bluetooth/shell
     catalog: bluetooth
-    extra_args: OVERLAY_CONFIG=ext_adv.conf
-    build_only: true
-    platform_whitelist: native_posix
-  bluetooth.shell.adv_ext_no_privacy:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_args: OVERLAY_CONFIG=ext_adv_no_priv.conf
+    extra_args: CONFIG_BT_PRIVACY=n
     build_only: true
     platform_whitelist: native_posix
   bluetooth.general.tester:

@@ -77,6 +77,11 @@ cases:
     catalog: sensors
     depends_on: gpio i2c
     filter: dt_compat_enabled("bosch,bmm150")
+  sample.sensor.bq274xx:
+    path: samples/sensor/bq274xx
+    catalog: sensors
+    platform_whitelist: nrf9160_innblue22
+    depends_on: i2c
   sample.sensor.ccs811:
     path: samples/sensor/ccs811
     catalog: sensors
@@ -87,6 +92,10 @@ cases:
     catalog: sensors
     build_only: true
     platform_whitelist: nrf52dk_nrf52832
+  sample.sensor.dps310:
+    path: samples/sensor/dps310
+    catalog: sensors
+    depends_on: i2c arduino_i2c
   sample.sensor.fxas21002:
     path: samples/sensor/fxas21002
     catalog: sensors
@@ -101,13 +110,13 @@ cases:
     - CONFIG_FXOS8700_MOTION_INT1=y
     - CONFIG_FXOS8700_PM_LOW_POWER=y
     platform_whitelist: frdm_k64f hexiwear_k64 warp7_m4 frdm_kw41z rv32m1_vega_ri5cy
-      twr_ke18f
+      twr_ke18f lpcxpresso55s16_ns
     depends_on: i2c gpio
   sample.sensor.fxos8700.accel:
     path: samples/sensor/fxos8700
     catalog: sensors
     extra_args: CONF_FILE=prj_accel.conf
-    platform_whitelist: frdm_kl25z bbc_microbit reel_board
+    platform_whitelist: frdm_kl25z bbc_microbit lpcxpresso55s69_cpu0 reel_board
     depends_on: i2c gpio
   sample.sensor.hmc5883l:
     path: samples/sensor/hmc5883l
@@ -157,6 +166,11 @@ cases:
     catalog: sensors
     depends_on: i2c
     filter: dt_compat_enabled("microchip,mcp9808")
+  sample.sensor.mpr:
+    path: samples/sensor/mpr
+    catalog: sensors
+    depends_on: i2c
+    platform_whitelist: arduino_due
   sample.sensor.mpu6050:
     path: samples/sensor/mpu6050
     catalog: sensors

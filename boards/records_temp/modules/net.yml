@@ -56,6 +56,11 @@ cases:
     - CONFIG_NET_BUF_DATA_SIZE=512
     min_ram: 20
     depends_on: netif
+  net.pm:
+    path: tests/net/pm
+    catalog: net
+    platform_whitelist: qemu_x86
+    depends_on: netif
   net.udp:
     path: tests/net/udp
     catalog: net

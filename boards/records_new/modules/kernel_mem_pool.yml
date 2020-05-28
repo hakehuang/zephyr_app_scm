@@ -4,12 +4,33 @@ cases:
     path: tests/kernel/mem_pool/mem_pool
     catalog: kernel mem_pool
     min_ram: 32
+  kernel.memory_pool.legacy:
+    path: tests/kernel/mem_pool/mem_pool
+    catalog: kernel mem_pool
+    extra_configs:
+    - CONFIG_MEM_POOL_HEAP_BACKEND=n
+    min_ram: 32
   kernel.memory_pool.api:
     path: tests/kernel/mem_pool/mem_pool_api
     catalog: kernel mem_pool
+  kernel.memory_pool.api.legacy:
+    path: tests/kernel/mem_pool/mem_pool_api
+    catalog: kernel mem_pool
+    extra_configs:
+    - CONFIG_MEM_POOL_HEAP_BACKEND=n
   kernel.memory_pool.concept:
     path: tests/kernel/mem_pool/mem_pool_concept
     catalog: kernel mem_pool
+  kernel.memory_pool.concept.legacy:
+    path: tests/kernel/mem_pool/mem_pool_concept
+    catalog: kernel mem_pool
+    extra_configs:
+    - CONFIG_MEM_POOL_HEAP_BACKEND=n
   kernel.memory_pool.threadsafe:
     path: tests/kernel/mem_pool/mem_pool_threadsafe
     catalog: kernel mem_pool
+  kernel.memory_pool.threadsafe.legacy:
+    path: tests/kernel/mem_pool/mem_pool_threadsafe
+    catalog: kernel mem_pool
+    extra_configs:
+    - CONFIG_MEM_POOL_HEAP_BACKEND=n

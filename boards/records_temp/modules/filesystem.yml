@@ -3,8 +3,11 @@ cases:
   sample.filesystem.fat_fs:
     path: samples/subsys/fs/fat_fs
     catalog: filesystem
-    build_only: true
-    platform_whitelist: nrf52840_blip olimexino_stm32 mimxrt1050_evk
+    depends_on: sdhc
+  sample.filesystem.fat_fs.overlay:
+    path: samples/subsys/fs/fat_fs
+    catalog: filesystem
+    platform_whitelist: nrf52840_blip
   sample.filesystem.littlefs:
     path: samples/subsys/fs/littlefs
     catalog: filesystem

@@ -39,6 +39,7 @@ def platforms()
     "lpcxpresso55s69_cpu0"  => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2"],
 #    "lpcxpresso55s69_cpu1"  => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2"],
     "lpcxpresso55s69_ns"  => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2"],
+    "lpcxpresso55s16_ns" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2"],
     "mimxrt1010_evk" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "mimxrt1015_evk" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "mimxrt1020_evk" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
