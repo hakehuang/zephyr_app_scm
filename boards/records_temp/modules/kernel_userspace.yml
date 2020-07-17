@@ -6,7 +6,6 @@ cases:
     extra_configs:
     - CONFIG_MISRA_SANE=y
     min_flash: 33
-    min_ram: 32
     filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
   kernel.fpu_sharing.float_disable.arm:
     path: tests/kernel/fpu_sharing/float_disable
@@ -35,11 +34,9 @@ cases:
     path: tests/kernel/mem_protect/futex
     catalog: kernel userspace
     filter: CONFIG_ARCH_HAS_USERSPACE
-    min_ram: 36
   kernel.memory_protection.sys_sem:
     path: tests/kernel/mem_protect/sys_sem
     catalog: kernel userspace
-    min_ram: 36
   kernel.message_queue:
     path: tests/kernel/msgq/msgq_api
     catalog: kernel userspace
@@ -49,7 +46,6 @@ cases:
   system.mutex:
     path: tests/kernel/mutex/sys_mutex
     catalog: kernel userspace
-    min_ram: 32
     filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.pipe.api:
     path: tests/kernel/pipe/pipe_api
@@ -57,8 +53,6 @@ cases:
   kernel.poll:
     path: tests/kernel/poll
     catalog: kernel userspace
-    min_ram: 16
-    min_flash: 34
     platform_exclude: nrf52dk_nrf52810
   kernel.queue:
     path: tests/kernel/queue
@@ -70,20 +64,9 @@ cases:
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace
-    min_ram: 32
   kernel.stack.usage:
     path: tests/kernel/stack/stack
     catalog: kernel userspace
-  kernel.timer:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel userspace
-    platform_exclude: qemu_x86_coverage qemu_cortex_m0
-  kernel.timer.tickless:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel userspace
-    extra_args: CONF_FILE="prj_tickless.conf"
-    arch_exclude: riscv32 nios2 posix
-    platform_exclude: qemu_x86_coverage qemu_cortex_m0
   kernel.workqueue.api:
     path: tests/kernel/workq/work_queue_api
     catalog: kernel userspace

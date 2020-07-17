@@ -1,6 +1,7 @@
 
 __load__:
   - modules/CAN.yml
+  - modules/can_canopen.yml
   - modules/can_isotp.yml
   - modules/clib.yml
   - modules/clib_minimal_libc_userspace.yml
@@ -18,6 +19,7 @@ __load__:
   - modules/dac_drivers_userspace.yml
   - modules/DAC.yml
   - modules/debug.yml
+  - modules/deprecated.yml
   - modules/device.yml
   - modules/devicetree.yml
   - modules/dfu_image_util.yml

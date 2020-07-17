@@ -6,25 +6,21 @@ cases:
     extra_configs:
     - CONFIG_TIMESLICING=y
     filter: not CONFIG_SCHED_MULTIQ
-    min_ram: 40
   kernel.scheduler.no_timeslicing:
     path: tests/kernel/sched/schedule_api
     catalog: kernel threads sched userspace
     extra_configs:
     - CONFIG_TIMESLICING=n
     filter: not CONFIG_SCHED_MULTIQ
-    min_ram: 40
   kernel.scheduler.multiq:
     path: tests/kernel/sched/schedule_api
     catalog: kernel threads sched userspace
     extra_configs:
     - CONFIG_TIMESLICING=y
     extra_args: CONF_FILE=prj_multiq.conf
-    min_ram: 40
   kernel.scheduler.multiq_no_timeslicing:
     path: tests/kernel/sched/schedule_api
     catalog: kernel threads sched userspace
     extra_configs:
     - CONFIG_TIMESLICING=n
     extra_args: CONF_FILE=prj_multiq.conf
-    min_ram: 40

@@ -157,6 +157,12 @@ cases:
     path: tests/subsys/fs/nvs
     catalog: unknown
     platform_whitelist: qemu_x86
+  filesystem.nvs_0x00:
+    path: tests/subsys/fs/nvs
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_whitelist: qemu_x86
+    build_only: true
   utilities.math:
     path: tests/unit/math_extras
     catalog: unknown

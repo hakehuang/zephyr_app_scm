@@ -103,6 +103,7 @@ def scan(zephyr_path, output_records_path, output_records_fname)
 
     log.info("indentify the CMakeLists.txt")
     cases = {"cases" => {}}
+    test_case_lists = {"cases" => {}}
     testcase_hash = nil
     sample_hash = nil
     Find.find(zephyr_path) do |path|
@@ -147,6 +148,7 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 lists_to_keep(testcase_hash['tests'][k], keep_hash)
                 #log.info(keep_hash)
                 cases['cases'][k].merge!(keep_hash)
+                test_case_lists['cases'][k] = ""
               end
 
             end
@@ -203,6 +205,9 @@ def scan(zephyr_path, output_records_path, output_records_fname)
     end
     File.open(File.join(output_records_path, output_records_fname),"w") do |file|
       file.write cases.to_yaml
+    end
+    File.open(File.join(output_records_path, "test_cases.yml"),"w") do |file|
+      file.write test_case_lists.to_yaml
     end
 end
 

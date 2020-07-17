@@ -7,7 +7,6 @@ cases:
   kernel.common:
     path: tests/kernel/context
     catalog: kernel
-    min_ram: 20
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
@@ -18,12 +17,10 @@ cases:
   kernel.fifo.timeout:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
-    min_ram: 32
   kernel.fifo.timeout.poll:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
     extra_args: CONF_FILE="prj_poll.conf"
-    min_ram: 32
   kernel.fifo.usage:
     path: tests/kernel/fifo/fifo_usage
     catalog: kernel
@@ -69,12 +66,10 @@ cases:
   kernel.lifo.usage:
     path: tests/kernel/lifo/lifo_usage
     catalog: kernel
-    min_ram: 32
-    platform_exclude: m2gl025_miv
+    platform_exclude: qemu_arc_em qemu_arc_hs
   kernel.mailbox.api:
     path: tests/kernel/mbox/mbox_api
     catalog: kernel
-    min_ram: 20
   kernel.mailbox.usage:
     path: tests/kernel/mbox/mbox_usage
     catalog: kernel
@@ -103,11 +98,9 @@ cases:
   kernel.objects.tracing:
     path: tests/kernel/obj_tracing
     catalog: kernel
-    min_ram: 32
   kernel.objects:
     path: tests/kernel/pending
     catalog: kernel
-    min_ram: 16
   kernel.common.profiling:
     path: tests/kernel/profiling/profiling_api
     catalog: kernel
@@ -134,7 +127,7 @@ cases:
     path: tests/kernel/tickless/tickless_concept
     catalog: kernel
     arch_exclude: riscv32 nios2
-    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
   kernel.workqueue:
     path: tests/kernel/workq/work_queue
     catalog: kernel

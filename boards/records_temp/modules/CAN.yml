@@ -4,11 +4,6 @@ cases:
     path: samples/drivers/can
     catalog: CAN
     depends_on: can
-  sample.subsys.canbus.canopen:
-    path: samples/subsys/canbus/canopen
-    catalog: CAN
-    depends_on: can
-    platform_whitelist: twr_ke18f frdm_k64f
   sample.subsys.canbus.isotp:
     path: samples/subsys/canbus/isotp
     catalog: CAN

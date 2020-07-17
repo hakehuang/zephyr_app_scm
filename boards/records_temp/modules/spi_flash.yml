@@ -13,7 +13,14 @@ cases:
     filter: dt_compat_enabled("jedec,spi-nor")
     build_only: true
     depends_on: spi
+  sample.drivers.spi.flash.at45.build:
+    path: samples/drivers/spi_flash_at45
+    catalog: spi flash
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
   sample.drivers.spi.flash.at45:
     path: samples/drivers/spi_flash_at45
     catalog: spi flash
-    platform_whitelist: nrf9160_pca10090
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")

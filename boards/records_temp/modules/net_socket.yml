@@ -94,6 +94,48 @@ cases:
     platform_whitelist: qemu_x86
     depends_on: netif
     min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: atsamr21_xpro
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.xplained:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_xplained OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: sam4s_xplained
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.xpro:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_xpro OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: sam4e_xpro sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.legacy:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_legacy OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: sam4e_xpro sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.arduino:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_arduino OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: sam_v71_xult frdm_k64f nucleo_f767zi
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.mikrobus:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_mikrobus OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: lpcxpresso55s69_ns
+    depends_on: netif
+    min_flash: 140
   sample.net.sockets.echo_client.mcr20a:
     path: samples/net/sockets/echo_client
     catalog: net socket
@@ -133,6 +175,13 @@ cases:
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_whitelist: nrf52840dk_nrf52840
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.userspace:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: CONFIG_USERSPACE=y OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_whitelist: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.http_get:

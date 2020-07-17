@@ -253,6 +253,12 @@ unknown:
     path: tests/subsys/fs/nvs
     catalog: unknown
     platform_whitelist: qemu_x86
+  filesystem.nvs_0x00:
+    path: tests/subsys/fs/nvs
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_whitelist: qemu_x86
+    build_only: true
   utilities.math:
     path: tests/unit/math_extras
     catalog: unknown
@@ -766,7 +772,7 @@ sensors:
   sample.sensor.ccs811:
     path: samples/sensor/ccs811
     catalog: sensors
-    platform_whitelist: thingy52_nrf52832
+    platform_whitelist: thingy52_nrf52832 efr32mg_sltb004a
     depends_on: i2c
   sample.sensor.dht:
     path: samples/sensor/dht
@@ -968,6 +974,11 @@ sound:
     path: samples/boards/bbc_microbit/sound
     catalog: sound
     platform_whitelist: bbc_microbit
+ec:
+  sample.board.google_kukui:
+    path: samples/boards/google_kukui
+    catalog: ec
+    platform_whitelist: google_kukui
 audio:
   sample.board.intel_s1000_crb.audio:
     path: samples/boards/intel_s1000_crb/audio
@@ -1100,17 +1111,17 @@ shield:
     path: samples/shields/x_nucleo_iks01a2
     catalog: shield
     depends_on: arduino_i2c arduino_gpio
-    platform_exclude: disco_l475_iot1 stm32mp157c_dk2
+    platform_exclude: disco_l475_iot1 lpcxpresso55s16_ns stm32mp157c_dk2
   sample.shields.x_nucleo_iks01a3.sensorhub:
     path: samples/shields/x_nucleo_iks01a3/sensorhub
     catalog: shield
     depends_on: arduino_i2c arduino_gpio
-    platform_exclude: disco_l475_iot1 stm32mp157c_dk2
+    platform_exclude: disco_l475_iot1 lpcxpresso55s16_ns stm32mp157c_dk2
   sample.shields.x_nucleo_iks01a3.standard:
     path: samples/shields/x_nucleo_iks01a3/standard
     catalog: shield
     depends_on: arduino_i2c arduino_gpio
-    platform_exclude: disco_l475_iot1 stm32mp157c_dk2
+    platform_exclude: disco_l475_iot1 lpcxpresso55s16_ns stm32mp157c_dk2
     min_ram: 16
   sample.shields.x_nucleo_iks02a1.microphone:
     path: samples/shields/x_nucleo_iks02a1/microphone
@@ -1120,12 +1131,12 @@ shield:
     path: samples/shields/x_nucleo_iks02a1/sensorhub
     catalog: shield
     depends_on: arduino_i2c arduino_gpio
-    platform_exclude: disco_l475_iot1 stm32mp157c_dk2
+    platform_exclude: disco_l475_iot1 lpcxpresso55s16_ns stm32mp157c_dk2
   sample.shields.x_nucleo_iks02a1.standard:
     path: samples/shields/x_nucleo_iks02a1/standard
     catalog: shield
     depends_on: arduino_i2c arduino_gpio
-    platform_exclude: disco_l475_iot1 stm32mp157c_dk2
+    platform_exclude: disco_l475_iot1 lpcxpresso55s16_ns stm32mp157c_dk2
     min_ram: 16
 drivers:
   sample.display.grove_display:
@@ -1295,11 +1306,6 @@ CAN:
     path: samples/drivers/can
     catalog: CAN
     depends_on: can
-  sample.subsys.canbus.canopen:
-    path: samples/subsys/canbus/canopen
-    catalog: CAN
-    depends_on: can
-    platform_whitelist: twr_ke18f frdm_k64f
   sample.subsys.canbus.isotp:
     path: samples/subsys/canbus/isotp
     catalog: CAN
@@ -1333,7 +1339,7 @@ DAC:
   sample.drivers.dac:
     path: samples/drivers/dac
     catalog: DAC
-    platform_whitelist: frdm_k64f nucleo_l073rz twr_ke18f
+    platform_whitelist: frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
     depends_on: dac
 display shield:
   sample.display.shield.adafruit_2_8_tft_touch_v2:
@@ -1436,10 +1442,17 @@ spi flash:
     filter: dt_compat_enabled("jedec,spi-nor")
     build_only: true
     depends_on: spi
+  sample.drivers.spi.flash.at45.build:
+    path: samples/drivers/spi_flash_at45
+    catalog: spi flash
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
   sample.drivers.spi.flash.at45:
     path: samples/drivers/spi_flash_at45
     catalog: spi flash
-    platform_whitelist: nrf9160_pca10090
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
 drivers fram:
   sample.drivers.spi.fujitsu_fram:
     path: samples/drivers/spi_fujitsu_fram
@@ -1502,6 +1515,11 @@ introduction:
     path: samples/smp/pi
     catalog: introduction
     filter: "(CONFIG_MP_NUM_CPUS > 1)"
+  sample.subsys.canbus.canopen:
+    path: samples/subsys/canbus/canopen
+    catalog: introduction
+    depends_on: can
+    platform_whitelist: twr_ke18f frdm_k64f
   sample.tfm_ipc:
     path: samples/tfm_integration/tfm_ipc
     catalog: introduction
@@ -1680,6 +1698,11 @@ net mqtt:
     path: samples/net/mqtt_publisher
     catalog: net mqtt
     platform_whitelist: frdm_k64f qemu_x86
+  sample.net.mqtt_publisher.userspace:
+    path: samples/net/mqtt_publisher
+    catalog: net mqtt
+    extra_args: CONFIG_USERSPACE=y
+    platform_whitelist: frdm_k64f qemu_x86
   net.mqtt:
     path: tests/net/lib/mqtt_publisher
     catalog: net mqtt
@@ -1824,6 +1847,48 @@ net socket:
     platform_whitelist: qemu_x86
     depends_on: netif
     min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: atsamr21_xpro
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.xplained:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_xplained OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: sam4s_xplained
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.xpro:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_xpro OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: sam4e_xpro sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.legacy:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_legacy OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: sam4e_xpro sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.arduino:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_arduino OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: sam_v71_xult frdm_k64f nucleo_f767zi
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.mikrobus:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_mikrobus OVERLAY_CONFIG="overlay-802154.conf"
+    platform_whitelist: lpcxpresso55s69_ns
+    depends_on: netif
+    min_flash: 140
   sample.net.sockets.echo_client.mcr20a:
     path: samples/net/sockets/echo_client
     catalog: net socket
@@ -1863,6 +1928,13 @@ net socket:
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_whitelist: nrf52840dk_nrf52840
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.userspace:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: CONFIG_USERSPACE=y OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_whitelist: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.http_get:
@@ -2269,6 +2341,48 @@ cmsis_rtos:
     platform_exclude: qemu_x86_64 m2gl025_miv
     min_ram: 32
     min_flash: 34
+posix:
+  sample.posix.eventfd:
+    path: samples/posix/eventfd
+    catalog: posix
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: m2gl025_miv
+  portability.posix.common:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.newlib:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.nsim:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.newlib.nsim:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+    arch_exclude: posix
 posix net:
   sample.posix.gettimeofday:
     path: samples/posix/gettimeofday
@@ -2326,10 +2440,6 @@ shell:
     catalog: shell
     extra_args: CONF_FILE="prj_minimal_rtt.conf"
     filter: CONFIG_HAS_SEGGER_RTT
-  boards.shell.shell:
-    path: tests/boards/board_shell
-    catalog: shell
-    platform_whitelist: nrf52840dk_nrf52840 frdm_k64f
   shell.core:
     path: tests/shell
     catalog: shell
@@ -2342,6 +2452,14 @@ shell:
     min_flash: 64
     min_ram: 32
     filter: "( CONFIG_SHELL )"
+can canopen:
+  sample.subsys.canbus.canopen.program_download:
+    path: samples/subsys/canbus/canopen
+    catalog: can canopen
+    extra_configs:
+    - CONFIG_BOOTLOADER_MCUBOOT=y
+    depends_on: can
+    platform_whitelist: twr_ke18f frdm_k64f
 console:
   sample.console.echo:
     path: samples/subsys/console/echo
@@ -2372,6 +2490,11 @@ filesystem:
   filesystem.fat.api:
     path: tests/subsys/fs/fat_fs_api
     catalog: filesystem
+    platform_whitelist: native_posix
+  filesystem.fat.api.lfn:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_args: CONF_FILE="prj_lfn.conf"
     platform_whitelist: native_posix
   filesystem.fat.dual_drive:
     path: tests/subsys/fs/fat_fs_dual_drive
@@ -2614,7 +2737,6 @@ kernel:
   kernel.common:
     path: tests/kernel/context
     catalog: kernel
-    min_ram: 20
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
@@ -2625,12 +2747,10 @@ kernel:
   kernel.fifo.timeout:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
-    min_ram: 32
   kernel.fifo.timeout.poll:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
     extra_args: CONF_FILE="prj_poll.conf"
-    min_ram: 32
   kernel.fifo.usage:
     path: tests/kernel/fifo/fifo_usage
     catalog: kernel
@@ -2676,12 +2796,10 @@ kernel:
   kernel.lifo.usage:
     path: tests/kernel/lifo/lifo_usage
     catalog: kernel
-    min_ram: 32
-    platform_exclude: m2gl025_miv
+    platform_exclude: qemu_arc_em qemu_arc_hs
   kernel.mailbox.api:
     path: tests/kernel/mbox/mbox_api
     catalog: kernel
-    min_ram: 20
   kernel.mailbox.usage:
     path: tests/kernel/mbox/mbox_usage
     catalog: kernel
@@ -2710,11 +2828,9 @@ kernel:
   kernel.objects.tracing:
     path: tests/kernel/obj_tracing
     catalog: kernel
-    min_ram: 32
   kernel.objects:
     path: tests/kernel/pending
     catalog: kernel
-    min_ram: 16
   kernel.common.profiling:
     path: tests/kernel/profiling/profiling_api
     catalog: kernel
@@ -2741,7 +2857,7 @@ kernel:
     path: tests/kernel/tickless/tickless_concept
     catalog: kernel
     arch_exclude: riscv32 nios2
-    platform_exclude: qemu_x86_coverage qemu_cortex_m0
+    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
   kernel.workqueue:
     path: tests/kernel/workq/work_queue
     catalog: kernel
@@ -2796,7 +2912,6 @@ benchmark:
     path: tests/benchmarks/sys_kernel
     catalog: benchmark
     arch_exclude: nios2 riscv32 xtensa
-    platform_exclude: qemu_x86_64
     min_ram: 32
   benchmark.kernel.timing.default:
     path: tests/benchmarks/timing_info
@@ -2943,6 +3058,11 @@ tinycrypt crypto sha256 hmac prng:
     path: tests/crypto/tinycrypt_hmac_prng
     catalog: tinycrypt crypto sha256 hmac prng
     platform_whitelist: native_posix
+deprecated:
+  deprecated.inttypes:
+    path: tests/deprecated/inttype
+    catalog: deprecated
+    build_only: true
 adc drivers userspace:
   drivers.adc:
     path: tests/drivers/adc/adc_api
@@ -2972,7 +3092,7 @@ dac drivers userspace:
   drivers.dac:
     path: tests/drivers/dac/dac_loopback
     catalog: dac drivers userspace
-    platform_whitelist: frdm_k64f nucleo_l073rz twr_ke18f
+    platform_whitelist: frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
     depends_on: dac
 drivers dma:
   drivers.dma:
@@ -3014,6 +3134,21 @@ driver:
     path: tests/drivers/flash_simulator
     catalog: driver
     platform_whitelist: qemu_x86 native_posix native_posix_64
+  drivers.flash.flash_simulator.qemu_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: driver
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_whitelist: qemu_x86
+  drivers.flash.flash_simulator.posix_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: driver
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_whitelist: native_posix
+  drivers.flash.flash_simulator.posix_64_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: driver
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
+    platform_whitelist: native_posix_64
   drivers.device_id:
     path: tests/drivers/hwinfo/api
     catalog: driver
@@ -3065,6 +3200,10 @@ drivers kscan:
     extra_args: CONF_FILE="mec15xxevb_assy6853.conf"
     depends_on: kscan
     platform_whitelist: mec15xxevb_assy6853
+driver sensor subsys:
+  driver.sensor:
+    path: tests/drivers/sensor
+    catalog: driver sensor subsys
 drivers spi:
   drivers.spi:
     path: tests/drivers/spi/spi_loopback
@@ -3096,7 +3235,6 @@ kernel userspace:
     extra_configs:
     - CONFIG_MISRA_SANE=y
     min_flash: 33
-    min_ram: 32
     filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
   kernel.fpu_sharing.float_disable.arm:
     path: tests/kernel/fpu_sharing/float_disable
@@ -3125,11 +3263,9 @@ kernel userspace:
     path: tests/kernel/mem_protect/futex
     catalog: kernel userspace
     filter: CONFIG_ARCH_HAS_USERSPACE
-    min_ram: 36
   kernel.memory_protection.sys_sem:
     path: tests/kernel/mem_protect/sys_sem
     catalog: kernel userspace
-    min_ram: 36
   kernel.message_queue:
     path: tests/kernel/msgq/msgq_api
     catalog: kernel userspace
@@ -3139,7 +3275,6 @@ kernel userspace:
   system.mutex:
     path: tests/kernel/mutex/sys_mutex
     catalog: kernel userspace
-    min_ram: 32
     filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.pipe.api:
     path: tests/kernel/pipe/pipe_api
@@ -3147,8 +3282,6 @@ kernel userspace:
   kernel.poll:
     path: tests/kernel/poll
     catalog: kernel userspace
-    min_ram: 16
-    min_flash: 34
     platform_exclude: nrf52dk_nrf52810
   kernel.queue:
     path: tests/kernel/queue
@@ -3160,20 +3293,9 @@ kernel userspace:
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace
-    min_ram: 32
   kernel.stack.usage:
     path: tests/kernel/stack/stack
     catalog: kernel userspace
-  kernel.timer:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel userspace
-    platform_exclude: qemu_x86_coverage qemu_cortex_m0
-  kernel.timer.tickless:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel userspace
-    extra_args: CONF_FILE="prj_tickless.conf"
-    arch_exclude: riscv32 nios2 posix
-    platform_exclude: qemu_x86_coverage qemu_cortex_m0
   kernel.workqueue.api:
     path: tests/kernel/workq/work_queue_api
     catalog: kernel userspace
@@ -3243,12 +3365,10 @@ interrupt:
     path: tests/kernel/interrupt
     catalog: interrupt
     arch_exclude: nios2
-    platform_exclude: bcm958402m2_a72
 kernel mem_pool:
   kernel.memory_pool:
     path: tests/kernel/mem_pool/mem_pool
     catalog: kernel mem_pool
-    min_ram: 32
   kernel.memory_pool.legacy:
     path: tests/kernel/mem_pool/mem_pool
     catalog: kernel mem_pool
@@ -3283,12 +3403,10 @@ kernel userspace mem_pool:
   kernel.memory_pool.sys:
     path: tests/kernel/mem_pool/sys_mem_pool
     catalog: kernel userspace mem_pool
-    min_ram: 32
 kernel security userspace ignore_faults:
   kernel.memory_protection:
     path: tests/kernel/mem_protect/mem_protect
     catalog: kernel security userspace ignore_faults
-    min_ram: 32
     filter: CONFIG_ARCH_HAS_USERSPACE
     platform_exclude: twr_ke18f
   kernel.memory_protection.gap_filling:
@@ -3296,7 +3414,6 @@ kernel security userspace ignore_faults:
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
-    min_ram: 32
   kernel.memory_protection.syscalls:
     path: tests/kernel/mem_protect/syscalls
     catalog: kernel security userspace ignore_faults
@@ -3305,13 +3422,11 @@ kernel security userspace ignore_faults:
     path: tests/kernel/mem_protect/userspace
     catalog: kernel security userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
-    min_ram: 36
   kernel.memory_protection.userspace.gap_filling:
     path: tests/kernel/mem_protect/userspace
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
-    min_ram: 36
 kernel security userspace:
   kernel.memory_protection.obj_validation:
     path: tests/kernel/mem_protect/obj_validation
@@ -3339,28 +3454,24 @@ kernel threads sched userspace:
     extra_configs:
     - CONFIG_TIMESLICING=y
     filter: not CONFIG_SCHED_MULTIQ
-    min_ram: 40
   kernel.scheduler.no_timeslicing:
     path: tests/kernel/sched/schedule_api
     catalog: kernel threads sched userspace
     extra_configs:
     - CONFIG_TIMESLICING=n
     filter: not CONFIG_SCHED_MULTIQ
-    min_ram: 40
   kernel.scheduler.multiq:
     path: tests/kernel/sched/schedule_api
     catalog: kernel threads sched userspace
     extra_configs:
     - CONFIG_TIMESLICING=y
     extra_args: CONF_FILE=prj_multiq.conf
-    min_ram: 40
   kernel.scheduler.multiq_no_timeslicing:
     path: tests/kernel/sched/schedule_api
     catalog: kernel threads sched userspace
     extra_configs:
     - CONFIG_TIMESLICING=n
     extra_args: CONF_FILE=prj_multiq.conf
-    min_ram: 40
 kernel threads userspace ignore_faults:
   kernel.threads.dynamic:
     path: tests/kernel/threads/dynamic_thread
@@ -3390,6 +3501,17 @@ timer:
   kernel.timer.monotonic:
     path: tests/kernel/timer/timer_monotonic
     catalog: timer
+kernel timer userspace:
+  kernel.timer:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer userspace
+    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
+  kernel.timer.tickless:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer userspace
+    extra_args: CONF_FILE="prj_tickless.conf"
+    arch_exclude: riscv32 nios2 posix
+    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
 xip:
   arch.common.xip:
     path: tests/kernel/xip
@@ -3634,7 +3756,11 @@ cmsis_dsp:
     platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
 devicetree:
   libraries.devicetree:
-    path: tests/lib/devicetree
+    path: tests/lib/devicetree/api
+    catalog: devicetree
+    platform_whitelist: native_posix
+  libraries.devicetree.legacy:
+    path: tests/lib/devicetree/legacy_api
     catalog: devicetree
     platform_whitelist: native_posix
 fdtable:
@@ -3702,6 +3828,10 @@ heap:
     path: tests/lib/heap
     catalog: heap
     platform_exclude: m2gl025_miv qemu_riscv32
+    filter: not CONFIG_SOC_NSIM
+  lib.heap_align:
+    path: tests/lib/heap_align
+    catalog: heap
 json:
   libraries.encoding.json:
     path: tests/lib/json
@@ -3720,6 +3850,7 @@ clib newlib userspace:
     path: tests/lib/mem_alloc
     catalog: clib newlib userspace
     extra_args: CONF_FILE=prj_newlib.conf
+    min_ram: 16
     arch_exclude: posix
     platform_exclude: twr_ke18f
     filter: TOOLCHAIN_HAS_NEWLIB == 1
@@ -3975,6 +4106,7 @@ net socket af_packet:
     catalog: net socket af_packet
     min_ram: 21
     depends_on: netif
+    platform_exclude: native_posix native_posix_64
 net socket getaddrinfo userspace:
   net.socket.get_addr_info:
     path: tests/net/socket/getaddrinfo
@@ -4509,47 +4641,24 @@ net userspace:
     catalog: net userspace
     min_ram: 24
     depends_on: netif
-posix:
-  portability.posix.common:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=n
-    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
-    min_ram: 64
-    arch_exclude: posix
-  portability.posix.common.newlib:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
-    arch_exclude: posix
-  portability.posix.common.nsim:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=n
-    - CONFIG_TEST_HW_STACK_PROTECTION=n
-    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
-    min_ram: 64
-    arch_exclude: posix
-  portability.posix.common.newlib.nsim:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_TEST_HW_STACK_PROTECTION=n
-    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
-    arch_exclude: posix
 posix pthread eventfd:
-  posix.eventfd:
+  portability.posix.eventfd:
     path: tests/posix/eventfd
     catalog: posix pthread eventfd
+    arch_exclude: posix
+    min_ram: 32
+  posix.eventfd_basic:
+    path: tests/posix/eventfd_basic
+    catalog: posix pthread eventfd
+    extra_configs:
+    - CONFIG_POSIX_API=n
+    arch_exclude: posix
+    min_ram: 32
+  posix.eventfd_basic.posix_api:
+    path: tests/posix/eventfd_basic
+    catalog: posix pthread eventfd
+    extra_configs:
+    - CONFIG_POSIX_API=y
     arch_exclude: posix
     min_ram: 32
 posix filesystem:
@@ -4675,6 +4784,11 @@ settings_nvs:
     path: tests/subsys/settings/functional/nvs
     catalog: settings_nvs
     platform_whitelist: qemu_x86 native_posix native_posix_64
+  system.settings.functional.nvs.dk:
+    path: tests/subsys/settings/functional/nvs
+    catalog: settings_nvs
+    extra_args: OVERLAY_CONFIG=mpu.conf
+    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832
   system.settings.nvs:
     path: tests/subsys/settings/nvs/raw
     catalog: settings_nvs

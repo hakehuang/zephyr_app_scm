@@ -55,6 +55,11 @@ cases:
     path: samples/smp/pi
     catalog: introduction
     filter: "(CONFIG_MP_NUM_CPUS > 1)"
+  sample.subsys.canbus.canopen:
+    path: samples/subsys/canbus/canopen
+    catalog: introduction
+    depends_on: can
+    platform_whitelist: twr_ke18f frdm_k64f
   sample.tfm_ipc:
     path: samples/tfm_integration/tfm_ipc
     catalog: introduction

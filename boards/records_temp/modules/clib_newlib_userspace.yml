@@ -4,6 +4,7 @@ cases:
     path: tests/lib/mem_alloc
     catalog: clib newlib userspace
     extra_args: CONF_FILE=prj_newlib.conf
+    min_ram: 16
     arch_exclude: posix
     platform_exclude: twr_ke18f
     filter: TOOLCHAIN_HAS_NEWLIB == 1

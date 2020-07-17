@@ -4,3 +4,7 @@ cases:
     path: tests/lib/heap
     catalog: heap
     platform_exclude: m2gl025_miv qemu_riscv32
+    filter: not CONFIG_SOC_NSIM
+  lib.heap_align:
+    path: tests/lib/heap_align
+    catalog: heap

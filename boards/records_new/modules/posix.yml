@@ -1,5 +1,10 @@
 ---
 cases:
+  sample.posix.eventfd:
+    path: samples/posix/eventfd
+    catalog: posix
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: m2gl025_miv
   portability.posix.common:
     path: tests/posix/common
     catalog: posix

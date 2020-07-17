@@ -1,7 +1,21 @@
 ---
 cases:
-  posix.eventfd:
+  portability.posix.eventfd:
     path: tests/posix/eventfd
     catalog: posix pthread eventfd
+    arch_exclude: posix
+    min_ram: 32
+  posix.eventfd_basic:
+    path: tests/posix/eventfd_basic
+    catalog: posix pthread eventfd
+    extra_configs:
+    - CONFIG_POSIX_API=n
+    arch_exclude: posix
+    min_ram: 32
+  posix.eventfd_basic.posix_api:
+    path: tests/posix/eventfd_basic
+    catalog: posix pthread eventfd
+    extra_configs:
+    - CONFIG_POSIX_API=y
     arch_exclude: posix
     min_ram: 32

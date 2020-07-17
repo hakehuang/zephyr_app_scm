@@ -1,0 +1,9 @@
+---
+cases:
+  sample.subsys.canbus.canopen.program_download:
+    path: samples/subsys/canbus/canopen
+    catalog: can canopen
+    extra_configs:
+    - CONFIG_BOOTLOADER_MCUBOOT=y
+    depends_on: can
+    platform_whitelist: twr_ke18f frdm_k64f

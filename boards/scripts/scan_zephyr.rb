@@ -58,6 +58,10 @@ def lists_to_keep(in_hash, out_hash)
   end
 end
 
+def scan_subsets(fpath)
+    puts fpath
+end
+
 def scan(zephyr_path, output_records_path, output_records_fname)
     log = Logger.new(STDOUT)
 
@@ -102,6 +106,7 @@ def scan(zephyr_path, output_records_path, output_records_fname)
 
     log.info("indentify the CMakeLists.txt")
     cases = {"cases" => {}}
+    test_case_lists = {"cases" => {}}
     testcase_hash = nil
     sample_hash = nil
     Find.find(zephyr_path) do |path|
@@ -141,6 +146,7 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 lists_to_keep(testcase_hash['tests'][k], keep_hash)
                 #log.info(keep_hash)
                 cases['cases'][k].merge!(keep_hash)
+                scan_subsets()
               end
 
             end

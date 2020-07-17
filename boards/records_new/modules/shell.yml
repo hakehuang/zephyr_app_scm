@@ -21,10 +21,6 @@ cases:
     catalog: shell
     extra_args: CONF_FILE="prj_minimal_rtt.conf"
     filter: CONFIG_HAS_SEGGER_RTT
-  boards.shell.shell:
-    path: tests/boards/board_shell
-    catalog: shell
-    platform_whitelist: nrf52840dk_nrf52840 frdm_k64f
   shell.core:
     path: tests/shell
     catalog: shell

@@ -17,6 +17,11 @@ cases:
     path: tests/subsys/fs/fat_fs_api
     catalog: filesystem
     platform_whitelist: native_posix
+  filesystem.fat.api.lfn:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_args: CONF_FILE="prj_lfn.conf"
+    platform_whitelist: native_posix
   filesystem.fat.dual_drive:
     path: tests/subsys/fs/fat_fs_dual_drive
     catalog: filesystem
