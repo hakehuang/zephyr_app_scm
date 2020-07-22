@@ -10,11 +10,29 @@ require 'tenjin'
 require 'optparse'
 require 'ostruct'
 require 'logger'
+require 'json'
 
 require_relative "parse_testcase"
 require_relative "parse_sample"
 require_relative "zephyr_filter"
 
+LONG_CASE_DURATION = {
+  'benchmark.crypto.mbedtls' => {'timeout' => 500},
+  'libraries.cmsis_dsp.basicmath' => {'timeout' => 500},
+  'libraries.cmsis_dsp.complexmath' => {'timeout' => 500},
+  'libraries.cmsis_dsp.statistics' => {'timeout' => 500},
+  'libraries.cmsis_dsp.support' => {'timeout' => 500},
+  'libraries.cmsis_dsp.transform.cf32' => {'timeout' => 500},
+  'libraries.cmsis_dsp.transform.cf64' => {'timeout' => 500},
+  'libraries.cmsis_dsp.transform.cq15' =>  {'timeout' => 500},
+  'libraries.cmsis_dsp.transform.cq31' => {'timeout' => 500},
+  'libraries.cmsis_dsp.transform.rf32' => {'timeout' => 500},
+  'libraries.cmsis_dsp.transform.rf64' => {'timeout' => 500},
+  'libraries.cmsis_dsp.transform.rq31' => {'timeout' => 500},
+  'benchmark.kernel.scheduler' => {'timeout' => 500},
+  'kernel.queue' => {'timeout' => 500},
+  'kernel.queue.poll' => {'timeout' => 500},
+}
 
 class Parser
   def self.parse(options)
@@ -148,7 +166,13 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 lists_to_keep(testcase_hash['tests'][k], keep_hash)
                 #log.info(keep_hash)
                 cases['cases'][k].merge!(keep_hash)
-                test_case_lists['cases'][k] = ""
+                if LONG_CASE_DURATION.has_key?(k)
+                  # puts "**************************", k
+                  test_case_lists['cases'][k] = LONG_CASE_DURATION[k]
+                  # puts test_case_lists['cases'][k]
+                else
+                  test_case_lists['cases'][k] = ""
+                end
               end
 
             end
@@ -206,8 +230,8 @@ def scan(zephyr_path, output_records_path, output_records_fname)
     File.open(File.join(output_records_path, output_records_fname),"w") do |file|
       file.write cases.to_yaml
     end
-    File.open(File.join(output_records_path, "test_cases.yml"),"w") do |file|
-      file.write test_case_lists.to_yaml
+    File.open(File.join(output_records_path, "test_cases.json"),"w") do |file|
+      file.write test_case_lists.to_json
     end
 end
 
