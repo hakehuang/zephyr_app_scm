@@ -1,47 +1,92 @@
-
-__load__:
-  - modules/CAN.yml
-  - modules/can_canopen.yml
-  - modules/can_isotp.yml
-  - modules/clib.yml
-  - modules/clib_minimal_libc_userspace.yml
-  - modules/clib_newlib_userspace.yml
-  - modules/cmsis_dsp.yml
-  - modules/cmsis_rtos.yml
-  - modules/console.yml
-  - modules/cpp.yml
-  - modules/crypto.yml
-  - modules/crypto_mbedtls_userspace.yml
-  #- modules/crypto_security.yml
-  - modules/crypto_random_security.yml
-  - modules/crypto_entropy_random_security.yml
-  - modules/crypto_entropy.yml
-  - modules/dac_drivers_userspace.yml
-  - modules/DAC.yml
-  - modules/debug.yml
-  - modules/deprecated.yml
-  - modules/device.yml
-  - modules/devicetree.yml
-  - modules/dfu_image_util.yml
-  - modules/dfu_mcuboot.yml
-  - modules/display.yml
-  - modules/display_shield.yml
-  - modules/display_gui.yml
-  - modules/dma.yml
-  - modules/external.yml
-  - modules/fdtable.yml
-  - modules/filesystem.yml
-  - modules/flash_circural_buffer.yml
-  - modules/flash_map.yml
-  - modules/flash_nrf52_nrf9160.yml
-  #- modules/flash_nrf52.yml
-  - skips/lpcxpresso54114_m4.yml
-  - boards/lpcxpresso54114_m4.yml
-
+---
 settings:
-  case_pipe_name: lpcxpresso54114_m4_3
-
+  case_pipe_name: "lpcxpresso54114_m4_3"
+__load__:
+- modules/xip.yml
+- modules/video_net_socket.yml
+- modules/video.yml
+- modules/utils_lists.yml
+- modules/util_intmath.yml
+- modules/userspace.yml
+- modules/unknown.yml
+- modules/uart_bluetooth.yml
+- modules/tracing_debug.yml
+- modules/tinycrypt_crypto_sha256_hmac_prng.yml
+- modules/tinycrypt_crypto_aes_ccm.yml
+- modules/timeutils.yml
+- modules/timer.yml
+- modules/tickless_kernel.yml
+- modules/test_framework.yml
+- modules/tcp.yml
+- modules/sysid.yml
+- modules/stream_flash.yml
+- modules/spi_flash.yml
+- modules/sound.yml
+- modules/smp_spinlock.yml
+- modules/smp.yml
+- modules/shield_net_zperf.yml
+- modules/shield.yml
+- modules/shell.yml
+- modules/sensors.yml
+- modules/secure.yml
+- modules/ring_buffer_circular_buffer.yml
+- modules/rbtree.yml
+- modules/qspi_flash.yml
+- modules/power.yml
+- modules/out_of_tree.yml
+- modules/ot_radio.yml
+- modules/onoff_timer.yml
+- modules/nvs.yml
+- modules/nrf52_soc_flash_nrf.yml
+- modules/nmi_interrupt_arm.yml
+- modules/nfc.yml
+- modules/net_6loWPAN.yml
+- modules/net.yml
+- modules/msd_usb.yml
+- modules/mqtt_net_userspace.yml
+- modules/mpu.yml
+- modules/mmu.yml
+- modules/microbit_mesh_bluetooth.yml
+- modules/microbit_line-follower_robot_car.yml
+- modules/memory_protection.yml
+- modules/mdns.yml
+- modules/mcuboot.yml
+- modules/lora.yml
+- modules/logging_usermode.yml
+- modules/logging.yml
+- modules/log_output_logging.yml
+- modules/log_msg_logging.yml
+- modules/log_list_logging.yml
+- modules/log_core_logging.yml
+- modules/llmnr.yml
+- modules/littlefs_fatfs_filesystem_qemu_x86.yml
+- modules/littlefs_fatfs_filesystem.yml
+- modules/linker.yml
+- modules/libc.yml
+- modules/lib_sys_util_tests.yml
+- modules/led.yml
+- modules/kernel.yml
+- modules/kconfig.yml
+- modules/jwt.yml
+- modules/json.yml
+- modules/ipm.yml
+- modules/introduction.yml
+- modules/interrupt_isr_table.yml
+- modules/interrupt.yml
+- modules/ignore_faults_interrupt_idt.yml
+- modules/i2s.yml
+- modules/i2c.yml
+- modules/http_net.yml
+- modules/heap.yml
+- modules/gpio.yml
+- modules/google_iot_mqtt.yml
+- modules/gen_inc_file.yml
+- modules/OpenThread_Network_Co-Processor.yml
+- modules/LED_gpio.yml
+- modules/LED.yml
+- skips/lpcxpresso54114_m4.yml
+- boards/lpcxpresso54114_m4.yml
 cases:
-  attribute: "required"
+  attribute: required
   __common__:
-    attribute: "required"
+    attribute: required

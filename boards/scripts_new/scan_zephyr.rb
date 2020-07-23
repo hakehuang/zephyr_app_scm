@@ -11,6 +11,7 @@ require 'optparse'
 require 'ostruct'
 require 'logger'
 require 'json'
+require "deep_merge"
 
 require_relative "parse_testcase"
 require_relative "parse_sample"
@@ -258,6 +259,63 @@ def split_test_catalog(fn, outdir)
       file.write out_cases.to_yaml
     end
   end
+
+  # comment node
+  common_hash = {
+    '__load__' => ['skips/${@board}.yml', 'boards/${@board}.yml'],
+    'cases' => {
+      "attribute" => "required",
+      "__common__" => {
+        "attribute" => "required"}
+    }
+  }
+
+  # put catalog to template
+  template_files_hash = {
+    'board_template.yml' => {'settings' => {"case_pipe_name" => "${@board}"}}.deep_merge(common_hash),
+    'board_2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_2"}}.deep_merge(common_hash),
+    'board_3_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_3"}}.deep_merge(common_hash),
+    'board_drivers_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_drivers"}}.deep_merge(common_hash),
+    'board_kernel_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel"}}.deep_merge(common_hash),
+    'board_kernel2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel2"}}.deep_merge(common_hash),
+    'board_samples_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_samples"}}.deep_merge(common_hash),
+    'board_samples2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_samples2"}}.deep_merge(common_hash),
+    'board_usb_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_usb"}}.deep_merge(common_hash),
+  }
+
+  cases_cat.keys().sort!.each do |k|
+    module_name = "#{k.gsub(" ", "_")}.yml"
+    # puts module_name
+    if module_name.downcase().start_with?("usb")
+      template_files_hash['board_usb_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().start_with?("driver") or
+      module_name.downcase().start_with?("settings") or
+      module_name.downcase().start_with?("posix") or
+      module_name.downcase().start_with?("samples")
+      template_files_hash['board_drivers_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^kernel_[a-s]/)
+      template_files_hash['board_kernel_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^kernel_[t-z]/)
+      template_files_hash['board_kernel2_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^net_[a-l]/)
+      template_files_hash['board_samples_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^net_[m-z]/)
+      template_files_hash['board_samples2_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^[a-d]/)
+      template_files_hash['board_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^[e-f]/)
+      template_files_hash['board_2_template.yml']["__load__"].unshift("modules/#{module_name}")
+    else
+      template_files_hash['board_3_template.yml']["__load__"].unshift("modules/#{module_name}")
+    end
+  end
+
+  template_files_hash.each do |k, v|
+    File.open(File.join(outdir, k),"w") do |file|
+      file.write template_files_hash[k].to_yaml
+    end
+  end
+
 end
 
 scan("C:/github/zephyr", "../records_temp", "test.yml")

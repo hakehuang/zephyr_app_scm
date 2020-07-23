@@ -27,7 +27,8 @@ cases:
   sample.sensor.adxl362:
     path: samples/sensor/adxl362
     catalog: sensors
-    depends_on: spi adxl362
+    depends_on: spi
+    platform_whitelist: nrf52dk_nrf52832
   sample.sensor.adxl372:
     path: samples/sensor/adxl372
     catalog: sensors
@@ -227,3 +228,8 @@ cases:
     catalog: sensors
     build_only: true
     depends_on: i2c vl53l0x
+  sample.sensor.wsen-itds:
+    path: samples/sensor/wsen_itds
+    catalog: sensors
+    depends_on: i2c gpio
+    filter: dt_compat_enabled("we,wsen-itds")

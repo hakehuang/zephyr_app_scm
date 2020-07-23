@@ -5,6 +5,7 @@ generator module yml files
 ruby ./scan_zephyr.rb
 
 copy records_temp/modules to records_new/
+copy records_temp/boards_.yml to template/
 
 update the template by diff the changes
 

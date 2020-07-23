@@ -1,75 +1,45 @@
-
-__load__:
-  - modules/driver.yml
-  - modules/driver_can.yml
-  - modules/drivers.yml
-#  - modules/drivers_console.yml
-  - modules/driver_entropy.yml
-  - modules/drivers_dma.yml
-  - modules/drivers_fram.yml
-  - modules/drivers_gpio.yml
-  - modules/drivers_i2c.yml
-  - modules/drivers_i2s.yml
-  - modules/drivers_ipc.yml
-  - modules/drivers_kscan.yml
-  - modules/drivers_kscan_userspace.yml
-  - modules/drivers_pwm.yml
-  - modules/drivers_sensor_grove_light.yml
-  - modules/drivers_sensor_grove_temperature.yml
-  - modules/driver_sensor_subsys.yml
-  - modules/drivers_spi.yml
-  - modules/drivers_userspace.yml
-  - modules/drivers_watchdog.yml
-  - modules/nfc.yml
-  #- modules/nffs_fatfs_filesystem.yml
-  #- modules/nffs_filesystem.yml
-  - modules/nmi_interrupt_arm.yml
-  - modules/out_of_tree.yml
-  - modules/onoff_timer.yml
-  - modules/posix.yml
-  - modules/posix_filesystem.yml
-  - modules/posix_net.yml
-  - modules/posix_pthread_eventfd.yml
-  - modules/power.yml
-  - modules/qspi_flash.yml
-  - modules/rbtree.yml
-  - modules/ring_buffer_circular_buffer.yml
-  - modules/samples.yml
-  - modules/samples_display_gui.yml
-  - modules/samples_ipm.yml
-  - modules/samples_sensor.yml
-  - modules/secure.yml
-  - modules/sensors.yml
-  - modules/settings.yml
-  - modules/settings_fcb.yml
-  - modules/settings_file.yml
-  #- modules/settings_fs.yml
-  - modules/settings_fs_filesystem.yml
-  - modules/settings_fs_settings_littlefs.yml
-  - modules/settings_intialization_fcb.yml
-  - modules/settings_nvs.yml
-  - modules/shell.yml
-  - modules/shield.yml
-  - modules/shield_net_zperf.yml
-  - modules/sound.yml
-  - modules/spi_flash.yml
-  - modules/sysid.yml
-  - modules/test_framework.yml
-  - modules/tickless_kernel.yml
-  - modules/timer.yml
-  - modules/timeutils.yml
-  - modules/tinycrypt_crypto_aes_ccm.yml
-  - modules/tinycrypt_crypto_sha256_hmac_prng.yml
-  - modules/tracing_debug.yml
-  - modules/uart_bluetooth.yml
-  - modules/unknown.yml
-  - skips/mimxrt1050_evk.yml
-  - boards/mimxrt1050_evk.yml
-
+---
 settings:
-  case_pipe_name: mimxrt1050_evk_drivers
-
+  case_pipe_name: "mimxrt1050_evk_drivers"
+__load__:
+- modules/settings_nvs.yml
+- modules/settings_intialization_fcb.yml
+- modules/settings_fs_settings_littlefs.yml
+- modules/settings_fs_filesystem.yml
+- modules/settings_file.yml
+- modules/settings_fcb.yml
+- modules/settings.yml
+- modules/samples_sensor.yml
+- modules/samples_ipm.yml
+- modules/samples_display_gui.yml
+- modules/samples.yml
+- modules/posix_pthread_eventfd.yml
+- modules/posix_net.yml
+- modules/posix_filesystem.yml
+- modules/posix.yml
+- modules/drivers_watchdog.yml
+- modules/drivers_userspace.yml
+- modules/drivers_spi.yml
+- modules/drivers_sensor_grove_temperature.yml
+- modules/drivers_sensor_grove_light.yml
+- modules/drivers_pwm.yml
+- modules/drivers_kscan_userspace.yml
+- modules/drivers_kscan.yml
+- modules/drivers_ipc.yml
+- modules/drivers_i2s.yml
+- modules/drivers_i2c.yml
+- modules/drivers_gpio.yml
+- modules/drivers_fram.yml
+- modules/drivers_dma.yml
+- modules/drivers_console.yml
+- modules/drivers.yml
+- modules/driver_sensor_subsys.yml
+- modules/driver_entropy.yml
+- modules/driver_can.yml
+- modules/driver.yml
+- skips/mimxrt1050_evk.yml
+- boards/mimxrt1050_evk.yml
 cases:
-  attribute: "required"
+  attribute: required
   __common__:
-    attribute: "required"
+    attribute: required

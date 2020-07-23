@@ -50,66 +50,66 @@ cases:
     filter: dt_alias_exists("pwm-led0")
   sample.minimal.mt.arm:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;arm.conf'
     build_only: true
     platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.mt-no-preempt.arm:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;arm.conf'
     build_only: true
     platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.mt-no-preempt-no-timers.arm:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;arm.conf'
     build_only: true
     platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.no-mt.arm:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;arm.conf'
     build_only: true
     platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.no-mt-no-timers.arm:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;arm.conf'
     build_only: true
     platform_whitelist: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
       disco_l475_iot1
   sample.minimal.mt.x86:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;x86.conf'
     build_only: true
     platform_whitelist: qemu_x86
   sample.minimal.mt-no-preempt.x86:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;x86.conf'
     build_only: true
     platform_whitelist: qemu_x86
   sample.minimal.mt-no-preempt-no-timers.x86:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;x86.conf'
     build_only: true
     platform_whitelist: qemu_x86
   sample.minimal.no-mt.x86:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;x86.conf'
     build_only: true
     platform_whitelist: qemu_x86
   sample.minimal.no-mt-no-timers.x86:
     path: samples/basic/minimal
-    catalog: unknown
+    catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;x86.conf'
     build_only: true
     platform_whitelist: qemu_x86
@@ -1156,7 +1156,12 @@ cases:
     path: samples/net/wifi
     catalog: net wifi
     extra_args: SHIELD=esp_8266
-    platform_whitelist: frdm_k64f sam4e_xpro disco_l475_iot1
+    platform_whitelist: sam4e_xpro
+  sample.net.wifi.esp_8266_arduino:
+    path: samples/net/wifi
+    catalog: net wifi
+    extra_args: SHIELD=esp_8266_arduino
+    platform_whitelist: frdm_k64f disco_l475_iot1
   sample.net.wpan.serial:
     path: samples/net/wpan_serial
     catalog: usb ieee802154
@@ -1342,7 +1347,8 @@ cases:
   sample.sensor.adxl362:
     path: samples/sensor/adxl362
     catalog: sensors
-    depends_on: spi adxl362
+    depends_on: spi
+    platform_whitelist: nrf52dk_nrf52832
   sample.sensor.adxl372:
     path: samples/sensor/adxl372
     catalog: sensors
@@ -1584,6 +1590,11 @@ cases:
     catalog: sensors
     build_only: true
     depends_on: i2c vl53l0x
+  sample.sensor.wsen-itds:
+    path: samples/sensor/wsen_itds
+    catalog: sensors
+    depends_on: i2c gpio
+    filter: dt_compat_enabled("we,wsen-itds")
   sample.shields.lmp90100_evb.rtd:
     path: samples/shields/lmp90100_evb/rtd
     catalog: shield
@@ -2561,6 +2572,14 @@ cases:
     path: tests/drivers/clock_control/nrf_clock_calibration
     catalog: drivers
     platform_whitelist: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.clock.nrf_onoff_and_bt:
+    path: tests/drivers/clock_control/nrf_onoff_and_bt
+    catalog: drivers
+    platform_whitelist: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.clock.clock_control_onoff:
+    path: tests/drivers/clock_control/onoff
+    catalog: drivers
+    platform_whitelist: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
   drivers.console.uart:
     path: tests/drivers/console
     catalog: drivers console
@@ -2619,6 +2638,16 @@ cases:
     path: tests/drivers/entropy/api
     catalog: driver entropy
     filter: CONFIG_ENTROPY_HAS_DRIVER
+  drivers.flash.nrf_qspi_nor:
+    path: tests/drivers/flash
+    catalog: flash nrf52 nrf_qspi_fash
+    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
+    platform_whitelist: nrf52840dk_nrf52840
+  drivers.flash.soc_flash_nrf:
+    path: tests/drivers/flash
+    catalog: nrf52 soc_flash_nrf
+    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_soc.conf
+    platform_whitelist: nrf52840dk_nrf52840
   drivers.flash.flash_simulator:
     path: tests/drivers/flash_simulator
     catalog: driver
@@ -2750,13 +2779,13 @@ cases:
   kernel.device:
     path: tests/kernel/device
     catalog: device
-    platform_whitelist: native_posix native_posix_64 qemu_x86
+    platform_whitelist: native_posix native_posix_64 qemu_x86 mps2_an385
   kernel.device.pm:
     path: tests/kernel/device
     catalog: device
     extra_configs:
     - CONFIG_DEVICE_POWER_MANAGEMENT=y
-    platform_whitelist: native_posix native_posix_64 qemu_x86
+    platform_whitelist: native_posix native_posix_64 qemu_x86 mps2_an385
   kernel.common.sleep:
     path: tests/kernel/early_sleep
     catalog: kernel sleep
@@ -2997,7 +3026,7 @@ cases:
     catalog: kernel
   kernel.multiprocessing:
     path: tests/kernel/mp
-    catalog: unknown
+    catalog: smp
     filter: CONFIG_MP_NUM_CPUS > 1
   kernel.message_queue:
     path: tests/kernel/msgq/msgq_api
@@ -3087,11 +3116,11 @@ cases:
     catalog: kernel sleep
   kernel.multiprocessing.smp:
     path: tests/kernel/smp
-    catalog: unknown
+    catalog: smp
     filter: "(CONFIG_MP_NUM_CPUS > 1)"
   kernel.multiprocessing.spinlock:
     path: tests/kernel/spinlock
-    catalog: unknown
+    catalog: smp spinlock
     filter: CONFIG_SMP and CONFIG_MP_NUM_CPUS > 1
   kernel.stack.usage:
     path: tests/kernel/stack/stack
@@ -4441,11 +4470,11 @@ cases:
     platform_whitelist: native_posix qemu_x86
   filesystem.nvs:
     path: tests/subsys/fs/nvs
-    catalog: unknown
+    catalog: nvs
     platform_whitelist: qemu_x86
   filesystem.nvs_0x00:
     path: tests/subsys/fs/nvs
-    catalog: unknown
+    catalog: nvs
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
     platform_whitelist: qemu_x86
     build_only: true

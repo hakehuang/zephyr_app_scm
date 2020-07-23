@@ -1,22 +1,18 @@
-
-__load__:
-  - modules/usb.yml
-  - modules/usb_bluetooth.yml
-  - modules/usb_bos.yml
-  - modules/usb_desc_sections.yml
-  - modules/usb_ieee802154.yml
-  - modules/usb_net_zperf.yml
-  - modules/usb_osdesc.yml
-  - modules/usb_sensors.yml
-#  - modules/USB_audio_sample.yml
-  - skips/frdm_k64f.yml
-  - boards/frdm_k64f.yml
-
-
+---
 settings:
-  case_pipe_name: frdm_k64f_usb
-
+  case_pipe_name: "frdm_k64f_usb"
+__load__:
+- modules/usb_sensors.yml
+- modules/usb_osdesc.yml
+- modules/usb_net_zperf.yml
+- modules/usb_ieee802154.yml
+- modules/usb_desc_sections.yml
+- modules/usb_bos.yml
+- modules/usb_bluetooth.yml
+- modules/usb.yml
+- skips/frdm_k64f.yml
+- boards/frdm_k64f.yml
 cases:
-  attribute: "required"
+  attribute: required
   __common__:
-    attribute: "required"
+    attribute: required

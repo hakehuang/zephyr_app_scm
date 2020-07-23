@@ -113,13 +113,67 @@ cases:
     comments: need add support
     result: FAILURE
     attribute: required
-  kernel.memory_pool.sys:
-    path: tests/kernel/mem_pool/sys_mem_pool
-    catalog: kernel userspace mem_pool
+  sample.basic.threads:
+    path: samples/basic/threads
+    catalog: kernel threads gpio
+    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
+      "led1")
+    depends_on: gpio
     attribute: required
-  kernel.pipe:
-    path: tests/kernel/pipe/pipe
-    catalog: kernel userspace ignore_faults
+  kernel.scheduler:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    filter: not CONFIG_SCHED_MULTIQ
+    attribute: required
+  kernel.scheduler.no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    filter: not CONFIG_SCHED_MULTIQ
+    attribute: required
+  kernel.scheduler.multiq:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    extra_args: CONF_FILE=prj_multiq.conf
+    attribute: required
+  kernel.scheduler.multiq_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_multiq.conf
+    attribute: required
+  kernel.threads.init:
+    path: tests/kernel/threads/thread_init
+    catalog: kernel threads userspace
+    attribute: required
+  kernel.threads.dynamic:
+    path: tests/kernel/threads/dynamic_thread
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_exclude: x86
+    attribute: required
+  kernel.threads.apis:
+    path: tests/kernel/threads/thread_apis
+    catalog: kernel threads userspace ignore_faults
+    min_flash: 34
+    attribute: required
+  kernel.timer:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer userspace
+    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
+    attribute: required
+  kernel.timer.tickless:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer userspace
+    extra_args: CONF_FILE="prj_tickless.conf"
+    arch_exclude: riscv32 nios2 posix
+    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
     attribute: required
   kernel.common.misra:
     path: tests/kernel/common
@@ -209,65 +263,11 @@ cases:
     catalog: kernel userspace
     min_flash: 34
     attribute: required
-  kernel.timer:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel timer userspace
-    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
+  kernel.pipe:
+    path: tests/kernel/pipe/pipe
+    catalog: kernel userspace ignore_faults
     attribute: required
-  kernel.timer.tickless:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel timer userspace
-    extra_args: CONF_FILE="prj_tickless.conf"
-    arch_exclude: riscv32 nios2 posix
-    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
-    attribute: required
-  kernel.threads.dynamic:
-    path: tests/kernel/threads/dynamic_thread
-    catalog: kernel threads userspace ignore_faults
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    arch_exclude: x86
-    attribute: required
-  kernel.threads.apis:
-    path: tests/kernel/threads/thread_apis
-    catalog: kernel threads userspace ignore_faults
-    min_flash: 34
-    attribute: required
-  kernel.threads.init:
-    path: tests/kernel/threads/thread_init
-    catalog: kernel threads userspace
-    attribute: required
-  kernel.scheduler:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    filter: not CONFIG_SCHED_MULTIQ
-    attribute: required
-  kernel.scheduler.no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=n
-    filter: not CONFIG_SCHED_MULTIQ
-    attribute: required
-  kernel.scheduler.multiq:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    extra_args: CONF_FILE=prj_multiq.conf
-    attribute: required
-  kernel.scheduler.multiq_no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=n
-    extra_args: CONF_FILE=prj_multiq.conf
-    attribute: required
-  sample.basic.threads:
-    path: samples/basic/threads
-    catalog: kernel threads gpio
-    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
-      "led1")
-    depends_on: gpio
+  kernel.memory_pool.sys:
+    path: tests/kernel/mem_pool/sys_mem_pool
+    catalog: kernel userspace mem_pool
     attribute: required

@@ -1,59 +1,20 @@
-__load__:
-  - modules/flash_shell.yml
-  - modules/gen_inc_file.yml
-  - modules/google_iot_mqtt.yml
-  - modules/gpio.yml
-  - modules/http_net.yml
-  - modules/heap.yml
-  - modules/i2c.yml
-  - modules/i2s.yml
-  - modules/ignore_faults_interrupt_idt.yml
-  - modules/interrupt.yml
-  - modules/interrupt_isr_table.yml
-  - modules/introduction.yml
-  - modules/ipm.yml
-  - modules/json.yml
-  - modules/jwt.yml
-  - modules/LED.yml
-  - modules/LED_gpio.yml
-  - modules/lib_sys_util_tests.yml
-  - modules/libc.yml
-  - modules/linker.yml
-  - modules/llmnr.yml
-  - modules/littlefs_fatfs_filesystem_qemu_x86.yml
-  - modules/littlefs_fatfs_filesystem.yml
-  - modules/log_core_logging.yml
-  - modules/log_list_logging.yml
-  - modules/log_msg_logging.yml
-  - modules/log_output_logging.yml
-  - modules/logging.yml
-  - modules/logging_usermode.yml
-  - modules/lora.yml
-  - modules/mcuboot.yml
-  - modules/mdns.yml
-  - modules/memory_protection.yml
-  - modules/microbit_line-follower_robot_car.yml
-  - modules/microbit_mesh_bluetooth.yml
-  - modules/mmu.yml
-  - modules/mpu.yml
-  - modules/kconfig.yml
-  - modules/ot_radio.yml
-  - modules/OpenThread_Network_Co-Processor.yml
-  - modules/stream_flash.yml
-  - modules/userspace.yml
-  - modules/util_intmath.yml
-  - modules/utils_lists.yml
-  - modules/video.yml
-  - modules/video_net_socket.yml
-  - modules/xip.yml
-  - skips/frdm_kl25z.yml
-  - boards/frdm_kl25z.yml
-
-
+---
 settings:
-  case_pipe_name: frdm_kl25z_2
-
+  case_pipe_name: "frdm_kl25z_2"
+__load__:
+- modules/footprint.yml
+- modules/flash_map.yml
+- modules/flash_circural_buffer.yml
+- modules/flash_shell.yml
+- modules/flash_nrf52_nrf_qspi_fash.yml
+- modules/flash_nrf52_nrf9160.yml
+- modules/filesystem.yml
+- modules/fdtable.yml
+- modules/external.yml
+- modules/ec.yml
+- skips/frdm_kl25z.yml
+- boards/frdm_kl25z.yml
 cases:
-  attribute: "required"
+  attribute: required
   __common__:
-    attribute: "required"
+    attribute: required

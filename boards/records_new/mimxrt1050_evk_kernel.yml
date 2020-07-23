@@ -1,23 +1,19 @@
-
-__load__:
-  - modules/kernel_ignore_faults.yml
-  - modules/kernel_ignore_faults_memory_protection.yml
-  - modules/kernel_ignore_faults_userspace.yml
-  - modules/kernel_mem_pool.yml
-  - modules/kernel_security_ignore_faults.yml
-  - modules/kernel_security_userspace.yml
-  - modules/kernel_security_userspace_ignore_faults.yml
-  - modules/kernel_sleep.yml
-  - modules/kernel_synchronization.yml
-  - skips/mimxrt1050_evk.yml
-  - boards/mimxrt1050_evk.yml
-
-
+---
 settings:
-  case_pipe_name: mimxrt1050_evk_kernel
-
+  case_pipe_name: "mimxrt1050_evk_kernel"
+__load__:
+- modules/kernel_synchronization.yml
+- modules/kernel_sleep.yml
+- modules/kernel_security_userspace_ignore_faults.yml
+- modules/kernel_security_userspace.yml
+- modules/kernel_security_ignore_faults.yml
+- modules/kernel_mem_pool.yml
+- modules/kernel_ignore_faults_userspace.yml
+- modules/kernel_ignore_faults_memory_protection.yml
+- modules/kernel_ignore_faults.yml
+- skips/mimxrt1050_evk.yml
+- boards/mimxrt1050_evk.yml
 cases:
-  attribute: "required"
+  attribute: required
   __common__:
-    attribute: "required"
-
+    attribute: required

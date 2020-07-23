@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<testsuites>
+    <testsuite tests="200" errors="0" failures="1" name="" skipped="2" time="0">
+         <testcase classname="twr_ke18f:sample.userspace.prod_consumer" name="sample.userspace.prod_consumer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="twr_ke18f:sample.nfc.hello" name="sample.nfc.hello" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="twr_ke18f:buildsystem.include_file" name="buildsystem.include_file" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:arch.interrupt" name="arch.interrupt" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.basic.helloworld" name="sample.basic.helloworld" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher" name="sample.kernel.philosopher" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher.same_prio" name="sample.kernel.philosopher.same_prio" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher.static" name="sample.kernel.philosopher.static" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher.semaphores" name="sample.kernel.philosopher.semaphores" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher.stacks" name="sample.kernel.philosopher.stacks" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher.fifos" name="sample.kernel.philosopher.fifos" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher.lifos" name="sample.kernel.philosopher.lifos" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher.preempt_only" name="sample.kernel.philosopher.preempt_only" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.kernel.philosopher.coop_only" name="sample.kernel.philosopher.coop_only" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:libraries.encoding.json" name="libraries.encoding.json" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.common" name="kernel.common" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.fifo" name="kernel.fifo" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.fifo.poll" name="kernel.fifo.poll" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.fifo.timeout" name="kernel.fifo.timeout" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.fifo.timeout.poll" name="kernel.fifo.timeout.poll" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.fifo.usage" name="kernel.fifo.usage" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.fifo.usage.poll" name="kernel.fifo.usage.poll" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.lifo" name="kernel.lifo" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.lifo.usage" name="kernel.lifo.usage" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api" name="kernel.mailbox.api" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.bad_priorities" name="kernel.mailbox.api.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.lock_preemptible" name="kernel.mailbox.api.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_async_multiple_put" name="kernel.mailbox.api.mbox_async_multiple_put" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_async_put_get_block" name="kernel.mailbox.api.mbox_async_put_get_block" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_async_put_get_buffer" name="kernel.mailbox.api.mbox_async_put_get_buffer" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_async_put_to_waiting_get" name="kernel.mailbox.api.mbox_async_put_to_waiting_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_block_get_buff_to_pool" name="kernel.mailbox.api.mbox_block_get_buff_to_pool" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_block_get_buff_to_smaller_pool" name="kernel.mailbox.api.mbox_block_get_buff_to_smaller_pool" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_block_get_invalid_pool" name="kernel.mailbox.api.mbox_block_get_invalid_pool" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_clean_up_tx_pool" name="kernel.mailbox.api.mbox_clean_up_tx_pool" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_dispose_size_0_msg" name="kernel.mailbox.api.mbox_dispose_size_0_msg" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_get_waiting_put_incorrect_tid" name="kernel.mailbox.api.mbox_get_waiting_put_incorrect_tid" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_incorrect_receiver_tid" name="kernel.mailbox.api.mbox_incorrect_receiver_tid" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_incorrect_transmit_tid" name="kernel.mailbox.api.mbox_incorrect_transmit_tid" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_kdefine" name="kernel.mailbox.api.mbox_kdefine" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_kinit" name="kernel.mailbox.api.mbox_kinit" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_msg_tid_mismatch" name="kernel.mailbox.api.mbox_msg_tid_mismatch" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_multiple_waiting_get" name="kernel.mailbox.api.mbox_multiple_waiting_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_put_get_buffer" name="kernel.mailbox.api.mbox_put_get_buffer" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_put_get_null" name="kernel.mailbox.api.mbox_put_get_null" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_target_source_thread_block" name="kernel.mailbox.api.mbox_target_source_thread_block" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_target_source_thread_buffer" name="kernel.mailbox.api.mbox_target_source_thread_buffer" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.mbox_timed_out_mbox_get" name="kernel.mailbox.api.mbox_timed_out_mbox_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.pending_thread_wakeup" name="kernel.mailbox.api.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.priority_cooperative" name="kernel.mailbox.api.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.priority_preemptible" name="kernel.mailbox.api.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.priority_scheduling" name="kernel.mailbox.api.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.sched_is_preempt_thread" name="kernel.mailbox.api.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.sleep_cooperative" name="kernel.mailbox.api.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.sleep_wakeup_preemptible" name="kernel.mailbox.api.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.unlock_nested_sched_lock" name="kernel.mailbox.api.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.unlock_preemptible" name="kernel.mailbox.api.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.user_k_is_preempt" name="kernel.mailbox.api.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.user_k_wakeup" name="kernel.mailbox.api.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.wakeup_expired_timer_thread" name="kernel.mailbox.api.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.api.yield_cooperative" name="kernel.mailbox.api.yield_cooperative" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_async_multiple_put" name="kernel.mailbox.mbox_async_multiple_put" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_async_put_get_block" name="kernel.mailbox.mbox_async_put_get_block" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_async_put_get_buffer" name="kernel.mailbox.mbox_async_put_get_buffer" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_async_put_to_waiting_get" name="kernel.mailbox.mbox_async_put_to_waiting_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_block_get_buff_to_pool" name="kernel.mailbox.mbox_block_get_buff_to_pool" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_block_get_buff_to_smaller_pool" name="kernel.mailbox.mbox_block_get_buff_to_smaller_pool" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_block_get_invalid_pool" name="kernel.mailbox.mbox_block_get_invalid_pool" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_clean_up_tx_pool" name="kernel.mailbox.mbox_clean_up_tx_pool" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_dispose_size_0_msg" name="kernel.mailbox.mbox_dispose_size_0_msg" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_get_waiting_put_incorrect_tid" name="kernel.mailbox.mbox_get_waiting_put_incorrect_tid" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_incorrect_receiver_tid" name="kernel.mailbox.mbox_incorrect_receiver_tid" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_incorrect_transmit_tid" name="kernel.mailbox.mbox_incorrect_transmit_tid" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_kdefine" name="kernel.mailbox.mbox_kdefine" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_kinit" name="kernel.mailbox.mbox_kinit" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_msg_tid_mismatch" name="kernel.mailbox.mbox_msg_tid_mismatch" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_multiple_waiting_get" name="kernel.mailbox.mbox_multiple_waiting_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_put_get_buffer" name="kernel.mailbox.mbox_put_get_buffer" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_put_get_null" name="kernel.mailbox.mbox_put_get_null" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_target_source_thread_block" name="kernel.mailbox.mbox_target_source_thread_block" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_target_source_thread_buffer" name="kernel.mailbox.mbox_target_source_thread_buffer" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.mbox_timed_out_mbox_get" name="kernel.mailbox.mbox_timed_out_mbox_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.msg_receiver" name="kernel.mailbox.msg_receiver" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.msg_receiver_unlimited" name="kernel.mailbox.msg_receiver_unlimited" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.usage" name="kernel.mailbox.usage" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.usage.msg_receiver" name="kernel.mailbox.usage.msg_receiver" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.mailbox.usage.msg_receiver_unlimited" name="kernel.mailbox.usage.msg_receiver_unlimited" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_heap" name="kernel.memory_heap" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_protection" name="kernel.memory_protection" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_protection.sys_sem" name="kernel.memory_protection.sys_sem" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_protection.sys_sem.nouser" name="kernel.memory_protection.sys_sem.nouser" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api" name="kernel.memory_slabs.api" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.fifo_cancel_wait" name="kernel.memory_slabs.api.fifo_cancel_wait" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.fifo_is_empty_isr" name="kernel.memory_slabs.api.fifo_is_empty_isr" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.fifo_is_empty_thread" name="kernel.memory_slabs.api.fifo_is_empty_thread" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.fifo_loop" name="kernel.memory_slabs.api.fifo_loop" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.mslab" name="kernel.memory_slabs.api.mslab" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.mslab_alloc_align" name="kernel.memory_slabs.api.mslab_alloc_align" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.mslab_alloc_free_thread" name="kernel.memory_slabs.api.mslab_alloc_free_thread" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.mslab_alloc_timeout" name="kernel.memory_slabs.api.mslab_alloc_timeout" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.mslab_kdefine" name="kernel.memory_slabs.api.mslab_kdefine" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.mslab_kdefine_extern" name="kernel.memory_slabs.api.mslab_kdefine_extern" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.mslab_kinit" name="kernel.memory_slabs.api.mslab_kinit" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.mslab_used_get" name="kernel.memory_slabs.api.mslab_used_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.test" name="kernel.memory_slabs.api.test" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.api.test.mslab" name="kernel.memory_slabs.api.test.mslab" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.concept" name="kernel.memory_slabs.concept" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.concept.mslab_alloc_wait_prio" name="kernel.memory_slabs.concept.mslab_alloc_wait_prio" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab" name="kernel.memory_slabs.mslab" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_alloc_align" name="kernel.memory_slabs.mslab_alloc_align" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_alloc_free_thread" name="kernel.memory_slabs.mslab_alloc_free_thread" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_alloc_timeout" name="kernel.memory_slabs.mslab_alloc_timeout" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_alloc_wait_prio" name="kernel.memory_slabs.mslab_alloc_wait_prio" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_kdefine" name="kernel.memory_slabs.mslab_kdefine" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_kdefine_extern" name="kernel.memory_slabs.mslab_kdefine_extern" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_kinit" name="kernel.memory_slabs.mslab_kinit" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_threadsafe" name="kernel.memory_slabs.mslab_threadsafe" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.mslab_used_get" name="kernel.memory_slabs.mslab_used_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.threadsafe" name="kernel.memory_slabs.threadsafe" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_slabs.threadsafe.mslab_threadsafe" name="kernel.memory_slabs.threadsafe.mslab_threadsafe" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.sched" name="kernel.sched" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.threads.no-multithreading" name="kernel.threads.no-multithreading" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.tickless.concept" name="kernel.tickless.concept" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.tickless.concept.tickleConsole now belongs to simulator." name="kernel.tickless.concept.tickleConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.tickless.concept.tickless_slice" name="kernel.tickless.concept.tickless_slice" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.tickless.concept.tickless_sysclock" name="kernel.tickless.concept.tickless_sysclock" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.tickless.tickless" name="kernel.tickless.tickless" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.tickless.tickless_slice" name="kernel.tickless.tickless_slice" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.tickless.tickless_sysclock" name="kernel.tickless.tickless_sysclock" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.workqueue" name="kernel.workqueue" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:libraries.libc" name="libraries.libc" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:logging.log_core" name="logging.log_core" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:logging.log_immediate.log_immediate_preemption" name="logging.log_immediate.log_immediate_preemption" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:logging.log_list" name="logging.log_list" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:logging.log_msg" name="logging.log_msg" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:logging.log_output" name="logging.log_output" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.logger" name="sample.logger" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.logger.rtt" name="sample.logger.rtt" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.logger.usermode" name="sample.logger.usermode" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.memory_protection.stack_random" name="kernel.memory_protection.stack_random" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.mpu.mpu_test" name="sample.mpu.mpu_test" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:libraries.data_structures" name="libraries.data_structures" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.drivers.current_sensing" name="sample.drivers.current_sensing" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.sensor.thermometer" name="sample.sensor.thermometer" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.shell.shell_module" name="sample.shell.shell_module" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.shell.shell_module.minimal" name="sample.shell.shell_module.minimal" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:sample.shell.shell_module.minimal_rtt" name="sample.shell.shell_module.minimal_rtt" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:shell" name="shell" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:shell.shell_module" name="shell.shell_module" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp" name="net.tcp" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp.simple" name="net.tcp.simple" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp2.simple.client_closing_ipv6" name="net.tcp2.simple.client_closing_ipv6" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp2.simple.client_fin_wait_2_ipv4" name="net.tcp2.simple.client_fin_wait_2_ipv4" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp2.simple.client_ipv4" name="net.tcp2.simple.client_ipv4" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp2.simple.client_ipv6" name="net.tcp2.simple.client_ipv6" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp2.simple.client_syn_resend" name="net.tcp2.simple.client_syn_resend" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp2.simple.presetup" name="net.tcp2.simple.presetup" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp2.simple.server_ipv4" name="net.tcp2.simple.server_ipv4" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp2.simple.server_ipv6" name="net.tcp2.simple.server_ipv6" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:net.tcp2.simple.server_with_options_ipv4" name="net.tcp2.simple.server_with_options_ipv4" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:testing.ztest.verbose_0" name="testing.ztest.verbose_0" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:testing.ztest.verbose_1" name="testing.ztest.verbose_1" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:testing.ztest.verbose_2" name="testing.ztest.verbose_2" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:testing.ztest.regular_output" name="testing.ztest.regular_output" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:testing.ztest.customized_output" name="testing.ztest.customized_output" time="0">
+          </testcase>
+         <testcase classname="twr_ke18f:kernel.timer" name="kernel.timer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.monotonic" name="kernel.timer.monotonic" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.monotonic.timer" name="kernel.timer.monotonic.timer" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.starve.starve" name="kernel.timer.starve.starve" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.time_conversions" name="kernel.timer.tickless.time_conversions" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timeout_abs" name="kernel.timer.tickless.timeout_abs" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_remaining" name="kernel.timer.tickless.timer_remaining" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timConsole now belongs to simulator." name="kernel.timer.timConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.time_conversions" name="kernel.timer.time_conversions" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timeout_abs" name="kernel.timer.timeout_abs" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer" name="kernel.timer.timer" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_duration_period" name="kernel.timer.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_expirefn_null" name="kernel.timer.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_k_define" name="kernel.timer.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_period_0" name="kernel.timer.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_remaining" name="kernel.timer.timer_remaining" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_status_get_anytime" name="kernel.timer.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="twr_ke18f:arch.common.xip" name="arch.common.xip" time="0">
+          </testcase>
+  </testsuite>
+</testsuites>
