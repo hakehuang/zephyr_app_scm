@@ -1,3 +1,7 @@
+''' 
+merge.py -t . -o report
+/c/python38/python -m junit2htmlreport  --report-matrix  report.html *.xml
+'''
 import os
 import re
 import argparse

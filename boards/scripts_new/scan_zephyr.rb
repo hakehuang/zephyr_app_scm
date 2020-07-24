@@ -33,6 +33,9 @@ LONG_CASE_DURATION = {
   'benchmark.kernel.scheduler' => {'timeout' => 500},
   'kernel.queue' => {'timeout' => 500},
   'kernel.queue.poll' => {'timeout' => 500},
+  'kernel.common.stack_protection' => {'timeout' => 500},
+  'kernel.memory_protection' => {'timeout' => 500},
+  'kernel.common.stack_protection_arm_fpu_sharing' => {'timeout' => 500},
 }
 
 class Parser
@@ -291,7 +294,10 @@ def split_test_catalog(fn, outdir)
     elsif module_name.downcase().start_with?("driver") or
       module_name.downcase().start_with?("settings") or
       module_name.downcase().start_with?("posix") or
-      module_name.downcase().start_with?("samples")
+      module_name.downcase().start_with?("samples") or
+      module_name.downcase().start_with?("bluetooth") or
+      module_name.downcase().start_with?("button_") or
+      module_name.downcase().start_with?("can_")
       template_files_hash['board_drivers_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^kernel_[a-s]/)
       template_files_hash['board_kernel_template.yml']["__load__"].unshift("modules/#{module_name}")
@@ -301,9 +307,9 @@ def split_test_catalog(fn, outdir)
       template_files_hash['board_samples_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^net_[m-z]/)
       template_files_hash['board_samples2_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^[a-d]/)
+    elsif module_name.downcase().match(/^[a-c]/)
       template_files_hash['board_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^[e-f]/)
+    elsif module_name.downcase().match(/^[d-f]/)
       template_files_hash['board_2_template.yml']["__load__"].unshift("modules/#{module_name}")
     else
       template_files_hash['board_3_template.yml']["__load__"].unshift("modules/#{module_name}")

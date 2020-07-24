@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="96" errors="0" failures="0" name="" skipped="5" time="0">
+    <testsuite tests="89" errors="0" failures="0" name="" skipped="4" time="0">
          <testcase classname="mimxrt1064_evk:libraries.libc" name="libraries.libc" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -141,8 +141,6 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:benchmark.kernel.timing.userspace" name="benchmark.kernel.timing.userspace" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:sample.basic.button" name="sample.basic.button" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:libraries.libc.minimal.mem_alloc" name="libraries.libc.minimal.mem_alloc" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:portability.cmsis_rtos_v1" name="portability.cmsis_rtos_v1" time="0">
@@ -192,21 +190,6 @@
           <testcase classname="mimxrt1064_evk:crypto.rand32" name="crypto.rand32" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
-          </testcase>
-         <testcase classname="mimxrt1064_evk:buildsystem.debug.build" name="buildsystem.debug.build" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-          <testcase classname="mimxrt1064_evk:net.dns" name="net.dns" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dns.addremove" name="net.dns.addremove" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dns.addremove.no_ipv6" name="net.dns.addremove.no_ipv6" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dns.no_ipv4" name="net.dns.no_ipv4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dns.resolve" name="net.dns.resolve" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:net.dns.resolve.no_ipv6" name="net.dns.resolve.no_ipv6" time="0">
           </testcase>
   </testsuite>
 </testsuites>

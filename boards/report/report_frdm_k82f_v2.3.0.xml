@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="92" errors="0" failures="2" name="" skipped="3" time="0">
+    <testsuite tests="91" errors="0" failures="2" name="" skipped="2" time="0">
           <testcase classname="frdm_k82f:arch.interrupt" name="arch.interrupt" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -143,8 +143,6 @@
           </testcase>
           <testcase classname="frdm_k82f:benchmark.kernel.timing.userspace" name="benchmark.kernel.timing.userspace" time="0">
           </testcase>
-          <testcase classname="frdm_k82f:sample.basic.button" name="sample.basic.button" time="0">
-          </testcase>
           <testcase classname="frdm_k82f:libraries.libc.minimal.mem_alloc" name="libraries.libc.minimal.mem_alloc" time="0">
           </testcase>
           <testcase classname="frdm_k82f:portability.cmsis_rtos_v1" name="portability.cmsis_rtos_v1" time="0">
@@ -195,8 +193,5 @@
           </testcase>
           <testcase classname="frdm_k82f:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
           </testcase>
-         <testcase classname="frdm_k82f:buildsystem.debug.build" name="buildsystem.debug.build" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
   </testsuite>
 </testsuites>

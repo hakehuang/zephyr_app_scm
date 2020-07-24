@@ -1,6 +1,21 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="2" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="8" errors="0" failures="0" name="" skipped="1" time="0">
+         <testcase classname="mimxrt1020_evk:buildsystem.debug.build" name="buildsystem.debug.build" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="mimxrt1020_evk:net.dns" name="net.dns" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:net.dns.addremove" name="net.dns.addremove" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:net.dns.addremove.no_ipv6" name="net.dns.addremove.no_ipv6" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:net.dns.no_ipv4" name="net.dns.no_ipv4" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:net.dns.resolve" name="net.dns.resolve" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:net.dns.resolve.no_ipv6" name="net.dns.resolve.no_ipv6" time="0">
+          </testcase>
           <testcase classname="mimxrt1020_evk:sample.app_dev.external_lib" name="sample.app_dev.external_lib" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:libraries.os.fdtable" name="libraries.os.fdtable" time="0">
