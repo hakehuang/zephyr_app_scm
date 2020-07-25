@@ -72,6 +72,9 @@ cases:
   kernel.common.stack_sentinel:
     comments: no sentinel
     result: FAILURE
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults
+    extra_args: CONF_FILE=sentinel.conf
     attribute: required
   sample.net.sockets.echo_server.usbnet:
     comments: not support
@@ -112,6 +115,131 @@ cases:
   drivers.pwm:
     comments: need add support
     result: FAILURE
+    attribute: required
+  kernel.common.stack_protection_no_userspace:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults memory_protection
+    extra_args: CONF_FILE=protection_no_userspace.conf
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    arch_whitelist: arm
+    attribute: required
+  kernel.common.stack_protection:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    attribute: required
+  kernel.common.stack_protection_arm_fpu_sharing:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_arm_fpu_sharing.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
+    attribute: required
+  kernel.common.stack_protection_armv8m_mpu_stack_guard:
+    path: tests/kernel/fatal
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_whitelist: arm
+    attribute: required
+  kernel.memory_protection.stackprot:
+    path: tests/kernel/mem_protect/stackprot
+    catalog: kernel ignore_faults userspace
+    arch_exclude: nios2 xtensa posix
+    attribute: required
+  kernel.memory_pool:
+    path: tests/kernel/mem_pool/mem_pool
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.memory_pool.legacy:
+    path: tests/kernel/mem_pool/mem_pool
+    catalog: kernel mem_pool
+    extra_configs:
+    - CONFIG_MEM_POOL_HEAP_BACKEND=n
+    min_ram: 32
+    attribute: required
+  kernel.memory_pool.api:
+    path: tests/kernel/mem_pool/mem_pool_api
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.memory_pool.api.legacy:
+    path: tests/kernel/mem_pool/mem_pool_api
+    catalog: kernel mem_pool
+    extra_configs:
+    - CONFIG_MEM_POOL_HEAP_BACKEND=n
+    attribute: required
+  kernel.memory_pool.concept:
+    path: tests/kernel/mem_pool/mem_pool_concept
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.memory_pool.concept.legacy:
+    path: tests/kernel/mem_pool/mem_pool_concept
+    catalog: kernel mem_pool
+    extra_configs:
+    - CONFIG_MEM_POOL_HEAP_BACKEND=n
+    attribute: required
+  kernel.memory_pool.threadsafe:
+    path: tests/kernel/mem_pool/mem_pool_threadsafe
+    catalog: kernel mem_pool
+    attribute: required
+  kernel.memory_pool.threadsafe.legacy:
+    path: tests/kernel/mem_pool/mem_pool_threadsafe
+    catalog: kernel mem_pool
+    extra_configs:
+    - CONFIG_MEM_POOL_HEAP_BACKEND=n
+    attribute: required
+  kernel.memory_protection.protection:
+    path: tests/kernel/mem_protect/protection
+    catalog: kernel security ignore_faults
+    platform_exclude: twr_ke18f
+    filter: CONFIG_MEMORY_PROTECTION
+    attribute: required
+  kernel.memory_protection.obj_validation:
+    path: tests/kernel/mem_protect/obj_validation
+    catalog: kernel security userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: twr_ke18f
+    attribute: required
+  kernel.memory_protection.gap_filling:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    attribute: required
+  kernel.memory_protection.syscalls:
+    path: tests/kernel/mem_protect/syscalls
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.userspace:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.userspace.gap_filling:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    attribute: required
+  kernel.common.sleep:
+    path: tests/kernel/early_sleep
+    catalog: kernel sleep
+    attribute: required
+  kernel.common.timing:
+    path: tests/kernel/sleep
+    catalog: kernel sleep
+    attribute: required
+  sample.kernel.synchronization:
+    path: samples/synchronization
+    catalog: kernel synchronization
     attribute: required
   sample.basic.threads:
     path: samples/basic/threads

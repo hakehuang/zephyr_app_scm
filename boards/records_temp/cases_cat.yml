@@ -2269,12 +2269,6 @@ shield net zperf:
     depends_on: arduino_spi arduino_gpio
     platform_exclude: native_posix native_posix_64 sam_e70_xplained
     min_ram: 64
-nfc:
-  sample.nfc.hello:
-    path: samples/nfc/nfc_hello
-    catalog: nfc
-    arch_whitelist: x86 arm
-    filter: CONFIG_SERIAL_SUPPORT_INTERRUPT
 cmsis_rtos:
   sample.portability.cmsis_rtos_v1.philosopher:
     path: samples/portability/cmsis_rtos_v1/philosophers
@@ -3368,7 +3362,7 @@ interrupt isr_table:
     path: tests/kernel/gen_isr_table
     catalog: interrupt isr_table
     platform_exclude: nucleo_f103rb olimexino_stm32 stm32_min_dev_black stm32_min_dev_blue
-      usb_kw24d512 v2m_beetle cc1352r1_launchxl cc26x2r1_launchxl
+      usb_kw24d512 v2m_beetle cc1352r1_launchxl cc26x2r1_launchxl olimex_stm32_h103
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
 interrupt:
   arch.interrupt:

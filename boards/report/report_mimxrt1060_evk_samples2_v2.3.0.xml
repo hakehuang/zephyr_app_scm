@@ -1,89 +1,33 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="38" errors="0" failures="4" name="" skipped="0" time="0">
-          <testcase classname="mimxrt1060_evk:sample.net.sockets.echo" name="sample.net.sockets.echo" time="0">
-          <failure message="failed" type="failure">
-          </failure>
+    <testsuite tests="14" errors="0" failures="0" name="" skipped="0" time="0">
+          <testcase classname="mimxrt1060_evk:portability.cmsis_rtos_v1" name="portability.cmsis_rtos_v1" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.sockets.echo_server" name="sample.net.sockets.echo_server" time="0">
-          <failure message="failed" type="failure">
-          </failure>
+          <testcase classname="mimxrt1060_evk:sample.portability.cmsis_rtos_v1.philosopher" name="sample.portability.cmsis_rtos_v1.philosopher" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.sockets.echo_server.usbnet" name="sample.net.sockets.echo_server.usbnet" time="0">
-          <failure message="failed" type="failure">
-          </failure>
+          <testcase classname="mimxrt1060_evk:sample.portability.cmsis_rtos_v1.philosopher.same_prio" name="sample.portability.cmsis_rtos_v1.philosopher.same_prio" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.sockets.echo_server.usbnet_composite" name="sample.net.sockets.echo_server.usbnet_composite" time="0">
-          <failure message="failed" type="failure">
-          </failure>
+          <testcase classname="mimxrt1060_evk:sample.portability.cmsis_rtos_v1.philosopher.semaphores" name="sample.portability.cmsis_rtos_v1.philosopher.semaphores" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:net.management" name="net.management" time="0">
+          <testcase classname="mimxrt1060_evk:portability.cmsis_rtos_v1.timer" name="portability.cmsis_rtos_v1.timer" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:net.mld" name="net.mld" time="0">
+          <testcase classname="mimxrt1060_evk:sample.portability.cmsis_rtos_v1.timer_synchronization" name="sample.portability.cmsis_rtos_v1.timer_synchronization" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:net.neighbour" name="net.neighbour" time="0">
+          <testcase classname="mimxrt1060_evk:portability.cmsis_rtos_v2" name="portability.cmsis_rtos_v2" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:net.shell" name="net.shell" time="0">
+          <testcase classname="mimxrt1060_evk:sample.portability.cmsis_rtos_v2.philosopher" name="sample.portability.cmsis_rtos_v2.philosopher" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:shell" name="shell" time="0">
+          <testcase classname="mimxrt1060_evk:sample.portability.cmsis_rtos_v2.philosopher.same_prio" name="sample.portability.cmsis_rtos_v2.philosopher.same_prio" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:net.context" name="net.context" time="0">
+          <testcase classname="mimxrt1060_evk:sample.portability.cmsis_rtos_v2.philosopher.semaphores" name="sample.portability.cmsis_rtos_v2.philosopher.semaphores" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:net.promisc" name="net.promisc" time="0">
+          <testcase classname="mimxrt1060_evk:portability.cmsis_rtos_v2.timer" name="portability.cmsis_rtos_v2.timer" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.promiscuous_mode" name="sample.net.promiscuous_mode" time="0">
+          <testcase classname="mimxrt1060_evk:sample.portability.cmsis_rtos_v2.timer_synchronization" name="sample.portability.cmsis_rtos_v2.timer_synchronization" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:net.ptp.clock" name="net.ptp.clock" time="0">
+          <testcase classname="mimxrt1060_evk:sample.drivers.current_sensing" name="sample.drivers.current_sensing" time="0">
           </testcase>
-          <testcase classname="mimxrt1060_evk:net.route" name="net.route" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.socket.get_addr_info" name="net.socket.get_addr_info" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.sockets.dumb_http_server" name="sample.net.sockets.dumb_http_server" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.sockets.dumb_http_server_mt" name="sample.net.sockets.dumb_http_server_mt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.sockets.net_mgmt.kernelmode" name="sample.net.sockets.net_mgmt.kernelmode" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.socket.mgmt" name="net.socket.mgmt" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.socket.register" name="net.socket.register" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.socket.register.tls" name="net.socket.register.tls" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.socket.udp" name="net.socket.udp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.socket.get_name_info" name="net.socket.get_name_info" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.socket.misc" name="net.socket.misc" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.socket.select" name="net.socket.select" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.socket.tcp" name="net.socket.tcp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.stats" name="sample.net.stats" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.syslog.with_timefuncs" name="sample.net.syslog.with_timefuncs" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.syslog.without_timefuncs" name="sample.net.syslog.without_timefuncs" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.tcp" name="net.tcp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.tcp.simple" name="net.tcp.simple" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.telnet" name="sample.net.telnet" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.tls_credentials" name="net.tls_credentials" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.trickle" name="net.trickle" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.timestamp" name="net.timestamp" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.util" name="net.util" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:net.vlan" name="net.vlan" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.vlan" name="sample.net.vlan" time="0">
+          <testcase classname="mimxrt1060_evk:sample.sensor.thermometer" name="sample.sensor.thermometer" time="0">
           </testcase>
   </testsuite>
 </testsuites>

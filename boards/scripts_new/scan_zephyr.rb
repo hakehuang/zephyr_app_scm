@@ -30,12 +30,13 @@ LONG_CASE_DURATION = {
   'libraries.cmsis_dsp.transform.rf32' => {'timeout' => 500},
   'libraries.cmsis_dsp.transform.rf64' => {'timeout' => 500},
   'libraries.cmsis_dsp.transform.rq31' => {'timeout' => 500},
-  'benchmark.kernel.scheduler' => {'timeout' => 500},
-  'kernel.queue' => {'timeout' => 500},
-  'kernel.queue.poll' => {'timeout' => 500},
-  'kernel.common.stack_protection' => {'timeout' => 500},
-  'kernel.memory_protection' => {'timeout' => 500},
-  'kernel.common.stack_protection_arm_fpu_sharing' => {'timeout' => 500},
+  'benchmark.kernel.scheduler' => {'timeout' => 1500},
+  'kernel.queue' => {'timeout' => 1500},
+  'kernel.queue.poll' => {'timeout' => 1500},
+  'kernel.common.stack_protection' => {'timeout' => 1500},
+  'kernel.memory_protection' => {'timeout' => 1500},
+  'kernel.common.stack_protection_arm_fpu_sharing' => {'timeout' => 1500},
+  'kernel.memory_protection.userspace' => {'timeout' => 1500}
 }
 
 class Parser
@@ -299,17 +300,23 @@ def split_test_catalog(fn, outdir)
       module_name.downcase().start_with?("button_") or
       module_name.downcase().start_with?("can_")
       template_files_hash['board_drivers_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^kernel_[a-s]/)
-      template_files_hash['board_kernel_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^kernel_[t-z]/)
+        elsif module_name.downcase().match(/^kernel_/)
       template_files_hash['board_kernel2_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^net_[a-l]/)
+    elsif module_name.downcase().match(/^kernel/) or
+      module_name.downcase().match(/^tickless_kernel/)
+      template_files_hash['board_kernel_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^net_/) or
+      module_name.downcase().match(/^net/) or
+      module_name.downcase().match(/^tcp/)
       template_files_hash['board_samples_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^net_[m-z]/)
+    elsif module_name.downcase().match(/^cmsis_dsp/) or
+      module_name.downcase().match(/^cmsis_rtos/) or
+      module_name.downcase().match(/^sensors/) or
+      module_name.downcase().match(/^shield/)
       template_files_hash['board_samples2_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^[a-c]/)
+    elsif module_name.downcase().match(/^[a-b]/)
       template_files_hash['board_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^[d-f]/)
+    elsif module_name.downcase().match(/^[c-g]/)
       template_files_hash['board_2_template.yml']["__load__"].unshift("modules/#{module_name}")
     else
       template_files_hash['board_3_template.yml']["__load__"].unshift("modules/#{module_name}")
