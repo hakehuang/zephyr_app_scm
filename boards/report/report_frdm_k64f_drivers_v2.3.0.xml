@@ -1,21 +1,35 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="19" errors="0" failures="1" name="" skipped="8" time="0">
+    <testsuite tests="26" errors="0" failures="1" name="" skipped="8" time="0">
           <testcase classname="frdm_k64f:sample.drivers.i2c.fujitsu_fram" name="sample.drivers.i2c.fujitsu_fram" time="0">
           <failure message="failed" type="failure">
           </failure>
           </testcase>
-          <testcase classname="frdm_k64f:sample.bluetooth.peripheral" name="sample.bluetooth.peripheral" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.bluetooth.peripheral_hr" name="sample.bluetooth.peripheral_hr" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.bluetooth.peripheral_hr.frdm_kw41z_shield" name="sample.bluetooth.peripheral_hr.frdm_kw41z_shield" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.bluetooth.peripheral_ht" name="sample.bluetooth.peripheral_ht" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.bluetooth.peripheral_ht.frdm_kw41z_shield" name="sample.bluetooth.peripheral_ht.frdm_kw41z_shield" time="0">
-          </testcase>
           <testcase classname="frdm_k64f:sample.basic.button" name="sample.basic.button" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:portability.cmsis_rtos_v1" name="portability.cmsis_rtos_v1" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.portability.cmsis_rtos_v1.philosopher" name="sample.portability.cmsis_rtos_v1.philosopher" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.portability.cmsis_rtos_v1.philosopher.same_prio" name="sample.portability.cmsis_rtos_v1.philosopher.same_prio" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.portability.cmsis_rtos_v1.philosopher.semaphores" name="sample.portability.cmsis_rtos_v1.philosopher.semaphores" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:portability.cmsis_rtos_v1.timer" name="portability.cmsis_rtos_v1.timer" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.portability.cmsis_rtos_v1.timer_synchronization" name="sample.portability.cmsis_rtos_v1.timer_synchronization" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:portability.cmsis_rtos_v2" name="portability.cmsis_rtos_v2" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.portability.cmsis_rtos_v2.philosopher" name="sample.portability.cmsis_rtos_v2.philosopher" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.portability.cmsis_rtos_v2.philosopher.same_prio" name="sample.portability.cmsis_rtos_v2.philosopher.same_prio" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.portability.cmsis_rtos_v2.philosopher.semaphores" name="sample.portability.cmsis_rtos_v2.philosopher.semaphores" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:portability.cmsis_rtos_v2.timer" name="portability.cmsis_rtos_v2.timer" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.portability.cmsis_rtos_v2.timer_synchronization" name="sample.portability.cmsis_rtos_v2.timer_synchronization" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.display.grove_display" name="sample.display.grove_display" time="0">
           </testcase>

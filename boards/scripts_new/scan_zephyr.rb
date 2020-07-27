@@ -18,25 +18,30 @@ require_relative "parse_sample"
 require_relative "zephyr_filter"
 
 LONG_CASE_DURATION = {
-  'benchmark.crypto.mbedtls' => {'timeout' => 500},
-  'libraries.cmsis_dsp.basicmath' => {'timeout' => 500},
-  'libraries.cmsis_dsp.complexmath' => {'timeout' => 500},
-  'libraries.cmsis_dsp.statistics' => {'timeout' => 500},
-  'libraries.cmsis_dsp.support' => {'timeout' => 500},
-  'libraries.cmsis_dsp.transform.cf32' => {'timeout' => 500},
-  'libraries.cmsis_dsp.transform.cf64' => {'timeout' => 500},
-  'libraries.cmsis_dsp.transform.cq15' =>  {'timeout' => 500},
-  'libraries.cmsis_dsp.transform.cq31' => {'timeout' => 500},
-  'libraries.cmsis_dsp.transform.rf32' => {'timeout' => 500},
-  'libraries.cmsis_dsp.transform.rf64' => {'timeout' => 500},
-  'libraries.cmsis_dsp.transform.rq31' => {'timeout' => 500},
-  'benchmark.kernel.scheduler' => {'timeout' => 1500},
+  'benchmark.crypto.mbedtls' => {'timeout' => 1000},
+  'benchmark.kernel.scheduler' => {'timeout' => 300},
   'kernel.queue' => {'timeout' => 1500},
   'kernel.queue.poll' => {'timeout' => 1500},
   'kernel.common.stack_protection' => {'timeout' => 1500},
   'kernel.memory_protection' => {'timeout' => 1500},
   'kernel.common.stack_protection_arm_fpu_sharing' => {'timeout' => 1500},
-  'kernel.memory_protection.userspace' => {'timeout' => 1500}
+  'kernel.memory_protection.userspace' => {'timeout' => 1500},
+  'benchmark.cmsis_dsp.basicmath' => {'timeout' => 300},
+  'kernel.fifo' => {'timeout' => 1500},
+  'kernel.fifo.poll' => {'timeout' => 1500},
+  'kernel.lifo' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.basicmath' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.statistics' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.transform.cf64' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.transform.cq15' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.transform.rf32' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.transform.cf32' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.transform.cq31' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.transform.rq31' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.transform.rf64' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.support' => {'timeout' => 1500},
+  'libraries.cmsis_dsp.complexmath' => {'timeout' => 1500},
+  'lib.heap' => {'timeout' => 500}
 }
 
 class Parser
@@ -240,7 +245,7 @@ def scan(zephyr_path, output_records_path, output_records_fname)
     end
 end
 
-def split_test_catalog(fn, outdir)
+def split_test_catalog(fn, outdir, template_dir)
   cases = YAML.load_file(fn)
   out_put_dirs = File.join(outdir, "modules")
   FileUtils.rm_r out_put_dirs if File.exist?(out_put_dirs)
@@ -296,24 +301,25 @@ def split_test_catalog(fn, outdir)
       module_name.downcase().start_with?("settings") or
       module_name.downcase().start_with?("posix") or
       module_name.downcase().start_with?("samples") or
-      module_name.downcase().start_with?("bluetooth") or
       module_name.downcase().start_with?("button_") or
-      module_name.downcase().start_with?("can_")
+      module_name.downcase().match(/^cmsis_dsp/) or
+      module_name.downcase().match(/^cmsis_rtos/)
       template_files_hash['board_drivers_template.yml']["__load__"].unshift("modules/#{module_name}")
         elsif module_name.downcase().match(/^kernel_/)
       template_files_hash['board_kernel2_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^kernel/) or
       module_name.downcase().match(/^tickless_kernel/)
       template_files_hash['board_kernel_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^net_/) or
+    elsif module_name.downcase().match(/^sensors/) or
+      module_name.downcase().match(/^shield/) or
+      module_name.downcase().start_with?("bluetooth") or
+      module_name.downcase().start_with?("can_") or
+      module_name.downcase().match(/^net_[s-z]/)
+      template_files_hash['board_samples2_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^net_[a-r]/) or
       module_name.downcase().match(/^net/) or
       module_name.downcase().match(/^tcp/)
       template_files_hash['board_samples_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^cmsis_dsp/) or
-      module_name.downcase().match(/^cmsis_rtos/) or
-      module_name.downcase().match(/^sensors/) or
-      module_name.downcase().match(/^shield/)
-      template_files_hash['board_samples2_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^[a-b]/)
       template_files_hash['board_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^[c-g]/)
@@ -324,7 +330,7 @@ def split_test_catalog(fn, outdir)
   end
 
   template_files_hash.each do |k, v|
-    File.open(File.join(outdir, k),"w") do |file|
+    File.open(File.join(template_dir, k),"w") do |file|
       file.write template_files_hash[k].to_yaml
     end
   end
@@ -332,4 +338,4 @@ def split_test_catalog(fn, outdir)
 end
 
 scan("C:/github/zephyr", "../records_temp", "test.yml")
-split_test_catalog("../records_temp/test.yml", "../records_temp")
+split_test_catalog("../records_temp/test.yml", "../records_temp", template_dir="../template")

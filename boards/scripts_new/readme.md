@@ -33,3 +33,6 @@ and records_new/platform.yml accordingly
 #create all platform pipe files
 ruby ./run_all.rb
 
+# run platform_config.rb to get all failure cases
+ruby ./platform_config.rb
+

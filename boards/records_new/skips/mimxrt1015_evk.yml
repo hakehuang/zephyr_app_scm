@@ -14,4 +14,7 @@ cases:
     build_only: true
   sample.usb.cdc-acm.comp:
     result: skip
-    commnets: "size issue" 
+    commnets: "size issue"
+  net.socket.socketpair:
+    result: skip
+    comments: "code size issue"

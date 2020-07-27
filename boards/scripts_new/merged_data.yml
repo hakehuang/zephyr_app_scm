@@ -29,6 +29,9 @@ cases:
   benchmark.kernel.latency:
     comments: need update test condition for clock setting
     attribute: required
+  samples.net.sockets.tcp:
+    comments: build failure need define undefined reference to `sys_rand32_get'
+    attribute: required
   libraries.libc.newlibnano:
     comments: http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164
     build_only: true

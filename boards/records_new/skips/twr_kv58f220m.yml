@@ -14,3 +14,5 @@ cases:
     comments: "download error"
   benchmark.kernel.latency:
     comments: "need update test condition for clock setting"
+  samples.net.sockets.tcp:
+    comments: "build failure need define undefined reference to `sys_rand32_get'"
