@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="68" errors="0" failures="0" name="" skipped="4" time="0">
+    <testsuite tests="69" errors="0" failures="0" name="" skipped="5" time="0">
           <testcase classname="frdm_kw41z:arch.interrupt" name="arch.interrupt" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:sample.basic.helloworld" name="sample.basic.helloworld" time="0">
@@ -27,6 +27,9 @@
           </testcase>
           <testcase classname="frdm_kw41z:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
           </testcase>
+         <testcase classname="frdm_kw41z:buildsystem.kconfig.utf8_in_values" name="buildsystem.kconfig.utf8_in_values" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="frdm_kw41z:libraries.libc" name="libraries.libc" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
@@ -137,6 +140,8 @@
           <testcase classname="frdm_kw41z:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:crypto.tinycrypt.hmac_prng" name="crypto.tinycrypt.hmac_prng" time="0">
           </testcase>
          <testcase classname="frdm_kw41z:drivers.clock.build" name="drivers.clock.build" time="0">
          <skipped message="Skipped" type="skipped"/>

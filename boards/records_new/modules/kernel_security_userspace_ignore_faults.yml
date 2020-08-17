@@ -23,3 +23,14 @@ cases:
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+  kernel.threads.thread_stack:
+    path: tests/kernel/threads/thread_stack
+    catalog: kernel security userspace ignore_faults
+    min_ram: 36
+  kernel.threads.armv8m_mpu_stack_guard:
+    path: tests/kernel/threads/thread_stack
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    min_ram: 36
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_whitelist: arm

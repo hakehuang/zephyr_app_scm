@@ -1,5 +1,16 @@
 ---
 cases:
+  arch.arm.no_multithreading:
+    path: tests/arch/arm/arm_no_multithreading
+    catalog: arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_whitelist: arm
+    platform_exclude: degu_evk
+  arch.arm.sw_vector_relay:
+    path: tests/arch/arm/arm_sw_vector_relay
+    catalog: arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_whitelist: arm
   arch.arm.swap.common:
     path: tests/arch/arm/arm_thread_swap
     catalog: arm

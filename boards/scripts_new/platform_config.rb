@@ -49,6 +49,7 @@ def platforms()
 
     "twr_ke18f" => ["", "2", "3", "drivers", "samples", "kernel", "kernel2"],
     "twr_kv58f220m" => ["", "2", "3", "drivers", "samples", "kernel", "kernel2"],
+    "mimx8mm_evk" => ["", "2", "3", "drivers", "samples", "kernel", "kernel2"],
     }
     return platforms_config
 end

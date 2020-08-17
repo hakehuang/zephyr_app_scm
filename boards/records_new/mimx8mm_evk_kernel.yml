@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "mimx8mm_evk_kernel"
+__load__:
+- modules/tickless_kernel.yml
+- modules/kernel.yml
+- skips/mimx8mm_evk.yml
+- boards/mimx8mm_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

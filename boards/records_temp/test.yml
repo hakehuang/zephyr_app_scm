@@ -331,6 +331,11 @@ cases:
     path: samples/boards/nrf/mesh/onoff_level_lighting_vnd_app
     catalog: bluetooth
     platform_whitelist: nrf52840dk_nrf52840
+  sample.bluetooth.mesh.onoff_level_lighting_vnd.mcumgr:
+    path: samples/boards/nrf/mesh/onoff_level_lighting_vnd_app
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="prj_smp_svr.conf"
+    platform_whitelist: nrf52840dk_nrf52840
   sample.board.nrf91.nrfx:
     path: samples/boards/nrf/nrfx
     catalog: board
@@ -458,7 +463,7 @@ cases:
   sample.drivers.dac:
     path: samples/drivers/dac
     catalog: DAC
-    platform_whitelist: frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
+    platform_whitelist: arduino_zero frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
     depends_on: dac
   sample.display.shield.adafruit_2_8_tft_touch_v2:
     path: samples/drivers/display
@@ -1129,21 +1134,29 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
     depends_on: netif
+  sample.net.syslog.ipv4_only:
+    path: samples/net/syslog_net
+    catalog: net syslog
+    extra_configs:
+    - CONFIG_NET_IPV6=n
+    - CONFIG_NET_CONFIG_NEED_IPV6=n
+    - CONFIG_NET_CONFIG_MY_IPV6_ADDR=""
+    - CONFIG_NET_CONFIG_PEER_IPV6_ADDR=""
+    - CONFIG_LOG_BACKEND_NET_SERVER="192.0.2.1:514"
+    depends_on: netif
+  sample.net.syslog.ipv6_only:
+    path: samples/net/syslog_net
+    catalog: net syslog
+    extra_configs:
+    - CONFIG_NET_IPV4=n
+    - CONFIG_NET_CONFIG_NEED_IPV4=n
+    - CONFIG_NET_CONFIG_MY_IPV4_ADDR=""
+    - CONFIG_NET_CONFIG_PEER_IPV4_ADDR=""
+    depends_on: netif
   sample.net.telnet:
     path: samples/net/telnet
     catalog: net telnet
     depends_on: netif
-  sample.net.updatehub:
-    path: samples/net/updatehub
-    catalog: net wifi
-    extra_configs:
-    - CONFIG_UPDATEHUB_PRODUCT_UID="e4d37cfe6ec48a2d069cc0bbb8b078677e9a0d8df3a027c4d8ea131130c4265f"
-    - CONFIG_UPDATEHUB_POLL_INTERVAL=1
-    - CONFIG_UPDATEHUB_CE=y
-    - CONFIG_UPDATEHUB_SERVER="10.5.3.67"
-    depends_on: netif
-    build_only: true
-    platform_whitelist: frdm_k64f sam_v71_xult
   sample.net.vlan:
     path: samples/net/vlan
     catalog: net vlan
@@ -1438,13 +1451,13 @@ cases:
     - CONFIG_FXOS8700_MOTION_INT1=y
     - CONFIG_FXOS8700_PM_LOW_POWER=y
     platform_whitelist: frdm_k64f hexiwear_k64 warp7_m4 frdm_kw41z rv32m1_vega_ri5cy
-      twr_ke18f lpcxpresso55s16_ns
+      twr_ke18f lpcxpresso55s16_ns mimxrt685_evk_cm33
     depends_on: i2c gpio
   sample.sensor.fxos8700.accel:
     path: samples/sensor/fxos8700
     catalog: sensors
     extra_args: CONF_FILE=prj_accel.conf
-    platform_whitelist: frdm_kl25z bbc_microbit lpcxpresso55s69_cpu0 reel_board
+    platform_whitelist: frdm_kl25z bbc_microbit lpcxpresso55s69_cpu0 reel_board mimxrt685_evk_cm33
     depends_on: i2c gpio
   sample.sensor.usb.fxos8700-hid:
     path: samples/sensor/fxos8700-hid
@@ -1734,6 +1747,17 @@ cases:
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="overlay-udp.conf"
     platform_whitelist: frdm_k64f
+  sample.net.updatehub:
+    path: samples/subsys/mgmt/updatehub
+    catalog: net wifi
+    extra_configs:
+    - CONFIG_UPDATEHUB_PRODUCT_UID="e4d37cfe6ec48a2d069cc0bbb8b078677e9a0d8df3a027c4d8ea131130c4265f"
+    - CONFIG_UPDATEHUB_POLL_INTERVAL=1
+    - CONFIG_UPDATEHUB_CE=y
+    - CONFIG_UPDATEHUB_SERVER="10.5.3.67"
+    depends_on: netif
+    build_only: true
+    platform_whitelist: frdm_k64f sam_v71_xult
   sample.nvs.basic:
     path: samples/subsys/nvs
     catalog: settings
@@ -1964,6 +1988,12 @@ cases:
     catalog: arm interrupt vector_table
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_whitelist: arm
+  arch.arm.no_multithreading:
+    path: tests/arch/arm/arm_no_multithreading
+    catalog: arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_whitelist: arm
+    platform_exclude: degu_evk
   arch.arm.ramfunc:
     path: tests/arch/arm/arm_ramfunc
     catalog: arm userspace
@@ -1972,6 +2002,11 @@ cases:
   arch.interrupt.arm.nmi:
     path: tests/arch/arm/arm_runtime_nmi
     catalog: nmi interrupt arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_whitelist: arm
+  arch.arm.sw_vector_relay:
+    path: tests/arch/arm/arm_sw_vector_relay
+    catalog: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_whitelist: arm
   arch.arm.swap.common:
@@ -2046,9 +2081,12 @@ cases:
   benchmark.cmsis_dsp.basicmath:
     path: tests/benchmarks/cmsis_dsp/basicmath
     catalog: benchmark cmsis_dsp
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 128
     min_ram: 64
+  benchmark.data_structures:
+    path: tests/benchmarks/data_structure_perf/dlist_perf
+    catalog: dlist req-test
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
@@ -2064,7 +2102,7 @@ cases:
   benchmark.crypto.mbedtls:
     path: tests/benchmarks/mbedtls
     catalog: crypto
-    platform_whitelist: qemu_x86 frdm_k64f sam_e70_xplained nrf52840dk_nrf52840
+    filter: CONFIG_TEST_RANDOM_GENERATOR
   benchmark.kernel.scheduler:
     path: tests/benchmarks/sched
     catalog: benchmark
@@ -2416,7 +2454,6 @@ cases:
   crypto.mbedtls:
     path: tests/crypto/mbedtls
     catalog: crypto mbedtls userspace
-    filter: not CONFIG_DEBUG
     min_flash: 65
     min_ram: 36
   crypto.rand32:
@@ -2443,11 +2480,9 @@ cases:
   crypto.tinycrypt:
     path: tests/crypto/tinycrypt
     catalog: tinycrypt crypto aes ccm
-    platform_whitelist: native_posix
   crypto.tinycrypt.hmac_prng:
     path: tests/crypto/tinycrypt_hmac_prng
     catalog: tinycrypt crypto sha256 hmac prng
-    platform_whitelist: native_posix
   dts.build.build:
     path: tests/deprecated/dts
     catalog: unknown
@@ -2602,9 +2637,9 @@ cases:
     filter: dt_compat_enabled("maxim,ds3231")
   drivers.dac:
     path: tests/drivers/dac/dac_loopback
-    catalog: dac drivers userspace
-    platform_whitelist: frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
+    catalog: dac drivers
     depends_on: dac
+    platform_exclude: arduino_zero
   drivers.dma:
     path: tests/drivers/dma/chan_blen_transfer
     catalog: drivers dma
@@ -2774,13 +2809,11 @@ cases:
   kernel.device:
     path: tests/kernel/device
     catalog: device
-    platform_whitelist: native_posix native_posix_64 qemu_x86 mps2_an385
   kernel.device.pm:
     path: tests/kernel/device
     catalog: device
     extra_configs:
     - CONFIG_DEVICE_POWER_MANAGEMENT=y
-    platform_whitelist: native_posix native_posix_64 qemu_x86 mps2_an385
   kernel.common.sleep:
     path: tests/kernel/early_sleep
     catalog: kernel sleep
@@ -2888,15 +2921,21 @@ cases:
     catalog: kernel
     extra_args: CONF_FILE=prj_x86.conf
     platform_whitelist: qemu_x86
-  arch.interrupt.gen_isr_table:
+  arch.interrupt.gen_isr_table.arm_baseline:
+    path: tests/kernel/gen_isr_table
+    catalog: interrupt isr_table
+    platform_whitelist: bbc_microbit atsamr21_xpro nrf51dk_nrf51422 nucleo_g071rb
+      qemu_cortex_m0
+    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
+  arch.interrupt.gen_isr_table.arm_mainline:
     path: tests/kernel/gen_isr_table
     catalog: interrupt isr_table
     platform_exclude: nucleo_f103rb olimexino_stm32 stm32_min_dev_black stm32_min_dev_blue
       usb_kw24d512 v2m_beetle cc1352r1_launchxl cc26x2r1_launchxl olimex_stm32_h103
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-  arch.interrupt.arc:
+  arch.interrupt.gen_isr_table.arc:
     path: tests/kernel/gen_isr_table
-    catalog: unknown
+    catalog: interrupt isr_table
     extra_configs:
     - CONFIG_ARC_FIRQ_STACK=y
     - CONFIG_TEST_HW_STACK_PROTECTION=n
@@ -3136,6 +3175,17 @@ cases:
   kernel.threads.init:
     path: tests/kernel/threads/thread_init
     catalog: kernel threads userspace
+  kernel.threads.thread_stack:
+    path: tests/kernel/threads/thread_stack
+    catalog: kernel security userspace ignore_faults
+    min_ram: 36
+  kernel.threads.armv8m_mpu_stack_guard:
+    path: tests/kernel/threads/thread_stack
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    min_ram: 36
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_whitelist: arm
   kernel.tickless:
     path: tests/kernel/tickless/tickless
     catalog: tickless kernel
@@ -3188,50 +3238,44 @@ cases:
     path: tests/kernel/xip
     catalog: xip
     filter: CONFIG_XIP
-  arch.common.xip.nondefault:
-    path: tests/kernel/xip
-    catalog: xip
-    extra_configs:
-    - CONFIG_XIP=y
-    platform_whitelist: qemu_x86 qemu_x86_coverage
   libraries.libc:
     path: tests/lib/c_lib
     catalog: clib
   libraries.cmsis_dsp.basicmath:
     path: tests/lib/cmsis_dsp/basicmath
     catalog: cmsis_dsp
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.bayes:
     path: tests/lib/cmsis_dsp/bayes
     catalog: cmsis_dsp
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 64
     min_ram: 32
   libraries.cmsis_dsp.complexmath:
     path: tests/lib/cmsis_dsp/complexmath
     catalog: cmsis_dsp
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.distance:
     path: tests/lib/cmsis_dsp/distance
     catalog: cmsis_dsp
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 64
     min_ram: 32
   libraries.cmsis_dsp.fastmath:
     path: tests/lib/cmsis_dsp/fastmath
     catalog: cmsis_dsp
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.filtering:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
     skip: true
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.filtering.biquad:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
@@ -3240,7 +3284,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.filtering.fir:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
@@ -3249,7 +3293,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.filtering.misc:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
@@ -3258,12 +3302,12 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 256
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.matrix:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
     skip: true
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.matrix.unary_q15:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -3272,7 +3316,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.matrix.unary_q31:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -3281,7 +3325,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.matrix.unary_f32:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -3290,7 +3334,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.matrix.unary_f64:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -3299,7 +3343,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.matrix.binary_q15:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -3309,7 +3353,7 @@ cases:
     platform_exclude: mps2_an521
     min_flash: 128
     min_ram: 128
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.matrix.binary_q31:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -3318,7 +3362,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 128
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.matrix.binary_f32:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -3327,30 +3371,30 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 128
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.statistics:
     path: tests/lib/cmsis_dsp/statistics
     catalog: cmsis_dsp
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.support:
     path: tests/lib/cmsis_dsp/support
     catalog: cmsis_dsp
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.svm:
     path: tests/lib/cmsis_dsp/svm
     catalog: cmsis_dsp
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.transform:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
     skip: true
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.transform.cq15:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -3359,7 +3403,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 512
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.transform.rq15:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -3368,7 +3412,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 512
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.transform.cq31:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -3377,7 +3421,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.transform.rq31:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -3386,7 +3430,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.transform.cf32:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -3395,7 +3439,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.transform.rf32:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -3404,7 +3448,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 512
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.transform.cf64:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -3413,7 +3457,7 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.transform.rf64:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -3422,15 +3466,13 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    platform_whitelist: frdm_k64f sam_e70_xplained mps2_an521
+    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.devicetree:
     path: tests/lib/devicetree/api
     catalog: devicetree
-    platform_whitelist: native_posix
   libraries.devicetree.legacy:
     path: tests/lib/devicetree/legacy_api
     catalog: devicetree
-    platform_whitelist: native_posix
   libraries.os.fdtable:
     path: tests/lib/fdtable
     catalog: fdtable
@@ -3548,7 +3590,6 @@ cases:
     extra_configs:
     - CONFIG_KERNEL_BIN_NAME="A_kconfig_value_with_a_utf8_char_in_it_Bøe_"
     build_only: true
-    platform_whitelist: native_posix
   net.6lo:
     path: tests/net/6lo
     catalog: net 6loWPAN
@@ -3619,18 +3660,9 @@ cases:
     catalog: net ieee802154 l2
     min_ram: 16
     depends_on: ieee802154
-  net.iface.with_userspace:
+  net.iface:
     path: tests/net/iface
     catalog: net iface userspace
-    extra_configs:
-    - CONFIG_NET_IF_USERSPACE_ACCESS=y
-    min_ram: 16
-    depends_on: netif
-  net.iface.no_userspace_allowed:
-    path: tests/net/iface
-    catalog: net iface userspace
-    extra_configs:
-    - CONFIG_NET_IF_USERSPACE_ACCESS=n
     min_ram: 16
     depends_on: netif
   net.ip-addr:
@@ -3864,6 +3896,7 @@ cases:
     path: tests/net/tcp
     catalog: net tcp
     depends_on: netif
+    filter: CONFIG_NET_TCP1
   net.tcp2.simple:
     path: tests/net/tcp2
     catalog: net tcp2
@@ -4406,7 +4439,6 @@ cases:
     catalog: shell
     min_flash: 64
     min_ram: 32
-    filter: "( CONFIG_SHELL )"
   can.frame:
     path: tests/subsys/canbus/frame
     catalog: net
@@ -4450,6 +4482,9 @@ cases:
     catalog: flash_circural_buffer
     platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 native_posix
       native_posix_64
+  filesystem.api:
+    path: tests/subsys/fs/fs_api
+    catalog: filesystem
   filesystem.littlefs:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
@@ -4483,6 +4518,14 @@ cases:
     catalog: log_core logging
     platform_exclude: qemu_riscv64
     filter: not CONFIG_LOG_IMMEDIATE
+  logging.add.async:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    platform_exclude: qemu_riscv64
+  logging.add.sync:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_sync.conf
   logging.log_immediate:
     path: tests/subsys/logging/log_immediate
     catalog: log_core logging

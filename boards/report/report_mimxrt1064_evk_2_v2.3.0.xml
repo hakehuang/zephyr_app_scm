@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="22" errors="0" failures="0" name="" skipped="3" time="0">
+    <testsuite tests="24" errors="0" failures="0" name="" skipped="3" time="0">
          <testcase classname="mimxrt1064_evk:libraries.libc" name="libraries.libc" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
          <testcase classname="mimxrt1064_evk:libraries.libc.newlib" name="libraries.libc.newlib" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.drivers.can" name="sample.drivers.can" time="0">
+          </testcase>
           <testcase classname="mimxrt1064_evk:libraries.libc.minimal.mem_alloc" name="libraries.libc.minimal.mem_alloc" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:sample.console.echo" name="sample.console.echo" time="0">
@@ -51,6 +53,8 @@
           <testcase classname="mimxrt1064_evk:sample.app_dev.external_lib" name="sample.app_dev.external_lib" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:libraries.os.fdtable" name="libraries.os.fdtable" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.filesystem.fat_fs" name="sample.filesystem.fat_fs" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:buildsystem.include_file" name="buildsystem.include_file" time="0">
           </testcase>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="71" errors="0" failures="0" name="" skipped="3" time="0">
+    <testsuite tests="72" errors="0" failures="0" name="" skipped="4" time="0">
          <testcase classname="twr_kv58f220m:kernel.memory_protection" name="kernel.memory_protection" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -35,6 +35,9 @@
           </testcase>
           <testcase classname="twr_kv58f220m:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
           </testcase>
+         <testcase classname="twr_kv58f220m:buildsystem.kconfig.utf8_in_values" name="buildsystem.kconfig.utf8_in_values" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="twr_kv58f220m:libraries.libc" name="libraries.libc" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
@@ -147,6 +150,8 @@
           <testcase classname="twr_kv58f220m:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="twr_kv58f220m:crypto.tinycrypt.hmac_prng" name="crypto.tinycrypt.hmac_prng" time="0">
           </testcase>
           <testcase classname="twr_kv58f220m:sample.userspace.prod_consumer" name="sample.userspace.prod_consumer" time="0">
           </testcase>

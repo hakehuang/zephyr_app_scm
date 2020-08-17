@@ -12,3 +12,22 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
     depends_on: netif
+  sample.net.syslog.ipv4_only:
+    path: samples/net/syslog_net
+    catalog: net syslog
+    extra_configs:
+    - CONFIG_NET_IPV6=n
+    - CONFIG_NET_CONFIG_NEED_IPV6=n
+    - CONFIG_NET_CONFIG_MY_IPV6_ADDR=""
+    - CONFIG_NET_CONFIG_PEER_IPV6_ADDR=""
+    - CONFIG_LOG_BACKEND_NET_SERVER="192.0.2.1:514"
+    depends_on: netif
+  sample.net.syslog.ipv6_only:
+    path: samples/net/syslog_net
+    catalog: net syslog
+    extra_configs:
+    - CONFIG_NET_IPV4=n
+    - CONFIG_NET_CONFIG_NEED_IPV4=n
+    - CONFIG_NET_CONFIG_MY_IPV4_ADDR=""
+    - CONFIG_NET_CONFIG_PEER_IPV4_ADDR=""
+    depends_on: netif

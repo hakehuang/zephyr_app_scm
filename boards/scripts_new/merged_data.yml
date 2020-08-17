@@ -1,8 +1,8 @@
 ---
 settings:
-  case_pipe_name: twr_kv58f220m_kernel2
+  case_pipe_name: mimx8mm_evk_samples
   build_script: build_zephyr_elf.sh
-  run_script: run_elf_twrkv58f.sh
+  run_script: run_zephyr_mimx8mm_evk.sh
   no_filter:
   - CONFIG_ENTROPY_HAS_DRIVER
   - CONFIG_CPU_ARCV2
@@ -11,26 +11,19 @@ cases:
   misc.crc:
     bin: testbinary
     attribute: required
-  samples.net.google_iot_mqtt:
-    result: skip
-    comments: code size issue
-    scripts:
-    - ''
-    build_only: true
-    attribute: required
   peripheral.spi:
     comments: need add board support
     build_only: true
     attribute: required
-  sample.kernel.memory_protection.shared_mem:
+  peripheral.pinmux:
+    comments: pinmux setting issue
     build_only: true
-    comments: download error
     attribute: required
-  benchmark.kernel.latency:
-    comments: need update test condition for clock setting
-    attribute: required
-  samples.net.sockets.tcp:
-    comments: build failure need define undefined reference to `sys_rand32_get'
+  samples.net.google_iot_mqtt:
+    comments: no goolge web access so build only
+    scripts:
+    - ''
+    build_only: true
     attribute: required
   libraries.libc.newlibnano:
     comments: http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164
@@ -75,9 +68,6 @@ cases:
   kernel.common.stack_sentinel:
     comments: no sentinel
     result: FAILURE
-    path: tests/kernel/fatal
-    catalog: kernel ignore_faults
-    extra_args: CONF_FILE=sentinel.conf
     attribute: required
   sample.net.sockets.echo_server.usbnet:
     comments: not support
@@ -119,286 +109,423 @@ cases:
     comments: need add support
     result: FAILURE
     attribute: required
-  kernel.common.stack_protection_no_userspace:
-    path: tests/kernel/fatal
-    catalog: kernel ignore_faults memory_protection
-    extra_args: CONF_FILE=protection_no_userspace.conf
-    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
-    arch_whitelist: arm
+  sample.net.eth_native_posix:
+    path: samples/net/eth_native_posix
+    catalog: net
+    platform_whitelist: native_posix native_posix_64
     attribute: required
-  kernel.common.stack_protection:
-    path: tests/kernel/fatal
-    catalog: kernel ignore_faults userspace
-    extra_args: CONF_FILE=prj.conf
-    platform_exclude: twr_ke18f
-    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+  sample.net.sockets.echo_server.e1000:
+    path: samples/net/sockets/echo_server
+    catalog: net
+    extra_args: OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_whitelist: qemu_x86
+    depends_on: netif
+    min_flash: 140
     attribute: required
-  kernel.common.stack_protection_arm_fpu_sharing:
-    path: tests/kernel/fatal
-    catalog: kernel ignore_faults userspace
-    extra_args: CONF_FILE=prj_arm_fpu_sharing.conf
-    platform_exclude: twr_ke18f
-    filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
+  sample.net.sockets.echo_server.stellaris:
+    path: samples/net/sockets/echo_server
+    catalog: net
+    extra_args: OVERLAY_CONFIG="overlay-qemu_cortex_m3_eth.conf"
+    platform_whitelist: qemu_cortex_m3
+    depends_on: netif
+    min_flash: 140
     attribute: required
-  kernel.common.stack_protection_armv8m_mpu_stack_guard:
-    path: tests/kernel/fatal
-    catalog: kernel ignore_faults userspace
-    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
-    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
-    arch_whitelist: arm
+  sample.net.sockets.echo_server.smsc911x:
+    path: samples/net/sockets/echo_server
+    catalog: net
+    extra_args: OVERLAY_CONFIG="overlay-smsc911x.conf"
+    platform_whitelist: mps2_an385
+    depends_on: netif
+    min_flash: 140
     attribute: required
-  kernel.memory_protection.stackprot:
-    path: tests/kernel/mem_protect/stackprot
-    catalog: kernel ignore_faults userspace
-    arch_exclude: nios2 xtensa posix
-    attribute: required
-  kernel.memory_pool:
-    path: tests/kernel/mem_pool/mem_pool
-    catalog: kernel mem_pool
-    attribute: required
-  kernel.memory_pool.legacy:
-    path: tests/kernel/mem_pool/mem_pool
-    catalog: kernel mem_pool
+  sample.net.sockets.sntp_client:
+    path: samples/net/sockets/sntp_client
+    catalog: net
     extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-    min_ram: 32
-    attribute: required
-  kernel.memory_pool.api:
-    path: tests/kernel/mem_pool/mem_pool_api
-    catalog: kernel mem_pool
-    attribute: required
-  kernel.memory_pool.api.legacy:
-    path: tests/kernel/mem_pool/mem_pool_api
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-    attribute: required
-  kernel.memory_pool.concept:
-    path: tests/kernel/mem_pool/mem_pool_concept
-    catalog: kernel mem_pool
-    attribute: required
-  kernel.memory_pool.concept.legacy:
-    path: tests/kernel/mem_pool/mem_pool_concept
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-    attribute: required
-  kernel.memory_pool.threadsafe:
-    path: tests/kernel/mem_pool/mem_pool_threadsafe
-    catalog: kernel mem_pool
-    attribute: required
-  kernel.memory_pool.threadsafe.legacy:
-    path: tests/kernel/mem_pool/mem_pool_threadsafe
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-    attribute: required
-  kernel.memory_protection.protection:
-    path: tests/kernel/mem_protect/protection
-    catalog: kernel security ignore_faults
-    platform_exclude: twr_ke18f
-    filter: CONFIG_MEMORY_PROTECTION
-    attribute: required
-  kernel.memory_protection.obj_validation:
-    path: tests/kernel/mem_protect/obj_validation
-    catalog: kernel security userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  kernel.memory_protection:
-    path: tests/kernel/mem_protect/mem_protect
-    catalog: kernel security userspace ignore_faults
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_exclude: twr_ke18f
-    attribute: required
-  kernel.memory_protection.gap_filling:
-    path: tests/kernel/mem_protect/mem_protect
-    catalog: kernel security userspace ignore_faults
-    extra_args: CONFIG_MPU_GAP_FILLING=y
-    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
-    attribute: required
-  kernel.memory_protection.syscalls:
-    path: tests/kernel/mem_protect/syscalls
-    catalog: kernel security userspace ignore_faults
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  kernel.memory_protection.userspace:
-    path: tests/kernel/mem_protect/userspace
-    catalog: kernel security userspace ignore_faults
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  kernel.memory_protection.userspace.gap_filling:
-    path: tests/kernel/mem_protect/userspace
-    catalog: kernel security userspace ignore_faults
-    extra_args: CONFIG_MPU_GAP_FILLING=y
-    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
-    attribute: required
-  kernel.common.sleep:
-    path: tests/kernel/early_sleep
-    catalog: kernel sleep
-    attribute: required
-  kernel.common.timing:
-    path: tests/kernel/sleep
-    catalog: kernel sleep
-    attribute: required
-  sample.kernel.synchronization:
-    path: samples/synchronization
-    catalog: kernel synchronization
-    attribute: required
-  sample.basic.threads:
-    path: samples/basic/threads
-    catalog: kernel threads gpio
-    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
-      "led1")
-    depends_on: gpio
-    attribute: required
-  kernel.scheduler:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    filter: not CONFIG_SCHED_MULTIQ
-    attribute: required
-  kernel.scheduler.no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=n
-    filter: not CONFIG_SCHED_MULTIQ
-    attribute: required
-  kernel.scheduler.multiq:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    extra_args: CONF_FILE=prj_multiq.conf
-    attribute: required
-  kernel.scheduler.multiq_no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=n
-    extra_args: CONF_FILE=prj_multiq.conf
-    attribute: required
-  kernel.threads.init:
-    path: tests/kernel/threads/thread_init
-    catalog: kernel threads userspace
-    attribute: required
-  kernel.threads.dynamic:
-    path: tests/kernel/threads/dynamic_thread
-    catalog: kernel threads userspace ignore_faults
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    arch_exclude: x86
-    attribute: required
-  kernel.threads.apis:
-    path: tests/kernel/threads/thread_apis
-    catalog: kernel threads userspace ignore_faults
-    min_flash: 34
-    attribute: required
-  kernel.timer:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel timer userspace
-    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
-    attribute: required
-  kernel.timer.tickless:
-    path: tests/kernel/timer/timer_api
-    catalog: kernel timer userspace
-    extra_args: CONF_FILE="prj_tickless.conf"
-    arch_exclude: riscv32 nios2 posix
-    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
-    attribute: required
-  kernel.common.misra:
-    path: tests/kernel/common
-    catalog: kernel userspace
-    extra_configs:
-    - CONFIG_MISRA_SANE=y
-    min_flash: 33
-    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
-    attribute: required
-  kernel.fpu_sharing.float_disable.arm:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    extra_configs:
-    - CONFIG_DYNAMIC_INTERRUPTS=y
-    arch_whitelist: arm
-    filter: CONFIG_ARMV7_M_ARMV8_M_FP
-    attribute: required
-  kernel.fpu_sharing.float_disable.riscv32:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    filter: CONFIG_CPU_HAS_FPU
-    arch_whitelist: riscv32
-    build_only: true
-    attribute: required
-  kernel.fpu_sharing.float_disable.riscv64:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    filter: CONFIG_CPU_HAS_FPU
-    arch_whitelist: riscv64
-    attribute: required
-  kernel.fpu_sharing.float_disable.x86:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    extra_args: CONF_FILE=prj_x86.conf
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
     platform_whitelist: qemu_x86
     attribute: required
-  kernel.futex:
-    path: tests/kernel/mem_protect/futex
-    catalog: kernel userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
+  sample.net.sockets.sntp_client.posix:
+    path: samples/net/sockets/sntp_client
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
+    platform_whitelist: qemu_x86
     attribute: required
-  kernel.memory_protection.sys_sem:
-    path: tests/kernel/mem_protect/sys_sem
-    catalog: kernel userspace
+  net.coap.simple:
+    path: tests/net/lib/coap
+    catalog: net
+    min_ram: 16
+    depends_on: netif
     attribute: required
-  kernel.message_queue:
-    path: tests/kernel/msgq/msgq_api
-    catalog: kernel userspace
+  net.packet:
+    path: tests/net/net_pkt
+    catalog: net
+    min_ram: 20
+    depends_on: netif
     attribute: required
-  kernel.mutex:
-    path: tests/kernel/mutex/mutex_api
-    catalog: kernel userspace
+  net.packet.large_buffer:
+    path: tests/net/net_pkt
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_BUF_FIXED_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_SIZE=512
+    min_ram: 20
+    depends_on: netif
     attribute: required
-  system.mutex:
-    path: tests/kernel/mutex/sys_mutex
-    catalog: kernel userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
+  net.pm:
+    path: tests/net/pm
+    catalog: net
+    platform_whitelist: qemu_x86
+    depends_on: netif
     attribute: required
-  kernel.pipe.api:
-    path: tests/kernel/pipe/pipe_api
-    catalog: kernel userspace
+  net.udp:
+    path: tests/net/udp
+    catalog: net
+    min_ram: 20
+    depends_on: netif
     attribute: required
-  kernel.poll:
-    path: tests/kernel/poll
-    catalog: kernel userspace
-    platform_exclude: nrf52dk_nrf52810
+  can.frame:
+    path: tests/subsys/canbus/frame
+    catalog: net
+    platform_whitelist: native_posix native_posix_64 qemu_x86 qemu_cortex_m3
     attribute: required
-  kernel.queue:
-    path: tests/kernel/queue
-    catalog: kernel userspace
+  net.6lo:
+    path: tests/net/6lo
+    catalog: net 6loWPAN
+    min_ram: 32
+    depends_on: netif
     attribute: required
-  kernel.queue.poll:
-    path: tests/kernel/queue
-    catalog: kernel userspace
-    extra_args: CONF_FILE="prj_poll.conf"
+  net.arp:
+    path: tests/net/arp
+    catalog: net arp
+    min_ram: 16
+    depends_on: netif
     attribute: required
-  kernel.semaphore:
-    path: tests/kernel/semaphore/semaphore
-    catalog: kernel userspace
+  net.buf:
+    path: tests/net/buf
+    catalog: net buf
+    min_ram: 16
     attribute: required
-  kernel.stack.usage:
-    path: tests/kernel/stack/stack
-    catalog: kernel userspace
+  net.offload:
+    path: tests/net/checksum_offload
+    catalog: net checksum_offload
+    min_ram: 16
+    depends_on: netif
     attribute: required
-  kernel.workqueue.api:
-    path: tests/kernel/workq/work_queue_api
-    catalog: kernel userspace
-    min_flash: 34
+  utilities.crc:
+    path: tests/unit/crc
+    catalog: net crc
+    type: unit
     attribute: required
-  kernel.pipe:
-    path: tests/kernel/pipe/pipe
-    catalog: kernel userspace ignore_faults
+  net.dhcp:
+    path: tests/net/dhcpv4
+    catalog: net dhcpv4
+    depends_on: netif
     attribute: required
-  kernel.memory_pool.sys:
-    path: tests/kernel/mem_pool/sys_mem_pool
-    catalog: kernel userspace mem_pool
+  net.ethernet_mgmt:
+    path: tests/net/ethernet_mgmt
+    catalog: net ethernet_mgmt
+    min_ram: 32
+    depends_on: netif
+    attribute: required
+  sample.net.gptp:
+    path: samples/net/gptp
+    catalog: net gptp
+    platform_whitelist: frdm_k64f sam_e70_xplained native_posix native_posix_64
+    depends_on: netif
+    attribute: required
+  net.hostname:
+    path: tests/net/hostname
+    catalog: net hostname
+    extra_configs:
+    - CONFIG_NET_HOSTNAME_UNIQUE=n
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  net.hostname.unique:
+    path: tests/net/hostname
+    catalog: net hostname
+    extra_configs:
+    - CONFIG_NET_HOSTNAME_UNIQUE=y
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  sample.net.dhcpv4_client:
+    path: samples/net/dhcpv4_client
+    catalog: net http
+    depends_on: netif
+    attribute: required
+  sample.net.sockets.http_client:
+    path: samples/net/sockets/http_client
+    catalog: net http http_client
+    min_ram: 32
+    attribute: required
+  sample.net.sockets.websocket_client:
+    path: samples/net/sockets/websocket_client
+    catalog: net http http_client websocket_client websocket
+    min_ram: 35
+    attribute: required
+  net.icmpv6:
+    path: tests/net/icmpv6
+    catalog: net icmpv6
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  net.ieee802154.fragment:
+    path: tests/net/ieee802154/fragment
+    catalog: net ieee802154 fragment
+    depends_on: ieee802154
+    min_ram: 48
+    attribute: required
+  net.ieee802154.l2:
+    path: tests/net/ieee802154/l2
+    catalog: net ieee802154 l2
+    min_ram: 16
+    depends_on: ieee802154
+    attribute: required
+  sample.net.wpanusb:
+    path: samples/net/wpanusb
+    catalog: net ieee802154 usb
+    depends_on: usb_device ieee802154
+    attribute: required
+  sample.net.wpanusb_frdm_cr20a:
+    path: samples/net/wpanusb
+    catalog: net ieee802154 usb
+    extra_args: SHIELD=frdm_cr20a
+    platform_whitelist: frdm_k64f
+    depends_on: usb_device
+    attribute: required
+  net.iface:
+    path: tests/net/iface
+    catalog: net iface userspace
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  net.ip-addr:
+    path: tests/net/ip-addr
+    catalog: net ip-addr
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  sample.net.ipv4_autoconf:
+    path: samples/net/ipv4_autoconf
+    catalog: net ipv4_autoconf
+    depends_on: netif
+    platform_whitelist: qemu_x86 native_posix native_posix_64
+    attribute: required
+  net.ipv6:
+    path: tests/net/ipv6
+    catalog: net ipv6
+    depends_on: netif
+    attribute: required
+  net.ipv6.fragment:
+    path: tests/net/ipv6_fragment
+    catalog: net ipv6 fragment
+    depends_on: netif
+    attribute: required
+  sample.net.lldp:
+    path: samples/net/lldp
+    catalog: net lldp
+    platform_whitelist: native_posix native_posix_64
+    depends_on: netif
+    attribute: required
+  sample.net.lwm2m_client:
+    path: samples/net/lwm2m_client
+    catalog: net lwm2m
+    depends_on: netif
+    platform_whitelist: qemu_x86 frdm_k64f
+    attribute: required
+  sample.net.lwm2m_client.dtls:
+    path: samples/net/lwm2m_client
+    catalog: net lwm2m
+    extra_args: OVERLAY_CONFIG=overlay-dtls.conf
+    depends_on: netif
+    platform_whitelist: qemu_x86 frdm_k64f
+    attribute: required
+  sample.net.lwm2m_client.bt:
+    path: samples/net/lwm2m_client
+    catalog: net lwm2m
+    extra_args: OVERLAY_CONFIG=overlay-bt.conf
+    platform_whitelist: nrf52dk_nrf52832 nrf52840dk_nrf52840 disco_l475_iot1
+    attribute: required
+  sample.net.lwm2m_client.queue_mode:
+    path: samples/net/lwm2m_client
+    catalog: net lwm2m
+    extra_args: OVERLAY_CONFIG=overlay-queue.conf
+    depends_on: netif
+    platform_whitelist: qemu_x86
+    attribute: required
+  sample.net.lwm2m_client.wnc_m14a2a:
+    path: samples/net/lwm2m_client
+    catalog: net lwm2m
+    extra_args: SHIELD=wnc_m14a2a
+    platform_whitelist: frdm_k64f nrf52840dk_nrf52840
+    attribute: required
+  sample.net.mdns_responder:
+    path: samples/net/mdns_responder
+    catalog: net mdns
+    platform_whitelist: qemu_x86 qemu_cortex_m3
+    attribute: required
+  net.management:
+    path: tests/net/mgmt
+    catalog: net mgmt
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  net.mld:
+    path: tests/net/mld
+    catalog: net mld
+    depends_on: netif
+    attribute: required
+  sample.net.mqtt_publisher:
+    path: samples/net/mqtt_publisher
+    catalog: net mqtt
+    platform_whitelist: frdm_k64f qemu_x86
+    attribute: required
+  sample.net.mqtt_publisher.userspace:
+    path: samples/net/mqtt_publisher
+    catalog: net mqtt
+    extra_args: CONFIG_USERSPACE=y
+    platform_whitelist: frdm_k64f qemu_x86
+    attribute: required
+  net.mqtt:
+    path: tests/net/lib/mqtt_publisher
+    catalog: net mqtt
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  net.mqtt.tls:
+    path: tests/net/lib/mqtt_publisher
+    catalog: net mqtt
+    extra_configs:
+    - CONFIG_NET_PKT_RX_COUNT=20
+    - CONFIG_NET_PKT_TX_COUNT=20
+    - CONFIG_NET_BUF_RX_COUNT=20
+    - CONFIG_NET_BUF_TX_COUNT=20
+    extra_args: CONF_FILE="prj_tls.conf"
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  net.mqtt.pubsub:
+    path: tests/net/lib/mqtt_pubsub
+    catalog: net mqtt
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  net.mqtt.subscriber:
+    path: tests/net/lib/mqtt_subscriber
+    catalog: net mqtt
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  sample.net.mqtt_publisher.bt:
+    path: samples/net/mqtt_publisher
+    catalog: net mqtt bluetooth
+    platform_whitelist: 96b_nitrogen
+    attribute: required
+  sample.net.cloud.mqtt_azure:
+    path: samples/net/cloud/mqtt_azure
+    catalog: net mqtt cloud
+    platform_whitelist: sam_e70_xplained frdm_k64f qemu_x86
+    attribute: required
+  net.neighbour:
+    path: tests/net/neighbor
+    catalog: net neighbour
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  net.build:
+    path: tests/net/all
+    catalog: net net-all
+    build_only: true
+    min_ram: 32
+    platform_whitelist: qemu_x86
+    attribute: required
+  net.shell:
+    path: tests/net/shell
+    catalog: net net-shell
+    min_ram: 20
+    depends_on: netif
+    attribute: required
+  net.context:
+    path: tests/net/context
+    catalog: net net_context
+    extra_configs:
+    - CONFIG_ASSERT_LEVEL=0
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  sample.net.sockets.echo_client.nrf_openthread:
+    path: samples/net/sockets/echo_client
+    catalog: net openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_whitelist: nrf52840dk_nrf52840
+    depends_on: netif
+    min_flash: 140
+    attribute: required
+  sample.net.sockets.echo_client.kw41z_openthread:
+    path: samples/net/sockets/echo_client
+    catalog: net openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_whitelist: frdm_kw41z
+    depends_on: netif
+    min_flash: 140
+    attribute: required
+  sample.net.sockets.echo_server.nrf_openthread:
+    path: samples/net/sockets/echo_server
+    catalog: net openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_whitelist: nrf52840dk_nrf52840
+    depends_on: netif
+    min_flash: 140
+    attribute: required
+  sample.net.sockets.echo_server.kw41z_openthread:
+    path: samples/net/sockets/echo_server
+    catalog: net openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_whitelist: frdm_kw41z
+    depends_on: netif
+    min_flash: 140
+    attribute: required
+  net.ppp:
+    path: tests/net/ppp/driver
+    catalog: net ppp
+    min_ram: 21
+    depends_on: serial-net
+    attribute: required
+  sample.net.ppp.gsm.modem:
+    path: samples/net/gsm_modem
+    catalog: net ppp modem gsm
+    extra_configs:
+    - CONFIG_TEST_RANDOM_GENERATOR=y
+    depends_on: serial-net
+    attribute: required
+  sample.net.promiscuous_mode:
+    path: samples/net/promiscuous_mode
+    catalog: net promisc
+    depends_on: netif
+    attribute: required
+  net.promisc:
+    path: tests/net/promiscuous
+    catalog: net promisc
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  net.ptp.clock:
+    path: tests/net/ptp/clock
+    catalog: net ptp gptp userspace
+    min_ram: 32
+    depends_on: netif
+    attribute: required
+  net.route:
+    path: tests/net/route
+    catalog: net route
+    min_ram: 16
+    depends_on: netif
+    attribute: required
+  samples.net.sockets.tcp:
+    path: samples/net/sockets/tcp
+    catalog: tcp
     attribute: required

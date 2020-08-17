@@ -68,14 +68,6 @@ cases:
     build_only: true
     min_ram: 32
     depends_on: gpio spi i2c
-  arch.interrupt.arc:
-    path: tests/kernel/gen_isr_table
-    catalog: unknown
-    extra_configs:
-    - CONFIG_ARC_FIRQ_STACK=y
-    - CONFIG_TEST_HW_STACK_PROTECTION=n
-    arch_whitelist: arc
-    filter: CONFIG_RGF_NUM_BANKS > 1
   utilities.math:
     path: tests/unit/math_extras
     catalog: unknown

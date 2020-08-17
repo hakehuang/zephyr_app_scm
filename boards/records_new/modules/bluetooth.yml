@@ -108,6 +108,11 @@ cases:
     path: samples/boards/nrf/mesh/onoff_level_lighting_vnd_app
     catalog: bluetooth
     platform_whitelist: nrf52840dk_nrf52840
+  sample.bluetooth.mesh.onoff_level_lighting_vnd.mcumgr:
+    path: samples/boards/nrf/mesh/onoff_level_lighting_vnd_app
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="prj_smp_svr.conf"
+    platform_whitelist: nrf52840dk_nrf52840
   sample.net.sockets.echo_client.bt:
     path: samples/net/sockets/echo_client
     catalog: bluetooth

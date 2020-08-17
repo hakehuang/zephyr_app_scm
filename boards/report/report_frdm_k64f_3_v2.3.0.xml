@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="80" errors="0" failures="0" name="" skipped="4" time="0">
+    <testsuite tests="81" errors="0" failures="0" name="" skipped="5" time="0">
           <testcase classname="frdm_k64f:net.http" name="net.http" time="0">
           </testcase>
           <testcase classname="frdm_k64f:arch.interrupt" name="arch.interrupt" time="0">
@@ -31,6 +31,9 @@
           </testcase>
           <testcase classname="frdm_k64f:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
           </testcase>
+         <testcase classname="frdm_k64f:buildsystem.kconfig.utf8_in_values" name="buildsystem.kconfig.utf8_in_values" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="frdm_k64f:libraries.libc" name="libraries.libc" time="0">
           </testcase>
           <testcase classname="frdm_k64f:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
@@ -155,6 +158,8 @@
           <testcase classname="frdm_k64f:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
           </testcase>
           <testcase classname="frdm_k64f:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:crypto.tinycrypt.hmac_prng" name="crypto.tinycrypt.hmac_prng" time="0">
           </testcase>
          <testcase classname="frdm_k64f:drivers.clock.build" name="drivers.clock.build" time="0">
          <skipped message="Skipped" type="skipped"/>

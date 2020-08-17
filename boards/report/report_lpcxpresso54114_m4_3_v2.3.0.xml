@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="73" errors="0" failures="0" name="" skipped="1" time="0">
+    <testsuite tests="74" errors="0" failures="0" name="" skipped="2" time="0">
           <testcase classname="lpcxpresso54114_m4:arch.interrupt" name="arch.interrupt" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
@@ -29,6 +29,9 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m4:libraries.encoding.json" name="libraries.encoding.json" time="0">
           </testcase>
+         <testcase classname="lpcxpresso54114_m4:buildsystem.kconfig.utf8_in_values" name="buildsystem.kconfig.utf8_in_values" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="lpcxpresso54114_m4:libraries.libc" name="libraries.libc" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
@@ -143,6 +146,8 @@
           <testcase classname="lpcxpresso54114_m4:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:crypto.tinycrypt.hmac_prng" name="crypto.tinycrypt.hmac_prng" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:sample.userspace.prod_consumer" name="sample.userspace.prod_consumer" time="0">
           </testcase>

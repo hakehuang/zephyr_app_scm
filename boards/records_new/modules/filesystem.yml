@@ -26,6 +26,9 @@ cases:
     path: tests/subsys/fs/fat_fs_dual_drive
     catalog: filesystem
     platform_whitelist: qemu_x86 native_posix
+  filesystem.api:
+    path: tests/subsys/fs/fs_api
+    catalog: filesystem
   filesystem.littlefs:
     path: tests/subsys/fs/littlefs
     catalog: filesystem

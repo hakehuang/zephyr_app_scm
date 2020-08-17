@@ -111,13 +111,13 @@ cases:
     - CONFIG_FXOS8700_MOTION_INT1=y
     - CONFIG_FXOS8700_PM_LOW_POWER=y
     platform_whitelist: frdm_k64f hexiwear_k64 warp7_m4 frdm_kw41z rv32m1_vega_ri5cy
-      twr_ke18f lpcxpresso55s16_ns
+      twr_ke18f lpcxpresso55s16_ns mimxrt685_evk_cm33
     depends_on: i2c gpio
   sample.sensor.fxos8700.accel:
     path: samples/sensor/fxos8700
     catalog: sensors
     extra_args: CONF_FILE=prj_accel.conf
-    platform_whitelist: frdm_kl25z bbc_microbit lpcxpresso55s69_cpu0 reel_board
+    platform_whitelist: frdm_kl25z bbc_microbit lpcxpresso55s69_cpu0 reel_board mimxrt685_evk_cm33
     depends_on: i2c gpio
   sample.sensor.hmc5883l:
     path: samples/sensor/hmc5883l

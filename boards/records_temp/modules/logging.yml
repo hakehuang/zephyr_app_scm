@@ -14,3 +14,11 @@ cases:
     path: samples/subsys/logging/syst
     catalog: logging
     platform_whitelist: mps2_an385 sam_e70_xplained
+  logging.add.async:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    platform_exclude: qemu_riscv64
+  logging.add.sync:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_sync.conf

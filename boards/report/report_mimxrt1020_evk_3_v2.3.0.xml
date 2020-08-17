@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="80" errors="0" failures="0" name="" skipped="1" time="0">
+    <testsuite tests="81" errors="0" failures="0" name="" skipped="2" time="0">
           <testcase classname="mimxrt1020_evk:net.http" name="net.http" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:arch.interrupt" name="arch.interrupt" time="0">
@@ -31,6 +31,9 @@
           </testcase>
           <testcase classname="mimxrt1020_evk:libraries.encoding.jwt" name="libraries.encoding.jwt" time="0">
           </testcase>
+         <testcase classname="mimxrt1020_evk:buildsystem.kconfig.utf8_in_values" name="buildsystem.kconfig.utf8_in_values" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="mimxrt1020_evk:libraries.libc" name="libraries.libc" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
@@ -155,6 +158,8 @@
           <testcase classname="mimxrt1020_evk:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:crypto.tinycrypt.hmac_prng" name="crypto.tinycrypt.hmac_prng" time="0">
           </testcase>
           <testcase classname="mimxrt1020_evk:sample.net.sockets.net_mgmt.usermode" name="sample.net.sockets.net_mgmt.usermode" time="0">
           </testcase>
