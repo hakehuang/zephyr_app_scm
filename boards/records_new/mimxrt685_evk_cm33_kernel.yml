@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "mimxrt685_evk_cm33_kernel"
+__load__:
+- modules/tickless_kernel.yml
+- modules/kernel.yml
+- skips/mimxrt685_evk_cm33.yml
+- boards/mimxrt685_evk_cm33.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

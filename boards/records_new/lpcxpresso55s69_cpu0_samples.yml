@@ -3,6 +3,7 @@ settings:
   case_pipe_name: "lpcxpresso55s69_cpu0_samples"
 __load__:
 - modules/tcp.yml
+- modules/net_route_mcast.yml
 - modules/net_route.yml
 - modules/net_ptp_gptp_userspace.yml
 - modules/net_promisc.yml

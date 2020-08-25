@@ -7,14 +7,14 @@ require 'rbdtb'
 
 
 def load_board_data(search_base, board_name, board_settings)
-  board = board_name.gsub('_m4', '').gsub('_m0', '').gsub('_cpu0', '').gsub('_cpu1', '').gsub('_ns', '')
+  board = board_name.gsub('_m4', '').gsub('_m0', '').gsub('_cpu0', '').gsub('_cpu1', '').gsub('_ns', '').gsub('_cm33', '')
   board_file = File.join(search_base, "boards", "arm", board,"#{board_name}.yaml")
   board_info = {}
   if File.exist?(board_file)
     board_info =  YAML.load_file(board_file)
     board_info["settings"] = board_settings["settings"]
   else
-    puts "no such board file found #{board_name} in arm"
+    puts "no such board file found #{board_name} in arm #{board_file}"
     exit
   end
   config_file = File.join(search_base, "boards", "arm", board,"#{board_name}_defconfig")

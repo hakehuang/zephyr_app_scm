@@ -150,6 +150,13 @@ cases:
     platform_whitelist: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
+  sample.net.sockets.echo_client.userspace:
+    path: samples/net/sockets/echo_client
+    catalog: net socket
+    extra_args: CONFIG_USERSPACE=y OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_whitelist: qemu_x86
+    depends_on: netif
+    min_flash: 140
   sample.net.sockets.echo_server:
     path: samples/net/sockets/echo_server
     catalog: net socket

@@ -3,6 +3,7 @@ settings:
   case_pipe_name: "mimxrt1010_evk_samples"
 __load__:
 - modules/tcp.yml
+- modules/net_route_mcast.yml
 - modules/net_route.yml
 - modules/net_ptp_gptp_userspace.yml
 - modules/net_promisc.yml

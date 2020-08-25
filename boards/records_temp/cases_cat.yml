@@ -658,6 +658,13 @@ unknown:
     build_only: true
     min_ram: 32
     depends_on: gpio spi i2c
+  drivers.adc.build:
+    path: tests/drivers/build_all
+    catalog: unknown
+    extra_args: CONF_FILE=adc.conf
+    build_only: true
+    min_ram: 32
+    depends_on: gpio spi i2c
   utilities.math:
     path: tests/unit/math_extras
     catalog: unknown
@@ -1005,6 +1012,10 @@ power:
     path: samples/subsys/power/device_pm
     catalog: power
     platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832
+  subsys.power.device_pm:
+    path: tests/subsys/power/power_mgmt
+    catalog: power
+    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 frdm_k64f qemu_cortex_m0
 samples sensor:
   sample.board.reel_board.mesh_badge:
     path: samples/boards/reel_board/mesh_badge
@@ -1131,10 +1142,6 @@ drivers:
     platform_whitelist: nucleo_f746zg nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
       nrf9160dk_nrf9160 atsamd20_xpro
     depends_on: counter
-  sample.drivers.espi:
-    path: samples/drivers/espi
-    catalog: drivers
-    depends_on: espi
   sample.drivers.i2c.fujitsu_fram:
     path: samples/drivers/i2c_fujitsu_fram
     catalog: drivers
@@ -1151,6 +1158,7 @@ drivers:
   sample.drivers.peci:
     path: samples/drivers/peci
     catalog: drivers
+    platform_exclude: mec15xxevb_assy6853
     depends_on: peci
   sample.drivers.espi.ps2:
     path: samples/drivers/ps2
@@ -1362,6 +1370,12 @@ crypto entropy:
     path: samples/drivers/entropy
     catalog: crypto entropy
     filter: CONFIG_ENTROPY_HAS_DRIVER
+drivers espi:
+  sample.drivers.espi:
+    path: samples/drivers/espi
+    catalog: drivers espi
+    filter: dt_compat_enabled("microchip,mec15xx-board-power")
+    depends_on: espi
 flash shell:
   sample.drivers.flash.shell:
     path: samples/drivers/flash_shell
@@ -1399,26 +1413,12 @@ LED:
     path: samples/drivers/led_ws2812
     catalog: LED
     platform_whitelist: bbc_microbit nrf51dk_nrf51422 nrf52dk_nrf52832
-led:
-  sample.drivers.led.lp5562:
-    path: samples/drivers/led_lp5562
-    catalog: led
-    platform_whitelist: nrf52840dk_nrf52840
-lora:
-  sample.driver.lora.receive:
-    path: samples/drivers/lora/receive
-    catalog: lora
-    platform_whitelist: 96b_wistrio
-  sample.driver.lora.send:
-    path: samples/drivers/lora/send
-    catalog: lora
-    platform_whitelist: 96b_wistrio
-flash nrf52 nrf9160:
-  sample.drivers.flash.soc_flash_nrf:
-    path: samples/drivers/soc_flash_nrf
-    catalog: flash nrf52 nrf9160
-    platform_whitelist: nrf52dk_nrf52832 nrf9160dk_nrf9160 nrf9160dk_nrf9160ns
 spi flash:
+  sample.drivers.jesd216:
+    path: samples/drivers/jesd216
+    catalog: spi flash
+    filter: dt_compat_enabled("jedec,spi-nor")
+    depends_on: spi
   sample.drivers.spi.flash:
     path: samples/drivers/spi_flash
     catalog: spi flash
@@ -1443,6 +1443,25 @@ spi flash:
     catalog: spi flash
     depends_on: spi
     filter: dt_compat_enabled("atmel,at45")
+led:
+  sample.drivers.led.lp5562:
+    path: samples/drivers/led_lp5562
+    catalog: led
+    platform_whitelist: nrf52840dk_nrf52840
+lora:
+  sample.driver.lora.receive:
+    path: samples/drivers/lora/receive
+    catalog: lora
+    platform_whitelist: 96b_wistrio
+  sample.driver.lora.send:
+    path: samples/drivers/lora/send
+    catalog: lora
+    platform_whitelist: 96b_wistrio
+flash nrf52 nrf9160:
+  sample.drivers.flash.soc_flash_nrf:
+    path: samples/drivers/soc_flash_nrf
+    catalog: flash nrf52 nrf9160
+    platform_whitelist: nrf52dk_nrf52832 nrf9160dk_nrf9160 nrf9160dk_nrf9160ns
 drivers fram:
   sample.drivers.spi.fujitsu_fram:
     path: samples/drivers/spi_fujitsu_fram
@@ -1893,6 +1912,13 @@ net socket:
     platform_whitelist: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
+  sample.net.sockets.echo_client.userspace:
+    path: samples/net/sockets/echo_client
+    catalog: net socket
+    extra_args: CONFIG_USERSPACE=y OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_whitelist: qemu_x86
+    depends_on: netif
+    min_flash: 140
   sample.net.sockets.echo_server:
     path: samples/net/sockets/echo_server
     catalog: net socket
@@ -2054,6 +2080,19 @@ net socket http:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=y
     min_ram: 128
     min_flash: 128
+net socket offload simplelink:
+  sample.net.sockets.echo.offload.simplelink:
+    path: samples/net/sockets/echo
+    catalog: net socket offload simplelink
+    platform_whitelist: cc3220sf_launchxl
+    depends_on: netif
+  sample.net.sockets.http_get.offload.simplelink:
+    path: samples/net/sockets/http_get
+    catalog: net socket offload simplelink
+    platform_whitelist: cc3220sf_launchxl
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 80
 net openthread:
   sample.net.sockets.echo_client.nrf_openthread:
     path: samples/net/sockets/echo_client
@@ -3088,6 +3127,7 @@ tinycrypt crypto sha256 hmac prng:
   crypto.tinycrypt.hmac_prng:
     path: tests/crypto/tinycrypt_hmac_prng
     catalog: tinycrypt crypto sha256 hmac prng
+    platform_exclude: mec15xxevb_assy6853 mec1501modular_assy6885
 deprecated:
   deprecated.inttypes:
     path: tests/deprecated/inttype
@@ -3351,6 +3391,7 @@ device:
     catalog: device
     extra_configs:
     - CONFIG_DEVICE_POWER_MANAGEMENT=y
+    platform_exclude: mec15xxevb_assy6853
 kernel sleep:
   kernel.common.sleep:
     path: tests/kernel/early_sleep
@@ -4155,6 +4196,12 @@ net route:
     catalog: net route
     min_ram: 16
     depends_on: netif
+net route_mcast:
+  net.route_mcast:
+    path: tests/net/route_mcast
+    catalog: net route_mcast
+    min_ram: 21
+    depends_on: netif
 net net-shell:
   net.shell:
     path: tests/net/shell
@@ -4748,6 +4795,11 @@ can isotp:
     path: tests/subsys/canbus/isotp/implementation
     catalog: can isotp
     depends_on: can
+ignore_faults ignore_qemu_crash:
+  coredump.logging_backend:
+    path: tests/subsys/debug/coredump
+    catalog: ignore_faults ignore_qemu_crash
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
 dfu_image_util:
   dfu.image_util:
     path: tests/subsys/dfu/img_util
@@ -4790,7 +4842,6 @@ nvs:
     catalog: nvs
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
     platform_whitelist: qemu_x86
-    build_only: true
 jwt:
   libraries.encoding.jwt:
     path: tests/subsys/jwt

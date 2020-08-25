@@ -10,10 +10,6 @@ cases:
     platform_whitelist: nucleo_f746zg nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
       nrf9160dk_nrf9160 atsamd20_xpro
     depends_on: counter
-  sample.drivers.espi:
-    path: samples/drivers/espi
-    catalog: drivers
-    depends_on: espi
   sample.drivers.i2c.fujitsu_fram:
     path: samples/drivers/i2c_fujitsu_fram
     catalog: drivers
@@ -30,6 +26,7 @@ cases:
   sample.drivers.peci:
     path: samples/drivers/peci
     catalog: drivers
+    platform_exclude: mec15xxevb_assy6853
     depends_on: peci
   sample.drivers.espi.ps2:
     path: samples/drivers/ps2

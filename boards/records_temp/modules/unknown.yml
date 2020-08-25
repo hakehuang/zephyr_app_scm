@@ -68,6 +68,13 @@ cases:
     build_only: true
     min_ram: 32
     depends_on: gpio spi i2c
+  drivers.adc.build:
+    path: tests/drivers/build_all
+    catalog: unknown
+    extra_args: CONF_FILE=adc.conf
+    build_only: true
+    min_ram: 32
+    depends_on: gpio spi i2c
   utilities.math:
     path: tests/unit/math_extras
     catalog: unknown

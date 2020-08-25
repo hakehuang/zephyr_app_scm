@@ -46,7 +46,7 @@ def platforms()
     "mimxrt1050_evk" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "mimxrt1060_evk" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "mimxrt1064_evk" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
-
+    "mimxrt685_evk_cm33" => ["", "2", "3", "drivers", "samples", "samples2", "kernel", "kernel2", "usb"],
     "twr_ke18f" => ["", "2", "3", "drivers", "samples", "kernel", "kernel2"],
     "twr_kv58f220m" => ["", "2", "3", "drivers", "samples", "kernel", "kernel2"],
     "mimx8mm_evk" => ["", "2", "3", "drivers", "samples", "kernel", "kernel2"],

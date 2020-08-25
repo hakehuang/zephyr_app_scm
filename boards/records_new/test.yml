@@ -518,7 +518,8 @@ cases:
     filter: CONFIG_ENTROPY_HAS_DRIVER
   sample.drivers.espi:
     path: samples/drivers/espi
-    catalog: drivers
+    catalog: drivers espi
+    filter: dt_compat_enabled("microchip,mec15xx-board-power")
     depends_on: espi
   sample.drivers.flash.shell:
     path: samples/drivers/flash_shell
@@ -534,6 +535,11 @@ cases:
     catalog: drivers
     depends_on: i2c
     filter: dt_alias_exists("i2c-0")
+  sample.drivers.jesd216:
+    path: samples/drivers/jesd216
+    catalog: spi flash
+    filter: dt_compat_enabled("jedec,spi-nor")
+    depends_on: spi
   sample.drivers.kscan:
     path: samples/drivers/kscan
     catalog: drivers
@@ -588,6 +594,7 @@ cases:
   sample.drivers.peci:
     path: samples/drivers/peci
     catalog: drivers
+    platform_exclude: mec15xxevb_assy6853
     depends_on: peci
   sample.drivers.espi.ps2:
     path: samples/drivers/ps2
@@ -848,6 +855,11 @@ cases:
     path: samples/net/sockets/echo
     catalog: net socket
     depends_on: netif
+  sample.net.sockets.echo.offload.simplelink:
+    path: samples/net/sockets/echo
+    catalog: net socket offload simplelink
+    platform_whitelist: cc3220sf_launchxl
+    depends_on: netif
   sample.net.sockets.echo_async:
     path: samples/net/sockets/echo_async
     catalog: net socket
@@ -966,6 +978,13 @@ cases:
     platform_whitelist: frdm_kw41z
     depends_on: netif
     min_flash: 140
+  sample.net.sockets.echo_client.userspace:
+    path: samples/net/sockets/echo_client
+    catalog: net socket
+    extra_args: CONFIG_USERSPACE=y OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_whitelist: qemu_x86
+    depends_on: netif
+    min_flash: 140
   sample.net.sockets.echo_server:
     path: samples/net/sockets/echo_server
     catalog: net socket
@@ -1078,6 +1097,13 @@ cases:
     platform_exclude: cc3220sf_launchxl cc3235sf_launchxl
     min_ram: 32
     min_flash: 80
+  sample.net.sockets.http_get.offload.simplelink:
+    path: samples/net/sockets/http_get
+    catalog: net socket offload simplelink
+    platform_whitelist: cc3220sf_launchxl
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 80
   sample.net.sockets.net_mgmt.kernelmode:
     path: samples/net/sockets/net_mgmt
     catalog: net socket mgmt
@@ -1133,6 +1159,25 @@ cases:
     catalog: net syslog
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
+    depends_on: netif
+  sample.net.syslog.ipv4_only:
+    path: samples/net/syslog_net
+    catalog: net syslog
+    extra_configs:
+    - CONFIG_NET_IPV6=n
+    - CONFIG_NET_CONFIG_NEED_IPV6=n
+    - CONFIG_NET_CONFIG_MY_IPV6_ADDR=""
+    - CONFIG_NET_CONFIG_PEER_IPV6_ADDR=""
+    - CONFIG_LOG_BACKEND_NET_SERVER="192.0.2.1:514"
+    depends_on: netif
+  sample.net.syslog.ipv6_only:
+    path: samples/net/syslog_net
+    catalog: net syslog
+    extra_configs:
+    - CONFIG_NET_IPV4=n
+    - CONFIG_NET_CONFIG_NEED_IPV4=n
+    - CONFIG_NET_CONFIG_MY_IPV4_ADDR=""
+    - CONFIG_NET_CONFIG_PEER_IPV4_ADDR=""
     depends_on: netif
   sample.net.telnet:
     path: samples/net/telnet
@@ -2065,6 +2110,9 @@ cases:
     filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 128
     min_ram: 64
+  benchmark.data_structures:
+    path: tests/benchmarks/data_structure_perf/dlist_perf
+    catalog: dlist req-test
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
@@ -2461,6 +2509,7 @@ cases:
   crypto.tinycrypt.hmac_prng:
     path: tests/crypto/tinycrypt_hmac_prng
     catalog: tinycrypt crypto sha256 hmac prng
+    platform_exclude: mec15xxevb_assy6853 mec1501modular_assy6885
   dts.build.build:
     path: tests/deprecated/dts
     catalog: unknown
@@ -2559,6 +2608,13 @@ cases:
     build_only: true
     min_ram: 32
     depends_on: gpio spi i2c
+  drivers.adc.build:
+    path: tests/drivers/build_all
+    catalog: unknown
+    extra_args: CONF_FILE=adc.conf
+    build_only: true
+    min_ram: 32
+    depends_on: gpio spi i2c
   drivers.can:
     path: tests/drivers/can/api
     catalog: driver can
@@ -2617,6 +2673,7 @@ cases:
     path: tests/drivers/dac/dac_loopback
     catalog: dac drivers
     depends_on: dac
+    platform_exclude: arduino_zero
   drivers.dma:
     path: tests/drivers/dma/chan_blen_transfer
     catalog: drivers dma
@@ -2791,6 +2848,7 @@ cases:
     catalog: device
     extra_configs:
     - CONFIG_DEVICE_POWER_MANAGEMENT=y
+    platform_exclude: mec15xxevb_assy6853
   kernel.common.sleep:
     path: tests/kernel/early_sleep
     catalog: kernel sleep
@@ -3787,6 +3845,11 @@ cases:
     catalog: net route
     min_ram: 16
     depends_on: netif
+  net.route_mcast:
+    path: tests/net/route_mcast
+    catalog: net route_mcast
+    min_ram: 21
+    depends_on: netif
   net.shell:
     path: tests/net/shell
     catalog: net net-shell
@@ -4428,6 +4491,10 @@ cases:
     path: tests/subsys/canbus/isotp/implementation
     catalog: can isotp
     depends_on: can
+  coredump.logging_backend:
+    path: tests/subsys/debug/coredump
+    catalog: ignore_faults ignore_qemu_crash
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
   dfu.image_util:
     path: tests/subsys/dfu/img_util
     catalog: dfu_image_util
@@ -4459,6 +4526,9 @@ cases:
     catalog: flash_circural_buffer
     platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 native_posix
       native_posix_64
+  filesystem.api:
+    path: tests/subsys/fs/fs_api
+    catalog: filesystem
   filesystem.littlefs:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
@@ -4481,7 +4551,6 @@ cases:
     catalog: nvs
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
     platform_whitelist: qemu_x86
-    build_only: true
   libraries.encoding.jwt:
     path: tests/subsys/jwt
     catalog: jwt
@@ -4492,6 +4561,14 @@ cases:
     catalog: log_core logging
     platform_exclude: qemu_riscv64
     filter: not CONFIG_LOG_IMMEDIATE
+  logging.add.async:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    platform_exclude: qemu_riscv64
+  logging.add.sync:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_sync.conf
   logging.log_immediate:
     path: tests/subsys/logging/log_immediate
     catalog: log_core logging
@@ -4514,6 +4591,10 @@ cases:
     path: tests/subsys/openthread
     catalog: ot_radio
     platform_whitelist: native_posix native_posix_64
+  subsys.power.device_pm:
+    path: tests/subsys/power/power_mgmt
+    catalog: power
+    platform_whitelist: nrf52840dk_nrf52840 nrf52dk_nrf52832 frdm_k64f qemu_cortex_m0
   system.settings.fcb.base64:
     path: tests/subsys/settings/fcb/base64
     catalog: settings_fcb
