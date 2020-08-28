@@ -1,0 +1,37 @@
+---
+settings:
+  case_pipe_name: "mimxrt1064_evk_4"
+__load__:
+- modules/xip.yml
+- modules/video_net_socket.yml
+- modules/video.yml
+- modules/utils_lists.yml
+- modules/util_intmath.yml
+- modules/userspace_mmu.yml
+- modules/userspace.yml
+- modules/unknown.yml
+- modules/uart_bluetooth.yml
+- modules/tracing_debug.yml
+- modules/tinycrypt_crypto_sha256_hmac_prng.yml
+- modules/tinycrypt_crypto_aes_ccm.yml
+- modules/timeutils.yml
+- modules/timer.yml
+- modules/test_framework.yml
+- modules/sysid.yml
+- modules/stream_flash.yml
+- modules/spi_flash.yml
+- modules/sound.yml
+- modules/smp_spinlock.yml
+- modules/smp.yml
+- modules/shell.yml
+- modules/secure.yml
+- modules/ring_buffer_circular_buffer.yml
+- modules/rbtree.yml
+- modules/qspi_flash.yml
+- modules/power.yml
+- skips/mimxrt1064_evk.yml
+- boards/mimxrt1064_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

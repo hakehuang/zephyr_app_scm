@@ -3,12 +3,10 @@ cases:
   sample.net.mqtt_publisher:
     path: samples/net/mqtt_publisher
     catalog: net mqtt
-    platform_whitelist: frdm_k64f qemu_x86
   sample.net.mqtt_publisher.userspace:
     path: samples/net/mqtt_publisher
     catalog: net mqtt
     extra_args: CONFIG_USERSPACE=y
-    platform_whitelist: frdm_k64f qemu_x86
   net.mqtt:
     path: tests/net/lib/mqtt_publisher
     catalog: net mqtt

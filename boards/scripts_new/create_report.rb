@@ -29,7 +29,6 @@ class Parser
           @args.total_cases = n
       end
 
-
       opts.on("-eerror_cases", "--error_cases=error_cases", "error_cases") do |n|
         @args.error_cases = n
       end

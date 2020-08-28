@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="26" errors="0" failures="1" name="" skipped="8" time="0">
+    <testsuite tests="38" errors="0" failures="1" name="" skipped="8" time="0">
           <testcase classname="frdm_k64f:sample.drivers.i2c.fujitsu_fram" name="sample.drivers.i2c.fujitsu_fram" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -33,7 +33,11 @@
           </testcase>
           <testcase classname="frdm_k64f:sample.display.grove_display" name="sample.display.grove_display" time="0">
           </testcase>
+          <testcase classname="frdm_k64f:sample.drivers.counter.alarm" name="sample.drivers.counter.alarm" time="0">
+          </testcase>
           <testcase classname="frdm_k64f:sample.drivers.watchdog" name="sample.drivers.watchdog" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.drivers.watchdog.nucleo_l496zg" name="sample.drivers.watchdog.nucleo_l496zg" time="0">
           </testcase>
          <testcase classname="frdm_k64f:drivers.build.build" name="drivers.build.build" time="0">
          <skipped message="Skipped" type="skipped"/>
@@ -67,6 +71,10 @@
           </testcase>
           <testcase classname="frdm_k64f:drivers.ipc.mailbox" name="drivers.ipc.mailbox" time="0">
           </testcase>
+          <testcase classname="frdm_k64f:sample.sensor.grove_light" name="sample.sensor.grove_light" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.sensor.grove_temperature" name="sample.sensor.grove_temperature" time="0">
+          </testcase>
           <testcase classname="frdm_k64f:portability.posix.common" name="portability.posix.common" time="0">
           </testcase>
           <testcase classname="frdm_k64f:portability.posix.fs" name="portability.posix.fs" time="0">
@@ -75,7 +83,23 @@
           </testcase>
           <testcase classname="frdm_k64f:sample.sensor.ens210" name="sample.sensor.ens210" time="0">
           </testcase>
+          <testcase classname="frdm_k64f:sample.gui.lvgl" name="sample.gui.lvgl" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.board.reel_board.mesh_badge" name="sample.board.reel_board.mesh_badge" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.sensor.bme680" name="sample.sensor.bme680" time="0">
+          </testcase>
           <testcase classname="frdm_k64f:sample.nvs" name="sample.nvs" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:system.settings.fcb" name="system.settings.fcb" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:system.settings.functional.fcb" name="system.settings.functional.fcb" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:system.settings.file" name="system.settings.file" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:system.settings.littlefs" name="system.settings.littlefs" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:system.settings.functional.nvs" name="system.settings.functional.nvs" time="0">
           </testcase>
           <testcase classname="frdm_k64f:system.settings.nvs" name="system.settings.nvs" time="0">
           </testcase>

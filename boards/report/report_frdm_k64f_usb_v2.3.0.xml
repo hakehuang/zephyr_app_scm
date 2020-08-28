@@ -1,15 +1,20 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="17" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="18" errors="0" failures="0" name="" skipped="1" time="0">
           <testcase classname="frdm_k64f:sample.usb.cdc-acm" name="sample.usb.cdc-acm" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.usb.cdc-acm.comp" name="sample.usb.cdc-acm.comp" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.usb.cdc-acm-composite" name="sample.usb.cdc-acm-composite" time="0">
           </testcase>
+         <testcase classname="frdm_k64f:sample.usb.dfu" name="sample.usb.dfu" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="frdm_k64f:sample.usb.hid" name="sample.usb.hid" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.usb.hid_composite" name="sample.usb.hid_composite" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.usb.hid-cdc" name="sample.usb.hid-cdc" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.usb.hid-mouse" name="sample.usb.hid-mouse" time="0">
           </testcase>

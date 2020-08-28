@@ -1,15 +1,20 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="15" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="18" errors="0" failures="0" name="" skipped="1" time="0">
           <testcase classname="mimxrt1050_evk:sample.usb.cdc-acm" name="sample.usb.cdc-acm" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:sample.usb.cdc-acm.comp" name="sample.usb.cdc-acm.comp" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:sample.usb.cdc-acm-composite" name="sample.usb.cdc-acm-composite" time="0">
           </testcase>
+         <testcase classname="mimxrt1050_evk:sample.usb.dfu" name="sample.usb.dfu" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="mimxrt1050_evk:sample.usb.hid" name="sample.usb.hid" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:sample.usb.hid_composite" name="sample.usb.hid_composite" time="0">
+          </testcase>
+          <testcase classname="mimxrt1050_evk:sample.usb.hid-cdc" name="sample.usb.hid-cdc" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:sample.usb.hid-mouse" name="sample.usb.hid-mouse" time="0">
           </testcase>
@@ -23,6 +28,8 @@
           </testcase>
           <testcase classname="mimxrt1050_evk:usb.desc_sections" name="usb.desc_sections" time="0">
           </testcase>
+          <testcase classname="mimxrt1050_evk:sample.net.wpan_serial.frdm_cr20a" name="sample.net.wpan_serial.frdm_cr20a" time="0">
+          </testcase>
           <testcase classname="mimxrt1050_evk:sample.net.zperf" name="sample.net.zperf" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:sample.net.zperf.netusb_ecm" name="sample.net.zperf.netusb_ecm" time="0">
@@ -30,6 +37,8 @@
           <testcase classname="mimxrt1050_evk:sample.net.zperf.netusb_eem" name="sample.net.zperf.netusb_eem" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:sample.net.zperf.netusb_rndis" name="sample.net.zperf.netusb_rndis" time="0">
+          </testcase>
+          <testcase classname="mimxrt1050_evk:sample.sensor.usb.fxos8700-hid" name="sample.sensor.usb.fxos8700-hid" time="0">
           </testcase>
   </testsuite>
 </testsuites>

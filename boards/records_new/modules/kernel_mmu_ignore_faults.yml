@@ -1,0 +1,6 @@
+---
+cases:
+  kernel.memory_protection.mem_map:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    filter: CONFIG_MMU

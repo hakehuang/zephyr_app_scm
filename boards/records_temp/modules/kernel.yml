@@ -1,9 +1,5 @@
 ---
 cases:
-  kernel.memory_protection.mmu:
-    path: tests/arch/x86/x86_mmu_api
-    catalog: kernel
-    platform_whitelist: qemu_x86
   kernel.common:
     path: tests/kernel/context
     catalog: kernel
@@ -45,7 +41,6 @@ cases:
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=500
     filter: CONFIG_CPU_HAS_FPU
-    arch_whitelist: riscv32
     min_ram: 16
     build_only: true
   kernel.fpu_sharing.generic.riscv64:
@@ -53,13 +48,11 @@ cases:
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=500
     filter: CONFIG_CPU_HAS_FPU
-    arch_whitelist: riscv64
     min_ram: 16
   kernel.fpu_sharing.generic.x86:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
     extra_args: CONF_FILE=prj_x86.conf
-    platform_whitelist: qemu_x86
   kernel.lifo:
     path: tests/kernel/lifo/lifo_api
     catalog: kernel
@@ -143,4 +136,3 @@ cases:
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
-    platform_whitelist: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard

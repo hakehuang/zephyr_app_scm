@@ -4,36 +4,29 @@ cases:
     path: samples/display/cfb
     catalog: shield
     extra_args: SHIELD=ssd1306_128x64
-    platform_whitelist: frdm_k64f
   sample.display.cfb_shell.ssd1306:
     path: samples/display/cfb_shell
     catalog: shield
     extra_args: SHIELD=ssd1306_128x32
-    platform_whitelist: frdm_k64f
   sample.display.adafruit_2_8_tft_touch_v2:
     path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
-    platform_whitelist: nrf52840dk_nrf52840
   sample.display.waveshare_epaper_gdeh0213b1:
     path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh0213b1
-    platform_whitelist: nrf52840dk_nrf52840
   sample.display.waveshare_epaper_gdeh0213b72:
     path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh0213b72
-    platform_whitelist: nrf52840dk_nrf52840
   sample.display.waveshare_epaper_gdeh029a1:
     path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh029a1
-    platform_whitelist: nrf52840dk_nrf52840
   sample.shields.lmp90100_evb.rtd:
     path: samples/shields/lmp90100_evb/rtd
     catalog: shield
-    platform_whitelist: frdm_k64f
     depends_on: arduino_spi
   sample.shields.x_nucleo_iks01a1:
     path: samples/shields/x_nucleo_iks01a1

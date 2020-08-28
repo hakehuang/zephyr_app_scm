@@ -1,9 +1,28 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="2" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="10" errors="0" failures="0" name="" skipped="1" time="0">
           <testcase classname="mimx8mm_evk:drivers.console.uart" name="drivers.console.uart" time="0">
           </testcase>
           <testcase classname="mimx8mm_evk:drivers.ipc.mailbox" name="drivers.ipc.mailbox" time="0">
+          </testcase>
+          <testcase classname="mimx8mm_evk:sample.gui.lvgl" name="sample.gui.lvgl" time="0">
+          </testcase>
+         <testcase classname="mimx8mm_evk:sample.ipc.ipm.ipm_imx" name="sample.ipc.ipm.ipm_imx" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="mimx8mm_evk:sample.board.reel_board.mesh_badge" name="sample.board.reel_board.mesh_badge" time="0">
+          </testcase>
+          <testcase classname="mimx8mm_evk:sample.sensor.bme680" name="sample.sensor.bme680" time="0">
+          </testcase>
+          <testcase classname="mimx8mm_evk:system.settings.fcb" name="system.settings.fcb" time="0">
+          </testcase>
+          <testcase classname="mimx8mm_evk:system.settings.functional.fcb" name="system.settings.functional.fcb" time="0">
+          </testcase>
+          <testcase classname="mimx8mm_evk:system.settings.file" name="system.settings.file" time="0">
+          </testcase>
+          <testcase classname="mimx8mm_evk:system.settings.littlefs" name="system.settings.littlefs" time="0">
+          </testcase>
+          <testcase classname="mimx8mm_evk:system.settings.functional.nvs" name="system.settings.functional.nvs" time="0">
           </testcase>
   </testsuite>
 </testsuites>

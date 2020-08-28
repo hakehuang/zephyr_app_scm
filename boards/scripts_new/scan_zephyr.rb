@@ -285,6 +285,7 @@ def split_test_catalog(fn, outdir, template_dir)
     'board_template.yml' => {'settings' => {"case_pipe_name" => "${@board}"}}.deep_merge(common_hash),
     'board_2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_2"}}.deep_merge(common_hash),
     'board_3_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_3"}}.deep_merge(common_hash),
+    'board_4_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_4"}}.deep_merge(common_hash),
     'board_drivers_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_drivers"}}.deep_merge(common_hash),
     'board_kernel_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel"}}.deep_merge(common_hash),
     'board_kernel2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel2"}}.deep_merge(common_hash),
@@ -325,8 +326,10 @@ def split_test_catalog(fn, outdir, template_dir)
       template_files_hash['board_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^[c-g]/)
       template_files_hash['board_2_template.yml']["__load__"].unshift("modules/#{module_name}")
-    else
+    elsif module_name.downcase().match(/^[h-o]/)
       template_files_hash['board_3_template.yml']["__load__"].unshift("modules/#{module_name}")
+    else
+      template_files_hash['board_4_template.yml']["__load__"].unshift("modules/#{module_name}")
     end
   end
 

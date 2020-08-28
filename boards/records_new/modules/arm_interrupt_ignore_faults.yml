@@ -4,7 +4,6 @@ cases:
     path: tests/arch/arm/arm_interrupt
     catalog: arm interrupt ignore_faults
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_whitelist: arm
   arch.interrupt.no_optimizations:
     path: tests/arch/arm/arm_interrupt
     catalog: arm interrupt ignore_faults
@@ -13,4 +12,3 @@ cases:
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=1024
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_whitelist: arm

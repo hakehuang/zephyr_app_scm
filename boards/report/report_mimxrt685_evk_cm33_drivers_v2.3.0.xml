@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="21" errors="0" failures="0" name="" skipped="8" time="0">
+    <testsuite tests="30" errors="0" failures="0" name="" skipped="9" time="0">
           <testcase classname="mimxrt685_evk_cm33:sample.basic.button" name="sample.basic.button" time="0">
           </testcase>
           <testcase classname="mimxrt685_evk_cm33:portability.cmsis_rtos_v1" name="portability.cmsis_rtos_v1" time="0">
@@ -28,6 +28,8 @@
           <testcase classname="mimxrt685_evk_cm33:sample.portability.cmsis_rtos_v2.timer_synchronization" name="sample.portability.cmsis_rtos_v2.timer_synchronization" time="0">
           </testcase>
           <testcase classname="mimxrt685_evk_cm33:sample.display.grove_display" name="sample.display.grove_display" time="0">
+          </testcase>
+          <testcase classname="mimxrt685_evk_cm33:sample.drivers.counter.alarm" name="sample.drivers.counter.alarm" time="0">
           </testcase>
          <testcase classname="mimxrt685_evk_cm33:drivers.build.build" name="drivers.build.build" time="0">
          <skipped message="Skipped" type="skipped"/>
@@ -66,6 +68,25 @@
           <testcase classname="mimxrt685_evk_cm33:sample.sensor.iaqcore" name="sample.sensor.iaqcore" time="0">
           </testcase>
           <testcase classname="mimxrt685_evk_cm33:sample.sensor.ens210" name="sample.sensor.ens210" time="0">
+          </testcase>
+          <testcase classname="mimxrt685_evk_cm33:sample.gui.lvgl" name="sample.gui.lvgl" time="0">
+          </testcase>
+         <testcase classname="mimxrt685_evk_cm33:sample.ipc.ipm.ipm_imx" name="sample.ipc.ipm.ipm_imx" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="mimxrt685_evk_cm33:sample.board.reel_board.mesh_badge" name="sample.board.reel_board.mesh_badge" time="0">
+          </testcase>
+          <testcase classname="mimxrt685_evk_cm33:sample.sensor.bme680" name="sample.sensor.bme680" time="0">
+          </testcase>
+          <testcase classname="mimxrt685_evk_cm33:system.settings.fcb" name="system.settings.fcb" time="0">
+          </testcase>
+          <testcase classname="mimxrt685_evk_cm33:system.settings.functional.fcb" name="system.settings.functional.fcb" time="0">
+          </testcase>
+          <testcase classname="mimxrt685_evk_cm33:system.settings.file" name="system.settings.file" time="0">
+          </testcase>
+          <testcase classname="mimxrt685_evk_cm33:system.settings.littlefs" name="system.settings.littlefs" time="0">
+          </testcase>
+          <testcase classname="mimxrt685_evk_cm33:system.settings.functional.nvs" name="system.settings.functional.nvs" time="0">
           </testcase>
   </testsuite>
 </testsuites>

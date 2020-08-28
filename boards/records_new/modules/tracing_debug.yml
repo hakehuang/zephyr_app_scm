@@ -7,14 +7,12 @@ cases:
     - CONFIG_TRACING=y
     - CONFIG_SEGGER_SYSTEMVIEW=y
     - CONFIG_USE_SEGGER_RTT=y
-    platform_whitelist: nrf52840dk_nrf52840
   tracing.format.cpu_stats:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_configs:
     - CONFIG_TRACING=y
     - CONFIG_TRACING_CPU_STATS=y
-    platform_whitelist: nrf52840dk_nrf52840
   tracing.osawareness.openocd:
     path: samples/subsys/tracing
     catalog: tracing debug
@@ -28,26 +26,21 @@ cases:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_uart.conf"
-    platform_whitelist: qemu_x86 qemu_x86_64
   tracing.transport.usb:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_usb.conf"
-    platform_whitelist: sam_e70_xplained
     depends_on: usb_device
   tracing.transport.ctf:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_usb_ctf.conf"
-    platform_whitelist: sam_e70_xplained
     depends_on: usb_device
   tracing.transport.native_posix:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_native_posix.conf"
-    platform_whitelist: native_posix
   tracing.transport.posix.ctf:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_native_posix_ctf.conf"
-    platform_whitelist: native_posix

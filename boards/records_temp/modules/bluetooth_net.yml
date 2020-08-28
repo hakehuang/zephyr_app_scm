@@ -3,9 +3,7 @@ cases:
   sample.bluetooth.ipsp:
     path: samples/bluetooth/ipsp
     catalog: bluetooth net
-    platform_whitelist: qemu_x86 qemu_cortex_m3
   sample.bluetooth.ipsp.zep1656:
     path: samples/bluetooth/ipsp
     catalog: bluetooth net
     extra_args: CONF_FILE="prj_zep1656.conf"
-    platform_whitelist: qemu_x86 qemu_cortex_m3

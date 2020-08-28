@@ -4,17 +4,14 @@ cases:
     path: tests/arch/arm/arm_no_multithreading
     catalog: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_whitelist: arm
     platform_exclude: degu_evk
   arch.arm.sw_vector_relay:
     path: tests/arch/arm/arm_sw_vector_relay
     catalog: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_whitelist: arm
   arch.arm.swap.common:
     path: tests/arch/arm/arm_thread_swap
     catalog: arm
-    arch_whitelist: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
   arch.arm.swap.common.no_optimizations:
     path: tests/arch/arm/arm_thread_swap
@@ -22,7 +19,6 @@ cases:
     extra_configs:
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_IDLE_STACK_SIZE=512
-    arch_whitelist: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     min_flash: 192
   arch.arm.swap.common.fpu_sharing:
@@ -31,7 +27,6 @@ cases:
     extra_configs:
     - CONFIG_FPU=y
     - CONFIG_FPU_SHARING=y
-    arch_whitelist: arm
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
   arch.arm.swap.common.fpu_sharing.no_optimizations:
     path: tests/arch/arm/arm_thread_swap
@@ -41,6 +36,5 @@ cases:
     - CONFIG_FPU_SHARING=y
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_IDLE_STACK_SIZE=512
-    arch_whitelist: arm
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
     min_flash: 192

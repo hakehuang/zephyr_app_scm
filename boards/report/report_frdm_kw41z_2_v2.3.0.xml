@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="18" errors="0" failures="0" name="" skipped="3" time="0">
+    <testsuite tests="28" errors="0" failures="0" name="" skipped="14" time="0">
          <testcase classname="frdm_kw41z:libraries.libc" name="libraries.libc" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -36,11 +36,64 @@
          <testcase classname="frdm_kw41z:buildsystem.debug.build" name="buildsystem.debug.build" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
+          <testcase classname="frdm_kw41z:sample.board.bbc_microbit.display" name="sample.board.bbc_microbit.display" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:sample.display.cfb.ssd16xx" name="sample.display.cfb.ssd16xx" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:sample.display.cfb_custom_font.ssd16xx" name="sample.display.cfb_custom_font.ssd16xx" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:sample.display.cfb_shell.ssd16xx" name="sample.display.cfb_shell.ssd16xx" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:shell" name="shell" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:sample.drivers.lcd.hd44780" name="sample.drivers.lcd.hd44780" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:sample.display.st7789v_tl019fqv01" name="sample.display.st7789v_tl019fqv01" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:sample.display.st7789v_waveshare_240x240" name="sample.display.st7789v_waveshare_240x240" time="0">
+          </testcase>
           <testcase classname="frdm_kw41z:sample.app_dev.external_lib" name="sample.app_dev.external_lib" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:libraries.os.fdtable" name="libraries.os.fdtable" time="0">
           </testcase>
+          <testcase classname="frdm_kw41z:sample.filesystem.fat_fs" name="sample.filesystem.fat_fs" time="0">
+          </testcase>
+         <testcase classname="frdm_kw41z:sample.filesystem.littlefs" name="sample.filesystem.littlefs" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.mt.arm" name="sample.minimal.mt.arm" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.mt-no-preempt.arm" name="sample.minimal.mt-no-preempt.arm" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.mt-no-preempt-no-timers.arm" name="sample.minimal.mt-no-preempt-no-timers.arm" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.no-mt.arm" name="sample.minimal.no-mt.arm" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.no-mt-no-timers.arm" name="sample.minimal.no-mt-no-timers.arm" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.mt.x86" name="sample.minimal.mt.x86" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.mt-no-preempt.x86" name="sample.minimal.mt-no-preempt.x86" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.mt-no-preempt-no-timers.x86" name="sample.minimal.mt-no-preempt-no-timers.x86" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.no-mt.x86" name="sample.minimal.no-mt.x86" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_kw41z:sample.minimal.no-mt-no-timers.x86" name="sample.minimal.no-mt-no-timers.x86" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="frdm_kw41z:buildsystem.include_file" name="buildsystem.include_file" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:sample.board.up_squared.gpio_counter" name="sample.board.up_squared.gpio_counter" time="0">
           </testcase>
   </testsuite>
 </testsuites>

@@ -2,32 +2,6 @@
 settings:
   case_pipe_name: "frdm_kw41z_3"
 __load__:
-- modules/xip.yml
-- modules/video_net_socket.yml
-- modules/video.yml
-- modules/utils_lists.yml
-- modules/util_intmath.yml
-- modules/userspace.yml
-- modules/unknown.yml
-- modules/uart_bluetooth.yml
-- modules/tracing_debug.yml
-- modules/tinycrypt_crypto_sha256_hmac_prng.yml
-- modules/tinycrypt_crypto_aes_ccm.yml
-- modules/timeutils.yml
-- modules/timer.yml
-- modules/test_framework.yml
-- modules/sysid.yml
-- modules/stream_flash.yml
-- modules/spi_flash.yml
-- modules/sound.yml
-- modules/smp_spinlock.yml
-- modules/smp.yml
-- modules/shell.yml
-- modules/secure.yml
-- modules/ring_buffer_circular_buffer.yml
-- modules/rbtree.yml
-- modules/qspi_flash.yml
-- modules/power.yml
 - modules/out_of_tree.yml
 - modules/ot_radio.yml
 - modules/onoff_timer.yml
@@ -37,7 +11,6 @@ __load__:
 - modules/msd_usb.yml
 - modules/mqtt_net_userspace.yml
 - modules/mpu.yml
-- modules/mmu.yml
 - modules/microbit_mesh_bluetooth.yml
 - modules/microbit_line-follower_robot_car.yml
 - modules/memory_protection.yml
@@ -66,6 +39,7 @@ __load__:
 - modules/interrupt.yml
 - modules/ignore_faults_interrupt_idt.yml
 - modules/ignore_faults_ignore_qemu_crash.yml
+- modules/i2s_example.yml
 - modules/i2s.yml
 - modules/i2c.yml
 - modules/http_net.yml

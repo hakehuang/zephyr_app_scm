@@ -3,26 +3,22 @@ cases:
   sample.net.eth_native_posix:
     path: samples/net/eth_native_posix
     catalog: net
-    platform_whitelist: native_posix native_posix_64
   sample.net.sockets.echo_server.e1000:
     path: samples/net/sockets/echo_server
     catalog: net
     extra_args: OVERLAY_CONFIG="overlay-e1000.conf"
-    platform_whitelist: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.stellaris:
     path: samples/net/sockets/echo_server
     catalog: net
     extra_args: OVERLAY_CONFIG="overlay-qemu_cortex_m3_eth.conf"
-    platform_whitelist: qemu_cortex_m3
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.smsc911x:
     path: samples/net/sockets/echo_server
     catalog: net
     extra_args: OVERLAY_CONFIG="overlay-smsc911x.conf"
-    platform_whitelist: mps2_an385
     depends_on: netif
     min_flash: 140
   sample.net.sockets.sntp_client:
@@ -30,14 +26,12 @@ cases:
     catalog: net
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=y
-    platform_whitelist: qemu_x86
   sample.net.sockets.sntp_client.posix:
     path: samples/net/sockets/sntp_client
     catalog: net
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
-    platform_whitelist: qemu_x86
   net.coap.simple:
     path: tests/net/lib/coap
     catalog: net
@@ -59,7 +53,6 @@ cases:
   net.pm:
     path: tests/net/pm
     catalog: net
-    platform_whitelist: qemu_x86
     depends_on: netif
   net.udp:
     path: tests/net/udp
@@ -69,4 +62,3 @@ cases:
   can.frame:
     path: tests/subsys/canbus/frame
     catalog: net
-    platform_whitelist: native_posix native_posix_64 qemu_x86 qemu_cortex_m3

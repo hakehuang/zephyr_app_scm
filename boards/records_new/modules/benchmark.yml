@@ -3,25 +3,21 @@ cases:
   benchmark.kernel.application:
     path: tests/benchmarks/app_kernel
     catalog: benchmark
-    arch_whitelist: x86 arm
     min_flash: 34
     min_ram: 32
   benchmark.kernel.application.posix:
     path: tests/benchmarks/app_kernel
     catalog: benchmark
-    arch_whitelist: posix
     min_ram: 32
   benchmark.kernel.boot_time:
     path: tests/benchmarks/boot_time
     catalog: benchmark
-    arch_whitelist: x86 arm posix
     platform_exclude: qemu_x86 qemu_x86_coverage qemu_x86_64 qemu_x86_nommu minnowboard
       acrn
     filter: CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC >= 1000000
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
-    arch_whitelist: x86 arm posix
     platform_exclude: qemu_x86_64
     filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.latency.stm32:

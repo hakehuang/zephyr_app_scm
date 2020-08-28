@@ -3,17 +3,13 @@ cases:
   sample.ipc.ipm.ipm_mcux:
     path: samples/subsys/ipc/ipm_mcux
     catalog: ipm
-    platform_whitelist: lpcxpresso54114_m4
   sample.ipc.ipm.ipm_mhu_dual_core:
     path: samples/subsys/ipc/ipm_mhu_dual_core
     catalog: ipm
-    platform_whitelist: v2m_musca v2m_musca_nonsecure v2m_musca_b1 v2m_musca_b1_nonsecure
   sample.ipc.openamp:
     path: samples/subsys/ipc/openamp
     catalog: ipm
-    platform_whitelist: lpcxpresso54114_m4 mps2_an521 v2m_musca v2m_musca_b1
   sample.subsys.ipc.openamp_rs_table:
     path: samples/subsys/ipc/openamp_rsc_table
     catalog: ipm
     build_only: true
-    platform_whitelist: stm32mp157c_dk2

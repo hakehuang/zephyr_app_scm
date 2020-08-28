@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="29" errors="0" failures="4" name="" skipped="0" time="0">
+    <testsuite tests="98" errors="0" failures="4" name="" skipped="13" time="0">
           <testcase classname="mimxrt1064_evk:sample.net.sockets.echo" name="sample.net.sockets.echo" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -16,6 +16,125 @@
           <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_server.usbnet_composite" name="sample.net.sockets.echo_server.usbnet_composite" time="0">
           <failure message="failed" type="failure">
           </failure>
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.beacon" name="sample.bluetooth.beacon" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.central" name="sample.bluetooth.central" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.central_hr" name="sample.bluetooth.central_hr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.eddystone" name="sample.bluetooth.eddystone" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.handsfree" name="sample.bluetooth.handsfree" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.hci_pwr_ctrl" name="sample.bluetooth.hci_pwr_ctrl" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.hci_rpmsg" name="sample.bluetooth.hci_rpmsg" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.ibeacon" name="sample.bluetooth.ibeacon" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.mesh" name="sample.bluetooth.mesh" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.mesh_demo" name="sample.bluetooth.mesh_demo" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral" name="sample.bluetooth.peripheral" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_csc" name="sample.bluetooth.peripheral_csc" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_dis" name="sample.bluetooth.peripheral_dis" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_esp" name="sample.bluetooth.peripheral_esp" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_hids" name="sample.bluetooth.peripheral_hids" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_hr" name="sample.bluetooth.peripheral_hr" time="0">
+          </testcase>
+         <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_hr_rv32m1_vega_ri5cy" name="sample.bluetooth.peripheral_hr_rv32m1_vega_ri5cy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_hr.frdm_kw41z_shield" name="sample.bluetooth.peripheral_hr.frdm_kw41z_shield" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_ht" name="sample.bluetooth.peripheral_ht" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_ht.frdm_kw41z_shield" name="sample.bluetooth.peripheral_ht.frdm_kw41z_shield" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.peripheral_sc_only" name="sample.bluetooth.peripheral_sc_only" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.scan_adv" name="sample.bluetooth.scan_adv" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.st_ble_sensor" name="sample.bluetooth.st_ble_sensor" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.mesh.onoff" name="sample.bluetooth.mesh.onoff" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.mesh.onoff_level_lighting_vnd" name="sample.bluetooth.mesh.onoff_level_lighting_vnd" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_client" name="sample.net.sockets.echo_client" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_client.bt" name="sample.net.sockets.echo_client.bt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_server.bt" name="sample.net.sockets.echo_server.bt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:bluetooth.mesh.mesh_shell" name="bluetooth.mesh.mesh_shell" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:shell" name="shell" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:bluetooth.shell.main" name="bluetooth.shell.main" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:bluetooth.shell.shell_br" name="bluetooth.shell.shell_br" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:bluetooth.general.tester" name="bluetooth.general.tester" time="0">
+          </testcase>
+         <testcase classname="mimxrt1064_evk:bluetooth.mesh.main" name="bluetooth.mesh.main" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1064_evk:bluetooth.mesh.dbg" name="bluetooth.mesh.dbg" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1064_evk:bluetooth.mesh.friend" name="bluetooth.mesh.friend" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1064_evk:bluetooth.mesh.gatt" name="bluetooth.mesh.gatt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1064_evk:bluetooth.mesh.lpn" name="bluetooth.mesh.lpn" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1064_evk:bluetooth.mesh.main.microbit" name="bluetooth.mesh.main.microbit" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1064_evk:bluetooth.mesh.pb_gatt" name="bluetooth.mesh.pb_gatt" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1064_evk:bluetooth.mesh.proxy" name="bluetooth.mesh.proxy" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.ipsp" name="sample.bluetooth.ipsp" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.bluetooth.ipsp.zep1656" name="sample.bluetooth.ipsp.zep1656" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.coap_client" name="sample.net.sockets.coap_client" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.coap_server" name="sample.net.sockets.coap_server" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_async" name="sample.net.sockets.echo_async" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_async_select" name="sample.net.sockets.echo_async_select" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_client.802154" name="sample.net.sockets.echo_client.802154" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_server.802154" name="sample.net.sockets.echo_server.802154" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_client.mcr20a" name="sample.net.sockets.echo_client.mcr20a" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_client.nrf_802154" name="sample.net.sockets.echo_client.nrf_802154" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_server.mcr20a" name="sample.net.sockets.echo_server.mcr20a" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.echo_server.nrf_802154" name="sample.net.sockets.echo_server.nrf_802154" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.can.test_with_one_socket" name="sample.net.sockets.can.test_with_one_socket" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.can.test_with_two_sockets" name="sample.net.sockets.can.test_with_two_sockets" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:net.socket.get_addr_info" name="net.socket.get_addr_info" time="0">
           </testcase>
@@ -41,6 +160,8 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:net.socket.tcp" name="net.socket.tcp" time="0">
           </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.sockets.packet" name="sample.net.sockets.packet" time="0">
+          </testcase>
           <testcase classname="mimxrt1064_evk:sample.net.stats" name="sample.net.stats" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:sample.net.syslog.with_timefuncs" name="sample.net.syslog.with_timefuncs" time="0">
@@ -63,9 +184,65 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:sample.net.vlan" name="sample.net.vlan" time="0">
           </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.wifi" name="sample.net.wifi" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.net.zperf" name="sample.net.zperf" time="0">
+          </testcase>
           <testcase classname="mimxrt1064_evk:sample.drivers.current_sensing" name="sample.drivers.current_sensing" time="0">
           </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.adt7420" name="sample.sensor.adt7420" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.adxl372" name="sample.sensor.adxl372" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.adxl372.i2c" name="sample.sensor.adxl372.i2c" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.apds9960" name="sample.sensor.apds9960" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.apds9960.trigger" name="sample.sensor.apds9960.trigger" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.bme280" name="sample.sensor.bme280" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.ccs811" name="sample.sensor.ccs811" time="0">
+          </testcase>
+         <testcase classname="mimxrt1064_evk:sample.sensor.dht" name="sample.sensor.dht" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.fxas21002" name="sample.sensor.fxas21002" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.fxos8700" name="sample.sensor.fxos8700" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.isl29035" name="sample.sensor.isl29035" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.lps22hh.nrf52.iks01a3" name="sample.sensor.lps22hh.nrf52.iks01a3" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.max30101" name="sample.sensor.max30101" time="0">
+          </testcase>
+         <testcase classname="mimxrt1064_evk:sample.sensor.ms5837" name="sample.sensor.ms5837" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1064_evk:sample.sensor.sht3xd" name="sample.sensor.sht3xd" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="mimxrt1064_evk:sample.sensor.sht3xd.trigger" name="sample.sensor.sht3xd.trigger" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="mimxrt1064_evk:sample.sensor.thermometer" name="sample.sensor.thermometer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.ti_hdc" name="sample.sensor.ti_hdc" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.sensor.tmp116" name="sample.sensor.tmp116" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.display.cfb.ssd1306" name="sample.display.cfb.ssd1306" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.display.cfb_shell.ssd1306" name="sample.display.cfb_shell.ssd1306" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.display.adafruit_2_8_tft_touch_v2" name="sample.display.adafruit_2_8_tft_touch_v2" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.display.waveshare_epaper_gdeh0213b1" name="sample.display.waveshare_epaper_gdeh0213b1" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.display.waveshare_epaper_gdeh0213b72" name="sample.display.waveshare_epaper_gdeh0213b72" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:sample.display.waveshare_epaper_gdeh029a1" name="sample.display.waveshare_epaper_gdeh029a1" time="0">
           </testcase>
   </testsuite>
 </testsuites>

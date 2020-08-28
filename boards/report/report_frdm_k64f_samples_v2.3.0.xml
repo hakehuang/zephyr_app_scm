@@ -1,6 +1,22 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="48" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="66" errors="0" failures="0" name="" skipped="0" time="0">
+          <testcase classname="frdm_k64f:sample.net.eth_native_posix" name="sample.net.eth_native_posix" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo" name="sample.net.sockets.echo" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo_server" name="sample.net.sockets.echo_server" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo_server.e1000" name="sample.net.sockets.echo_server.e1000" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo_server.stellaris" name="sample.net.sockets.echo_server.stellaris" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo_server.smsc911x" name="sample.net.sockets.echo_server.smsc911x" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.sntp_client" name="sample.net.sockets.sntp_client" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.sntp_client.posix" name="sample.net.sockets.sntp_client.posix" time="0">
+          </testcase>
           <testcase classname="frdm_k64f:net.coap" name="net.coap" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.coap.simple" name="net.coap.simple" time="0">
@@ -41,21 +57,31 @@
           </testcase>
           <testcase classname="frdm_k64f:net.ip-addr" name="net.ip-addr" time="0">
           </testcase>
+          <testcase classname="frdm_k64f:sample.net.ipv4_autoconf" name="sample.net.ipv4_autoconf" time="0">
+          </testcase>
           <testcase classname="frdm_k64f:net.ipv6" name="net.ipv6" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.ipv6.fragment" name="net.ipv6.fragment" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.lldp" name="sample.net.lldp" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.net.lwm2m_client" name="sample.net.lwm2m_client" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.net.lwm2m_client.dtls" name="sample.net.lwm2m_client.dtls" time="0">
           </testcase>
+          <testcase classname="frdm_k64f:sample.net.lwm2m_client.bt" name="sample.net.lwm2m_client.bt" time="0">
+          </testcase>
           <testcase classname="frdm_k64f:sample.net.lwm2m_client.wnc_m14a2a" name="sample.net.lwm2m_client.wnc_m14a2a" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.mdns_responder" name="sample.net.mdns_responder" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.management" name="net.management" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.mld" name="net.mld" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.net.mqtt_publisher" name="sample.net.mqtt_publisher" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.mqtt_publisher.bt" name="sample.net.mqtt_publisher.bt" time="0">
           </testcase>
           <testcase classname="frdm_k64f:sample.net.cloud.mqtt_azure" name="sample.net.cloud.mqtt_azure" time="0">
           </testcase>
@@ -66,6 +92,16 @@
           <testcase classname="frdm_k64f:shell" name="shell" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.context" name="net.context" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo_client" name="sample.net.sockets.echo_client" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo_client.nrf_openthread" name="sample.net.sockets.echo_client.nrf_openthread" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo_client.kw41z_openthread" name="sample.net.sockets.echo_client.kw41z_openthread" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo_server.nrf_openthread" name="sample.net.sockets.echo_server.nrf_openthread" time="0">
+          </testcase>
+          <testcase classname="frdm_k64f:sample.net.sockets.echo_server.kw41z_openthread" name="sample.net.sockets.echo_server.kw41z_openthread" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.promisc" name="net.promisc" time="0">
           </testcase>

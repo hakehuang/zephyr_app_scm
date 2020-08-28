@@ -3,11 +3,9 @@ cases:
   sample.board.reel_board.mesh_badge:
     path: samples/boards/reel_board/mesh_badge
     catalog: samples sensor
-    platform_whitelist: reel_board
   sample.sensor.bme680:
     path: samples/sensor/bme680
     catalog: samples sensor
-    platform_whitelist: nrf52840dk_nrf52840
   sample.sensor.lis2dh:
     path: samples/sensor/lis2dh
     catalog: samples sensor
@@ -16,3 +14,7 @@ cases:
     path: samples/sensor/lsm303dlhc
     catalog: samples sensor
     depends_on: i2c lsm303dlhc
+  sample.sensor.sm351lt:
+    path: samples/sensor/sm351lt
+    catalog: samples sensor
+    depends_on: gpio sm351lt
