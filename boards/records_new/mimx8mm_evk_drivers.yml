@@ -2,27 +2,13 @@
 settings:
   case_pipe_name: "mimx8mm_evk_drivers"
 __load__:
-- modules/settings_nvs.yml
-- modules/settings_intialization_fcb.yml
-- modules/settings_fs_settings_littlefs.yml
-- modules/settings_fs_filesystem.yml
-- modules/settings_file.yml
-- modules/settings_fcb.yml
-- modules/settings.yml
-- modules/samples_sensor.yml
-- modules/samples_ipm.yml
-- modules/samples_display_gui.yml
-- modules/samples.yml
-- modules/posix_pthread_eventfd.yml
-- modules/posix_net.yml
-- modules/posix_filesystem.yml
-- modules/posix.yml
 - modules/drivers_watchdog.yml
 - modules/drivers_userspace.yml
 - modules/drivers_spi.yml
 - modules/drivers_sensor_grove_temperature.yml
 - modules/drivers_sensor_grove_light.yml
 - modules/drivers_pwm.yml
+- modules/drivers_led.yml
 - modules/drivers_kscan_userspace.yml
 - modules/drivers_kscan.yml
 - modules/drivers_ipc.yml
@@ -38,9 +24,6 @@ __load__:
 - modules/driver_entropy.yml
 - modules/driver_can.yml
 - modules/driver.yml
-- modules/cmsis_rtos.yml
-- modules/cmsis_dsp.yml
-- modules/button_gpio.yml
 - skips/mimx8mm_evk.yml
 - boards/mimx8mm_evk.yml
 cases:

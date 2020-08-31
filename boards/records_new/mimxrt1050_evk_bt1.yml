@@ -1,0 +1,16 @@
+---
+settings:
+  case_pipe_name: "mimxrt1050_evk_bt1"
+__load__:
+- modules/bluetooth_uuid.yml
+- modules/bluetooth_spi.yml
+- modules/bluetooth_net.yml
+- modules/bluetooth_mesh.yml
+- modules/bluetooth_hci_prop_event.yml
+- modules/Bluetooth_Mesh_Provisioner.yml
+- skips/mimxrt1050_evk.yml
+- boards/mimxrt1050_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

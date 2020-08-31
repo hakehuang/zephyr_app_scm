@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "${@board}_can"
+__load__:
+- modules/can_isotp.yml
+- modules/can_canopen.yml
+- skips/${@board}.yml
+- boards/${@board}.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

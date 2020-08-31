@@ -476,6 +476,11 @@ cases:
   sample.drivers.led.lp3943:
     path: samples/drivers/led_lp3943
     catalog: LED
+  sample.drivers.led.lp503x:
+    path: samples/drivers/led_lp503x
+    catalog: LED
+    filter: dt_compat_enabled("ti,lp503x")
+    depends_on: i2c
   sample.drivers.led.lp5562:
     path: samples/drivers/led_lp5562
     catalog: led
@@ -2449,10 +2454,10 @@ cases:
     path: tests/drivers/hwinfo/api
     catalog: driver
   drivers.i2c:
-    path: tests/drivers/i2c/i2c_api
-    catalog: drivers i2c
-    depends_on: i2c
-    filter: dt_alias_exists("i2c-0") or dt_alias_exists("i2c-1") or dt_alias_exists("i2c-2")
+    path: tests/drivers/led/led_api
+    catalog: drivers led
+    depends_on: led
+    filter: dt_alias_exists("led-controller-0")
   drivers.i2c_slave:
     path: tests/drivers/i2c/i2c_slave_api
     catalog: drivers i2c
@@ -2768,7 +2773,12 @@ cases:
     path: tests/kernel/mem_protect/userspace
     catalog: kernel security userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.memory_protection.userspace.gap_filling:
+  kernel.memory_protection.userspace.gap_filling.arc:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+  kernel.memory_protection.userspace.gap_filling.arm:
     path: tests/kernel/mem_protect/userspace
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y

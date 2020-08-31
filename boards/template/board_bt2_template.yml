@@ -1,0 +1,11 @@
+---
+settings:
+  case_pipe_name: "${@board}_bt2"
+__load__:
+- modules/bluetooth.yml
+- skips/${@board}.yml
+- boards/${@board}.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

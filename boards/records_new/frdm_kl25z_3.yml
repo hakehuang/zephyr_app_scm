@@ -2,34 +2,6 @@
 settings:
   case_pipe_name: "frdm_kl25z_3"
 __load__:
-- modules/out_of_tree.yml
-- modules/ot_radio.yml
-- modules/onoff_timer.yml
-- modules/nvs.yml
-- modules/nrf52_soc_flash_nrf.yml
-- modules/nmi_interrupt_arm.yml
-- modules/msd_usb.yml
-- modules/mqtt_net_userspace.yml
-- modules/mpu.yml
-- modules/microbit_mesh_bluetooth.yml
-- modules/microbit_line-follower_robot_car.yml
-- modules/memory_protection.yml
-- modules/mdns.yml
-- modules/mcuboot.yml
-- modules/lora.yml
-- modules/logging_usermode.yml
-- modules/logging.yml
-- modules/log_output_logging.yml
-- modules/log_msg_logging.yml
-- modules/log_list_logging.yml
-- modules/log_core_logging.yml
-- modules/llmnr.yml
-- modules/littlefs_fatfs_filesystem_qemu_x86.yml
-- modules/littlefs_fatfs_filesystem.yml
-- modules/linker.yml
-- modules/libc.yml
-- modules/lib_sys_util_tests.yml
-- modules/led.yml
 - modules/kconfig.yml
 - modules/jwt.yml
 - modules/json.yml
@@ -44,9 +16,19 @@ __load__:
 - modules/i2c.yml
 - modules/http_net.yml
 - modules/heap.yml
-- modules/OpenThread_Network_Co-Processor.yml
-- modules/LED_gpio.yml
-- modules/LED.yml
+- modules/gpio.yml
+- modules/google_iot_mqtt.yml
+- modules/gen_inc_file.yml
+- modules/footprint.yml
+- modules/flash_map.yml
+- modules/flash_circural_buffer.yml
+- modules/flash_shell.yml
+- modules/flash_nrf52_nrf_qspi_fash.yml
+- modules/flash_nrf52_nrf9160.yml
+- modules/filesystem.yml
+- modules/fdtable.yml
+- modules/external.yml
+- modules/ec.yml
 - skips/frdm_kl25z.yml
 - boards/frdm_kl25z.yml
 cases:

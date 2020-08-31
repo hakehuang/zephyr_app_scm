@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "${@board}_cmsis"
+__load__:
+- modules/cmsis_rtos.yml
+- modules/cmsis_dsp.yml
+- skips/${@board}.yml
+- boards/${@board}.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

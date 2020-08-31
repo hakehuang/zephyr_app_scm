@@ -286,10 +286,19 @@ def split_test_catalog(fn, outdir, template_dir)
     'board_2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_2"}}.deep_merge(common_hash),
     'board_3_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_3"}}.deep_merge(common_hash),
     'board_4_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_4"}}.deep_merge(common_hash),
+    'board_5_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_5"}}.deep_merge(common_hash),
+    'board_cmsis_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_cmsis"}}.deep_merge(common_hash),
     'board_drivers_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_drivers"}}.deep_merge(common_hash),
     'board_kernel_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel"}}.deep_merge(common_hash),
     'board_kernel2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel2"}}.deep_merge(common_hash),
     'board_samples_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_samples"}}.deep_merge(common_hash),
+    'board_sensors_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_sensors"}}.deep_merge(common_hash),
+    'board_shield_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_shield"}}.deep_merge(common_hash),
+    'board_bt1_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_bt1"}}.deep_merge(common_hash),
+    'board_bt2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_bt2"}}.deep_merge(common_hash),
+    'board_can_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_can"}}.deep_merge(common_hash),
+    'board_socket_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_socket"}}.deep_merge(common_hash),
+    'board_traffic_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_traffic"}}.deep_merge(common_hash),
     'board_samples2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_samples2"}}.deep_merge(common_hash),
     'board_usb_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_usb"}}.deep_merge(common_hash),
   }
@@ -299,37 +308,46 @@ def split_test_catalog(fn, outdir, template_dir)
     # puts module_name
     if module_name.downcase().start_with?("usb")
       template_files_hash['board_usb_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().start_with?("driver") or
-      module_name.downcase().start_with?("settings") or
-      module_name.downcase().start_with?("posix") or
-      module_name.downcase().start_with?("samples") or
-      module_name.downcase().start_with?("button_") or
-      module_name.downcase().match(/^cmsis_dsp/) or
+    elsif module_name.downcase().match(/^cmsis_dsp/) or
       module_name.downcase().match(/^cmsis_rtos/)
+      template_files_hash['board_cmsis_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().start_with?("driver")
       template_files_hash['board_drivers_template.yml']["__load__"].unshift("modules/#{module_name}")
-        elsif module_name.downcase().match(/^kernel_/)
+    elsif module_name.downcase().match(/^kernel_/)
       template_files_hash['board_kernel2_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^kernel/) or
       module_name.downcase().match(/^tickless_kernel/)
       template_files_hash['board_kernel_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^sensors/) or
-      module_name.downcase().match(/^shield/) or
-      module_name.downcase().start_with?("bluetooth") or
-      module_name.downcase().start_with?("can_") or
-      module_name.downcase().match(/^net_[s-z]/)
+    elsif module_name.downcase().match(/^sensors/)
+      template_files_hash['board_sensors_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^shield/)
+      template_files_hash['board_shield_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().start_with?("bluetooth_")
+      template_files_hash['board_bt1_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().start_with?("bluetooth")
+      template_files_hash['board_bt2_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().start_with?("can_")
+      template_files_hash['board_can_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().start_with?(/^net_s/)
+      template_files_hash['board_socket_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().start_with?(/^net_traffic_/)
+      template_files_hash['board_traffic_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^net_[t-z]/)
       template_files_hash['board_samples2_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^net_[a-r]/) or
       module_name.downcase().match(/^net/) or
       module_name.downcase().match(/^tcp/)
       template_files_hash['board_samples_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^[a-b]/)
+    elsif module_name.downcase().match(/^[a-c]/)
       template_files_hash['board_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^[c-g]/)
+    elsif module_name.downcase().match(/^d/)
       template_files_hash['board_2_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^[h-o]/)
+    elsif module_name.downcase().match(/^[e-k]/)
       template_files_hash['board_3_template.yml']["__load__"].unshift("modules/#{module_name}")
-    else
+    elsif module_name.downcase().match(/^[l-p]/)
       template_files_hash['board_4_template.yml']["__load__"].unshift("modules/#{module_name}")
+    else
+      template_files_hash['board_5_template.yml']["__load__"].unshift("modules/#{module_name}")
     end
   end
 

@@ -1,0 +1,11 @@
+---
+settings:
+  case_pipe_name: "${@board}_traffic"
+__load__:
+- modules/net_traffic_class.yml
+- skips/${@board}.yml
+- boards/${@board}.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "frdm_kl25z_cmsis"
+__load__:
+- modules/cmsis_rtos.yml
+- modules/cmsis_dsp.yml
+- skips/frdm_kl25z.yml
+- boards/frdm_kl25z.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

@@ -39,6 +39,7 @@ pipeline {
                   sh 'docker exec #{@docker} #{@run_script} $(basename $(pwd)) #{item['build_path']} #{item['opt'][0]} #{item['bin']}'
                 }
               <?rb end ?>
+                sh 'docker exec #{@docker} rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/#{item['build_path']}'
             }
           }
         }

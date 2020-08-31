@@ -1,0 +1,11 @@
+---
+settings:
+  case_pipe_name: "frdm_k64f_bt2"
+__load__:
+- modules/bluetooth.yml
+- skips/frdm_k64f.yml
+- boards/frdm_k64f.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

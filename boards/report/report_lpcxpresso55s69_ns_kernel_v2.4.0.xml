@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<testsuites>
+    <testsuite tests="115" errors="0" failures="0" name="" skipped="0" time="0">
+          <testcase classname="lpcxpresso55s69_ns:kernel.common" name="kernel.common" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.fifo" name="kernel.fifo" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.fifo.poll" name="kernel.fifo.poll" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.fifo.timeout" name="kernel.fifo.timeout" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.fifo.timeout.poll" name="kernel.fifo.timeout.poll" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.fifo.usage" name="kernel.fifo.usage" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.fifo.usage.poll" name="kernel.fifo.usage.poll" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.lifo" name="kernel.lifo" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.lifo.usage" name="kernel.lifo.usage" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api" name="kernel.mailbox.api" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.bad_priorities" name="kernel.mailbox.api.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.lock_preemptible" name="kernel.mailbox.api.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_async_multiple_put" name="kernel.mailbox.api.mbox_async_multiple_put" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_async_put_get_block" name="kernel.mailbox.api.mbox_async_put_get_block" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_async_put_get_buffer" name="kernel.mailbox.api.mbox_async_put_get_buffer" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_async_put_to_waiting_get" name="kernel.mailbox.api.mbox_async_put_to_waiting_get" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_block_get_buff_to_pool" name="kernel.mailbox.api.mbox_block_get_buff_to_pool" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_block_get_buff_to_smaller_pool" name="kernel.mailbox.api.mbox_block_get_buff_to_smaller_pool" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_block_get_invalid_pool" name="kernel.mailbox.api.mbox_block_get_invalid_pool" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_clean_up_tx_pool" name="kernel.mailbox.api.mbox_clean_up_tx_pool" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_dispose_size_0_msg" name="kernel.mailbox.api.mbox_dispose_size_0_msg" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_get_waiting_put_incorrect_tid" name="kernel.mailbox.api.mbox_get_waiting_put_incorrect_tid" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_incorrect_receiver_tid" name="kernel.mailbox.api.mbox_incorrect_receiver_tid" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_incorrect_transmit_tid" name="kernel.mailbox.api.mbox_incorrect_transmit_tid" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_kdefine" name="kernel.mailbox.api.mbox_kdefine" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_kinit" name="kernel.mailbox.api.mbox_kinit" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_msg_tid_mismatch" name="kernel.mailbox.api.mbox_msg_tid_mismatch" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_multiple_waiting_get" name="kernel.mailbox.api.mbox_multiple_waiting_get" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_put_get_buffer" name="kernel.mailbox.api.mbox_put_get_buffer" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_put_get_null" name="kernel.mailbox.api.mbox_put_get_null" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_target_source_thread_block" name="kernel.mailbox.api.mbox_target_source_thread_block" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_target_source_thread_buffer" name="kernel.mailbox.api.mbox_target_source_thread_buffer" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.mbox_timed_out_mbox_get" name="kernel.mailbox.api.mbox_timed_out_mbox_get" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.pending_thread_wakeup" name="kernel.mailbox.api.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.priority_cooperative" name="kernel.mailbox.api.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.priority_preemptible" name="kernel.mailbox.api.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.priority_scheduling" name="kernel.mailbox.api.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.sched_is_preempt_thread" name="kernel.mailbox.api.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.sleep_cooperative" name="kernel.mailbox.api.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.sleep_wakeup_preemptible" name="kernel.mailbox.api.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.unlock_nested_sched_lock" name="kernel.mailbox.api.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.unlock_preemptible" name="kernel.mailbox.api.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.user_k_is_preempt" name="kernel.mailbox.api.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.user_k_wakeup" name="kernel.mailbox.api.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.wakeup_expired_timer_thread" name="kernel.mailbox.api.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.api.yield_cooperative" name="kernel.mailbox.api.yield_cooperative" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_async_multiple_put" name="kernel.mailbox.mbox_async_multiple_put" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_async_put_get_block" name="kernel.mailbox.mbox_async_put_get_block" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_async_put_get_buffer" name="kernel.mailbox.mbox_async_put_get_buffer" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_async_put_to_waiting_get" name="kernel.mailbox.mbox_async_put_to_waiting_get" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_block_get_buff_to_pool" name="kernel.mailbox.mbox_block_get_buff_to_pool" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_block_get_buff_to_smaller_pool" name="kernel.mailbox.mbox_block_get_buff_to_smaller_pool" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_block_get_invalid_pool" name="kernel.mailbox.mbox_block_get_invalid_pool" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_clean_up_tx_pool" name="kernel.mailbox.mbox_clean_up_tx_pool" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_dispose_size_0_msg" name="kernel.mailbox.mbox_dispose_size_0_msg" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_get_waiting_put_incorrect_tid" name="kernel.mailbox.mbox_get_waiting_put_incorrect_tid" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_incorrect_receiver_tid" name="kernel.mailbox.mbox_incorrect_receiver_tid" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_incorrect_transmit_tid" name="kernel.mailbox.mbox_incorrect_transmit_tid" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_kdefine" name="kernel.mailbox.mbox_kdefine" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_kinit" name="kernel.mailbox.mbox_kinit" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_msg_tid_mismatch" name="kernel.mailbox.mbox_msg_tid_mismatch" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_multiple_waiting_get" name="kernel.mailbox.mbox_multiple_waiting_get" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_put_get_buffer" name="kernel.mailbox.mbox_put_get_buffer" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_put_get_null" name="kernel.mailbox.mbox_put_get_null" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_target_source_thread_block" name="kernel.mailbox.mbox_target_source_thread_block" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_target_source_thread_buffer" name="kernel.mailbox.mbox_target_source_thread_buffer" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.mbox_timed_out_mbox_get" name="kernel.mailbox.mbox_timed_out_mbox_get" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.msg_receiver" name="kernel.mailbox.msg_receiver" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.msg_receiver_unlimited" name="kernel.mailbox.msg_receiver_unlimited" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.usage" name="kernel.mailbox.usage" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.usage.msg_receiver" name="kernel.mailbox.usage.msg_receiver" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.mailbox.usage.msg_receiver_unlimited" name="kernel.mailbox.usage.msg_receiver_unlimited" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_heap" name="kernel.memory_heap" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_protection" name="kernel.memory_protection" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_protection.sys_sem" name="kernel.memory_protection.sys_sem" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_protection.sys_sem.nouser" name="kernel.memory_protection.sys_sem.nouser" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api" name="kernel.memory_slabs.api" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.fifo_cancel_wait" name="kernel.memory_slabs.api.fifo_cancel_wait" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.fifo_is_empty_isr" name="kernel.memory_slabs.api.fifo_is_empty_isr" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.fifo_is_empty_thread" name="kernel.memory_slabs.api.fifo_is_empty_thread" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.fifo_loop" name="kernel.memory_slabs.api.fifo_loop" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.mslab" name="kernel.memory_slabs.api.mslab" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.mslab_alloc_align" name="kernel.memory_slabs.api.mslab_alloc_align" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.mslab_alloc_free_thread" name="kernel.memory_slabs.api.mslab_alloc_free_thread" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.mslab_alloc_timeout" name="kernel.memory_slabs.api.mslab_alloc_timeout" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.mslab_kdefine" name="kernel.memory_slabs.api.mslab_kdefine" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.mslab_kdefine_extern" name="kernel.memory_slabs.api.mslab_kdefine_extern" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.mslab_kinit" name="kernel.memory_slabs.api.mslab_kinit" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.mslab_used_get" name="kernel.memory_slabs.api.mslab_used_get" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.test" name="kernel.memory_slabs.api.test" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.api.test.mslab" name="kernel.memory_slabs.api.test.mslab" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.concept" name="kernel.memory_slabs.concept" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.concept.mslab_alloc_wait_prio" name="kernel.memory_slabs.concept.mslab_alloc_wait_prio" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab" name="kernel.memory_slabs.mslab" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab_alloc_align" name="kernel.memory_slabs.mslab_alloc_align" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab_alloc_free_thread" name="kernel.memory_slabs.mslab_alloc_free_thread" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab_alloc_timeout" name="kernel.memory_slabs.mslab_alloc_timeout" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab_alloc_wait_prio" name="kernel.memory_slabs.mslab_alloc_wait_prio" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab_kdefine" name="kernel.memory_slabs.mslab_kdefine" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab_kdefine_extern" name="kernel.memory_slabs.mslab_kdefine_extern" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab_kinit" name="kernel.memory_slabs.mslab_kinit" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab_threadsafe" name="kernel.memory_slabs.mslab_threadsafe" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.mslab_used_get" name="kernel.memory_slabs.mslab_used_get" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.threadsafe" name="kernel.memory_slabs.threadsafe" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.memory_slabs.threadsafe.mslab_threadsafe" name="kernel.memory_slabs.threadsafe.mslab_threadsafe" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.sched" name="kernel.sched" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.threads.no-multithreading" name="kernel.threads.no-multithreading" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.tickless.concept" name="kernel.tickless.concept" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.tickless.concept.tickleConsole now belongs to simulator." name="kernel.tickless.concept.tickleConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.tickless.concept.tickless_slice" name="kernel.tickless.concept.tickless_slice" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.tickless.concept.tickless_sysclock" name="kernel.tickless.concept.tickless_sysclock" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.tickless.tickless" name="kernel.tickless.tickless" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.tickless.tickless_slice" name="kernel.tickless.tickless_slice" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.tickless.tickless_sysclock" name="kernel.tickless.tickless_sysclock" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_ns:kernel.workqueue" name="kernel.workqueue" time="0">
+          </testcase>
+  </testsuite>
+</testsuites>

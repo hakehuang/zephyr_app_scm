@@ -1,0 +1,717 @@
+<?xml version="1.0"?>
+<testsuites>
+    <testsuite tests="354" errors="0" failures="2" name="" skipped="0" time="0">
+          <testcase classname="mimxrt1020_evk:kernel.common" name="kernel.common" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_sentinel" name="kernel.common.stack_sentinel" time="0">
+          <failure message="failed" type="failure">
+          </failure>
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_protection" name="kernel.common.stack_protection" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_no_userspace" name="kernel.common.stack_protection_no_userspace" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection" name="kernel.memory_protection" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool" name="kernel.memory_pool" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api" name="kernel.memory_pool.api" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.legacy.mpool_alloc_free_isr" name="kernel.memory_pool.api.legacy.mpool_alloc_free_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.legacy.mpool_alloc_free_thread" name="kernel.memory_pool.api.legacy.mpool_alloc_free_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.legacy.mpool_alloc_size" name="kernel.memory_pool.api.legacy.mpool_alloc_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.legacy.mpool_alloc_timeout" name="kernel.memory_pool.api.legacy.mpool_alloc_timeout" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.legacy.mpool_kdefine_extern" name="kernel.memory_pool.api.legacy.mpool_kdefine_extern" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.legacy.sys_heap_mem_pool_assign" name="kernel.memory_pool.api.legacy.sys_heap_mem_pool_assign" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.mpool_alloc_free_isr" name="kernel.memory_pool.api.mpool_alloc_free_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.mpool_alloc_free_thread" name="kernel.memory_pool.api.mpool_alloc_free_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.mpool_alloc_size" name="kernel.memory_pool.api.mpool_alloc_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.mpool_alloc_timeout" name="kernel.memory_pool.api.mpool_alloc_timeout" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.mpool_kdefine_extern" name="kernel.memory_pool.api.mpool_kdefine_extern" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.api.sys_heap_mem_pool_assign" name="kernel.memory_pool.api.sys_heap_mem_pool_assign" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.concept" name="kernel.memory_pool.concept" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_parent" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.concept.legacy.mpool_alloc_size_roundup" name="kernel.memory_pool.concept.legacy.mpool_alloc_size_roundup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.concept.legacy.mpool_alloc_wait_prio" name="kernel.memory_pool.concept.legacy.mpool_alloc_wait_prio" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_parent" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.concept.mpool_alloc_size_roundup" name="kernel.memory_pool.concept.mpool_alloc_size_roundup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.concept.mpool_alloc_wait_prio" name="kernel.memory_pool.concept.mpool_alloc_wait_prio" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.legacy.pool_block_get" name="kernel.memory_pool.legacy.pool_block_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.legacy.pool_block_get_timeout" name="kernel.memory_pool.legacy.pool_block_get_timeout" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.legacy.pool_block_get_wait" name="kernel.memory_pool.legacy.pool_block_get_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.legacy.pool_malloc" name="kernel.memory_pool.legacy.pool_malloc" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_alloc_free_isr" name="kernel.memory_pool.mpool_alloc_free_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_alloc_free_thread" name="kernel.memory_pool.mpool_alloc_free_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.mpool_alloc_merge_failed_diff_parent" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.mpool_alloc_merge_failed_diff_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_alloc_size" name="kernel.memory_pool.mpool_alloc_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_alloc_size_roundup" name="kernel.memory_pool.mpool_alloc_size_roundup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_alloc_timeout" name="kernel.memory_pool.mpool_alloc_timeout" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_alloc_wait_prio" name="kernel.memory_pool.mpool_alloc_wait_prio" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_kdefine_extern" name="kernel.memory_pool.mpool_kdefine_extern" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.mpool_threadsafe" name="kernel.memory_pool.mpool_threadsafe" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.pool_block_get" name="kernel.memory_pool.pool_block_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.pool_block_get_timeout" name="kernel.memory_pool.pool_block_get_timeout" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.pool_block_get_wait" name="kernel.memory_pool.pool_block_get_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.pool_malloc" name="kernel.memory_pool.pool_malloc" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.sys" name="kernel.memory_pool.sys" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.sys.sys_mem_pool_alloc_align4" name="kernel.memory_pool.sys.sys_mem_pool_alloc_align4" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.sys.sys_mem_pool_alloc_free" name="kernel.memory_pool.sys.sys_mem_pool_alloc_free" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.sys.sys_mem_pool_min_block_size" name="kernel.memory_pool.sys.sys_mem_pool_min_block_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.sys_heap_mem_pool_assign" name="kernel.memory_pool.sys_heap_mem_pool_assign" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.sys_mem_pool_alloc_align4" name="kernel.memory_pool.sys_mem_pool_alloc_align4" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.sys_mem_pool_alloc_free" name="kernel.memory_pool.sys_mem_pool_alloc_free" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.sys_mem_pool_min_block_size" name="kernel.memory_pool.sys_mem_pool_min_block_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.threadsafe" name="kernel.memory_pool.threadsafe" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.threadsafe.legacy.mpool_threadsafe" name="kernel.memory_pool.threadsafe.legacy.mpool_threadsafe" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_pool.threadsafe.mpool_threadsafe" name="kernel.memory_pool.threadsafe.mpool_threadsafe" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.protection" name="kernel.memory_protection.protection" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.obj_validation" name="kernel.memory_protection.obj_validation" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.syscalls" name="kernel.memory_protection.syscalls" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.userspace" name="kernel.memory_protection.userspace" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.timing.sleep" name="kernel.common.timing.sleep" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.timing.sleep_forever" name="kernel.common.timing.sleep_forever" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.timing.pending" name="kernel.common.timing.pending" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.timing.usleep" name="kernel.common.timing.usleep" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:sample.kernel.synchronization" name="sample.kernel.synchronization" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.sched" name="kernel.sched" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.bad_priorities" name="kernel.scheduler.no_timeslicing.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.lock_preemptible" name="kernel.scheduler.no_timeslicing.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.pending_thread_wakeup" name="kernel.scheduler.no_timeslicing.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.priority_cooperative" name="kernel.scheduler.no_timeslicing.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.priority_preemptible" name="kernel.scheduler.no_timeslicing.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.priority_scheduling" name="kernel.scheduler.no_timeslicing.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.sched_is_preempt_thread" name="kernel.scheduler.no_timeslicing.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.sleep_cooperative" name="kernel.scheduler.no_timeslicing.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.sleep_wakeup_preempConsole now belongs to simulator." name="kernel.scheduler.no_timeslicing.sleep_wakeup_preempConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.sleep_wakeup_preemptible" name="kernel.scheduler.no_timeslicing.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.slice_reset" name="kernel.scheduler.no_timeslicing.slice_reset" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.slice_scheduling" name="kernel.scheduler.no_timeslicing.slice_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.time_slicing_disable_preemptible" name="kernel.scheduler.no_timeslicing.time_slicing_disable_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.time_slicing_preemptible" name="kernel.scheduler.no_timeslicing.time_slicing_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.unlock_nested_sched_lock" name="kernel.scheduler.no_timeslicing.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.unlock_preemptible" name="kernel.scheduler.no_timeslicing.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.user_k_is_preempt" name="kernel.scheduler.no_timeslicing.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.user_k_wakeup" name="kernel.scheduler.no_timeslicing.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.wakeup_expired_timer_thread" name="kernel.scheduler.no_timeslicing.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.no_timeslicing.yield_cooperative" name="kernel.scheduler.no_timeslicing.yield_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.bad_priorities" name="kernel.scheduler.multiq.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.lock_preemptible" name="kernel.scheduler.multiq.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.pending_thread_wakeup" name="kernel.scheduler.multiq.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.priority_cooperative" name="kernel.scheduler.multiq.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.priority_preemptible" name="kernel.scheduler.multiq.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.priority_scheduling" name="kernel.scheduler.multiq.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.sched_is_preempt_thread" name="kernel.scheduler.multiq.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.sleep_cooperative" name="kernel.scheduler.multiq.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.sleep_wakeup_preemptible" name="kernel.scheduler.multiq.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.slice_reset" name="kernel.scheduler.multiq.slice_reset" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.slice_scheduling" name="kernel.scheduler.multiq.slice_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.time_slicing_disable_preemptible" name="kernel.scheduler.multiq.time_slicing_disable_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.time_slicing_preemptible" name="kernel.scheduler.multiq.time_slicing_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.unlock_nested_sched_lock" name="kernel.scheduler.multiq.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.unlock_preemptible" name="kernel.scheduler.multiq.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.user_k_is_preempt" name="kernel.scheduler.multiq.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.user_k_wakeup" name="kernel.scheduler.multiq.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.wakeup_expired_timer_thread" name="kernel.scheduler.multiq.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq.yield_cooperative" name="kernel.scheduler.multiq.yield_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.bad_priorities" name="kernel.scheduler.multiq_no_timeslicing.bad_priorities" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.lock_preemptible" name="kernel.scheduler.multiq_no_timeslicing.lock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.pending_thread_wakeup" name="kernel.scheduler.multiq_no_timeslicing.pending_thread_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.priority_cooperative" name="kernel.scheduler.multiq_no_timeslicing.priority_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.priority_preemptible" name="kernel.scheduler.multiq_no_timeslicing.priority_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.priority_scheduling" name="kernel.scheduler.multiq_no_timeslicing.priority_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.sched_is_preempt_thread" name="kernel.scheduler.multiq_no_timeslicing.sched_is_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.sleep_cooperative" name="kernel.scheduler.multiq_no_timeslicing.sleep_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.sleep_wakeup_preemptible" name="kernel.scheduler.multiq_no_timeslicing.sleep_wakeup_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.slice_reset" name="kernel.scheduler.multiq_no_timeslicing.slice_reset" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.slice_scheduling" name="kernel.scheduler.multiq_no_timeslicing.slice_scheduling" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.time_slicing_disable_preemptible" name="kernel.scheduler.multiq_no_timeslicing.time_slicing_disable_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.time_slicing_preemptible" name="kernel.scheduler.multiq_no_timeslicing.time_slicing_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.unlock_nested_sched_lock" name="kernel.scheduler.multiq_no_timeslicing.unlock_nested_sched_lock" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.unlock_preemptible" name="kernel.scheduler.multiq_no_timeslicing.unlock_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.user_k_is_preempt" name="kernel.scheduler.multiq_no_timeslicing.user_k_is_preempt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.user_k_wakeup" name="kernel.scheduler.multiq_no_timeslicing.user_k_wakeup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_threConsole now belongs to simulator." name="kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_threConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_thread" name="kernel.scheduler.multiq_no_timeslicing.wakeup_expired_timer_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.scheduler.multiq_no_timeslicing.yield_cooperative" name="kernel.scheduler.multiq_no_timeslicing.yield_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.abort_handler" name="kernel.threads.abort_handler" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis" name="kernel.threads.apis" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.abort_handler" name="kernel.threads.apis.abort_handler" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.customdata_get_set_coop" name="kernel.threads.apis.customdata_get_set_coop" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.customdata_get_set_preempt" name="kernel.threads.apis.customdata_get_set_preempt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.delayed_thread_abort" name="kernel.threads.apis.delayed_thread_abort" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.essential_thread_operation" name="kernel.threads.apis.essential_thread_operation" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.k_thread_foreach" name="kernel.threads.apis.k_thread_foreach" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.systhreads_idle" name="kernel.threads.apis.systhreads_idle" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.systhreads_main" name="kernel.threads.apis.systhreads_main" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.thread_join" name="kernel.threads.apis.thread_join" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.thread_join_deadlock" name="kernel.threads.apis.thread_join_deadlock" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.thread_join_isr" name="kernel.threads.apis.thread_join_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.thread_name_get_set" name="kernel.threads.apis.thread_name_get_set" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.thread_name_user_get_set" name="kernel.threads.apis.thread_name_user_get_set" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.thread_start" name="kernel.threads.apis.thread_start" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_abort_others" name="kernel.threads.apis.threads_abort_others" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_abort_repeat" name="kernel.threads.apis.threads_abort_repeat" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_abort_self" name="kernel.threads.apis.threads_abort_self" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_cpu_mask" name="kernel.threads.apis.threads_cpu_mask" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_priority_set" name="kernel.threads.apis.threads_priority_set" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_spawn_delay" name="kernel.threads.apis.threads_spawn_delay" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_spawn_forever" name="kernel.threads.apis.threads_spawn_forever" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_spawn_params" name="kernel.threads.apis.threads_spawn_params" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_spawn_priority" name="kernel.threads.apis.threads_spawn_priority" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_suspend" name="kernel.threads.apis.threads_suspend" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_suspend_resume_cooperative" name="kernel.threads.apis.threads_suspend_resume_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_suspend_resume_preemptible" name="kernel.threads.apis.threads_suspend_resume_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.threads_suspend_timeout" name="kernel.threads.apis.threads_suspend_timeout" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.apis.user_mode" name="kernel.threads.apis.user_mode" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.customdata_get_set_coop" name="kernel.threads.customdata_get_set_coop" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.customdata_get_set_preempt" name="kernel.threads.customdata_get_set_preempt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.delayed_thread_abort" name="kernel.threads.delayed_thread_abort" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.dynamic" name="kernel.threads.dynamic" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.dynamic.dyn_thread_perms" name="kernel.threads.dynamic.dyn_thread_perms" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.dynamic.kernel_create_dyn_user_thrConsole now belongs to simulator." name="kernel.threads.dynamic.kernel_create_dyn_user_thrConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.dynamic.kernel_create_dyn_user_thread" name="kernel.threads.dynamic.kernel_create_dyn_user_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.dynamic.thread_index_management" name="kernel.threads.dynamic.thread_index_management" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.dynamic.user_create_dyn_user_thread" name="kernel.threads.dynamic.user_create_dyn_user_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.essential_thread_operation" name="kernel.threads.essential_thread_operation" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.init" name="kernel.threads.init" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.init.kdefine_coop_thread" name="kernel.threads.init.kdefine_coop_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.init.kdefine_preempt_thread" name="kernel.threads.init.kdefine_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.init.kinit_coop_thread" name="kernel.threads.init.kinit_coop_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.init.kinit_preempt_thread" name="kernel.threads.init.kinit_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.k_thread_foreach" name="kernel.threads.k_thread_foreach" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.kdefine_coop_thread" name="kernel.threads.kdefine_coop_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.kdefine_preempt_thread" name="kernel.threads.kdefine_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.kinit_coop_thread" name="kernel.threads.kinit_coop_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.kinit_preempt_thread" name="kernel.threads.kinit_preempt_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.no-multithreading" name="kernel.threads.no-multithreading" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.systhreads_idle" name="kernel.threads.systhreads_idle" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.systhreads_main" name="kernel.threads.systhreads_main" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.thread_name_get_set" name="kernel.threads.thread_name_get_set" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.thread_start" name="kernel.threads.thread_start" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_abort_others" name="kernel.threads.threads_abort_others" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_abort_repeat" name="kernel.threads.threads_abort_repeat" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_abort_self" name="kernel.threads.threads_abort_self" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_cpu_mask" name="kernel.threads.threads_cpu_mask" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_priority_set" name="kernel.threads.threads_priority_set" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_spawn_delay" name="kernel.threads.threads_spawn_delay" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_spawn_forever" name="kernel.threads.threads_spawn_forever" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_spawn_params" name="kernel.threads.threads_spawn_params" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_spawn_priority" name="kernel.threads.threads_spawn_priority" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_suspend_resume_cooperative" name="kernel.threads.threads_suspend_resume_cooperative" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.threads_suspend_resume_preemptible" name="kernel.threads.threads_suspend_resume_preemptible" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.threads.user_mode" name="kernel.threads.user_mode" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer" name="kernel.timer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.time_conversions" name="kernel.timer.tickless.time_conversions" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timeout_abs" name="kernel.timer.tickless.timeout_abs" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_duration_period" name="kernel.timer.tickless.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_expirefn_null" name="kernel.timer.tickless.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_k_define" name="kernel.timer.tickless.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_period_0" name="kernel.timer.tickless.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_periodicity" name="kernel.timer.tickless.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_remaining" name="kernel.timer.tickless.timer_remaining" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_remaining_get" name="kernel.timer.tickless.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_status_get" name="kernel.timer.tickless.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_status_get_anytime" name="kernel.timer.tickless.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_status_sync" name="kernel.timer.tickless.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.misra" name="kernel.common.misra" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.futex" name="kernel.futex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.memory_protection.sys_sem" name="kernel.memory_protection.sys_sem" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.message_queue" name="kernel.message_queue" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.mutex" name="kernel.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.mutex" name="system.mutex.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.nouser.mutex" name="system.mutex.nouser.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.nouser.supervisor_access" name="system.mutex.nouser.supervisor_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.nouser.user_access" name="system.mutex.nouser.user_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.supervisor_access" name="system.mutex.supervisor_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:system.mutex.user_access" name="system.mutex.user_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe" name="kernel.pipe" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api" name="kernel.pipe.api" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.half_pipe_block_put_sema" name="kernel.pipe.api.half_pipe_block_put_sema" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.half_pipe_get_put" name="kernel.pipe.api.half_pipe_get_put" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.half_pipe_saturating_block_put" name="kernel.pipe.api.half_pipe_saturating_block_put" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_alloc" name="kernel.pipe.api.pipe_alloc" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_avail_no_buffer" name="kernel.pipe.api.pipe_avail_no_buffer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_avail_r_eq_w_empty" name="kernel.pipe.api.pipe_avail_r_eq_w_empty" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_avail_r_eq_w_fulConsole now belongs to simulator." name="kernel.pipe.api.pipe_avail_r_eq_w_fulConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_avail_r_eq_w_full" name="kernel.pipe.api.pipe_avail_r_eq_w_full" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_avail_r_lt_w" name="kernel.pipe.api.pipe_avail_r_lt_w" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_avail_w_lt_r" name="kernel.pipe.api.pipe_avail_w_lt_r" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_block_put" name="kernel.pipe.api.pipe_block_put" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_block_put_sema" name="kernel.pipe.api.pipe_block_put_sema" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_block_writer_wait" name="kernel.pipe.api.pipe_block_writer_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_get_fail" name="kernel.pipe.api.pipe_get_fail" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_get_put" name="kernel.pipe.api.pipe_get_put" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_put_fail" name="kernel.pipe.api.pipe_put_fail" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_reader_wait" name="kernel.pipe.api.pipe_reader_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_thread2thread" name="kernel.pipe.api.pipe_thread2thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_user_get_fail" name="kernel.pipe.api.pipe_user_get_fail" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_user_put_fail" name="kernel.pipe.api.pipe_user_put_fail" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.pipe_user_thread2thread" name="kernel.pipe.api.pipe_user_thread2thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.api.resource_pool_auto_free" name="kernel.pipe.api.resource_pool_auto_free" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.half_pipe_block_put_sema" name="kernel.pipe.half_pipe_block_put_sema" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.half_pipe_get_put" name="kernel.pipe.half_pipe_get_put" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_alloc" name="kernel.pipe.pipe_alloc" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_block_put" name="kernel.pipe.pipe_block_put" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_block_put_sema" name="kernel.pipe.pipe_block_put_sema" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_block_writer_wait" name="kernel.pipe.pipe_block_writer_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_forever_timeout" name="kernel.pipe.pipe_forever_timeout" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_forever_wait" name="kernel.pipe.pipe_forever_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_get_fail" name="kernel.pipe.pipe_get_fail" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_get_invalid_size" name="kernel.pipe.pipe_get_invalid_size" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_get_min_xfer" name="kernel.pipe.pipe_get_min_xfer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_get_on_empty_pipe" name="kernel.pipe.pipe_get_on_empty_pipe" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_get_put" name="kernel.pipe.pipe_get_put" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_get_timeout" name="kernel.pipe.pipe_get_timeout" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_on_multiple_elements" name="kernel.pipe.pipe_on_multiple_elements" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_on_single_elements" name="kernel.pipe.pipe_on_single_elements" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_put_fail" name="kernel.pipe.pipe_put_fail" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_put_min_xfer" name="kernel.pipe.pipe_put_min_xfer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_reader_wait" name="kernel.pipe.pipe_reader_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_thread2thread" name="kernel.pipe.pipe_thread2thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_timeout" name="kernel.pipe.pipe_timeout" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_user_get_fail" name="kernel.pipe.pipe_user_get_fail" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_user_put_fail" name="kernel.pipe.pipe_user_put_fail" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.pipe_user_thread2thread" name="kernel.pipe.pipe_user_thread2thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.pipe.resource_pool_auto_free" name="kernel.pipe.resource_pool_auto_free" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.poll" name="kernel.poll" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.queue" name="kernel.queue" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.queue.poll" name="kernel.queue.poll" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.semaphore" name="kernel.semaphore" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fp_sharing" name="kernel.common.stack_protection_arm_fp_sharing" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_arm_fpu_sharing.fatal" name="kernel.common.stack_protection_arm_fpu_sharing.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_armv8m_mpu_stack_guard.fatal" name="kernel.common.stack_protection_armv8m_mpu_stack_guard.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_no_userspace.arm_interrupt" name="kernel.common.stack_protection_no_userspace.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.stack" name="kernel.stack" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.stack.usage" name="kernel.stack.usage" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue" name="kernel.workqueue" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.already_triggered" name="kernel.workqueue.already_triggered" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api" name="kernel.workqueue.api" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.delayed_work_cancel_from_queue_isr" name="kernel.workqueue.api.delayed_work_cancel_from_queue_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.delayed_work_cancel_from_queue_thread" name="kernel.workqueue.api.delayed_work_cancel_from_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.delayed_work_cancel_isr" name="kernel.workqueue.api.delayed_work_cancel_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.delayed_work_cancel_thread" name="kernel.workqueue.api.delayed_work_cancel_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.delayed_work_submit_handler" name="kernel.workqueue.api.delayed_work_submit_handler" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.delayed_work_submit_isr" name="kernel.workqueue.api.delayed_work_submit_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.delayed_work_submit_thread" name="kernel.workqueue.api.delayed_work_submit_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.delayed_work_submit_to_queue_isr" name="kernel.workqueue.api.delayed_work_submit_to_queue_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.delayed_work_submit_to_queue_thread" name="kernel.workqueue.api.delayed_work_submit_to_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.triggeConsole now belongs to simulator." name="kernel.workqueue.api.triggeConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.triggered_work_cancel_from_queue_isr" name="kernel.workqueue.api.triggered_work_cancel_from_queue_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.triggered_work_cancel_from_queue_thread" name="kernel.workqueue.api.triggered_work_cancel_from_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.triggered_work_cancel_isr" name="kernel.workqueue.api.triggered_work_cancel_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.triggered_work_cancel_thread" name="kernel.workqueue.api.triggered_work_cancel_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.triggered_work_submit_isr" name="kernel.workqueue.api.triggered_work_submit_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.triggered_work_submit_thread" name="kernel.workqueue.api.triggered_work_submit_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.triggered_work_submit_to_queue_isr" name="kernel.workqueue.api.triggered_work_submit_to_queue_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.triggered_work_submit_to_queue_thread" name="kernel.workqueue.api.triggered_work_submit_to_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.user_work_submit_to_queue_thread" name="kernel.workqueue.api.user_work_submit_to_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.user_workq_granted_access" name="kernel.workqueue.api.user_workq_granted_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.user_workq_granted_access_setup" name="kernel.workqueue.api.user_workq_granted_access_setup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.user_workq_start_before_submit" name="kernel.workqueue.api.user_workq_start_before_submit" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.work_resubmit_to_queue" name="kernel.workqueue.api.work_resubmit_to_queue" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.work_submit_handler" name="kernel.workqueue.api.work_submit_handler" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.work_submit_isr" name="kernel.workqueue.api.work_submit_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.work_submit_thread" name="kernel.workqueue.api.work_submit_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.work_submit_to_multipleq" name="kernel.workqueue.api.work_submit_to_multipleq" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.work_submit_to_queue_isr" name="kernel.workqueue.api.work_submit_to_queue_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.work_submit_to_queue_thread" name="kernel.workqueue.api.work_submit_to_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.api.workq_start_before_submit" name="kernel.workqueue.api.workq_start_before_submit" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed" name="kernel.workqueue.delayed" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_cancel" name="kernel.workqueue.delayed_cancel" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_resubmit" name="kernel.workqueue.delayed_resubmit" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_resubmit_thread" name="kernel.workqueue.delayed_resubmit_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_work_cancel_from_queue_isr" name="kernel.workqueue.delayed_work_cancel_from_queue_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_work_cancel_from_queue_thread" name="kernel.workqueue.delayed_work_cancel_from_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_work_cancel_isr" name="kernel.workqueue.delayed_work_cancel_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_work_cancel_thread" name="kernel.workqueue.delayed_work_cancel_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_work_submit_isr" name="kernel.workqueue.delayed_work_submit_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_work_submit_thread" name="kernel.workqueue.delayed_work_submit_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_work_submit_to_queue_isr" name="kernel.workqueue.delayed_work_submit_to_queue_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.delayed_work_submit_to_queue_thread" name="kernel.workqueue.delayed_work_submit_to_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.offload_workqueue" name="kernel.workqueue.offload_workqueue" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.poll.delayed" name="kernel.workqueue.poll.delayed" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.poll.delayed_cancel" name="kernel.workqueue.poll.delayed_cancel" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.poll.delayed_resubmit" name="kernel.workqueue.poll.delayed_resubmit" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.poll.delayed_resubmit_thread" name="kernel.workqueue.poll.delayed_resubmit_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.poll.resubmit" name="kernel.workqueue.poll.resubmit" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.poll.sequence" name="kernel.workqueue.poll.sequence" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.resubmit" name="kernel.workqueue.resubmit" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.sam.offload_workqueue" name="kernel.workqueue.sam.offload_workqueue" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.sequence" name="kernel.workqueue.sequence" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.triggered" name="kernel.workqueue.triggered" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.triggered_no_wait" name="kernel.workqueue.triggered_no_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.triggered_no_wait_expired" name="kernel.workqueue.triggered_no_wait_expired" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.triggered_resubmit" name="kernel.workqueue.triggered_resubmit" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.triggered_wait" name="kernel.workqueue.triggered_wait" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.triggered_wait_expired" name="kernel.workqueue.triggered_wait_expired" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.user_work_submit_to_queue_thread" name="kernel.workqueue.user_work_submit_to_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.user_workq_granted_access" name="kernel.workqueue.user_workq_granted_access" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.user_workq_granted_access_setup" name="kernel.workqueue.user_workq_granted_access_setup" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.user_workq_start_before_submit" name="kernel.workqueue.user_workq_start_before_submit" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.work_resubmit_to_queue" name="kernel.workqueue.work_resubmit_to_queue" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.work_submit_isr" name="kernel.workqueue.work_submit_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.work_submit_thread" name="kernel.workqueue.work_submit_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.work_submit_to_multipleq" name="kernel.workqueue.work_submit_to_multipleq" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.work_submit_to_queue_isr" name="kernel.workqueue.work_submit_to_queue_isr" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.work_submit_to_queue_thread" name="kernel.workqueue.work_submit_to_queue_thread" time="0">
+          </testcase>
+          <testcase classname="mimxrt1020_evk:kernel.workqueue.workq_start_before_submit" name="kernel.workqueue.workq_start_before_submit" time="0">
+          </testcase>
+  </testsuite>
+</testsuites>

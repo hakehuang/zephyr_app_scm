@@ -36,3 +36,8 @@ ruby ./run_all.rb
 # run platform_config.rb to get all failure cases
 ruby ./platform_config.rb
 
+
+# when add new boards dividor
+
+update three files platform_config.rb, scan_zephyr.rb, zephyr_filter.rb, zephyr_utils.rb
+

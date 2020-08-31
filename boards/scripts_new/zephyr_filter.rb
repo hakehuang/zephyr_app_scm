@@ -94,7 +94,9 @@ module ZEPHER_FILTER
   module_function :neural_list
 
   def get_board_name(instr)
-    filter_list = [/_2$/, /_3$/, /_4$/, /_samples$/, /_samples2$/, /_kernel$/, /_kernel2$/, /_usb$/, /_drivers$/, /_drivers$/, /_failures$/]
+    filter_list = [/_2$/, /_3$/, /_4$/, /_5$/, /_samples$/, /_sensors$/,
+      /_shield$/, /_bt1$/, /_bt2$/, /_can$/, /_socket$/, /_traffic$/,
+      /_samples2$/, /_kernel$/, /_kernel2$/, /_usb$/, /_cmsis$/, /_drivers$/, /_failures$/]
     temp_str = instr.dup
     filter_list.each do |f|
       temp_str.gsub!(f, '')
