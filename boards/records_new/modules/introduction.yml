@@ -59,6 +59,8 @@ cases:
     path: samples/subsys/canbus/canopen
     catalog: introduction
     depends_on: can
+    platform_allow: twr_ke18f frdm_k64f
   sample.tfm_ipc:
     path: samples/tfm_integration/tfm_ipc
     catalog: introduction
+    platform_allow: mps2_an521_nonsecure

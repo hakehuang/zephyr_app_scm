@@ -4,23 +4,27 @@ cases:
     path: samples/net/sockets/echo_client
     catalog: net openthread
     extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.kw41z_openthread:
     path: samples/net/sockets/echo_client
     catalog: net openthread
     extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: frdm_kw41z
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.nrf_openthread:
     path: samples/net/sockets/echo_server
     catalog: net openthread
     extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.kw41z_openthread:
     path: samples/net/sockets/echo_server
     catalog: net openthread
     extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: frdm_kw41z
     depends_on: netif
     min_flash: 140

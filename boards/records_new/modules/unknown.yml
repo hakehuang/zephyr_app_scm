@@ -4,24 +4,30 @@ cases:
     path: samples/bluetooth/peripheral
     catalog: unknown
     extra_args: SHIELD=x_nucleo_idb05a1
+    platform_allow: nucleo_l4r5zi
     depends_on: arduino_spi arduino_gpio
   sample.basic.maxim_ds3231:
     path: samples/drivers/counter/maxim_ds3231
     catalog: unknown
     build_only: true
+    platform_allow: efr32mg_sltb004a frdm_k64f nrf51_pca10028 nucleo_l476rg particle_xenon
   sample.display.shield.waveshare_epaper_gdeh0213b1:
     path: samples/drivers/display
     catalog: unknown
     extra_args: SHIELD=waveshare_epaper_gdeh0213b1
+    platform_allow: nrf52840dk_nrf52840
   sample.net.sockets.civetweb:
     path: samples/net/sockets/civetweb
     catalog: unknown
+    platform_allow: sam_e70_xplained
   sample.filesystem.shell:
     path: samples/subsys/shell/fs
     catalog: unknown
+    platform_allow: reel_board
   arch.x86.info:
     path: tests/arch/x86/info
     catalog: unknown
+    platform_allow: up_squared up_squared_32
   boards.native_posix.native_tasks:
     path: tests/boards/native_posix/native_tasks
     catalog: unknown
@@ -31,11 +37,13 @@ cases:
   boards.native_posix.rtc:
     path: tests/boards/native_posix/rtc
     catalog: unknown
+    platform_allow: native_posix native_posix_64
     build_only: true
   dts.build.build:
     path: tests/deprecated/dts
     catalog: unknown
     build_only: true
+    platform_allow: frdm_k64f
   drivers.clock.build:
     path: tests/drivers/build_all
     catalog: unknown

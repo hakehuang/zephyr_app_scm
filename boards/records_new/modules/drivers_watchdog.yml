@@ -11,8 +11,10 @@ cases:
     catalog: drivers watchdog
     extra_args: CONF_FILE="prj.conf;nucleo_l496zg.conf"
     depends_on: watchdog
+    platform_allow: nucleo_l496zg
   drivers.watchdog.mec15xxevb_assy6853:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     depends_on: watchdog
     build_only: true
+    platform_allow: mec15xxevb_assy6853

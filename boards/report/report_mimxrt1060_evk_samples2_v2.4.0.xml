@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="14" errors="0" failures="4" name="" skipped="0" time="0">
+    <testsuite tests="20" errors="0" failures="4" name="" skipped="0" time="0">
           <testcase classname="mimxrt1060_evk:sample.net.sockets.echo" name="sample.net.sockets.echo" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -17,6 +17,22 @@
           <failure message="failed" type="failure">
           </failure>
           </testcase>
+          <testcase classname="mimxrt1060_evk:net.neighbour" name="net.neighbour" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.shell" name="net.shell" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:shell" name="shell" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.context" name="net.context" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.promisc" name="net.promisc" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:sample.net.promiscuous_mode" name="sample.net.promiscuous_mode" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.ptp.clock" name="net.ptp.clock" time="0">
+          </testcase>
+          <testcase classname="mimxrt1060_evk:net.route" name="net.route" time="0">
+          </testcase>
           <testcase classname="mimxrt1060_evk:net.tcp" name="net.tcp" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:sample.net.telnet" name="sample.net.telnet" time="0">
@@ -32,10 +48,6 @@
           <testcase classname="mimxrt1060_evk:net.vlan" name="net.vlan" time="0">
           </testcase>
           <testcase classname="mimxrt1060_evk:sample.net.vlan" name="sample.net.vlan" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.wifi" name="sample.net.wifi" time="0">
-          </testcase>
-          <testcase classname="mimxrt1060_evk:sample.net.zperf" name="sample.net.zperf" time="0">
           </testcase>
   </testsuite>
 </testsuites>

@@ -20,6 +20,7 @@ cases:
     path: samples/basic/servo_motor
     catalog: drivers pwm
     depends_on: pwm
+    platform_allow: bbc_microbit
   drivers.pwm:
     path: tests/drivers/pwm/pwm_api
     catalog: drivers pwm

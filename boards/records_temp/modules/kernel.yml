@@ -53,6 +53,7 @@ cases:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
     extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
   kernel.lifo:
     path: tests/kernel/lifo/lifo_api
     catalog: kernel
@@ -136,3 +137,4 @@ cases:
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard

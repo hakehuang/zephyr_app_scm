@@ -3,6 +3,7 @@ cases:
   arch.interrupt.gen_isr_table.arm_baseline:
     path: tests/kernel/gen_isr_table
     catalog: interrupt isr_table
+    platform_allow: bbc_microbit atsamr21_xpro nrf51dk_nrf51422 nucleo_g071rb qemu_cortex_m0
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
   arch.interrupt.gen_isr_table.arm_mainline:
     path: tests/kernel/gen_isr_table

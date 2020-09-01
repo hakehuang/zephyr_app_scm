@@ -10,6 +10,7 @@ cases:
     - CONFIG_UPDATEHUB_SERVER="10.5.3.67"
     depends_on: netif
     build_only: true
+    platform_allow: frdm_k64f
   sample.net.updatehub.dtls:
     path: samples/subsys/mgmt/updatehub
     catalog: net wifi updatehub
@@ -21,3 +22,4 @@ cases:
     extra_args: OVERLAY_CONFIG="overlay-dtls.conf"
     depends_on: netif
     build_only: true
+    platform_allow: frdm_k64f

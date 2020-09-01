@@ -1,26 +1,11 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="63" errors="0" failures="0" name="" skipped="2" time="0">
+    <testsuite tests="51" errors="0" failures="0" name="" skipped="4" time="0">
           <testcase classname="lpcxpresso54114_m4:libraries.data_structures" name="libraries.data_structures" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.gui.lvgl" name="sample.gui.lvgl" time="0">
+          <testcase classname="lpcxpresso54114_m4:sample.sensor.iaqcore" name="sample.sensor.iaqcore" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.board.reel_board.mesh_badge" name="sample.board.reel_board.mesh_badge" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.sensor.bme680" name="sample.sensor.bme680" time="0">
-          </testcase>
-         <testcase classname="lpcxpresso54114_m4:sample.board.arc_secure_services" name="sample.board.arc_secure_services" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-          <testcase classname="lpcxpresso54114_m4:system.settings.fcb" name="system.settings.fcb" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:system.settings.functional.fcb" name="system.settings.functional.fcb" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:system.settings.file" name="system.settings.file" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:system.settings.littlefs" name="system.settings.littlefs" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:system.settings.functional.nvs" name="system.settings.functional.nvs" time="0">
+          <testcase classname="lpcxpresso54114_m4:sample.sensor.ens210" name="sample.sensor.ens210" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:sample.shell.shell_module" name="sample.shell.shell_module" time="0">
           </testcase>
@@ -31,8 +16,6 @@
           <testcase classname="lpcxpresso54114_m4:shell" name="shell" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:shell.shell_module" name="shell.shell_module" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.board.bbc_microbit.sound" name="sample.board.bbc_microbit.sound" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:testing.ztest.verbose_0" name="testing.ztest.verbose_0" time="0">
           </testcase>
@@ -111,20 +94,19 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m4:crypto.tinycrypt.hmac_prng" name="crypto.tinycrypt.hmac_prng" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.bluetooth.hci_uart.arm" name="sample.bluetooth.hci_uart.arm" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.bluetooth.hci_uart.nrf5" name="sample.bluetooth.hci_uart.nrf5" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.net.sockets.civetweb" name="sample.net.sockets.civetweb" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:sample.filesystem.shell" name="sample.filesystem.shell" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:arch.x86.info" name="arch.x86.info" time="0">
-          </testcase>
           <testcase classname="lpcxpresso54114_m4:boards.native_posix.native_tasks" name="boards.native_posix.native_tasks" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:boards.native_posix_64.native_tasks" name="boards.native_posix_64.native_tasks" time="0">
           </testcase>
+         <testcase classname="lpcxpresso54114_m4:drivers.clock.build" name="drivers.clock.build" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="lpcxpresso54114_m4:drivers.gpio.build" name="drivers.gpio.build" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="lpcxpresso54114_m4:drivers.eeprom.build" name="drivers.eeprom.build" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="lpcxpresso54114_m4:sample.userspace.prod_consumer" name="sample.userspace.prod_consumer" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:kernel.memory_protection" name="kernel.memory_protection" time="0">

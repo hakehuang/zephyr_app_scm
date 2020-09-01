@@ -3,6 +3,7 @@ cases:
   peripheral.eeprom:
     path: tests/drivers/eeprom
     catalog: drivers userspace
+    platform_allow: native_posix native_posix_64 qemu_x86
   peripheral.eeprom.generic:
     path: tests/drivers/eeprom
     catalog: drivers userspace

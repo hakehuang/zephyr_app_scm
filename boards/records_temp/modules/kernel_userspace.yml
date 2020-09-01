@@ -26,6 +26,7 @@ cases:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
   kernel.futex:
     path: tests/kernel/mem_protect/futex
     catalog: kernel userspace

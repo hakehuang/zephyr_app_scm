@@ -20,10 +20,12 @@ cases:
     path: samples/subsys/usb/audio/headphones_microphone
     catalog: usb
     depends_on: usb_device
+    platform_allow: nrf52840dk_nrf52840
   sample.usb.audio.headset:
     path: samples/subsys/usb/audio/headset
     catalog: usb
     depends_on: usb_device
+    platform_allow: nrf52840dk_nrf52840
   sample.usb.cdc-acm:
     path: samples/subsys/usb/cdc_acm
     catalog: usb
@@ -45,6 +47,7 @@ cases:
     path: samples/subsys/usb/dfu
     catalog: usb
     build_only: true
+    platform_allow: nrf52840dk_nrf52840 intel_s1000_crb
     depends_on: usb_device
   sample.usb.hid:
     path: samples/subsys/usb/hid
@@ -60,6 +63,7 @@ cases:
     path: samples/subsys/usb/hid-cdc
     catalog: usb
     depends_on: usb_device
+    platform_allow: nrf52840dk_nrf52840 nrf52840dongle_nrf52840
   sample.usb.hid-mouse:
     path: samples/subsys/usb/hid-mouse
     catalog: usb

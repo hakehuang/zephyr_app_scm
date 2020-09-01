@@ -3,22 +3,28 @@ cases:
   sample.board.bbc_microbit.display:
     path: samples/boards/bbc_microbit/display
     catalog: display
+    platform_allow: bbc_microbit
   sample.display.cfb.ssd16xx:
     path: samples/display/cfb
     catalog: display
+    platform_allow: reel_board
   sample.display.cfb_custom_font.ssd16xx:
     path: samples/display/cfb_custom_font
     catalog: display
+    platform_allow: reel_board
   sample.display.cfb_shell.ssd16xx:
     path: samples/display/cfb_shell
     catalog: display
+    platform_allow: reel_board
   sample.display.mcux_elcdif:
     path: samples/drivers/display
     catalog: display
+    platform_allow: mimxrt1050_evk
   sample.display.sdl:
     path: samples/drivers/display
     catalog: display
     build_only: true
+    platform_allow: native_posix_64
   sample.display.dummy:
     path: samples/drivers/display
     catalog: display
@@ -26,7 +32,9 @@ cases:
     - CONFIG_DUMMY_DISPLAY=y
     - CONFIG_SDL_DISPLAY=n
     - CONFIG_TEST=y
+    platform_allow: native_posix
   sample.drivers.lcd.hd44780:
     path: samples/drivers/lcd_hd44780
     catalog: display
+    platform_allow: arduino_due
     depends_on: gpio

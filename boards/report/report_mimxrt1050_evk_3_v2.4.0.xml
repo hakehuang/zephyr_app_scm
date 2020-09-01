@@ -1,52 +1,15 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="23" errors="0" failures="0" name="" skipped="12" time="0">
+    <testsuite tests="19" errors="0" failures="0" name="" skipped="1" time="0">
           <testcase classname="mimxrt1050_evk:sample.app_dev.external_lib" name="sample.app_dev.external_lib" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:libraries.os.fdtable" name="libraries.os.fdtable" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:sample.filesystem.fat_fs" name="sample.filesystem.fat_fs" time="0">
           </testcase>
-         <testcase classname="mimxrt1050_evk:sample.filesystem.littlefs" name="sample.filesystem.littlefs" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.mt.arm" name="sample.minimal.mt.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.mt-no-preempt.arm" name="sample.minimal.mt-no-preempt.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.mt-no-preempt-no-timers.arm" name="sample.minimal.mt-no-preempt-no-timers.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.no-mt.arm" name="sample.minimal.no-mt.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.no-mt-no-timers.arm" name="sample.minimal.no-mt-no-timers.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.mt.x86" name="sample.minimal.mt.x86" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.mt-no-preempt.x86" name="sample.minimal.mt-no-preempt.x86" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.mt-no-preempt-no-timers.x86" name="sample.minimal.mt-no-preempt-no-timers.x86" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.no-mt.x86" name="sample.minimal.no-mt.x86" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="mimxrt1050_evk:sample.minimal.no-mt-no-timers.x86" name="sample.minimal.no-mt-no-timers.x86" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
           <testcase classname="mimxrt1050_evk:buildsystem.include_file" name="buildsystem.include_file" time="0">
           </testcase>
-          <testcase classname="mimxrt1050_evk:sample.board.up_squared.gpio_counter" name="sample.board.up_squared.gpio_counter" time="0">
-          </testcase>
           <testcase classname="mimxrt1050_evk:net.http" name="net.http" time="0">
-          </testcase>
-          <testcase classname="mimxrt1050_evk:sample.board.intel_s1000_crb.i2s" name="sample.board.intel_s1000_crb.i2s" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:arch.interrupt" name="arch.interrupt" time="0">
           </testcase>
@@ -71,10 +34,6 @@
           <testcase classname="mimxrt1050_evk:sample.kernel.philosopher.preempt_only" name="sample.kernel.philosopher.preempt_only" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:sample.kernel.philosopher.coop_only" name="sample.kernel.philosopher.coop_only" time="0">
-          </testcase>
-          <testcase classname="mimxrt1050_evk:sample.ipc.ipm.ipm_mhu_dual_core" name="sample.ipc.ipm.ipm_mhu_dual_core" time="0">
-          </testcase>
-          <testcase classname="mimxrt1050_evk:sample.ipc.openamp" name="sample.ipc.openamp" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:libraries.encoding.json" name="libraries.encoding.json" time="0">
           </testcase>

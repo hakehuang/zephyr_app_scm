@@ -12,16 +12,19 @@ cases:
     path: samples/video/tcpserversink
     catalog: video net socket
     build_only: true
+    platform_allow: mimxrt1064_evk
     depends_on: video netif
   sample.application_development.code_relocation:
     path: samples/application_development/code_relocation
     catalog: linker
+    platform_allow: qemu_cortex_m3 mps2_an385 sam_e70_xplained
   sample.app_dev.external_lib:
     path: samples/application_development/external_lib
     catalog: external
   sample.app_dev.out_of_tree:
     path: samples/application_development/out_of_tree_board
     catalog: out_of_tree
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
   sample.drivers.out_of_tree:
     path: samples/application_development/out_of_tree_driver
     catalog: out_of_tree
@@ -50,51 +53,66 @@ cases:
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;arm.conf'
     build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
   sample.minimal.mt-no-preempt.arm:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;arm.conf'
     build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
   sample.minimal.mt-no-preempt-no-timers.arm:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;arm.conf'
     build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
   sample.minimal.no-mt.arm:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;arm.conf'
     build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
   sample.minimal.no-mt-no-timers.arm:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;arm.conf'
     build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
   sample.minimal.mt.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;x86.conf'
     build_only: true
+    platform_allow: qemu_x86
   sample.minimal.mt-no-preempt.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;x86.conf'
     build_only: true
+    platform_allow: qemu_x86
   sample.minimal.mt-no-preempt-no-timers.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;x86.conf'
     build_only: true
+    platform_allow: qemu_x86
   sample.minimal.no-mt.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;x86.conf'
     build_only: true
+    platform_allow: qemu_x86
   sample.minimal.no-mt-no-timers.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;x86.conf'
     build_only: true
+    platform_allow: qemu_x86
   sample.basic.rgb_led:
     path: samples/basic/rgb_led
     catalog: drivers pwm
@@ -105,6 +123,7 @@ cases:
     path: samples/basic/servo_motor
     catalog: drivers pwm
     depends_on: pwm
+    platform_allow: bbc_microbit
   sample.basic.threads:
     path: samples/basic/threads
     catalog: kernel threads gpio
@@ -114,9 +133,11 @@ cases:
   sample.bluetooth.beacon:
     path: samples/bluetooth/beacon
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf52dk_nrf52832
   sample.bluetooth.central:
     path: samples/bluetooth/central
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.central_hr:
     path: samples/bluetooth/central_hr
     catalog: bluetooth
@@ -126,25 +147,33 @@ cases:
   sample.bluetooth.eddystone:
     path: samples/bluetooth/eddystone
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.handsfree:
     path: samples/bluetooth/handsfree
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.hci_pwr_ctrl:
     path: samples/bluetooth/hci_pwr_ctrl
     catalog: bluetooth
+    platform_allow: bbc_microbit nrf51dk_nrf51422 nrf52dk_nrf52832 qemu_cortex_m3
+      qemu_x86
   sample.bluetooth.hci_rpmsg:
     path: samples/bluetooth/hci_rpmsg
     catalog: bluetooth
+    platform_allow: nrf5340pdk_nrf5340_cpunet
   sample.bluetooth.hci_spi:
     path: samples/bluetooth/hci_spi
     catalog: bluetooth spi
+    platform_allow: 96b_carbon_nrf51 nrf51dk_nrf51422
     depends_on: spi
   sample.bluetooth.hci_uart.arm:
     path: samples/bluetooth/hci_uart
     catalog: uart bluetooth
+    platform_allow: 96b_nitrogen nrf51dk_nrf51422 nrf52dk_nrf52832 bbc_microbit
   sample.bluetooth.hci_uart.nrf5:
     path: samples/bluetooth/hci_uart
     catalog: uart bluetooth
+    platform_allow: 96b_nitrogen nrf51dk_nrf51422 nrf52dk_nrf52832
   sample.bluetooth.hci_usb:
     path: samples/bluetooth/hci_usb
     catalog: usb bluetooth
@@ -158,143 +187,184 @@ cases:
   sample.bluetooth.ibeacon:
     path: samples/bluetooth/ibeacon
     catalog: bluetooth
+    platform_allow: bbc_microbit qemu_x86
   sample.bluetooth.ipsp:
     path: samples/bluetooth/ipsp
     catalog: bluetooth net
+    platform_allow: qemu_x86 qemu_cortex_m3
   sample.bluetooth.ipsp.zep1656:
     path: samples/bluetooth/ipsp
     catalog: bluetooth net
     extra_args: CONF_FILE="prj_zep1656.conf"
+    platform_allow: qemu_x86 qemu_cortex_m3
   sample.bluetooth.mesh:
     path: samples/bluetooth/mesh
     catalog: bluetooth
+    platform_allow: bbc_microbit nrf51_blenano qemu_x86
   sample.bluetooth.mesh_demo:
     path: samples/bluetooth/mesh_demo
     catalog: bluetooth
+    platform_allow: bbc_microbit nrf51_blenano qemu_x86
   samples.bluetooth.mesh_provisioner:
     path: samples/bluetooth/mesh_provisioner
     catalog: Bluetooth Mesh Provisioner
   sample.bluetooth.peripheral:
     path: samples/bluetooth/peripheral
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nucleo_wb55rg
   sample.bluetooth.peripheral.x_nucleo_idb05a1_shield:
     path: samples/bluetooth/peripheral
     catalog: unknown
     extra_args: SHIELD=x_nucleo_idb05a1
+    platform_allow: nucleo_l4r5zi
     depends_on: arduino_spi arduino_gpio
   sample.bluetooth.peripheral_csc:
     path: samples/bluetooth/peripheral_csc
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.peripheral_dis:
     path: samples/bluetooth/peripheral_dis
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.peripheral_esp:
     path: samples/bluetooth/peripheral_esp
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.peripheral_hids:
     path: samples/bluetooth/peripheral_hids
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.peripheral_hr:
     path: samples/bluetooth/peripheral_hr
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.peripheral_hr_rv32m1_vega_ri5cy:
     path: samples/bluetooth/peripheral_hr
     catalog: bluetooth
+    platform_allow: rv32m1_vega_ri5cy
     build_only: true
   sample.bluetooth.peripheral_hr.frdm_kw41z_shield:
     path: samples/bluetooth/peripheral_hr
     catalog: bluetooth
     extra_args: SHIELD=frdm_kw41z
+    platform_allow: mimxrt1020_evk mimxrt1050_evk mimxrt1060_evk frdm_k64f
   sample.bluetooth.peripheral_ht:
     path: samples/bluetooth/peripheral_ht
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.peripheral_ht.frdm_kw41z_shield:
     path: samples/bluetooth/peripheral_ht
     catalog: bluetooth
     extra_args: SHIELD=frdm_kw41z
+    platform_allow: mimxrt1020_evk mimxrt1050_evk mimxrt1060_evk frdm_k64f
   sample.bluetooth.peripheral_sc_only:
     path: samples/bluetooth/peripheral_sc_only
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.scan_adv:
     path: samples/bluetooth/scan_adv
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.st_ble_sensor:
     path: samples/bluetooth/st_ble_sensor
     catalog: bluetooth
+    platform_allow: nucleo_wb55rg
   sample.board.96b_argonkey.microphone:
     path: samples/boards/96b_argonkey/microphone
     catalog: sensors
+    platform_allow: 96b_argonkey
     depends_on: i2s gpio
   sample.board.96b_argonkey.sensors:
     path: samples/boards/96b_argonkey/sensors
     catalog: sensors
+    platform_allow: 96b_argonkey
     depends_on: i2c spi gpio
   sample.board.arc_secure_services:
     path: samples/boards/arc_secure_services
     catalog: secure
     build_only: true
+    platform_allow: nsim_sem em_starterkit_em7d_secure
   sample.board.bbc_microbit.display:
     path: samples/boards/bbc_microbit/display
     catalog: display
+    platform_allow: bbc_microbit
   sample.board.bbc_microbit.line_follower_robot:
     path: samples/boards/bbc_microbit/line_follower_robot
     catalog: microbit line-follower robot car
+    platform_allow: bbc_microbit
   sample.board.bbc_microbit.pong:
     path: samples/boards/bbc_microbit/pong
     catalog: microbit mesh bluetooth
+    platform_allow: bbc_microbit
   sample.board.bbc_microbit.sound:
     path: samples/boards/bbc_microbit/sound
     catalog: sound
+    platform_allow: bbc_microbit
   sample.board.google_kukui:
     path: samples/boards/google_kukui
     catalog: ec
+    platform_allow: google_kukui
   sample.board.intel_s1000_crb.audio:
     path: samples/boards/intel_s1000_crb/audio
     catalog: audio
+    platform_allow: intel_s1000_crb
   sample.board.intel_s1000_crb.i2s:
     path: samples/boards/intel_s1000_crb/i2s
     catalog: i2s
+    platform_allow: intel_s1000_crb
   sample.board.mec15xxevb_assy6853:
     path: samples/boards/mec15xxevb_assy6853/power_management
     catalog: board
+    platform_allow: mec15xxevb_assy6853
   sample.boards.nrf.battery:
     path: samples/boards/nrf/battery
     catalog: battery
     build_only: true
+    platform_allow: particle_xenon thingy52_nrf52832
   sample.bluetooth.mesh.onoff:
     path: samples/boards/nrf/mesh/onoff-app
     catalog: bluetooth
+    platform_allow: nrf52840dk_nrf52840
   sample.bluetooth.mesh.onoff_level_lighting_vnd:
     path: samples/boards/nrf/mesh/onoff_level_lighting_vnd_app
     catalog: bluetooth
+    platform_allow: nrf52840dk_nrf52840
   sample.bluetooth.mesh.onoff_level_lighting_vnd.mcumgr:
     path: samples/boards/nrf/mesh/onoff_level_lighting_vnd_app
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="prj_smp_svr.conf"
+    platform_allow: nrf52840dk_nrf52840
   sample.board.nrf91.nrfx:
     path: samples/boards/nrf/nrfx
     catalog: board
+    platform_allow: nrf9160dk_nrf9160
   sample.boards.nrf.system_off:
     path: samples/boards/nrf/system_off
     catalog: power
     build_only: true
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
   sample.board.olimex_stm32_e407.ccm:
     path: samples/boards/olimex_stm32_e407/ccm
     catalog: board
+    platform_allow: olimex_stm32_e407
   sample.board.reel_board.mesh_badge:
     path: samples/boards/reel_board/mesh_badge
     catalog: samples sensor
+    platform_allow: reel_board
   sample.board.sensortile_box.sensors:
     path: samples/boards/sensortile_box
     catalog: sensors
+    platform_allow: sensortile_box
     depends_on: i2c spi gpio
   sample.boards.ti.cc13x2_cc26x2.system_off:
     path: samples/boards/ti/cc13x2_cc26x2/system_off
     catalog: power
     build_only: true
+    platform_allow: cc1352r1_launchxl
   sample.board.up_squared.gpio_counter:
     path: samples/boards/up_squared/gpio_counter
     catalog: gpio
+    platform_allow: up_squared up_squared_32
   sample.cpp.synchronization:
     path: samples/cpp_synchronization
     catalog: cpp
@@ -303,19 +373,24 @@ cases:
     path: samples/display/cfb
     catalog: shield
     extra_args: SHIELD=ssd1306_128x64
+    platform_allow: frdm_k64f
   sample.display.cfb.ssd16xx:
     path: samples/display/cfb
     catalog: display
+    platform_allow: reel_board
   sample.display.cfb_custom_font.ssd16xx:
     path: samples/display/cfb_custom_font
     catalog: display
+    platform_allow: reel_board
   sample.display.cfb_shell.ssd1306:
     path: samples/display/cfb_shell
     catalog: shield
     extra_args: SHIELD=ssd1306_128x32
+    platform_allow: frdm_k64f
   sample.display.cfb_shell.ssd16xx:
     path: samples/display/cfb_shell
     catalog: display
+    platform_allow: reel_board
   sample.display.grove_display:
     path: samples/display/grove_display
     catalog: drivers
@@ -323,22 +398,27 @@ cases:
   sample.gui.lvgl:
     path: samples/display/lvgl
     catalog: samples display gui
+    platform_allow: reel_board mimxrt1050_evk mimxrt1060_evk mimxrt1064_evk
   sample.display.adafruit_2_8_tft_touch_v2:
     path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
+    platform_allow: nrf52840dk_nrf52840
   sample.display.waveshare_epaper_gdeh0213b1:
     path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh0213b1
+    platform_allow: nrf52840dk_nrf52840
   sample.display.waveshare_epaper_gdeh0213b72:
     path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh0213b72
+    platform_allow: nrf52840dk_nrf52840
   sample.display.waveshare_epaper_gdeh029a1:
     path: samples/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh029a1
+    platform_allow: nrf52840dk_nrf52840
   sample.drivers.can:
     path: samples/drivers/can
     catalog: CAN
@@ -346,11 +426,14 @@ cases:
   sample.drivers.counter.alarm:
     path: samples/drivers/counter/alarm
     catalog: drivers
+    platform_allow: nucleo_f746zg nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+      nrf9160dk_nrf9160 atsamd20_xpro
     depends_on: counter
   sample.basic.maxim_ds3231:
     path: samples/drivers/counter/maxim_ds3231
     catalog: unknown
     build_only: true
+    platform_allow: efr32mg_sltb004a frdm_k64f nrf51_pca10028 nucleo_l476rg particle_xenon
   sample.drivers.crypto.mbedtls:
     path: samples/drivers/crypto
     catalog: crypto
@@ -367,6 +450,7 @@ cases:
     path: samples/drivers/crypto
     catalog: crypto
     extra_args: CONF_FILE=prj_stm32.conf
+    platform_allow: mikroe_mini_m4_for_stm32
     build_only: true
     min_ram: 20
     arch_exclude: xtensa
@@ -377,38 +461,47 @@ cases:
   sample.drivers.dac:
     path: samples/drivers/dac
     catalog: DAC
+    platform_allow: arduino_zero frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
     depends_on: dac
   sample.display.shield.adafruit_2_8_tft_touch_v2:
     path: samples/drivers/display
     catalog: display shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
+    platform_allow: nrf52840dk_nrf52840
   sample.display.shield.ssd1306_128x32:
     path: samples/drivers/display
     catalog: display shield
     extra_args: SHIELD=ssd1306_128x32
+    platform_allow: nrf52840dk_nrf52840
   sample.display.shield.ssd1306_128x64:
     path: samples/drivers/display
     catalog: display shield
     extra_args: SHIELD=ssd1306_128x64
+    platform_allow: nrf52840dk_nrf52840
   sample.display.shield.waveshare_epaper_gdeh0213b1:
     path: samples/drivers/display
     catalog: unknown
     extra_args: SHIELD=waveshare_epaper_gdeh0213b1
+    platform_allow: nrf52840dk_nrf52840
   sample.display.st7789v_tl019fqv01:
     path: samples/drivers/display
     catalog: display shield
     extra_args: SHIELD=st7789v_tl019fqv01
+    platform_allow: nrf52dk_nrf52832
   sample.display.st7789v_waveshare_240x240:
     path: samples/drivers/display
     catalog: display shield
     extra_args: SHIELD=st7789v_waveshare_240x240
+    platform_allow: nrf52dk_nrf52832
   sample.display.mcux_elcdif:
     path: samples/drivers/display
     catalog: display
+    platform_allow: mimxrt1050_evk
   sample.display.sdl:
     path: samples/drivers/display
     catalog: display
     build_only: true
+    platform_allow: native_posix_64
   sample.display.dummy:
     path: samples/drivers/display
     catalog: display
@@ -416,6 +509,7 @@ cases:
     - CONFIG_DUMMY_DISPLAY=y
     - CONFIG_SDL_DISPLAY=n
     - CONFIG_TEST=y
+    platform_allow: native_posix
   sample.drivers.entropy:
     path: samples/drivers/entropy
     catalog: crypto entropy
@@ -433,6 +527,7 @@ cases:
   sample.drivers.ht16k33:
     path: samples/drivers/ht16k33
     catalog: LED
+    platform_allow: nrf52840dk_nrf52840
   sample.drivers.i2c.fujitsu_fram:
     path: samples/drivers/i2c_fujitsu_fram
     catalog: drivers
@@ -463,10 +558,12 @@ cases:
   sample.drivers.lcd.hd44780:
     path: samples/drivers/lcd_hd44780
     catalog: display
+    platform_allow: arduino_due
     depends_on: gpio
   sample.drivers.led.apa102:
     path: samples/drivers/led_apa102
     catalog: LED
+    platform_allow: nucleo_l432kc
     depends_on: spi
   sample.drivers.led.apa102c_bitbang:
     path: samples/drivers/led_apa102c_bitbang
@@ -476,6 +573,7 @@ cases:
   sample.drivers.led.lp3943:
     path: samples/drivers/led_lp3943
     catalog: LED
+    platform_allow: 96b_neonkey 96b_argonkey
   sample.drivers.led.lp503x:
     path: samples/drivers/led_lp503x
     catalog: LED
@@ -484,21 +582,27 @@ cases:
   sample.drivers.led.lp5562:
     path: samples/drivers/led_lp5562
     catalog: led
+    platform_allow: nrf52840dk_nrf52840
   sample.drivers.led.lpd8806:
     path: samples/drivers/led_lpd8806
     catalog: LED
+    platform_allow: 96b_carbon
   sample.drivers.led.pca9633:
     path: samples/drivers/led_pca9633
     catalog: LED
+    platform_allow: stm32373c_eval
   sample.drivers.led.ws2812:
     path: samples/drivers/led_ws2812
     catalog: LED
+    platform_allow: bbc_microbit nrf51dk_nrf51422 nrf52dk_nrf52832
   sample.driver.lora.receive:
     path: samples/drivers/lora/receive
     catalog: lora
+    platform_allow: 96b_wistrio
   sample.driver.lora.send:
     path: samples/drivers/lora/send
     catalog: lora
+    platform_allow: 96b_wistrio
   sample.drivers.peci:
     path: samples/drivers/peci
     catalog: drivers
@@ -511,6 +615,7 @@ cases:
   sample.drivers.flash.soc_flash_nrf:
     path: samples/drivers/soc_flash_nrf
     catalog: flash nrf52 nrf9160
+    platform_allow: nrf52dk_nrf52832 nrf9160dk_nrf9160 nrf9160dk_nrf9160ns
   sample.drivers.spi.flash:
     path: samples/drivers/spi_flash
     catalog: spi flash
@@ -550,6 +655,7 @@ cases:
     catalog: drivers
     extra_args: CONF_FILE="prj.conf;nucleo_l496zg.conf"
     depends_on: watchdog
+    platform_allow: nucleo_l496zg
   sample.basic.helloworld:
     path: samples/hello_world
     catalog: introduction
@@ -565,6 +671,7 @@ cases:
   sample.net.cloud.mqtt_azure:
     path: samples/net/cloud/mqtt_azure
     catalog: net mqtt cloud
+    platform_allow: sam_e70_xplained frdm_k64f qemu_x86
   sample.net.dhcpv4_client:
     path: samples/net/dhcpv4_client
     catalog: net http
@@ -588,9 +695,11 @@ cases:
   sample.net.eth_native_posix:
     path: samples/net/eth_native_posix
     catalog: net
+    platform_allow: native_posix native_posix_64
   sample.net.gptp:
     path: samples/net/gptp
     catalog: net gptp
+    platform_allow: frdm_k64f sam_e70_xplained native_posix native_posix_64
     depends_on: netif
   sample.net.ppp.gsm.modem:
     path: samples/net/gsm_modem
@@ -602,45 +711,56 @@ cases:
     path: samples/net/ipv4_autoconf
     catalog: net ipv4_autoconf
     depends_on: netif
+    platform_allow: qemu_x86 native_posix native_posix_64
   sample.net.lldp:
     path: samples/net/lldp
     catalog: net lldp
+    platform_allow: native_posix native_posix_64
     depends_on: netif
   sample.net.lwm2m_client:
     path: samples/net/lwm2m_client
     catalog: net lwm2m
     depends_on: netif
+    platform_allow: qemu_x86 frdm_k64f
   sample.net.lwm2m_client.dtls:
     path: samples/net/lwm2m_client
     catalog: net lwm2m
     extra_args: OVERLAY_CONFIG=overlay-dtls.conf
     depends_on: netif
+    platform_allow: qemu_x86 frdm_k64f
   sample.net.lwm2m_client.bt:
     path: samples/net/lwm2m_client
     catalog: net lwm2m
     extra_args: OVERLAY_CONFIG=overlay-bt.conf
+    platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840 disco_l475_iot1
   sample.net.lwm2m_client.queue_mode:
     path: samples/net/lwm2m_client
     catalog: net lwm2m
     extra_args: OVERLAY_CONFIG=overlay-queue.conf
     depends_on: netif
+    platform_allow: qemu_x86
   sample.net.lwm2m_client.wnc_m14a2a:
     path: samples/net/lwm2m_client
     catalog: net lwm2m
     extra_args: SHIELD=wnc_m14a2a
+    platform_allow: frdm_k64f nrf52840dk_nrf52840
   sample.net.mdns_responder:
     path: samples/net/mdns_responder
     catalog: net mdns
+    platform_allow: qemu_x86 qemu_cortex_m3
   sample.net.mqtt_publisher:
     path: samples/net/mqtt_publisher
     catalog: net mqtt
+    platform_allow: frdm_k64f qemu_x86
   sample.net.mqtt_publisher.userspace:
     path: samples/net/mqtt_publisher
     catalog: net mqtt
     extra_args: CONFIG_USERSPACE=y
+    platform_allow: frdm_k64f qemu_x86
   sample.net.mqtt_publisher.bt:
     path: samples/net/mqtt_publisher
     catalog: net mqtt bluetooth
+    platform_allow: 96b_nitrogen
   samples.net.openthread.ncp:
     path: samples/net/openthread/ncp
     catalog: OpenThread Network Co-Processor
@@ -682,21 +802,26 @@ cases:
     extra_configs:
     - CONFIG_NET_SOCKETS_CAN_RECEIVERS=1
     depends_on: can
+    platform_allow: stm32f072b_disco nucleo_l432kc
   sample.net.sockets.can.test_with_two_sockets:
     path: samples/net/sockets/can
     catalog: net socket can CAN
     extra_configs:
     - CONFIG_NET_SOCKETS_CAN_RECEIVERS=2
     depends_on: can
+    platform_allow: stm32f072b_disco nucleo_l432kc
   sample.net.sockets.civetweb:
     path: samples/net/sockets/civetweb
     catalog: unknown
+    platform_allow: sam_e70_xplained
   sample.net.sockets.coap_client:
     path: samples/net/sockets/coap_client
     catalog: net socket
+    platform_allow: qemu_x86
   sample.net.sockets.coap_server:
     path: samples/net/sockets/coap_server
     catalog: net socket
+    platform_allow: qemu_x86
   sample.net.sockets.dumb_http_server:
     path: samples/net/sockets/dumb_http_server
     catalog: net socket
@@ -744,6 +869,7 @@ cases:
   sample.net.sockets.echo.offload.simplelink:
     path: samples/net/sockets/echo
     catalog: net socket offload simplelink
+    platform_allow: cc3220sf_launchxl
     depends_on: netif
   sample.net.sockets.echo_async:
     path: samples/net/sockets/echo_async
@@ -751,6 +877,7 @@ cases:
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_allow: qemu_x86
   sample.net.sockets.echo_async.posix:
     path: samples/net/sockets/echo_async
     catalog: net socket
@@ -758,127 +885,149 @@ cases:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_allow: qemu_x86
   sample.net.sockets.echo_async_select:
     path: samples/net/sockets/echo_async_select
     catalog: net socket
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    platform_allow: qemu_x86
   sample.net.sockets.echo_async_select.posix:
     path: samples/net/sockets/echo_async_select
     catalog: net socket
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
+    platform_allow: qemu_x86
   sample.net.sockets.echo_client:
     path: samples/net/sockets/echo_client
     catalog: net socket
+    platform_allow: qemu_x86 frdm_k64f sam_e70_xplained qemu_cortex_m3 frdm_kw41z
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.802154:
     path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
+    platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: atsamr21_xpro
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.xplained:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_xplained OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam4s_xplained
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.xpro:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_xpro OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam4e_xpro sam_v71_xult
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.legacy:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_legacy OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam4e_xpro sam_v71_xult
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.arduino:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_arduino OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam_v71_xult frdm_k64f nucleo_f767zi
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.mikrobus:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_mikrobus OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: lpcxpresso55s69_ns
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.bt:
     path: samples/net/sockets/echo_client
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="overlay-bt.conf"
+    platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.mcr20a:
     path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: SHIELD=frdm_cr20a OVERLAY_CONFIG=overlay-802154.conf
+    platform_allow: frdm_k64f
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.nrf_802154:
     path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.nrf_openthread:
     path: samples/net/sockets/echo_client
     catalog: net openthread
     extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.kw41z_openthread:
     path: samples/net/sockets/echo_client
     catalog: net openthread
     extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: frdm_kw41z
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.userspace:
     path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: CONFIG_USERSPACE=y OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server:
     path: samples/net/sockets/echo_server
     catalog: net socket
+    platform_allow: qemu_x86 sam_e70_xplained frdm_k64f qemu_cortex_m3 frdm_kw41z
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.802154:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
+    platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.bt:
     path: samples/net/sockets/echo_server
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="overlay-bt.conf"
+    platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.mcr20a:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: SHIELD=frdm_cr20a OVERLAY_CONFIG=overlay-802154.conf
+    platform_allow: frdm_k64f
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.nrf_802154:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.usbnet:
@@ -899,36 +1048,42 @@ cases:
     path: samples/net/sockets/echo_server
     catalog: net openthread
     extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.kw41z_openthread:
     path: samples/net/sockets/echo_server
     catalog: net openthread
     extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: frdm_kw41z
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.e1000:
     path: samples/net/sockets/echo_server
     catalog: net
     extra_args: OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.stellaris:
     path: samples/net/sockets/echo_server
     catalog: net
     extra_args: OVERLAY_CONFIG="overlay-qemu_cortex_m3_eth.conf"
+    platform_allow: qemu_cortex_m3
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.smsc911x:
     path: samples/net/sockets/echo_server
     catalog: net
     extra_args: OVERLAY_CONFIG="overlay-smsc911x.conf"
+    platform_allow: mps2_an385
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.userspace:
     path: samples/net/sockets/echo_server
     catalog: net socket
     extra_args: CONFIG_USERSPACE=y OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.http_client:
@@ -956,6 +1111,7 @@ cases:
   sample.net.sockets.http_get.offload.simplelink:
     path: samples/net/sockets/http_get
     catalog: net socket offload simplelink
+    platform_allow: cc3220sf_launchxl
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 80
@@ -974,17 +1130,20 @@ cases:
   sample.net.sockets.packet:
     path: samples/net/sockets/packet
     catalog: net sockets packet-socket
+    platform_allow: native_posix native_posix_64
   sample.net.sockets.sntp_client:
     path: samples/net/sockets/sntp_client
     catalog: net
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    platform_allow: qemu_x86
   sample.net.sockets.sntp_client.posix:
     path: samples/net/sockets/sntp_client
     catalog: net
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
+    platform_allow: qemu_x86
   sample.net.sockets.socketpair:
     path: samples/net/sockets/socketpair
     catalog: net socket
@@ -1042,14 +1201,17 @@ cases:
   sample.net.wifi:
     path: samples/net/wifi
     catalog: net wifi
+    platform_allow: cc3220sf_launchxl disco_l475_iot1
   sample.net.wifi.esp_8266:
     path: samples/net/wifi
     catalog: net wifi
     extra_args: SHIELD=esp_8266
+    platform_allow: sam4e_xpro
   sample.net.wifi.esp_8266_arduino:
     path: samples/net/wifi
     catalog: net wifi
     extra_args: SHIELD=esp_8266_arduino
+    platform_allow: frdm_k64f disco_l475_iot1
   sample.net.wpan.serial:
     path: samples/net/wpan_serial
     catalog: usb ieee802154
@@ -1058,6 +1220,7 @@ cases:
     path: samples/net/wpan_serial
     catalog: usb ieee802154
     extra_args: SHIELD=frdm_cr20a
+    platform_allow: frdm_k64f
     depends_on: usb_device
   sample.net.wpanusb:
     path: samples/net/wpanusb
@@ -1067,10 +1230,12 @@ cases:
     path: samples/net/wpanusb
     catalog: net ieee802154 usb
     extra_args: SHIELD=frdm_cr20a
+    platform_allow: frdm_k64f
     depends_on: usb_device
   sample.net.zperf:
     path: samples/net/zperf
     catalog: net zperf
+    platform_allow: qemu_x86
     platform_exclude: native_posix native_posix_64 sam_e70_xplained
     min_ram: 64
   sample.net.zperf.netusb_ecm:
@@ -1104,6 +1269,7 @@ cases:
     path: samples/net/zperf
     catalog: shield net zperf
     extra_args: SHIELD=link_board_eth
+    platform_allow: reel_board
     depends_on: arduino_spi arduino_gpio
     platform_exclude: native_posix native_posix_64 sam_e70_xplained
     min_ram: 64
@@ -1221,20 +1387,24 @@ cases:
   sample.sensor.adt7420:
     path: samples/sensor/adt7420
     catalog: sensors
+    platform_allow: frdm_k64f
     depends_on: i2c
   sample.sensor.adxl362:
     path: samples/sensor/adxl362
     catalog: sensors
     depends_on: spi
+    platform_allow: nrf52dk_nrf52832
   sample.sensor.adxl372:
     path: samples/sensor/adxl372
     catalog: sensors
     depends_on: spi
+    platform_allow: nrf52dk_nrf52832
   sample.sensor.adxl372.i2c:
     path: samples/sensor/adxl372
     catalog: sensors
     extra_args: CONF_FILE=prj_i2c.conf
     depends_on: i2c
+    platform_allow: frdm_k64f
   sample.sensor.amg88xx:
     path: samples/sensor/amg88xx
     catalog: sensors
@@ -1249,16 +1419,19 @@ cases:
   sample.sensor.apds9960:
     path: samples/sensor/apds9960
     catalog: sensors
+    platform_allow: reel_board
     depends_on: i2c gpio
   sample.sensor.apds9960.trigger:
     path: samples/sensor/apds9960
     catalog: sensors
     extra_configs:
     - CONFIG_APDS9960_TRIGGER_GLOBAL_THREAD=y
+    platform_allow: reel_board
     depends_on: i2c gpio
   sample.sensor.bme280:
     path: samples/sensor/bme280
     catalog: sensors
+    platform_allow: nrf52840dk_nrf52840
   sample.sensor.bme280.spi:
     path: samples/sensor/bme280
     catalog: sensors
@@ -1267,6 +1440,7 @@ cases:
   sample.sensor.bme680:
     path: samples/sensor/bme680
     catalog: samples sensor
+    platform_allow: nrf52840dk_nrf52840
   sample.sensor.bmg160:
     path: samples/sensor/bmg160
     catalog: sensors
@@ -1280,15 +1454,18 @@ cases:
   sample.sensor.bq274xx:
     path: samples/sensor/bq274xx
     catalog: sensors
+    platform_allow: nrf9160_innblue22
     depends_on: i2c
   sample.sensor.ccs811:
     path: samples/sensor/ccs811
     catalog: sensors
+    platform_allow: thingy52_nrf52832 efr32mg_sltb004a
     depends_on: i2c
   sample.sensor.dht:
     path: samples/sensor/dht
     catalog: sensors
     build_only: true
+    platform_allow: nrf52dk_nrf52832
   sample.sensor.dps310:
     path: samples/sensor/dps310
     catalog: sensors
@@ -1300,6 +1477,7 @@ cases:
   sample.sensor.fxas21002:
     path: samples/sensor/fxas21002
     catalog: sensors
+    platform_allow: hexiwear_k64 warp7_m4
   sample.sensor.fxos8700.hybrid:
     path: samples/sensor/fxos8700
     catalog: sensors
@@ -1309,24 +1487,30 @@ cases:
     - CONFIG_FXOS8700_MOTION=y
     - CONFIG_FXOS8700_MOTION_INT1=y
     - CONFIG_FXOS8700_PM_LOW_POWER=y
+    platform_allow: frdm_k64f hexiwear_k64 warp7_m4 frdm_kw41z rv32m1_vega_ri5cy twr_ke18f
+      lpcxpresso55s16_ns mimxrt685_evk_cm33
     depends_on: i2c gpio
   sample.sensor.fxos8700.accel:
     path: samples/sensor/fxos8700
     catalog: sensors
     extra_args: CONF_FILE=prj_accel.conf
+    platform_allow: frdm_kl25z bbc_microbit lpcxpresso55s69_cpu0 reel_board mimxrt685_evk_cm33
     depends_on: i2c gpio
   sample.sensor.usb.fxos8700-hid:
     path: samples/sensor/fxos8700-hid
     catalog: usb sensors
     depends_on: usb_device
+    platform_allow: frdm_k64f
   sample.sensor.grove_light:
     path: samples/sensor/grove_light
     catalog: drivers sensor grove light
+    platform_allow: nrf52dk_nrf52832
     depends_on: adc
   sample.sensor.grove_temperature:
     path: samples/sensor/grove_temperature
     catalog: drivers sensor grove temperature
     min_flash: 33
+    platform_allow: nrf52dk_nrf52832
     depends_on: adc
   sample.sensor.hmc5883l:
     path: samples/sensor/hmc5883l
@@ -1341,6 +1525,7 @@ cases:
     path: samples/sensor/isl29035
     catalog: sensors
     depends_on: i2c
+    platform_allow: nrf52dk_nrf52832
   sample.sensor.lis2dh:
     path: samples/sensor/lis2dh
     catalog: samples sensor
@@ -1353,6 +1538,7 @@ cases:
     path: samples/sensor/lps22hh
     catalog: sensors
     extra_args: SHIELD=x_nucleo_iks01a3
+    platform_allow: nrf52dk_nrf52832
     depends_on: i2c
   sample.sensor.lsm303dlhc:
     path: samples/sensor/lsm303dlhc
@@ -1370,6 +1556,7 @@ cases:
   sample.sensor.max30101:
     path: samples/sensor/max30101
     catalog: sensors
+    platform_allow: hexiwear_k64
     depends_on: i2c
   sample.sensor.max44009:
     path: samples/sensor/max44009
@@ -1385,14 +1572,17 @@ cases:
     path: samples/sensor/mpr
     catalog: sensors
     depends_on: i2c
+    platform_allow: arduino_due
   sample.sensor.mpu6050:
     path: samples/sensor/mpu6050
     catalog: sensors
     build_only: true
+    platform_allow: nrf52dk_nrf52832
   sample.sensor.ms5837:
     path: samples/sensor/ms5837
     catalog: sensors
     build_only: true
+    platform_allow: nrf52840dk_nrf52840
   sample.sensor.shell:
     path: samples/sensor/sensor_shell
     catalog: shell
@@ -1403,11 +1593,13 @@ cases:
     path: samples/sensor/sht3xd
     catalog: sensors
     build_only: true
+    platform_allow: efr32mg_sltb004a frdm_k64f nrf51_ble400 nrf52840dk_nrf52840 nucleo_l476rg
   sample.sensor.sht3xd.trigger:
     path: samples/sensor/sht3xd
     catalog: sensors
     extra_args: CONF_FILE="trigger.conf"
     build_only: true
+    platform_allow: efr32mg_sltb004a frdm_k64f nrf51_ble400 nrf52840dk_nrf52840 nucleo_l476rg
   sample.sensor.sm351lt:
     path: samples/sensor/sm351lt
     catalog: samples sensor
@@ -1428,6 +1620,7 @@ cases:
   sample.sensor.ti_hdc:
     path: samples/sensor/ti_hdc
     catalog: sensors
+    platform_allow: reel_board nucleo_l496zg
     depends_on: i2c
   sample.sensor.tmp112:
     path: samples/sensor/tmp112
@@ -1437,6 +1630,7 @@ cases:
   sample.sensor.tmp116:
     path: samples/sensor/tmp116
     catalog: sensors
+    platform_allow: nucleo_f401re
     depends_on: i2c
   sample.sensor.vl53l0x:
     path: samples/sensor/vl53l0x
@@ -1451,6 +1645,7 @@ cases:
   sample.shields.lmp90100_evb.rtd:
     path: samples/shields/lmp90100_evb/rtd
     catalog: shield
+    platform_allow: frdm_k64f
     depends_on: arduino_spi
   sample.shields.x_nucleo_iks01a1:
     path: samples/shields/x_nucleo_iks01a1
@@ -1496,12 +1691,14 @@ cases:
     path: samples/subsys/canbus/canopen
     catalog: introduction
     depends_on: can
+    platform_allow: twr_ke18f frdm_k64f
   sample.subsys.canbus.canopen.program_download:
     path: samples/subsys/canbus/canopen
     catalog: can canopen
     extra_configs:
     - CONFIG_BOOTLOADER_MCUBOOT=y
     depends_on: can
+    platform_allow: twr_ke18f frdm_k64f
   sample.subsys.canbus.isotp:
     path: samples/subsys/canbus/isotp
     catalog: CAN
@@ -1525,28 +1722,35 @@ cases:
   sample.filesystem.fat_fs.overlay:
     path: samples/subsys/fs/fat_fs
     catalog: filesystem
+    platform_allow: nrf52840_blip
   sample.filesystem.littlefs:
     path: samples/subsys/fs/littlefs
     catalog: filesystem
     build_only: true
+    platform_allow: nrf52840dk_nrf52840 particle_xenon
   sample.ipc.ipm.ipm_imx:
     path: samples/subsys/ipc/ipm_imx
     catalog: samples ipm
     build_only: true
     filter: CONFIG_SOC_FAMILY_IMX
+    platform_allow: udoo_neo_full_m4 colibri_imx7d_m4 warp7_m4
   sample.ipc.ipm.ipm_mcux:
     path: samples/subsys/ipc/ipm_mcux
     catalog: ipm
+    platform_allow: lpcxpresso54114_m4
   sample.ipc.ipm.ipm_mhu_dual_core:
     path: samples/subsys/ipc/ipm_mhu_dual_core
     catalog: ipm
+    platform_allow: v2m_musca v2m_musca_nonsecure v2m_musca_b1 v2m_musca_b1_nonsecure
   sample.ipc.openamp:
     path: samples/subsys/ipc/openamp
     catalog: ipm
+    platform_allow: lpcxpresso54114_m4 mps2_an521 v2m_musca v2m_musca_b1
   sample.subsys.ipc.openamp_rs_table:
     path: samples/subsys/ipc/openamp_rsc_table
     catalog: ipm
     build_only: true
+    platform_allow: stm32mp157c_dk2
   sample.logger.basic:
     path: samples/subsys/logging/logger
     catalog: logging
@@ -1566,18 +1770,22 @@ cases:
   sample.logger.syst:
     path: samples/subsys/logging/syst
     catalog: logging
+    platform_allow: mps2_an385 sam_e70_xplained
   sample.mcumg.smp_svr.bt_tiny:
     path: samples/subsys/mgmt/mcumgr/smp_svr
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="overlay-bt-tiny.conf"
+    platform_allow: nrf51dk_nrf51422
   sample.mcumg.smp_svr.bt:
     path: samples/subsys/mgmt/mcumgr/smp_svr
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="overlay-bt.conf"
+    platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840
   sample.mcumg.smp_svr.udp:
     path: samples/subsys/mgmt/mcumgr/smp_svr
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="overlay-udp.conf"
+    platform_allow: frdm_k64f
   sample.net.updatehub:
     path: samples/subsys/mgmt/updatehub
     catalog: net wifi updatehub
@@ -1588,6 +1796,7 @@ cases:
     - CONFIG_UPDATEHUB_SERVER="10.5.3.67"
     depends_on: netif
     build_only: true
+    platform_allow: frdm_k64f
   sample.net.updatehub.dtls:
     path: samples/subsys/mgmt/updatehub
     catalog: net wifi updatehub
@@ -1599,6 +1808,7 @@ cases:
     extra_args: OVERLAY_CONFIG="overlay-dtls.conf"
     depends_on: netif
     build_only: true
+    platform_allow: frdm_k64f
   sample.nvs.basic:
     path: samples/subsys/nvs
     catalog: settings
@@ -1607,12 +1817,15 @@ cases:
   sample.power.ospm.dev_idle_pm:
     path: samples/subsys/power/device_pm
     catalog: power
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
   sample.subsys.settings:
     path: samples/subsys/settings
     catalog: settings
+    platform_allow: qemu_x86 native_posix native_posix_64
   sample.filesystem.shell:
     path: samples/subsys/shell/fs
     catalog: unknown
+    platform_allow: reel_board
   sample.shell.shell_module:
     path: samples/subsys/shell/shell_module
     catalog: shell
@@ -1635,12 +1848,14 @@ cases:
     - CONFIG_TRACING=y
     - CONFIG_SEGGER_SYSTEMVIEW=y
     - CONFIG_USE_SEGGER_RTT=y
+    platform_allow: nrf52840dk_nrf52840
   tracing.format.cpu_stats:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_configs:
     - CONFIG_TRACING=y
     - CONFIG_TRACING_CPU_STATS=y
+    platform_allow: nrf52840dk_nrf52840
   tracing.osawareness.openocd:
     path: samples/subsys/tracing
     catalog: tracing debug
@@ -1654,32 +1869,39 @@ cases:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_uart.conf"
+    platform_allow: qemu_x86 qemu_x86_64
   tracing.transport.usb:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_usb.conf"
+    platform_allow: sam_e70_xplained
     depends_on: usb_device
   tracing.transport.ctf:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_usb_ctf.conf"
+    platform_allow: sam_e70_xplained
     depends_on: usb_device
   tracing.transport.native_posix:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_native_posix.conf"
+    platform_allow: native_posix
   tracing.transport.posix.ctf:
     path: samples/subsys/tracing
     catalog: tracing debug
     extra_args: CONF_FILE="prj_native_posix_ctf.conf"
+    platform_allow: native_posix
   sample.usb.audio.headphones_microphone:
     path: samples/subsys/usb/audio/headphones_microphone
     catalog: usb
     depends_on: usb_device
+    platform_allow: nrf52840dk_nrf52840
   sample.usb.audio.headset:
     path: samples/subsys/usb/audio/headset
     catalog: usb
     depends_on: usb_device
+    platform_allow: nrf52840dk_nrf52840
   sample.usb.cdc-acm:
     path: samples/subsys/usb/cdc_acm
     catalog: usb
@@ -1701,6 +1923,7 @@ cases:
     path: samples/subsys/usb/dfu
     catalog: usb
     build_only: true
+    platform_allow: nrf52840dk_nrf52840 intel_s1000_crb
     depends_on: usb_device
   sample.usb.hid:
     path: samples/subsys/usb/hid
@@ -1716,6 +1939,7 @@ cases:
     path: samples/subsys/usb/hid-cdc
     catalog: usb
     depends_on: usb_device
+    platform_allow: nrf52840dk_nrf52840 nrf52840dongle_nrf52840
   sample.usb.hid-mouse:
     path: samples/subsys/usb/hid-mouse
     catalog: usb
@@ -1756,6 +1980,7 @@ cases:
   sample.tfm_ipc:
     path: samples/tfm_integration/tfm_ipc
     catalog: introduction
+    platform_allow: mps2_an521_nonsecure
   sample.userspace.prod_consumer:
     path: samples/userspace/prod_consumer
     catalog: userspace
@@ -1769,6 +1994,7 @@ cases:
     path: samples/video/capture
     catalog: video
     build_only: true
+    platform_allow: mimxrt1064_evk
     depends_on: video
   application_development.cpp.main:
     path: tests/application_development/cpp
@@ -1858,6 +2084,7 @@ cases:
   arch.x86.info:
     path: tests/arch/x86/info
     catalog: unknown
+    platform_allow: up_squared up_squared_32
   arch.x86.pagetables:
     path: tests/arch/x86/pagetables
     catalog: userspace mmu
@@ -1927,226 +2154,274 @@ cases:
     catalog: bluetooth
     build_only: true
     min_ram: 16
+    platform_allow: qemu_x86 qemu_cortex_m3
   bluetooth.general:
     path: tests/bluetooth/bluetooth
     catalog: bluetooth
+    platform_allow: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
   bluetooth.ctrl_sw_privacy.test:
     path: tests/bluetooth/ctrl_sw_privacy
     catalog: bluetooth
+    platform_allow: nrf52_bsim
     build_only: true
   bluetooth.privacy.test:
     path: tests/bluetooth/ctrl_sw_privacy_unit
     catalog: bluetooth
+    platform_allow: native_posix
   bluetooth.ctrl_user_ext.test:
     path: tests/bluetooth/ctrl_user_ext
     catalog: bluetooth
+    platform_allow: nrf52_bsim
     build_only: true
   bluetooth.gatt:
     path: tests/bluetooth/uuid
     catalog: bluetooth uuid
+    platform_allow: native_posix native_posix_64 qemu_x86 qemu_cortex_m3
   bluetooth.hci_prop_evt:
     path: tests/bluetooth/hci_prop_evt
     catalog: bluetooth hci prop event
+    platform_allow: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
   bluetooth.init.test:
     path: tests/bluetooth/init
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_0:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_0.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_1:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_1.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_10:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_10.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_11:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_11.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_12:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_12.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_13:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_13.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_14:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_14.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_15:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_15.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_16:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_16.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_17:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_17.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_18:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_18.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_19:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_19.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_2:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_2.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_20:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_20.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_21:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_21.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_22:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_22.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_3:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_3.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_4:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_4.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_5:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_5.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_6:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_6.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_7:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_7.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_8:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_8.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_9:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_9.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_controller_ll_sw_split:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_controller_ll_sw_split.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_controller_4_0_ll_sw_split:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_controller_4_0_ll_sw_split.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_controller_tiny_ll_sw_split:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_controller_tiny_ll_sw_split.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_controller_dbg_ll_sw_split:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_controller_dbg_ll_sw_split.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_h5:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_h5.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.init.test_h5_dbg:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_h5_dbg.conf
+    platform_allow: qemu_cortex_m3
     build_only: true
   bluetooth.ll_settings:
     path: tests/bluetooth/ll_settings
     catalog: bluetooth
+    platform_allow: nrf52_bsim
   bluetooth.mesh.main:
     path: tests/bluetooth/mesh
     catalog: bluetooth mesh
     build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
   bluetooth.mesh.dbg:
     path: tests/bluetooth/mesh
     catalog: bluetooth mesh
     extra_args: CONF_FILE=dbg.conf
     build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
   bluetooth.mesh.friend:
     path: tests/bluetooth/mesh
     catalog: bluetooth mesh
     extra_args: CONF_FILE=friend.conf
     build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
   bluetooth.mesh.gatt:
     path: tests/bluetooth/mesh
     catalog: bluetooth mesh
     extra_args: CONF_FILE=gatt.conf
     build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
   bluetooth.mesh.lpn:
     path: tests/bluetooth/mesh
     catalog: bluetooth mesh
     extra_args: CONF_FILE=lpn.conf
     build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
   bluetooth.mesh.main.microbit:
     path: tests/bluetooth/mesh
     catalog: bluetooth mesh
     extra_args: CONF_FILE=microbit.conf
     build_only: true
+    platform_allow: bbc_microbit
   bluetooth.mesh.pb_gatt:
     path: tests/bluetooth/mesh
     catalog: bluetooth mesh
     extra_args: CONF_FILE=pb_gatt.conf
     build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
   bluetooth.mesh.proxy:
     path: tests/bluetooth/mesh
     catalog: bluetooth mesh
     extra_args: CONF_FILE=proxy.conf
     build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
   bluetooth.mesh.mesh_shell:
     path: tests/bluetooth/mesh_shell
     catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf51dk_nrf51422
     platform_exclude: nrf52dk_nrf52810
   bluetooth.shell.main:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_configs:
     - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    platform_allow: qemu_cortex_m3 qemu_x86 native_posix native_posix_64 nrf52840dk_nrf52840
     platform_exclude: nrf52dk_nrf52810
     min_flash: 145
   bluetooth.shell.shell_br:
@@ -2155,33 +2430,42 @@ cases:
     extra_configs:
     - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
     extra_args: CONF_FILE="prj_br.conf"
+    platform_allow: qemu_cortex_m3 qemu_x86 native_posix native_posix_64
     platform_exclude: nrf52dk_nrf52810
   bluetooth.shell.no_privacy:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_args: CONFIG_BT_PRIVACY=n
     build_only: true
+    platform_allow: native_posix
   bluetooth.general.tester:
     path: tests/bluetooth/tester
     catalog: bluetooth
+    platform_allow: qemu_x86
   boards.altera_max10.i2c_master:
     path: tests/boards/altera_max10/i2c_master
     catalog: i2c
+    platform_allow: altera_max10
   boards.altera_max10.dma:
     path: tests/boards/altera_max10/msgdma
     catalog: dma
+    platform_allow: altera_max10
   boards.altera_max10.qspi:
     path: tests/boards/altera_max10/qspi
     catalog: qspi flash
+    platform_allow: altera_max10
   boards.altera_max10.sysid:
     path: tests/boards/altera_max10/sysid
     catalog: sysid
+    platform_allow: altera_max10
   boards.s1000_crb.cache:
     path: tests/boards/intel_s1000_crb/cache
     catalog: boards
+    platform_allow: intel_s1000_crb
   boards.s1000_crb.main:
     path: tests/boards/intel_s1000_crb/main
     catalog: boards
+    platform_allow: intel_s1000_crb
   boards.native_posix.native_tasks:
     path: tests/boards/native_posix/native_tasks
     catalog: unknown
@@ -2191,6 +2475,7 @@ cases:
   boards.native_posix.rtc:
     path: tests/boards/native_posix/rtc
     catalog: unknown
+    platform_allow: native_posix native_posix_64
     build_only: true
   crypto.mbedtls:
     path: tests/crypto/mbedtls
@@ -2229,6 +2514,7 @@ cases:
     path: tests/deprecated/dts
     catalog: unknown
     build_only: true
+    platform_allow: frdm_k64f
   deprecated.inttypes:
     path: tests/deprecated/inttype
     catalog: deprecated
@@ -2347,19 +2633,24 @@ cases:
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
     catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
   drivers.clock.clock_control_nrf5_lfclk_rc:
     path: tests/drivers/clock_control/clock_control_api
     catalog: drivers
     extra_args: CONF_FILE="nrf_lfclk_rc.conf"
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
   drivers.clock.nrf5_clock_calibration:
     path: tests/drivers/clock_control/nrf_clock_calibration
     catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
   drivers.clock.nrf_onoff_and_bt:
     path: tests/drivers/clock_control/nrf_onoff_and_bt
     catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
   drivers.clock.clock_control_onoff:
     path: tests/drivers/clock_control/onoff
     catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
   drivers.console.uart:
     path: tests/drivers/console
     catalog: drivers console
@@ -2373,6 +2664,7 @@ cases:
     path: tests/drivers/counter/counter_nrf_rtc/fixed_top
     catalog: drivers
     depends_on: counter
+    platform_allow: nrf52840dk_nrf52840
   drivers.counter.cmos:
     path: tests/drivers/counter/counter_cmos
     catalog: drivers
@@ -2405,6 +2697,7 @@ cases:
   peripheral.eeprom:
     path: tests/drivers/eeprom
     catalog: drivers userspace
+    platform_allow: native_posix native_posix_64 qemu_x86
   peripheral.eeprom.generic:
     path: tests/drivers/eeprom
     catalog: drivers userspace
@@ -2418,25 +2711,31 @@ cases:
     path: tests/drivers/flash
     catalog: flash nrf52 nrf_qspi_fash
     extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
+    platform_allow: nrf52840dk_nrf52840
   drivers.flash.soc_flash_nrf:
     path: tests/drivers/flash
     catalog: nrf52 soc_flash_nrf
     extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_soc.conf
+    platform_allow: nrf52840dk_nrf52840
   drivers.flash.flash_simulator:
     path: tests/drivers/flash_simulator
     catalog: driver
+    platform_allow: qemu_x86 native_posix native_posix_64
   drivers.flash.flash_simulator.qemu_erase_value_0x00:
     path: tests/drivers/flash_simulator
     catalog: driver
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
   drivers.flash.flash_simulator.posix_erase_value_0x00:
     path: tests/drivers/flash_simulator
     catalog: driver
     extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_allow: native_posix
   drivers.flash.flash_simulator.posix_64_erase_value_0x00:
     path: tests/drivers/flash_simulator
     catalog: driver
     extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
+    platform_allow: native_posix_64
   peripheral.gpio.1pin:
     path: tests/drivers/gpio/gpio_api_1pin
     catalog: drivers gpio
@@ -2462,6 +2761,7 @@ cases:
     path: tests/drivers/i2c/i2c_slave_api
     catalog: drivers i2c
     depends_on: i2c
+    platform_allow: nucleo_f091rc stm32f072b_disco
   drivers.i2s:
     path: tests/drivers/i2s/i2s_api
     catalog: drivers userspace
@@ -2484,6 +2784,7 @@ cases:
     catalog: drivers kscan
     extra_args: CONF_FILE="mec15xxevb_assy6853.conf"
     depends_on: kscan
+    platform_allow: mec15xxevb_assy6853
   drivers.pwm:
     path: tests/drivers/pwm/pwm_api
     catalog: drivers pwm
@@ -2527,11 +2828,13 @@ cases:
     catalog: drivers watchdog
     extra_args: CONF_FILE="prj.conf;nucleo_l496zg.conf"
     depends_on: watchdog
+    platform_allow: nucleo_l496zg
   drivers.watchdog.mec15xxevb_assy6853:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     depends_on: watchdog
     build_only: true
+    platform_allow: mec15xxevb_assy6853
   kernel.common:
     path: tests/kernel/context
     catalog: kernel
@@ -2620,6 +2923,7 @@ cases:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
   kernel.fpu_sharing.generic.arc:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
@@ -2649,9 +2953,11 @@ cases:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
     extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
   arch.interrupt.gen_isr_table.arm_baseline:
     path: tests/kernel/gen_isr_table
     catalog: interrupt isr_table
+    platform_allow: bbc_microbit atsamr21_xpro nrf51dk_nrf51422 nucleo_g071rb qemu_cortex_m0
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
   arch.interrupt.gen_isr_table.arm_mainline:
     path: tests/kernel/gen_isr_table
@@ -2783,6 +3089,8 @@ cases:
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    platform_allow: efr32_radio_brd4180a mps2_an521 nrf5340pdk_nrf5340_cpuapp nrf5340pdk_nrf5340_cpunet
+      nrf9160dk_nrf9160
   kernel.memory_slabs.api:
     path: tests/kernel/mem_slab/mslab_api
     catalog: kernel
@@ -2962,6 +3270,7 @@ cases:
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
   kernel.workqueue.api:
     path: tests/kernel/workq/work_queue_api
     catalog: kernel userspace
@@ -3211,6 +3520,7 @@ cases:
   libraries.gui.lvgl:
     path: tests/lib/gui/lvgl
     catalog: display gui
+    platform_allow: native_posix
   libraries.gui.lvgl.dynamic.heap.libc:
     path: tests/lib/gui/lvgl
     catalog: display gui
@@ -3218,6 +3528,7 @@ cases:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
     - CONFIG_LVGL_MEM_POOL_HEAP_LIB_C=y
+    platform_allow: native_posix
   libraries.gui.lvgl.dynamic.pool.user:
     path: tests/lib/gui/lvgl
     catalog: display gui
@@ -3226,6 +3537,7 @@ cases:
     - CONFIG_LVGL_MEM_POOL_USER=y
     - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
     - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
+    platform_allow: native_posix
   libraries.gui.lvgl.dynamic.pool.kernel:
     path: tests/lib/gui/lvgl
     catalog: display gui
@@ -3234,27 +3546,32 @@ cases:
     - CONFIG_LVGL_MEM_POOL_KERNEL=y
     - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
     - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
+    platform_allow: native_posix
   libraries.gui.lvgl.16bit:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
     - CONFIG_LVGL_COLOR_DEPTH_16=y
+    platform_allow: native_posix
   libraries.gui.lvgl.8bit:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
     - CONFIG_LVGL_COLOR_DEPTH_8=y
+    platform_allow: native_posix
   libraries.gui.lvgl.mono:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
     - CONFIG_LVGL_COLOR_DEPTH_1=y
+    platform_allow: native_posix
   libraries.gui.lvgl.16bit.swap:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
     - CONFIG_LVGL_COLOR_DEPTH_16=y
     - CONFIG_LVGL_COLOR_16_SWAP=y
+    platform_allow: native_posix
   lib.heap:
     path: tests/lib/heap
     catalog: heap
@@ -3307,6 +3624,7 @@ cases:
     extra_configs:
     - CONFIG_BOOTLOADER_MCUBOOT=y
     build_only: true
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832
   buildsystem.kconfig.utf8_in_values:
     path: tests/misc/test_build
     catalog: kconfig
@@ -3323,6 +3641,7 @@ cases:
     catalog: net net-all
     build_only: true
     min_ram: 32
+    platform_allow: qemu_x86
   net.arp:
     path: tests/net/arp
     catalog: net arp
@@ -3510,6 +3829,7 @@ cases:
   net.pm:
     path: tests/net/pm
     catalog: net
+    platform_allow: qemu_x86
     depends_on: netif
   net.ppp:
     path: tests/net/ppp/driver
@@ -3633,174 +3953,203 @@ cases:
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=1
     - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.2:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=2
     - CONFIG_NET_TC_RX_COUNT=2
+    platform_allow: native_posix native_posix_64
   net.traffic_class.3:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=3
     - CONFIG_NET_TC_RX_COUNT=3
+    platform_allow: native_posix native_posix_64
   net.traffic_class.4:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=4
     - CONFIG_NET_TC_RX_COUNT=4
+    platform_allow: native_posix native_posix_64
   net.traffic_class.5:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=5
     - CONFIG_NET_TC_RX_COUNT=5
+    platform_allow: native_posix native_posix_64
   net.traffic_class.6:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=6
     - CONFIG_NET_TC_RX_COUNT=6
+    platform_allow: native_posix native_posix_64
   net.traffic_class.7:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=7
     - CONFIG_NET_TC_RX_COUNT=7
+    platform_allow: native_posix native_posix_64
   net.traffic_class.8:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=8
     - CONFIG_NET_TC_RX_COUNT=8
+    platform_allow: native_posix native_posix_64
   net.traffic_class.2_no_rx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=2
     - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.3_no_rx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=3
     - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.4_no_rx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=4
     - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.5_no_rx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=5
     - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.6_no_rx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=6
     - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.7_no_rx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=7
     - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.8_no_rx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=8
     - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.2_no_tx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=2
     - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.3_no_tx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=3
     - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.4_no_tx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=4
     - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.5_no_tx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.6_no_tx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=6
     - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.7_no_tx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=7
     - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.8_no_tx:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=8
     - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_2_rx_3:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=3
     - CONFIG_NET_TC_TX_COUNT=2
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_3_rx_8:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=8
     - CONFIG_NET_TC_TX_COUNT=3
+    platform_allow: native_posix native_posix_64
   net.traffic_class.rx_4_tx_8:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=4
     - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
   net.traffic_class.rx_5_tx_7:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_6_rx_2:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=2
     - CONFIG_NET_TC_TX_COUNT=6
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_7_rx_5:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_8_rx_7:
     path: tests/net/traffic_class
     catalog: net traffic_class
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=7
     - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
   net.traffic_class.2_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3808,6 +4157,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=2
     - CONFIG_NET_TC_RX_COUNT=2
+    platform_allow: native_posix native_posix_64
   net.traffic_class.3_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3815,6 +4165,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=3
     - CONFIG_NET_TC_RX_COUNT=3
+    platform_allow: native_posix native_posix_64
   net.traffic_class.4_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3822,6 +4173,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=4
     - CONFIG_NET_TC_RX_COUNT=4
+    platform_allow: native_posix native_posix_64
   net.traffic_class.5_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3829,6 +4181,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=5
     - CONFIG_NET_TC_RX_COUNT=5
+    platform_allow: native_posix native_posix_64
   net.traffic_class.6_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3836,6 +4189,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=6
     - CONFIG_NET_TC_RX_COUNT=6
+    platform_allow: native_posix native_posix_64
   net.traffic_class.7_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3843,6 +4197,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=7
     - CONFIG_NET_TC_RX_COUNT=7
+    platform_allow: native_posix native_posix_64
   net.traffic_class.8_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3850,6 +4205,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=8
     - CONFIG_NET_TC_RX_COUNT=8
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_2_rx_3_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3857,6 +4213,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=3
     - CONFIG_NET_TC_TX_COUNT=2
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_3_rx_8_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3864,6 +4221,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=8
     - CONFIG_NET_TC_TX_COUNT=3
+    platform_allow: native_posix native_posix_64
   net.traffic_class.rx_4_tx_8_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3871,6 +4229,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=4
     - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
   net.traffic_class.rx_5_tx_7_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3878,6 +4237,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_6_rx_2_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3885,6 +4245,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=2
     - CONFIG_NET_TC_TX_COUNT=6
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_7_rx_5_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3892,6 +4253,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_8_rx_7_sr_ab:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3899,6 +4261,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=7
     - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
   net.traffic_class.2_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3906,6 +4269,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=2
     - CONFIG_NET_TC_RX_COUNT=2
+    platform_allow: native_posix native_posix_64
   net.traffic_class.3_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3913,6 +4277,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=3
     - CONFIG_NET_TC_RX_COUNT=3
+    platform_allow: native_posix native_posix_64
   net.traffic_class.4_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3920,6 +4285,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=4
     - CONFIG_NET_TC_RX_COUNT=4
+    platform_allow: native_posix native_posix_64
   net.traffic_class.5_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3927,6 +4293,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=5
     - CONFIG_NET_TC_RX_COUNT=5
+    platform_allow: native_posix native_posix_64
   net.traffic_class.6_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3934,6 +4301,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=6
     - CONFIG_NET_TC_RX_COUNT=6
+    platform_allow: native_posix native_posix_64
   net.traffic_class.7_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3941,6 +4309,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=7
     - CONFIG_NET_TC_RX_COUNT=7
+    platform_allow: native_posix native_posix_64
   net.traffic_class.8_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3948,6 +4317,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=8
     - CONFIG_NET_TC_RX_COUNT=8
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_2_rx_3_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3955,6 +4325,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=3
     - CONFIG_NET_TC_TX_COUNT=2
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_3_rx_8_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3962,6 +4333,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=8
     - CONFIG_NET_TC_TX_COUNT=3
+    platform_allow: native_posix native_posix_64
   net.traffic_class.rx_4_tx_8_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3969,6 +4341,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=4
     - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
   net.traffic_class.rx_5_tx_7_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3976,6 +4349,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_6_rx_2_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3983,6 +4357,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=2
     - CONFIG_NET_TC_TX_COUNT=6
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_7_rx_5_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3990,6 +4365,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
   net.traffic_class.tx_8_rx_7_sr_b:
     path: tests/net/traffic_class
     catalog: net traffic_class
@@ -3997,6 +4373,7 @@ cases:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=7
     - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
   net.trickle:
     path: tests/net/trickle
     catalog: net trickle
@@ -4056,6 +4433,7 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
     - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
     min_ram: 64
     arch_exclude: posix
   portability.posix.common.newlib.nsim:
@@ -4064,6 +4442,7 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 64
     arch_exclude: posix
@@ -4109,6 +4488,7 @@ cases:
   can.frame:
     path: tests/subsys/canbus/frame
     catalog: net
+    platform_allow: native_posix native_posix_64 qemu_x86 qemu_cortex_m3
   can.isotp.conformance:
     path: tests/subsys/canbus/isotp/conformance
     catalog: can isotp
@@ -4124,46 +4504,59 @@ cases:
   dfu.image_util:
     path: tests/subsys/dfu/img_util
     catalog: dfu_image_util
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
   dfu.image_util.progressive:
     path: tests/subsys/dfu/img_util
     catalog: dfu_image_util
     extra_args: OVERLAY_CONFIG=progressively_overlay.conf
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
   dfu.mcuboot:
     path: tests/subsys/dfu/mcuboot
     catalog: dfu_mcuboot
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
   filesystem.fat.api:
     path: tests/subsys/fs/fat_fs_api
     catalog: filesystem
+    platform_allow: native_posix
   filesystem.fat.api.lfn:
     path: tests/subsys/fs/fat_fs_api
     catalog: filesystem
     extra_args: CONF_FILE="prj_lfn.conf"
+    platform_allow: native_posix
   filesystem.fat.dual_drive:
     path: tests/subsys/fs/fat_fs_dual_drive
     catalog: filesystem
+    platform_allow: qemu_x86 native_posix
   filesystem.fcb:
     path: tests/subsys/fs/fcb
     catalog: flash_circural_buffer
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 native_posix
+      native_posix_64
   filesystem.api:
     path: tests/subsys/fs/fs_api
     catalog: filesystem
   filesystem.littlefs:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
   filesystem.multifs:
     path: tests/subsys/fs/multi-fs
     catalog: littlefs fatfs filesystem qemu_x86
+    platform_allow: native_posix qemu_x86
   filesystem.fs_shell:
     path: tests/subsys/fs/multi-fs
     catalog: littlefs fatfs filesystem
     extra_args: CONF_FILE="prj_fs_shell.conf"
+    platform_allow: native_posix qemu_x86
   filesystem.nvs:
     path: tests/subsys/fs/nvs
     catalog: nvs
+    platform_allow: qemu_x86
   filesystem.nvs_0x00:
     path: tests/subsys/fs/nvs
     catalog: nvs
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
   libraries.encoding.jwt:
     path: tests/subsys/jwt
     catalog: jwt
@@ -4203,37 +4596,48 @@ cases:
   openthread.radio:
     path: tests/subsys/openthread
     catalog: ot_radio
+    platform_allow: native_posix native_posix_64
   subsys.power.device_pm:
     path: tests/subsys/power/power_mgmt
     catalog: power
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 frdm_k64f qemu_cortex_m0
   system.settings.fcb.base64:
     path: tests/subsys/settings/fcb/base64
     catalog: settings_fcb
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 native_posix native_posix_64
   system.settings.fcb.raw:
     path: tests/subsys/settings/fcb/raw
     catalog: settings_fcb
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 native_posix native_posix_64
   system.settings.fcb:
     path: tests/subsys/settings/fcb_init
     catalog: settings_intialization_fcb
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
   system.settings.functional.fcb:
     path: tests/subsys/settings/functional/fcb
     catalog: settings_fcb
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 native_posix native_posix_64
   system.settings.file:
     path: tests/subsys/settings/functional/file
     catalog: settings_file
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 native_posix native_posix_64
   system.settings.functional.nvs:
     path: tests/subsys/settings/functional/nvs
     catalog: settings_nvs
+    platform_allow: qemu_x86 native_posix native_posix_64
   system.settings.functional.nvs.dk:
     path: tests/subsys/settings/functional/nvs
     catalog: settings_nvs
     extra_args: OVERLAY_CONFIG=mpu.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
   system.settings.littlefs.base64:
     path: tests/subsys/settings/littlefs/base64
     catalog: settings_fs filesystem
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
   system.settings.littlefs.raw:
     path: tests/subsys/settings/littlefs/raw
     catalog: settings_fs settings_littlefs
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
   system.settings.nvs:
     path: tests/subsys/settings/nvs/raw
     catalog: settings_nvs
@@ -4248,25 +4652,31 @@ cases:
   storage.flash_map:
     path: tests/subsys/storage/flash_map
     catalog: flash_map
+    platform_allow: nrf51dk_nrf51422 qemu_x86 native_posix native_posix_64
   storage.flash_map.mpu:
     path: tests/subsys/storage/flash_map
     catalog: flash_map
     extra_args: OVERLAY_CONFIG=overlay-mpu.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 frdm_k64f hexiwear_k64 twr_ke18f
   storage.stream_flash:
     path: tests/subsys/storage/stream/stream_flash
     catalog: stream_flash
+    platform_allow: native_posix native_posix_64
   storage.stream_flash.dword_wbs:
     path: tests/subsys/storage/stream/stream_flash
     catalog: stream_flash
     extra_args: DTC_OVERLAY_FILE=unaligned_flush.overlay
+    platform_allow: native_posix native_posix_64
   storage.stream_flash.no_erase:
     path: tests/subsys/storage/stream/stream_flash
     catalog: stream_flash
     extra_args: OVERLAY_CONFIG=no_erase.overlay
+    platform_allow: native_posix native_posix_64
   storage.stream_flash.mpu_allow_flash_write:
     path: tests/subsys/storage/stream/stream_flash
     catalog: stream_flash
     extra_args: OVERLAY_CONFIG=mpu_allow_flash_write.overlay
+    platform_allow: nrf52840_pca10056
   usb.bos:
     path: tests/subsys/usb/bos
     catalog: usb bos
@@ -4282,6 +4692,7 @@ cases:
   usb.osdesc:
     path: tests/subsys/usb/os_desc
     catalog: usb osdesc
+    platform_allow: native_posix native_posix_64 frdm_k64f
   utilities.base64:
     path: tests/unit/base64
     catalog: base64

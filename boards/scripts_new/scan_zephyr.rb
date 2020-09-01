@@ -332,9 +332,9 @@ def split_test_catalog(fn, outdir, template_dir)
       template_files_hash['board_socket_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().start_with?(/^net_traffic_/)
       template_files_hash['board_traffic_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^net_[t-z]/)
+    elsif module_name.downcase().match(/^net_[n-z]/)
       template_files_hash['board_samples2_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^net_[a-r]/) or
+    elsif module_name.downcase().match(/^net_[a-m]/) or
       module_name.downcase().match(/^net/) or
       module_name.downcase().match(/^tcp/)
       template_files_hash['board_samples_template.yml']["__load__"].unshift("modules/#{module_name}")
