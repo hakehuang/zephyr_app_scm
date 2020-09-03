@@ -12,3 +12,9 @@ cases:
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=1024
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+  arch.interrupt.extra_exception_info:
+    path: tests/arch/arm/arm_interrupt
+    catalog: arm interrupt ignore_faults
+    extra_configs:
+    - CONFIG_EXTRA_EXCEPTION_INFO=y
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE

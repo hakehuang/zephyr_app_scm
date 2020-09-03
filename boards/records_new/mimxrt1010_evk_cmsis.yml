@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "mimxrt1010_evk_cmsis"
+__load__:
+- modules/cmsis_rtos.yml
+- modules/cmsis_dsp.yml
+- skips/mimxrt1010_evk.yml
+- boards/mimxrt1010_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

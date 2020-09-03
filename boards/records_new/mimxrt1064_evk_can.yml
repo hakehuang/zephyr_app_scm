@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "mimxrt1064_evk_can"
+__load__:
+- modules/can_isotp.yml
+- modules/can_canopen.yml
+- skips/mimxrt1064_evk.yml
+- boards/mimxrt1064_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

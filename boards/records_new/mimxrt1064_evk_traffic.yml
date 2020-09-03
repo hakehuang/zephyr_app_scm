@@ -1,0 +1,11 @@
+---
+settings:
+  case_pipe_name: "mimxrt1064_evk_traffic"
+__load__:
+- modules/net_traffic_class.yml
+- skips/mimxrt1064_evk.yml
+- boards/mimxrt1064_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

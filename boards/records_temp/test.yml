@@ -369,6 +369,11 @@ cases:
     path: samples/cpp_synchronization
     catalog: cpp
     arch_exclude: posix
+  sample.debug.gdbstub:
+    path: samples/debug/gdbstub
+    catalog: debug
+    build_only: true
+    platform_allow: qemu_x86
   sample.display.cfb.ssd1306:
     path: samples/display/cfb
     catalog: shield
@@ -2027,10 +2032,20 @@ cases:
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=1024
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+  arch.interrupt.extra_exception_info:
+    path: tests/arch/arm/arm_interrupt
+    catalog: arm interrupt ignore_faults
+    extra_configs:
+    - CONFIG_EXTRA_EXCEPTION_INFO=y
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
   arch.arm.irq_advanced_features:
     path: tests/arch/arm/arm_irq_advanced_features
     catalog: arm interrupt
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+  arch.arm.irq_advanced_features.secure_fw:
+    path: tests/arch/arm/arm_irq_advanced_features
+    catalog: arm interrupt
+    filter: CONFIG_TRUSTED_EXECUTION_SECURE
   arch.interrupt.arm.irq_vector_table:
     path: tests/arch/arm/arm_irq_vector_table
     catalog: arm interrupt vector_table
@@ -2149,6 +2164,10 @@ cases:
     catalog: benchmark userspace
     extra_args: CONF_FILE=prj_userspace.conf
     filter: CONFIG_ARCH_HAS_USERSPACE
+  bluetooth.adv:
+    path: tests/bluetooth/adv
+    catalog: bluetooth
+    platform_allow: nrf52_bsim nrf51dk_nrf51422 nrf52840dk_nrf52840
   bluetooth.at:
     path: tests/bluetooth/at
     catalog: bluetooth

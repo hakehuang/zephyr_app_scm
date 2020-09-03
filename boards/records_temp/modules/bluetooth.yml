@@ -140,6 +140,10 @@ cases:
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="overlay-udp.conf"
     platform_allow: frdm_k64f
+  bluetooth.adv:
+    path: tests/bluetooth/adv
+    catalog: bluetooth
+    platform_allow: nrf52_bsim nrf51dk_nrf51422 nrf52840dk_nrf52840
   bluetooth.at:
     path: tests/bluetooth/at
     catalog: bluetooth

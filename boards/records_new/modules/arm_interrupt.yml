@@ -4,3 +4,7 @@ cases:
     path: tests/arch/arm/arm_irq_advanced_features
     catalog: arm interrupt
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+  arch.arm.irq_advanced_features.secure_fw:
+    path: tests/arch/arm/arm_irq_advanced_features
+    catalog: arm interrupt
+    filter: CONFIG_TRUSTED_EXECUTION_SECURE

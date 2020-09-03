@@ -1,0 +1,11 @@
+---
+settings:
+  case_pipe_name: "mimxrt1064_evk_bt2"
+__load__:
+- modules/bluetooth.yml
+- skips/mimxrt1064_evk.yml
+- boards/mimxrt1064_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required
