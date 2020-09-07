@@ -255,6 +255,10 @@ bluetooth:
     catalog: bluetooth
     extra_args: SHIELD=frdm_kw41z
     platform_allow: mimxrt1020_evk mimxrt1050_evk mimxrt1060_evk frdm_k64f
+  sample.bluetooth.peripheral_ots:
+    path: samples/bluetooth/peripheral_ots
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.peripheral_sc_only:
     path: samples/bluetooth/peripheral_sc_only
     catalog: bluetooth
@@ -649,6 +653,7 @@ unknown:
     extra_args: CONF_FILE=gpio.conf
     build_only: true
     min_ram: 32
+    platform_exclude: serpente
     depends_on: gpio spi i2c
   drivers.eeprom.build:
     path: tests/drivers/build_all
@@ -656,6 +661,7 @@ unknown:
     extra_args: CONF_FILE=eeprom.conf
     build_only: true
     min_ram: 32
+    platform_exclude: serpente
     depends_on: gpio spi i2c
   drivers.adc.build:
     path: tests/drivers/build_all
@@ -664,6 +670,7 @@ unknown:
     build_only: true
     min_ram: 32
     depends_on: gpio spi i2c
+    platform_exclude: serpente
   drivers.dac.build:
     path: tests/drivers/build_all
     catalog: unknown
@@ -897,6 +904,12 @@ sensors:
     catalog: sensors
     platform_allow: nucleo_f401re
     depends_on: i2c
+  sample.sensor.vcnl4040:
+    path: samples/sensor/vcnl4040
+    catalog: sensors
+    platform_allow: adafruit_feather_stm32f405
+    depends_on: i2c gpio
+    filter: dt_compat_enabled("vishay,vcnl4040")
   sample.sensor.vl53l0x:
     path: samples/sensor/vl53l0x
     catalog: sensors
@@ -976,6 +989,11 @@ audio:
   sample.board.intel_s1000_crb.audio:
     path: samples/boards/intel_s1000_crb/audio
     catalog: audio
+    platform_allow: intel_s1000_crb
+dmic:
+  sample.board.intel_s1000_crb.dmic:
+    path: samples/boards/intel_s1000_crb/dmic
+    catalog: dmic
     platform_allow: intel_s1000_crb
 i2s:
   sample.board.intel_s1000_crb.i2s:
@@ -1109,6 +1127,11 @@ shield:
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh029a1
     platform_allow: nrf52840dk_nrf52840
+  sample.display.buydisplay_2_8_tft_touch_arduino:
+    path: samples/display/lvgl
+    catalog: shield
+    extra_args: SHIELD=buydisplay_2_8_tft_touch_arduino
+    platform_allow: nrf52840dk_nrf52840
   sample.shields.lmp90100_evb.rtd:
     path: samples/shields/lmp90100_evb/rtd
     catalog: shield
@@ -1215,7 +1238,7 @@ drivers:
     extra_args: CONF_FILE=sensors_trigger_a_h.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.trigger_i_z:
     path: tests/drivers/build_all
@@ -1223,7 +1246,7 @@ drivers:
     extra_args: CONF_FILE=sensors_trigger_i_z.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.a_h:
     path: tests/drivers/build_all
@@ -1232,7 +1255,7 @@ drivers:
     build_only: true
     min_flash: 44
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.i_z:
     path: tests/drivers/build_all
@@ -1240,7 +1263,7 @@ drivers:
     extra_args: CONF_FILE=sensors_i_z.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.stmemsc:
     path: tests/drivers/build_all
@@ -1248,7 +1271,7 @@ drivers:
     extra_args: CONF_FILE=sensors_stmemsc.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.stmemsc_trigger:
     path: tests/drivers/build_all
@@ -1256,7 +1279,7 @@ drivers:
     extra_args: CONF_FILE=sensors_stmemsc_trigger.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
@@ -1297,6 +1320,15 @@ drivers:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+  drivers.uart.uart_async_api.rtt:
+    path: tests/drivers/uart/uart_async_api
+    catalog: drivers
+    extra_configs:
+    - CONFIG_USE_SEGGER_RTT=y
+    - CONFIG_UART_RTT=y
+    extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
+    build_only: true
   drivers.uart:
     path: tests/drivers/uart/uart_basic_api
     catalog: drivers
@@ -1317,6 +1349,11 @@ samples display gui:
     path: samples/display/lvgl
     catalog: samples display gui
     platform_allow: reel_board mimxrt1050_evk mimxrt1060_evk mimxrt1064_evk
+  sample.display.lvgl.sdl:
+    path: samples/display/lvgl
+    catalog: samples display gui
+    build_only: true
+    platform_allow: native_posix_64
 CAN:
   sample.drivers.can:
     path: samples/drivers/can
@@ -1355,7 +1392,9 @@ DAC:
   sample.drivers.dac:
     path: samples/drivers/dac
     catalog: DAC
-    platform_allow: arduino_zero frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
+    platform_allow: |
+      arduino_zero frdm_k64f nucleo_f091rc nucleo_g431rb nucleo_l073rz nucleo_l152re
+      twr_ke18f
     depends_on: dac
 display shield:
   sample.display.shield.adafruit_2_8_tft_touch_v2:
@@ -1565,7 +1604,7 @@ introduction:
   sample.tfm_ipc:
     path: samples/tfm_integration/tfm_ipc
     catalog: introduction
-    platform_allow: mps2_an521_nonsecure
+    platform_allow: mps2_an521_nonsecure lpcxpresso55s69_ns
 mpu:
   sample.mpu.mpu_test:
     path: samples/mpu/mpu_test
@@ -1644,6 +1683,12 @@ net:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
     platform_allow: qemu_x86
+  samples.net.hawkbit:
+    path: samples/subsys/mgmt/hawkbit
+    catalog: net
+    depends_on: netif
+    build_only: true
+    platform_allow: frdm_k64f
   net.coap.simple:
     path: tests/net/lib/coap
     catalog: net
@@ -2042,12 +2087,12 @@ usb:
     path: samples/subsys/usb/audio/headphones_microphone
     catalog: usb
     depends_on: usb_device
-    platform_allow: nrf52840dk_nrf52840
+    platform_allow: nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
   sample.usb.audio.headset:
     path: samples/subsys/usb/audio/headset
     catalog: usb
     depends_on: usb_device
-    platform_allow: nrf52840dk_nrf52840
+    platform_allow: nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
   sample.usb.cdc-acm:
     path: samples/subsys/usb/cdc_acm
     catalog: usb
@@ -2174,6 +2219,7 @@ net http http_client:
     path: samples/net/sockets/http_client
     catalog: net http http_client
     min_ram: 32
+    depends_on: netif
 net socket mgmt:
   sample.net.sockets.net_mgmt.kernelmode:
     path: samples/net/sockets/net_mgmt
@@ -2629,6 +2675,11 @@ logging usermode:
     extra_configs:
     - CONFIG_USERSPACE=y
     filter: CONFIG_ARCH_HAS_USERSPACE
+osdp:
+  sample.mgmt.osdp:
+    path: samples/subsys/mgmt/osdp
+    catalog: osdp
+    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and CONFIG_SERIAL
 net wifi updatehub:
   sample.net.updatehub:
     path: samples/subsys/mgmt/updatehub
@@ -2829,6 +2880,11 @@ nmi interrupt arm:
     path: tests/arch/arm/arm_runtime_nmi
     catalog: nmi interrupt arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+arm tz_ns tz_wrap_func:
+  arch.arm.tz_wrap_func:
+    path: tests/arch/arm/arm_tz_wrap_func
+    catalog: arm tz_ns tz_wrap_func
+    filter: CONFIG_CPU_CORTEX_M
 userspace mmu:
   arch.x86.pagetables:
     path: tests/arch/x86/pagetables
@@ -2858,7 +2914,7 @@ benchmark:
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
-    platform_exclude: qemu_x86_64
+    platform_exclude: qemu_x86_64 qemu_cortex_m0
     filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.latency.stm32:
     path: tests/benchmarks/latency_measure
@@ -2866,6 +2922,7 @@ benchmark:
     extra_configs:
     - CONFIG_SYS_CLOCK_TICKS_PER_SEC=20
     filter: CONFIG_PRINTK and CONFIG_SOC_FAMILY_STM32
+    platform_exclude: qemu_cortex_m0
   benchmark.kernel.scheduler:
     path: tests/benchmarks/sched
     catalog: benchmark
@@ -2874,10 +2931,6 @@ benchmark:
     catalog: benchmark
     arch_exclude: nios2 riscv32 xtensa
     min_ram: 32
-  benchmark.kernel.timing.default:
-    path: tests/benchmarks/timing_info
-    catalog: benchmark
-    arch_exclude: posix
 benchmark cmsis_dsp:
   benchmark.cmsis_dsp.basicmath:
     path: tests/benchmarks/cmsis_dsp/basicmath
@@ -2885,16 +2938,10 @@ benchmark cmsis_dsp:
     filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
     min_flash: 128
     min_ram: 64
-dlist req-test:
+rbtree req-test:
   benchmark.data_structures:
-    path: tests/benchmarks/data_structure_perf/dlist_perf
-    catalog: dlist req-test
-benchmark userspace:
-  benchmark.kernel.timing.userspace:
-    path: tests/benchmarks/timing_info
-    catalog: benchmark userspace
-    extra_args: CONF_FILE=prj_userspace.conf
-    filter: CONFIG_ARCH_HAS_USERSPACE
+    path: tests/benchmarks/data_structure_perf/rbtree_perf
+    catalog: rbtree req-test
 bluetooth uuid:
   bluetooth.gatt:
     path: tests/bluetooth/uuid
@@ -3054,7 +3101,9 @@ dac drivers:
     path: tests/drivers/dac/dac_loopback
     catalog: dac drivers
     depends_on: dac adc
-    platform_exclude: arduino_zero
+    platform_allow: 'frdm_k64f nucleo_f207zg nucleo_l073rz nucleo_l152re twr_ke18f
+
+      '
 drivers dma:
   drivers.dma:
     path: tests/drivers/dma/chan_blen_transfer
@@ -3179,9 +3228,14 @@ driver sensor subsys:
     path: tests/drivers/sensor
     catalog: driver sensor subsys
 drivers spi:
-  drivers.spi:
+  drivers.spi.loopback:
     path: tests/drivers/spi/spi_loopback
     catalog: drivers spi
+    depends_on: spi
+  driver.spi.loopback.internal:
+    path: tests/drivers/spi/spi_loopback
+    catalog: drivers spi
+    filter: CONFIG_SPI_LOOPBACK_MODE_LOOP
     depends_on: spi
 drivers watchdog:
   drivers.watchdog:
@@ -3561,12 +3615,12 @@ kernel security userspace ignore_faults:
   kernel.threads.thread_stack:
     path: tests/kernel/threads/thread_stack
     catalog: kernel security userspace ignore_faults
-    min_ram: 36
+    min_ram: 16
   kernel.threads.armv8m_mpu_stack_guard:
     path: tests/kernel/threads/thread_stack
     catalog: kernel security userspace ignore_faults
     extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
-    min_ram: 36
+    min_ram: 16
     filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
 kernel security userspace:
   kernel.memory_protection.obj_validation:
@@ -4904,6 +4958,11 @@ log_output logging:
   logging.log_output:
     path: tests/subsys/logging/log_output
     catalog: log_output logging
+ec_host_cmd:
+  ec_host_cmd.core:
+    path: tests/subsys/mgmt/ec_host_cmd
+    catalog: ec_host_cmd
+    platform_allow: native_posix
 ot_radio:
   openthread.radio:
     path: tests/subsys/openthread

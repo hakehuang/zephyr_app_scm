@@ -221,6 +221,12 @@ cases:
     catalog: sensors
     platform_allow: nucleo_f401re
     depends_on: i2c
+  sample.sensor.vcnl4040:
+    path: samples/sensor/vcnl4040
+    catalog: sensors
+    platform_allow: adafruit_feather_stm32f405
+    depends_on: i2c gpio
+    filter: dt_compat_enabled("vishay,vcnl4040")
   sample.sensor.vl53l0x:
     path: samples/sensor/vl53l0x
     catalog: sensors

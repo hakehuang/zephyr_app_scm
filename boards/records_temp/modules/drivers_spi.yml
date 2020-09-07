@@ -1,6 +1,11 @@
 ---
 cases:
-  drivers.spi:
+  drivers.spi.loopback:
     path: tests/drivers/spi/spi_loopback
     catalog: drivers spi
+    depends_on: spi
+  driver.spi.loopback.internal:
+    path: tests/drivers/spi/spi_loopback
+    catalog: drivers spi
+    filter: CONFIG_SPI_LOOPBACK_MODE_LOOP
     depends_on: spi

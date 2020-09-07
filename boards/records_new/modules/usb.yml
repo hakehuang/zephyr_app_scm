@@ -20,12 +20,12 @@ cases:
     path: samples/subsys/usb/audio/headphones_microphone
     catalog: usb
     depends_on: usb_device
-    platform_allow: nrf52840dk_nrf52840
+    platform_allow: nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
   sample.usb.audio.headset:
     path: samples/subsys/usb/audio/headset
     catalog: usb
     depends_on: usb_device
-    platform_allow: nrf52840dk_nrf52840
+    platform_allow: nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
   sample.usb.cdc-acm:
     path: samples/subsys/usb/cdc_acm
     catalog: usb

@@ -18,7 +18,7 @@ cases:
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
-    platform_exclude: qemu_x86_64
+    platform_exclude: qemu_x86_64 qemu_cortex_m0
     filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.latency.stm32:
     path: tests/benchmarks/latency_measure
@@ -26,6 +26,7 @@ cases:
     extra_configs:
     - CONFIG_SYS_CLOCK_TICKS_PER_SEC=20
     filter: CONFIG_PRINTK and CONFIG_SOC_FAMILY_STM32
+    platform_exclude: qemu_cortex_m0
   benchmark.kernel.scheduler:
     path: tests/benchmarks/sched
     catalog: benchmark
@@ -34,7 +35,3 @@ cases:
     catalog: benchmark
     arch_exclude: nios2 riscv32 xtensa
     min_ram: 32
-  benchmark.kernel.timing.default:
-    path: tests/benchmarks/timing_info
-    catalog: benchmark
-    arch_exclude: posix

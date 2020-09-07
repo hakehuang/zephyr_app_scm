@@ -30,6 +30,11 @@ cases:
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh029a1
     platform_allow: nrf52840dk_nrf52840
+  sample.display.buydisplay_2_8_tft_touch_arduino:
+    path: samples/display/lvgl
+    catalog: shield
+    extra_args: SHIELD=buydisplay_2_8_tft_touch_arduino
+    platform_allow: nrf52840dk_nrf52840
   sample.shields.lmp90100_evb.rtd:
     path: samples/shields/lmp90100_evb/rtd
     catalog: shield

@@ -86,6 +86,10 @@ cases:
     catalog: bluetooth
     extra_args: SHIELD=frdm_kw41z
     platform_allow: mimxrt1020_evk mimxrt1050_evk mimxrt1060_evk frdm_k64f
+  sample.bluetooth.peripheral_ots:
+    path: samples/bluetooth/peripheral_ots
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.peripheral_sc_only:
     path: samples/bluetooth/peripheral_sc_only
     catalog: bluetooth

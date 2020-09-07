@@ -239,13 +239,13 @@ cases:
   kernel.threads.thread_stack:
     path: tests/kernel/threads/thread_stack
     catalog: kernel security userspace ignore_faults
-    min_ram: 36
+    min_ram: 16
     attribute: required
   kernel.threads.armv8m_mpu_stack_guard:
     path: tests/kernel/threads/thread_stack
     catalog: kernel security userspace ignore_faults
     extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
-    min_ram: 36
+    min_ram: 16
     filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
     attribute: required
   kernel.common.sleep:

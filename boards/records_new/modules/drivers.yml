@@ -64,7 +64,7 @@ cases:
     extra_args: CONF_FILE=sensors_trigger_a_h.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.trigger_i_z:
     path: tests/drivers/build_all
@@ -72,7 +72,7 @@ cases:
     extra_args: CONF_FILE=sensors_trigger_i_z.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.a_h:
     path: tests/drivers/build_all
@@ -81,7 +81,7 @@ cases:
     build_only: true
     min_flash: 44
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.i_z:
     path: tests/drivers/build_all
@@ -89,7 +89,7 @@ cases:
     extra_args: CONF_FILE=sensors_i_z.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.stmemsc:
     path: tests/drivers/build_all
@@ -97,7 +97,7 @@ cases:
     extra_args: CONF_FILE=sensors_stmemsc.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   sensors.build.stmemsc_trigger:
     path: tests/drivers/build_all
@@ -105,7 +105,7 @@ cases:
     extra_args: CONF_FILE=sensors_stmemsc_trigger.conf
     build_only: true
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
@@ -146,6 +146,15 @@ cases:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+  drivers.uart.uart_async_api.rtt:
+    path: tests/drivers/uart/uart_async_api
+    catalog: drivers
+    extra_configs:
+    - CONFIG_USE_SEGGER_RTT=y
+    - CONFIG_UART_RTT=y
+    extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
+    build_only: true
   drivers.uart:
     path: tests/drivers/uart/uart_basic_api
     catalog: drivers

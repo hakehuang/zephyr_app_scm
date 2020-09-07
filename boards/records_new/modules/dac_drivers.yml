@@ -4,4 +4,6 @@ cases:
     path: tests/drivers/dac/dac_loopback
     catalog: dac drivers
     depends_on: dac adc
-    platform_exclude: arduino_zero
+    platform_allow: 'frdm_k64f nucleo_f207zg nucleo_l073rz nucleo_l152re twr_ke18f
+
+      '

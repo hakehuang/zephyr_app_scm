@@ -38,6 +38,12 @@ cases:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
     platform_allow: qemu_x86
+  samples.net.hawkbit:
+    path: samples/subsys/mgmt/hawkbit
+    catalog: net
+    depends_on: netif
+    build_only: true
+    platform_allow: frdm_k64f
   net.coap.simple:
     path: tests/net/lib/coap
     catalog: net
