@@ -180,9 +180,11 @@ bluetooth:
   sample.bluetooth.central_hr:
     path: samples/bluetooth/central_hr
     catalog: bluetooth
+    arch_allow: x86
   sample.bluetooth.central_ht:
     path: samples/bluetooth/central_ht
     catalog: bluetooth
+    arch_allow: x86
   sample.bluetooth.eddystone:
     path: samples/bluetooth/eddystone
     catalog: bluetooth
@@ -623,13 +625,16 @@ unknown:
   arch.x86.info:
     path: tests/arch/x86/info
     catalog: unknown
+    arch_allow: x86
     platform_allow: up_squared up_squared_32
   boards.native_posix.native_tasks:
     path: tests/boards/native_posix/native_tasks
     catalog: unknown
+    arch_allow: posix
   boards.native_posix_64.native_tasks:
     path: tests/boards/native_posix/native_tasks
     catalog: unknown
+    arch_allow: posix
   boards.native_posix.rtc:
     path: tests/boards/native_posix/rtc
     catalog: unknown
@@ -1310,6 +1315,7 @@ drivers:
   drivers.counter.cmos:
     path: tests/drivers/counter/counter_cmos
     catalog: drivers
+    arch_allow: x86
   drivers.counter.maxim_ds3231:
     path: tests/drivers/counter/maxim_ds3231_api
     catalog: drivers
@@ -1609,6 +1615,7 @@ mpu:
   sample.mpu.mpu_test:
     path: samples/mpu/mpu_test
     catalog: mpu
+    arch_allow: arm
     filter: CONFIG_CPU_HAS_MPU
 google_iot_mqtt:
   samples.net.cloud.google_iot_mqtt:
@@ -2803,6 +2810,7 @@ arm interrupt ignore_faults:
     path: tests/arch/arm/arm_interrupt
     catalog: arm interrupt ignore_faults
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
   arch.interrupt.no_optimizations:
     path: tests/arch/arm/arm_interrupt
     catalog: arm interrupt ignore_faults
@@ -2811,39 +2819,47 @@ arm interrupt ignore_faults:
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=1024
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
   arch.interrupt.extra_exception_info:
     path: tests/arch/arm/arm_interrupt
     catalog: arm interrupt ignore_faults
     extra_configs:
     - CONFIG_EXTRA_EXCEPTION_INFO=y
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
 arm interrupt:
   arch.arm.irq_advanced_features:
     path: tests/arch/arm/arm_irq_advanced_features
     catalog: arm interrupt
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
   arch.arm.irq_advanced_features.secure_fw:
     path: tests/arch/arm/arm_irq_advanced_features
     catalog: arm interrupt
     filter: CONFIG_TRUSTED_EXECUTION_SECURE
+    arch_allow: arm
 arm interrupt vector_table:
   arch.interrupt.arm.irq_vector_table:
     path: tests/arch/arm/arm_irq_vector_table
     catalog: arm interrupt vector_table
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
 arm:
   arch.arm.no_multithreading:
     path: tests/arch/arm/arm_no_multithreading
     catalog: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
     platform_exclude: degu_evk
   arch.arm.sw_vector_relay:
     path: tests/arch/arm/arm_sw_vector_relay
     catalog: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
   arch.arm.swap.common:
     path: tests/arch/arm/arm_thread_swap
     catalog: arm
+    arch_allow: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
   arch.arm.swap.common.no_optimizations:
     path: tests/arch/arm/arm_thread_swap
@@ -2851,6 +2867,7 @@ arm:
     extra_configs:
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_IDLE_STACK_SIZE=512
+    arch_allow: arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     min_flash: 192
   arch.arm.swap.common.fpu_sharing:
@@ -2859,6 +2876,7 @@ arm:
     extra_configs:
     - CONFIG_FPU=y
     - CONFIG_FPU_SHARING=y
+    arch_allow: arm
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
   arch.arm.swap.common.fpu_sharing.no_optimizations:
     path: tests/arch/arm/arm_thread_swap
@@ -2868,6 +2886,7 @@ arm:
     - CONFIG_FPU_SHARING=y
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_IDLE_STACK_SIZE=512
+    arch_allow: arm
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
     min_flash: 192
 arm userspace:
@@ -2875,45 +2894,54 @@ arm userspace:
     path: tests/arch/arm/arm_ramfunc
     catalog: arm userspace
     filter: CONFIG_ARCH_HAS_RAMFUNC_SUPPORT
+    arch_allow: arm
 nmi interrupt arm:
   arch.interrupt.arm.nmi:
     path: tests/arch/arm/arm_runtime_nmi
     catalog: nmi interrupt arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
 arm tz_ns tz_wrap_func:
   arch.arm.tz_wrap_func:
     path: tests/arch/arm/arm_tz_wrap_func
     catalog: arm tz_ns tz_wrap_func
+    arch_allow: arm
     filter: CONFIG_CPU_CORTEX_M
 userspace mmu:
   arch.x86.pagetables:
     path: tests/arch/x86/pagetables
     catalog: userspace mmu
+    arch_allow: x86
     filter: CONFIG_MMU
 ignore_faults interrupt idt:
   arch.interrupt.x86:
     path: tests/arch/x86/static_idt
     catalog: ignore_faults interrupt idt
+    arch_allow: x86
     filter: not CONFIG_X86_64
 benchmark:
   benchmark.kernel.application:
     path: tests/benchmarks/app_kernel
     catalog: benchmark
+    arch_allow: x86 arm
     min_flash: 34
     min_ram: 32
   benchmark.kernel.application.posix:
     path: tests/benchmarks/app_kernel
     catalog: benchmark
+    arch_allow: posix
     min_ram: 32
   benchmark.kernel.boot_time:
     path: tests/benchmarks/boot_time
     catalog: benchmark
+    arch_allow: x86 arm posix
     platform_exclude: qemu_x86 qemu_x86_coverage qemu_x86_64 qemu_x86_nommu minnowboard
       acrn
     filter: CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC >= 1000000
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
+    arch_allow: x86 arm posix
     platform_exclude: qemu_x86_64 qemu_cortex_m0
     filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.latency.stm32:
@@ -3095,6 +3123,7 @@ drivers console:
     path: tests/drivers/console
     catalog: drivers console
     extra_args: CONF_FILE=prj_semihost.conf
+    arch_allow: arm
     filter: CONFIG_CPU_CORTEX_M and CONFIG_QEMU_TARGET
 dac drivers:
   drivers.dac:
@@ -3298,6 +3327,7 @@ kernel:
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=500
     filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
     min_ram: 16
     build_only: true
   kernel.fpu_sharing.generic.riscv64:
@@ -3305,6 +3335,7 @@ kernel:
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=500
     filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
     min_ram: 16
   kernel.fpu_sharing.generic.x86:
     path: tests/kernel/fpu_sharing/generic
@@ -3408,16 +3439,19 @@ kernel userspace:
     catalog: kernel userspace
     extra_configs:
     - CONFIG_DYNAMIC_INTERRUPTS=y
+    arch_allow: arm
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
   kernel.fpu_sharing.float_disable.riscv32:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
     build_only: true
   kernel.fpu_sharing.float_disable.riscv64:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
   kernel.fpu_sharing.float_disable.x86:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
@@ -3499,6 +3533,7 @@ kernel ignore_faults userspace:
     catalog: kernel ignore_faults userspace
     extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
     filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_allow: arm
   kernel.memory_protection.stackprot:
     path: tests/kernel/mem_protect/stackprot
     catalog: kernel ignore_faults userspace
@@ -3509,6 +3544,7 @@ kernel ignore_faults memory_protection:
     catalog: kernel ignore_faults memory_protection
     extra_args: CONF_FILE=protection_no_userspace.conf
     filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    arch_allow: arm
 kernel ignore_faults:
   kernel.common.stack_sentinel:
     path: tests/kernel/fatal
@@ -3532,6 +3568,7 @@ interrupt isr_table:
     extra_configs:
     - CONFIG_ARC_FIRQ_STACK=y
     - CONFIG_TEST_HW_STACK_PROTECTION=n
+    arch_allow: arc
     filter: CONFIG_RGF_NUM_BANKS > 1
 interrupt:
   arch.interrupt:
@@ -3605,11 +3642,13 @@ kernel security userspace ignore_faults:
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arc
   kernel.memory_protection.userspace.gap_filling.arm:
     path: tests/kernel/mem_protect/userspace
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arm
     platform_allow: efr32_radio_brd4180a mps2_an521 nrf5340pdk_nrf5340_cpuapp nrf5340pdk_nrf5340_cpunet
       nrf9160dk_nrf9160
   kernel.threads.thread_stack:
@@ -3622,6 +3661,7 @@ kernel security userspace ignore_faults:
     extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
     min_ram: 16
     filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_allow: arm
 kernel security userspace:
   kernel.memory_protection.obj_validation:
     path: tests/kernel/mem_protect/obj_validation

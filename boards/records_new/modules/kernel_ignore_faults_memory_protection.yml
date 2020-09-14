@@ -5,3 +5,4 @@ cases:
     catalog: kernel ignore_faults memory_protection
     extra_args: CONF_FILE=protection_no_userspace.conf
     filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    arch_allow: arm

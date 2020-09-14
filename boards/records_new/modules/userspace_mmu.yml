@@ -3,4 +3,5 @@ cases:
   arch.x86.pagetables:
     path: tests/arch/x86/pagetables
     catalog: userspace mmu
+    arch_allow: x86
     filter: CONFIG_MMU

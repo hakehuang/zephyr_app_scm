@@ -41,6 +41,7 @@ cases:
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=500
     filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
     min_ram: 16
     build_only: true
   kernel.fpu_sharing.generic.riscv64:
@@ -48,6 +49,7 @@ cases:
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=500
     filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
     min_ram: 16
   kernel.fpu_sharing.generic.x86:
     path: tests/kernel/fpu_sharing/generic

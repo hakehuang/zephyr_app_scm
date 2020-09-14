@@ -17,4 +17,5 @@ cases:
     extra_configs:
     - CONFIG_ARC_FIRQ_STACK=y
     - CONFIG_TEST_HW_STACK_PROTECTION=n
+    arch_allow: arc
     filter: CONFIG_RGF_NUM_BANKS > 1

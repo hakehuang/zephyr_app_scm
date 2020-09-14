@@ -117,6 +117,7 @@ cases:
     catalog: kernel ignore_faults memory_protection
     extra_args: CONF_FILE=protection_no_userspace.conf
     filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    arch_allow: arm
     attribute: required
   kernel.common.stack_protection:
     path: tests/kernel/fatal
@@ -137,6 +138,7 @@ cases:
     catalog: kernel ignore_faults userspace
     extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
     filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_allow: arm
     attribute: required
   kernel.memory_protection.stackprot:
     path: tests/kernel/mem_protect/stackprot
@@ -227,12 +229,14 @@ cases:
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arc
     attribute: required
   kernel.memory_protection.userspace.gap_filling.arm:
     path: tests/kernel/mem_protect/userspace
     catalog: kernel security userspace ignore_faults
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arm
     platform_allow: efr32_radio_brd4180a mps2_an521 nrf5340pdk_nrf5340_cpuapp nrf5340pdk_nrf5340_cpunet
       nrf9160dk_nrf9160
     attribute: required
@@ -247,6 +251,7 @@ cases:
     extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
     min_ram: 16
     filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_allow: arm
     attribute: required
   kernel.common.sleep:
     path: tests/kernel/early_sleep
@@ -335,18 +340,21 @@ cases:
     catalog: kernel userspace
     extra_configs:
     - CONFIG_DYNAMIC_INTERRUPTS=y
+    arch_allow: arm
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
     attribute: required
   kernel.fpu_sharing.float_disable.riscv32:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
     build_only: true
     attribute: required
   kernel.fpu_sharing.float_disable.riscv64:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
     attribute: required
   kernel.fpu_sharing.float_disable.x86:
     path: tests/kernel/fpu_sharing/float_disable

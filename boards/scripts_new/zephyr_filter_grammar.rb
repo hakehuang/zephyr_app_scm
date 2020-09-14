@@ -512,5 +512,4 @@ if __FILE__ == $0
 =end
     $log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\")", board_hash)    
     $log.info  parser.parse("(SAND < 4)")
-
 end

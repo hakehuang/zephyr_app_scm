@@ -136,6 +136,7 @@ cases:
   drivers.counter.cmos:
     path: tests/drivers/counter/counter_cmos
     catalog: drivers
+    arch_allow: x86
   drivers.counter.maxim_ds3231:
     path: tests/drivers/counter/maxim_ds3231_api
     catalog: drivers
