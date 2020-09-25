@@ -6,21 +6,21 @@ cases:
     extra_args: " DEBUG_PRINTF=1"
     min_ram: 32
     min_flash: 34
-    platform_exclude: qemu_xtensa qemu_x86_64
+    platform_exclude: qemu_xtensa qemu_x86_64 up_squared
   sample.portability.cmsis_rtos_v1.philosopher.same_prio:
     path: samples/portability/cmsis_rtos_v1/philosophers
     catalog: cmsis_rtos
     extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
     min_ram: 32
     min_flash: 34
-    platform_exclude: qemu_xtensa qemu_x86_64
+    platform_exclude: qemu_xtensa qemu_x86_64 up_squared
   sample.portability.cmsis_rtos_v1.philosopher.semaphores:
     path: samples/portability/cmsis_rtos_v1/philosophers
     catalog: cmsis_rtos
     extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
     min_ram: 32
     min_flash: 34
-    platform_exclude: qemu_xtensa qemu_x86_64
+    platform_exclude: qemu_xtensa qemu_x86_64 up_squared
   sample.portability.cmsis_rtos_v1.timer_synchronization:
     path: samples/portability/cmsis_rtos_v1/timer_synchronization
     catalog: cmsis_rtos
@@ -60,6 +60,6 @@ cases:
   portability.cmsis_rtos_v2:
     path: tests/portability/cmsis_rtos_v2
     catalog: cmsis_rtos
-    platform_exclude: qemu_x86_64 m2gl025_miv
+    platform_exclude: qemu_x86_64 m2gl025_miv up_squared
     min_ram: 32
     min_flash: 34

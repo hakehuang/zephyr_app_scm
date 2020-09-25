@@ -1,0 +1,7 @@
+---
+cases:
+  arch.x86.syscalls.cpu_scrubs_regs:
+    path: tests/arch/x86/cpu_scrubs_regs
+    catalog: kernel security userspace scrub registers
+    arch_allow: x86
+    filter: CONFIG_ARCH_HAS_USERSPACE

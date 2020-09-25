@@ -4,13 +4,13 @@ cases:
     path: samples/net/lwm2m_client
     catalog: net lwm2m
     depends_on: netif
-    platform_allow: qemu_x86 frdm_k64f
+    platform_allow: qemu_x86 frdm_k64f pinnacle_100_dvk
   sample.net.lwm2m_client.dtls:
     path: samples/net/lwm2m_client
     catalog: net lwm2m
     extra_args: OVERLAY_CONFIG=overlay-dtls.conf
     depends_on: netif
-    platform_allow: qemu_x86 frdm_k64f
+    platform_allow: qemu_x86 frdm_k64f pinnacle_100_dvk
   sample.net.lwm2m_client.bt:
     path: samples/net/lwm2m_client
     catalog: net lwm2m

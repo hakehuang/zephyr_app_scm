@@ -215,7 +215,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF64=y
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
-    min_ram: 64
+    min_ram: 96
     filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
   libraries.cmsis_dsp.transform.rf64:
     path: tests/lib/cmsis_dsp/transform

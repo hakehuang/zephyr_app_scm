@@ -1,0 +1,9 @@
+---
+cases:
+  benchmark.kernel.footprints.userspace:
+    path: tests/benchmarks/footprints
+    catalog: benchmark userspace
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_allow: x86 arm arc
+    build_only: true

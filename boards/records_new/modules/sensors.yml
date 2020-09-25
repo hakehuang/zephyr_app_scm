@@ -137,12 +137,11 @@ cases:
     path: samples/sensor/lps22hb
     catalog: sensors
     depends_on: i2c lps22hb
-  sample.sensor.lps22hh.nrf52.iks01a3:
+  sample.sensor.lps22hh:
     path: samples/sensor/lps22hh
     catalog: sensors
-    extra_args: SHIELD=x_nucleo_iks01a3
-    platform_allow: nrf52dk_nrf52832
     depends_on: i2c
+    filter: dt_compat_enabled("st,lps22hh")
   sample.sensor.lsm6dsl:
     path: samples/sensor/lsm6dsl
     catalog: sensors

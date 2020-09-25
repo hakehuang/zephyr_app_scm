@@ -20,10 +20,6 @@ cases:
     path: samples/net/sockets/civetweb
     catalog: unknown
     platform_allow: sam_e70_xplained
-  sample.filesystem.shell:
-    path: samples/subsys/shell/fs
-    catalog: unknown
-    platform_allow: reel_board
   arch.x86.info:
     path: tests/arch/x86/info
     catalog: unknown
@@ -85,6 +81,9 @@ cases:
     build_only: true
     min_ram: 32
     depends_on: gpio spi i2c
+  kernel.logging.message_capture:
+    path: tests/kernel/fatal/message_capture
+    catalog: unknown
   utilities.math:
     path: tests/unit/math_extras
     catalog: unknown

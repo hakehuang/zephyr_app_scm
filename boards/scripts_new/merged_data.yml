@@ -68,7 +68,7 @@ cases:
   kernel.common.stack_sentinel:
     comments: no sentinel
     result: FAILURE
-    path: tests/kernel/fatal
+    path: tests/kernel/fatal/exception
     catalog: kernel ignore_faults
     extra_args: CONF_FILE=sentinel.conf
     attribute: required
@@ -113,28 +113,28 @@ cases:
     result: FAILURE
     attribute: required
   kernel.common.stack_protection_no_userspace:
-    path: tests/kernel/fatal
+    path: tests/kernel/fatal/exception
     catalog: kernel ignore_faults memory_protection
     extra_args: CONF_FILE=protection_no_userspace.conf
     filter: CONFIG_ARCH_HAS_STACK_PROTECTION
     arch_allow: arm
     attribute: required
   kernel.common.stack_protection:
-    path: tests/kernel/fatal
+    path: tests/kernel/fatal/exception
     catalog: kernel ignore_faults userspace
     extra_args: CONF_FILE=prj.conf
     platform_exclude: twr_ke18f
     filter: CONFIG_ARCH_HAS_STACK_PROTECTION
     attribute: required
   kernel.common.stack_protection_arm_fpu_sharing:
-    path: tests/kernel/fatal
+    path: tests/kernel/fatal/exception
     catalog: kernel ignore_faults userspace
     extra_args: CONF_FILE=prj_arm_fpu_sharing.conf
     platform_exclude: twr_ke18f
     filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
     attribute: required
   kernel.common.stack_protection_armv8m_mpu_stack_guard:
-    path: tests/kernel/fatal
+    path: tests/kernel/fatal/exception
     catalog: kernel ignore_faults userspace
     extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
     filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
@@ -252,6 +252,12 @@ cases:
     min_ram: 16
     filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
     arch_allow: arm
+    attribute: required
+  arch.x86.syscalls.cpu_scrubs_regs:
+    path: tests/arch/x86/cpu_scrubs_regs
+    catalog: kernel security userspace scrub registers
+    arch_allow: x86
+    filter: CONFIG_ARCH_HAS_USERSPACE
     attribute: required
   kernel.common.sleep:
     path: tests/kernel/early_sleep
