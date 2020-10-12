@@ -364,5 +364,5 @@ def split_test_catalog(fn, outdir, template_dir)
 
 end
 
-scan("C:/github/zephyr", "../records_temp", "test.yml")
+scan("C:/github/zephyrproject/zephyr", "../records_temp", "test.yml")
 split_test_catalog("../records_temp/test.yml", "../records_temp", template_dir="../template")

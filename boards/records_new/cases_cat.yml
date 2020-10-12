@@ -491,28 +491,88 @@ bluetooth:
     extra_args: CONF_FILE=prj_9.conf
     platform_allow: qemu_cortex_m3
     build_only: true
-  bluetooth.init.test_controller_ll_sw_split:
+  bluetooth.init.test_ctlr:
     path: tests/bluetooth/init
     catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_ll_sw_split.conf
+    extra_args: CONF_FILE=prj_ctlr.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
-  bluetooth.init.test_controller_4_0_ll_sw_split:
+  bluetooth.init.test_ctlr_4_0:
     path: tests/bluetooth/init
     catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_4_0_ll_sw_split.conf
+    extra_args: CONF_FILE=prj_ctlr_4_0.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
-  bluetooth.init.test_controller_tiny_ll_sw_split:
+  bluetooth.init.test_ctlr_tiny:
     path: tests/bluetooth/init
     catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_tiny_ll_sw_split.conf
+    extra_args: CONF_FILE=prj_ctlr_tiny.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
-  bluetooth.init.test_controller_dbg_ll_sw_split:
+  bluetooth.init.test_ctlr_dbg:
     path: tests/bluetooth/init
     catalog: bluetooth
-    extra_args: CONF_FILE=prj_controller_dbg_ll_sw_split.conf
+    extra_args: CONF_FILE=prj_ctlr_dbg.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_broadcaster:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_broadcaster.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_observer:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_observer.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_broadcaster_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_broadcaster_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_oberver_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_observer_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_per_adv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_per_adv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_per_sync:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_per_sync.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_h5:
@@ -649,11 +709,6 @@ unknown:
     catalog: unknown
     platform_allow: native_posix native_posix_64
     build_only: true
-  dts.build.build:
-    path: tests/deprecated/dts
-    catalog: unknown
-    build_only: true
-    platform_allow: frdm_k64f
   drivers.clock.build:
     path: tests/drivers/build_all
     catalog: unknown
@@ -1694,6 +1749,11 @@ introduction:
     path: samples/tfm_integration/tfm_ipc
     catalog: introduction
     platform_allow: mps2_an521_nonsecure lpcxpresso55s69_ns
+lorawan:
+  samples.lorawan.class_a:
+    path: samples/lorawan/class_a
+    catalog: lorawan
+    platform_allow: 96b_wistrio
 mpu:
   sample.mpu.mpu_test:
     path: samples/mpu/mpu_test
@@ -3360,7 +3420,7 @@ drivers kscan:
     platform_allow: mec15xxevb_assy6853
 driver sensor subsys:
   driver.sensor:
-    path: tests/drivers/sensor
+    path: tests/drivers/sensor/generic
     catalog: driver sensor subsys
 drivers spi:
   drivers.spi.loopback:
@@ -3667,7 +3727,15 @@ interrupt isr_table:
     catalog: interrupt isr_table
     platform_exclude: nucleo_f103rb olimexino_stm32 stm32_min_dev_black stm32_min_dev_blue
       usb_kw24d512 v2m_beetle cc1352r1_launchxl cc26x2r1_launchxl olimex_stm32_h103
+      cc1352r_sensortag
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+  arch.interrupt.gen_isr_table.disabled:
+    path: tests/kernel/gen_isr_table
+    catalog: interrupt isr_table
+    extra_configs:
+    - CONFIG_GEN_ISR_TABLES=n
+    arch_allow: arm
+    build_only: true
   arch.interrupt.gen_isr_table.arc:
     path: tests/kernel/gen_isr_table
     catalog: interrupt isr_table
@@ -4107,10 +4175,6 @@ devicetree:
   libraries.devicetree:
     path: tests/lib/devicetree/api
     catalog: devicetree
-  libraries.devicetree.legacy:
-    path: tests/lib/devicetree/legacy_api
-    catalog: devicetree
-    platform_exclude: pinnacle_100_dvk
 fdtable:
   libraries.os.fdtable:
     path: tests/lib/fdtable
@@ -4175,7 +4239,7 @@ heap:
   lib.heap:
     path: tests/lib/heap
     catalog: heap
-    platform_exclude: m2gl025_miv qemu_riscv32
+    platform_exclude: m2gl025_miv qemu_riscv32 qemu_xtensa
     filter: not CONFIG_SOC_NSIM
   lib.heap_align:
     path: tests/lib/heap_align
@@ -5116,10 +5180,6 @@ ot_radio:
     catalog: ot_radio
     platform_allow: native_posix native_posix_64
 settings_fcb:
-  system.settings.fcb.base64:
-    path: tests/subsys/settings/fcb/base64
-    catalog: settings_fcb
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 native_posix native_posix_64
   system.settings.fcb.raw:
     path: tests/subsys/settings/fcb/raw
     catalog: settings_fcb

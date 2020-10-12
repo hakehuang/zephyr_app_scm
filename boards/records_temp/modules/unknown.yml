@@ -38,11 +38,6 @@ cases:
     catalog: unknown
     platform_allow: native_posix native_posix_64
     build_only: true
-  dts.build.build:
-    path: tests/deprecated/dts
-    catalog: unknown
-    build_only: true
-    platform_allow: frdm_k64f
   drivers.clock.build:
     path: tests/drivers/build_all
     catalog: unknown

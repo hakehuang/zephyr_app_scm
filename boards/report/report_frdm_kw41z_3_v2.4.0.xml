@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="16" errors="0" failures="0" name="" skipped="1" time="0">
+    <testsuite tests="16" errors="0" failures="0" name="" skipped="2" time="0">
           <testcase classname="frdm_kw41z:sample.app_dev.external_lib" name="sample.app_dev.external_lib" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:libraries.os.fdtable" name="libraries.os.fdtable" time="0">
@@ -9,6 +9,9 @@
           </testcase>
           <testcase classname="frdm_kw41z:arch.interrupt" name="arch.interrupt" time="0">
           </testcase>
+         <testcase classname="frdm_kw41z:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
           <testcase classname="frdm_kw41z:sample.basic.helloworld" name="sample.basic.helloworld" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:sample.kernel.philosopher" name="sample.kernel.philosopher" time="0">
