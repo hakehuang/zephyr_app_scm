@@ -6,24 +6,12 @@ cases:
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
-  kernel.fifo.poll:
-    path: tests/kernel/fifo/fifo_api
-    catalog: kernel
-    extra_args: CONF_FILE="prj_poll.conf"
   kernel.fifo.timeout:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
-  kernel.fifo.timeout.poll:
-    path: tests/kernel/fifo/fifo_timeout
-    catalog: kernel
-    extra_args: CONF_FILE="prj_poll.conf"
   kernel.fifo.usage:
     path: tests/kernel/fifo/fifo_usage
     catalog: kernel
-  kernel.fifo.usage.poll:
-    path: tests/kernel/fifo/fifo_usage
-    catalog: kernel
-    extra_args: CONF_FILE="prj_poll.conf"
   kernel.fpu_sharing.generic.arc:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel

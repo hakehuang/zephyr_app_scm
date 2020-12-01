@@ -10,6 +10,7 @@ cases:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
     extra_args: CONF_FILE="prj_poll.conf"
+    filter: not CONFIG_KERNEL_COHERENCE
   kernel.fifo.timeout:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
@@ -17,6 +18,7 @@ cases:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
     extra_args: CONF_FILE="prj_poll.conf"
+    filter: not CONFIG_KERNEL_COHERENCE
   kernel.fifo.usage:
     path: tests/kernel/fifo/fifo_usage
     catalog: kernel
@@ -24,6 +26,7 @@ cases:
     path: tests/kernel/fifo/fifo_usage
     catalog: kernel
     extra_args: CONF_FILE="prj_poll.conf"
+    filter: not CONFIG_KERNEL_COHERENCE
   kernel.fpu_sharing.generic.arc:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
@@ -128,6 +131,7 @@ cases:
     path: tests/kernel/workq/work_queue
     catalog: kernel
     min_flash: 34
+    filter: not CONFIG_KERNEL_COHERENCE
   kernel.workqueue.sam:
     path: tests/kernel/workq/critical
     catalog: kernel

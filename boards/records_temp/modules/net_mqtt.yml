@@ -28,10 +28,28 @@ cases:
   net.mqtt.pubsub:
     path: tests/net/lib/mqtt_pubsub
     catalog: net mqtt
-    min_ram: 16
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
     depends_on: netif
+    min_ram: 16
+  net.mqtt.pubsub.preempt:
+    path: tests/net/lib/mqtt_pubsub
+    catalog: net mqtt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
   net.mqtt.subscriber:
     path: tests/net/lib/mqtt_subscriber
     catalog: net mqtt
-    min_ram: 16
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
     depends_on: netif
+    min_ram: 16
+  net.mqtt.subscriber.preempt:
+    path: tests/net/lib/mqtt_subscriber
+    catalog: net mqtt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16

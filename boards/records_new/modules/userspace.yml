@@ -13,5 +13,10 @@ cases:
   sample.kernel.memory_protection.shared_mem:
     path: samples/userspace/shared_mem
     catalog: userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE and not CONFIG_X86_64
+    platform_exclude: twr_ke18f
+  sample.syscall_performances:
+    path: samples/userspace/syscall_perf
+    catalog: userspace
     filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_exclude: twr_ke18f qemu_x86_64
+    platform_allow: riscv32

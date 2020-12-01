@@ -35,3 +35,14 @@ cases:
     extra_args: CONF_FILE=prj-no-ipv6.conf
     min_ram: 16
     depends_on: netif
+  net.dns.sd:
+    path: tests/net/lib/dns_sd
+    catalog: dns net
+    min_ram: 21
+    depends_on: netif
+  net.dns.sd.no_ipv6:
+    path: tests/net/lib/dns_sd
+    catalog: dns net
+    extra_args: CONF_FILE=prj-no-ipv6.conf
+    min_ram: 16
+    depends_on: netif

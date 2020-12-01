@@ -13,8 +13,17 @@ cases:
   net.socket.select:
     path: tests/net/socket/select
     catalog: net socket userspace
-    min_ram: 21
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
     depends_on: netif
+    min_ram: 21
+  net.socket.select.preempt:
+    path: tests/net/socket/select
+    catalog: net socket userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
   net.socket.socketpair:
     path: tests/net/socket/socketpair
     catalog: net socket userspace
@@ -22,5 +31,14 @@ cases:
   net.socket.tcp:
     path: tests/net/socket/tcp
     catalog: net socket userspace
-    min_ram: 32
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
     depends_on: netif
+    min_ram: 32
+  net.socket.tcp.preempt:
+    path: tests/net/socket/tcp
+    catalog: net socket userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 32

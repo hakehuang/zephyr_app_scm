@@ -25,7 +25,7 @@ cases:
   filesystem.fat.dual_drive:
     path: tests/subsys/fs/fat_fs_dual_drive
     catalog: filesystem
-    platform_allow: qemu_x86 native_posix
+    platform_allow: qemu_x86 native_posix qemu_leon3
   filesystem.api:
     path: tests/subsys/fs/fs_api
     catalog: filesystem

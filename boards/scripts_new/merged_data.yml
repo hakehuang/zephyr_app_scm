@@ -271,6 +271,11 @@ cases:
     path: samples/synchronization
     catalog: kernel synchronization
     attribute: required
+  kernel.threads.tls:
+    path: tests/kernel/threads/tls
+    catalog: kernel threads
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
+    attribute: required
   sample.basic.threads:
     path: samples/basic/threads
     catalog: kernel threads gpio
@@ -310,6 +315,13 @@ cases:
     path: tests/kernel/threads/thread_init
     catalog: kernel threads userspace
     attribute: required
+  kernel.threads.tls.userspace:
+    path: tests/kernel/threads/tls
+    catalog: kernel threads userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
   kernel.threads.dynamic:
     path: tests/kernel/threads/dynamic_thread
     catalog: kernel threads userspace ignore_faults
@@ -333,13 +345,21 @@ cases:
     arch_exclude: riscv32 nios2 posix
     platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
     attribute: required
+  kernel.common.tls:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    min_flash: 33
+    filter: "(not CONFIG_KERNEL_COHERENCE) and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE"
+    attribute: required
   kernel.common.misra:
     path: tests/kernel/common
     catalog: kernel userspace
     extra_configs:
     - CONFIG_MISRA_SANE=y
     min_flash: 33
-    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE or CONFIG_KERNEL_COHERENCE)
     attribute: required
   kernel.fpu_sharing.float_disable.arm:
     path: tests/kernel/fpu_sharing/float_disable
@@ -398,6 +418,7 @@ cases:
     path: tests/kernel/poll
     catalog: kernel userspace
     platform_exclude: nrf52dk_nrf52810
+    filter: not CONFIG_KERNEL_COHERENCE
     attribute: required
   kernel.queue:
     path: tests/kernel/queue
@@ -407,6 +428,7 @@ cases:
     path: tests/kernel/queue
     catalog: kernel userspace
     extra_args: CONF_FILE="prj_poll.conf"
+    filter: not CONFIG_KERNEL_COHERENCE
     attribute: required
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
@@ -420,6 +442,7 @@ cases:
     path: tests/kernel/workq/work_queue_api
     catalog: kernel userspace
     min_flash: 34
+    filter: not CONFIG_KERNEL_COHERENCE
     attribute: required
   kernel.pipe:
     path: tests/kernel/pipe/pipe

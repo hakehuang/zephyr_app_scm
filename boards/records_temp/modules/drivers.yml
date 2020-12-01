@@ -107,6 +107,27 @@ cases:
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
     depends_on: gpio spi i2c
+  drivers.modem.build:
+    path: tests/drivers/build_all
+    catalog: drivers
+    extra_args: CONF_FILE=modem.conf
+    build_only: true
+    platform_exclude: serpente particle_boron
+    depends_on: gpio spi i2c
+  drivers.modem.ublox_sara.build:
+    path: tests/drivers/build_all
+    catalog: drivers
+    extra_args: CONF_FILE=modem_ublox_sara.conf
+    build_only: true
+    platform_exclude: serpente pinnacle_100_dvk
+    depends_on: gpio spi i2c
+  drivers.xlnx.build:
+    path: tests/drivers/build_all
+    catalog: drivers
+    extra_args: CONF_FILE=xlnx.conf
+    build_only: true
+    platform_allow: arty_a7_arm_designstart_m1
+    depends_on: gpio spi i2c
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
     catalog: drivers
@@ -243,3 +264,59 @@ cases:
     extra_args: CONF_FILE=prj_shell.conf
     min_flash: 64
     filter: CONFIG_UART_CONSOLE
+  drivers.uart.uart_mix_poll:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_fifo:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_fifo_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160

@@ -3,6 +3,7 @@ settings:
   case_pipe_name: "${@board}_3"
 __load__:
 - modules/kconfig.yml
+- modules/k_heap_api_kernel.yml
 - modules/jwt.yml
 - modules/json.yml
 - modules/ipm.yml

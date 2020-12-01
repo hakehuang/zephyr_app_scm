@@ -62,7 +62,7 @@ cases:
   sample.sensor.bme280:
     path: samples/sensor/bme280
     catalog: sensors
-    platform_allow: nrf52840dk_nrf52840
+    platform_allow: nrf52840dk_nrf52840 adafruit_feather_m0_basic_proto
   sample.sensor.bme280.spi:
     path: samples/sensor/bme280
     catalog: sensors
@@ -109,9 +109,9 @@ cases:
     - CONFIG_FXOS8700_PULSE_INT1=y
     - CONFIG_FXOS8700_MOTION=y
     - CONFIG_FXOS8700_MOTION_INT1=y
-    - CONFIG_FXOS8700_PM_LOW_POWER=y
+    - CONFIG_FXOS8700_MAG_VECM=y
     platform_allow: frdm_k64f hexiwear_k64 warp7_m4 frdm_kw41z rv32m1_vega_ri5cy twr_ke18f
-      lpcxpresso55s16_ns mimxrt685_evk_cm33
+      lpcxpresso55s16_ns mimxrt685_evk_cm33 frdm_k22f
     depends_on: i2c gpio
   sample.sensor.fxos8700.accel:
     path: samples/sensor/fxos8700
@@ -146,6 +146,10 @@ cases:
     path: samples/sensor/lsm6dsl
     catalog: sensors
     depends_on: lsm6dsl
+  sample.sensor.lsm6dso:
+    path: samples/sensor/lsm6dso
+    catalog: sensors
+    depends_on: lsm6dso
   sample.sensor.magn_polling:
     path: samples/sensor/magn_polling
     catalog: sensors

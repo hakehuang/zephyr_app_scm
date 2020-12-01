@@ -36,10 +36,12 @@ __load__:
 - modules/samples_sensor.yml
 - modules/samples_ipm.yml
 - modules/samples_display_gui.yml
+- modules/samples_board.yml
 - modules/samples.yml
 - modules/ring_buffer_circular_buffer.yml
 - modules/rbtree.yml
 - modules/qspi_flash.yml
+- modules/802.15.4_RPMsg_serialization.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

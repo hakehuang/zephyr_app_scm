@@ -45,6 +45,10 @@ cases:
     path: samples/bluetooth/mesh_demo
     catalog: bluetooth
     platform_allow: bbc_microbit nrf51_blenano qemu_x86
+  sample.bluetooth.mesh_provisioner:
+    path: samples/bluetooth/mesh_provisioner
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf51dk_nrf51422
   sample.bluetooth.peripheral:
     path: samples/bluetooth/peripheral
     catalog: bluetooth
@@ -179,6 +183,10 @@ cases:
     catalog: bluetooth
     platform_allow: nrf52_bsim
     build_only: true
+  bluetooth.hci_codecs_info:
+    path: tests/bluetooth/hci_codecs_info
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
   bluetooth.init.test:
     path: tests/bluetooth/init
     catalog: bluetooth
@@ -404,6 +412,18 @@ cases:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_per_sync.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_iso:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_iso.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_iso:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_iso.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_h5:

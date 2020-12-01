@@ -2,6 +2,7 @@
 settings:
   case_pipe_name: "${@board}_4"
 __load__:
+- modules/prf.yml
 - modules/power.yml
 - modules/posix_pthread_eventfd.yml
 - modules/posix_net.yml
