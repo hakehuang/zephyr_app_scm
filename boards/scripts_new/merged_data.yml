@@ -6,6 +6,7 @@ settings:
   no_filter:
   - CONFIG_ENTROPY_HAS_DRIVER
   - CONFIG_CPU_ARCV2
+  TOOLCHAIN_HAS_NEWLIB: 1
 cases:
   attribute: required
   misc.crc:
@@ -143,7 +144,7 @@ cases:
   kernel.memory_protection.stackprot:
     path: tests/kernel/mem_protect/stackprot
     catalog: kernel ignore_faults userspace
-    arch_exclude: nios2 xtensa posix
+    arch_exclude: nios2 xtensa posix sparc
     attribute: required
   kernel.memory_pool:
     path: tests/kernel/mem_pool/mem_pool
@@ -195,7 +196,7 @@ cases:
     path: tests/kernel/mem_protect/protection
     catalog: kernel security ignore_faults
     platform_exclude: twr_ke18f
-    filter: CONFIG_MEMORY_PROTECTION
+    filter: CONFIG_SRAM_REGION_PERMISSIONS
     attribute: required
   kernel.memory_protection.obj_validation:
     path: tests/kernel/mem_protect/obj_validation
@@ -267,21 +268,10 @@ cases:
     path: tests/kernel/sleep
     catalog: kernel sleep
     attribute: required
-  sample.kernel.synchronization:
-    path: samples/synchronization
-    catalog: kernel synchronization
-    attribute: required
   kernel.threads.tls:
     path: tests/kernel/threads/tls
     catalog: kernel threads
     filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
-    attribute: required
-  sample.basic.threads:
-    path: samples/basic/threads
-    catalog: kernel threads gpio
-    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
-      "led1")
-    depends_on: gpio
     attribute: required
   kernel.scheduler:
     path: tests/kernel/sched/schedule_api
@@ -345,13 +335,18 @@ cases:
     arch_exclude: riscv32 nios2 posix
     platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
     attribute: required
+  kernel.common:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    min_flash: 33
+    attribute: required
   kernel.common.tls:
     path: tests/kernel/common
     catalog: kernel userspace
     extra_configs:
     - CONFIG_THREAD_LOCAL_STORAGE=y
     min_flash: 33
-    filter: "(not CONFIG_KERNEL_COHERENCE) and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE"
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
     attribute: required
   kernel.common.misra:
     path: tests/kernel/common
@@ -359,7 +354,25 @@ cases:
     extra_configs:
     - CONFIG_MISRA_SANE=y
     min_flash: 33
-    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE or CONFIG_KERNEL_COHERENCE)
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    attribute: required
+  kernel.common.nano32:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    min_flash: 33
+    filter: not CONFIG_KERNEL_COHERENCE
+    attribute: required
+  kernel.common.nano64:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    min_flash: 33
+    filter: not CONFIG_KERNEL_COHERENCE
     attribute: required
   kernel.fpu_sharing.float_disable.arm:
     path: tests/kernel/fpu_sharing/float_disable
@@ -418,17 +431,10 @@ cases:
     path: tests/kernel/poll
     catalog: kernel userspace
     platform_exclude: nrf52dk_nrf52810
-    filter: not CONFIG_KERNEL_COHERENCE
     attribute: required
   kernel.queue:
     path: tests/kernel/queue
     catalog: kernel userspace
-    attribute: required
-  kernel.queue.poll:
-    path: tests/kernel/queue
-    catalog: kernel userspace
-    extra_args: CONF_FILE="prj_poll.conf"
-    filter: not CONFIG_KERNEL_COHERENCE
     attribute: required
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
@@ -442,7 +448,6 @@ cases:
     path: tests/kernel/workq/work_queue_api
     catalog: kernel userspace
     min_flash: 34
-    filter: not CONFIG_KERNEL_COHERENCE
     attribute: required
   kernel.pipe:
     path: tests/kernel/pipe/pipe

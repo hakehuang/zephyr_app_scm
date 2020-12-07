@@ -1,21 +1,12 @@
 ---
 cases:
-  sample.boards.nrf.system_off:
-    path: samples/boards/nrf/system_off
-    catalog: power
-    build_only: true
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
-  sample.boards.ti.cc13x2_cc26x2.system_off:
-    path: samples/boards/ti/cc13x2_cc26x2/system_off
-    catalog: power
-    build_only: true
-    platform_allow: cc1352r1_launchxl
-  sample.power.ospm.dev_idle_pm:
-    path: samples/subsys/power/device_pm
-    catalog: power
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
   subsys.power.device_pm:
     path: tests/subsys/power/power_mgmt
     catalog: power
     arch_exclude: arc xtensa
     platform_exclude: rv32m1_vega_ri5cy rv32m1_vega_zero_riscy litex_vexriscv
+  subsys.power.pm_soc:
+    path: tests/subsys/power/power_mgmt_soc
+    catalog: power
+    platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
+    filter: CONFIG_SYS_PM_MIN_RESIDENCY_SLEEP_1

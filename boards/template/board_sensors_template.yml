@@ -2,7 +2,6 @@
 settings:
   case_pipe_name: "${@board}_sensors"
 __load__:
-- modules/sensors.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

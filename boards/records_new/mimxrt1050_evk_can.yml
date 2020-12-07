@@ -3,7 +3,6 @@ settings:
   case_pipe_name: "mimxrt1050_evk_can"
 __load__:
 - modules/can_isotp.yml
-- modules/can_canopen.yml
 - skips/mimxrt1050_evk.yml
 - boards/mimxrt1050_evk.yml
 cases:

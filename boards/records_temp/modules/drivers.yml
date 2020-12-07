@@ -1,48 +1,5 @@
 ---
 cases:
-  sample.display.grove_display:
-    path: samples/display/grove_display
-    catalog: drivers
-    depends_on: i2c
-  sample.drivers.counter.alarm:
-    path: samples/drivers/counter/alarm
-    catalog: drivers
-    platform_allow: nucleo_f746zg nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
-      nrf9160dk_nrf9160 atsamd20_xpro
-    depends_on: counter
-  sample.drivers.i2c.fujitsu_fram:
-    path: samples/drivers/i2c_fujitsu_fram
-    catalog: drivers
-    depends_on: i2c
-    filter: dt_alias_exists("i2c-0")
-  sample.drivers.kscan:
-    path: samples/drivers/kscan
-    catalog: drivers
-    depends_on: kscan
-  sample.drivers.kscan_touch:
-    path: samples/drivers/kscan_touch
-    catalog: drivers
-    depends_on: kscan:touch
-  sample.drivers.peci:
-    path: samples/drivers/peci
-    catalog: drivers
-    platform_exclude: mec15xxevb_assy6853
-    depends_on: peci
-  sample.drivers.espi.ps2:
-    path: samples/drivers/ps2
-    catalog: drivers
-    depends_on: ps2
-  sample.drivers.watchdog:
-    path: samples/drivers/watchdog
-    catalog: drivers
-    depends_on: watchdog
-    platform_exclude: nucleo_l496zg nucleo_f401re
-  sample.drivers.watchdog.nucleo_l496zg:
-    path: samples/drivers/watchdog
-    catalog: drivers
-    extra_args: CONF_FILE="prj.conf;nucleo_l496zg.conf"
-    depends_on: watchdog
-    platform_allow: nucleo_l496zg
   drivers.build.build:
     path: tests/drivers/build_all
     catalog: drivers
@@ -222,14 +179,20 @@ cases:
     catalog: drivers
     platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
   drivers.counter:
-    path: tests/drivers/counter/counter_nrf_rtc/fixed_top
+    path: tests/drivers/counter/counter_basic_api
     catalog: drivers
     depends_on: counter
-    platform_allow: nrf52840dk_nrf52840
+    min_ram: 16
+    platform_exclude: nucleo_f302r8
   drivers.counter.cmos:
     path: tests/drivers/counter/counter_cmos
     catalog: drivers
     arch_allow: x86
+  drivers.counter.fixed_top:
+    path: tests/drivers/counter/counter_nrf_rtc/fixed_top
+    catalog: drivers
+    depends_on: counter
+    platform_allow: nrf52840dk_nrf52840
   drivers.counter.maxim_ds3231:
     path: tests/drivers/counter/maxim_ds3231_api
     catalog: drivers

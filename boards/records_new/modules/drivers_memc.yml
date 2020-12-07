@@ -1,0 +1,7 @@
+---
+cases:
+  drivers.memc.stm32_sdram:
+    path: tests/drivers/memc/stm32_sdram
+    catalog: drivers memc
+    depends_on: memc
+    filter: dt_compat_enabled("st,stm32-fmc-sdram")

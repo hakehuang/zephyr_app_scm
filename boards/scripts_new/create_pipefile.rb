@@ -105,7 +105,7 @@ def create_pipefile_from_commandline(data, board_info: nil)
   @content = YAML::load(@content)
   pipe_data = {
     :docker => @command_lines[:docker_name],
-    :build_script => @content["settings"]["build_script"], 
+    :build_script => @content["settings"]["build_script"],
     :run_script   => @content["settings"]["run_script"], 
     :board => @command_lines[:board_name],
     :catalog => {}

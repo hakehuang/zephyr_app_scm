@@ -196,12 +196,16 @@ class ZephyrParse < Rly::Yacc
     st.value = self.names
   end
 
+  rule 'expression : DATA EQUATE NUMBER' do |ex, e1, op, e2|
+    ex.value = { op.value => [e1.value, e2.value]}
+    $log.info  "rule #{e1.value} EQUATE #{e2.value}"
+  end
+
   rule 'expression : expression AND expression
                    | expression OR expression' do |ex, e1, op, e2|
     ex.value = e1.value.send(op.value.upcase(), e2.value)
     $log.info  "rule and or  #{ex.value}"
   end
-
 
   rule 'expression : expression EQUATE expression
                    | expression NOEQUATE expression
@@ -212,7 +216,6 @@ class ZephyrParse < Rly::Yacc
     ex.value = { op.value => [e1.value, e2.value]}
     $log.info  "rule ops  #{ex.value}"
   end
-                   
 
   rule 'expression : NOT expression' do |ex, op, e|
     ex.value = e.value.send(op.value.upcase())
@@ -349,23 +352,25 @@ def dt_parser(k, v, board_hash)
   end
 end
 
-def simple_ast(data, board_hash)
+def simple_ast(data = "", board_hash = {})
   configs = board_hash["configs"]
   case data.class.name
       when "Hash"
           data.each do |k, v|
-            if isDT_filter(k)
+            if isDT_filter(v[0])
               return dt_parser(k, v, board_hash)
             end
-            if board_hash.has_key?(k)
-              return eval "#{board_hash[k]} #{v[0]} #{simple_ast[v[1], board_hash]}"
+            if board_hash.has_key?(v[0])
+              bv = board_hash[v[0]]
+              return eval "#{bv} #{k} #{simple_ast(v[1], board_hash)}"
             end
-            if configs.has_key?(k)
-              return eval "#{board_hash[k]} #{v[0]} #{simple_ast[v[1], board_hash]} "
+            if configs.has_key?(v[0])
+              bv = configs[v[0]]
+              return eval "#{bv} #{k} #{simple_ast(v[1], board_hash)} "
             end
-            if board_hash["settings"] and board_hash["settings"].has_key?(k)
-              bv = board_hash["settings"][k]
-              return eval "#{bv} #{v[0]} #{simple_ast[v1, board_hash]}"
+            if board_hash["settings"] and board_hash["settings"].has_key?(v[0])
+              bv = board_hash["settings"][v[0]]
+              return eval "#{bv} #{k} #{simple_ast(v[1], board_hash)}"
             end
           end
           return false
@@ -471,7 +476,7 @@ if __FILE__ == $0
       "CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC"=>"120000000", "CONFIG_OSC_LOW_POWER"=>"y", "CONFIG_ARM_MPU"=>"y"} }
 =end
     search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
-    merge_hash = {"settings" => {}}
+    merge_hash = {"settings" => {"TOOLCHAIN_HAS_NEWLIB" => 1}}
     board_hash = load_board_data(search_path,"twr_kv58f220m",merge_hash)
 =begin
     $log.info  parser.parse('A AND B')
@@ -510,6 +515,10 @@ if __FILE__ == $0
     $log.info dt_compatible_match(hh, 'compatible', "a,b")
     #$log.info  zephyr_filter_parser("dt_compat_enabled_with_alias(\"gpio-keys\", \"sw0\")", board_hash)
 =end
-    $log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\")", board_hash)    
+    $log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\")", board_hash)
     $log.info  parser.parse("(SAND < 4)")
+
+    # TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
+    $log.info  zephyr_filter_parser("TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE", board_hash)
+    # $log.info  parser.parse("TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE")
 end

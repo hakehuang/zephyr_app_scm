@@ -1,5 +1,10 @@
 ---
 cases:
+  drivers.i2c:
+    path: tests/drivers/i2c/i2c_api
+    catalog: drivers i2c
+    depends_on: i2c
+    filter: dt_alias_exists("accel-0")
   drivers.i2c_slave:
     path: tests/drivers/i2c/i2c_slave_api
     catalog: drivers i2c

@@ -1,29 +1,5 @@
 ---
 cases:
-  sample.bluetooth.peripheral.x_nucleo_idb05a1_shield:
-    path: samples/bluetooth/peripheral
-    catalog: unknown
-    extra_args: SHIELD=x_nucleo_idb05a1
-    platform_allow: nucleo_l4r5zi
-    depends_on: arduino_spi arduino_gpio
-  sample.basic.maxim_ds3231:
-    path: samples/drivers/counter/maxim_ds3231
-    catalog: unknown
-    build_only: true
-    platform_allow: efr32mg_sltb004a frdm_k64f nrf51_pca10028 nucleo_l476rg particle_xenon
-  sample.display.shield.waveshare_epaper_gdeh0213b1:
-    path: samples/drivers/display
-    catalog: unknown
-    extra_args: SHIELD=waveshare_epaper_gdeh0213b1
-    platform_allow: nrf52840dk_nrf52840
-  sample.net.sockets.civetweb:
-    path: samples/net/sockets/civetweb
-    catalog: unknown
-    platform_allow: sam_e70_xplained
-  sample.net.sockets.civetweb_websocket_server:
-    path: samples/net/sockets/civetweb_websocket_server
-    catalog: unknown
-    platform_allow: nucleo_h745zi_q_m7
   arch.x86.info:
     path: tests/arch/x86/info
     catalog: unknown
@@ -83,6 +59,16 @@ cases:
   kernel.logging.message_capture:
     path: tests/kernel/fatal/message_capture
     catalog: unknown
+  filesystem.native_posix.fcb_0x00:
+    path: tests/subsys/fs/fcb
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_allow: native_posix
+  filesystem.qemu_x86.fcb_0x00:
+    path: tests/subsys/fs/fcb
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
   utilities.math:
     path: tests/unit/math_extras
     catalog: unknown

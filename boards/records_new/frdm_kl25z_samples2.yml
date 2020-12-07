@@ -2,26 +2,19 @@
 settings:
   case_pipe_name: "frdm_kl25z_samples2"
 __load__:
-- modules/net_zperf.yml
-- modules/net_wifi_updatehub.yml
-- modules/net_wifi.yml
 - modules/net_websocket.yml
 - modules/net_vlan.yml
 - modules/net_userspace.yml
-- modules/net_usb.yml
 - modules/net_tx_timestamp_gptp.yml
 - modules/net_trickle.yml
 - modules/net_tls.yml
-- modules/net_telnet.yml
 - modules/net_tcp2.yml
 - modules/net_tcp.yml
 - modules/net_route_mcast.yml
 - modules/net_route.yml
 - modules/net_ptp_gptp_userspace.yml
 - modules/net_promisc.yml
-- modules/net_ppp_modem_gsm.yml
 - modules/net_ppp.yml
-- modules/net_openthread.yml
 - modules/net_net_context.yml
 - modules/net_net-shell.yml
 - modules/net_net-all.yml

@@ -3,15 +3,10 @@ settings:
   case_pipe_name: "mimxrt1015_evk_5"
 __load__:
 - modules/xip.yml
-- modules/video_net_socket.yml
-- modules/video.yml
 - modules/utils_lists.yml
 - modules/util_intmath.yml
 - modules/userspace_mmu.yml
-- modules/userspace.yml
 - modules/unknown.yml
-- modules/uart_bluetooth.yml
-- modules/tracing_debug.yml
 - modules/tinycrypt_crypto_sha256_hmac_prng.yml
 - modules/tinycrypt_crypto_aes_ccm.yml
 - modules/timeutils.yml
@@ -19,11 +14,8 @@ __load__:
 - modules/test_framework.yml
 - modules/sysid.yml
 - modules/stream_flash.yml
-- modules/spi_flash.yml
-- modules/sound.yml
 - modules/smp_spinlock.yml
 - modules/smp.yml
-- modules/shell_filesystem.yml
 - modules/shell.yml
 - modules/settings_nvs.yml
 - modules/settings_intialization_fcb.yml
@@ -31,12 +23,6 @@ __load__:
 - modules/settings_fs_filesystem.yml
 - modules/settings_file.yml
 - modules/settings_fcb.yml
-- modules/settings.yml
-- modules/secure.yml
-- modules/samples_sensor.yml
-- modules/samples_ipm.yml
-- modules/samples_display_gui.yml
-- modules/samples.yml
 - modules/ring_buffer_circular_buffer.yml
 - modules/rbtree.yml
 - modules/qspi_flash.yml

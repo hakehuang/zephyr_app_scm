@@ -3,33 +3,24 @@ settings:
   case_pipe_name: "twr_ke18f_3"
 __load__:
 - modules/kconfig.yml
+- modules/k_heap_api_kernel.yml
 - modules/jwt.yml
 - modules/json.yml
-- modules/ipm.yml
-- modules/introduction.yml
 - modules/interrupt_isr_table.yml
 - modules/interrupt.yml
 - modules/ignore_faults_interrupt_idt.yml
 - modules/ignore_faults_ignore_qemu_crash.yml
-- modules/i2s_example.yml
-- modules/i2s.yml
 - modules/i2c.yml
 - modules/http_net.yml
 - modules/heap.yml
-- modules/gpio.yml
-- modules/google_iot_mqtt.yml
 - modules/gen_inc_file.yml
-- modules/footprint.yml
 - modules/flash_map.yml
 - modules/flash_circural_buffer.yml
 - modules/flash_shell.yml
 - modules/flash_nrf52_nrf_qspi_fash.yml
-- modules/flash_nrf52_nrf9160.yml
 - modules/filesystem.yml
 - modules/fdtable.yml
-- modules/external.yml
 - modules/ec_host_cmd.yml
-- modules/ec.yml
 - skips/twr_ke18f.yml
 - boards/twr_ke18f.yml
 cases:

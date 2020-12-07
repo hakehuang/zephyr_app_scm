@@ -3,19 +3,16 @@ settings:
   case_pipe_name: "lpcxpresso54114_m4_2"
 __load__:
 - modules/dns_net.yml
-- modules/dmic.yml
 - modules/dma.yml
-- modules/display_shield.yml
 - modules/display_gui.yml
-- modules/display.yml
 - modules/dfu_mcuboot.yml
 - modules/dfu_image_util.yml
 - modules/devicetree.yml
 - modules/device.yml
 - modules/deprecated.yml
 - modules/debug.yml
+- modules/dac_drivers_userspace.yml
 - modules/dac_drivers.yml
-- modules/DAC.yml
 - skips/lpcxpresso54114_m4.yml
 - boards/lpcxpresso54114_m4.yml
 cases:

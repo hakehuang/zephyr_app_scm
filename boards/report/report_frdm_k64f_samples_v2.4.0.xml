@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="40" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="19" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="frdm_k64f:net.coap" name="net.coap" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.coap.simple" name="net.coap.simple" time="0">
@@ -21,23 +21,13 @@
           </testcase>
           <testcase classname="frdm_k64f:net.ethernet_mgmt" name="net.ethernet_mgmt" time="0">
           </testcase>
-          <testcase classname="frdm_k64f:sample.net.gptp" name="sample.net.gptp" time="0">
-          </testcase>
           <testcase classname="frdm_k64f:net.hostname" name="net.hostname" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.hostname.unique" name="net.hostname.unique" time="0">
           </testcase>
-          <testcase classname="frdm_k64f:sample.net.dhcpv4_client" name="sample.net.dhcpv4_client" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.net.sockets.http_client" name="sample.net.sockets.http_client" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.net.sockets.websocket_client" name="sample.net.sockets.websocket_client" time="0">
-          </testcase>
           <testcase classname="frdm_k64f:net.icmpv6" name="net.icmpv6" time="0">
           </testcase>
-          <testcase classname="frdm_k64f:sample.net.wpanusb" name="sample.net.wpanusb" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.net.wpanusb_frdm_cr20a" name="sample.net.wpanusb_frdm_cr20a" time="0">
+          <testcase classname="frdm_k64f:net.icmpv6.icmpv6" name="net.icmpv6.icmpv6" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.ip-addr" name="net.ip-addr" time="0">
           </testcase>
@@ -45,41 +35,9 @@
           </testcase>
           <testcase classname="frdm_k64f:net.ipv6.fragment" name="net.ipv6.fragment" time="0">
           </testcase>
-          <testcase classname="frdm_k64f:sample.net.lwm2m_client" name="sample.net.lwm2m_client" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.net.lwm2m_client.dtls" name="sample.net.lwm2m_client.dtls" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.net.lwm2m_client.wnc_m14a2a" name="sample.net.lwm2m_client.wnc_m14a2a" time="0">
-          </testcase>
           <testcase classname="frdm_k64f:net.management" name="net.management" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.mld" name="net.mld" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.net.mqtt_publisher" name="sample.net.mqtt_publisher" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.net.cloud.mqtt_azure" name="sample.net.cloud.mqtt_azure" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp" name="net.tcp" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp.simple" name="net.tcp.simple" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp2.simple.client_closing_ipv6" name="net.tcp2.simple.client_closing_ipv6" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp2.simple.client_fin_wait_2_ipv4" name="net.tcp2.simple.client_fin_wait_2_ipv4" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp2.simple.client_ipv4" name="net.tcp2.simple.client_ipv4" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp2.simple.client_ipv6" name="net.tcp2.simple.client_ipv6" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp2.simple.client_syn_resend" name="net.tcp2.simple.client_syn_resend" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp2.simple.presetup" name="net.tcp2.simple.presetup" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp2.simple.server_ipv4" name="net.tcp2.simple.server_ipv4" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp2.simple.server_ipv6" name="net.tcp2.simple.server_ipv6" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:net.tcp2.simple.server_with_options_ipv4" name="net.tcp2.simple.server_with_options_ipv4" time="0">
           </testcase>
   </testsuite>
 </testsuites>

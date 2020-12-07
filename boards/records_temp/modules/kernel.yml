@@ -1,6 +1,6 @@
 ---
 cases:
-  kernel.common:
+  kernel.common.context:
     path: tests/kernel/context
     catalog: kernel
   kernel.fifo:
@@ -66,6 +66,9 @@ cases:
     extra_configs:
     - CONFIG_TEST_USERSPACE=n
   kernel.memory_slabs.api:
+    path: tests/kernel/mem_slab/mslab
+    catalog: kernel
+  kernel.memory_slabs.api.mslab_api:
     path: tests/kernel/mem_slab/mslab_api
     catalog: kernel
   kernel.memory_slabs.concept:
@@ -113,9 +116,10 @@ cases:
     arch_exclude: riscv32 nios2
     platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
   kernel.workqueue:
-    path: tests/kernel/workq/work_queue
+    path: tests/kernel/workq/critical
     catalog: kernel
-    min_flash: 34
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: not CONFIG_WDT_SAM
   kernel.workqueue.sam:
     path: tests/kernel/workq/critical
     catalog: kernel
@@ -128,3 +132,7 @@ cases:
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+  kernel.workqueue.work_queue:
+    path: tests/kernel/workq/work_queue
+    catalog: kernel
+    min_flash: 34

@@ -1,7 +1,9 @@
 ---
 cases:
-  sample.drivers.flash.shell:
-    path: samples/drivers/flash_shell
+  shell.history:
+    path: tests/subsys/shell/shell_flash
     catalog: flash shell
-    filter: CONFIG_FLASH_HAS_DRIVER_ENABLED
-    min_ram: 12
+    min_flash: 64
+    min_ram: 32
+    filter: "( CONFIG_FLASH_SHELL )"
+    platform_allow: qemu_x86 native_posix

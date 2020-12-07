@@ -5,9 +5,8 @@ __load__:
 - modules/drivers_watchdog.yml
 - modules/drivers_userspace.yml
 - modules/drivers_spi.yml
-- modules/drivers_sensor_grove_temperature.yml
-- modules/drivers_sensor_grove_light.yml
 - modules/drivers_pwm.yml
+- modules/drivers_memc.yml
 - modules/drivers_led.yml
 - modules/drivers_kscan_userspace.yml
 - modules/drivers_kscan.yml
@@ -15,8 +14,6 @@ __load__:
 - modules/drivers_i2s.yml
 - modules/drivers_i2c.yml
 - modules/drivers_gpio.yml
-- modules/drivers_fram.yml
-- modules/drivers_espi.yml
 - modules/drivers_dma.yml
 - modules/drivers_console.yml
 - modules/drivers.yml

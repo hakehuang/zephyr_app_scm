@@ -157,6 +157,11 @@ def scan(zephyr_path, output_records_path, output_records_fname)
               #puts testcase_hash
               testcase_hash['tests'].keys.each do |k|
                 #log.info(k)
+                mk = k
+                if cases['cases'].has_key?(k)
+                  mk = k + "." + File.basename(Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)))
+                  log.info(mk)
+                end
                 extra_args = testcase_hash['tests'][k]['extra_args']
                 if testcase_hash['common']
                   tags = testcase_hash['common']['tags']
@@ -166,28 +171,28 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                   tags = testcase_hash['tests'][k]['tags'] if testcase_hash['tests'][k].has_key?('tags')
                 end
                 tags = "unknown" if tags.nil?
-                cases['cases'][k] = {'path' => Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)).to_path,
+                cases['cases'][mk] = {'path' => Pathname.new(dir_name).relative_path_from(Pathname.new(zephyr_base)).to_path,
                                       'catalog' => tags
                                      }
                 if testcase_hash['tests'][k].has_key?('extra_configs')
-                  cases['cases'][k]['extra_configs'] = testcase_hash['tests'][k]['extra_configs']
+                  cases['cases'][mk]['extra_configs'] = testcase_hash['tests'][k]['extra_configs']
                 end
                 if testcase_hash['tests'][k].has_key?('extra_args')
-                  cases['cases'][k]['extra_args'] = extra_args
+                  cases['cases'][mk]['extra_args'] = extra_args
                   if extra_args != testcase_hash['tests'][k]['extra_args']
-                    cases['cases'][k]['extra_args'] = [testcase_hash['tests'][k]['extra_args'], extra_args].join(" ")
+                    cases['cases'][mk]['extra_args'] = [testcase_hash['tests'][k]['extra_args'], extra_args].join(" ")
                   end
                 end
                 keep_hash = {}
                 lists_to_keep(testcase_hash['tests'][k], keep_hash)
                 #log.info(keep_hash)
-                cases['cases'][k].merge!(keep_hash)
+                cases['cases'][mk].merge!(keep_hash)
                 if LONG_CASE_DURATION.has_key?(k)
                   # puts "**************************", k
-                  test_case_lists['cases'][k] = LONG_CASE_DURATION[k]
+                  test_case_lists['cases'][mk] = LONG_CASE_DURATION[k]
                   # puts test_case_lists['cases'][k]
                 else
-                  test_case_lists['cases'][k] = ""
+                  test_case_lists['cases'][mk] = ""
                 end
               end
 
@@ -364,5 +369,6 @@ def split_test_catalog(fn, outdir, template_dir)
 
 end
 
-scan("C:/github/zephyrproject/zephyr", "../records_temp", "test.yml")
+scan("C:/github/zephyrproject/zephyr/samples/", "../records_temp", "test.yml")
+scan("C:/github/zephyrproject/zephyr/tests/", "../records_temp", "test.yml")
 split_test_catalog("../records_temp/test.yml", "../records_temp", template_dir="../template")

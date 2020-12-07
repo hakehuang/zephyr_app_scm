@@ -2,8 +2,6 @@
 settings:
   case_pipe_name: "${@board}_shield"
 __load__:
-- modules/shield_net_zperf.yml
-- modules/shield.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

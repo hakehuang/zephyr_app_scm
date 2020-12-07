@@ -3,5 +3,14 @@ cases:
   net.socket.udp:
     path: tests/net/socket/udp
     catalog: net socket udp
-    min_ram: 21
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
     depends_on: netif
+    min_ram: 21
+  net.socket.udp.preempt:
+    path: tests/net/socket/udp
+    catalog: net socket udp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21

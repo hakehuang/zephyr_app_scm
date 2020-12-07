@@ -1,25 +1,8 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="18" errors="0" failures="0" name="" skipped="6" time="0">
-          <testcase classname="frdm_k64f:sample.app_dev.external_lib" name="sample.app_dev.external_lib" time="0">
-          </testcase>
+    <testsuite tests="7" errors="0" failures="0" name="" skipped="1" time="0">
           <testcase classname="frdm_k64f:libraries.os.fdtable" name="libraries.os.fdtable" time="0">
           </testcase>
-         <testcase classname="frdm_k64f:sample.minimal.mt.arm" name="sample.minimal.mt.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="frdm_k64f:sample.minimal.mt-no-preempt.arm" name="sample.minimal.mt-no-preempt.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="frdm_k64f:sample.minimal.mt-no-preempt-no-timers.arm" name="sample.minimal.mt-no-preempt-no-timers.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="frdm_k64f:sample.minimal.no-mt.arm" name="sample.minimal.no-mt.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
-         <testcase classname="frdm_k64f:sample.minimal.no-mt-no-timers.arm" name="sample.minimal.no-mt-no-timers.arm" time="0">
-         <skipped message="Skipped" type="skipped"/>
-         </testcase>
           <testcase classname="frdm_k64f:buildsystem.include_file" name="buildsystem.include_file" time="0">
           </testcase>
           <testcase classname="frdm_k64f:net.http" name="net.http" time="0">
@@ -27,26 +10,6 @@
           <testcase classname="frdm_k64f:arch.interrupt" name="arch.interrupt" time="0">
           </testcase>
           <testcase classname="frdm_k64f:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.basic.helloworld" name="sample.basic.helloworld" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.kernel.philosopher" name="sample.kernel.philosopher" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.kernel.philosopher.same_prio" name="sample.kernel.philosopher.same_prio" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.kernel.philosopher.static" name="sample.kernel.philosopher.static" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.kernel.philosopher.semaphores" name="sample.kernel.philosopher.semaphores" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.kernel.philosopher.stacks" name="sample.kernel.philosopher.stacks" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.kernel.philosopher.fifos" name="sample.kernel.philosopher.fifos" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.kernel.philosopher.lifos" name="sample.kernel.philosopher.lifos" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.kernel.philosopher.preempt_only" name="sample.kernel.philosopher.preempt_only" time="0">
-          </testcase>
-          <testcase classname="frdm_k64f:sample.kernel.philosopher.coop_only" name="sample.kernel.philosopher.coop_only" time="0">
           </testcase>
           <testcase classname="frdm_k64f:libraries.encoding.json" name="libraries.encoding.json" time="0">
           </testcase>

@@ -27,13 +27,22 @@ cases:
   net.dns.resolve:
     path: tests/net/lib/dns_resolve
     catalog: dns net
-    min_ram: 21
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
     depends_on: netif
+    min_ram: 21
+  net.dns.resolve.preempt:
+    path: tests/net/lib/dns_resolve
+    catalog: dns net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
   net.dns.resolve.no_ipv6:
     path: tests/net/lib/dns_resolve
     catalog: dns net
     extra_args: CONF_FILE=prj-no-ipv6.conf
-    min_ram: 16
+    min_ram: 21
     depends_on: netif
   net.dns.sd:
     path: tests/net/lib/dns_sd

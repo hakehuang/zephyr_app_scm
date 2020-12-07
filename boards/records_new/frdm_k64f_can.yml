@@ -3,7 +3,6 @@ settings:
   case_pipe_name: "frdm_k64f_can"
 __load__:
 - modules/can_isotp.yml
-- modules/can_canopen.yml
 - skips/frdm_k64f.yml
 - boards/frdm_k64f.yml
 cases:

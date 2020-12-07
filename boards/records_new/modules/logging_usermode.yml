@@ -1,8 +1,0 @@
----
-cases:
-  sample.logger.usermode:
-    path: samples/subsys/logging/logger
-    catalog: logging usermode
-    extra_configs:
-    - CONFIG_USERSPACE=y
-    filter: CONFIG_ARCH_HAS_USERSPACE

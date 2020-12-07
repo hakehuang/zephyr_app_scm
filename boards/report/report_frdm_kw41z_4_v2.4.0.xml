@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="15" errors="0" failures="0" name="" skipped="0" time="0">
+    <testsuite tests="16" errors="0" failures="0" name="" skipped="0" time="0">
           <testcase classname="frdm_kw41z:libraries.libc" name="libraries.libc" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:libraries.libc.sprintf" name="libraries.libc.sprintf" time="0">
@@ -15,10 +15,6 @@
           </testcase>
           <testcase classname="frdm_kw41z:logging.log_output" name="logging.log_output" time="0">
           </testcase>
-          <testcase classname="frdm_kw41z:sample.logger" name="sample.logger" time="0">
-          </testcase>
-          <testcase classname="frdm_kw41z:sample.logger.rtt" name="sample.logger.rtt" time="0">
-          </testcase>
           <testcase classname="frdm_kw41z:kernel.memory_protection" name="kernel.memory_protection" time="0">
           </testcase>
           <testcase classname="frdm_kw41z:kernel.memory_protection.stack_random" name="kernel.memory_protection.stack_random" time="0">
@@ -27,9 +23,15 @@
           </testcase>
           <testcase classname="frdm_kw41z:arch.interrupt.arm.nmi" name="arch.interrupt.arm.nmi" time="0">
           </testcase>
+          <testcase classname="frdm_kw41z:libraries.data_structures" name="libraries.data_structures" time="0">
+          </testcase>
           <testcase classname="frdm_kw41z:portability.posix.common" name="portability.posix.common" time="0">
           </testcase>
+          <testcase classname="frdm_kw41z:portability.posix.common.newlib" name="portability.posix.common.newlib" time="0">
+          </testcase>
           <testcase classname="frdm_kw41z:portability.posix.fs" name="portability.posix.fs" time="0">
+          </testcase>
+          <testcase classname="frdm_kw41z:portability.posix.fs.newlib" name="portability.posix.fs.newlib" time="0">
           </testcase>
   </testsuite>
 </testsuites>
