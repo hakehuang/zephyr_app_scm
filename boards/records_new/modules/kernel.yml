@@ -39,6 +39,12 @@ cases:
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: riscv64
     min_ram: 16
+  kernel.fpu_sharing.generic.sparc:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
   kernel.fpu_sharing.generic.x86:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel

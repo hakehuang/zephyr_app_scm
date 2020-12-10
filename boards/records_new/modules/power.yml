@@ -9,4 +9,8 @@ cases:
     path: tests/subsys/power/power_mgmt_soc
     catalog: power
     platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
-    filter: CONFIG_SYS_PM_MIN_RESIDENCY_SLEEP_1
+    filter: CONFIG_PM_MIN_RESIDENCY_SLEEP_1
+  pm-states-api.dts:
+    path: tests/subsys/power/power_states_api
+    catalog: power
+    platform_allow: native_posix

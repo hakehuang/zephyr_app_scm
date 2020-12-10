@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="349" errors="0" failures="4" name="" skipped="2" time="0">
+    <testsuite tests="297" errors="0" failures="4" name="" skipped="2" time="0">
          <testcase classname="lpcxpresso55s16_ns:kernel.threads.dynamic" name="kernel.threads.dynamic" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -24,110 +24,6 @@
           </failure>
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool" name="kernel.memory_pool" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api" name="kernel.memory_pool.api" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.legacy.mpool_alloc_free_isr" name="kernel.memory_pool.api.legacy.mpool_alloc_free_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.legacy.mpool_alloc_free_thread" name="kernel.memory_pool.api.legacy.mpool_alloc_free_thread" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.legacy.mpool_alloc_size" name="kernel.memory_pool.api.legacy.mpool_alloc_size" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.legacy.mpool_alloc_timeout" name="kernel.memory_pool.api.legacy.mpool_alloc_timeout" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.legacy.mpool_kdefine_extern" name="kernel.memory_pool.api.legacy.mpool_kdefine_extern" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.legacy.sys_heap_mem_pool_assign" name="kernel.memory_pool.api.legacy.sys_heap_mem_pool_assign" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.mpool_alloc_free_isr" name="kernel.memory_pool.api.mpool_alloc_free_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.mpool_alloc_free_thread" name="kernel.memory_pool.api.mpool_alloc_free_thread" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.mpool_alloc_size" name="kernel.memory_pool.api.mpool_alloc_size" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.mpool_alloc_timeout" name="kernel.memory_pool.api.mpool_alloc_timeout" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.mpool_kdefine_extern" name="kernel.memory_pool.api.mpool_kdefine_extern" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.api.sys_heap_mem_pool_assign" name="kernel.memory_pool.api.sys_heap_mem_pool_assign" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.concept" name="kernel.memory_pool.concept" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_parent" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_size" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.concept.legacy.mpool_alloc_size_roundup" name="kernel.memory_pool.concept.legacy.mpool_alloc_size_roundup" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.concept.legacy.mpool_alloc_wait_prio" name="kernel.memory_pool.concept.legacy.mpool_alloc_wait_prio" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_parent" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_size" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.concept.mpool_alloc_size_roundup" name="kernel.memory_pool.concept.mpool_alloc_size_roundup" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.concept.mpool_alloc_wait_prio" name="kernel.memory_pool.concept.mpool_alloc_wait_prio" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.legacy.pool_block_get" name="kernel.memory_pool.legacy.pool_block_get" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.legacy.pool_block_get_timeout" name="kernel.memory_pool.legacy.pool_block_get_timeout" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.legacy.pool_block_get_wait" name="kernel.memory_pool.legacy.pool_block_get_wait" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.legacy.pool_malloc" name="kernel.memory_pool.legacy.pool_malloc" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_alloc_free_isr" name="kernel.memory_pool.mpool_alloc_free_isr" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_alloc_free_thread" name="kernel.memory_pool.mpool_alloc_free_thread" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.mpool_alloc_merge_failed_diff_parent" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.mpool_alloc_merge_failed_diff_size" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_alloc_size" name="kernel.memory_pool.mpool_alloc_size" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_alloc_size_roundup" name="kernel.memory_pool.mpool_alloc_size_roundup" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_alloc_timeout" name="kernel.memory_pool.mpool_alloc_timeout" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_alloc_wait_prio" name="kernel.memory_pool.mpool_alloc_wait_prio" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_kdefine_extern" name="kernel.memory_pool.mpool_kdefine_extern" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.mpool_threadsafe" name="kernel.memory_pool.mpool_threadsafe" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.pool_block_get" name="kernel.memory_pool.pool_block_get" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.pool_block_get_timeout" name="kernel.memory_pool.pool_block_get_timeout" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.pool_block_get_wait" name="kernel.memory_pool.pool_block_get_wait" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.pool_malloc" name="kernel.memory_pool.pool_malloc" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.sys" name="kernel.memory_pool.sys" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.sys.sys_mem_pool_alloc_align4" name="kernel.memory_pool.sys.sys_mem_pool_alloc_align4" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.sys.sys_mem_pool_alloc_free" name="kernel.memory_pool.sys.sys_mem_pool_alloc_free" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.sys.sys_mem_pool_min_block_size" name="kernel.memory_pool.sys.sys_mem_pool_min_block_size" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.sys_heap_mem_pool_assign" name="kernel.memory_pool.sys_heap_mem_pool_assign" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.sys_mem_pool_alloc_align4" name="kernel.memory_pool.sys_mem_pool_alloc_align4" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.sys_mem_pool_alloc_free" name="kernel.memory_pool.sys_mem_pool_alloc_free" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.sys_mem_pool_min_block_size" name="kernel.memory_pool.sys_mem_pool_min_block_size" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.threadsafe" name="kernel.memory_pool.threadsafe" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.threadsafe.legacy.mpool_threadsafe" name="kernel.memory_pool.threadsafe.legacy.mpool_threadsafe" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.memory_pool.threadsafe.mpool_threadsafe" name="kernel.memory_pool.threadsafe.mpool_threadsafe" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.memory_protection.obj_validation" name="kernel.memory_protection.obj_validation" time="0">
           </testcase>
@@ -545,8 +441,6 @@
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.poll" name="kernel.poll" time="0">
           </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.queue" name="kernel.queue" time="0">
-          </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
@@ -712,6 +606,8 @@
           <testcase classname="lpcxpresso55s16_ns:kernel.workqueue.work_submit_to_queue_thread" name="kernel.workqueue.work_submit_to_queue_thread" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.workqueue.workq_start_before_submit" name="kernel.workqueue.workq_start_before_submit" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s16_ns:kernel.queue" name="kernel.queue" time="0">
           </testcase>
   </testsuite>
 </testsuites>

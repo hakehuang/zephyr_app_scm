@@ -52,6 +52,11 @@ cases:
     catalog: kernel userspace
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: riscv64
+  kernel.fpu_sharing.float_disable.sparc:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
   kernel.fpu_sharing.float_disable.x86:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
@@ -81,9 +86,6 @@ cases:
     path: tests/kernel/poll
     catalog: kernel userspace
     platform_exclude: nrf52dk_nrf52810
-  kernel.queue:
-    path: tests/kernel/queue
-    catalog: kernel userspace
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace

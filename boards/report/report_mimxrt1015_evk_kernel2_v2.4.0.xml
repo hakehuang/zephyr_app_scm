@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="351" errors="0" failures="2" name="" skipped="0" time="0">
+    <testsuite tests="299" errors="0" failures="2" name="" skipped="0" time="0">
           <testcase classname="mimxrt1015_evk:kernel.common" name="kernel.common" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -16,110 +16,6 @@
           <testcase classname="mimxrt1015_evk:kernel.memory_protection" name="kernel.memory_protection" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool" name="kernel.memory_pool" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api" name="kernel.memory_pool.api" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.legacy.mpool_alloc_free_isr" name="kernel.memory_pool.api.legacy.mpool_alloc_free_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.legacy.mpool_alloc_free_thread" name="kernel.memory_pool.api.legacy.mpool_alloc_free_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.legacy.mpool_alloc_size" name="kernel.memory_pool.api.legacy.mpool_alloc_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.legacy.mpool_alloc_timeout" name="kernel.memory_pool.api.legacy.mpool_alloc_timeout" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.legacy.mpool_kdefine_extern" name="kernel.memory_pool.api.legacy.mpool_kdefine_extern" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.legacy.sys_heap_mem_pool_assign" name="kernel.memory_pool.api.legacy.sys_heap_mem_pool_assign" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.mpool_alloc_free_isr" name="kernel.memory_pool.api.mpool_alloc_free_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.mpool_alloc_free_thread" name="kernel.memory_pool.api.mpool_alloc_free_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.mpool_alloc_size" name="kernel.memory_pool.api.mpool_alloc_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.mpool_alloc_timeout" name="kernel.memory_pool.api.mpool_alloc_timeout" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.mpool_kdefine_extern" name="kernel.memory_pool.api.mpool_kdefine_extern" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.api.sys_heap_mem_pool_assign" name="kernel.memory_pool.api.sys_heap_mem_pool_assign" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.concept" name="kernel.memory_pool.concept" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_parent" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.concept.legacy.mpool_alloc_merge_failed_diff_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.concept.legacy.mpool_alloc_size_roundup" name="kernel.memory_pool.concept.legacy.mpool_alloc_size_roundup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.concept.legacy.mpool_alloc_wait_prio" name="kernel.memory_pool.concept.legacy.mpool_alloc_wait_prio" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_parent" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.concept.mpool_alloc_merge_failed_diff_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.concept.mpool_alloc_size_roundup" name="kernel.memory_pool.concept.mpool_alloc_size_roundup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.concept.mpool_alloc_wait_prio" name="kernel.memory_pool.concept.mpool_alloc_wait_prio" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.legacy.pool_block_get" name="kernel.memory_pool.legacy.pool_block_get" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.legacy.pool_block_get_timeout" name="kernel.memory_pool.legacy.pool_block_get_timeout" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.legacy.pool_block_get_wait" name="kernel.memory_pool.legacy.pool_block_get_wait" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.legacy.pool_malloc" name="kernel.memory_pool.legacy.pool_malloc" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_alloc_free_isr" name="kernel.memory_pool.mpool_alloc_free_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_alloc_free_thread" name="kernel.memory_pool.mpool_alloc_free_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_alloc_merge_failed_diff_parent" name="kernel.memory_pool.mpool_alloc_merge_failed_diff_parent" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_alloc_merge_failed_diff_size" name="kernel.memory_pool.mpool_alloc_merge_failed_diff_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_alloc_size" name="kernel.memory_pool.mpool_alloc_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_alloc_size_roundup" name="kernel.memory_pool.mpool_alloc_size_roundup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_alloc_timeout" name="kernel.memory_pool.mpool_alloc_timeout" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_alloc_wait_prio" name="kernel.memory_pool.mpool_alloc_wait_prio" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_kdefine_extern" name="kernel.memory_pool.mpool_kdefine_extern" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.mpool_threadsafe" name="kernel.memory_pool.mpool_threadsafe" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.pool_block_get" name="kernel.memory_pool.pool_block_get" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.pool_block_get_timeout" name="kernel.memory_pool.pool_block_get_timeout" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.pool_block_get_wait" name="kernel.memory_pool.pool_block_get_wait" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.pool_malloc" name="kernel.memory_pool.pool_malloc" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.sys" name="kernel.memory_pool.sys" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.sys.sys_mem_pool_alloc_align4" name="kernel.memory_pool.sys.sys_mem_pool_alloc_align4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.sys.sys_mem_pool_alloc_free" name="kernel.memory_pool.sys.sys_mem_pool_alloc_free" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.sys.sys_mem_pool_min_block_size" name="kernel.memory_pool.sys.sys_mem_pool_min_block_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.sys_heap_mem_pool_assign" name="kernel.memory_pool.sys_heap_mem_pool_assign" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.sys_mem_pool_alloc_align4" name="kernel.memory_pool.sys_mem_pool_alloc_align4" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.sys_mem_pool_alloc_free" name="kernel.memory_pool.sys_mem_pool_alloc_free" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.sys_mem_pool_min_block_size" name="kernel.memory_pool.sys_mem_pool_min_block_size" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.threadsafe" name="kernel.memory_pool.threadsafe" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.threadsafe.legacy.mpool_threadsafe" name="kernel.memory_pool.threadsafe.legacy.mpool_threadsafe" time="0">
-          </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.memory_pool.threadsafe.mpool_threadsafe" name="kernel.memory_pool.threadsafe.mpool_threadsafe" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:kernel.memory_protection.obj_validation" name="kernel.memory_protection.obj_validation" time="0">
           </testcase>
@@ -539,8 +435,6 @@
           </testcase>
           <testcase classname="mimxrt1015_evk:kernel.poll" name="kernel.poll" time="0">
           </testcase>
-          <testcase classname="mimxrt1015_evk:kernel.queue" name="kernel.queue" time="0">
-          </testcase>
           <testcase classname="mimxrt1015_evk:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
@@ -706,6 +600,8 @@
           <testcase classname="mimxrt1015_evk:kernel.workqueue.work_submit_to_queue_thread" name="kernel.workqueue.work_submit_to_queue_thread" time="0">
           </testcase>
           <testcase classname="mimxrt1015_evk:kernel.workqueue.workq_start_before_submit" name="kernel.workqueue.workq_start_before_submit" time="0">
+          </testcase>
+          <testcase classname="mimxrt1015_evk:kernel.queue" name="kernel.queue" time="0">
           </testcase>
   </testsuite>
 </testsuites>

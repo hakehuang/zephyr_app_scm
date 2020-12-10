@@ -78,6 +78,13 @@ cases:
     build_only: true
     platform_exclude: serpente pinnacle_100_dvk
     depends_on: gpio spi i2c
+  drivers.modem.quectel_bg9x.build:
+    path: tests/drivers/build_all
+    catalog: drivers
+    extra_args: CONF_FILE=modem_quectel_bg9x.conf
+    build_only: true
+    platform_exclude: serpente pinnacle_100_dvk
+    depends_on: gpio spi i2c
   drivers.xlnx.build:
     path: tests/drivers/build_all
     catalog: drivers
@@ -199,6 +206,10 @@ cases:
     depends_on: counter i2c
     min_ram: 16
     filter: dt_compat_enabled("maxim,ds3231")
+  drivers.timer.nrf_rtc_timer:
+    path: tests/drivers/timer/nrf_rtc_timer
+    catalog: drivers
+    platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840
   drivers.uart.uart_async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers

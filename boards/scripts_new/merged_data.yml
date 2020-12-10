@@ -146,47 +146,6 @@ cases:
     catalog: kernel ignore_faults userspace
     arch_exclude: nios2 xtensa posix sparc
     attribute: required
-  kernel.memory_pool:
-    path: tests/kernel/mem_pool/mem_pool
-    catalog: kernel mem_pool
-    attribute: required
-  kernel.memory_pool.legacy:
-    path: tests/kernel/mem_pool/mem_pool
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-    min_ram: 32
-    attribute: required
-  kernel.memory_pool.api:
-    path: tests/kernel/mem_pool/mem_pool_api
-    catalog: kernel mem_pool
-    attribute: required
-  kernel.memory_pool.api.legacy:
-    path: tests/kernel/mem_pool/mem_pool_api
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-    attribute: required
-  kernel.memory_pool.concept:
-    path: tests/kernel/mem_pool/mem_pool_concept
-    catalog: kernel mem_pool
-    attribute: required
-  kernel.memory_pool.concept.legacy:
-    path: tests/kernel/mem_pool/mem_pool_concept
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-    attribute: required
-  kernel.memory_pool.threadsafe:
-    path: tests/kernel/mem_pool/mem_pool_threadsafe
-    catalog: kernel mem_pool
-    attribute: required
-  kernel.memory_pool.threadsafe.legacy:
-    path: tests/kernel/mem_pool/mem_pool_threadsafe
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-    attribute: required
   kernel.memory_protection.mem_map:
     path: tests/kernel/mem_protect/mem_map
     catalog: kernel mmu ignore_faults
@@ -395,6 +354,12 @@ cases:
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: riscv64
     attribute: required
+  kernel.fpu_sharing.float_disable.sparc:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
+    attribute: required
   kernel.fpu_sharing.float_disable.x86:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
@@ -432,10 +397,6 @@ cases:
     catalog: kernel userspace
     platform_exclude: nrf52dk_nrf52810
     attribute: required
-  kernel.queue:
-    path: tests/kernel/queue
-    catalog: kernel userspace
-    attribute: required
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace
@@ -453,7 +414,7 @@ cases:
     path: tests/kernel/pipe/pipe
     catalog: kernel userspace ignore_faults
     attribute: required
-  kernel.memory_pool.sys:
-    path: tests/kernel/mem_pool/sys_mem_pool
-    catalog: kernel userspace mem_pool
+  kernel.queue:
+    path: tests/kernel/queue
+    catalog: kernel userspace ignore_faults
     attribute: required

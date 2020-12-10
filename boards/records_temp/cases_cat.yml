@@ -240,7 +240,7 @@ benchmark:
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
-    arch_allow: x86 arm posix
+    arch_allow: x86 arm
     platform_exclude: qemu_x86_64 qemu_cortex_m0
     filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.latency.stm32:
@@ -676,6 +676,12 @@ bluetooth mesh:
     extra_args: CONF_FILE=proxy.conf
     build_only: true
     platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.mesh.ext_adv:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    extra_args: CONF_FILE=ext_adv.conf
+    build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
 bluetooth uuid:
   bluetooth.gatt.uuid:
     path: tests/bluetooth/uuid
@@ -837,6 +843,13 @@ drivers:
     build_only: true
     platform_exclude: serpente pinnacle_100_dvk
     depends_on: gpio spi i2c
+  drivers.modem.quectel_bg9x.build:
+    path: tests/drivers/build_all
+    catalog: drivers
+    extra_args: CONF_FILE=modem_quectel_bg9x.conf
+    build_only: true
+    platform_exclude: serpente pinnacle_100_dvk
+    depends_on: gpio spi i2c
   drivers.xlnx.build:
     path: tests/drivers/build_all
     catalog: drivers
@@ -958,6 +971,10 @@ drivers:
     depends_on: counter i2c
     min_ram: 16
     filter: dt_compat_enabled("maxim,ds3231")
+  drivers.timer.nrf_rtc_timer:
+    path: tests/drivers/timer/nrf_rtc_timer
+    catalog: drivers
+    platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840
   drivers.uart.uart_async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
@@ -1350,6 +1367,11 @@ kernel userspace:
     catalog: kernel userspace
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: riscv64
+  kernel.fpu_sharing.float_disable.sparc:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
   kernel.fpu_sharing.float_disable.x86:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
@@ -1379,9 +1401,6 @@ kernel userspace:
     path: tests/kernel/poll
     catalog: kernel userspace
     platform_exclude: nrf52dk_nrf52810
-  kernel.queue:
-    path: tests/kernel/queue
-    catalog: kernel userspace
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace
@@ -1432,6 +1451,12 @@ kernel:
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: riscv64
     min_ram: 16
+  kernel.fpu_sharing.generic.sparc:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
   kernel.fpu_sharing.generic.x86:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
@@ -1537,7 +1562,7 @@ device:
     path: tests/kernel/device
     catalog: device
     extra_configs:
-    - CONFIG_DEVICE_POWER_MANAGEMENT=y
+    - CONFIG_PM_DEVICE=y
     platform_exclude: mec15xxevb_assy6853
 kernel sleep:
   kernel.common.sleep:
@@ -1590,9 +1615,9 @@ interrupt isr_table:
   arch.interrupt.gen_isr_table.arm_mainline:
     path: tests/kernel/gen_isr_table
     catalog: interrupt isr_table
-    platform_exclude: nucleo_f103rb olimexino_stm32 stm32_min_dev_black stm32_min_dev_blue
-      usb_kw24d512 v2m_beetle cc1352r1_launchxl cc26x2r1_launchxl olimex_stm32_h103
-      cc1352r_sensortag
+    platform_exclude: stmf103_mini nucleo_f103rb olimexino_stm32 stm32_min_dev_black
+      stm32_min_dev_blue usb_kw24d512 v2m_beetle cc1352r1_launchxl cc26x2r1_launchxl
+      olimex_stm32_h103 cc1352r_sensortag
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
   arch.interrupt.gen_isr_table.disabled:
     path: tests/kernel/gen_isr_table
@@ -1618,44 +1643,6 @@ k_heap_api kernel:
   kernel.k_heap_api:
     path: tests/kernel/mem_heap/k_heap_api
     catalog: k_heap_api kernel
-kernel mem_pool:
-  kernel.memory_pool:
-    path: tests/kernel/mem_pool/mem_pool
-    catalog: kernel mem_pool
-  kernel.memory_pool.legacy:
-    path: tests/kernel/mem_pool/mem_pool
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-    min_ram: 32
-  kernel.memory_pool.api:
-    path: tests/kernel/mem_pool/mem_pool_api
-    catalog: kernel mem_pool
-  kernel.memory_pool.api.legacy:
-    path: tests/kernel/mem_pool/mem_pool_api
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-  kernel.memory_pool.concept:
-    path: tests/kernel/mem_pool/mem_pool_concept
-    catalog: kernel mem_pool
-  kernel.memory_pool.concept.legacy:
-    path: tests/kernel/mem_pool/mem_pool_concept
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-  kernel.memory_pool.threadsafe:
-    path: tests/kernel/mem_pool/mem_pool_threadsafe
-    catalog: kernel mem_pool
-  kernel.memory_pool.threadsafe.legacy:
-    path: tests/kernel/mem_pool/mem_pool_threadsafe
-    catalog: kernel mem_pool
-    extra_configs:
-    - CONFIG_MEM_POOL_HEAP_BACKEND=n
-kernel userspace mem_pool:
-  kernel.memory_pool.sys:
-    path: tests/kernel/mem_pool/sys_mem_pool
-    catalog: kernel userspace mem_pool
 kernel mmu ignore_faults:
   kernel.memory_protection.mem_map:
     path: tests/kernel/mem_protect/mem_map
@@ -1733,6 +1720,9 @@ smp:
 kernel userspace ignore_faults:
   kernel.pipe:
     path: tests/kernel/pipe/pipe
+    catalog: kernel userspace ignore_faults
+  kernel.queue:
+    path: tests/kernel/queue
     catalog: kernel userspace ignore_faults
 kernel threads sched userspace:
   kernel.scheduler:
@@ -3289,18 +3279,6 @@ posix filesystem:
     filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
     arch_exclude: nios2 posix
     min_ram: 128
-shell:
-  shell.core:
-    path: tests/shell
-    catalog: shell
-    min_flash: 64
-    min_ram: 32
-  shell.history.shell_history:
-    path: tests/subsys/shell/shell_history
-    catalog: shell
-    min_flash: 64
-    min_ram: 32
-    filter: "( CONFIG_SHELL )"
 can isotp:
   can.isotp.conformance:
     path: tests/subsys/canbus/isotp/conformance
@@ -3440,7 +3418,11 @@ power:
     path: tests/subsys/power/power_mgmt_soc
     catalog: power
     platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
-    filter: CONFIG_SYS_PM_MIN_RESIDENCY_SLEEP_1
+    filter: CONFIG_PM_MIN_RESIDENCY_SLEEP_1
+  pm-states-api.dts:
+    path: tests/subsys/power/power_states_api
+    catalog: power
+    platform_allow: native_posix
 settings_fcb:
   system.settings.fcb.raw:
     path: tests/subsys/settings/fcb/raw
@@ -3485,6 +3467,116 @@ settings_fs settings_littlefs:
     path: tests/subsys/settings/littlefs/raw
     catalog: settings_fs settings_littlefs
     platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+shell:
+  shell.core:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    min_flash: 64
+    min_ram: 32
+  shell.min:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_cmds:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_cmds.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_cmds_all:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_cmds_all.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_cmds_resize:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_cmds_resize.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_cmds_select:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_cmds_select.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_colors:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_colors.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_help:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_help.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_help_all:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_help_all.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_history:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_history.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_log_backend:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_log_backend.conf
+    min_flash: 64
+    build_only: true
+    min_ram: 32
+  shell.min_metakeys:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_metakeys.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_tab:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_tab.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_tab_auto:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_tab_auto.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_wildcards:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_wildcards.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.history.shell_history:
+    path: tests/subsys/shell/shell_history
+    catalog: shell
+    min_flash: 64
+    min_ram: 32
+    filter: "( CONFIG_SHELL )"
 flash shell:
   shell.history:
     path: tests/subsys/shell/shell_flash
