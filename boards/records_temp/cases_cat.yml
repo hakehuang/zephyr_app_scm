@@ -24,7 +24,9 @@ arm interrupt ignore_faults:
   arch.interrupt.arm:
     path: tests/arch/arm/arm_interrupt
     catalog: arm interrupt ignore_faults
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
   arch.interrupt.no_optimizations:
     path: tests/arch/arm/arm_interrupt
@@ -33,37 +35,49 @@ arm interrupt ignore_faults:
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=1024
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
   arch.interrupt.extra_exception_info:
     path: tests/arch/arm/arm_interrupt
     catalog: arm interrupt ignore_faults
     extra_configs:
     - CONFIG_EXTRA_EXCEPTION_INFO=y
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
 arm interrupt:
   arch.arm.irq_advanced_features:
     path: tests/arch/arm/arm_irq_advanced_features
     catalog: arm interrupt
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
   arch.arm.irq_advanced_features.secure_fw:
     path: tests/arch/arm/arm_irq_advanced_features
     catalog: arm interrupt
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - CONFIG_TRUSTED_EXECUTION_SECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
 arm interrupt vector_table:
   arch.interrupt.arm.irq_vector_table:
     path: tests/arch/arm/arm_irq_vector_table
     catalog: arm interrupt vector_table
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
 arm:
   arch.arm.no_multithreading:
     path: tests/arch/arm/arm_no_multithreading
     catalog: arm
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     platform_exclude: degu_evk
     arch_allow: arm
   arch.arm.sw_vector_relay:
@@ -74,7 +88,9 @@ arm:
   arch.arm.swap.common:
     path: tests/arch/arm/arm_thread_swap
     catalog: arm
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
   arch.arm.swap.common.no_optimizations:
     path: tests/arch/arm/arm_thread_swap
@@ -82,7 +98,9 @@ arm:
     extra_configs:
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_IDLE_STACK_SIZE=512
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     min_flash: 192
     arch_allow: arm
   arch.arm.swap.common.fpu_sharing:
@@ -91,7 +109,9 @@ arm:
     extra_configs:
     - CONFIG_FPU=y
     - CONFIG_FPU_SHARING=y
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
   arch.arm.swap.common.fpu_sharing.no_optimizations:
     path: tests/arch/arm/arm_thread_swap
@@ -101,7 +121,9 @@ arm:
     - CONFIG_FPU_SHARING=y
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_IDLE_STACK_SIZE=512
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     min_flash: 192
     arch_allow: arm
 arm userspace:
@@ -161,7 +183,9 @@ unknown:
     build_only: true
     min_ram: 32
     platform_exclude: serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - gpio spi
+    - gpio spi i2c
   drivers.eeprom.build:
     path: tests/drivers/build_all
     catalog: unknown
@@ -169,14 +193,18 @@ unknown:
     build_only: true
     min_ram: 32
     platform_exclude: serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - gpio i2c spi
+    - gpio spi i2c
   drivers.adc.build:
     path: tests/drivers/build_all
     catalog: unknown
     extra_args: CONF_FILE=adc.conf
     build_only: true
     min_ram: 32
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
     platform_exclude: serpente
   drivers.dac.build:
     path: tests/drivers/build_all
@@ -184,7 +212,9 @@ unknown:
     extra_args: CONF_FILE=dac.conf
     build_only: true
     min_ram: 32
-    depends_on: gpio spi i2c
+    depends_on:
+    - dac spi
+    - gpio spi i2c
   kernel.logging.message_capture:
     path: tests/kernel/fatal/message_capture
     catalog: unknown
@@ -202,6 +232,21 @@ unknown:
     path: tests/unit/math_extras
     catalog: unknown
     type: unit
+interrupt nmi:
+  arch.interrupt.nmi:
+    path: tests/arch/x86/nmi
+    catalog: interrupt nmi
+    extra_configs:
+    - CONFIG_USERSPACE=n
+    arch_allow: x86
+    filter: CONFIG_X86_64
+  arch.interrupt.nmi.kpti:
+    path: tests/arch/x86/nmi
+    catalog: interrupt nmi
+    extra_configs:
+    - CONFIG_USERSPACE=y
+    arch_allow: x86
+    filter: CONFIG_X86_64
 userspace mmu:
   arch.x86.pagetables:
     path: tests/arch/x86/pagetables
@@ -770,7 +815,9 @@ drivers:
     catalog: drivers
     build_only: true
     min_ram: 16
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc i2c
+    - gpio spi i2c
   net.ethernet.build:
     path: tests/drivers/build_all
     catalog: drivers
@@ -779,7 +826,9 @@ drivers:
     min_flash: 42
     min_ram: 32
     platform_exclude: frdm_kw41z
-    depends_on: gpio spi i2c
+    depends_on:
+    - spi netif
+    - gpio spi i2c
   sensors.build.trigger_a_h:
     path: tests/drivers/build_all
     catalog: drivers
@@ -787,7 +836,9 @@ drivers:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
   sensors.build.trigger_i_z:
     path: tests/drivers/build_all
     catalog: drivers
@@ -795,7 +846,9 @@ drivers:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - gpio adc spi
+    - gpio spi i2c
   sensors.build.a_h:
     path: tests/drivers/build_all
     catalog: drivers
@@ -804,7 +857,9 @@ drivers:
     min_flash: 44
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
   sensors.build.i_z:
     path: tests/drivers/build_all
     catalog: drivers
@@ -812,7 +867,9 @@ drivers:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - gpio adc spi
+    - gpio spi i2c
   sensors.build.stmemsc:
     path: tests/drivers/build_all
     catalog: drivers
@@ -820,7 +877,9 @@ drivers:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
   sensors.build.stmemsc_trigger:
     path: tests/drivers/build_all
     catalog: drivers
@@ -828,7 +887,9 @@ drivers:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
   drivers.modem.build:
     path: tests/drivers/build_all
     catalog: drivers
@@ -2379,7 +2440,7 @@ dns net:
   net.dns.addremove:
     path: tests/net/lib/dns_addremove
     catalog: dns net
-    min_ram: 16
+    min_ram: 21
     depends_on: netif
   net.dns.addremove.no_ipv6:
     path: tests/net/lib/dns_addremove

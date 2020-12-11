@@ -32,7 +32,9 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - gpio spi
+    - gpio spi i2c
   drivers.eeprom.build:
     path: tests/drivers/build_all
     catalog: unknown
@@ -40,14 +42,18 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - gpio i2c spi
+    - gpio spi i2c
   drivers.adc.build:
     path: tests/drivers/build_all
     catalog: unknown
     extra_args: CONF_FILE=adc.conf
     build_only: true
     min_ram: 32
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
     platform_exclude: serpente
   drivers.dac.build:
     path: tests/drivers/build_all
@@ -55,7 +61,9 @@ cases:
     extra_args: CONF_FILE=dac.conf
     build_only: true
     min_ram: 32
-    depends_on: gpio spi i2c
+    depends_on:
+    - dac spi
+    - gpio spi i2c
   kernel.logging.message_capture:
     path: tests/kernel/fatal/message_capture
     catalog: unknown

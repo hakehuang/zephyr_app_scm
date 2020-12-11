@@ -3,7 +3,7 @@ cases:
   net.dns.addremove:
     path: tests/net/lib/dns_addremove
     catalog: dns net
-    min_ram: 16
+    min_ram: 21
     depends_on: netif
   net.dns.addremove.no_ipv6:
     path: tests/net/lib/dns_addremove

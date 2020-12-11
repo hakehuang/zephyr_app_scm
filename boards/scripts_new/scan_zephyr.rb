@@ -166,7 +166,22 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 if testcase_hash['common']
                   tags = testcase_hash['common']['tags']
                   tags = testcase_hash['tests'][k]['tags'] if testcase_hash['tests'][k].has_key?('tags')
-                  testcase_hash['tests'][k].merge!(testcase_hash['common'])
+                  testcase_hash['common'].keys.each do |ck|
+                    if testcase_hash['tests'][k].has_key?(ck)
+                      if testcase_hash['common'][ck].class.name != "Integer"
+                        if testcase_hash['tests'][k][ck] != testcase_hash['common'][ck]
+                          testcase_hash['tests'][k][ck] = [testcase_hash['tests'][k][ck], testcase_hash['common'][ck] ]
+                        end
+                      else
+                        testcase_hash['tests'][k][ck] =
+                          testcase_hash['common'][ck] > testcase_hash['tests'][k][ck] ?
+                            testcase_hash['common'][ck] : testcase_hash['tests'][k][ck]
+                      end
+                    else
+                      testcase_hash['tests'][k][ck] = testcase_hash['common'][ck]
+                    end
+                  end
+                  # testcase_hash['tests'][k].merge!(testcase_hash['common'])
                 else
                   tags = testcase_hash['tests'][k]['tags'] if testcase_hash['tests'][k].has_key?('tags')
                 end

@@ -52,17 +52,36 @@ module ZEPHER_FILTER
             end
             if k == "depends_on"
               if board_hash.has_key?("supported")
-                case_hash[k].split().each do |k|
-                  if ! board_hash["supported"].include?(k)
-                    match = false
-                    board_hash["supported"].each do |kk|
-                      if kk.include?(k)
-                        match = true
-                        break
+                if case_hash[k].class.name == "Array"
+                  case_hash[k].each do |dp|
+                    dp.split().each do |lk|
+                      if ! board_hash["supported"].include?(lk)
+                        match = false
+                        board_hash["supported"].each do |kk|
+                          if kk.include?(lk)
+                            match = true
+                            break
+                          end
+                        end
+                        if match == false
+                          return false
+                        end
                       end
                     end
-                    if match == false
-                      return false
+                  end
+                else
+                  case_hash[k].split().each do |lk|
+                    if ! board_hash["supported"].include?(lk)
+                      match = false
+                      board_hash["supported"].each do |kk|
+                        if kk.include?(lk)
+                          match = true
+                          break
+                        end
+                      end
+                      if match == false
+                        return false
+                      end
                     end
                   end
                 end
@@ -73,6 +92,15 @@ module ZEPHER_FILTER
             #TO do filter expression parser
 
             if k == "filter" and board_hash.has_key?("settings") and board_hash['settings'].has_key?("no_filter")
+
+              if case_hash[k].class.name == "Array"
+                case_hash[k].each do |ik|
+                  if ! zephyr_filter_parser(ik, board_hash)
+                    return false
+                  end
+                end
+                return true
+              end
               return zephyr_filter_parser(case_hash[k], board_hash)
             end
             if k == "type" and case_hash[k] == "unit"

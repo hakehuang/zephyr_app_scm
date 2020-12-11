@@ -5,7 +5,9 @@ cases:
     catalog: drivers
     build_only: true
     min_ram: 16
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc i2c
+    - gpio spi i2c
   net.ethernet.build:
     path: tests/drivers/build_all
     catalog: drivers
@@ -14,7 +16,9 @@ cases:
     min_flash: 42
     min_ram: 32
     platform_exclude: frdm_kw41z
-    depends_on: gpio spi i2c
+    depends_on:
+    - spi netif
+    - gpio spi i2c
   sensors.build.trigger_a_h:
     path: tests/drivers/build_all
     catalog: drivers
@@ -22,7 +26,9 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
   sensors.build.trigger_i_z:
     path: tests/drivers/build_all
     catalog: drivers
@@ -30,7 +36,9 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - gpio adc spi
+    - gpio spi i2c
   sensors.build.a_h:
     path: tests/drivers/build_all
     catalog: drivers
@@ -39,7 +47,9 @@ cases:
     min_flash: 44
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
   sensors.build.i_z:
     path: tests/drivers/build_all
     catalog: drivers
@@ -47,7 +57,9 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - gpio adc spi
+    - gpio spi i2c
   sensors.build.stmemsc:
     path: tests/drivers/build_all
     catalog: drivers
@@ -55,7 +67,9 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
   sensors.build.stmemsc_trigger:
     path: tests/drivers/build_all
     catalog: drivers
@@ -63,7 +77,9 @@ cases:
     build_only: true
     min_ram: 32
     platform_exclude: frdm_kw41z serpente
-    depends_on: gpio spi i2c
+    depends_on:
+    - adc spi
+    - gpio spi i2c
   drivers.modem.build:
     path: tests/drivers/build_all
     catalog: drivers
