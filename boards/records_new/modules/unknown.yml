@@ -4,7 +4,11 @@ cases:
     path: tests/arch/x86/info
     catalog: unknown
     arch_allow: x86
-    platform_allow: up_squared up_squared_32
+    platform_allow: ehl_crb up_squared up_squared_32
+  boards.native_posix.cpu_wait:
+    path: tests/boards/native_posix/cpu_wait
+    catalog: unknown
+    platform_allow: native_posix native_posix_64
   boards.native_posix.native_tasks:
     path: tests/boards/native_posix/native_tasks
     catalog: unknown
@@ -18,6 +22,11 @@ cases:
     catalog: unknown
     platform_allow: native_posix native_posix_64
     build_only: true
+  boards.qemu_x86_64.ivshmem:
+    path: tests/boards/qemu_x86_64/ivshmem
+    catalog: unknown
+    arch_allow: x86
+    platform_allow: qemu_x86_64
   drivers.clock.build:
     path: tests/drivers/build_all
     catalog: unknown

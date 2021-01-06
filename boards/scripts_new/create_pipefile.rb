@@ -120,7 +120,7 @@ def create_pipefile_from_commandline(data, board_info: nil)
     catalog = @content["cases"][key]['catalog']
     pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]
-    options_array = []
+    options_array = case_array
     if @content["cases"][key].has_key?("config")
       config_list = @content["cases"][key]['config'].split(";")
       config_files = ""
@@ -196,7 +196,7 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     catalog = @content["cases"][key]['catalog'].gsub(' ', '_')
     pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]
-    options_array = Array.new()
+    options_array = case_array
     if @content["cases"][key].has_key?("config")
       config_list = @content["cases"][key]['config'].split(";")
       config_files = ""

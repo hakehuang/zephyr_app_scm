@@ -10,7 +10,7 @@ cases:
     extra_configs:
     - CONFIG_THREAD_LOCAL_STORAGE=y
     min_flash: 33
-    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
   kernel.common.misra:
     path: tests/kernel/common
     catalog: kernel userspace
@@ -88,9 +88,6 @@ cases:
     platform_exclude: nrf52dk_nrf52810
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
-    catalog: kernel userspace
-  kernel.stack.usage:
-    path: tests/kernel/stack/stack
     catalog: kernel userspace
   kernel.workqueue.api:
     path: tests/kernel/workq/work_queue_api

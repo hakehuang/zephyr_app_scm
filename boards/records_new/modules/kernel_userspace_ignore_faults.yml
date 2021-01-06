@@ -1,8 +1,15 @@
 ---
 cases:
+  kernel.mutex.mutex_error_case:
+    path: tests/kernel/mutex/mutex_error_case
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.pipe:
     path: tests/kernel/pipe/pipe
     catalog: kernel userspace ignore_faults
   kernel.queue:
     path: tests/kernel/queue
+    catalog: kernel userspace ignore_faults
+  kernel.stack.usage:
+    path: tests/kernel/stack/stack
     catalog: kernel userspace ignore_faults

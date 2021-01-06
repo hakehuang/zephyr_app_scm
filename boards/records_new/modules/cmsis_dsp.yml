@@ -3,38 +3,44 @@ cases:
   libraries.cmsis_dsp.basicmath:
     path: tests/lib/cmsis_dsp/basicmath
     catalog: cmsis_dsp
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.bayes:
     path: tests/lib/cmsis_dsp/bayes
     catalog: cmsis_dsp
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
     min_flash: 64
     min_ram: 32
   libraries.cmsis_dsp.complexmath:
     path: tests/lib/cmsis_dsp/complexmath
     catalog: cmsis_dsp
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.distance:
     path: tests/lib/cmsis_dsp/distance
     catalog: cmsis_dsp
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
     min_flash: 64
     min_ram: 32
   libraries.cmsis_dsp.fastmath:
     path: tests/lib/cmsis_dsp/fastmath
     catalog: cmsis_dsp
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.filtering:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
     skip: true
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.filtering.biquad:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
@@ -43,7 +49,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.filtering.fir:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
@@ -52,7 +59,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.filtering.misc:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
@@ -61,12 +69,14 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 256
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.matrix:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
     skip: true
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.matrix.unary_q15:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -75,7 +85,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.matrix.unary_q31:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -84,7 +95,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.matrix.unary_f32:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -93,7 +105,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.matrix.unary_f64:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -102,7 +115,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.matrix.binary_q15:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -112,7 +126,8 @@ cases:
     platform_exclude: mps2_an521
     min_flash: 128
     min_ram: 128
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.matrix.binary_q31:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -121,7 +136,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 128
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.matrix.binary_f32:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -130,30 +146,35 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 128
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.statistics:
     path: tests/lib/cmsis_dsp/statistics
     catalog: cmsis_dsp
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.support:
     path: tests/lib/cmsis_dsp/support
     catalog: cmsis_dsp
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.svm:
     path: tests/lib/cmsis_dsp/svm
     catalog: cmsis_dsp
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.transform:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
     skip: true
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.transform.cq15:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -162,7 +183,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 512
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.transform.rq15:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -171,7 +193,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 512
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.transform.cq31:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -180,7 +203,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.transform.rq31:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -189,7 +213,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.transform.cf32:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -198,7 +223,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.transform.rf32:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -207,7 +233,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 512
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.transform.cf64:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -216,7 +243,8 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 96
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
   libraries.cmsis_dsp.transform.rf64:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -225,4 +253,5 @@ cases:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    filter: CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"

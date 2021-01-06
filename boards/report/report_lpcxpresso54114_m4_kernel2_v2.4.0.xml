@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="297" errors="0" failures="4" name="" skipped="2" time="0">
+    <testsuite tests="298" errors="0" failures="4" name="" skipped="2" time="0">
          <testcase classname="lpcxpresso54114_m4:kernel.threads.dynamic" name="kernel.threads.dynamic" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -443,26 +443,6 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m4:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_arm_fp_sharing" name="kernel.common.stack_protection_arm_fp_sharing" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_arm_fpu_sharing.fatal" name="kernel.common.stack_protection_arm_fpu_sharing.fatal" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_armv8m_mpu_stack_guard.fatal" name="kernel.common.stack_protection_armv8m_mpu_stack_guard.fatal" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_no_userspace.arm_interrupt" name="kernel.common.stack_protection_no_userspace.arm_interrupt" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.stack" name="kernel.stack" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso54114_m4:kernel.stack.usage" name="kernel.stack.usage" time="0">
-          </testcase>
           <testcase classname="lpcxpresso54114_m4:kernel.workqueue" name="kernel.workqueue" time="0">
           </testcase>
           <testcase classname="lpcxpresso54114_m4:kernel.workqueue.already_triggered" name="kernel.workqueue.already_triggered" time="0">
@@ -607,7 +587,29 @@
           </testcase>
           <testcase classname="lpcxpresso54114_m4:kernel.workqueue.workq_start_before_submit" name="kernel.workqueue.workq_start_before_submit" time="0">
           </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.mutex.mutex" name="kernel.mutex.mutex" time="0">
+          </testcase>
           <testcase classname="lpcxpresso54114_m4:kernel.queue" name="kernel.queue" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_arm_fp_sharing" name="kernel.common.stack_protection_arm_fp_sharing" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_arm_fp_sharing.fatal" name="kernel.common.stack_protection_arm_fp_sharing.fatal" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_arm_fpu_sharing.fatal" name="kernel.common.stack_protection_arm_fpu_sharing.fatal" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_armv8m_mpu_stack_guard.fatal" name="kernel.common.stack_protection_armv8m_mpu_stack_guard.fatal" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_no_userspace.arm_interrupt" name="kernel.common.stack_protection_no_userspace.arm_interrupt" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_protection_no_userspace.fatal" name="kernel.common.stack_protection_no_userspace.fatal" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.common.stack_sentinel.fatal" name="kernel.common.stack_sentinel.fatal" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.stack" name="kernel.stack" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso54114_m4:kernel.stack.usage" name="kernel.stack.usage" time="0">
           </testcase>
   </testsuite>
 </testsuites>

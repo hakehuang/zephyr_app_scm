@@ -225,7 +225,13 @@ cases:
   drivers.timer.nrf_rtc_timer:
     path: tests/drivers/timer/nrf_rtc_timer
     catalog: drivers
+    extra_configs:
+    - CONFIG_ZERO_LATENCY_IRQS=y
     platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.timer.nrf_rtc_timer_no_zli:
+    path: tests/drivers/timer/nrf_rtc_timer
+    catalog: drivers
+    platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf52_bsim
   drivers.uart.uart_async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers

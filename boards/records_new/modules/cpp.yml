@@ -9,6 +9,7 @@ cases:
     catalog: cpp
     platform_exclude: qemu_x86_coverage
     min_flash: 54
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
   application_development.cpp.libcxx.exceptions:
     path: tests/application_development/libcxx
     catalog: cpp
@@ -16,3 +17,4 @@ cases:
     - CONFIG_EXCEPTIONS=y
     platform_exclude: qemu_x86_coverage
     min_flash: 54
+    filter: TOOLCHAIN_HAS_NEWLIB == 1

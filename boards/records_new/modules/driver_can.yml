@@ -8,3 +8,12 @@ cases:
     path: tests/drivers/can/stm32
     catalog: driver can
     depends_on: can
+  drivers.can.timing:
+    path: tests/drivers/can/timing
+    catalog: driver can
+    depends_on: can
+  drivers.can.timing_loopback:
+    path: tests/drivers/can/timing
+    catalog: driver can
+    extra_args: CONF_FILE="prj_loopback.conf"
+    platform_allow: native_posix
