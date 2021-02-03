@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="289" errors="0" failures="2" name="" skipped="0" time="0">
+    <testsuite tests="290" errors="0" failures="2" name="" skipped="0" time="0">
           <testcase classname="lpcxpresso55s69_cpu0:kernel.common" name="kernel.common" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -307,6 +307,8 @@
           </testcase>
           <testcase classname="lpcxpresso55s69_cpu0:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
           </testcase>
+          <testcase classname="lpcxpresso55s69_cpu0:kernel.timer.timer" name="kernel.timer.timer" time="0">
+          </testcase>
           <testcase classname="lpcxpresso55s69_cpu0:kernel.common.misra" name="kernel.common.misra" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s69_cpu0:kernel.memory_protection.sys_sem" name="kernel.memory_protection.sys_sem" time="0">
@@ -414,8 +416,6 @@
           <testcase classname="lpcxpresso55s69_cpu0:kernel.pipe.resource_pool_auto_free" name="kernel.pipe.resource_pool_auto_free" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s69_cpu0:kernel.poll" name="kernel.poll" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s69_cpu0:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s69_cpu0:kernel.workqueue" name="kernel.workqueue" time="0">
           </testcase>
@@ -562,6 +562,8 @@
           <testcase classname="lpcxpresso55s69_cpu0:kernel.workqueue.workq_start_before_submit" name="kernel.workqueue.workq_start_before_submit" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s69_cpu0:kernel.queue" name="kernel.queue" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s69_cpu0:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s69_cpu0:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
           </testcase>

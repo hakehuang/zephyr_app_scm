@@ -47,7 +47,8 @@ LONG_CASE_DURATION = {
   'libraries.cmsis_dsp.support' => {'timeout' => 600},
   'libraries.cmsis_dsp.complexmath' => {'timeout' => 600},
   'lib.heap' => {'timeout' => 500},
-  'shell.core.shell.core ' => {'timeout' => 300}
+  'shell.core.shell.core ' => {'timeout' => 300},
+  'drivers.counter' => {'timeout' => 60}
 }
 
 class Parser

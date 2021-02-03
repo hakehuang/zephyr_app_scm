@@ -7,3 +7,8 @@ cases:
   driver.sensor.generic:
     path: tests/drivers/sensor/generic
     catalog: driver sensor subsys
+    extra_args: CONF_FILE=prj.conf
+  driver.sensor.fpu:
+    path: tests/drivers/sensor/generic
+    catalog: driver sensor subsys
+    extra_args: CONF_FILE=prj_fpu.conf

@@ -24,3 +24,9 @@ cases:
     extra_configs:
     - CONFIG_TIMESLICING=n
     extra_args: CONF_FILE=prj_multiq.conf
+  kernel.scheduler.dumb_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_dumb.conf

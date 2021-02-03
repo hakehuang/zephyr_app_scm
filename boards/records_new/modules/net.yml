@@ -31,7 +31,7 @@ cases:
   net.pm:
     path: tests/net/pm
     catalog: net
-    platform_allow: qemu_x86 qemu_leon3
+    platform_allow: qemu_x86 qemu_leon3 qemu_riscv32 qemu_riscv64
     depends_on: netif
   net.udp:
     path: tests/net/udp
@@ -51,3 +51,8 @@ cases:
     path: tests/subsys/canbus/frame
     catalog: net
     platform_allow: native_posix native_posix_64 qemu_x86 qemu_cortex_m3 qemu_leon3
+      qemu_riscv32 qemu_riscv64
+  utilities.net_timeout:
+    path: tests/unit/net_timeout
+    catalog: net
+    type: unit

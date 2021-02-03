@@ -1,0 +1,7 @@
+---
+cases:
+  testing.ztest.error_hook.no_userspace:
+    path: tests/ztest/error_hook
+    catalog: test_framework ignore_faults
+    extra_args: CONF_FILE=prj_no_userspace.conf
+    filter: not CONFIG_ARCH_HAS_USERSPACE

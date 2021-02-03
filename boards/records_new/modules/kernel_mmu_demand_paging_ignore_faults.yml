@@ -1,0 +1,6 @@
+---
+cases:
+  kernel.memory_protection.demand_paging:
+    path: tests/kernel/mem_protect/demand_paging
+    catalog: kernel mmu demand_paging ignore_faults
+    filter: CONFIG_DEMAND_PAGING

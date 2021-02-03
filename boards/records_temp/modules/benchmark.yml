@@ -3,7 +3,7 @@ cases:
   benchmark.kernel.application:
     path: tests/benchmarks/app_kernel
     catalog: benchmark
-    arch_allow: x86 arm
+    arch_allow: x86 arm riscv32 riscv64
     min_flash: 34
     min_ram: 32
   benchmark.kernel.application.posix:
@@ -16,7 +16,7 @@ cases:
     catalog: benchmark
     arch_allow: x86 arm posix
     platform_exclude: qemu_x86 qemu_x86_coverage qemu_x86_64 qemu_x86_nommu minnowboard
-      acrn
+      acrn acrn_ehl_crb
     filter: CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC >= 1000000
   benchmark.kernel.footprints.default:
     path: tests/benchmarks/footprints
@@ -25,8 +25,8 @@ cases:
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
-    arch_allow: x86 arm
-    platform_exclude: qemu_x86_64 qemu_cortex_m0
+    arch_allow: x86 arm riscv32 riscv64
+    platform_exclude: qemu_x86_64 qemu_cortex_m0 m2gl025_miv
     filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.latency.stm32:
     path: tests/benchmarks/latency_measure
@@ -41,5 +41,5 @@ cases:
   benchmark.kernel.core:
     path: tests/benchmarks/sys_kernel
     catalog: benchmark
-    arch_exclude: nios2 riscv32 xtensa
+    arch_exclude: nios2 xtensa
     min_ram: 32

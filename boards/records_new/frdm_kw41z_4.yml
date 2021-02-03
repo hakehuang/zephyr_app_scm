@@ -2,11 +2,13 @@
 settings:
   case_pipe_name: "frdm_kw41z_4"
 __load__:
+- modules/pwm_drivers_userspace.yml
 - modules/prf.yml
 - modules/power.yml
 - modules/posix_pthread_eventfd.yml
 - modules/posix_filesystem.yml
 - modules/posix.yml
+- modules/p4wq.yml
 - modules/ot_radio.yml
 - modules/onoff_timer.yml
 - modules/nvs.yml

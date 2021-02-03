@@ -1,8 +1,8 @@
 ---
 settings:
-  case_pipe_name: frdm_k64f
+  case_pipe_name: mimx8mm_evk_kernel2
   build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_elf.sh
+  run_script: run_zephyr_mimx8mm_evk.sh
   no_filter:
   - CONFIG_ENTROPY_HAS_DRIVER
   - CONFIG_CPU_ARCV2
@@ -13,19 +13,12 @@ cases:
     bin: testbinary
     attribute: required
   peripheral.spi:
+    comments: need add board support
     build_only: true
     attribute: required
   peripheral.pinmux:
-    comments: no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/
-    result: FAILURE
-    attribute: required
-  net.build:
-    comments: build error
-    result: FAILURE
-    attribute: required
-  sample.net.sockets.echo_server.mcr20a:
-    result: FAILURE
-    comments: run error http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_samples/detail/frdmk64f/2/pipeline/153/
+    comments: pinmux setting issue
+    build_only: true
     attribute: required
   samples.net.google_iot_mqtt:
     comments: no goolge web access so build only
@@ -36,10 +29,6 @@ cases:
   libraries.libc.newlibnano:
     comments: http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164
     build_only: true
-    path: tests/lib/mem_alloc
-    catalog: clib newlib userspace
-    extra_args: CONF_FILE=prj_newlibnano.conf
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
     attribute: required
   peripheral.entropy:
     comments: no entropy
@@ -60,16 +49,6 @@ cases:
   arch.interrupt.no_optimizations:
     comments: no console output too slow
     build_only: true
-    path: tests/arch/arm/arm_interrupt
-    catalog: arm interrupt ignore_faults
-    extra_configs:
-    - CONFIG_NO_OPTIMIZATIONS=y
-    - CONFIG_IDLE_STACK_SIZE=512
-    - CONFIG_MAIN_STACK_SIZE=1024
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_allow: arm
     attribute: required
   test_utf8_in_kconfig_values:
     comments: build failure
@@ -86,15 +65,13 @@ cases:
   crypto.rand32.random_hw_xoroshiro:
     comments: not hw in chip
     result: FAILURE
-    path: tests/crypto/rand32
-    catalog: crypto entropy random security
-    extra_args: CONF_FILE=prj_hw_random_xoroshiro.conf
-    filter: CONFIG_ENTROPY_HAS_DRIVER
-    min_ram: 16
     attribute: required
   kernel.common.stack_sentinel:
     comments: no sentinel
     result: FAILURE
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults
+    extra_args: CONF_FILE=sentinel.conf
     attribute: required
   sample.net.sockets.echo_server.usbnet:
     comments: not support
@@ -136,282 +113,367 @@ cases:
     comments: need add support
     result: FAILURE
     attribute: required
-  drivers.adc:
-    path: tests/drivers/adc/adc_api
-    catalog: adc drivers userspace
-    depends_on: adc
-    attribute: required
-  arch.arm.no_multithreading:
-    path: tests/arch/arm/arm_no_multithreading
-    catalog: arm
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    platform_exclude: degu_evk
+  kernel.common.stack_protection_no_userspace:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults memory_protection
+    extra_args: CONF_FILE=protection_no_userspace.conf
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
     arch_allow: arm
     attribute: required
-  arch.arm.sw_vector_relay:
-    path: tests/arch/arm/arm_sw_vector_relay
-    catalog: arm
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_allow: arm
-    attribute: required
-  arch.arm.swap.common:
-    path: tests/arch/arm/arm_thread_swap
-    catalog: arm
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_allow: arm
-    attribute: required
-  arch.arm.swap.common.no_optimizations:
-    path: tests/arch/arm/arm_thread_swap
-    catalog: arm
-    extra_configs:
-    - CONFIG_NO_OPTIMIZATIONS=y
-    - CONFIG_IDLE_STACK_SIZE=512
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    min_flash: 192
-    arch_allow: arm
-    attribute: required
-  arch.arm.swap.common.fpu_sharing:
-    path: tests/arch/arm/arm_thread_swap
-    catalog: arm
-    extra_configs:
-    - CONFIG_FPU=y
-    - CONFIG_FPU_SHARING=y
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_allow: arm
-    attribute: required
-  arch.arm.swap.common.fpu_sharing.no_optimizations:
-    path: tests/arch/arm/arm_thread_swap
-    catalog: arm
-    extra_configs:
-    - CONFIG_FPU=y
-    - CONFIG_FPU_SHARING=y
-    - CONFIG_NO_OPTIMIZATIONS=y
-    - CONFIG_IDLE_STACK_SIZE=512
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    min_flash: 192
-    arch_allow: arm
-    attribute: required
-  arch.arm.irq_advanced_features:
-    path: tests/arch/arm/arm_irq_advanced_features
-    catalog: arm interrupt
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_allow: arm
-    attribute: required
-  arch.arm.irq_advanced_features.secure_fw:
-    path: tests/arch/arm/arm_irq_advanced_features
-    catalog: arm interrupt
-    filter:
-    - CONFIG_TRUSTED_EXECUTION_SECURE
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_allow: arm
-    attribute: required
-  arch.interrupt.arm:
-    path: tests/arch/arm/arm_interrupt
-    catalog: arm interrupt ignore_faults
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_allow: arm
-    attribute: required
-  arch.interrupt.extra_exception_info:
-    path: tests/arch/arm/arm_interrupt
-    catalog: arm interrupt ignore_faults
-    extra_configs:
-    - CONFIG_EXTRA_EXCEPTION_INFO=y
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_allow: arm
-    attribute: required
-  arch.interrupt.arm.irq_vector_table:
-    path: tests/arch/arm/arm_irq_vector_table
-    catalog: arm interrupt vector_table
-    filter:
-    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
-    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    arch_allow: arm
-    attribute: required
-  arch.arm.tz_wrap_func:
-    path: tests/arch/arm/arm_tz_wrap_func
-    catalog: arm tz_ns tz_wrap_func
-    arch_allow: arm
-    filter: CONFIG_CPU_CORTEX_M
-    attribute: required
-  arch.arm.ramfunc:
-    path: tests/arch/arm/arm_ramfunc
-    catalog: arm userspace
-    filter: CONFIG_ARCH_HAS_RAMFUNC_SUPPORT
-    arch_allow: arm
-    attribute: required
-  utilities.base64:
-    path: tests/unit/base64
-    catalog: base64
-    type: unit
-    attribute: required
-  benchmark.kernel.application:
-    path: tests/benchmarks/app_kernel
-    catalog: benchmark
-    arch_allow: x86 arm
-    min_flash: 34
-    min_ram: 32
-    attribute: required
-  benchmark.kernel.application.posix:
-    path: tests/benchmarks/app_kernel
-    catalog: benchmark
-    arch_allow: posix
-    min_ram: 32
-    attribute: required
-  benchmark.kernel.boot_time:
-    path: tests/benchmarks/boot_time
-    catalog: benchmark
-    arch_allow: x86 arm posix
-    platform_exclude: qemu_x86 qemu_x86_coverage qemu_x86_64 qemu_x86_nommu minnowboard
-      acrn
-    filter: CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC >= 1000000
-    attribute: required
-  benchmark.kernel.footprints.default:
-    path: tests/benchmarks/footprints
-    catalog: benchmark
-    build_only: true
-    attribute: required
-  benchmark.kernel.latency:
-    path: tests/benchmarks/latency_measure
-    catalog: benchmark
-    arch_allow: x86 arm
-    platform_exclude: qemu_x86_64 qemu_cortex_m0
-    filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
-    attribute: required
-  benchmark.kernel.latency.stm32:
-    path: tests/benchmarks/latency_measure
-    catalog: benchmark
-    extra_configs:
-    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=20
-    filter: CONFIG_PRINTK and CONFIG_SOC_FAMILY_STM32
-    platform_exclude: qemu_cortex_m0
-    attribute: required
-  benchmark.kernel.scheduler:
-    path: tests/benchmarks/sched
-    catalog: benchmark
-    attribute: required
-  benchmark.kernel.core:
-    path: tests/benchmarks/sys_kernel
-    catalog: benchmark
-    arch_exclude: nios2 riscv32 xtensa
-    min_ram: 32
-    attribute: required
-  benchmark.cmsis_dsp.basicmath:
-    path: tests/benchmarks/cmsis_dsp/basicmath
-    catalog: benchmark cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
-    min_flash: 128
-    min_ram: 64
-    attribute: required
-  benchmark.data_structures:
-    path: tests/benchmarks/data_structure_perf/dlist_perf
-    catalog: benchmark dlist
-    attribute: required
-  benchmark.data_structures.rbtree_perf:
-    path: tests/benchmarks/data_structure_perf/rbtree_perf
-    catalog: benchmark rbtree
-    attribute: required
-  benchmark.kernel.footprints.userspace:
-    path: tests/benchmarks/footprints
-    catalog: benchmark userspace
-    extra_args: CONF_FILE=prj_userspace.conf
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    arch_allow: x86 arm arc
-    build_only: true
-    attribute: required
-  boards.s1000_crb.cache:
-    path: tests/boards/intel_s1000_crb/cache
-    catalog: boards
-    platform_allow: intel_s1000_crb
-    attribute: required
-  boards.s1000_crb.main:
-    path: tests/boards/intel_s1000_crb/main
-    catalog: boards
-    platform_allow: intel_s1000_crb
-    attribute: required
-  libraries.libc:
-    path: tests/lib/c_lib
-    catalog: clib
-    attribute: required
-  libraries.libc.minimal.mem_alloc:
-    path: tests/lib/mem_alloc
-    catalog: clib minimal_libc userspace
+  kernel.common.stack_protection:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults userspace
     extra_args: CONF_FILE=prj.conf
-    arch_exclude: posix
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    attribute: required
+  kernel.common.stack_protection_arm_fpu_sharing:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_arm_fpu_sharing.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
+    attribute: required
+  kernel.common.stack_protection_armv8m_mpu_stack_guard:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_allow: arm
+    attribute: required
+  kernel.memory_protection.stackprot:
+    path: tests/kernel/mem_protect/stackprot
+    catalog: kernel ignore_faults userspace
+    arch_exclude: nios2 xtensa posix sparc
+    attribute: required
+  kernel.memory_protection.demand_paging:
+    path: tests/kernel/mem_protect/demand_paging
+    catalog: kernel mmu demand_paging ignore_faults
+    filter: CONFIG_DEMAND_PAGING
+    attribute: required
+  kernel.memory_protection.mem_map:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    filter: CONFIG_MMU and not CONFIG_X86_64
+    platform_exclude: qemu_x86_64
+    attribute: required
+  kernel.memory_protection.mem_map.x86_64:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    filter: CONFIG_MMU and CONFIG_X86_64 and not CONFIG_COVERAGE
+    attribute: required
+  kernel.memory_protection.mem_map.x86_64.coverage:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    extra_args: EXTRA_CFLAGS=-DSKIP_EXECUTE_TESTS
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
+    attribute: required
+  kernel.memory_protection.mem_map.x86_64.coverage.exec:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    extra_args: CONF_FILE=prj_x86_64_coverage_exec.conf
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
+    attribute: required
+  kernel.memory_protection.protection:
+    path: tests/kernel/mem_protect/protection
+    catalog: kernel security ignore_faults
+    platform_exclude: twr_ke18f
+    filter: CONFIG_SRAM_REGION_PERMISSIONS
+    attribute: required
+  kernel.memory_protection.obj_validation:
+    path: tests/kernel/mem_protect/obj_validation
+    catalog: kernel security userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
     platform_exclude: twr_ke18f
     attribute: required
-  libraries.libc.newlib:
-    path: tests/lib/mem_alloc
-    catalog: clib newlib userspace
-    extra_args: CONF_FILE=prj_newlib.conf
+  kernel.memory_protection.gap_filling.arc:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arc
+    attribute: required
+  kernel.memory_protection.gap_filling.arm:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arm
+    platform_allow: efr32_radio_brd4180a mps2_an521 nrf5340pdk_nrf5340_cpuapp nrf5340pdk_nrf5340_cpunet
+      nrf9160dk_nrf9160
+    attribute: required
+  kernel.memory_protection.syscalls:
+    path: tests/kernel/mem_protect/syscalls
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.userspace:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.userspace.gap_filling.arc:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arc
+    attribute: required
+  kernel.memory_protection.userspace.gap_filling.arm:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arm
+    platform_allow: efr32_radio_brd4180a mps2_an521 nrf5340pdk_nrf5340_cpuapp nrf5340pdk_nrf5340_cpunet
+      nrf9160dk_nrf9160
+    attribute: required
+  kernel.threads.thread_stack:
+    path: tests/kernel/threads/thread_stack
+    catalog: kernel security userspace ignore_faults
     min_ram: 16
-    arch_exclude: posix
-    platform_exclude: twr_ke18f
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
     attribute: required
-  application_development.cpp.main:
-    path: tests/application_development/cpp
-    catalog: cpp
-    platform_exclude: qemu_x86_coverage
+  kernel.threads.armv8m_mpu_stack_guard:
+    path: tests/kernel/threads/thread_stack
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    min_ram: 16
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_allow: arm
     attribute: required
-  application_development.cpp.libcxx:
-    path: tests/application_development/libcxx
-    catalog: cpp
-    platform_exclude: qemu_x86_coverage
-    min_flash: 54
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  arch.x86.syscalls.cpu_scrubs_regs:
+    path: tests/arch/x86/cpu_scrubs_regs
+    catalog: kernel security userspace scrub registers
+    arch_allow: x86
+    filter: CONFIG_ARCH_HAS_USERSPACE
     attribute: required
-  application_development.cpp.libcxx.exceptions:
-    path: tests/application_development/libcxx
-    catalog: cpp
+  kernel.common.sleep:
+    path: tests/kernel/early_sleep
+    catalog: kernel sleep
+    attribute: required
+  kernel.common.timing:
+    path: tests/kernel/sleep
+    catalog: kernel sleep
+    attribute: required
+  kernel.threads.tls:
+    path: tests/kernel/threads/tls
+    catalog: kernel threads
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    attribute: required
+  kernel.scheduler:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
     extra_configs:
-    - CONFIG_EXCEPTIONS=y
+    - CONFIG_TIMESLICING=y
+    filter: not CONFIG_SCHED_MULTIQ
+    attribute: required
+  kernel.scheduler.no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    filter: not CONFIG_SCHED_MULTIQ
+    attribute: required
+  kernel.scheduler.multiq:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    extra_args: CONF_FILE=prj_multiq.conf
+    attribute: required
+  kernel.scheduler.multiq_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_multiq.conf
+    attribute: required
+  kernel.scheduler.dumb_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_dumb.conf
+    attribute: required
+  kernel.threads.init:
+    path: tests/kernel/threads/thread_init
+    catalog: kernel threads userspace
+    attribute: required
+  kernel.threads.tls.userspace:
+    path: tests/kernel/threads/tls
+    catalog: kernel threads userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_ARCH_HAS_USERSPACE and
+      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    attribute: required
+  kernel.threads.dynamic:
+    path: tests/kernel/threads/dynamic_thread
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_exclude: x86
+    attribute: required
+  kernel.threads.apis:
+    path: tests/kernel/threads/thread_apis
+    catalog: kernel threads userspace ignore_faults
+    min_flash: 34
+    attribute: required
+  kernel.threads.error.case:
+    path: tests/kernel/threads/thread_error_case
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_USERSPACE
+    attribute: required
+  kernel.timer:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer userspace
     platform_exclude: qemu_x86_coverage
-    min_flash: 54
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
     attribute: required
-  benchmark.crypto.mbedtls:
-    path: tests/benchmarks/mbedtls
-    catalog: crypto
-    filter: CONFIG_TEST_RANDOM_GENERATOR
+  kernel.timer.tickless:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer userspace
+    extra_args: CONF_FILE="prj_tickless.conf"
+    arch_exclude: nios2 posix
+    platform_exclude: qemu_x86_coverage litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
+      nrf5340dk_nrf5340_cpunet nrf5340pdk_nrf5340_cpunet
     attribute: required
-  crypto.rand32.random_ctr_drbg:
-    path: tests/crypto/rand32
-    catalog: crypto entropy random security
-    extra_args: CONF_FILE=prj_ctr_drbg.conf
-    filter: CONFIG_ENTROPY_HAS_DRIVER
-    min_ram: 16
+  kernel.timer.timer_error_case:
+    path: tests/kernel/timer/timer_error_case
+    catalog: kernel timer userspace ignore_faults
     attribute: required
-  crypto.mbedtls:
-    path: tests/crypto/mbedtls
-    catalog: crypto mbedtls userspace
-    min_flash: 65
-    min_ram: 36
+  kernel.common:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    min_flash: 33
     attribute: required
-  crypto.rand32:
-    path: tests/crypto/rand32
-    catalog: crypto random security
-    min_ram: 16
+  kernel.common.tls:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    min_flash: 33
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
     attribute: required
-  crypto.rand32.random_sw_systimer:
-    path: tests/crypto/rand32
-    catalog: crypto random security
-    extra_args: CONF_FILE=prj_sw_random_systimer.conf
-    min_ram: 16
+  kernel.common.misra:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_MISRA_SANE=y
+    min_flash: 33
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    attribute: required
+  kernel.common.nano32:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    min_flash: 33
+    filter: not CONFIG_KERNEL_COHERENCE
+    attribute: required
+  kernel.common.nano64:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    min_flash: 33
+    filter: not CONFIG_KERNEL_COHERENCE
+    attribute: required
+  kernel.fpu_sharing.float_disable.arm:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_INTERRUPTS=y
+    arch_allow: arm
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    attribute: required
+  kernel.fpu_sharing.float_disable.riscv32:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
+    attribute: required
+  kernel.fpu_sharing.float_disable.riscv64:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
+    attribute: required
+  kernel.fpu_sharing.float_disable.sparc:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
+    attribute: required
+  kernel.fpu_sharing.float_disable.x86:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
+    attribute: required
+  kernel.futex:
+    path: tests/kernel/mem_protect/futex
+    catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.sys_sem:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel userspace
+    attribute: required
+  kernel.message_queue:
+    path: tests/kernel/msgq/msgq_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.mutex:
+    path: tests/kernel/mutex/mutex_api
+    catalog: kernel userspace
+    attribute: required
+  system.mutex:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.pipe.api:
+    path: tests/kernel/pipe/pipe_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.poll:
+    path: tests/kernel/poll
+    catalog: kernel userspace
+    platform_exclude: nrf52dk_nrf52810
+    attribute: required
+  kernel.workqueue.api:
+    path: tests/kernel/workq/work_queue_api
+    catalog: kernel userspace
+    min_flash: 34
+    attribute: required
+  kernel.condvar:
+    path: tests/kernel/condvar/condvar_api
+    catalog: kernel userspace condition_variables ignore_faults
+    attribute: required
+  kernel.mutex.mutex_error_case:
+    path: tests/kernel/mutex/mutex_error_case
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.pipe:
+    path: tests/kernel/pipe/pipe
+    catalog: kernel userspace ignore_faults
+    attribute: required
+  kernel.queue:
+    path: tests/kernel/queue
+    catalog: kernel userspace ignore_faults
+    attribute: required
+  kernel.semaphore:
+    path: tests/kernel/semaphore/semaphore
+    catalog: kernel userspace ignore_faults
+    attribute: required
+  kernel.stack.usage:
+    path: tests/kernel/stack/stack
+    catalog: kernel userspace ignore_faults
     attribute: required

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="300" errors="0" failures="2" name="" skipped="0" time="0">
+    <testsuite tests="301" errors="0" failures="2" name="" skipped="0" time="0">
           <testcase classname="mimxrt1050_evk:kernel.common" name="kernel.common" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -313,6 +313,8 @@
           </testcase>
           <testcase classname="mimxrt1050_evk:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
           </testcase>
+          <testcase classname="mimxrt1050_evk:kernel.timer.timer" name="kernel.timer.timer" time="0">
+          </testcase>
           <testcase classname="mimxrt1050_evk:kernel.common.misra" name="kernel.common.misra" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:kernel.futex" name="kernel.futex" time="0">
@@ -434,8 +436,6 @@
           <testcase classname="mimxrt1050_evk:kernel.pipe.resource_pool_auto_free" name="kernel.pipe.resource_pool_auto_free" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:kernel.poll" name="kernel.poll" time="0">
-          </testcase>
-          <testcase classname="mimxrt1050_evk:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:kernel.workqueue" name="kernel.workqueue" time="0">
           </testcase>
@@ -584,6 +584,8 @@
           <testcase classname="mimxrt1050_evk:kernel.mutex.mutex" name="kernel.mutex.mutex" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:kernel.queue" name="kernel.queue" time="0">
+          </testcase>
+          <testcase classname="mimxrt1050_evk:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="mimxrt1050_evk:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
           </testcase>

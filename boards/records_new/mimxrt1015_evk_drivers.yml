@@ -4,8 +4,9 @@ settings:
 __load__:
 - modules/drivers_watchdog.yml
 - modules/drivers_userspace.yml
+- modules/drivers_spi_qspi.yml
 - modules/drivers_spi.yml
-- modules/drivers_pwm.yml
+- modules/drivers_pwm_userspace.yml
 - modules/drivers_memc.yml
 - modules/drivers_led.yml
 - modules/drivers_kscan_userspace.yml

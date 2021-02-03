@@ -1,0 +1,14 @@
+---
+settings:
+  case_pipe_name: "mimxrt1024_evk_usb"
+__load__:
+- modules/usb_osdesc.yml
+- modules/usb_desc_sections.yml
+- modules/usb_bos.yml
+- modules/usb.yml
+- skips/mimxrt1024_evk.yml
+- boards/mimxrt1024_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

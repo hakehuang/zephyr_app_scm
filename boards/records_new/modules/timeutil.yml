@@ -2,11 +2,11 @@
 cases:
   utilities.time:
     path: tests/unit/timeutil
-    catalog: timeutils
+    catalog: timeutil
     extra_args: M64_MODE=0
     type: unit
   utilities.time.64bit:
     path: tests/unit/timeutil
-    catalog: timeutils
+    catalog: timeutil
     extra_args: M64_MODE=1
     type: unit

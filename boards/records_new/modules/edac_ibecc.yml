@@ -1,0 +1,18 @@
+---
+cases:
+  edac.ibecc.production:
+    path: tests/subsys/edac/ibecc
+    catalog: edac ibecc
+    extra_configs:
+    - CONFIG_EDAC_ERROR_INJECT=n
+    - CONFIG_EDAC_LOG_LEVEL_DBG=y
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.debug:
+    path: tests/subsys/edac/ibecc
+    catalog: edac ibecc
+    extra_configs:
+    - CONFIG_EDAC_ERROR_INJECT=y
+    - CONFIG_LOG_MODE_MINIMAL=n
+    arch_allow: x86
+    platform_allow: ehl_crb

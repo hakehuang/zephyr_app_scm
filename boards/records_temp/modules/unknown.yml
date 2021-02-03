@@ -76,6 +76,52 @@ cases:
   kernel.logging.message_capture:
     path: tests/kernel/fatal/message_capture
     catalog: unknown
+  lib.cbprintf_fp.printk:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTK=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printf:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printf_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printfcb_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.fprintf:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTF=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.fprintfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTFCB=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
   filesystem.native_posix.fcb_0x00:
     path: tests/subsys/fs/fcb
     catalog: unknown

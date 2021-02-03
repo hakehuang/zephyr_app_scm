@@ -10,6 +10,9 @@ cases:
   kernel.queue:
     path: tests/kernel/queue
     catalog: kernel userspace ignore_faults
+  kernel.semaphore:
+    path: tests/kernel/semaphore/semaphore
+    catalog: kernel userspace ignore_faults
   kernel.stack.usage:
     path: tests/kernel/stack/stack
     catalog: kernel userspace ignore_faults

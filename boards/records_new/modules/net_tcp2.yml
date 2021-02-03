@@ -3,4 +3,12 @@ cases:
   net.tcp2.simple:
     path: tests/net/tcp2
     catalog: net tcp2
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=1000
+    depends_on: netif
+  net.tcp2.no_recv_queue:
+    path: tests/net/tcp2
+    catalog: net tcp2
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=0
     depends_on: netif

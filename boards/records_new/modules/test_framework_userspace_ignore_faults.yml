@@ -1,0 +1,6 @@
+---
+cases:
+  testing.ztest.error_hook:
+    path: tests/ztest/error_hook
+    catalog: test_framework userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE

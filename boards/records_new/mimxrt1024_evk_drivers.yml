@@ -1,0 +1,30 @@
+---
+settings:
+  case_pipe_name: "mimxrt1024_evk_drivers"
+__load__:
+- modules/drivers_watchdog.yml
+- modules/drivers_userspace.yml
+- modules/drivers_spi_qspi.yml
+- modules/drivers_spi.yml
+- modules/drivers_pwm_userspace.yml
+- modules/drivers_memc.yml
+- modules/drivers_led.yml
+- modules/drivers_kscan_userspace.yml
+- modules/drivers_kscan.yml
+- modules/drivers_ipc.yml
+- modules/drivers_i2s.yml
+- modules/drivers_i2c.yml
+- modules/drivers_gpio.yml
+- modules/drivers_dma.yml
+- modules/drivers_console.yml
+- modules/drivers.yml
+- modules/driver_sensor_subsys.yml
+- modules/driver_entropy.yml
+- modules/driver_can.yml
+- modules/driver.yml
+- skips/mimxrt1024_evk.yml
+- boards/mimxrt1024_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

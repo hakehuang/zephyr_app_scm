@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="288" errors="0" failures="2" name="" skipped="1" time="0">
+    <testsuite tests="289" errors="0" failures="2" name="" skipped="1" time="0">
          <testcase classname="frdm_kl25z:kernel.timer" name="kernel.timer" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -304,6 +304,8 @@
           </testcase>
           <testcase classname="frdm_kl25z:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
           </testcase>
+          <testcase classname="frdm_kl25z:kernel.timer.timer" name="kernel.timer.timer" time="0">
+          </testcase>
           <testcase classname="frdm_kl25z:kernel.common.misra" name="kernel.common.misra" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:kernel.memory_protection.sys_sem" name="kernel.memory_protection.sys_sem" time="0">
@@ -411,8 +413,6 @@
           <testcase classname="frdm_kl25z:kernel.pipe.resource_pool_auto_free" name="kernel.pipe.resource_pool_auto_free" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:kernel.poll" name="kernel.poll" time="0">
-          </testcase>
-          <testcase classname="frdm_kl25z:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:kernel.workqueue" name="kernel.workqueue" time="0">
           </testcase>
@@ -559,6 +559,8 @@
           <testcase classname="frdm_kl25z:kernel.workqueue.workq_start_before_submit" name="kernel.workqueue.workq_start_before_submit" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:kernel.queue" name="kernel.queue" time="0">
+          </testcase>
+          <testcase classname="frdm_kl25z:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="frdm_kl25z:kernel.common.stack_protection" name="kernel.common.stack_protection" time="0">
           </testcase>

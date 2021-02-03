@@ -186,6 +186,11 @@ class ZephyrParse < Rly::Yacc
     @names ||= {}
   end
 
+  precedence :left,  '+', '-'
+  precedence :left,  '*', '/'
+  precedence :left,  '>=', '<=', '>', '<'
+  precedence :left,  'AND', 'OR', 'NOT'
+
   rule 'statement : expression' do |st, e|
     st.value = e.value
     $log.info  "rule statement expression #{st.value}"
@@ -287,7 +292,7 @@ class ZephyrParse < Rly::Yacc
     $log.info  "rule -  #{ex.value}"
   end
 
-  #store_grammar 'grammar.txt'
+  # store_grammar 'grammar.txt'
 
 end
 
@@ -514,11 +519,13 @@ if __FILE__ == $0
     hh = {'a' => {1=> '1'}, 'b' => {'compatible' => "a,b"}}
     $log.info dt_compatible_match(hh, 'compatible', "a,b")
     #$log.info  zephyr_filter_parser("dt_compat_enabled_with_alias(\"gpio-keys\", \"sw0\")", board_hash)
-=end
+
     $log.info  zephyr_filter_parser("dt_alias_exists(\"i2c-0\")", board_hash)
     $log.info  parser.parse("(SAND < 4)")
 
     # TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
     $log.info  zephyr_filter_parser("TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE", board_hash)
+=end
+    $log.info  zephyr_filter_parser("CONFIG_SMP and CONFIG_MP_NUM_CPUS > 1 and CONFIG_MP_NUM_CPUS <= 4", board_hash)
     # $log.info  parser.parse("TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE")
 end

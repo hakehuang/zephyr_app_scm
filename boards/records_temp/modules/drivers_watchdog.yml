@@ -4,14 +4,15 @@ cases:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     depends_on: watchdog
-    filter: not CONFIG_WDT_SAM
-    platform_exclude: nucleo_l496zg nucleo_f401re mec15xxevb_assy6853
-  drivers.watchdog.nucleo_l496zg:
+    filter: not (CONFIG_WDT_SAM or dt_compat_enabled("st,stm32-window-watchdog"))
+    platform_exclude: mec15xxevb_assy6853
+  drivers.watchdog.stm32wwdg:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
-    extra_args: CONF_FILE="prj.conf;nucleo_l496zg.conf"
+    extra_configs:
+    - CONFIG_CLOCK_STM32_APB1_PRESCALER=16
     depends_on: watchdog
-    platform_allow: nucleo_l496zg
+    filter: dt_compat_enabled("st,stm32-window-watchdog")
   drivers.watchdog.mec15xxevb_assy6853:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog

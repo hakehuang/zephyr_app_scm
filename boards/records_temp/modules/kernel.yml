@@ -31,7 +31,6 @@ cases:
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: riscv32
     min_ram: 16
-    build_only: true
   kernel.fpu_sharing.generic.riscv64:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
@@ -56,7 +55,7 @@ cases:
   kernel.lifo.usage:
     path: tests/kernel/lifo/lifo_usage
     catalog: kernel
-    platform_exclude: qemu_arc_em qemu_arc_hs
+    platform_exclude: m2gl025_miv
   kernel.mailbox.api:
     path: tests/kernel/mbox/mbox_api
     catalog: kernel
@@ -97,8 +96,9 @@ cases:
   kernel.common.profiling:
     path: tests/kernel/profiling/profiling_api
     catalog: kernel
-    arch_exclude: nios2 riscv32
-    platform_exclude: em_starterkit
+    arch_exclude: nios2
+    platform_exclude: em_starterkit litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
+      nrf5340dk_nrf5340_cpunet nrf5340pdk_nrf5340_cpunet
   kernel.scheduler.deadline:
     path: tests/kernel/sched/deadline
     catalog: kernel
@@ -119,8 +119,9 @@ cases:
   kernel.tickless.concept:
     path: tests/kernel/tickless/tickless_concept
     catalog: kernel
-    arch_exclude: riscv32 nios2
-    platform_exclude: qemu_x86_coverage qemu_arc_em qemu_arc_hs
+    arch_exclude: nios2
+    platform_exclude: qemu_x86_coverage litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
+      nrf5340dk_nrf5340_cpunet nrf5340pdk_nrf5340_cpunet
   kernel.workqueue:
     path: tests/kernel/workq/critical
     catalog: kernel

@@ -46,7 +46,6 @@ cases:
     catalog: kernel userspace
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: riscv32
-    build_only: true
   kernel.fpu_sharing.float_disable.riscv64:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
@@ -86,9 +85,6 @@ cases:
     path: tests/kernel/poll
     catalog: kernel userspace
     platform_exclude: nrf52dk_nrf52810
-  kernel.semaphore:
-    path: tests/kernel/semaphore/semaphore
-    catalog: kernel userspace
   kernel.workqueue.api:
     path: tests/kernel/workq/work_queue_api
     catalog: kernel userspace

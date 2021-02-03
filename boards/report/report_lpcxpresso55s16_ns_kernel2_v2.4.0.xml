@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="298" errors="0" failures="4" name="" skipped="2" time="0">
+    <testsuite tests="299" errors="0" failures="4" name="" skipped="2" time="0">
          <testcase classname="lpcxpresso55s16_ns:kernel.threads.dynamic" name="kernel.threads.dynamic" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>
@@ -319,6 +319,8 @@
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
           </testcase>
+          <testcase classname="lpcxpresso55s16_ns:kernel.timer.timer" name="kernel.timer.timer" time="0">
+          </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.common.misra" name="kernel.common.misra" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.futex" name="kernel.futex" time="0">
@@ -440,8 +442,6 @@
           <testcase classname="lpcxpresso55s16_ns:kernel.pipe.resource_pool_auto_free" name="kernel.pipe.resource_pool_auto_free" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.poll" name="kernel.poll" time="0">
-          </testcase>
-          <testcase classname="lpcxpresso55s16_ns:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.workqueue" name="kernel.workqueue" time="0">
           </testcase>
@@ -590,6 +590,8 @@
           <testcase classname="lpcxpresso55s16_ns:kernel.mutex.mutex" name="kernel.mutex.mutex" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.queue" name="kernel.queue" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s16_ns:kernel.semaphore" name="kernel.semaphore" time="0">
           </testcase>
           <testcase classname="lpcxpresso55s16_ns:kernel.common.stack_protection.fatal" name="kernel.common.stack_protection.fatal" time="0">
           </testcase>
