@@ -163,7 +163,14 @@ unknown:
     path: tests/arch/x86/info
     catalog: unknown
     arch_allow: x86
-    platform_allow: ehl_crb up_squared up_squared_32
+    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
+  arch.x86.info.userspace:
+    path: tests/arch/x86/info
+    catalog: unknown
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
   boards.native_posix.cpu_wait:
     path: tests/boards/native_posix/cpu_wait
     catalog: unknown
@@ -327,6 +334,36 @@ benchmark:
     path: tests/benchmarks/app_kernel
     catalog: benchmark
     arch_allow: x86 arm riscv32 riscv64
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.arm:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: arm
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.fpu:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=y
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.sse:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=y
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
     min_flash: 34
     min_ram: 32
   benchmark.kernel.application.posix:
@@ -579,7 +616,7 @@ bluetooth:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_4_0:
     path: tests/bluetooth/init
@@ -603,25 +640,25 @@ bluetooth:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_broadcaster.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_peripheral:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_peripheral.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_observer:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_observer.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_central:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_central.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_broadcaster_ext:
     path: tests/bluetooth/init
@@ -895,6 +932,7 @@ tinycrypt crypto aes ccm:
   crypto.tinycrypt:
     path: tests/crypto/tinycrypt
     catalog: tinycrypt crypto aes ccm
+    platform_exclude: qemu_arc_em qemu_arc_hs
 tinycrypt crypto sha256 hmac prng:
   crypto.tinycrypt.hmac_prng:
     path: tests/crypto/tinycrypt_hmac_prng
@@ -1549,9 +1587,18 @@ kernel userspace:
     catalog: kernel userspace
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: sparc
-  kernel.fpu_sharing.float_disable.x86:
+  kernel.fpu_sharing.float_disable.x86.fpu:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
+  kernel.fpu_sharing.float_disable.x86.sse:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
     platform_allow: qemu_x86
   kernel.futex:
@@ -1631,9 +1678,18 @@ kernel:
     extra_args: PI_NUM_ITERATIONS=70000
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: sparc
-  kernel.fpu_sharing.generic.x86:
+  kernel.fpu_sharing.generic.x86.fpu:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
+  kernel.fpu_sharing.generic.x86.sse:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
     platform_allow: qemu_x86
   kernel.lifo:
@@ -1685,7 +1741,7 @@ kernel:
     catalog: kernel
     arch_exclude: nios2
     platform_exclude: em_starterkit litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
-      nrf5340dk_nrf5340_cpunet nrf5340pdk_nrf5340_cpunet
+      nrf5340dk_nrf5340_cpunet
   kernel.scheduler.deadline:
     path: tests/kernel/sched/deadline
     catalog: kernel
@@ -1708,7 +1764,7 @@ kernel:
     catalog: kernel
     arch_exclude: nios2
     platform_exclude: qemu_x86_coverage litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
-      nrf5340dk_nrf5340_cpunet nrf5340pdk_nrf5340_cpunet
+      nrf5340dk_nrf5340_cpunet
   kernel.workqueue:
     path: tests/kernel/workq/critical
     catalog: kernel
@@ -1862,8 +1918,7 @@ kernel security userspace ignore_faults:
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     arch_allow: arm
-    platform_allow: efr32_radio_brd4180a mps2_an521 nrf5340pdk_nrf5340_cpuapp nrf5340pdk_nrf5340_cpunet
-      nrf9160dk_nrf9160
+    platform_allow: efr32_radio_brd4180a mps2_an521 nrf9160dk_nrf9160
   kernel.memory_protection.syscalls:
     path: tests/kernel/mem_protect/syscalls
     catalog: kernel security userspace ignore_faults
@@ -1884,8 +1939,7 @@ kernel security userspace ignore_faults:
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     arch_allow: arm
-    platform_allow: efr32_radio_brd4180a mps2_an521 nrf5340pdk_nrf5340_cpuapp nrf5340pdk_nrf5340_cpunet
-      nrf9160dk_nrf9160
+    platform_allow: efr32_radio_brd4180a mps2_an521 nrf9160dk_nrf9160
   kernel.threads.thread_stack:
     path: tests/kernel/threads/thread_stack
     catalog: kernel security userspace ignore_faults
@@ -2031,7 +2085,7 @@ kernel timer userspace:
     extra_args: CONF_FILE="prj_tickless.conf"
     arch_exclude: nios2 posix
     platform_exclude: qemu_x86_coverage litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
-      nrf5340dk_nrf5340_cpunet nrf5340pdk_nrf5340_cpunet
+      nrf5340dk_nrf5340_cpunet
 kernel timer userspace ignore_faults:
   kernel.timer.timer_error_case:
     path: tests/kernel/timer/timer_error_case
@@ -2951,6 +3005,23 @@ net socket socket.register:
     - CONFIG_NET_SOCKETS_DTLS_TIMEOUT=30000
     - CONFIG_MAIN_STACK_SIZE=2048
     depends_on: netif
+net socket tls:
+  net.socket.tls:
+    path: tests/net/socket/tls
+    catalog: net socket tls
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tls.preempt:
+    path: tests/net/socket/tls
+    catalog: net socket tls
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
 net socket udp:
   net.socket.udp:
     path: tests/net/socket/udp
@@ -3739,7 +3810,6 @@ power:
     catalog: power
     arch_exclude: arc xtensa
     platform_exclude: rv32m1_vega_ri5cy rv32m1_vega_zero_riscy litex_vexriscv nrf5340dk_nrf5340_cpunet
-      nrf5340pdk_nrf5340_cpunet
   subsys.power.pm_soc:
     path: tests/subsys/power/power_mgmt_soc
     catalog: power

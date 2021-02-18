@@ -4,7 +4,14 @@ cases:
     path: tests/arch/x86/info
     catalog: unknown
     arch_allow: x86
-    platform_allow: ehl_crb up_squared up_squared_32
+    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
+  arch.x86.info.userspace:
+    path: tests/arch/x86/info
+    catalog: unknown
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
   boards.native_posix.cpu_wait:
     path: tests/boards/native_posix/cpu_wait
     catalog: unknown

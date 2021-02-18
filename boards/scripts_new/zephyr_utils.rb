@@ -18,6 +18,7 @@ def load_board_data(search_base, board_name, board_settings)
     exit
   end
   config_file = File.join(search_base, "boards", "arm", board,"#{board_name}_defconfig")
+  puts config_file
   if File.exist?(config_file)
     my_config = ParseConfig.new(config_file)
     board_info["configs"] = my_config.params

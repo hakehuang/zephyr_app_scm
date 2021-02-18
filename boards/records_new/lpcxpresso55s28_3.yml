@@ -1,0 +1,31 @@
+---
+settings:
+  case_pipe_name: "lpcxpresso55s28_3"
+__load__:
+- modules/kconfig.yml
+- modules/k_heap_api_kernel.yml
+- modules/jwt.yml
+- modules/json.yml
+- modules/interrupt_nmi.yml
+- modules/interrupt_isr_table.yml
+- modules/interrupt.yml
+- modules/ignore_faults_interrupt_idt.yml
+- modules/ignore_faults_ignore_qemu_crash.yml
+- modules/i2c.yml
+- modules/http_net.yml
+- modules/heap.yml
+- modules/gen_inc_file.yml
+- modules/flash_map.yml
+- modules/flash_circural_buffer.yml
+- modules/flash_shell.yml
+- modules/flash_nrf52_nrf_qspi_fash.yml
+- modules/filesystem.yml
+- modules/fdtable.yml
+- modules/edac_ibecc.yml
+- modules/ec_host_cmd.yml
+- skips/lpcxpresso55s28.yml
+- boards/lpcxpresso55s28.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

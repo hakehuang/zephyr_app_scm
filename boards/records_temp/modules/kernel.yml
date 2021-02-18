@@ -44,9 +44,18 @@ cases:
     extra_args: PI_NUM_ITERATIONS=70000
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: sparc
-  kernel.fpu_sharing.generic.x86:
+  kernel.fpu_sharing.generic.x86.fpu:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
+  kernel.fpu_sharing.generic.x86.sse:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
     platform_allow: qemu_x86
   kernel.lifo:
@@ -98,7 +107,7 @@ cases:
     catalog: kernel
     arch_exclude: nios2
     platform_exclude: em_starterkit litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
-      nrf5340dk_nrf5340_cpunet nrf5340pdk_nrf5340_cpunet
+      nrf5340dk_nrf5340_cpunet
   kernel.scheduler.deadline:
     path: tests/kernel/sched/deadline
     catalog: kernel
@@ -121,7 +130,7 @@ cases:
     catalog: kernel
     arch_exclude: nios2
     platform_exclude: qemu_x86_coverage litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
-      nrf5340dk_nrf5340_cpunet nrf5340pdk_nrf5340_cpunet
+      nrf5340dk_nrf5340_cpunet
   kernel.workqueue:
     path: tests/kernel/workq/critical
     catalog: kernel

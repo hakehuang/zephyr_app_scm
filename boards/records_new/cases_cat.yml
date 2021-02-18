@@ -163,7 +163,14 @@ unknown:
     path: tests/arch/x86/info
     catalog: unknown
     arch_allow: x86
-    platform_allow: ehl_crb up_squared up_squared_32
+    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
+  arch.x86.info.userspace:
+    path: tests/arch/x86/info
+    catalog: unknown
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
   boards.native_posix.cpu_wait:
     path: tests/boards/native_posix/cpu_wait
     catalog: unknown
@@ -235,6 +242,52 @@ unknown:
   kernel.logging.message_capture:
     path: tests/kernel/fatal/message_capture
     catalog: unknown
+  lib.cbprintf_fp.printk:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTK=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printf:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printf_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printfcb_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.fprintf:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTF=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.fprintfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTFCB=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
   filesystem.native_posix.fcb_0x00:
     path: tests/subsys/fs/fcb
     catalog: unknown
@@ -281,6 +334,36 @@ benchmark:
     path: tests/benchmarks/app_kernel
     catalog: benchmark
     arch_allow: x86 arm riscv32 riscv64
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.arm:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: arm
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.fpu:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=y
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.sse:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=y
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
     min_flash: 34
     min_ram: 32
   benchmark.kernel.application.posix:
@@ -533,7 +616,7 @@ bluetooth:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_4_0:
     path: tests/bluetooth/init
@@ -557,25 +640,25 @@ bluetooth:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_broadcaster.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_peripheral:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_peripheral.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_observer:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_observer.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_central:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_central.conf
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_broadcaster_ext:
     path: tests/bluetooth/init
@@ -849,6 +932,7 @@ tinycrypt crypto aes ccm:
   crypto.tinycrypt:
     path: tests/crypto/tinycrypt
     catalog: tinycrypt crypto aes ccm
+    platform_exclude: qemu_arc_em qemu_arc_hs
 tinycrypt crypto sha256 hmac prng:
   crypto.tinycrypt.hmac_prng:
     path: tests/crypto/tinycrypt_hmac_prng
@@ -1390,10 +1474,10 @@ drivers memc:
     catalog: drivers memc
     depends_on: memc
     filter: dt_compat_enabled("st,stm32-fmc-sdram")
-drivers pwm:
+drivers pwm userspace:
   drivers.pwm:
     path: tests/drivers/pwm/pwm_api
-    catalog: drivers pwm
+    catalog: drivers pwm userspace
     filter: dt_alias_exists("pwm-0") or dt_alias_exists("pwm-1") or dt_alias_exists("pwm-2")
       or dt_alias_exists("pwm-3") or dt_compat_enabled("st,stm32-pwm")
     depends_on: pwm
@@ -1431,14 +1515,15 @@ drivers watchdog:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     depends_on: watchdog
-    filter: not CONFIG_WDT_SAM
-    platform_exclude: nucleo_l496zg nucleo_f401re mec15xxevb_assy6853
-  drivers.watchdog.nucleo_l496zg:
+    filter: not (CONFIG_WDT_SAM or dt_compat_enabled("st,stm32-window-watchdog"))
+    platform_exclude: mec15xxevb_assy6853
+  drivers.watchdog.stm32wwdg:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
-    extra_args: CONF_FILE="prj.conf;nucleo_l496zg.conf"
+    extra_configs:
+    - CONFIG_CLOCK_STM32_APB1_PRESCALER=16
     depends_on: watchdog
-    platform_allow: nucleo_l496zg
+    filter: dt_compat_enabled("st,stm32-window-watchdog")
   drivers.watchdog.mec15xxevb_assy6853:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
@@ -1502,9 +1587,18 @@ kernel userspace:
     catalog: kernel userspace
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: sparc
-  kernel.fpu_sharing.float_disable.x86:
+  kernel.fpu_sharing.float_disable.x86.fpu:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
+  kernel.fpu_sharing.float_disable.x86.sse:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
     platform_allow: qemu_x86
   kernel.futex:
@@ -1540,10 +1634,9 @@ kernel userspace condition_variables ignore_faults:
     path: tests/kernel/condvar/condvar_api
     catalog: kernel userspace condition_variables ignore_faults
 kernel:
-  kernel.context:
+  kernel.common.context:
     path: tests/kernel/context
     catalog: kernel
-    filter: not CONFIG_DEMAND_PAGING
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
@@ -1585,9 +1678,18 @@ kernel:
     extra_args: PI_NUM_ITERATIONS=70000
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: sparc
-  kernel.fpu_sharing.generic.x86:
+  kernel.fpu_sharing.generic.x86.fpu:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86
+  kernel.fpu_sharing.generic.x86.sse:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
     platform_allow: qemu_x86
   kernel.lifo:
@@ -1639,6 +1741,7 @@ kernel:
     catalog: kernel
     arch_exclude: nios2
     platform_exclude: em_starterkit litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
+      nrf5340dk_nrf5340_cpunet
   kernel.scheduler.deadline:
     path: tests/kernel/sched/deadline
     catalog: kernel
@@ -1661,6 +1764,7 @@ kernel:
     catalog: kernel
     arch_exclude: nios2
     platform_exclude: qemu_x86_coverage litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
+      nrf5340dk_nrf5340_cpunet
   kernel.workqueue:
     path: tests/kernel/workq/critical
     catalog: kernel
@@ -1780,7 +1884,22 @@ kernel mmu ignore_faults:
   kernel.memory_protection.mem_map:
     path: tests/kernel/mem_protect/mem_map
     catalog: kernel mmu ignore_faults
-    filter: CONFIG_MMU
+    filter: CONFIG_MMU and not CONFIG_X86_64
+    platform_exclude: qemu_x86_64
+  kernel.memory_protection.mem_map.x86_64:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    filter: CONFIG_MMU and CONFIG_X86_64 and not CONFIG_COVERAGE
+  kernel.memory_protection.mem_map.x86_64.coverage:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    extra_args: EXTRA_CFLAGS=-DSKIP_EXECUTE_TESTS
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
+  kernel.memory_protection.mem_map.x86_64.coverage.exec:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    extra_args: CONF_FILE=prj_x86_64_coverage_exec.conf
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
 kernel security userspace ignore_faults:
   kernel.memory_protection:
     path: tests/kernel/mem_protect/mem_protect
@@ -1799,8 +1918,7 @@ kernel security userspace ignore_faults:
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     arch_allow: arm
-    platform_allow: efr32_radio_brd4180a mps2_an521 nrf5340pdk_nrf5340_cpuapp nrf5340pdk_nrf5340_cpunet
-      nrf9160dk_nrf9160
+    platform_allow: efr32_radio_brd4180a mps2_an521 nrf9160dk_nrf9160
   kernel.memory_protection.syscalls:
     path: tests/kernel/mem_protect/syscalls
     catalog: kernel security userspace ignore_faults
@@ -1821,8 +1939,7 @@ kernel security userspace ignore_faults:
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     arch_allow: arm
-    platform_allow: efr32_radio_brd4180a mps2_an521 nrf5340pdk_nrf5340_cpuapp nrf5340pdk_nrf5340_cpunet
-      nrf9160dk_nrf9160
+    platform_allow: efr32_radio_brd4180a mps2_an521 nrf9160dk_nrf9160
   kernel.threads.thread_stack:
     path: tests/kernel/threads/thread_stack
     catalog: kernel security userspace ignore_faults
@@ -1911,7 +2028,7 @@ smp spinlock:
   kernel.multiprocessing.spinlock:
     path: tests/kernel/spinlock
     catalog: smp spinlock
-    filter: CONFIG_SMP and CONFIG_MP_NUM_CPUS > 1
+    filter: CONFIG_SMP and CONFIG_MP_NUM_CPUS > 1 and CONFIG_MP_NUM_CPUS <= 4
 kernel threads userspace ignore_faults:
   kernel.threads.dynamic:
     path: tests/kernel/threads/dynamic_thread
@@ -1968,6 +2085,7 @@ kernel timer userspace:
     extra_args: CONF_FILE="prj_tickless.conf"
     arch_exclude: nios2 posix
     platform_exclude: qemu_x86_coverage litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
+      nrf5340dk_nrf5340_cpunet
 kernel timer userspace ignore_faults:
   kernel.timer.timer_error_case:
     path: tests/kernel/timer/timer_error_case
@@ -1985,44 +2103,44 @@ cmsis_dsp:
   libraries.cmsis_dsp.basicmath:
     path: tests/lib/cmsis_dsp/basicmath
     catalog: cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.bayes:
     path: tests/lib/cmsis_dsp/bayes
     catalog: cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
     min_flash: 64
     min_ram: 32
   libraries.cmsis_dsp.complexmath:
     path: tests/lib/cmsis_dsp/complexmath
     catalog: cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.distance:
     path: tests/lib/cmsis_dsp/distance
     catalog: cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
     min_flash: 64
     min_ram: 32
   libraries.cmsis_dsp.fastmath:
     path: tests/lib/cmsis_dsp/fastmath
     catalog: cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.filtering:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
     skip: true
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.filtering.biquad:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
@@ -2031,8 +2149,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.filtering.fir:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
@@ -2041,8 +2159,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.filtering.misc:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
@@ -2051,14 +2169,14 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 256
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.matrix:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
     skip: true
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.matrix.unary_q15:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -2067,8 +2185,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.matrix.unary_q31:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -2077,8 +2195,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.matrix.unary_f32:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -2087,8 +2205,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.matrix.unary_f64:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -2097,8 +2215,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.matrix.binary_q15:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -2108,8 +2226,8 @@ cmsis_dsp:
     platform_exclude: mps2_an521
     min_flash: 128
     min_ram: 128
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.matrix.binary_q31:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -2118,8 +2236,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 128
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.matrix.binary_f32:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
@@ -2128,35 +2246,35 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 128
     min_ram: 128
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.statistics:
     path: tests/lib/cmsis_dsp/statistics
     catalog: cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.support:
     path: tests/lib/cmsis_dsp/support
     catalog: cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.svm:
     path: tests/lib/cmsis_dsp/svm
     catalog: cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
   libraries.cmsis_dsp.transform:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
     skip: true
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.transform.cq15:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -2165,8 +2283,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 512
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.transform.rq15:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -2175,8 +2293,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 512
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.transform.cq31:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -2185,8 +2303,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.transform.rq31:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -2195,8 +2313,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.transform.cf32:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -2205,8 +2323,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.transform.rf32:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -2215,8 +2333,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 512
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.transform.cf64:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -2225,8 +2343,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 96
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
   libraries.cmsis_dsp.transform.rf64:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
@@ -2235,8 +2353,8 @@ cmsis_dsp:
     extra_args: CONF_FILE=prj_base.conf
     min_flash: 1024
     min_ram: 64
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
-      == 1"
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
 devicetree:
   libraries.devicetree:
     path: tests/lib/devicetree/api
@@ -2887,6 +3005,23 @@ net socket socket.register:
     - CONFIG_NET_SOCKETS_DTLS_TIMEOUT=30000
     - CONFIG_MAIN_STACK_SIZE=2048
     depends_on: netif
+net socket tls:
+  net.socket.tls:
+    path: tests/net/socket/tls
+    catalog: net socket tls
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tls.preempt:
+    path: tests/net/socket/tls
+    catalog: net socket tls
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
 net socket udp:
   net.socket.udp:
     path: tests/net/socket/udp
@@ -3560,7 +3695,7 @@ edac ibecc:
     catalog: edac ibecc
     extra_configs:
     - CONFIG_EDAC_ERROR_INJECT=y
-    - CONFIG_LOG_MINIMAL=n
+    - CONFIG_LOG_MODE_MINIMAL=n
     arch_allow: x86
     platform_allow: ehl_crb
 filesystem:
@@ -3580,9 +3715,16 @@ filesystem:
   filesystem.api:
     path: tests/subsys/fs/fs_api
     catalog: filesystem
-  filesystem.littlefs:
+  filesystem.littlefs.default:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+  filesystem.littlefs.custom:
+    path: tests/subsys/fs/littlefs
+    catalog: filesystem
+    extra_configs:
+    - CONFIG_APP_TEST_CUSTOM=y
+    - CONFIG_FS_LITTLEFS_FC_HEAP_SIZE=16384
     platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
 flash_circural_buffer:
   filesystem.fcb:
@@ -3667,7 +3809,7 @@ power:
     path: tests/subsys/power/power_mgmt
     catalog: power
     arch_exclude: arc xtensa
-    platform_exclude: rv32m1_vega_ri5cy rv32m1_vega_zero_riscy litex_vexriscv
+    platform_exclude: rv32m1_vega_ri5cy rv32m1_vega_zero_riscy litex_vexriscv nrf5340dk_nrf5340_cpunet
   subsys.power.pm_soc:
     path: tests/subsys/power/power_mgmt_soc
     catalog: power

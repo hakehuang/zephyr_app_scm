@@ -1,0 +1,21 @@
+---
+settings:
+  case_pipe_name: "lpcxpresso55s28_2"
+__load__:
+- modules/dns_net.yml
+- modules/dma.yml
+- modules/display_gui.yml
+- modules/dfu_mcuboot.yml
+- modules/dfu_image_util.yml
+- modules/devicetree.yml
+- modules/device.yml
+- modules/deprecated.yml
+- modules/debug.yml
+- modules/dac_drivers_userspace.yml
+- modules/dac_drivers.yml
+- skips/lpcxpresso55s28.yml
+- boards/lpcxpresso55s28.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

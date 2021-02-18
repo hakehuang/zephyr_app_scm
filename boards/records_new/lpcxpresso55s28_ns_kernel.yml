@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "lpcxpresso55s28_ns_kernel"
+__load__:
+- modules/tickless_kernel.yml
+- modules/kernel.yml
+- skips/lpcxpresso55s28_ns.yml
+- boards/lpcxpresso55s28_ns.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

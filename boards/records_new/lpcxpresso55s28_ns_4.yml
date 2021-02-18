@@ -1,0 +1,35 @@
+---
+settings:
+  case_pipe_name: "lpcxpresso55s28_ns_4"
+__load__:
+- modules/pwm_drivers_userspace.yml
+- modules/prf.yml
+- modules/power.yml
+- modules/posix_pthread_eventfd.yml
+- modules/posix_filesystem.yml
+- modules/posix.yml
+- modules/p4wq.yml
+- modules/ot_radio.yml
+- modules/onoff_timer.yml
+- modules/nvs.yml
+- modules/nrf52_soc_flash_nrf.yml
+- modules/notify.yml
+- modules/nmi_interrupt_arm.yml
+- modules/mqtt_net_userspace.yml
+- modules/memory_protection.yml
+- modules/mcuboot.yml
+- modules/logging.yml
+- modules/log_output_logging.yml
+- modules/log_msg_logging.yml
+- modules/log_list_logging.yml
+- modules/log_core_logging.yml
+- modules/littlefs_fatfs_filesystem_qemu_x86.yml
+- modules/littlefs_fatfs_filesystem.yml
+- modules/libc.yml
+- modules/lib_sys_util_tests.yml
+- skips/lpcxpresso55s28_ns.yml
+- boards/lpcxpresso55s28_ns.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required
