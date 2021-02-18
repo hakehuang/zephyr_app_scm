@@ -1,0 +1,50 @@
+pipeline {
+  agent any
+  environment {
+    PATH = "/root/.local/bin/:$PATH"
+  }
+  stages {
+    stage('build') {
+      parallel {
+        stage('hello world') {
+          steps {
+            sh '''docker exec #{@docker} run_setup.sh $(basename $(pwd)) #{@board}'''
+            sh 'docker exec #{@docker} #{@build_script}  $(basename $(pwd)) samples/hello_world #{@board} build'
+          }
+        }
+      }
+    }
+    <?rb for k, items in @catalog ?>
+    stage('#{k}') {
+      parallel {
+      <?rb items['cases'].each do |k, item| ?>
+        stage('#{k}') {
+          steps {
+            echo 'Test #{k}'
+            echo '#{item['opt'][0]}'
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+              <?rb if item['scripts'] ?>
+                <?rb item['scripts'].each do |cmd| ?>
+                  sh '''docker exec #{@docker} run_script.sh $(basename $(pwd)) #{item['opt'][1]} #{cmd}'''
+                <?rb end ?>  
+              <?rb end ?>
+              <?rb if item['opt'][2] ?>
+                sh '''docker exec #{@docker} #{@build_script}  $(basename $(pwd)) #{item['opt'][1]} #{@board} #{item['build']} #{item['opt'][2..-1].join(' ')}'''
+              <?rb else ?>
+                sh 'docker exec #{@docker} #{@build_script} $(basename $(pwd)) #{item['opt'][1]} #{item['opt'][0]} #{item['build']}'
+              <?rb end ?>
+                sh 'docker exec #{@docker} rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/#{item['build_path']}'
+            }
+          }
+        }
+      <?rb end ?>
+      }
+    }
+    <?rb end ?>
+  }
+  post {
+      always {
+          junit '*.xml'
+      }
+  }
+}

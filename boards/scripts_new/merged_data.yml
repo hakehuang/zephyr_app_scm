@@ -1,8 +1,8 @@
 ---
 settings:
-  case_pipe_name: mimxrt1020_evk_usb
+  case_pipe_name: frdm_k22f_usb
   build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_elf_rt1020.sh
+  run_script: run_elf_frdmk22f.sh
   no_filter:
   - CONFIG_ENTROPY_HAS_DRIVER
   - CONFIG_CPU_ARCV2
@@ -12,12 +12,12 @@ cases:
   misc.crc:
     bin: testbinary
     attribute: required
+  peripheral.pinmux:
+    comments: no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/
+    result: FAILURE
+    attribute: required
   peripheral.spi:
     comments: need add board support
-    build_only: true
-    attribute: required
-  peripheral.pinmux:
-    comments: pinmux setting issue
     build_only: true
     attribute: required
   samples.net.google_iot_mqtt:

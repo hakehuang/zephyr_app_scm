@@ -36,6 +36,30 @@ create_pipefile_from_config(config: merged_data, board_name: board_name, board_i
 create_report_from_config(config: merged_data, board_name: board_name, board_info: board_info, release: 'v2.4.0')
 }
 
+generator_build_only = %{ 
+require 'yml_merger'
+require 'pathname'
+require_relative 'create_pipefile'
+require_relative 'create_report'
+require_relative 'zephyr_utils'
+
+require_relative 'zephyr_filter'
+
+board = File.basename(__FILE__, ".rb")
+@entry_yml = "#\{board\}.yml"
+@search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
+merge_unit      = YML_Merger.new(
+    @entry_yml, @search_path
+    )
+merged_data     = merge_unit.process()
+puts "creating './merged_data.yml'"
+File.write('./merged_data.yml', YAML.dump(merged_data))
+board_name = ZEPHER_FILTER::get_board_name(board)
+board_info = load_board_data(@search_path,board_name,merged_data)
+create_pipefile_from_config(config: merged_data, board_name: board_name, template: "../template/Jenkinsfile_build_only_template", board_info: board_info)
+create_report_from_config(config: merged_data, board_name: board_name, board_info: board_info, release: 'v2.4.0')
+}
+
 
 platforms.each do |plat, v|
     v.each do |surfix|
@@ -48,8 +72,14 @@ platforms.each do |plat, v|
         if File.exist?(filename)
             FileUtils.rm_r filename
         end
-        File.open(filename,"w") do |file|
-            file.write generator
+        if plat == "frdm_k22f"
+            File.open(filename,"w") do |file|
+                file.write generator_build_only
+            end
+        else
+            File.open(filename,"w") do |file|
+                file.write generator
+            end            
         end
     end
 end
