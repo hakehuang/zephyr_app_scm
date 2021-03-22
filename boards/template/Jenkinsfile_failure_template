@@ -30,6 +30,7 @@ pipeline {
               <?rb end ?>
               sh 'docker exec ${@docker} ${@run_script} $(basename $(pwd)) ${item[1]} ${item[0]}'
             }
+             step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'influxdb'])
           }
         }
       <?rb end ?>

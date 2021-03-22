@@ -2,7 +2,6 @@
 settings:
   case_pipe_name: "frdm_k82f_5"
 __load__:
-- modules/xip.yml
 - modules/utils_lists.yml
 - modules/util_intmath.yml
 - modules/userspace_mmu.yml
@@ -10,14 +9,11 @@ __load__:
 - modules/tinycrypt_crypto_sha256_hmac_prng.yml
 - modules/tinycrypt_crypto_aes_ccm.yml
 - modules/timeutil.yml
-- modules/timer.yml
 - modules/test_framework_userspace_ignore_faults.yml
 - modules/test_framework_ignore_faults.yml
 - modules/test_framework.yml
 - modules/sysid.yml
 - modules/stream_flash.yml
-- modules/smp_spinlock.yml
-- modules/smp.yml
 - modules/shell.yml
 - modules/settings_nvs.yml
 - modules/settings_intialization_fcb.yml

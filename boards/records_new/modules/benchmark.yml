@@ -6,6 +6,36 @@ cases:
     arch_allow: x86 arm riscv32 riscv64
     min_flash: 34
     min_ram: 32
+  benchmark.kernel.application.fp.arm:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: arm
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.fpu:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=y
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.sse:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=y
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
+    min_flash: 34
+    min_ram: 32
   benchmark.kernel.application.posix:
     path: tests/benchmarks/app_kernel
     catalog: benchmark

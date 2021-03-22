@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="301" errors="0" failures="2" name="" skipped="0" time="0">
+    <testsuite tests="249" errors="0" failures="2" name="" skipped="1" time="0">
           <testcase classname="mimxrt1064_evk:kernel.common" name="kernel.common" time="0">
           <failure message="failed" type="failure">
           </failure>
@@ -16,6 +16,12 @@
           <testcase classname="mimxrt1064_evk:kernel.memory_protection" name="kernel.memory_protection" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.memory_protection.stackprot" name="kernel.memory_protection.stackprot" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:arch.interrupt" name="arch.interrupt" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:arch.interrupt.gen_isr_table" name="arch.interrupt.gen_isr_table" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.memory_protection.stack_random" name="kernel.memory_protection.stack_random" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.memory_protection.obj_validation" name="kernel.memory_protection.obj_validation" time="0">
           </testcase>
@@ -285,7 +291,14 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.threads.user_mode" name="kernel.threads.user_mode" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.timer" name="kernel.timer" time="0">
+         <testcase classname="mimxrt1064_evk:kernel.timer" name="kernel.timer" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.monotonic" name="kernel.timer.monotonic" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.monotonic.timer" name="kernel.timer.monotonic.timer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.starve.starve" name="kernel.timer.starve.starve" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.timer.tickless.time_conversions" name="kernel.timer.tickless.time_conversions" time="0">
           </testcase>
@@ -313,7 +326,35 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.timer.tickless.timer_user_data" name="kernel.timer.tickless.timer_user_data" time="0">
           </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timConsole now belongs to simulator." name="kernel.timer.timConsole now belongs to simulator." time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.time_conversions" name="kernel.timer.time_conversions" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timeout_abs" name="kernel.timer.timeout_abs" time="0">
+          </testcase>
           <testcase classname="mimxrt1064_evk:kernel.timer.timer" name="kernel.timer.timer" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_duration_period" name="kernel.timer.timer_duration_period" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_expirefn_null" name="kernel.timer.timer_expirefn_null" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_k_define" name="kernel.timer.timer_k_define" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_period_0" name="kernel.timer.timer_period_0" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_periodicity" name="kernel.timer.timer_periodicity" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_remaining" name="kernel.timer.timer_remaining" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_remaining_get" name="kernel.timer.timer_remaining_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_status_get" name="kernel.timer.timer_status_get" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_status_get_anytime" name="kernel.timer.timer_status_get_anytime" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_status_sync" name="kernel.timer.timer_status_sync" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.timer.timer_user_data" name="kernel.timer.timer_user_data" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.common.misra" name="kernel.common.misra" time="0">
           </testcase>
@@ -435,153 +476,9 @@
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.pipe.resource_pool_auto_free" name="kernel.pipe.resource_pool_auto_free" time="0">
           </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.poll" name="kernel.poll" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue" name="kernel.workqueue" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.already_triggered" name="kernel.workqueue.already_triggered" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api" name="kernel.workqueue.api" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.delayed_work_cancel_from_queue_isr" name="kernel.workqueue.api.delayed_work_cancel_from_queue_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.delayed_work_cancel_from_queue_thread" name="kernel.workqueue.api.delayed_work_cancel_from_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.delayed_work_cancel_isr" name="kernel.workqueue.api.delayed_work_cancel_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.delayed_work_cancel_thread" name="kernel.workqueue.api.delayed_work_cancel_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.delayed_work_submit_handler" name="kernel.workqueue.api.delayed_work_submit_handler" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.delayed_work_submit_isr" name="kernel.workqueue.api.delayed_work_submit_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.delayed_work_submit_thread" name="kernel.workqueue.api.delayed_work_submit_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.delayed_work_submit_to_queue_isr" name="kernel.workqueue.api.delayed_work_submit_to_queue_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.delayed_work_submit_to_queue_thread" name="kernel.workqueue.api.delayed_work_submit_to_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.triggeConsole now belongs to simulator." name="kernel.workqueue.api.triggeConsole now belongs to simulator." time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.triggered_work_cancel_from_queue_isr" name="kernel.workqueue.api.triggered_work_cancel_from_queue_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.triggered_work_cancel_from_queue_thread" name="kernel.workqueue.api.triggered_work_cancel_from_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.triggered_work_cancel_isr" name="kernel.workqueue.api.triggered_work_cancel_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.triggered_work_cancel_thread" name="kernel.workqueue.api.triggered_work_cancel_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.triggered_work_submit_isr" name="kernel.workqueue.api.triggered_work_submit_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.triggered_work_submit_thread" name="kernel.workqueue.api.triggered_work_submit_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.triggered_work_submit_to_queue_isr" name="kernel.workqueue.api.triggered_work_submit_to_queue_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.triggered_work_submit_to_queue_thread" name="kernel.workqueue.api.triggered_work_submit_to_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.user_work_submit_to_queue_thread" name="kernel.workqueue.api.user_work_submit_to_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.user_workq_granted_access" name="kernel.workqueue.api.user_workq_granted_access" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.user_workq_granted_access_setup" name="kernel.workqueue.api.user_workq_granted_access_setup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.user_workq_start_before_submit" name="kernel.workqueue.api.user_workq_start_before_submit" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.work_resubmit_to_queue" name="kernel.workqueue.api.work_resubmit_to_queue" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.work_submit_handler" name="kernel.workqueue.api.work_submit_handler" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.work_submit_isr" name="kernel.workqueue.api.work_submit_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.work_submit_thread" name="kernel.workqueue.api.work_submit_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.work_submit_to_multipleq" name="kernel.workqueue.api.work_submit_to_multipleq" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.work_submit_to_queue_isr" name="kernel.workqueue.api.work_submit_to_queue_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.work_submit_to_queue_thread" name="kernel.workqueue.api.work_submit_to_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.api.workq_start_before_submit" name="kernel.workqueue.api.workq_start_before_submit" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed" name="kernel.workqueue.delayed" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_cancel" name="kernel.workqueue.delayed_cancel" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_resubmit" name="kernel.workqueue.delayed_resubmit" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_resubmit_thread" name="kernel.workqueue.delayed_resubmit_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_work_cancel_from_queue_isr" name="kernel.workqueue.delayed_work_cancel_from_queue_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_work_cancel_from_queue_thread" name="kernel.workqueue.delayed_work_cancel_from_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_work_cancel_isr" name="kernel.workqueue.delayed_work_cancel_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_work_cancel_thread" name="kernel.workqueue.delayed_work_cancel_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_work_submit_isr" name="kernel.workqueue.delayed_work_submit_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_work_submit_thread" name="kernel.workqueue.delayed_work_submit_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_work_submit_to_queue_isr" name="kernel.workqueue.delayed_work_submit_to_queue_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.delayed_work_submit_to_queue_thread" name="kernel.workqueue.delayed_work_submit_to_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.offload_workqueue" name="kernel.workqueue.offload_workqueue" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.poll.delayed" name="kernel.workqueue.poll.delayed" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.poll.delayed_cancel" name="kernel.workqueue.poll.delayed_cancel" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.poll.delayed_resubmit" name="kernel.workqueue.poll.delayed_resubmit" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.poll.delayed_resubmit_thread" name="kernel.workqueue.poll.delayed_resubmit_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.poll.resubmit" name="kernel.workqueue.poll.resubmit" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.poll.sequence" name="kernel.workqueue.poll.sequence" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.resubmit" name="kernel.workqueue.resubmit" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.sam.offload_workqueue" name="kernel.workqueue.sam.offload_workqueue" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.sequence" name="kernel.workqueue.sequence" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.triggered" name="kernel.workqueue.triggered" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.triggered_no_wait" name="kernel.workqueue.triggered_no_wait" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.triggered_no_wait_expired" name="kernel.workqueue.triggered_no_wait_expired" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.triggered_resubmit" name="kernel.workqueue.triggered_resubmit" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.triggered_wait" name="kernel.workqueue.triggered_wait" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.triggered_wait_expired" name="kernel.workqueue.triggered_wait_expired" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.user_work_submit_to_queue_thread" name="kernel.workqueue.user_work_submit_to_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.user_workq_granted_access" name="kernel.workqueue.user_workq_granted_access" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.user_workq_granted_access_setup" name="kernel.workqueue.user_workq_granted_access_setup" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.user_workq_start_before_submit" name="kernel.workqueue.user_workq_start_before_submit" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.work_resubmit_to_queue" name="kernel.workqueue.work_resubmit_to_queue" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.work_submit_isr" name="kernel.workqueue.work_submit_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.work_submit_thread" name="kernel.workqueue.work_submit_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.work_submit_to_multipleq" name="kernel.workqueue.work_submit_to_multipleq" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.work_submit_to_queue_isr" name="kernel.workqueue.work_submit_to_queue_isr" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.work_submit_to_queue_thread" name="kernel.workqueue.work_submit_to_queue_thread" time="0">
-          </testcase>
-          <testcase classname="mimxrt1064_evk:kernel.workqueue.workq_start_before_submit" name="kernel.workqueue.workq_start_before_submit" time="0">
-          </testcase>
           <testcase classname="mimxrt1064_evk:kernel.mutex.mutex" name="kernel.mutex.mutex" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:kernel.poll" name="kernel.poll" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.queue" name="kernel.queue" time="0">
           </testcase>
@@ -606,6 +503,8 @@
           <testcase classname="mimxrt1064_evk:kernel.stack" name="kernel.stack" time="0">
           </testcase>
           <testcase classname="mimxrt1064_evk:kernel.stack.usage" name="kernel.stack.usage" time="0">
+          </testcase>
+          <testcase classname="mimxrt1064_evk:arch.common.xip" name="arch.common.xip" time="0">
           </testcase>
   </testsuite>
 </testsuites>

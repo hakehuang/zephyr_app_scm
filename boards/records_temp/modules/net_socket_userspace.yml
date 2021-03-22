@@ -33,6 +33,7 @@ cases:
     catalog: net socket userspace
     min_ram: 21
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: intel_adsp_cavs15
   net.socket.tcp:
     path: tests/net/socket/tcp
     catalog: net socket userspace

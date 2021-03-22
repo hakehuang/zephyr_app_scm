@@ -45,6 +45,31 @@ cases:
     catalog: prf
     extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x181
     type: unit
+  utilities.prf.m32v200:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m32v201:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x201
+    type: unit
+  utilities.prf.m32v207:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x207
+    type: unit
+  utilities.prf.m32v208:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x208
+    type: unit
+  utilities.prf.m32v281:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
+    type: unit
   utilities.prf.m64v00:
     path: tests/unit/cbprintf
     catalog: prf
@@ -79,4 +104,29 @@ cases:
     path: tests/unit/cbprintf
     catalog: prf
     extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x181
+    type: unit
+  utilities.prf.m64v200:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v201:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x201
+    type: unit
+  utilities.prf.m64v207:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x207
+    type: unit
+  utilities.prf.m64v208:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x208
+    type: unit
+  utilities.prf.m64v281:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
     type: unit

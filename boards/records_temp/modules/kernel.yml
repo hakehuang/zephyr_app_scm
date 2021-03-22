@@ -3,6 +3,10 @@ cases:
   kernel.common.context:
     path: tests/kernel/context
     catalog: kernel
+  kernel.logging.message_capture:
+    path: tests/kernel/fatal/message_capture
+    catalog: kernel
+    platform_exclude: intel_adsp_cavs15
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
@@ -50,14 +54,14 @@ cases:
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=n
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 qemu_x86_lakemont
   kernel.fpu_sharing.generic.x86.sse:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 qemu_x86_lakemont
   kernel.lifo:
     path: tests/kernel/lifo/lifo_api
     catalog: kernel
@@ -148,6 +152,10 @@ cases:
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+  kernel.work.api:
+    path: tests/kernel/workq/work
+    catalog: kernel
+    min_flash: 34
   kernel.workqueue.work_queue:
     path: tests/kernel/workq/work_queue
     catalog: kernel

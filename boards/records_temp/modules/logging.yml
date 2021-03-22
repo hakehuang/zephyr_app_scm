@@ -7,3 +7,8 @@ cases:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
     extra_args: CONF_FILE=log_sync.conf
+  logging.add.user:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_user.conf
+    filter: CONFIG_USERSPACE

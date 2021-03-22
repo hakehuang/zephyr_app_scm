@@ -2,10 +2,10 @@
 cases:
   kernel.device:
     path: tests/kernel/device
-    catalog: device
+    catalog: kernel device
   kernel.device.pm:
     path: tests/kernel/device
-    catalog: device
+    catalog: kernel device
     extra_configs:
     - CONFIG_PM_DEVICE=y
     platform_exclude: mec15xxevb_assy6853

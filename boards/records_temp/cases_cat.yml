@@ -128,12 +128,6 @@ arm:
     - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     min_flash: 192
     arch_allow: arm
-arm psci drivers userspace:
-  arch.arm64.psci:
-    path: tests/arch/arm/arm_psci
-    catalog: arm psci drivers userspace
-    arch_allow: arm
-    filter: CONFIG_ARM_PSCI
 arm userspace:
   arch.arm.ramfunc:
     path: tests/arch/arm/arm_ramfunc
@@ -152,6 +146,12 @@ arm tz_ns tz_wrap_func:
     catalog: arm tz_ns tz_wrap_func
     arch_allow: arm
     filter: CONFIG_CPU_CORTEX_M
+arm psci drivers userspace:
+  arch.arm64.psci:
+    path: tests/arch/arm64/arm_psci
+    catalog: arm psci drivers userspace
+    arch_allow: arm
+    filter: PM_CPU_OPS_PSCI
 kernel security userspace scrub registers:
   arch.x86.syscalls.cpu_scrubs_regs:
     path: tests/arch/x86/cpu_scrubs_regs
@@ -239,28 +239,29 @@ unknown:
     depends_on:
     - dac spi
     - gpio spi i2c
-  kernel.logging.message_capture:
-    path: tests/kernel/fatal/message_capture
-    catalog: unknown
   lib.cbprintf_fp.printk:
     path: tests/lib/cbprintf_fp
     catalog: unknown
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTK=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   lib.cbprintf_fp.printf:
     path: tests/lib/cbprintf_fp
     catalog: unknown
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTF=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   lib.cbprintf_fp.printf_nl:
     path: tests/lib/cbprintf_fp
     catalog: unknown
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTF=y
     - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONSOLE_HAS_DRIVER
     platform_exclude: native_posix native_posix_64 nrf52_bsim
   lib.cbprintf_fp.printfcb:
     path: tests/lib/cbprintf_fp
@@ -268,13 +269,16 @@ unknown:
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTFCB=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   lib.cbprintf_fp.printfcb_nl:
     path: tests/lib/cbprintf_fp
     catalog: unknown
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTFCB=y
     - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONSOLE_HAS_DRIVER
     platform_exclude: native_posix native_posix_64 nrf52_bsim
   lib.cbprintf_fp.fprintf:
     path: tests/lib/cbprintf_fp
@@ -282,12 +286,14 @@ unknown:
     extra_configs:
     - CONFIG_APP_FORMATTER_FPRINTF=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   lib.cbprintf_fp.fprintfcb:
     path: tests/lib/cbprintf_fp
     catalog: unknown
     extra_configs:
     - CONFIG_APP_FORMATTER_FPRINTFCB=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   filesystem.native_posix.fcb_0x00:
     path: tests/subsys/fs/fcb
     catalog: unknown
@@ -932,17 +938,12 @@ tinycrypt crypto aes ccm:
   crypto.tinycrypt:
     path: tests/crypto/tinycrypt
     catalog: tinycrypt crypto aes ccm
-    platform_exclude: qemu_arc_em qemu_arc_hs
+    platform_exclude: qemu_arc_em qemu_arc_hs intel_adsp_cavs15
 tinycrypt crypto sha256 hmac prng:
   crypto.tinycrypt.hmac_prng:
     path: tests/crypto/tinycrypt_hmac_prng
     catalog: tinycrypt crypto sha256 hmac prng
     platform_exclude: mec15xxevb_assy6853 mec1501modular_assy6885
-deprecated:
-  deprecated.inttypes:
-    path: tests/deprecated/inttype
-    catalog: deprecated
-    build_only: true
 adc drivers userspace:
   drivers.adc:
     path: tests/drivers/adc/adc_api
@@ -1237,6 +1238,19 @@ drivers:
     - CONFIG_NRFX_TIMER2=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=n
     platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_low_power:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
   drivers.uart.uart_mix_poll_with_ppi:
     path: tests/drivers/uart/uart_mix_fifo_poll
     catalog: drivers
@@ -1261,6 +1275,19 @@ drivers:
     - CONFIG_UART_0_INTERRUPT_DRIVEN=n
     - CONFIG_UART_0_ASYNC=y
     - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_with_ppi_low_power:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
     - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
     - CONFIG_NRFX_TIMER2=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=y
@@ -1298,14 +1325,15 @@ dac drivers userspace:
   drivers.dac:
     path: tests/drivers/dac/dac_api
     catalog: dac drivers userspace
-    platform_allow: frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
+    platform_allow: frdm_k22f frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
     depends_on: dac
 dac drivers:
   drivers.dac.dac_loopback:
     path: tests/drivers/dac/dac_loopback
     catalog: dac drivers
     depends_on: dac adc
-    platform_allow: 'frdm_k64f nucleo_f207zg nucleo_l073rz nucleo_l152re twr_ke18f
+    platform_allow: 'frdm_k22f frdm_k64f nucleo_f207zg nucleo_l073rz nucleo_l152re
+      twr_ke18f
 
       '
 drivers dma:
@@ -1593,14 +1621,14 @@ kernel userspace:
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=n
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 qemu_x86_lakemont
   kernel.fpu_sharing.float_disable.x86.sse:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 qemu_x86_lakemont
   kernel.futex:
     path: tests/kernel/mem_protect/futex
     catalog: kernel userspace
@@ -1621,14 +1649,11 @@ kernel userspace:
   kernel.pipe.api:
     path: tests/kernel/pipe/pipe_api
     catalog: kernel userspace
-  kernel.poll:
-    path: tests/kernel/poll
-    catalog: kernel userspace
-    platform_exclude: nrf52dk_nrf52810
-  kernel.workqueue.api:
-    path: tests/kernel/workq/work_queue_api
+  kernel.work.user:
+    path: tests/kernel/workq/user_work
     catalog: kernel userspace
     min_flash: 34
+    filter: CONFIG_ARCH_HAS_USERSPACE
 kernel userspace condition_variables ignore_faults:
   kernel.condvar:
     path: tests/kernel/condvar/condvar_api
@@ -1637,6 +1662,10 @@ kernel:
   kernel.common.context:
     path: tests/kernel/context
     catalog: kernel
+  kernel.logging.message_capture:
+    path: tests/kernel/fatal/message_capture
+    catalog: kernel
+    platform_exclude: intel_adsp_cavs15
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
@@ -1684,14 +1713,14 @@ kernel:
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=n
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 qemu_x86_lakemont
   kernel.fpu_sharing.generic.x86.sse:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 qemu_x86_lakemont
   kernel.lifo:
     path: tests/kernel/lifo/lifo_api
     catalog: kernel
@@ -1782,17 +1811,21 @@ kernel:
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+  kernel.work.api:
+    path: tests/kernel/workq/work
+    catalog: kernel
+    min_flash: 34
   kernel.workqueue.work_queue:
     path: tests/kernel/workq/work_queue
     catalog: kernel
     min_flash: 34
-device:
+kernel device:
   kernel.device:
     path: tests/kernel/device
-    catalog: device
+    catalog: kernel device
   kernel.device.pm:
     path: tests/kernel/device
-    catalog: device
+    catalog: kernel device
     extra_configs:
     - CONFIG_PM_DEVICE=y
     platform_exclude: mec15xxevb_assy6853
@@ -1838,39 +1871,47 @@ kernel ignore_faults:
     path: tests/kernel/fatal/exception
     catalog: kernel ignore_faults
     extra_args: CONF_FILE=sentinel.conf
-interrupt isr_table:
+kernel interrupt isr_table:
   arch.interrupt.gen_isr_table.arm_baseline:
     path: tests/kernel/gen_isr_table
-    catalog: interrupt isr_table
+    catalog: kernel interrupt isr_table
+    extra_configs:
+    - CONFIG_CORTEX_M_DEBUG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    arch_allow: arm
     platform_allow: bbc_microbit atsamr21_xpro nrf51dk_nrf51422 nucleo_g071rb qemu_cortex_m0
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
   arch.interrupt.gen_isr_table.arm_mainline:
     path: tests/kernel/gen_isr_table
-    catalog: interrupt isr_table
+    catalog: kernel interrupt isr_table
+    extra_configs:
+    - CONFIG_CORTEX_M_DEBUG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    arch_allow: arm
     platform_exclude: stmf103_mini nucleo_f103rb olimexino_stm32 stm32_min_dev_black
       stm32_min_dev_blue usb_kw24d512 v2m_beetle cc1352r1_launchxl cc26x2r1_launchxl
       olimex_stm32_h103 cc1352r_sensortag
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
   arch.interrupt.gen_isr_table.disabled:
     path: tests/kernel/gen_isr_table
-    catalog: interrupt isr_table
+    catalog: kernel interrupt isr_table
     extra_configs:
     - CONFIG_GEN_ISR_TABLES=n
+    - CONFIG_CORTEX_M_DEBUG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
     arch_allow: arm
     build_only: true
   arch.interrupt.gen_isr_table.arc:
     path: tests/kernel/gen_isr_table
-    catalog: interrupt isr_table
+    catalog: kernel interrupt isr_table
     extra_configs:
     - CONFIG_ARC_FIRQ_STACK=y
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     arch_allow: arc
     filter: CONFIG_RGF_NUM_BANKS > 1
-interrupt:
+kernel interrupt:
   arch.interrupt:
     path: tests/kernel/interrupt
-    catalog: interrupt
+    catalog: kernel interrupt
     arch_exclude: nios2
+    filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE
 k_heap_api kernel:
   kernel.k_heap_api:
     path: tests/kernel/mem_heap/k_heap_api
@@ -1962,19 +2003,19 @@ kernel security ignore_faults:
     catalog: kernel security ignore_faults
     platform_exclude: twr_ke18f
     filter: CONFIG_SRAM_REGION_PERMISSIONS
-memory_protection:
+kernel memory_protection:
   kernel.memory_protection.stack_random:
     path: tests/kernel/mem_protect/stack_random
-    catalog: memory_protection
+    catalog: kernel memory_protection
     arch_exclude: posix
-smp:
+kernel smp:
   kernel.multiprocessing:
     path: tests/kernel/mp
-    catalog: smp
+    catalog: kernel smp
     filter: CONFIG_MP_NUM_CPUS > 1
   kernel.multiprocessing.smp:
     path: tests/kernel/smp
-    catalog: smp
+    catalog: kernel smp
     filter: "(CONFIG_MP_NUM_CPUS > 1)"
 kernel userspace ignore_faults:
   kernel.mutex.mutex_error_case:
@@ -1984,6 +2025,10 @@ kernel userspace ignore_faults:
   kernel.pipe:
     path: tests/kernel/pipe/pipe
     catalog: kernel userspace ignore_faults
+  kernel.poll:
+    path: tests/kernel/poll
+    catalog: kernel userspace ignore_faults
+    platform_exclude: nrf52dk_nrf52810
   kernel.queue:
     path: tests/kernel/queue
     catalog: kernel userspace ignore_faults
@@ -2018,16 +2063,22 @@ kernel threads sched userspace:
     extra_configs:
     - CONFIG_TIMESLICING=n
     extra_args: CONF_FILE=prj_multiq.conf
+  kernel.scheduler.dumb_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    extra_args: CONF_FILE=prj_dumb.conf
   kernel.scheduler.dumb_no_timeslicing:
     path: tests/kernel/sched/schedule_api
     catalog: kernel threads sched userspace
     extra_configs:
     - CONFIG_TIMESLICING=n
     extra_args: CONF_FILE=prj_dumb.conf
-smp spinlock:
+kernel smp spinlock:
   kernel.multiprocessing.spinlock:
     path: tests/kernel/spinlock
-    catalog: smp spinlock
+    catalog: kernel smp spinlock
     filter: CONFIG_SMP and CONFIG_MP_NUM_CPUS > 1 and CONFIG_MP_NUM_CPUS <= 4
 kernel threads userspace ignore_faults:
   kernel.threads.dynamic:
@@ -2066,14 +2117,14 @@ tickless kernel:
     arch_exclude: nios2 riscv32
     filter: CONFIG_X86 or (CONFIG_ARM and (CONFIG_SOC_MK64F12 or CONFIG_SOC_SERIES_SAM3X))
       or CONFIG_ARCH_POSIX
-timer:
+kernel timer:
   kernel.timer.starve:
     path: tests/kernel/timer/starve
-    catalog: timer
+    catalog: kernel timer
     build_only: true
   kernel.timer.monotonic:
     path: tests/kernel/timer/timer_monotonic
-    catalog: timer
+    catalog: kernel timer
 kernel timer userspace:
   kernel.timer:
     path: tests/kernel/timer/timer_api
@@ -2090,15 +2141,33 @@ kernel timer userspace ignore_faults:
   kernel.timer.timer_error_case:
     path: tests/kernel/timer/timer_error_case
     catalog: kernel timer userspace ignore_faults
-xip:
+kernel xip:
   arch.common.xip:
     path: tests/kernel/xip
-    catalog: xip
+    catalog: kernel xip
     filter: CONFIG_XIP
 clib:
   libraries.libc:
     path: tests/lib/c_lib
     catalog: clib
+cbprintf:
+  libraries.cbprintf_package:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa
+
+      '
+  libraries.cbprintf_package_fp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64 qemu_xtensa
+
+      '
 cmsis_dsp:
   libraries.cmsis_dsp.basicmath:
     path: tests/lib/cmsis_dsp/basicmath
@@ -2358,6 +2427,9 @@ cmsis_dsp:
 devicetree:
   libraries.devicetree:
     path: tests/lib/devicetree/api
+    catalog: devicetree
+  libraries.devicetree.devices:
+    path: tests/lib/devicetree/devices
     catalog: devicetree
 fdtable:
   libraries.os.fdtable:
@@ -2946,6 +3018,7 @@ net socket userspace:
     catalog: net socket userspace
     min_ram: 21
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: intel_adsp_cavs15
   net.socket.tcp:
     path: tests/net/socket/tcp
     catalog: net socket userspace
@@ -3526,7 +3599,7 @@ cmsis_rtos:
   portability.cmsis_rtos_v2:
     path: tests/portability/cmsis_rtos_v2
     catalog: cmsis_rtos
-    platform_exclude: m2gl025_miv
+    platform_exclude: m2gl025_miv intel_adsp_cavs15
     min_ram: 32
     min_flash: 34
 posix:
@@ -3690,12 +3763,19 @@ edac ibecc:
     - CONFIG_EDAC_LOG_LEVEL_DBG=y
     arch_allow: x86
     platform_allow: ehl_crb
-  edac.ibecc.debug:
+  edac.ibecc.injection:
     path: tests/subsys/edac/ibecc
     catalog: edac ibecc
     extra_configs:
     - CONFIG_EDAC_ERROR_INJECT=y
-    - CONFIG_LOG_MODE_MINIMAL=n
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.injection.user:
+    path: tests/subsys/edac/ibecc
+    catalog: edac ibecc
+    extra_configs:
+    - CONFIG_EDAC_ERROR_INJECT=y
+    - CONFIG_USERSPACE=y
     arch_allow: x86
     platform_allow: ehl_crb
 filesystem:
@@ -3768,12 +3848,14 @@ log_core logging:
   logging.log_immediate:
     path: tests/subsys/logging/log_immediate
     catalog: log_core logging
-    platform_exclude: nucleo_l053r8 nucleo_f030r8 stm32f0_disco nrf52_bsim
+    platform_exclude: nucleo_l053r8 nucleo_f030r8 intel_adsp_cavs15 stm32f0_disco
+      nrf52_bsim
   logging.log_immediate.clean_output:
     path: tests/subsys/logging/log_immediate
     catalog: log_core logging
     extra_args: CONFIG_LOG_IMMEDIATE_CLEAN_OUTPUT=y
-    platform_exclude: nucleo_l053r8 nucleo_f030r8 stm32f0_disco nrf52_bsim
+    platform_exclude: nucleo_l053r8 nucleo_f030r8 intel_adsp_cavs15 stm32f0_disco
+      nrf52_bsim
 logging:
   logging.add.async:
     path: tests/subsys/logging/log_core_additional
@@ -3782,6 +3864,11 @@ logging:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
     extra_args: CONF_FILE=log_sync.conf
+  logging.add.user:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_user.conf
+    filter: CONFIG_USERSPACE
 log_list logging:
   logging.log_list:
     path: tests/subsys/logging/log_list
@@ -3794,6 +3881,7 @@ log_output logging:
   logging.log_output:
     path: tests/subsys/logging/log_output
     catalog: log_output logging
+    platform_exclude: intel_adsp_cavs15
 ec_host_cmd:
   ec_host_cmd.core:
     path: tests/subsys/mgmt/ec_host_cmd
@@ -3814,6 +3902,7 @@ power:
     path: tests/subsys/power/power_mgmt_soc
     catalog: power
     platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
+      nucleo_wb55rg nucleo_l476rg
   pm-states-api.dts:
     path: tests/subsys/power/power_states_api
     catalog: power
@@ -4081,6 +4170,31 @@ prf:
     catalog: prf
     extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x181
     type: unit
+  utilities.prf.m32v200:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m32v201:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x201
+    type: unit
+  utilities.prf.m32v207:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x207
+    type: unit
+  utilities.prf.m32v208:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x208
+    type: unit
+  utilities.prf.m32v281:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
+    type: unit
   utilities.prf.m64v00:
     path: tests/unit/cbprintf
     catalog: prf
@@ -4115,6 +4229,31 @@ prf:
     path: tests/unit/cbprintf
     catalog: prf
     extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x181
+    type: unit
+  utilities.prf.m64v200:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v201:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x201
+    type: unit
+  utilities.prf.m64v207:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x207
+    type: unit
+  utilities.prf.m64v208:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x208
+    type: unit
+  utilities.prf.m64v281:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
     type: unit
 net crc:
   utilities.crc:

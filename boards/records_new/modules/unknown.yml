@@ -4,7 +4,14 @@ cases:
     path: tests/arch/x86/info
     catalog: unknown
     arch_allow: x86
-    platform_allow: ehl_crb up_squared up_squared_32
+    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
+  arch.x86.info.userspace:
+    path: tests/arch/x86/info
+    catalog: unknown
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
   boards.native_posix.cpu_wait:
     path: tests/boards/native_posix/cpu_wait
     catalog: unknown
@@ -88,13 +95,16 @@ cases:
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTF=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   lib.cbprintf_fp.printf_nl:
     path: tests/lib/cbprintf_fp
     catalog: unknown
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTF=y
     - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONSOLE_HAS_DRIVER
     platform_exclude: native_posix native_posix_64 nrf52_bsim
   lib.cbprintf_fp.printfcb:
     path: tests/lib/cbprintf_fp
@@ -102,13 +112,16 @@ cases:
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTFCB=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   lib.cbprintf_fp.printfcb_nl:
     path: tests/lib/cbprintf_fp
     catalog: unknown
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTFCB=y
     - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONSOLE_HAS_DRIVER
     platform_exclude: native_posix native_posix_64 nrf52_bsim
   lib.cbprintf_fp.fprintf:
     path: tests/lib/cbprintf_fp
@@ -116,12 +129,14 @@ cases:
     extra_configs:
     - CONFIG_APP_FORMATTER_FPRINTF=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   lib.cbprintf_fp.fprintfcb:
     path: tests/lib/cbprintf_fp
     catalog: unknown
     extra_configs:
     - CONFIG_APP_FORMATTER_FPRINTFCB=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   filesystem.native_posix.fcb_0x00:
     path: tests/subsys/fs/fcb
     catalog: unknown

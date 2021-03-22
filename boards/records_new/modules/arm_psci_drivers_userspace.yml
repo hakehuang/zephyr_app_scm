@@ -1,7 +1,7 @@
 ---
 cases:
   arch.arm64.psci:
-    path: tests/arch/arm/arm_psci
+    path: tests/arch/arm64/arm_psci
     catalog: arm psci drivers userspace
     arch_allow: arm
-    filter: CONFIG_ARM_PSCI
+    filter: PM_CPU_OPS_PSCI

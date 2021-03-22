@@ -41,6 +41,7 @@ pipeline {
               <?rb end ?>
                 sh 'docker exec #{@docker} rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/#{item['build_path']}'
             }
+           step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'influxdb'])  
           }
         }
       <?rb end ?>

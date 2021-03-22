@@ -2,5 +2,6 @@
 cases:
   arch.interrupt:
     path: tests/kernel/interrupt
-    catalog: interrupt
+    catalog: kernel interrupt
     arch_exclude: nios2
+    filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE

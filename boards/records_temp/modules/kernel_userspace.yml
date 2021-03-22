@@ -62,14 +62,14 @@ cases:
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=n
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 qemu_x86_lakemont
   kernel.fpu_sharing.float_disable.x86.sse:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 qemu_x86_lakemont
   kernel.futex:
     path: tests/kernel/mem_protect/futex
     catalog: kernel userspace
@@ -90,11 +90,8 @@ cases:
   kernel.pipe.api:
     path: tests/kernel/pipe/pipe_api
     catalog: kernel userspace
-  kernel.poll:
-    path: tests/kernel/poll
-    catalog: kernel userspace
-    platform_exclude: nrf52dk_nrf52810
-  kernel.workqueue.api:
-    path: tests/kernel/workq/work_queue_api
+  kernel.work.user:
+    path: tests/kernel/workq/user_work
     catalog: kernel userspace
     min_flash: 34
+    filter: CONFIG_ARCH_HAS_USERSPACE
