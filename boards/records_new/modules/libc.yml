@@ -4,3 +4,7 @@ cases:
     path: tests/lib/sprintf
     catalog: libc
     filter: not CONFIG_SOC_MCIMX7_M4
+  libraries.libc.time:
+    path: tests/lib/time
+    catalog: libc
+    filter: not CONFIG_ARCH_POSIX or CONFIG_NATIVE_POSIX_SLOWDOWN_TO_REAL_TIME

@@ -354,6 +354,17 @@ def dt_parser(k, v, board_hash)
       return false
     end
     return false
+  elsif k == "dt_enabled_alias_with_parent_compat"
+    if board_hash['dtb']['root']['aliases'].keys().include?(v[1])
+      if dt_retrive_compatible_key(board_hash['dtb']['root'], board_hash['dtb']['root']['aliases'][v[1]])
+        return true
+      else
+        return false
+      end
+    else
+      return false
+    end
+    return false
   end
 end
 

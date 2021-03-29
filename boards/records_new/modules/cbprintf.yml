@@ -3,6 +3,19 @@ cases:
   libraries.cbprintf_package:
     path: tests/lib/cbprintf_package
     catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa
+
+      '
+  libraries.cbprintf_package_no_generic:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
     platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
       qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
       qemu_xtensa
@@ -13,7 +26,30 @@ cases:
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
     platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
       qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64 qemu_xtensa
+
+      '
+  libraries.cbprintf_package_long_double:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv64 qemu_x86_64 qemu_xtensa
+
+      '
+    platform_exclude: qemu_riscv32
+  libraries.cbprintf_package_nano:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa
 
       '

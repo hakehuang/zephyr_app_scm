@@ -179,7 +179,8 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     :build_script => @content["settings"]["build_script"], 
     :run_script   => @content["settings"]["run_script"], 
     :board => board_name,
-    :catalog => {}
+    :catalog => {},
+    :version =>  @content["settings"]["version"]
   }
   @content["cases"].keys().each do |key|
     md5 = Digest::MD5.new

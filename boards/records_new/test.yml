@@ -139,10 +139,10 @@ cases:
     arch_allow: arm
     filter: CONFIG_CPU_CORTEX_M
   arch.arm64.psci:
-    path: tests/arch/arm64/arm_psci
+    path: tests/arch/arm64/arm64_psci
     catalog: arm psci drivers userspace
     arch_allow: arm
-    filter: PM_CPU_OPS_PSCI
+    filter: CONFIG_PM_CPU_OPS_PSCI
   arch.x86.syscalls.cpu_scrubs_regs:
     path: tests/arch/x86/cpu_scrubs_regs
     catalog: kernel security userspace scrub registers
@@ -504,6 +504,12 @@ cases:
     extra_args: CONF_FILE=prj_ctlr_peripheral.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
+  bluetooth.init.test_ctlr_peripheral_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
   bluetooth.init.test_ctlr_observer:
     path: tests/bluetooth/init
     catalog: bluetooth
@@ -514,6 +520,12 @@ cases:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_central.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_central_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_priv.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_broadcaster_ext:
@@ -528,6 +540,12 @@ cases:
     extra_args: CONF_FILE=prj_ctlr_peripheral_ext.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
+  bluetooth.init.test_ctlr_peripheral_ext_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_ext_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
   bluetooth.init.test_ctlr_oberver_ext:
     path: tests/bluetooth/init
     catalog: bluetooth
@@ -538,6 +556,12 @@ cases:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_central_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_ext_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_ext_priv.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_ctlr_per_adv:
@@ -1081,7 +1105,7 @@ cases:
   drivers.dac:
     path: tests/drivers/dac/dac_api
     catalog: dac drivers userspace
-    platform_allow: frdm_k22f frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f
+    platform_allow: frdm_k22f frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f nucleo_f767zi
     depends_on: dac
   drivers.dac.dac_loopback:
     path: tests/drivers/dac/dac_loopback
@@ -1154,7 +1178,7 @@ cases:
     depends_on: gpio
     min_flash: 48
     platform_exclude: mps2_an385 mps2_an521
-    filter: dt_compat_enabled_with_alias("gpio-leds", "led0")
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
   drivers.gpio.2pin:
     path: tests/drivers/gpio/gpio_basic_api
     catalog: drivers gpio
@@ -1283,11 +1307,15 @@ cases:
     path: tests/drivers/spi/spi_loopback
     catalog: drivers spi
     depends_on: spi
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
+      arduino_zero adafruit_trinket_m0
   driver.spi.loopback.internal:
     path: tests/drivers/spi/spi_loopback
     catalog: drivers spi
     filter: CONFIG_SPI_LOOPBACK_MODE_LOOP
     depends_on: spi
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
+      arduino_zero adafruit_trinket_m0
   drivers.timer.nrf_rtc_timer:
     path: tests/drivers/timer/nrf_rtc_timer
     catalog: drivers
@@ -1302,6 +1330,9 @@ cases:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
   drivers.uart.uart_async_api.rtt:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
@@ -1311,6 +1342,9 @@ cases:
     extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
     build_only: true
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
   drivers.uart:
     path: tests/drivers/uart/uart_basic_api
     catalog: drivers
@@ -1919,12 +1953,6 @@ cases:
     - CONFIG_TEST_USERSPACE=y
     filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_ARCH_HAS_USERSPACE and
       CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-  kernel.tickless:
-    path: tests/kernel/tickless/tickless
-    catalog: tickless kernel
-    arch_exclude: nios2 riscv32
-    filter: CONFIG_X86 or (CONFIG_ARM and (CONFIG_SOC_MK64F12 or CONFIG_SOC_SERIES_SAM3X))
-      or CONFIG_ARCH_POSIX
   kernel.tickless.concept:
     path: tests/kernel/tickless/tickless_concept
     catalog: kernel
@@ -2047,6 +2075,19 @@ cases:
   libraries.cbprintf_package:
     path: tests/lib/cbprintf_package
     catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa
+
+      '
+  libraries.cbprintf_package_no_generic:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
     platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
       qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
       qemu_xtensa
@@ -2057,8 +2098,31 @@ cases:
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
     platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
       qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64 qemu_xtensa
+
+      '
+  libraries.cbprintf_package_long_double:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv64 qemu_x86_64 qemu_xtensa
+
+      '
+    platform_exclude: qemu_riscv32
+  libraries.cbprintf_package_nano:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa
 
       '
   libraries.cmsis_dsp.basicmath:
@@ -2429,6 +2493,10 @@ cases:
     path: tests/lib/sprintf
     catalog: libc
     filter: not CONFIG_SOC_MCIMX7_M4
+  libraries.libc.time:
+    path: tests/lib/time
+    catalog: libc
+    filter: not CONFIG_ARCH_POSIX or CONFIG_NATIVE_POSIX_SLOWDOWN_TO_REAL_TIME
   buildsystem.debug.build:
     path: tests/misc/test_build
     catalog: debug
@@ -2910,6 +2978,10 @@ cases:
     depends_on: netif
     min_ram: 32
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tls.tls_ext:
+    path: tests/net/socket/tls_ext
+    catalog: net socket tls
+    min_ram: 65536
   net.socket.udp:
     path: tests/net/socket/udp
     catalog: net socket udp
@@ -2932,11 +3004,6 @@ cases:
     min_ram: 21
     platform_exclude: native_posix_64
     depends_on: netif
-  net.tcp.simple:
-    path: tests/net/tcp
-    catalog: net tcp
-    depends_on: netif
-    filter: CONFIG_NET_TCP1
   net.tcp2.simple:
     path: tests/net/tcp2
     catalog: net tcp2
@@ -3660,6 +3727,25 @@ cases:
     min_ram: 96
     min_flash: 72
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+  subsys.logging.log_backend_fs.automounted:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: logging backend filesystem fs
+    platform_allow: native_posix native_posix_64 nrf52840dk_nrf52840
+  subsys.logging.log_backend_fs.manualmounted.native_posix:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: logging backend filesystem fs
+    extra_args: DTC_OVERLAY_FILE="./boards/native_posix.overlay;./boards/automount.overlay"
+    platform_allow: native_posix
+  subsys.logging.log_backend_fs.manualmounted.native_posix_64:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: logging backend filesystem fs
+    extra_args: DTC_OVERLAY_FILE="./boards/native_posix_64.overlay;./boards/automount.overlay"
+    platform_allow: native_posix_64
+  subsys.logging.log_backend_fs.manualmounted.nrf5840dk:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: logging backend filesystem fs
+    extra_args: DTC_OVERLAY_FILE="./boards/nrf52840dk_nrf52840.overlay;./boards/automount.overlay"
+    platform_allow: nrf52840dk_nrf52840
   logging.log_core:
     path: tests/subsys/logging/log_core
     catalog: log_core logging
@@ -3701,6 +3787,15 @@ cases:
     path: tests/subsys/mgmt/ec_host_cmd
     catalog: ec_host_cmd
     platform_allow: native_posix
+  subsys.modbus.rtu:
+    path: tests/subsys/modbus
+    catalog: modbus
+    platform_allow: frdm_k64f
+  subsys.modbus.rtu.build_only:
+    path: tests/subsys/modbus
+    catalog: modbus
+    build_only: true
+    filter: CONFIG_UART_CONSOLE and CONFIG_UART_INTERRUPT_DRIVEN
   openthread.radio:
     path: tests/subsys/openthread
     catalog: ot_radio
@@ -3991,6 +4086,31 @@ cases:
     catalog: prf
     extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
     type: unit
+  utilities.prf.m32va00:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m32va01:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa01
+    type: unit
+  utilities.prf.m32va07:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa07
+    type: unit
+  utilities.prf.m32va08:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa08
+    type: unit
+  utilities.prf.m32va81:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa81
+    type: unit
   utilities.prf.m64v00:
     path: tests/unit/cbprintf
     catalog: prf
@@ -4050,6 +4170,56 @@ cases:
     path: tests/unit/cbprintf
     catalog: prf
     extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
+    type: unit
+  utilities.prf.m64v600:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x600
+    type: unit
+  utilities.prf.m64v601:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x601
+    type: unit
+  utilities.prf.m64v607:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x607
+    type: unit
+  utilities.prf.m64v608:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x608
+    type: unit
+  utilities.prf.m64v681:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x681
+    type: unit
+  utilities.prf.m64va00:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m64va01:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa01
+    type: unit
+  utilities.prf.m64va07:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa07
+    type: unit
+  utilities.prf.m64va08:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa08
+    type: unit
+  utilities.prf.m64va81:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa81
     type: unit
   utilities.crc:
     path: tests/unit/crc

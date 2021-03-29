@@ -14,6 +14,3 @@ gem 'builder'
 gem 'activesupport'
 gem 'git'
 gem 'rest-client'
-
-
-

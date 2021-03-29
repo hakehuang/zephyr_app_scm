@@ -1,6 +1,7 @@
 ---
 settings:
   case_pipe_name: "${@board}_can"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
 __load__:
 - modules/can_isotp.yml
 - skips/${@board}.yml

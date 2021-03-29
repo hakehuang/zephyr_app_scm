@@ -12,10 +12,13 @@ require 'ostruct'
 require 'logger'
 require 'json'
 require "deep_merge"
+require 'git'
 
 require_relative "parse_testcase"
 require_relative "parse_sample"
 require_relative "zephyr_filter"
+
+$version = "v2.5.0"
 
 LONG_CASE_DURATION = {
   'benchmark.crypto.mbedtls' => {'timeout' => 1000},
@@ -94,12 +97,22 @@ def lists_to_keep(in_hash, out_hash)
   end
 end
 
+
+def get_version(zephyr_git_root_path)
+    log = Logger.new(STDOUT)
+    g = Git.open(zephyr_git_root_path, :log => Logger.new(STDOUT))
+    $version = g.describe()
+    log.info("git version is #{$version}")
+end
+
 def scan(zephyr_path, output_records_path, output_records_fname)
     log = Logger.new(STDOUT)
 
     log.info("@ zephyr_path: %s"%zephyr_path)
     log.info("@ output_records_path: %s"%output_records_path)
     log.info("@ output_records_fname: %s"%output_records_fname)
+
+
 
     #find the zephyr-env.cmd to identify the zephyr_base
     pa = Pathname.new(zephyr_path).to_path.split(File::SEPARATOR)
@@ -308,25 +321,27 @@ def split_test_catalog(fn, outdir, template_dir)
 
   # put catalog to template
   template_files_hash = {
-    'board_template.yml' => {'settings' => {"case_pipe_name" => "${@board}"}}.deep_merge(common_hash),
-    'board_2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_2"}}.deep_merge(common_hash),
-    'board_3_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_3"}}.deep_merge(common_hash),
-    'board_4_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_4"}}.deep_merge(common_hash),
-    'board_5_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_5"}}.deep_merge(common_hash),
-    'board_cmsis_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_cmsis"}}.deep_merge(common_hash),
-    'board_drivers_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_drivers"}}.deep_merge(common_hash),
-    'board_kernel_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel"}}.deep_merge(common_hash),
-    'board_kernel2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel2"}}.deep_merge(common_hash),
-    'board_samples_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_samples"}}.deep_merge(common_hash),
-    'board_sensors_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_sensors"}}.deep_merge(common_hash),
-    'board_shield_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_shield"}}.deep_merge(common_hash),
-    'board_bt1_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_bt1"}}.deep_merge(common_hash),
-    'board_bt2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_bt2"}}.deep_merge(common_hash),
-    'board_can_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_can"}}.deep_merge(common_hash),
-    'board_socket_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_socket"}}.deep_merge(common_hash),
-    'board_traffic_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_traffic"}}.deep_merge(common_hash),
-    'board_samples2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_samples2"}}.deep_merge(common_hash),
-    'board_usb_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_usb"}}.deep_merge(common_hash),
+    'board_template.yml' => {'settings' => {"case_pipe_name" => "${@board}", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_2", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_3_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_3", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_4_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_4", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_5_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_5", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_cmsis_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_cmsis", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_drivers_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_drivers", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_kernel_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_kernel2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel2", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_kernel3_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel3", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_kernel4_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel4", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_samples_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_samples", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_sensors_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_sensors", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_shield_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_shield", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_bt1_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_bt1", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_bt2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_bt2", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_can_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_can", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_socket_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_socket", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_traffic_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_traffic", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_samples2_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_samples2", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_usb_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_usb", "version" => "#{$version}"}}.deep_merge(common_hash),
   }
 
   cases_cat.keys().sort!.each do |k|
@@ -339,7 +354,11 @@ def split_test_catalog(fn, outdir, template_dir)
       template_files_hash['board_cmsis_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().start_with?("driver")
       template_files_hash['board_drivers_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^kernel_/)
+    elsif module_name.downcase().match(/^kernel_[u-z]/)
+      template_files_hash['board_kernel4_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^kernel_t/)
+      template_files_hash['board_kernel3_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^kernel_[a-s]/)
       template_files_hash['board_kernel2_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^kernel/) or
       module_name.downcase().match(/^tickless_kernel/)
@@ -358,15 +377,15 @@ def split_test_catalog(fn, outdir, template_dir)
       template_files_hash['board_socket_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().start_with?(/^net_traffic_/)
       template_files_hash['board_traffic_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^net_[n-z]/)
+    elsif module_name.downcase().match(/^net_[m-z]/)
       template_files_hash['board_samples2_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^net_[a-m]/) or
+    elsif module_name.downcase().match(/^net_[a-l]/) or
       module_name.downcase().match(/^net/) or
       module_name.downcase().match(/^tcp/)
       template_files_hash['board_samples_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^[a-c]/)
+    elsif module_name.downcase().match(/^[a-b]/)
       template_files_hash['board_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^d/)
+    elsif module_name.downcase().match(/^[c-d]/)
       template_files_hash['board_2_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^[e-k]/)
       template_files_hash['board_3_template.yml']["__load__"].unshift("modules/#{module_name}")
@@ -385,6 +404,7 @@ def split_test_catalog(fn, outdir, template_dir)
 
 end
 
+get_version("C:/github/zephyrproject/zephyr/")
 scan("C:/github/zephyrproject/zephyr/samples/", "../records_temp", "test.yml")
 scan("C:/github/zephyrproject/zephyr/tests/", "../records_temp", "test.yml")
 split_test_catalog("../records_temp/test.yml", "../records_temp", template_dir="../template")

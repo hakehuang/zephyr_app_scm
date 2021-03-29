@@ -1,10 +1,8 @@
 ---
 settings:
   case_pipe_name: "frdm_k82f_samples"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
 __load__:
-- modules/net_mqtt.yml
-- modules/net_mld.yml
-- modules/net_mgmt.yml
 - modules/net_ipv6_fragment.yml
 - modules/net_ipv6.yml
 - modules/net_ip-addr.yml

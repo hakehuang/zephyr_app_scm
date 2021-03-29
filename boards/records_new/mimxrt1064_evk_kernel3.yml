@@ -1,0 +1,18 @@
+---
+settings:
+  case_pipe_name: "mimxrt1064_evk_kernel3"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
+__load__:
+- modules/kernel_timer_userspace_ignore_faults.yml
+- modules/kernel_timer_userspace.yml
+- modules/kernel_timer.yml
+- modules/kernel_threads_userspace_ignore_faults.yml
+- modules/kernel_threads_userspace.yml
+- modules/kernel_threads_sched_userspace.yml
+- modules/kernel_threads.yml
+- skips/mimxrt1064_evk.yml
+- boards/mimxrt1064_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

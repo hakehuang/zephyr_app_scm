@@ -1,6 +1,7 @@
 ---
 settings:
   case_pipe_name: "${@board}_traffic"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
 __load__:
 - modules/net_traffic_class.yml
 - skips/${@board}.yml

@@ -215,6 +215,12 @@ cases:
     extra_args: CONF_FILE=prj_ctlr_peripheral.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
+  bluetooth.init.test_ctlr_peripheral_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
   bluetooth.init.test_ctlr_observer:
     path: tests/bluetooth/init
     catalog: bluetooth
@@ -225,6 +231,12 @@ cases:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_central.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_central_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_priv.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.init.test_ctlr_broadcaster_ext:
@@ -239,6 +251,12 @@ cases:
     extra_args: CONF_FILE=prj_ctlr_peripheral_ext.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
+  bluetooth.init.test_ctlr_peripheral_ext_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_ext_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
   bluetooth.init.test_ctlr_oberver_ext:
     path: tests/bluetooth/init
     catalog: bluetooth
@@ -249,6 +267,12 @@ cases:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_central_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_ext_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_ext_priv.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_ctlr_per_adv:

@@ -1,8 +1,8 @@
 ---
 settings:
   case_pipe_name: "mimxrt685_evk_cm33_kernel"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
 __load__:
-- modules/tickless_kernel.yml
 - modules/kernel.yml
 - skips/mimxrt685_evk_cm33.yml
 - boards/mimxrt685_evk_cm33.yml

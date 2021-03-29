@@ -1,8 +1,8 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s16_ns_kernel"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
 __load__:
-- modules/tickless_kernel.yml
 - modules/kernel.yml
 - skips/lpcxpresso55s16_ns.yml
 - boards/lpcxpresso55s16_ns.yml

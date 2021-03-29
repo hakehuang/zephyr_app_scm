@@ -1,18 +1,8 @@
 ---
 settings:
   case_pipe_name: "twr_ke18f_kernel2"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
 __load__:
-- modules/kernel_xip.yml
-- modules/kernel_userspace_ignore_faults.yml
-- modules/kernel_userspace_condition_variables_ignore_faults.yml
-- modules/kernel_userspace.yml
-- modules/kernel_timer_userspace_ignore_faults.yml
-- modules/kernel_timer_userspace.yml
-- modules/kernel_timer.yml
-- modules/kernel_threads_userspace_ignore_faults.yml
-- modules/kernel_threads_userspace.yml
-- modules/kernel_threads_sched_userspace.yml
-- modules/kernel_threads.yml
 - modules/kernel_smp_spinlock.yml
 - modules/kernel_smp.yml
 - modules/kernel_sleep.yml

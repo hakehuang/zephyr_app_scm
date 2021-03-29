@@ -1,6 +1,26 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="1" errors="0" failures="0" name="" skipped="1" time="0">
+    <testsuite tests="8" errors="0" failures="0" name="" skipped="3" time="0">
+         <testcase classname="frdm_k22f:libraries.libc" name="libraries.libc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="frdm_k22f:libraries.libc.newlib" name="libraries.libc.newlib" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="frdm_k22f:libraries.libc.minimal.mem_alloc" name="libraries.libc.minimal.mem_alloc" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:application_development.cpp.main" name="application_development.cpp.main" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:application_development.cpp.libcxx" name="application_development.cpp.libcxx" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:application_development.cpp.libcxx.exceptions" name="application_development.cpp.libcxx.exceptions" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:crypto.mbedtls" name="crypto.mbedtls" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:crypto.rand32" name="crypto.rand32" time="0">
+          </testcase>
+          <testcase classname="frdm_k22f:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
+          </testcase>
           <testcase classname="frdm_k22f:drivers.dac.dac_loopback" name="drivers.dac.dac_loopback" time="0">
           </testcase>
          <testcase classname="frdm_k22f:buildsystem.debug.build" name="buildsystem.debug.build" time="0">

@@ -1,6 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1015_evk_samples2"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
 __load__:
 - modules/net_websocket.yml
 - modules/net_vlan.yml
@@ -9,7 +10,6 @@ __load__:
 - modules/net_trickle.yml
 - modules/net_tls.yml
 - modules/net_tcp2.yml
-- modules/net_tcp.yml
 - modules/net_route_mcast.yml
 - modules/net_route.yml
 - modules/net_ptp_gptp_userspace.yml
@@ -19,6 +19,9 @@ __load__:
 - modules/net_net-shell.yml
 - modules/net_net-all.yml
 - modules/net_neighbour.yml
+- modules/net_mqtt.yml
+- modules/net_mld.yml
+- modules/net_mgmt.yml
 - skips/mimxrt1015_evk.yml
 - boards/mimxrt1015_evk.yml
 cases:

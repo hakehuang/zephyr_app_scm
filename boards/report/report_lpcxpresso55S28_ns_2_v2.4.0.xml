@@ -1,6 +1,26 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite tests="0" errors="0" failures="0" name="" skipped="1" time="0">
+    <testsuite tests="7" errors="0" failures="0" name="" skipped="3" time="0">
+         <testcase classname="lpcxpresso55s28_ns:libraries.libc" name="libraries.libc" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+         <testcase classname="lpcxpresso55s28_ns:libraries.libc.newlib" name="libraries.libc.newlib" time="0">
+         <skipped message="Skipped" type="skipped"/>
+         </testcase>
+          <testcase classname="lpcxpresso55s28_ns:libraries.libc.minimal.mem_alloc" name="libraries.libc.minimal.mem_alloc" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s28_ns:application_development.cpp.main" name="application_development.cpp.main" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s28_ns:application_development.cpp.libcxx" name="application_development.cpp.libcxx" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s28_ns:application_development.cpp.libcxx.exceptions" name="application_development.cpp.libcxx.exceptions" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s28_ns:crypto.mbedtls" name="crypto.mbedtls" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s28_ns:crypto.rand32" name="crypto.rand32" time="0">
+          </testcase>
+          <testcase classname="lpcxpresso55s28_ns:crypto.rand32.random_sw_systimer" name="crypto.rand32.random_sw_systimer" time="0">
+          </testcase>
          <testcase classname="lpcxpresso55s28_ns:buildsystem.debug.build" name="buildsystem.debug.build" time="0">
          <skipped message="Skipped" type="skipped"/>
          </testcase>

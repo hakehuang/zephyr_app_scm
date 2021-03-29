@@ -80,15 +80,13 @@ cases:
     depends_on:
     - dac spi
     - gpio spi i2c
-  kernel.logging.message_capture:
-    path: tests/kernel/fatal/message_capture
-    catalog: unknown
   lib.cbprintf_fp.printk:
     path: tests/lib/cbprintf_fp
     catalog: unknown
     extra_configs:
     - CONFIG_APP_FORMATTER_PRINTK=y
     platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
   lib.cbprintf_fp.printf:
     path: tests/lib/cbprintf_fp
     catalog: unknown

@@ -236,6 +236,9 @@ cases:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
   drivers.uart.uart_async_api.rtt:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
@@ -245,6 +248,9 @@ cases:
     extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
     build_only: true
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
   drivers.uart:
     path: tests/drivers/uart/uart_basic_api
     catalog: drivers

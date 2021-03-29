@@ -40,8 +40,18 @@ pipeline {
                 }
               <?rb end ?>
                 sh 'docker exec #{@docker} rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/#{item['build_path']}'
+                script {
+                  currentBuild.result = 'SUCCESS'
+                }
             }
-           step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'influxdb'])  
+            script {
+              if (currentBuild.result == null) {
+                  currentBuild.result = 'FAILURE'
+              }
+              myCustomMeasurementFields = ['results_info' : ['board_name': '#{@board}', 'app_name': '#{k}', 'result': currentBuild.result, 'version': '#{@version}']]
+              mycustomDataMapTags = ['results_info' :['board_name': '#{@board}', 'app_name': '#{k}', 'result': currentBuild.result, 'version': '#{@version}']]
+              influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+            }
           }
         }
       <?rb end ?>

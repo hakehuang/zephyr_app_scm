@@ -1,8 +1,8 @@
 ---
 settings:
   case_pipe_name: "frdm_kl25z_kernel"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
 __load__:
-- modules/tickless_kernel.yml
 - modules/kernel.yml
 - skips/frdm_kl25z.yml
 - boards/frdm_kl25z.yml

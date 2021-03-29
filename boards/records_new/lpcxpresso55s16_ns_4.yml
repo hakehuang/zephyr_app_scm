@@ -1,6 +1,7 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s16_ns_4"
+  version: zephyr-v2.5.0-1524-ga9b4cae019
 __load__:
 - modules/pwm_drivers_userspace.yml
 - modules/prf.yml
@@ -16,7 +17,9 @@ __load__:
 - modules/notify.yml
 - modules/nmi_interrupt_arm.yml
 - modules/mqtt_net_userspace.yml
+- modules/modbus.yml
 - modules/mcuboot.yml
+- modules/logging_backend_filesystem_fs.yml
 - modules/logging.yml
 - modules/log_output_logging.yml
 - modules/log_msg_logging.yml
