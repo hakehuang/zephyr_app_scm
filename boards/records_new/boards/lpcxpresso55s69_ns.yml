@@ -4,4 +4,5 @@ __load__:
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf_lpc55s69_ns.sh
-
+  no_filter:
+    - CONFIG_ARCH_HAS_USERSPACE

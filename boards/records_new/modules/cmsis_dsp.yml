@@ -123,7 +123,7 @@ cases:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
     extra_args: CONF_FILE=prj_base.conf
-    platform_exclude: mps2_an521
+    platform_exclude: mps2_an521 frdm_kw41z
     min_flash: 128
     min_ram: 128
     filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
@@ -134,6 +134,7 @@ cases:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
     extra_args: CONF_FILE=prj_base.conf
+    platform_exclude: frdm_kw41z
     min_flash: 128
     min_ram: 128
     filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
@@ -144,6 +145,7 @@ cases:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
     extra_args: CONF_FILE=prj_base.conf
+    platform_exclude: frdm_kw41z
     min_flash: 128
     min_ram: 128
     filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB

@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1020_evk_4"
-  version: zephyr-v2.5.0-1524-ga9b4cae019
+  version: zephyr-v2.5.0-2159-g48f5e746c8
 __load__:
 - modules/pwm_drivers_userspace.yml
 - modules/prf.yml
@@ -27,6 +27,7 @@ __load__:
 - modules/log_core_logging.yml
 - modules/littlefs_fatfs_filesystem_qemu_x86.yml
 - modules/littlefs_fatfs_filesystem.yml
+- modules/libc_ignore_faults.yml
 - modules/libc.yml
 - modules/lib_sys_util_tests.yml
 - skips/mimxrt1020_evk.yml

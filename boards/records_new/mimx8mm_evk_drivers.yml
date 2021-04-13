@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimx8mm_evk_drivers"
-  version: zephyr-v2.5.0-1524-ga9b4cae019
+  version: zephyr-v2.5.0-2159-g48f5e746c8
 __load__:
 - modules/drivers_watchdog.yml
 - modules/drivers_userspace.yml
@@ -20,6 +20,7 @@ __load__:
 - modules/drivers_console.yml
 - modules/drivers.yml
 - modules/driver_sensor_subsys.yml
+- modules/driver_sensor.yml
 - modules/driver_entropy.yml
 - modules/driver_can.yml
 - modules/driver.yml

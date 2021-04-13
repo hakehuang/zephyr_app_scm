@@ -17,6 +17,10 @@ cases:
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace ignore_faults
+  kernel.semaphore.usage:
+    path: tests/kernel/semaphore/sys_sem
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.stack.usage:
     path: tests/kernel/stack/stack
     catalog: kernel userspace ignore_faults

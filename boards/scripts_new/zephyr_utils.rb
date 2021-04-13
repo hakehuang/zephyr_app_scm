@@ -56,5 +56,5 @@ end
 
 if __FILE__ == $0
   #load_core_config( "C:/github/create_pipefile/boards/records_new", "frdm_kw41z")
-  load_board_data("C:/github/create_pipefile/boards/records_new", "frdm_kw41z", Hash.new)
+  puts load_board_data("C:/github/create_pipefile/boards/records_new", "twr_ke18f", Hash.new)
 end

@@ -20,7 +20,7 @@ cases:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=500
-    filter: CONFIG_CPU_ARCV2 and CONFIG_CPU_HAS_FPU
+    filter: CONFIG_ISA_ARCV2 and CONFIG_CPU_HAS_FPU
     min_ram: 16
   kernel.fpu_sharing.generic.arm:
     path: tests/kernel/fpu_sharing/generic

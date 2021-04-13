@@ -1,9 +1,10 @@
 ---
 settings:
   case_pipe_name: "mimxrt1020_evk_kernel2"
-  version: zephyr-v2.5.0-1524-ga9b4cae019
+  version: zephyr-v2.5.0-2159-g48f5e746c8
 __load__:
 - modules/kernel_smp_spinlock.yml
+- modules/kernel_smp_ignore_faults.yml
 - modules/kernel_smp.yml
 - modules/kernel_sleep.yml
 - modules/kernel_security_userspace_scrub_registers.yml

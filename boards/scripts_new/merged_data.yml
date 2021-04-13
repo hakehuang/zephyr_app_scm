@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: mimx8mm_evk_kernel4
-  version: zephyr-v2.5.0-1524-ga9b4cae019
+  version: zephyr-v2.5.0-2159-g48f5e746c8
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_mimx8mm_evk.sh
   no_filter:
@@ -249,6 +249,11 @@ cases:
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace ignore_faults
+    attribute: required
+  kernel.semaphore.usage:
+    path: tests/kernel/semaphore/sys_sem
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
     attribute: required
   kernel.stack.usage:
     path: tests/kernel/stack/stack

@@ -1106,6 +1106,7 @@ cases:
     path: tests/drivers/dac/dac_api
     catalog: dac drivers userspace
     platform_allow: frdm_k22f frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f nucleo_f767zi
+      nucleo_f429zi
     depends_on: dac
   drivers.dac.dac_loopback:
     path: tests/drivers/dac/dac_loopback
@@ -1297,11 +1298,10 @@ cases:
     platform_allow: native_posix
   driver.sensor.generic:
     path: tests/drivers/sensor/generic
-    catalog: driver sensor subsys
-    extra_args: CONF_FILE=prj.conf
+    catalog: driver sensor
   driver.sensor.fpu:
     path: tests/drivers/sensor/generic
-    catalog: driver sensor subsys
+    catalog: driver sensor
     extra_args: CONF_FILE=prj_fpu.conf
   drivers.spi.loopback:
     path: tests/drivers/spi/spi_loopback
@@ -1594,7 +1594,7 @@ cases:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
     extra_args: PI_NUM_ITERATIONS=500
-    filter: CONFIG_CPU_ARCV2 and CONFIG_CPU_HAS_FPU
+    filter: CONFIG_ISA_ARCV2 and CONFIG_CPU_HAS_FPU
     min_ram: 16
   kernel.fpu_sharing.generic.arm:
     path: tests/kernel/fpu_sharing/generic
@@ -2016,7 +2016,8 @@ cases:
     filter: CONFIG_XIP
   libraries.libc:
     path: tests/lib/c_lib
-    catalog: clib
+    catalog: clib ignore_faults
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
   lib.cbprintf_fp.printk:
     path: tests/lib/cbprintf_fp
     catalog: unknown
@@ -2103,6 +2104,17 @@ cases:
       qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64 qemu_xtensa
 
       '
+  libraries.cbprintf_package_fp_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64
+
+      '
   libraries.cbprintf_package_long_double:
     path: tests/lib/cbprintf_package
     catalog: cbprintf
@@ -2112,6 +2124,19 @@ cases:
     - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
     platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
       qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv64 qemu_x86_64 qemu_xtensa
+
+      '
+    platform_exclude: qemu_riscv32
+  libraries.cbprintf_package_long_double_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv64 qemu_x86_64
 
       '
     platform_exclude: qemu_riscv32
@@ -2248,7 +2273,7 @@ cases:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
     extra_args: CONF_FILE=prj_base.conf
-    platform_exclude: mps2_an521
+    platform_exclude: mps2_an521 frdm_kw41z
     min_flash: 128
     min_ram: 128
     filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
@@ -2259,6 +2284,7 @@ cases:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
     extra_args: CONF_FILE=prj_base.conf
+    platform_exclude: frdm_kw41z
     min_flash: 128
     min_ram: 128
     filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
@@ -2269,6 +2295,7 @@ cases:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
     extra_args: CONF_FILE=prj_base.conf
+    platform_exclude: frdm_kw41z
     min_flash: 128
     min_ram: 128
     filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
@@ -2463,20 +2490,26 @@ cases:
     catalog: clib minimal_libc userspace
     extra_args: CONF_FILE=prj.conf
     arch_exclude: posix
-    platform_exclude: twr_ke18f
+    platform_exclude: twr_ke18f native_posix_64 nrf52_bsim
   libraries.libc.newlib:
     path: tests/lib/mem_alloc
     catalog: clib newlib userspace
     extra_args: CONF_FILE=prj_newlib.conf
     min_ram: 16
     arch_exclude: posix
-    platform_exclude: twr_ke18f
+    platform_exclude: twr_ke18f native_posix_64 nrf52_bsim
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   libraries.libc.newlibnano:
     path: tests/lib/mem_alloc
     catalog: clib newlib userspace
     extra_args: CONF_FILE=prj_newlibnano.conf
     filter: CONFIG_HAS_NEWLIB_LIBC_NANO
+  libraries.libc.minimal.mem_alloc_negative_testing:
+    path: tests/lib/mem_alloc
+    catalog: clib minimal_libc userspace
+    extra_args: CONF_FILE=prj_negative_testing.conf
+    arch_exclude: posix
+    platform_exclude: twr_ke18f native_posix_64 nrf52_bsim
   libraries.data_structures:
     path: tests/lib/notify
     catalog: notify
@@ -2491,8 +2524,15 @@ cases:
     catalog: ring_buffer circular_buffer
   libraries.libc.sprintf:
     path: tests/lib/sprintf
-    catalog: libc
+    catalog: libc ignore_faults
+    extra_args: CONF_FILE=prj.conf
     filter: not CONFIG_SOC_MCIMX7_M4
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  libraries.libc.sprintf_new:
+    path: tests/lib/sprintf
+    catalog: libc
+    extra_args: CONF_FILE=prj_new.conf
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
   libraries.libc.time:
     path: tests/lib/time
     catalog: libc
@@ -2946,6 +2986,7 @@ cases:
     min_ram: 21
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     platform_exclude: intel_adsp_cavs15
+    depends_on: netif
   net.socket.tcp:
     path: tests/net/socket/tcp
     catalog: net socket userspace
@@ -3472,6 +3513,42 @@ cases:
     catalog: net userspace
     min_ram: 24
     depends_on: netif
+  net.virtual.tunnel.ipip:
+    path: tests/net/virtual
+    catalog: net tunnel virtual
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="192.0.2.2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="198.51.100.1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ipip"
+    depends_on: netif
+    min_ram: 32
+  net.virtual.tunnel.ip6ip:
+    path: tests/net/virtual
+    catalog: net tunnel virtual
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="192.0.2.2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip"
+    depends_on: netif
+    min_ram: 32
+  net.virtual.tunnel.ipip6:
+    path: tests/net/virtual
+    catalog: net tunnel virtual
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="198.51.100.1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ipip6"
+    depends_on: netif
+    min_ram: 32
+  net.virtual.tunnel.ip6ip6:
+    path: tests/net/virtual
+    catalog: net tunnel virtual
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip6"
+    depends_on: netif
+    min_ram: 32
   net.vlan:
     path: tests/net/vlan
     catalog: net vlan
@@ -4086,6 +4163,11 @@ cases:
     catalog: prf
     extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
     type: unit
+  utilities.prf.m32v1207:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x1207
+    type: unit
   utilities.prf.m32va00:
     path: tests/unit/cbprintf
     catalog: prf
@@ -4195,6 +4277,11 @@ cases:
     path: tests/unit/cbprintf
     catalog: prf
     extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x681
+    type: unit
+  utilities.prf.m64v1607:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x1607
     type: unit
   utilities.prf.m64va00:
     path: tests/unit/cbprintf

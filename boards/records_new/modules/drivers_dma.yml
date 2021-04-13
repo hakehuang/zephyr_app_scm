@@ -11,6 +11,19 @@ cases:
     extra_args: CONF_FILE=prj_shell.conf
     depends_on: dma
     min_ram: 16
+  drivers.dma.chan_link_transfer:
+    path: tests/drivers/dma/chan_link_transfer
+    catalog: drivers dma
+    min_ram: 16
+    depends_on: dma
+    platform_allow: frdm_k64f mimxrt1060_evk
+  drivers.dma.interactive.chan_link_transfer:
+    path: tests/drivers/dma/chan_link_transfer
+    catalog: drivers dma
+    extra_args: CONF_FILE=prj_shell.conf
+    depends_on: dma
+    min_ram: 16
+    platform_allow: frdm_k64f mimxrt1060_evk
   drivers.dma.loop_transfer:
     path: tests/drivers/dma/loop_transfer
     catalog: drivers dma

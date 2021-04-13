@@ -4,7 +4,3 @@ cases:
     path: tests/kernel/mp
     catalog: kernel smp
     filter: CONFIG_MP_NUM_CPUS > 1
-  kernel.multiprocessing.smp:
-    path: tests/kernel/smp
-    catalog: kernel smp
-    filter: "(CONFIG_MP_NUM_CPUS > 1)"

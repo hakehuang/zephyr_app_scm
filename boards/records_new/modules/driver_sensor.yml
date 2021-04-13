@@ -1,0 +1,9 @@
+---
+cases:
+  driver.sensor.generic:
+    path: tests/drivers/sensor/generic
+    catalog: driver sensor
+  driver.sensor.fpu:
+    path: tests/drivers/sensor/generic
+    catalog: driver sensor
+    extra_args: CONF_FILE=prj_fpu.conf
