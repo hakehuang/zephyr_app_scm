@@ -1379,6 +1379,19 @@ drivers dma:
     extra_args: CONF_FILE=prj_shell.conf
     depends_on: dma
     min_ram: 16
+  drivers.dma.chan_link_transfer:
+    path: tests/drivers/dma/chan_link_transfer
+    catalog: drivers dma
+    min_ram: 16
+    depends_on: dma
+    platform_allow: frdm_k64f mimxrt1060_evk
+  drivers.dma.interactive.chan_link_transfer:
+    path: tests/drivers/dma/chan_link_transfer
+    catalog: drivers dma
+    extra_args: CONF_FILE=prj_shell.conf
+    depends_on: dma
+    min_ram: 16
+    platform_allow: frdm_k64f mimxrt1060_evk
   drivers.dma.loop_transfer:
     path: tests/drivers/dma/loop_transfer
     catalog: drivers dma
@@ -1952,9 +1965,17 @@ k_heap_api kernel:
     path: tests/kernel/mem_heap/k_heap_api
     catalog: k_heap_api kernel
 kernel mmu demand_paging ignore_faults:
-  kernel.memory_protection.demand_paging:
+  kernel.demand_paging:
     path: tests/kernel/mem_protect/demand_paging
     catalog: kernel mmu demand_paging ignore_faults
+    filter: CONFIG_DEMAND_PAGING
+  kernel.demand_paging.timing_funcs:
+    path: tests/kernel/mem_protect/demand_paging
+    catalog: kernel mmu demand_paging ignore_faults
+    extra_configs:
+    - CONFIG_BACKING_STORE_RAM_PAGES=14
+    - CONFIG_DEMAND_PAGING_STATS_USING_TIMING_FUNCTIONS=y
+    platform_allow: qemu_x86_tiny
     filter: CONFIG_DEMAND_PAGING
 kernel mmu ignore_faults:
   kernel.memory_protection.mem_map:
@@ -2048,10 +2069,6 @@ kernel smp:
     path: tests/kernel/mp
     catalog: kernel smp
     filter: CONFIG_MP_NUM_CPUS > 1
-  kernel.multiprocessing.smp:
-    path: tests/kernel/smp
-    catalog: kernel smp
-    filter: "(CONFIG_MP_NUM_CPUS > 1)"
 kernel userspace ignore_faults:
   kernel.mutex.mutex_error_case:
     path: tests/kernel/mutex/mutex_error_case
@@ -2070,46 +2087,50 @@ kernel userspace ignore_faults:
   kernel.semaphore:
     path: tests/kernel/semaphore/semaphore
     catalog: kernel userspace ignore_faults
+  kernel.semaphore.usage:
+    path: tests/kernel/semaphore/sys_sem
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.stack.usage:
     path: tests/kernel/stack/stack
     catalog: kernel userspace ignore_faults
-kernel threads sched userspace:
+kernel threads sched userspace ignore_faults:
   kernel.scheduler:
     path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+    catalog: kernel threads sched userspace ignore_faults
     extra_configs:
     - CONFIG_TIMESLICING=y
     filter: not CONFIG_SCHED_MULTIQ
   kernel.scheduler.no_timeslicing:
     path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+    catalog: kernel threads sched userspace ignore_faults
     extra_configs:
     - CONFIG_TIMESLICING=n
     filter: not CONFIG_SCHED_MULTIQ
   kernel.scheduler.multiq:
     path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+    catalog: kernel threads sched userspace ignore_faults
     extra_configs:
     - CONFIG_TIMESLICING=y
     extra_args: CONF_FILE=prj_multiq.conf
-  kernel.scheduler.multiq_no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=n
-    extra_args: CONF_FILE=prj_multiq.conf
-  kernel.scheduler.dumb_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    extra_args: CONF_FILE=prj_dumb.conf
   kernel.scheduler.dumb_no_timeslicing:
     path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+    catalog: kernel threads sched userspace ignore_faults
     extra_configs:
     - CONFIG_TIMESLICING=n
     extra_args: CONF_FILE=prj_dumb.conf
+kernel threads sched userspacei ignore_faults:
+  kernel.scheduler.multiq_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspacei ignore_faults
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_multiq.conf
+kernel smp ignore_faults:
+  kernel.multiprocessing.smp:
+    path: tests/kernel/smp
+    catalog: kernel smp ignore_faults
+    filter: "(CONFIG_MP_NUM_CPUS > 1)"
 kernel smp spinlock:
   kernel.multiprocessing.spinlock:
     path: tests/kernel/spinlock
@@ -2625,6 +2646,15 @@ clib newlib userspace:
     catalog: clib newlib userspace
     extra_args: CONF_FILE=prj_newlibnano.conf
     filter: CONFIG_HAS_NEWLIB_LIBC_NANO
+mpsc_pbuf:
+  lib.mpsc_pbuf:
+    path: tests/lib/mpsc_pbuf
+    catalog: mpsc_pbuf
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa
+
+      '
 notify:
   libraries.data_structures:
     path: tests/lib/notify
@@ -4005,6 +4035,59 @@ logging backend filesystem fs:
     catalog: logging backend filesystem fs
     extra_args: DTC_OVERLAY_FILE="./boards/nrf52840dk_nrf52840.overlay;./boards/automount.overlay"
     platform_allow: nrf52840dk_nrf52840
+logging:
+  logging.log_benchmark_v1:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG_STRDUP_BUF_COUNT=8
+    - CONFIG_LOG_STRDUP_MAX_STRING=32
+    - CONFIG_LOG_MODE_DEFERRED=y
+  logging.log_benchmark_user_v1:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG_STRDUP_BUF_COUNT=8
+    - CONFIG_LOG_STRDUP_MAX_STRING=32
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_TEST_USERSPACE=y
+    platform_allow: qemu_x86
+  logging.log_benchmark_v2:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG2_MODE_DEFERRED=y
+  logging.log_benchmark_v2_speed:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_SPEED=y
+  logging.log_benchmark_user_v2:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_TEST_USERSPACE=y
+    platform_allow: qemu_x86
+  logging.add.async:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+  logging.add.sync:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_sync.conf
+  logging.add.user:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_user.conf
+    filter: CONFIG_USERSPACE
 log_core logging:
   logging.log_core:
     path: tests/subsys/logging/log_core
@@ -4021,19 +4104,6 @@ log_core logging:
     extra_args: CONFIG_LOG_IMMEDIATE_CLEAN_OUTPUT=y
     platform_exclude: nucleo_l053r8 nucleo_f030r8 intel_adsp_cavs15 stm32f0_disco
       nrf52_bsim
-logging:
-  logging.add.async:
-    path: tests/subsys/logging/log_core_additional
-    catalog: logging
-  logging.add.sync:
-    path: tests/subsys/logging/log_core_additional
-    catalog: logging
-    extra_args: CONF_FILE=log_sync.conf
-  logging.add.user:
-    path: tests/subsys/logging/log_core_additional
-    catalog: logging
-    extra_args: CONF_FILE=log_user.conf
-    filter: CONFIG_USERSPACE
 log_list logging:
   logging.log_list:
     path: tests/subsys/logging/log_list
@@ -4042,6 +4112,59 @@ log_msg logging:
   logging.log_msg:
     path: tests/subsys/logging/log_msg
     catalog: log_msg logging
+log_msg2 logging:
+  logging.log_msg2:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_msg2 logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa native_posix_64
+
+      '
+  logging.log_msg2_no_overflow:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_msg2 logging
+    extra_configs:
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa native_posix native_posix_64
+
+      '
+  logging.log_msg2_64b_timestamp:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_msg2 logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa native_posix_64
+
+      '
+  logging.log_msg2_fp:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_msg2 logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m3 qemu_cortex_r5
+      qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64 qemu_xtensa native_posix_64
+
+      '
+  logging.log_msg2_fp_64b_timestamp:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_msg2 logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m3 qemu_cortex_r5
+      qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64 qemu_xtensa native_posix_64
+
+      '
 log_output logging:
   logging.log_output:
     path: tests/subsys/logging/log_output

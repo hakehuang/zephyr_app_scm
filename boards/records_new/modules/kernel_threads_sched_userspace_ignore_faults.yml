@@ -2,37 +2,25 @@
 cases:
   kernel.scheduler:
     path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+    catalog: kernel threads sched userspace ignore_faults
     extra_configs:
     - CONFIG_TIMESLICING=y
     filter: not CONFIG_SCHED_MULTIQ
   kernel.scheduler.no_timeslicing:
     path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+    catalog: kernel threads sched userspace ignore_faults
     extra_configs:
     - CONFIG_TIMESLICING=n
     filter: not CONFIG_SCHED_MULTIQ
   kernel.scheduler.multiq:
     path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+    catalog: kernel threads sched userspace ignore_faults
     extra_configs:
     - CONFIG_TIMESLICING=y
     extra_args: CONF_FILE=prj_multiq.conf
-  kernel.scheduler.multiq_no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=n
-    extra_args: CONF_FILE=prj_multiq.conf
-  kernel.scheduler.dumb_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    extra_args: CONF_FILE=prj_dumb.conf
   kernel.scheduler.dumb_no_timeslicing:
     path: tests/kernel/sched/schedule_api
-    catalog: kernel threads sched userspace
+    catalog: kernel threads sched userspace ignore_faults
     extra_configs:
     - CONFIG_TIMESLICING=n
     extra_args: CONF_FILE=prj_dumb.conf

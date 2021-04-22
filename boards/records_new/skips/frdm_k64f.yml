@@ -6,6 +6,8 @@ __load__:
 cases:
   peripheral.spi:
     build_only: true
+  subsys.modbus.rtu:
+    build_only: true
   peripheral.pinmux:
     comments: "no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/"
     result: FAILURE    
@@ -21,3 +23,4 @@ cases:
   #net.traffic_class.rx_4_tx_8:
   #  result: skip
   #  comments: "run error http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_samples/detail/frdmk64f/5/pipeline/112"
+

@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: mimx8mm_evk_kernel4
-  version: zephyr-v2.5.0-2159-g48f5e746c8
+  version: zephyr-v2.5.0-2384-gfacd0f57db
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_mimx8mm_evk.sh
   no_filter:
@@ -49,6 +49,30 @@ cases:
     attribute: required
   arch.interrupt.no_optimizations:
     comments: no console output too slow
+    build_only: true
+    attribute: required
+  net.mqtt:
+    comments: no mqtt
+    build_only: true
+    attribute: required
+  net.mqtt.pubsub:
+    comments: no mqtt
+    build_only: true
+    attribute: required
+  net.mqtt.pubsub.preempt:
+    comments: no mqtt
+    build_only: true
+    attribute: required
+  net.mqtt.subscriber:
+    comments: no mqtt
+    build_only: true
+    attribute: required
+  net.mqtt.subscriber.preempt:
+    comments: no mqtt
+    build_only: true
+    attribute: required
+  net.mqtt.tls:
+    comments: no mqtt
     build_only: true
     attribute: required
   test_utf8_in_kconfig_values:

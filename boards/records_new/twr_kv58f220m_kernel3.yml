@@ -1,14 +1,15 @@
 ---
 settings:
   case_pipe_name: "twr_kv58f220m_kernel3"
-  version: zephyr-v2.5.0-2159-g48f5e746c8
+  version: zephyr-v2.5.0-2384-gfacd0f57db
 __load__:
 - modules/kernel_timer_userspace_ignore_faults.yml
 - modules/kernel_timer_userspace.yml
 - modules/kernel_timer.yml
 - modules/kernel_threads_userspace_ignore_faults.yml
 - modules/kernel_threads_userspace.yml
-- modules/kernel_threads_sched_userspace.yml
+- modules/kernel_threads_sched_userspacei_ignore_faults.yml
+- modules/kernel_threads_sched_userspace_ignore_faults.yml
 - modules/kernel_threads.yml
 - skips/twr_kv58f220m.yml
 - boards/twr_kv58f220m.yml
