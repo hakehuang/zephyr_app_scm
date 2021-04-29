@@ -3581,17 +3581,6 @@ cases:
     catalog: net vlan
     min_ram: 32
     depends_on: netif
-  portability.cmsis_rtos_v1:
-    path: tests/portability/cmsis_rtos_v1
-    catalog: cmsis_rtos
-    min_ram: 32
-    min_flash: 34
-  portability.cmsis_rtos_v2:
-    path: tests/portability/cmsis_rtos_v2
-    catalog: cmsis_rtos
-    platform_exclude: m2gl025_miv intel_adsp_cavs15
-    min_ram: 32
-    min_flash: 34
   portability.posix.common:
     path: tests/posix/common
     catalog: posix
@@ -3996,6 +3985,17 @@ cases:
     path: tests/subsys/openthread
     catalog: ot_radio
     platform_allow: native_posix native_posix_64
+  portability.cmsis_rtos_v1:
+    path: tests/subsys/portability/cmsis_rtos_v1
+    catalog: cmsis_rtos
+    min_ram: 32
+    min_flash: 34
+  portability.cmsis_rtos_v2:
+    path: tests/subsys/portability/cmsis_rtos_v2
+    catalog: cmsis_rtos
+    platform_exclude: m2gl025_miv intel_adsp_cavs15
+    min_ram: 32
+    min_flash: 34
   subsys.power.device_pm:
     path: tests/subsys/power/power_mgmt
     catalog: power
