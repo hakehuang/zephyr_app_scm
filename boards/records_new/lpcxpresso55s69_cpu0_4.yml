@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s69_cpu0_4"
-  version: zephyr-v2.5.0-2637-ga3469a0497
+  version: v2.6.0-rc1-158-gcd9421a45e
 __load__:
 - modules/pwm_drivers_userspace.yml
 - modules/prf.yml
@@ -23,10 +23,10 @@ __load__:
 - modules/logging_backend_filesystem_fs.yml
 - modules/logging.yml
 - modules/log_output_logging.yml
-- modules/log_msg2_logging.yml
 - modules/log_msg_logging.yml
 - modules/log_list_logging.yml
 - modules/log_core_logging.yml
+- modules/log_api_logging.yml
 - modules/littlefs_fatfs_filesystem_qemu_x86.yml
 - modules/littlefs_fatfs_filesystem.yml
 - modules/libc_ignore_faults.yml

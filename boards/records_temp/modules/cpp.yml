@@ -1,20 +1,20 @@
 ---
 cases:
-  application_development.cpp.main:
-    path: tests/application_development/cpp
+  cpp.main:
+    path: tests/subsys/cpp/cxx
     catalog: cpp
     platform_exclude: qemu_x86_coverage
-  application_development.cpp.libcxx:
-    path: tests/application_development/libcxx
+  cpp.libcxx:
+    path: tests/subsys/cpp/libcxx
     catalog: cpp
     platform_exclude: qemu_x86_coverage
     min_flash: 54
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-  application_development.cpp.libcxx.exceptions:
-    path: tests/application_development/libcxx
+  cpp.libcxx.exceptions:
+    path: tests/subsys/cpp/libcxx
     catalog: cpp
     extra_configs:
     - CONFIG_EXCEPTIONS=y
-    platform_exclude: qemu_x86_coverage
+    platform_allow: mps2_an385
     min_flash: 54
     filter: TOOLCHAIN_HAS_NEWLIB == 1

@@ -9,6 +9,7 @@ cases:
     - CONFIG_NET_TEST_TUNNEL_NAME="ipip"
     depends_on: netif
     min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
   net.virtual.tunnel.ip6ip:
     path: tests/net/virtual
     catalog: net tunnel virtual
@@ -18,6 +19,7 @@ cases:
     - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip"
     depends_on: netif
     min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
   net.virtual.tunnel.ipip6:
     path: tests/net/virtual
     catalog: net tunnel virtual
@@ -27,6 +29,7 @@ cases:
     - CONFIG_NET_TEST_TUNNEL_NAME="ipip6"
     depends_on: netif
     min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
   net.virtual.tunnel.ip6ip6:
     path: tests/net/virtual
     catalog: net tunnel virtual
@@ -36,3 +39,4 @@ cases:
     - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip6"
     depends_on: netif
     min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER

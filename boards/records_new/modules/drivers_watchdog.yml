@@ -9,8 +9,6 @@ cases:
   drivers.watchdog.stm32wwdg:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
-    extra_configs:
-    - CONFIG_CLOCK_STM32_APB1_PRESCALER=16
     depends_on: watchdog
     filter: dt_compat_enabled("st,stm32-window-watchdog")
   drivers.watchdog.mec15xxevb_assy6853:

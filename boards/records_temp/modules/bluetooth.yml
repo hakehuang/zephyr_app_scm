@@ -28,8 +28,12 @@ cases:
     catalog: bluetooth
     platform_allow: nrf52_bsim
     build_only: true
-  bluetooth.df:
-    path: tests/bluetooth/df
+  bluetooth.df.conectionless_cte_rx:
+    path: tests/bluetooth/df/connectionless_cte_rx
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.df.conectionless_cte_tx:
+    path: tests/bluetooth/df/connectionless_cte_tx
     catalog: bluetooth
     platform_allow: nrf52_bsim
   bluetooth.hci_codecs_info:

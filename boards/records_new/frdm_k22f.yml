@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_k22f"
-  version: zephyr-v2.5.0-2637-ga3469a0497
+  version: v2.6.0-rc1-158-gcd9421a45e
 __load__:
 - modules/boards.yml
 - modules/benchmark_userspace.yml
@@ -12,12 +12,14 @@ __load__:
 - modules/base64.yml
 - modules/arm_userspace.yml
 - modules/arm_tz_ns_tz_wrap_func.yml
+- modules/arm_tfm.yml
 - modules/arm_psci_drivers_userspace.yml
 - modules/arm_interrupt_vector_table.yml
 - modules/arm_interrupt_ignore_faults.yml
 - modules/arm_interrupt.yml
 - modules/arm.yml
 - modules/adc_drivers_userspace.yml
+- modules/adc_dma_trigger.yml
 - skips/frdm_k22f.yml
 - boards/frdm_k22f.yml
 cases:

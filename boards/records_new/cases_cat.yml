@@ -1,23 +1,4 @@
 ---
-cpp:
-  application_development.cpp.main:
-    path: tests/application_development/cpp
-    catalog: cpp
-    platform_exclude: qemu_x86_coverage
-  application_development.cpp.libcxx:
-    path: tests/application_development/libcxx
-    catalog: cpp
-    platform_exclude: qemu_x86_coverage
-    min_flash: 54
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  application_development.cpp.libcxx.exceptions:
-    path: tests/application_development/libcxx
-    catalog: cpp
-    extra_configs:
-    - CONFIG_EXCEPTIONS=y
-    platform_exclude: qemu_x86_coverage
-    min_flash: 54
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
 gen_inc_file:
   buildsystem.include_file:
     path: tests/application_development/gen_inc_file
@@ -80,7 +61,8 @@ arm:
     filter:
     - not CONFIG_TRUSTED_EXECUTION_NONSECURE
     - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
-    platform_exclude: degu_evk
+    platform_allow: qemu_cortex_m0 qemu_cortex_m3 mps2_an385 mps2_an521 nrf52840dk_nrf52840
+      nrf9160dk_nrf9160 nrf51dk_nrf51422
     arch_allow: arm
   arch.arm.sw_vector_relay:
     path: tests/arch/arm/arm_sw_vector_relay
@@ -139,6 +121,19 @@ nmi interrupt arm:
     path: tests/arch/arm/arm_runtime_nmi
     catalog: nmi interrupt arm
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+arm tfm:
+  arch.arm.swap.tz:
+    path: tests/arch/arm/arm_thread_swap_tz
+    catalog: arm tfm
+    filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
+    arch_allow: arm
+  arch.arm.swap.tz_off:
+    path: tests/arch/arm/arm_thread_swap_tz
+    catalog: arm tfm
+    extra_configs:
+    - CONFIG_ARM_NONSECURE_PREEMPTIBLE_SECURE_CALLS=n
+    filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
     arch_allow: arm
 arm tz_ns tz_wrap_func:
   arch.arm.tz_wrap_func:
@@ -377,13 +372,6 @@ benchmark:
     catalog: benchmark
     arch_allow: posix
     min_ram: 32
-  benchmark.kernel.boot_time:
-    path: tests/benchmarks/boot_time
-    catalog: benchmark
-    arch_allow: x86 arm posix
-    platform_exclude: qemu_x86 qemu_x86_coverage qemu_x86_64 qemu_x86_nommu minnowboard
-      acrn acrn_ehl_crb
-    filter: CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC >= 1000000
   benchmark.kernel.footprints.default:
     path: tests/benchmarks/footprints
     catalog: benchmark
@@ -467,8 +455,12 @@ bluetooth:
     catalog: bluetooth
     platform_allow: nrf52_bsim
     build_only: true
-  bluetooth.df:
-    path: tests/bluetooth/df
+  bluetooth.df.conectionless_cte_rx:
+    path: tests/bluetooth/df/connectionless_cte_rx
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.df.conectionless_cte_tx:
+    path: tests/bluetooth/df/connectionless_cte_tx
     catalog: bluetooth
     platform_allow: nrf52_bsim
   bluetooth.hci_codecs_info:
@@ -973,6 +965,17 @@ adc drivers userspace:
     path: tests/drivers/adc/adc_api
     catalog: adc drivers userspace
     depends_on: adc
+  drivers.adc.emul:
+    path: tests/drivers/adc/adc_emul
+    catalog: adc drivers userspace
+    depends_on: adc
+    platform_allow: native_posix
+adc dma trigger:
+  drivers.adc-dma:
+    path: tests/drivers/adc/adc_dma
+    catalog: adc dma trigger
+    depends_on: adc dma pit
+    platform_allow: frdm_k82f frdm_k64f
 drivers:
   drivers.build.build:
     path: tests/drivers/build_all
@@ -1054,6 +1057,13 @@ drivers:
     depends_on:
     - adc spi
     - gpio spi i2c
+  drivers.led.build:
+    path: tests/drivers/build_all
+    catalog: drivers
+    extra_args: CONF_FILE=led.conf
+    build_only: true
+    min_ram: 32
+    depends_on: gpio spi i2c
   drivers.modem.build:
     path: tests/drivers/build_all
     catalog: drivers
@@ -1327,6 +1337,10 @@ driver can:
     path: tests/drivers/can/api
     catalog: driver can
     depends_on: can
+  drivers.canfd:
+    path: tests/drivers/can/canfd
+    catalog: driver can
+    depends_on: canfd
   drivers.can.stm32:
     path: tests/drivers/can/stm32
     catalog: driver can
@@ -1356,17 +1370,16 @@ dac drivers userspace:
     path: tests/drivers/dac/dac_api
     catalog: dac drivers userspace
     platform_allow: frdm_k22f frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f nucleo_f767zi
-      nucleo_f429zi
+      nucleo_f429zi bl652_dvk bl653_dvk bl654_dvk
     depends_on: dac
 dac drivers:
   drivers.dac.dac_loopback:
     path: tests/drivers/dac/dac_loopback
     catalog: dac drivers
     depends_on: dac adc
-    platform_allow: 'frdm_k22f frdm_k64f nucleo_f207zg nucleo_l073rz nucleo_l152re
-      twr_ke18f
-
-      '
+    platform_allow: |
+      frdm_k22f frdm_k64f nucleo_f207zg nucleo_l073rz nucleo_l152re twr_ke18f
+      bl652_dvk bl653_dvk bl654_dvk
 drivers dma:
   drivers.dma:
     path: tests/drivers/dma/chan_blen_transfer
@@ -1572,6 +1585,43 @@ driver sensor:
     path: tests/drivers/sensor/generic
     catalog: driver sensor
     extra_args: CONF_FILE=prj_fpu.conf
+test_framework:
+  testing.drivers.sbs_gauge:
+    path: tests/drivers/sensor/sbs_gauge
+    catalog: test_framework
+    build_only: true
+    filter: dt_compat_enabled("sbs,sbs-gauge")
+  testing.ztest:
+    path: tests/ztest/base
+    catalog: test_framework
+    type: unit
+  testing.ztest.verbose_0:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_0.conf
+  testing.ztest.verbose_1:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_1.conf
+  testing.ztest.verbose_2:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_2.conf
+  testing.ztest.regular_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+  testing.ztest.customized_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_customized_output.conf
+  testing.ztest.mock:
+    path: tests/ztest/mock
+    catalog: test_framework
+    arch_exclude: arm
+  testing.ztest.unit:
+    path: tests/ztest/mock
+    catalog: test_framework
+    type: unit
 drivers spi:
   drivers.spi.loopback:
     path: tests/drivers/spi/spi_loopback
@@ -1596,8 +1646,6 @@ drivers watchdog:
   drivers.watchdog.stm32wwdg:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
-    extra_configs:
-    - CONFIG_CLOCK_STM32_APB1_PRESCALER=16
     depends_on: watchdog
     filter: dt_compat_enabled("st,stm32-window-watchdog")
   drivers.watchdog.mec15xxevb_assy6853:
@@ -1616,31 +1664,32 @@ kernel userspace:
     catalog: kernel userspace
     extra_configs:
     - CONFIG_THREAD_LOCAL_STORAGE=y
-    min_flash: 33
     filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    min_flash: 33
   kernel.common.misra:
     path: tests/kernel/common
     catalog: kernel userspace
     extra_configs:
     - CONFIG_MISRA_SANE=y
-    min_flash: 33
     filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    min_flash: 33
   kernel.common.nano32:
     path: tests/kernel/common
     catalog: kernel userspace
     extra_configs:
     - CONFIG_CBPRINTF_NANO=y
     - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
-    min_flash: 33
     filter: not CONFIG_KERNEL_COHERENCE
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 33
   kernel.common.nano64:
     path: tests/kernel/common
     catalog: kernel userspace
     extra_configs:
     - CONFIG_CBPRINTF_NANO=y
     - CONFIG_CBPRINTF_FULL_INTEGRAL=y
-    min_flash: 33
     filter: not CONFIG_KERNEL_COHERENCE
+    min_flash: 33
   kernel.fpu_sharing.float_disable.arm:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace
@@ -1735,6 +1784,12 @@ kernel:
     extra_args: PI_NUM_ITERATIONS=70000
     filter: CONFIG_ARMV7_M_ARMV8_M_FP
     min_ram: 16
+  kernel.fpu_sharing.generic.arm64:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    arch_allow: arm64
+    filter: CONFIG_CPU_CORTEX_A
   kernel.fpu_sharing.generic.riscv32:
     path: tests/kernel/fpu_sharing/generic
     catalog: kernel
@@ -1785,6 +1840,14 @@ kernel:
   kernel.memory_heap:
     path: tests/kernel/mem_heap/mheap_api_concept
     catalog: kernel
+    extra_configs:
+    - CONFIG_IRQ_OFFLOAD=y
+  kernel.memory_heap_no_multithreading:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    platform_allow: qemu_cortex_m3 qemu_cortex_m0
   kernel.memory_protection.sys_sem.nouser:
     path: tests/kernel/mem_protect/sys_sem
     catalog: kernel
@@ -1796,20 +1859,26 @@ kernel:
   kernel.memory_slabs.api.mslab_api:
     path: tests/kernel/mem_slab/mslab_api
     catalog: kernel
+  kernel.memory_slabs.api_no_multithreading:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    platform_allow: qemu_cortex_m3 qemu_cortex_m0
   kernel.memory_slabs.concept:
     path: tests/kernel/mem_slab/mslab_concept
     catalog: kernel
   kernel.memory_slabs.threadsafe:
     path: tests/kernel/mem_slab/mslab_threadsafe
     catalog: kernel
+  kernel.message_queue_usage:
+    path: tests/kernel/msgq/msgq_usage
+    catalog: kernel
   system.mutex.nouser:
     path: tests/kernel/mutex/sys_mutex
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_USERSPACE=n
-  kernel.objects.tracing:
-    path: tests/kernel/obj_tracing
-    catalog: kernel
   kernel.objects:
     path: tests/kernel/pending
     catalog: kernel
@@ -1836,6 +1905,8 @@ kernel:
     path: tests/kernel/threads/no-multithreading
     catalog: kernel
     filter: not CONFIG_SMP
+    platform_allow: qemu_cortex_m0 qemu_cortex_m3 mps2_an385 mps2_an521 nrf52840dk_nrf52840
+      nrf9160dk_nrf9160 nrf51dk_nrf51422
   kernel.tickless.concept:
     path: tests/kernel/tickless/tickless_concept
     catalog: kernel
@@ -1919,6 +1990,36 @@ kernel ignore_faults:
     path: tests/kernel/fatal/exception
     catalog: kernel ignore_faults
     extra_args: CONF_FILE=sentinel.conf
+  kernel.no-mt.cpu_exception:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=0
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.oops:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=1
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.panic:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=2
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.zephyr_assert:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=3
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.arbitrary_reason:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=4
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.arbitrary_reason_negative:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=5
+    platform_allow: qemu_cortex_m3
 kernel interrupt isr_table:
   arch.interrupt.gen_isr_table.arm_baseline:
     path: tests/kernel/gen_isr_table
@@ -1958,8 +2059,20 @@ kernel interrupt:
   arch.interrupt:
     path: tests/kernel/interrupt
     catalog: kernel interrupt
-    arch_exclude: nios2
+    arch_exclude: nios2 x86
     filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE
+  arch.interrupt.x86_64:
+    path: tests/kernel/interrupt
+    catalog: kernel interrupt
+    arch_allow: x86
+    filter: CONFIG_X86_64
+  arch.interrupt.x86.interrupt:
+    path: tests/kernel/interrupt
+    catalog: kernel interrupt
+    extra_configs:
+    - CONFIG_COMPILER_OPT="-mgeneral-regs-only"
+    arch_allow: x86
+    filter: not CONFIG_X86_64
 k_heap_api kernel:
   kernel.k_heap_api:
     path: tests/kernel/mem_heap/k_heap_api
@@ -1973,7 +2086,6 @@ kernel mmu demand_paging ignore_faults:
     path: tests/kernel/mem_protect/demand_paging
     catalog: kernel mmu demand_paging ignore_faults
     extra_configs:
-    - CONFIG_BACKING_STORE_RAM_PAGES=14
     - CONFIG_DEMAND_PAGING_STATS_USING_TIMING_FUNCTIONS=y
     platform_allow: qemu_x86_tiny
     filter: CONFIG_DEMAND_PAGING
@@ -2002,7 +2114,7 @@ kernel security userspace ignore_faults:
     path: tests/kernel/mem_protect/mem_protect
     catalog: kernel security userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_exclude: twr_ke18f
+    platform_exclude: twr_ke18f qemu_arc_hs qemu_arc_em
   kernel.memory_protection.gap_filling.arc:
     path: tests/kernel/mem_protect/mem_protect
     catalog: kernel security userspace ignore_faults
@@ -2171,6 +2283,14 @@ kernel timer:
     path: tests/kernel/timer/starve
     catalog: kernel timer
     build_only: true
+  kernel.timer.no_multitheading:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    - CONFIG_TEST_USERSPACE=n
+    - CONFIG_SPIN_VALIDATE=n
+    platform_allow: qemu_cortex_m3
   kernel.timer.monotonic:
     path: tests/kernel/timer/timer_monotonic
     catalog: kernel timer
@@ -2206,32 +2326,24 @@ cbprintf:
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
-      qemu_xtensa
-
-      '
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   libraries.cbprintf_package_no_generic:
     path: tests/lib/cbprintf_package
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
-      qemu_xtensa
-
-      '
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   libraries.cbprintf_package_fp:
     path: tests/lib/cbprintf_package
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_FP_SUPPORT=y
     - CONFIG_CBPRINTF_COMPLETE=y
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64 qemu_xtensa
-
-      '
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   libraries.cbprintf_package_fp_align_offset:
     path: tests/lib/cbprintf_package
     catalog: cbprintf
@@ -2239,10 +2351,10 @@ cbprintf:
     - CONFIG_CBPRINTF_FP_SUPPORT=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64
-
-      '
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   libraries.cbprintf_package_long_double:
     path: tests/lib/cbprintf_package
     catalog: cbprintf
@@ -2250,10 +2362,10 @@ cbprintf:
     - CONFIG_CBPRINTF_FP_SUPPORT=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv64 qemu_x86_64 qemu_xtensa
-
-      '
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
     platform_exclude: qemu_riscv32
   libraries.cbprintf_package_long_double_align_offset:
     path: tests/lib/cbprintf_package
@@ -2263,21 +2375,17 @@ cbprintf:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
     - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv64 qemu_x86_64
-
-      '
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
     platform_exclude: qemu_riscv32
   libraries.cbprintf_package_nano:
     path: tests/lib/cbprintf_package
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_NANO=y
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
-      qemu_xtensa
-
-      '
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
 cmsis_dsp:
   libraries.cmsis_dsp.basicmath:
     path: tests/lib/cmsis_dsp/basicmath
@@ -2543,6 +2651,7 @@ devicetree:
   libraries.devicetree.devices:
     path: tests/lib/devicetree/devices
     catalog: devicetree
+    platform_exclude: hsdk hsdk_2cores
 fdtable:
   libraries.os.fdtable:
     path: tests/lib/fdtable
@@ -2633,7 +2742,7 @@ clib minimal_libc userspace:
     arch_exclude: posix
     platform_exclude: twr_ke18f native_posix_64 nrf52_bsim
 clib newlib userspace:
-  libraries.libc.newlib:
+  libraries.libc.newlib.mem_alloc:
     path: tests/lib/mem_alloc
     catalog: clib newlib userspace
     extra_args: CONF_FILE=prj_newlib.conf
@@ -2641,7 +2750,7 @@ clib newlib userspace:
     arch_exclude: posix
     platform_exclude: twr_ke18f native_posix_64 nrf52_bsim
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-  libraries.libc.newlibnano:
+  libraries.libc.newlib_nano.mem_alloc:
     path: tests/lib/mem_alloc
     catalog: clib newlib userspace
     extra_args: CONF_FILE=prj_newlibnano.conf
@@ -2655,6 +2764,21 @@ mpsc_pbuf:
       qemu_xtensa
 
       '
+clib newlib:
+  libraries.libc.newlib.thread_safety:
+    path: tests/lib/newlib/thread_safety
+    catalog: clib newlib
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+  libraries.libc.newlib_nano.thread_safety:
+    path: tests/lib/newlib/thread_safety
+    catalog: clib newlib
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    filter:
+    - CONFIG_HAS_NEWLIB_LIBC_NANO
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
 notify:
   libraries.data_structures:
     path: tests/lib/notify
@@ -2838,6 +2962,19 @@ net iface userspace:
     path: tests/net/iface
     catalog: net iface userspace
     min_ram: 16
+    depends_on: netif
+net igmp:
+  net.igmp:
+    path: tests/net/igmp
+    catalog: net igmp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+  net.igmp.preempt:
+    path: tests/net/igmp
+    catalog: net igmp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
 net ip-addr:
   net.ip-addr:
@@ -3091,6 +3228,7 @@ net ptp gptp userspace:
     catalog: net ptp gptp userspace
     min_ram: 32
     depends_on: netif
+    platform_allow: frdm_k64f sam_e70_xplained native_posix
 net route:
   net.route:
     path: tests/net/route
@@ -3732,6 +3870,7 @@ net tunnel virtual:
     - CONFIG_NET_TEST_TUNNEL_NAME="ipip"
     depends_on: netif
     min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
   net.virtual.tunnel.ip6ip:
     path: tests/net/virtual
     catalog: net tunnel virtual
@@ -3741,6 +3880,7 @@ net tunnel virtual:
     - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip"
     depends_on: netif
     min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
   net.virtual.tunnel.ipip6:
     path: tests/net/virtual
     catalog: net tunnel virtual
@@ -3750,6 +3890,7 @@ net tunnel virtual:
     - CONFIG_NET_TEST_TUNNEL_NAME="ipip6"
     depends_on: netif
     min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
   net.virtual.tunnel.ip6ip6:
     path: tests/net/virtual
     catalog: net tunnel virtual
@@ -3759,24 +3900,13 @@ net tunnel virtual:
     - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip6"
     depends_on: netif
     min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
 net vlan:
   net.vlan:
     path: tests/net/vlan
     catalog: net vlan
     min_ram: 32
     depends_on: netif
-cmsis_rtos:
-  portability.cmsis_rtos_v1:
-    path: tests/portability/cmsis_rtos_v1
-    catalog: cmsis_rtos
-    min_ram: 32
-    min_flash: 34
-  portability.cmsis_rtos_v2:
-    path: tests/portability/cmsis_rtos_v2
-    catalog: cmsis_rtos
-    platform_exclude: m2gl025_miv intel_adsp_cavs15
-    min_ram: 32
-    min_flash: 34
 posix:
   portability.posix.common:
     path: tests/posix/common
@@ -3899,6 +4029,25 @@ can isotp:
     path: tests/subsys/canbus/isotp/implementation
     catalog: can isotp
     depends_on: can
+cpp:
+  cpp.main:
+    path: tests/subsys/cpp/cxx
+    catalog: cpp
+    platform_exclude: qemu_x86_coverage
+  cpp.libcxx:
+    path: tests/subsys/cpp/libcxx
+    catalog: cpp
+    platform_exclude: qemu_x86_coverage
+    min_flash: 54
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  cpp.libcxx.exceptions:
+    path: tests/subsys/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_EXCEPTIONS=y
+    platform_allow: mps2_an385
+    min_flash: 54
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
 ignore_faults ignore_qemu_crash:
   coredump.logging_backend:
     path: tests/subsys/debug/coredump
@@ -4015,6 +4164,170 @@ jwt:
     min_ram: 96
     min_flash: 72
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+log_api logging:
+  logging.log_api_deferred_overflow_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_deferred_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_deferred_no_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_deferred_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_deferred_func_prefix:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    - CONFIG_LOG_DETECT_MISSED_STRDUP=n
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_immediate:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_immediate_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_immediate_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_overflow_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_no_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_func_prefix:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_64b_timestamp:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_immediate:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_immediate_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_immediate_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_immediate_64b_timestamp:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2_no_overflow:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2_64b_timestamp:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2_fp:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2_fp_64b_timestamp:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
 logging backend filesystem fs:
   subsys.logging.log_backend_fs.automounted:
     path: tests/subsys/logging/log_backend_fs
@@ -4053,7 +4366,7 @@ logging:
     - CONFIG_LOG_STRDUP_MAX_STRING=32
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_TEST_USERSPACE=y
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 native_posix
   logging.log_benchmark_v2:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
@@ -4075,7 +4388,7 @@ logging:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_TEST_USERSPACE=y
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 native_posix
   logging.add.async:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
@@ -4112,59 +4425,6 @@ log_msg logging:
   logging.log_msg:
     path: tests/subsys/logging/log_msg
     catalog: log_msg logging
-log_msg2 logging:
-  logging.log_msg2:
-    path: tests/subsys/logging/log_msg2
-    catalog: log_msg2 logging
-    extra_configs:
-    - CONFIG_CBPRINTF_COMPLETE=y
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
-      qemu_xtensa native_posix_64
-
-      '
-  logging.log_msg2_no_overflow:
-    path: tests/subsys/logging/log_msg2
-    catalog: log_msg2 logging
-    extra_configs:
-    - CONFIG_LOG_MODE_OVERFLOW=n
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
-      qemu_xtensa native_posix native_posix_64
-
-      '
-  logging.log_msg2_64b_timestamp:
-    path: tests/subsys/logging/log_msg2
-    catalog: log_msg2 logging
-    extra_configs:
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG_TIMESTAMP_64BIT=y
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
-      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
-      qemu_xtensa native_posix_64
-
-      '
-  logging.log_msg2_fp:
-    path: tests/subsys/logging/log_msg2
-    catalog: log_msg2 logging
-    extra_configs:
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_CBPRINTF_FP_SUPPORT=y
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m3 qemu_cortex_r5
-      qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64 qemu_xtensa native_posix_64
-
-      '
-  logging.log_msg2_fp_64b_timestamp:
-    path: tests/subsys/logging/log_msg2
-    catalog: log_msg2 logging
-    extra_configs:
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_CBPRINTF_FP_SUPPORT=y
-    - CONFIG_LOG_TIMESTAMP_64BIT=y
-    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m3 qemu_cortex_r5
-      qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86_64 qemu_xtensa native_posix_64
-
-      '
 log_output logging:
   logging.log_output:
     path: tests/subsys/logging/log_output
@@ -4191,20 +4451,33 @@ ot_radio:
     catalog: ot_radio
     platform_allow: native_posix native_posix_64
 power:
-  subsys.power.device_pm:
-    path: tests/subsys/power/power_mgmt
+  subsys.pm.device_pm:
+    path: tests/subsys/pm/power_mgmt
     catalog: power
     arch_exclude: arc xtensa
     platform_exclude: rv32m1_vega_ri5cy rv32m1_vega_zero_riscy litex_vexriscv nrf5340dk_nrf5340_cpunet
-  subsys.power.pm_soc:
-    path: tests/subsys/power/power_mgmt_soc
+      thingy53_nrf5340_cpunet bl5340_dvk_cpunet
+  subsys.pm.pm_soc:
+    path: tests/subsys/pm/power_mgmt_soc
     catalog: power
     platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
       nucleo_wb55rg nucleo_l476rg
   pm-states-api.dts:
-    path: tests/subsys/power/power_states_api
+    path: tests/subsys/pm/power_states_api
     catalog: power
     platform_allow: native_posix
+cmsis_rtos:
+  portability.cmsis_rtos_v1:
+    path: tests/subsys/portability/cmsis_rtos_v1
+    catalog: cmsis_rtos
+    min_ram: 32
+    min_flash: 34
+  portability.cmsis_rtos_v2:
+    path: tests/subsys/portability/cmsis_rtos_v2
+    catalog: cmsis_rtos
+    platform_exclude: m2gl025_miv intel_adsp_cavs15
+    min_ram: 32
+    min_flash: 34
 settings_fcb:
   system.settings.fcb.raw:
     path: tests/subsys/settings/fcb/raw
@@ -4673,38 +4946,6 @@ lib_sys_util_tests:
   utilities.dec:
     path: tests/unit/util
     catalog: lib_sys_util_tests
-    type: unit
-test_framework:
-  testing.ztest:
-    path: tests/ztest/base
-    catalog: test_framework
-    type: unit
-  testing.ztest.verbose_0:
-    path: tests/ztest/base
-    catalog: test_framework
-    extra_args: CONF_FILE=prj_verbose_0.conf
-  testing.ztest.verbose_1:
-    path: tests/ztest/base
-    catalog: test_framework
-    extra_args: CONF_FILE=prj_verbose_1.conf
-  testing.ztest.verbose_2:
-    path: tests/ztest/base
-    catalog: test_framework
-    extra_args: CONF_FILE=prj_verbose_2.conf
-  testing.ztest.regular_output:
-    path: tests/ztest/custom_output
-    catalog: test_framework
-  testing.ztest.customized_output:
-    path: tests/ztest/custom_output
-    catalog: test_framework
-    extra_args: CONF_FILE=prj_customized_output.conf
-  testing.ztest.mock:
-    path: tests/ztest/mock
-    catalog: test_framework
-    arch_exclude: arm
-  testing.ztest.unit:
-    path: tests/ztest/mock
-    catalog: test_framework
     type: unit
 test_framework userspace ignore_faults:
   testing.ztest.error_hook:

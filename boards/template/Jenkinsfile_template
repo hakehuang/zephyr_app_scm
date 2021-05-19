@@ -8,7 +8,7 @@
       echo '#{item['opt'][0]}'
       catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
         script {
-          test_#{ll}_#{kk}_result = "FAILURE"
+          test_#{ll}_#{kk}_result = "BUILD_FAILURE"
         }
         <?rb if item['scripts'] ?>
           <?rb item['scripts'].each do |cmd| ?>
@@ -20,6 +20,9 @@
         <?rb else ?>
           sh 'docker exec #{@docker} #{@build_script} $(basename $(pwd)) #{item['opt'][1]} #{item['opt'][0]} #{item['build']}'
         <?rb end ?>
+        script {
+          test_#{ll}_#{kk}_result = "FAILURE"
+        }
         <?rb if ! item.has_key?('build_only') ?>
           retry(2)  {
             sh 'docker exec #{@docker} #{@run_script} $(basename $(pwd)) #{item['build_path']} #{item['opt'][0]} #{item['bin']}'

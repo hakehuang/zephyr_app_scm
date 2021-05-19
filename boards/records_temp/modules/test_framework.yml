@@ -1,5 +1,10 @@
 ---
 cases:
+  testing.drivers.sbs_gauge:
+    path: tests/drivers/sensor/sbs_gauge
+    catalog: test_framework
+    build_only: true
+    filter: dt_compat_enabled("sbs,sbs-gauge")
   testing.ztest:
     path: tests/ztest/base
     catalog: test_framework

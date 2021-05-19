@@ -9,31 +9,32 @@ cases:
     catalog: kernel userspace
     extra_configs:
     - CONFIG_THREAD_LOCAL_STORAGE=y
-    min_flash: 33
     filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    min_flash: 33
   kernel.common.misra:
     path: tests/kernel/common
     catalog: kernel userspace
     extra_configs:
     - CONFIG_MISRA_SANE=y
-    min_flash: 33
     filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    min_flash: 33
   kernel.common.nano32:
     path: tests/kernel/common
     catalog: kernel userspace
     extra_configs:
     - CONFIG_CBPRINTF_NANO=y
     - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
-    min_flash: 33
     filter: not CONFIG_KERNEL_COHERENCE
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 33
   kernel.common.nano64:
     path: tests/kernel/common
     catalog: kernel userspace
     extra_configs:
     - CONFIG_CBPRINTF_NANO=y
     - CONFIG_CBPRINTF_FULL_INTEGRAL=y
-    min_flash: 33
     filter: not CONFIG_KERNEL_COHERENCE
+    min_flash: 33
   kernel.fpu_sharing.float_disable.arm:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: kernel userspace

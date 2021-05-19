@@ -17,7 +17,7 @@ cases:
     - CONFIG_LOG_STRDUP_MAX_STRING=32
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_TEST_USERSPACE=y
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 native_posix
   logging.log_benchmark_v2:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
@@ -39,7 +39,7 @@ cases:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_TEST_USERSPACE=y
-    platform_allow: qemu_x86
+    platform_allow: qemu_x86 native_posix
   logging.add.async:
     path: tests/subsys/logging/log_core_additional
     catalog: logging

@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s28_ns_2"
-  version: zephyr-v2.5.0-2637-ga3469a0497
+  version: v2.6.0-rc1-158-gcd9421a45e
 __load__:
 - modules/dns_net.yml
 - modules/dma.yml
@@ -18,6 +18,7 @@ __load__:
 - modules/crypto.yml
 - modules/cpp.yml
 - modules/clib_newlib_userspace.yml
+- modules/clib_newlib.yml
 - modules/clib_minimal_libc_userspace.yml
 - modules/clib_ignore_faults.yml
 - modules/cbprintf.yml

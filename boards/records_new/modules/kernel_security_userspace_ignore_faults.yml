@@ -4,7 +4,7 @@ cases:
     path: tests/kernel/mem_protect/mem_protect
     catalog: kernel security userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_exclude: twr_ke18f
+    platform_exclude: twr_ke18f qemu_arc_hs qemu_arc_em
   kernel.memory_protection.gap_filling.arc:
     path: tests/kernel/mem_protect/mem_protect
     catalog: kernel security userspace ignore_faults

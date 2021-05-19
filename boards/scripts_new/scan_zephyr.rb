@@ -18,10 +18,11 @@ require_relative "parse_testcase"
 require_relative "parse_sample"
 require_relative "zephyr_filter"
 
-$version = "v2.5.0"
+$version = "v2.6.0"
 
 LONG_CASE_DURATION = {
   'benchmark.crypto.mbedtls' => {'timeout' => 1000},
+  'benchmark.kernel.application' => {'timeout' => 1000},
   'benchmark.kernel.scheduler' => {'timeout' => 300},
   'crypto.tinycrypt' => {'timeout' => 300},
   'crypto.tinycrypt.hmac_prng.crypto.tinycrypt.hmac_prng' => {'timeout' => 600},
@@ -51,7 +52,12 @@ LONG_CASE_DURATION = {
   'libraries.cmsis_dsp.complexmath' => {'timeout' => 600},
   'lib.heap' => {'timeout' => 500},
   'shell.core.shell.core ' => {'timeout' => 300},
-  'drivers.counter' => {'timeout' => 60}
+  'drivers.counter' => {'timeout' => 60},
+  'net.socket.tcp' => {'timeout' => 120},
+  'net.socket.tcp.preempt' => {'timeout' => 120},
+  'libraries.libc.newlib.thread_safety' => {'timeout' => 60},
+  'libraries.libc.newlib_nano.thread_safety' => {'timeout' => 60},
+  'kernel.mutex.mutex_error_case' => {'timeout' => 60}
 }
 
 class Parser
@@ -101,7 +107,7 @@ end
 def get_version(zephyr_git_root_path)
     log = Logger.new(STDOUT)
     g = Git.open(zephyr_git_root_path, :log => Logger.new(STDOUT))
-    $version = g.describe()
+    $version = g.describe("--tags")
     log.info("git version is #{$version}")
 end
 
@@ -216,9 +222,10 @@ def scan(zephyr_path, output_records_path, output_records_fname)
                 lists_to_keep(testcase_hash['tests'][k], keep_hash)
                 #log.info(keep_hash)
                 cases['cases'][mk].merge!(keep_hash)
-                if LONG_CASE_DURATION.has_key?(k)
-                  # puts "**************************", k
-                  test_case_lists['cases'][mk] = LONG_CASE_DURATION[k]
+                #puts "*************************#{k}"
+                if LONG_CASE_DURATION.has_key?(mk)
+                  #puts "**************************", k
+                  test_case_lists['cases'][mk] = LONG_CASE_DURATION[mk]
                   # puts test_case_lists['cases'][k]
                 else
                   test_case_lists['cases'][mk] = ""
