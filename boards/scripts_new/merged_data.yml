@@ -23,6 +23,7 @@ cases:
     build_only: true
     attribute: required
   sample.tfm_ipc:
+    bin: tfm_merged.hex
     path: samples/tfm_integration/tfm_ipc
     catalog: introduction tfm
     platform_allow: mps2_an521_nonsecure lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuappns
@@ -30,6 +31,7 @@ cases:
       v2m_musca_b1_nonsecure bl5340_dvk_cpuappns
     attribute: required
   sample.psa_level_1:
+    bin: tfm_merged.hex
     path: samples/tfm_integration/psa_level_1
     catalog: introduction tfm
     platform_allow: mps2_an521_nonsecure lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuappns
