@@ -1,13 +1,54 @@
 ---
 cases:
-  portability.cmsis_rtos_v1:
-    path: tests/subsys/portability/cmsis_rtos_v1
+  sample.portability.cmsis_rtos_v1.philosopher:
+    path: samples/subsys/portability/cmsis_rtos_v1/philosophers
+    catalog: cmsis_rtos
+    extra_args: " DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64 qemu_leon3 up_squared
+  sample.portability.cmsis_rtos_v1.philosopher.same_prio:
+    path: samples/subsys/portability/cmsis_rtos_v1/philosophers
+    catalog: cmsis_rtos
+    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64 qemu_leon3 up_squared
+  sample.portability.cmsis_rtos_v1.philosopher.semaphores:
+    path: samples/subsys/portability/cmsis_rtos_v1/philosophers
+    catalog: cmsis_rtos
+    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64 qemu_leon3 up_squared
+  sample.portability.cmsis_rtos_v1.timer_synchronization:
+    path: samples/subsys/portability/cmsis_rtos_v1/timer_synchronization
     catalog: cmsis_rtos
     min_ram: 32
     min_flash: 34
-  portability.cmsis_rtos_v2:
-    path: tests/subsys/portability/cmsis_rtos_v2
+  sample.portability.cmsis_rtos_v2.philosopher:
+    path: samples/subsys/portability/cmsis_rtos_v2/philosophers
     catalog: cmsis_rtos
-    platform_exclude: m2gl025_miv intel_adsp_cavs15
+    extra_args: " DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
+  sample.portability.cmsis_rtos_v2.philosopher.same_prio:
+    path: samples/subsys/portability/cmsis_rtos_v2/philosophers
+    catalog: cmsis_rtos
+    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
+  sample.portability.cmsis_rtos_v2.philosopher.semaphores:
+    path: samples/subsys/portability/cmsis_rtos_v2/philosophers
+    catalog: cmsis_rtos
+    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: qemu_xtensa qemu_x86_64
+  sample.portability.cmsis_rtos_v2.timer_synchronization:
+    path: samples/subsys/portability/cmsis_rtos_v2/timer_synchronization
+    catalog: cmsis_rtos
     min_ram: 32
     min_flash: 34

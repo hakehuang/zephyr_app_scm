@@ -1,30 +1,36 @@
 ---
 settings:
   case_pipe_name: "frdm_k82f_5"
-  version: v2.6.0-rc1-158-gcd9421a45e
+  version: zephyr-v2.6.0-90-gefccfcbfc9
 __load__:
-- modules/utils_lists.yml
-- modules/util_intmath.yml
-- modules/userspace_mmu.yml
+- modules/video_net_socket.yml
+- modules/video.yml
+- modules/userspace.yml
 - modules/unknown.yml
-- modules/tinycrypt_crypto_sha256_hmac_prng.yml
-- modules/tinycrypt_crypto_aes_ccm.yml
-- modules/timeutil.yml
-- modules/test_framework_userspace_ignore_faults.yml
-- modules/test_framework_ignore_faults.yml
-- modules/test_framework.yml
-- modules/sysid.yml
-- modules/stream_flash.yml
+- modules/uart_modbus.yml
+- modules/uart_bluetooth.yml
+- modules/tracing_debug.yml
+- modules/tfm_ci_build.yml
+- modules/tfm.yml
+- modules/tests.yml
+- modules/testing_pytest.yml
+- modules/testing.yml
+- modules/tensorflow.yml
+- modules/subsys.yml
+- modules/spi_flash.yml
+- modules/sound.yml
+- modules/sof.yml
+- modules/shell_usb.yml
+- modules/shell_filesystem.yml
 - modules/shell.yml
-- modules/settings_nvs.yml
-- modules/settings_intialization_fcb.yml
-- modules/settings_fs_settings_littlefs.yml
-- modules/settings_fs_filesystem.yml
-- modules/settings_file.yml
-- modules/settings_fcb.yml
-- modules/ring_buffer_circular_buffer.yml
-- modules/rbtree.yml
-- modules/qspi_flash.yml
+- modules/settings.yml
+- modules/secure.yml
+- modules/samples_sensor.yml
+- modules/samples_nanopb.yml
+- modules/samples_ipm.yml
+- modules/samples_display_gui.yml
+- modules/samples_board.yml
+- modules/samples.yml
 - skips/frdm_k82f.yml
 - boards/frdm_k82f.yml
 cases:

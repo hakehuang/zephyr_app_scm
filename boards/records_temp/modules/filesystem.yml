@@ -1,29 +1,16 @@
 ---
 cases:
-  filesystem.fat.api:
-    path: tests/subsys/fs/fat_fs_api
+  sample.filesystem.fat_fs:
+    path: samples/subsys/fs/fat_fs
     catalog: filesystem
-    platform_allow: native_posix
-  filesystem.fat.api.lfn:
-    path: tests/subsys/fs/fat_fs_api
+    depends_on: sdhc
+  sample.filesystem.fat_fs.overlay:
+    path: samples/subsys/fs/fat_fs
     catalog: filesystem
-    extra_args: CONF_FILE="prj_lfn.conf"
-    platform_allow: native_posix
-  filesystem.fat.dual_drive:
-    path: tests/subsys/fs/fat_fs_dual_drive
+    platform_allow: nrf52840_blip
+  sample.filesystem.littlefs:
+    path: samples/subsys/fs/littlefs
     catalog: filesystem
-    platform_allow: qemu_x86 native_posix qemu_leon3 qemu_riscv32 qemu_riscv64
-  filesystem.api:
-    path: tests/subsys/fs/fs_api
-    catalog: filesystem
-  filesystem.littlefs.default:
-    path: tests/subsys/fs/littlefs
-    catalog: filesystem
-    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
-  filesystem.littlefs.custom:
-    path: tests/subsys/fs/littlefs
-    catalog: filesystem
-    extra_configs:
-    - CONFIG_APP_TEST_CUSTOM=y
-    - CONFIG_FS_LITTLEFS_FC_HEAP_SIZE=16384
-    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+    build_only: true
+    platform_allow: nrf52840dk_nrf52840 particle_xenon disco_l475_iot1 mimxrt685_evk_cm33
+      mimxrt1060_evk mimxrt1064_evk qemu_x86 native_posix

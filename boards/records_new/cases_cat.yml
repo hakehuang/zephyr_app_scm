@@ -1332,6 +1332,73 @@ drivers:
     - CONFIG_NRFX_TIMER2=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=y
     platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_pm:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_no_rxpin:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;nrf_no_rx_pin.overlay"
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_int_driven:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_int_driven_enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_async:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_async_enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
 driver can:
   drivers.can:
     path: tests/drivers/can/api
@@ -1440,6 +1507,11 @@ nrf52 soc_flash_nrf:
     catalog: nrf52 soc_flash_nrf
     extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_soc.conf
     platform_allow: nrf52840dk_nrf52840
+mcux:
+  drivers.flash.default:
+    path: tests/drivers/flash
+    catalog: mcux
+    platform_allow: mimxrt1060_evk
 driver:
   drivers.flash.flash_simulator:
     path: tests/drivers/flash_simulator
@@ -2817,6 +2889,7 @@ debug:
     path: tests/misc/test_build
     catalog: debug
     extra_args: CONF_FILE=debug.conf
+    platform_exclude: lpcxpresso55s69_ns
     build_only: true
 mcuboot:
   bootloader.mcuboot.build:
@@ -4122,14 +4195,14 @@ filesystem:
   filesystem.littlefs.default:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
-    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64 mimxrt1060_evk
   filesystem.littlefs.custom:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
     extra_configs:
     - CONFIG_APP_TEST_CUSTOM=y
     - CONFIG_FS_LITTLEFS_FC_HEAP_SIZE=16384
-    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64 mimxrt1060_evk
 flash_circural_buffer:
   filesystem.fcb:
     path: tests/subsys/fs/fcb

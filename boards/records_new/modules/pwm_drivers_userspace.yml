@@ -1,7 +1,0 @@
----
-cases:
-  drivers.pwm.loopback:
-    path: tests/drivers/pwm/pwm_loopback
-    catalog: pwm drivers userspace
-    depends_on: pwm
-    filter: dt_compat_enabled("test,pwm_loopback")

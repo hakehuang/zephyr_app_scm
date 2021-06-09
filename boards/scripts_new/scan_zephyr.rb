@@ -52,12 +52,14 @@ LONG_CASE_DURATION = {
   'libraries.cmsis_dsp.complexmath' => {'timeout' => 600},
   'lib.heap' => {'timeout' => 500},
   'shell.core.shell.core ' => {'timeout' => 300},
-  'drivers.counter' => {'timeout' => 60},
   'net.socket.tcp' => {'timeout' => 120},
   'net.socket.tcp.preempt' => {'timeout' => 120},
   'libraries.libc.newlib.thread_safety' => {'timeout' => 60},
   'libraries.libc.newlib_nano.thread_safety' => {'timeout' => 60},
-  'kernel.mutex.mutex_error_case' => {'timeout' => 60}
+  'kernel.mutex.mutex_error_case' => {'timeout' => 60},
+  'drivers.counter' => {'timeout' => 600},
+  'filesystem.littlefs.custom' => {'timeout' => 600},
+  'filesystem.littlefs.default' => {'timeout' => 600}
 }
 
 class Parser
@@ -413,5 +415,5 @@ end
 
 get_version("C:/github/zephyrproject/zephyr/")
 scan("C:/github/zephyrproject/zephyr/samples/", "../records_temp", "test.yml")
-scan("C:/github/zephyrproject/zephyr/tests/", "../records_temp", "test.yml")
+#scan("C:/github/zephyrproject/zephyr/tests/", "../records_temp", "test.yml")
 split_test_catalog("../records_temp/test.yml", "../records_temp", template_dir="../template")

@@ -1,7 +1,7 @@
 ---
 cases:
-  buildsystem.debug.build:
-    path: tests/misc/test_build
+  sample.debug.gdbstub:
+    path: samples/subsys/debug/gdbstub
     catalog: debug
-    extra_args: CONF_FILE=debug.conf
     build_only: true
+    platform_allow: qemu_x86

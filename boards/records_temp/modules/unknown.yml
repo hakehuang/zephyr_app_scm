@@ -1,151 +1,50 @@
 ---
 cases:
-  arch.x86.info:
-    path: tests/arch/x86/info
+  sample.bluetooth.direction_finding_connectionless_rx.aod:
+    path: samples/bluetooth/direction_finding_connectionless_rx
     catalog: unknown
-    arch_allow: x86
-    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
-  arch.x86.info.userspace:
-    path: tests/arch/x86/info
+    extra_args: OVERLAY_CONFIG="overlay-aod.conf"
+    platform_allow: nrf52833dk_nrf52833
+  sample.bluetooth.direction_finding_connectionless.aoa:
+    path: samples/bluetooth/direction_finding_connectionless_tx
     catalog: unknown
-    extra_configs:
-    - CONFIG_TEST_USERSPACE=y
-    arch_allow: x86
-    platform_allow: qemu_x86 ehl_crb up_squared up_squared_32
-  boards.native_posix.cpu_wait:
-    path: tests/boards/native_posix/cpu_wait
+    extra_args: OVERLAY_CONFIG="overlay-aoa.conf"
+    platform_allow: nrf52833dk_nrf52833
+  sample.bluetooth.peripheral.x_nucleo_idb05a1_shield:
+    path: samples/bluetooth/peripheral
     catalog: unknown
-    platform_allow: native_posix native_posix_64
-  boards.native_posix.native_tasks:
-    path: tests/boards/native_posix/native_tasks
+    extra_args: SHIELD=x_nucleo_idb05a1
+    platform_allow: nucleo_l4r5zi
+    depends_on: arduino_spi arduino_gpio
+  sample.boards.nrf.802154_rpmsg:
+    path: samples/boards/nrf/ieee802154/802154_rpmsg
     catalog: unknown
-    arch_allow: posix
-  boards.native_posix_64.native_tasks:
-    path: tests/boards/native_posix/native_tasks
-    catalog: unknown
-    arch_allow: posix
-  boards.native_posix.rtc:
-    path: tests/boards/native_posix/rtc
-    catalog: unknown
-    platform_allow: native_posix native_posix_64
     build_only: true
-  boards.qemu_x86_64.ivshmem:
-    path: tests/boards/qemu_x86_64/ivshmem
+    platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.boards.stm32.backup_sram:
+    path: samples/boards/stm32/backup_sram
     catalog: unknown
-    arch_allow: x86
-    platform_allow: qemu_x86_64
-  drivers.clock.build:
-    path: tests/drivers/build_all
-    catalog: unknown
-    extra_configs:
-    - CONFIG_CLOCK_CONTROL=y
+    depends_on: backup_sram
     build_only: true
-    depends_on: gpio spi i2c
-  drivers.gpio.build:
-    path: tests/drivers/build_all
+    filter: dt_compat_enabled("st,stm32-backup-sram")
+  sample.basic.maxim_ds3231:
+    path: samples/drivers/counter/maxim_ds3231
     catalog: unknown
-    extra_args: CONF_FILE=gpio.conf
     build_only: true
-    min_ram: 32
-    platform_exclude: serpente
-    depends_on:
-    - gpio spi
-    - gpio spi i2c
-  drivers.eeprom.build:
-    path: tests/drivers/build_all
+    platform_allow: efr32mg_sltb004a frdm_k64f nrf51_pca10028 nucleo_l476rg particle_xenon
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.display.shield.waveshare_epaper_gdeh0213b1:
+    path: samples/drivers/display
     catalog: unknown
-    extra_args: CONF_FILE=eeprom.conf
-    build_only: true
-    min_ram: 32
-    platform_exclude: serpente
-    depends_on:
-    - gpio i2c spi
-    - gpio spi i2c
-  drivers.adc.build:
-    path: tests/drivers/build_all
+    extra_args: SHIELD=waveshare_epaper_gdeh0213b1
+    platform_allow: nrf52840dk_nrf52840
+  sample.net.civetweb.http_server:
+    path: samples/net/civetweb/http_server
     catalog: unknown
-    extra_args: CONF_FILE=adc.conf
-    build_only: true
-    min_ram: 32
-    depends_on:
-    - adc spi
-    - gpio spi i2c
-    platform_exclude: serpente
-  drivers.dac.build:
-    path: tests/drivers/build_all
+    arch_exclude: posix
+    depends_on: netif
+    filter: CONFIG_ENTROPY_DEVICE_RANDOM_GENERATOR
+  sample.net.civetweb.websocket_server:
+    path: samples/net/civetweb/websocket_server
     catalog: unknown
-    extra_args: CONF_FILE=dac.conf
-    build_only: true
-    min_ram: 32
-    depends_on:
-    - dac spi
-    - gpio spi i2c
-  lib.cbprintf_fp.printk:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTK=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
-  lib.cbprintf_fp.printf:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTF=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
-  lib.cbprintf_fp.printf_nl:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTF=y
-    - CONFIG_NEWLIB_LIBC=y
-    filter:
-    - TOOLCHAIN_HAS_NEWLIB == 1
-    - CONSOLE_HAS_DRIVER
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-  lib.cbprintf_fp.printfcb:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTFCB=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
-  lib.cbprintf_fp.printfcb_nl:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTFCB=y
-    - CONFIG_NEWLIB_LIBC=y
-    filter:
-    - TOOLCHAIN_HAS_NEWLIB == 1
-    - CONSOLE_HAS_DRIVER
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-  lib.cbprintf_fp.fprintf:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_FPRINTF=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
-  lib.cbprintf_fp.fprintfcb:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_FPRINTFCB=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
-  filesystem.native_posix.fcb_0x00:
-    path: tests/subsys/fs/fcb
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
-    platform_allow: native_posix
-  filesystem.qemu_x86.fcb_0x00:
-    path: tests/subsys/fs/fcb
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
-    platform_allow: qemu_x86
-  utilities.math:
-    path: tests/unit/math_extras
-    catalog: unknown
-    type: unit
+    platform_allow: nucleo_h745zi_q_m7

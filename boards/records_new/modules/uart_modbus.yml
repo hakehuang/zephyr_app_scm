@@ -1,0 +1,12 @@
+---
+cases:
+  sample.modbus.rtu_client:
+    path: samples/subsys/modbus/rtu_client
+    catalog: uart modbus
+    depends_on: gpio, arduino_serial
+  sample.modbus.rtu_server:
+    path: samples/subsys/modbus/rtu_server
+    catalog: uart modbus
+    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
+      "led1") and dt_compat_enabled_with_alias("gpio-leds", "led2")
+    depends_on: gpio, arduino_serial

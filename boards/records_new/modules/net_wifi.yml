@@ -1,0 +1,26 @@
+---
+cases:
+  sample.net.wifi:
+    path: samples/net/wifi
+    catalog: net wifi
+    platform_allow: cc3220sf_launchxl disco_l475_iot1
+  sample.net.wifi.esp_8266:
+    path: samples/net/wifi
+    catalog: net wifi
+    extra_args: SHIELD=esp_8266
+    platform_allow: sam4e_xpro
+  sample.net.wifi.esp_8266_arduino:
+    path: samples/net/wifi
+    catalog: net wifi
+    extra_args: SHIELD=esp_8266_arduino
+    platform_allow: frdm_k64f disco_l475_iot1
+  sample.net.wifi.inventek_eswifi_arduino_uart:
+    path: samples/net/wifi
+    catalog: net wifi
+    extra_args: SHIELD=inventek_eswifi_arduino_uart
+    platform_allow: frdm_k64f nucleo_f767zi
+  sample.net.wifi.inventek_eswifi_arduino_spi:
+    path: samples/net/wifi
+    catalog: net wifi
+    extra_args: SHIELD=inventek_eswifi_arduino_spi
+    platform_allow: frdm_k64f nucleo_f767zi

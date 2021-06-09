@@ -1,16 +1,17 @@
 ---
 settings:
   case_pipe_name: "frdm_k64f_socket"
-  version: v2.6.0-rc1-158-gcd9421a45e
+  version: zephyr-v2.6.0-90-gefccfcbfc9
 __load__:
-- modules/net_socket_userspace.yml
-- modules/net_socket_udp.yml
-- modules/net_socket_tls.yml
-- modules/net_socket_socket.register.yml
-- modules/net_socket_poll.yml
-- modules/net_socket_net_mgmt_userspace.yml
-- modules/net_socket_getaddrinfo_userspace.yml
-- modules/net_socket_af_packet.yml
+- modules/net_syslog.yml
+- modules/net_statistics.yml
+- modules/net_sockets_packet-socket.yml
+- modules/net_socket_so_txtime_tsn.yml
+- modules/net_socket_offload_simplelink.yml
+- modules/net_socket_mgmt.yml
+- modules/net_socket_http.yml
+- modules/net_socket_can_CAN.yml
+- modules/net_socket.yml
 - skips/frdm_k64f.yml
 - boards/frdm_k64f.yml
 cases:

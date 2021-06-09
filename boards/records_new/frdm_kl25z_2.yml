@@ -1,27 +1,20 @@
 ---
 settings:
   case_pipe_name: "frdm_kl25z_2"
-  version: v2.6.0-rc1-158-gcd9421a45e
+  version: zephyr-v2.6.0-90-gefccfcbfc9
 __load__:
-- modules/dns_net.yml
-- modules/dma.yml
-- modules/display_gui.yml
-- modules/dfu_mcuboot.yml
-- modules/dfu_image_util.yml
-- modules/devicetree.yml
+- modules/dmic.yml
+- modules/display_shield.yml
+- modules/display.yml
 - modules/debug.yml
-- modules/dac_drivers_userspace.yml
-- modules/dac_drivers.yml
-- modules/crypto_random_security.yml
-- modules/crypto_mbedtls_userspace.yml
-- modules/crypto_entropy_random_security.yml
+- modules/crypto_entropy.yml
 - modules/crypto.yml
 - modules/cpp.yml
-- modules/clib_newlib_userspace.yml
-- modules/clib_newlib.yml
-- modules/clib_minimal_libc_userspace.yml
-- modules/clib_ignore_faults.yml
-- modules/cbprintf.yml
+- modules/console.yml
+- modules/clock_litex_vexriscv_mmcm.yml
+- modules/ci_build.yml
+- modules/DAC.yml
+- modules/CAN.yml
 - skips/frdm_kl25z.yml
 - boards/frdm_kl25z.yml
 cases:

@@ -2,7 +2,17 @@ __load__:
   - skips/common.yml
   - skips/build_only.yml
 
+__common__:
+  __common__:
+    result: skip
+
 cases:
   samples.net.google_iot_mqtt:
     comments: "dependency missing netif"
     result: skip
+  sample.tfm_ipc:
+    __remove__:
+      result:
+  sample.psa_level_1:
+    __remove__:
+      result:

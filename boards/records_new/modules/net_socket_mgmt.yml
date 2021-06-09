@@ -1,0 +1,8 @@
+---
+cases:
+  sample.net.sockets.net_mgmt.kernelmode:
+    path: samples/net/sockets/net_mgmt
+    catalog: net socket mgmt
+    extra_configs:
+    - CONFIG_USERSPACE=n
+    depends_on: netif

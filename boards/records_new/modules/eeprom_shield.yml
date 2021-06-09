@@ -1,0 +1,7 @@
+---
+cases:
+  sample.drivers.eeprom.shield.x_nucleo_eeprma2:
+    path: samples/drivers/eeprom
+    catalog: eeprom shield
+    extra_args: SHIELD=x_nucleo_eeprma2
+    depends_on: arduino_gpio arduino_i2c

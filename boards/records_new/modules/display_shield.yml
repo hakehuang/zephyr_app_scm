@@ -1,0 +1,28 @@
+---
+cases:
+  sample.display.shield.adafruit_2_8_tft_touch_v2:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=adafruit_2_8_tft_touch_v2
+    depends_on: arduino_gpio arduino_i2c arduino_spi
+    platform_exclude: reel_board reel_board_v2 ubx_evkannab1_nrf52832
+  sample.display.shield.ssd1306_128x32:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=ssd1306_128x32
+    platform_allow: nrf52840dk_nrf52840
+  sample.display.shield.ssd1306_128x64:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=ssd1306_128x64
+    platform_allow: nrf52840dk_nrf52840
+  sample.display.st7789v_tl019fqv01:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=st7789v_tl019fqv01
+    platform_allow: nrf52dk_nrf52832
+  sample.display.st7789v_waveshare_240x240:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=st7789v_waveshare_240x240
+    platform_allow: nrf52dk_nrf52832

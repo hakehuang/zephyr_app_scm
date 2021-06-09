@@ -1,0 +1,70 @@
+---
+cases:
+  sample.smp.pi:
+    path: samples/arch/smp/pi
+    catalog: introduction
+    filter: "(CONFIG_MP_NUM_CPUS > 1)"
+  sample.smp.pktqueue:
+    path: samples/arch/smp/pktqueue
+    catalog: introduction
+    filter: "(CONFIG_MP_NUM_CPUS > 1)"
+  sample.basic.helloworld:
+    path: samples/hello_world
+    catalog: introduction
+  sample.kernel.metairq_dispatch:
+    path: samples/kernel/metairq_dispatch
+    catalog: introduction
+    filter: not CONFIG_ARCH_POSIX
+  sample.kernel.philosopher:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: " DEBUG_PRINTF=1"
+  sample.kernel.philosopher.same_prio:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+  sample.kernel.philosopher.static:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DSTATIC_OBJS=1 DEBUG_PRINTF=1"
+  sample.kernel.philosopher.semaphores:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+  sample.kernel.philosopher.stacks:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DFORKS=STACKS DEBUG_PRINTF=1"
+  sample.kernel.philosopher.fifos:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DFORKS=FIFOS DEBUG_PRINTF=1"
+  sample.kernel.philosopher.lifos:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DFORKS=LIFOS DEBUG_PRINTF=1"
+  sample.kernel.philosopher.preempt_only:
+    path: samples/philosophers
+    catalog: introduction
+    extra_configs:
+    - CONFIG_NUM_PREEMPT_PRIORITIES=6
+    - CONFIG_NUM_COOP_PRIORITIES=0
+    - CONFIG_BT=n
+    - CONFIG_NETWORKING=n
+    extra_args: " DEBUG_PRINTF=1"
+  sample.kernel.philosopher.coop_only:
+    path: samples/philosophers
+    catalog: introduction
+    extra_configs:
+    - CONFIG_NUM_PREEMPT_PRIORITIES=0
+    - CONFIG_NUM_COOP_PRIORITIES=7
+    extra_args: " DEBUG_PRINTF=1"
+  sample.subsys.canbus.canopen:
+    path: samples/subsys/canbus/canopen
+    catalog: introduction
+    depends_on: can
+    platform_allow: twr_ke18f frdm_k64f
+  sample.helloworld:
+    path: samples/userspace/hello_world_user
+    catalog: introduction
+    platform_exclude: intel_adsp_cavs15

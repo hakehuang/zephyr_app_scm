@@ -1,9 +1,9 @@
 ---
 settings:
   case_pipe_name: "frdm_k64f_can"
-  version: v2.6.0-rc1-158-gcd9421a45e
+  version: zephyr-v2.6.0-90-gefccfcbfc9
 __load__:
-- modules/can_isotp.yml
+- modules/can_canopen.yml
 - skips/frdm_k64f.yml
 - boards/frdm_k64f.yml
 cases:

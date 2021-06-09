@@ -1,11 +1,12 @@
 ---
 settings:
   case_pipe_name: "mimxrt1010_evk_usb"
-  version: v2.6.0-rc1-158-gcd9421a45e
+  version: zephyr-v2.6.0-90-gefccfcbfc9
 __load__:
-- modules/usb_osdesc.yml
-- modules/usb_desc_sections.yml
-- modules/usb_bos.yml
+- modules/usb_sensors.yml
+- modules/usb_net_zperf.yml
+- modules/usb_ieee802154.yml
+- modules/usb_bluetooth.yml
 - modules/usb.yml
 - skips/mimxrt1010_evk.yml
 - boards/mimxrt1010_evk.yml

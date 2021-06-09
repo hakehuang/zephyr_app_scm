@@ -1,8 +1,10 @@
 ---
 settings:
   case_pipe_name: "mimxrt1050_evk_shield"
-  version: v2.6.0-rc1-158-gcd9421a45e
+  version: zephyr-v2.6.0-90-gefccfcbfc9
 __load__:
+- modules/shield_net_zperf.yml
+- modules/shield.yml
 - skips/mimxrt1050_evk.yml
 - boards/mimxrt1050_evk.yml
 cases:

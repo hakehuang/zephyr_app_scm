@@ -1,20 +1,6 @@
 ---
 cases:
-  cpp.main:
-    path: tests/subsys/cpp/cxx
+  sample.cpp.synchronization:
+    path: samples/subsys/cpp/cpp_synchronization
     catalog: cpp
-    platform_exclude: qemu_x86_coverage
-  cpp.libcxx:
-    path: tests/subsys/cpp/libcxx
-    catalog: cpp
-    platform_exclude: qemu_x86_coverage
-    min_flash: 54
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  cpp.libcxx.exceptions:
-    path: tests/subsys/cpp/libcxx
-    catalog: cpp
-    extra_configs:
-    - CONFIG_EXCEPTIONS=y
-    platform_allow: mps2_an385
-    min_flash: 54
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    arch_exclude: posix

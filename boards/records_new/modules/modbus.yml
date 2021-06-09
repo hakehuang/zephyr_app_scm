@@ -1,11 +1,12 @@
 ---
 cases:
-  subsys.modbus.rtu:
-    path: tests/subsys/modbus
+  sample.modbus.tcp_gateway:
+    path: samples/subsys/modbus/tcp_gateway
     catalog: modbus
-    platform_allow: frdm_k64f
-  subsys.modbus.rtu.build_only:
-    path: tests/subsys/modbus
+    depends_on: gpio, netif, arduino_serial
+  sample.modbus.tcp_server:
+    path: samples/subsys/modbus/tcp_server
     catalog: modbus
-    build_only: true
-    filter: CONFIG_UART_CONSOLE and CONFIG_UART_INTERRUPT_DRIVEN
+    filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
+      "led1") and dt_compat_enabled_with_alias("gpio-leds", "led2")
+    depends_on: gpio, netif

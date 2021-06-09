@@ -1,10 +1,11 @@
 ---
 settings:
-  case_pipe_name: mimx8mm_evk_kernel4
-  version: v2.6.0-rc1-158-gcd9421a45e
+  case_pipe_name: lpcxpresso55s69_ns_3
+  version: zephyr-v2.6.0-90-gefccfcbfc9
   build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_mimx8mm_evk.sh
+  run_script: run_zephyr_elf_lpc55s69_ns.sh
   no_filter:
+  - CONFIG_ARCH_HAS_USERSPACE
   - CONFIG_ENTROPY_HAS_DRIVER
   - CONFIG_CPU_ARCV2
   TOOLCHAIN_HAS_NEWLIB: 1
@@ -13,68 +14,88 @@ cases:
   misc.crc:
     bin: testbinary
     attribute: required
-  peripheral.spi:
-    comments: need add board support
-    build_only: true
-    attribute: required
-  peripheral.pinmux:
-    comments: pinmux setting issue
-    build_only: true
-    attribute: required
+    result: skip
   samples.net.google_iot_mqtt:
-    comments: no goolge web access so build only
+    comments: dependency missing netif
+    result: skip
     scripts:
     - ''
     build_only: true
+    attribute: required
+  sample.tfm_ipc:
+    path: samples/tfm_integration/tfm_ipc
+    catalog: introduction tfm
+    platform_allow: mps2_an521_nonsecure lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuappns
+      nrf9160dk_nrf9160ns nucleo_l552ze_q_ns stm32l562e_dk_ns v2m_musca_s1_nonsecure
+      v2m_musca_b1_nonsecure bl5340_dvk_cpuappns
+    attribute: required
+  sample.psa_level_1:
+    path: samples/tfm_integration/psa_level_1
+    catalog: introduction tfm
+    platform_allow: mps2_an521_nonsecure lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuappns
+      nrf9160dk_nrf9160ns nucleo_l552ze_q_ns v2m_musca_s1_nonsecure stm32l562e_dk_ns
+      bl5340_dvk_cpuappns
     attribute: required
   libraries.libc.newlibnano:
     comments: http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164
     build_only: true
     attribute: required
+    result: skip
   peripheral.entropy:
     comments: no entropy
     build_only: true
     attribute: required
+    result: skip
   benchmark.latency:
     comments: TICK need customerize
     build_only: true
     attribute: required
+    result: skip
   peripheral.i2c:
     comments: not all platform has such test devices
     build_only: true
     attribute: required
+    result: skip
   peripheral.gpio:
     commnets: no loop back
     build_only: true
     attribute: required
+    result: skip
   arch.interrupt.no_optimizations:
     comments: no console output too slow
     build_only: true
     attribute: required
+    result: skip
   net.mqtt:
     comments: no mqtt
     build_only: true
     attribute: required
+    result: skip
   net.mqtt.pubsub:
     comments: no mqtt
     build_only: true
     attribute: required
+    result: skip
   net.mqtt.pubsub.preempt:
     comments: no mqtt
     build_only: true
     attribute: required
+    result: skip
   net.mqtt.subscriber:
     comments: no mqtt
     build_only: true
     attribute: required
+    result: skip
   net.mqtt.subscriber.preempt:
     comments: no mqtt
     build_only: true
     attribute: required
+    result: skip
   net.mqtt.tls:
     comments: no mqtt
     build_only: true
     attribute: required
+    result: skip
   test_utf8_in_kconfig_values:
     comments: build failure
     result: FAILURE
@@ -100,7 +121,7 @@ cases:
     result: FAILURE
     attribute: required
   sample.net.sockets.echo_server.usbnet_composite:
-    commetns: not support
+    comments: not support
     result: FAILURE
     attribute: required
   sample.driver.i2c_fujitsu_fram:
@@ -135,157 +156,327 @@ cases:
     comments: need add support
     result: FAILURE
     attribute: required
-  kernel.common:
-    path: tests/kernel/common
-    catalog: kernel userspace
-    min_flash: 33
+  sample.board.google_kukui:
+    path: samples/boards/google_kukui
+    catalog: ec
+    platform_allow: google_kukui
     attribute: required
-  kernel.common.tls:
-    path: tests/kernel/common
-    catalog: kernel userspace
+    result: skip
+  sample.subsys.edac:
+    path: samples/subsys/edac
+    catalog: edac
+    platform_allow: ehl_crb
+    attribute: required
+    result: skip
+  sample.drivers.eeprom:
+    path: samples/drivers/eeprom
+    catalog: eeprom
+    platform_allow: native_posix
+    attribute: required
+    result: skip
+  sample.drivers.eeprom.shield.x_nucleo_eeprma2:
+    path: samples/drivers/eeprom
+    catalog: eeprom shield
+    extra_args: SHIELD=x_nucleo_eeprma2
+    depends_on: arduino_gpio arduino_i2c
+    attribute: required
+    result: skip
+  sample.board.esp32:
+    path: samples/boards/esp32/wifi_station
+    catalog: esp32
+    platform_allow: esp32
+    attribute: required
+    result: skip
+  sample.app_dev.external_lib:
+    path: samples/application_development/external_lib
+    catalog: external
+    platform_exclude: intel_adsp_cavs15
+    attribute: required
+    result: skip
+  sample.filesystem.fat_fs:
+    path: samples/subsys/fs/fat_fs
+    catalog: filesystem
+    depends_on: sdhc
+    attribute: required
+    result: skip
+  sample.filesystem.fat_fs.overlay:
+    path: samples/subsys/fs/fat_fs
+    catalog: filesystem
+    platform_allow: nrf52840_blip
+    attribute: required
+    result: skip
+  sample.filesystem.littlefs:
+    path: samples/subsys/fs/littlefs
+    catalog: filesystem
+    build_only: true
+    platform_allow: nrf52840dk_nrf52840 particle_xenon disco_l475_iot1 mimxrt685_evk_cm33
+      mimxrt1060_evk mimxrt1064_evk qemu_x86 native_posix
+    attribute: required
+    result: skip
+  sample.drivers.flash.soc_flash_nrf:
+    path: samples/drivers/soc_flash_nrf
+    catalog: flash nrf52 nrf9160
+    platform_allow: nrf52dk_nrf52832 nrf9160dk_nrf9160 nrf9160dk_nrf9160ns
+    attribute: required
+    result: skip
+  sample.drivers.flash.shell:
+    path: samples/drivers/flash_shell
+    catalog: flash shell
+    filter: CONFIG_FLASH_HAS_DRIVER_ENABLED
+    platform_exclude: nucleo_h745zi_q_m4 stm32h747i_disco_m4
+    min_ram: 12
+    attribute: required
+    result: skip
+  sample.minimal.mt.arm:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;mt.conf;arm.conf'
+    build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
+    attribute: required
+    result: skip
+  sample.minimal.mt-no-preempt.arm:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;arm.conf'
+    build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
+    attribute: required
+    result: skip
+  sample.minimal.mt-no-preempt-no-timers.arm:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;arm.conf'
+    build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
+    attribute: required
+    result: skip
+  sample.minimal.no-mt.arm:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;no-mt.conf;arm.conf'
+    build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
+    attribute: required
+    result: skip
+  sample.minimal.no-mt-no-timers.arm:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;arm.conf'
+    build_only: true
+    platform_allow: reel_board frdm_k64f mps2_an385 nrf51dk_nrf51422 nucleo_f429zi
+      disco_l475_iot1
+    attribute: required
+    result: skip
+  sample.minimal.mt.x86:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;mt.conf;x86.conf'
+    build_only: true
+    platform_allow: qemu_x86
+    attribute: required
+    result: skip
+  sample.minimal.mt-no-preempt.x86:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;x86.conf'
+    build_only: true
+    platform_allow: qemu_x86
+    attribute: required
+    result: skip
+  sample.minimal.mt-no-preempt-no-timers.x86:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;x86.conf'
+    build_only: true
+    platform_allow: qemu_x86
+    attribute: required
+    result: skip
+  sample.minimal.no-mt.x86:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;no-mt.conf;x86.conf'
+    build_only: true
+    platform_allow: qemu_x86
+    attribute: required
+    result: skip
+  sample.minimal.no-mt-no-timers.x86:
+    path: samples/basic/minimal
+    catalog: footprint
+    extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;x86.conf'
+    build_only: true
+    platform_allow: qemu_x86
+    attribute: required
+    result: skip
+  samples.net.cloud.google_iot_mqtt:
+    path: samples/net/cloud/google_iot_mqtt
+    catalog: google_iot_mqtt
+    tags: net mqtt cloud
+    harness: net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    attribute: required
+    result: skip
+  sample.board.up_squared.gpio_counter:
+    path: samples/boards/up_squared/gpio_counter
+    catalog: gpio
+    platform_allow: up_squared
+    attribute: required
+    result: skip
+  sample.board.intel_s1000_crb.i2s:
+    path: samples/boards/intel_s1000_crb/i2s
+    catalog: i2s
+    platform_allow: intel_s1000_crb
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    attribute: required
+    result: skip
+  samples.drivers.i2s.litex:
+    path: samples/drivers/i2s/litex
+    catalog: i2s example
+    tags: introduction
+    harness: console
+    harness_config:
+      type: one_line
+      regex:
+      - i2s example (.*)
+    attribute: required
+    result: skip
+  sample.smp.pi:
+    path: samples/arch/smp/pi
+    catalog: introduction
+    filter: "(CONFIG_MP_NUM_CPUS > 1)"
+    attribute: required
+    result: skip
+  sample.smp.pktqueue:
+    path: samples/arch/smp/pktqueue
+    catalog: introduction
+    filter: "(CONFIG_MP_NUM_CPUS > 1)"
+    attribute: required
+    result: skip
+  sample.basic.helloworld:
+    path: samples/hello_world
+    catalog: introduction
+    attribute: required
+    result: skip
+  sample.kernel.metairq_dispatch:
+    path: samples/kernel/metairq_dispatch
+    catalog: introduction
+    filter: not CONFIG_ARCH_POSIX
+    attribute: required
+    result: skip
+  sample.kernel.philosopher:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: " DEBUG_PRINTF=1"
+    attribute: required
+    result: skip
+  sample.kernel.philosopher.same_prio:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+    attribute: required
+    result: skip
+  sample.kernel.philosopher.static:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DSTATIC_OBJS=1 DEBUG_PRINTF=1"
+    attribute: required
+    result: skip
+  sample.kernel.philosopher.semaphores:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+    attribute: required
+    result: skip
+  sample.kernel.philosopher.stacks:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DFORKS=STACKS DEBUG_PRINTF=1"
+    attribute: required
+    result: skip
+  sample.kernel.philosopher.fifos:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DFORKS=FIFOS DEBUG_PRINTF=1"
+    attribute: required
+    result: skip
+  sample.kernel.philosopher.lifos:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: "-DFORKS=LIFOS DEBUG_PRINTF=1"
+    attribute: required
+    result: skip
+  sample.kernel.philosopher.preempt_only:
+    path: samples/philosophers
+    catalog: introduction
     extra_configs:
-    - CONFIG_THREAD_LOCAL_STORAGE=y
-    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    min_flash: 33
+    - CONFIG_NUM_PREEMPT_PRIORITIES=6
+    - CONFIG_NUM_COOP_PRIORITIES=0
+    - CONFIG_BT=n
+    - CONFIG_NETWORKING=n
+    extra_args: " DEBUG_PRINTF=1"
     attribute: required
-  kernel.common.misra:
-    path: tests/kernel/common
-    catalog: kernel userspace
+    result: skip
+  sample.kernel.philosopher.coop_only:
+    path: samples/philosophers
+    catalog: introduction
     extra_configs:
-    - CONFIG_MISRA_SANE=y
-    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
-    min_flash: 33
+    - CONFIG_NUM_PREEMPT_PRIORITIES=0
+    - CONFIG_NUM_COOP_PRIORITIES=7
+    extra_args: " DEBUG_PRINTF=1"
     attribute: required
-  kernel.common.nano32:
-    path: tests/kernel/common
-    catalog: kernel userspace
-    extra_configs:
-    - CONFIG_CBPRINTF_NANO=y
-    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
-    filter: not CONFIG_KERNEL_COHERENCE
-    platform_exclude: qemu_arc_hs6x
-    min_flash: 33
+    result: skip
+  sample.subsys.canbus.canopen:
+    path: samples/subsys/canbus/canopen
+    catalog: introduction
+    depends_on: can
+    platform_allow: twr_ke18f frdm_k64f
     attribute: required
-  kernel.common.nano64:
-    path: tests/kernel/common
-    catalog: kernel userspace
-    extra_configs:
-    - CONFIG_CBPRINTF_NANO=y
-    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
-    filter: not CONFIG_KERNEL_COHERENCE
-    min_flash: 33
+    result: skip
+  sample.helloworld:
+    path: samples/userspace/hello_world_user
+    catalog: introduction
+    platform_exclude: intel_adsp_cavs15
     attribute: required
-  kernel.fpu_sharing.float_disable.arm:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    extra_configs:
-    - CONFIG_DYNAMIC_INTERRUPTS=y
-    arch_allow: arm
-    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    result: skip
+  sample.ipc.ipm.ipm_mcux:
+    path: samples/subsys/ipc/ipm_mcux
+    catalog: ipm
+    platform_allow: lpcxpresso54114_m4 lpcxpresso55s69_cpu0
     attribute: required
-  kernel.fpu_sharing.float_disable.riscv32:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    filter: CONFIG_CPU_HAS_FPU
-    arch_allow: riscv32
+    result: skip
+  sample.ipc.ipm.ipm_mhu_dual_core:
+    path: samples/subsys/ipc/ipm_mhu_dual_core
+    catalog: ipm
+    platform_allow: v2m_musca_b1 v2m_musca_b1_nonsecure
     attribute: required
-  kernel.fpu_sharing.float_disable.riscv64:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    filter: CONFIG_CPU_HAS_FPU
-    arch_allow: riscv64
+    result: skip
+  sample.ipc.openamp:
+    path: samples/subsys/ipc/openamp
+    catalog: ipm
+    platform_allow: lpcxpresso54114_m4 lpcxpresso55s69_cpu0 mps2_an521 v2m_musca v2m_musca_b1
     attribute: required
-  kernel.fpu_sharing.float_disable.sparc:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    filter: CONFIG_CPU_HAS_FPU
-    arch_allow: sparc
+    result: skip
+  sample.subsys.ipc.openamp_rs_table:
+    path: samples/subsys/ipc/openamp_rsc_table
+    catalog: ipm
+    build_only: true
+    platform_allow: stm32mp157c_dk2
     attribute: required
-  kernel.fpu_sharing.float_disable.x86.fpu:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    extra_configs:
-    - CONFIG_X86_SSE_FP_MATH=n
-    extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86 qemu_x86_lakemont
+    result: skip
+  sample.ipc.rpmsg_service:
+    path: samples/subsys/ipc/rpmsg_service
+    catalog: ipm
+    platform_allow: mps2_an521 v2m_musca_b1
     attribute: required
-  kernel.fpu_sharing.float_disable.x86.sse:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: kernel userspace
-    extra_configs:
-    - CONFIG_X86_SSE_FP_MATH=y
-    extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86 qemu_x86_lakemont
+    result: skip
+  sample.ipc.rpmsg_service.nrf:
+    path: samples/subsys/ipc/rpmsg_service
+    catalog: ipm
+    platform_allow: nrf5340dk_nrf5340_cpuapp
+    build_only: true
     attribute: required
-  kernel.futex:
-    path: tests/kernel/mem_protect/futex
-    catalog: kernel userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  kernel.memory_protection.sys_sem:
-    path: tests/kernel/mem_protect/sys_sem
-    catalog: kernel userspace
-    attribute: required
-  kernel.message_queue:
-    path: tests/kernel/msgq/msgq_api
-    catalog: kernel userspace
-    attribute: required
-  kernel.mutex:
-    path: tests/kernel/mutex/mutex_api
-    catalog: kernel userspace
-    attribute: required
-  system.mutex:
-    path: tests/kernel/mutex/sys_mutex
-    catalog: kernel userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  kernel.pipe.api:
-    path: tests/kernel/pipe/pipe_api
-    catalog: kernel userspace
-    attribute: required
-  kernel.work.user:
-    path: tests/kernel/workq/user_work
-    catalog: kernel userspace
-    min_flash: 34
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  kernel.condvar:
-    path: tests/kernel/condvar/condvar_api
-    catalog: kernel userspace condition_variables ignore_faults
-    attribute: required
-  kernel.mutex.mutex_error_case:
-    path: tests/kernel/mutex/mutex_error_case
-    catalog: kernel userspace ignore_faults
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  kernel.pipe:
-    path: tests/kernel/pipe/pipe
-    catalog: kernel userspace ignore_faults
-    attribute: required
-  kernel.poll:
-    path: tests/kernel/poll
-    catalog: kernel userspace ignore_faults
-    platform_exclude: nrf52dk_nrf52810
-    attribute: required
-  kernel.queue:
-    path: tests/kernel/queue
-    catalog: kernel userspace ignore_faults
-    attribute: required
-  kernel.semaphore:
-    path: tests/kernel/semaphore/semaphore
-    catalog: kernel userspace ignore_faults
-    attribute: required
-  kernel.semaphore.usage:
-    path: tests/kernel/semaphore/sys_sem
-    catalog: kernel userspace ignore_faults
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    attribute: required
-  kernel.stack.usage:
-    path: tests/kernel/stack/stack
-    catalog: kernel userspace ignore_faults
-    attribute: required
-  arch.common.xip:
-    path: tests/kernel/xip
-    catalog: kernel xip
-    filter: CONFIG_XIP
-    attribute: required
+    result: skip

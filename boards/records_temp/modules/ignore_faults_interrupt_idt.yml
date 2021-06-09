@@ -1,7 +1,0 @@
----
-cases:
-  arch.interrupt.x86:
-    path: tests/arch/x86/static_idt
-    catalog: ignore_faults interrupt idt
-    arch_allow: x86
-    filter: not CONFIG_X86_64

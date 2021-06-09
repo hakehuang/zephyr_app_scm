@@ -1,54 +1,35 @@
 ---
 cases:
-  logging.log_benchmark_v1:
-    path: tests/subsys/logging/log_benchmark
+  sample.logger.basic.dictionary:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    build_only: true
+  sample.logger.basic.dictionary.fpu:
+    path: samples/subsys/logging/dictionary
     catalog: logging
     extra_configs:
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG_STRDUP_BUF_COUNT=8
-    - CONFIG_LOG_STRDUP_MAX_STRING=32
-    - CONFIG_LOG_MODE_DEFERRED=y
-  logging.log_benchmark_user_v1:
-    path: tests/subsys/logging/log_benchmark
+    - CONFIG_FPU=y
+    build_only: true
+    filter: CONFIG_CPU_HAS_FPU
+  sample.logger.basic.dictionary.fpu.long_double:
+    path: samples/subsys/logging/dictionary
     catalog: logging
     extra_configs:
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG_STRDUP_BUF_COUNT=8
-    - CONFIG_LOG_STRDUP_MAX_STRING=32
-    - CONFIG_LOG_MODE_DEFERRED=y
-    - CONFIG_TEST_USERSPACE=y
-    platform_allow: qemu_x86 native_posix
-  logging.log_benchmark_v2:
-    path: tests/subsys/logging/log_benchmark
+    - CONFIG_FPU=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    build_only: true
+    filter: CONFIG_CPU_HAS_FPU
+  sample.logger.basic:
+    path: samples/subsys/logging/logger
+    catalog: logging
+  sample.logger.rtt:
+    path: samples/subsys/logging/logger
     catalog: logging
     extra_configs:
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG2_MODE_DEFERRED=y
-  logging.log_benchmark_v2_speed:
-    path: tests/subsys/logging/log_benchmark
+    - CONFIG_LOG_BACKEND_RTT=y
+    - CONFIG_USE_SEGGER_RTT=y
+    filter: CONFIG_HAS_SEGGER_RTT
+  sample.logger.syst:
+    path: samples/subsys/logging/syst
     catalog: logging
-    extra_configs:
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG2_MODE_DEFERRED=y
-    - CONFIG_LOG_SPEED=y
-  logging.log_benchmark_user_v2:
-    path: tests/subsys/logging/log_benchmark
-    catalog: logging
-    extra_configs:
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG2_MODE_DEFERRED=y
-    - CONFIG_TEST_USERSPACE=y
-    platform_allow: qemu_x86 native_posix
-  logging.add.async:
-    path: tests/subsys/logging/log_core_additional
-    catalog: logging
-  logging.add.sync:
-    path: tests/subsys/logging/log_core_additional
-    catalog: logging
-    extra_args: CONF_FILE=log_sync.conf
-  logging.add.user:
-    path: tests/subsys/logging/log_core_additional
-    catalog: logging
-    extra_args: CONF_FILE=log_user.conf
-    filter: CONFIG_USERSPACE
+    platform_allow: mps2_an385 sam_e70_xplained

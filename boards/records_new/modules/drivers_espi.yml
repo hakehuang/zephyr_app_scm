@@ -1,0 +1,7 @@
+---
+cases:
+  sample.drivers.espi:
+    path: samples/drivers/espi
+    catalog: drivers espi
+    filter: dt_compat_enabled("microchip,mec15xx-board-power")
+    depends_on: espi
