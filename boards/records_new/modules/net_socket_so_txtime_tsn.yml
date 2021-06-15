@@ -4,5 +4,4 @@ cases:
     path: samples/net/sockets/txtime
     catalog: net socket so_txtime tsn
     depends_on: netif
-    platform_allow: frdm_k64f sam_e70_xplained native_posix native_posix_64 qemu_x86
-      qemu_x86_64
+    platform_allow: native_posix native_posix_64 qemu_x86 qemu_x86_64

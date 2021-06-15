@@ -297,7 +297,8 @@ class ZephyrParse < Rly::Yacc
 end
 
 def isDT_filter(key)
-  dt_list = ["dt_compat_enabled", "dt_alias_exists", "dt_compat_enabled_with_alias"]
+  dt_list = ["dt_compat_enabled", "dt_alias_exists", "dt_compat_enabled_with_alias",
+             "dt_enabled_alias_with_parent_compat", "dt_label_with_parent_compat_enabled"]
   if dt_list.include?(key)
     return true
   end
@@ -310,9 +311,24 @@ def dt_compatible_match(dt_root, compatible_name, compatible_value)
     return false
   end
   if dt_root.keys.include?(compatible_name)
-      if dt_root[compatible_name] == compatible_value
+    if dt_root[compatible_name].instance_of? Array
+      dt_root[compatible_name].each do |item| 
+        if item == compatible_value
+          return true
+        end
+        if item.instance_of? String
+          if item.gsub('"', '') == compatible_value
+            return true
+          end
+        end
+      end
+    elsif dt_root[compatible_name] == compatible_value
+      return true
+    elsif dt_root[compatible_name].instance_of? String
+      if dt_root[compatible_name].gsub('"', '') == compatible_value
         return true
       end
+    end
   end
   ret = false
   dt_root.each do |k,v|
@@ -324,10 +340,53 @@ def dt_compatible_match(dt_root, compatible_name, compatible_value)
   return false
 end
 
+def dt_compatible_match_node(dt_root, compatible_name, compatible_value)
+  #To do
+  if dt_root.class != Hash
+    return false, nil
+  end
+  if dt_root.keys.include?(compatible_name)
+    if dt_root[compatible_name].instance_of? Array
+      dt_root[compatible_name].each do |item| 
+        if item == compatible_value
+          return true
+        end
+        if item.instance_of? String
+          if item.gsub('"', '') == compatible_value
+            return true, dt_root
+          end
+        end
+      end
+    elsif dt_root[compatible_name] == compatible_value
+      return true, dt_root
+    elsif dt_root[compatible_name].instance_of? String
+      if dt_root[compatible_name].gsub('"', '') == compatible_value
+        return true, dt_root
+      end
+    end
+  end
+  ret = false
+  dt_root.each do |k,v|
+    ret, node =  dt_compatible_match_node(v, compatible_name, compatible_value)
+    if ret 
+      return true, node
+    end
+  end
+  return false, nil
+end
+
+def dt_label_with_parent_compat_enabled(dt_root, compatible_name, compatible_value, child_label)
+  ret, node = dt_compatible_match_node(dt_root, compatible_name, compatible_value)
+  if ret and node.has_key?(child_label)
+    return true
+  end
+  return false
+end
+
 
 def dt_retrive_compatible_key(dt_root,alias_path)
   dt = dt_root
-  #the apth will have two "s at begining and end
+  #the path will have two "s at begining and end
   alias_path.split("\/")[1..-2].each do |item|
     dt = dt[item]
   end
@@ -338,7 +397,7 @@ def dt_parser(k, v, board_hash)
   if ! board_hash['dtb']
     return false
   end
-  if k == "dt_compat_enabled"
+  if k == "dt_compat_enabled" or k == "dt_compat_enabled_with_label"
     return dt_compatible_match(board_hash, "compatible", v)
   elsif k == "dt_alias_exists"
     return true if board_hash['dtb']['root']['aliases'].keys().include?(v)
@@ -365,7 +424,10 @@ def dt_parser(k, v, board_hash)
       return false
     end
     return false
+  elsif k == "dt_label_with_parent_compat_enabled"
+    return dt_label_with_parent_compat_enabled(board_hash, "compatible", v[1], v[0])
   end
+
 end
 
 def simple_ast(data = "", board_hash = {})
@@ -373,7 +435,7 @@ def simple_ast(data = "", board_hash = {})
   case data.class.name
       when "Hash"
           data.each do |k, v|
-            if isDT_filter(v[0])
+            if isDT_filter(k)
               return dt_parser(k, v, board_hash)
             end
             if board_hash.has_key?(v[0])
@@ -537,6 +599,9 @@ if __FILE__ == $0
     # TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
     $log.info  zephyr_filter_parser("TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE", board_hash)
 =end
-    $log.info  zephyr_filter_parser("CONFIG_SMP and CONFIG_MP_NUM_CPUS > 1 and CONFIG_MP_NUM_CPUS <= 4", board_hash)
+    #$log.info  zephyr_filter_parser("CONFIG_SMP and CONFIG_MP_NUM_CPUS > 1 and CONFIG_MP_NUM_CPUS <= 4", board_hash)
     # $log.info  parser.parse("TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE")
+    #$log.info  zephyr_filter_parser('dt_compat_enabled_with_alias("gpio-keys", "sw0")', board_hash)
+    
+    $log.info  zephyr_filter_parser('dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")', board_hash)
 end

@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1064_evk_5"
-  version: zephyr-v2.6.0-90-gefccfcbfc9
+  version: zephyr-v2.6.0-286-g46029914a7
 __load__:
 - modules/video_net_socket.yml
 - modules/video.yml
@@ -10,7 +10,6 @@ __load__:
 - modules/uart_modbus.yml
 - modules/uart_bluetooth.yml
 - modules/tracing_debug.yml
-- modules/tfm_ci_build.yml
 - modules/tfm.yml
 - modules/tests.yml
 - modules/testing_pytest.yml

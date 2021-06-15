@@ -1,16 +1,16 @@
 ---
 settings:
   case_pipe_name: "frdm_k22f_2"
-  version: zephyr-v2.6.0-90-gefccfcbfc9
+  version: zephyr-v2.6.0-286-g46029914a7
 __load__:
 - modules/dmic.yml
 - modules/display_shield.yml
 - modules/display.yml
 - modules/debug.yml
-- modules/crypto_entropy.yml
 - modules/crypto.yml
 - modules/cpp.yml
 - modules/console.yml
+- modules/compression_lz4.yml
 - modules/clock_litex_vexriscv_mmcm.yml
 - modules/ci_build.yml
 - modules/DAC.yml
