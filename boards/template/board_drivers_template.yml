@@ -4,12 +4,32 @@ settings:
   version: zephyr-v2.6.0-286-g46029914a7
 __load__:
 - modules/drivers_watchdog.yml
+- modules/drivers_userspace.yml
+- modules/drivers_spi_qspi.yml
+- modules/drivers_spi.yml
 - modules/drivers_sensor_grove_temperature.yml
 - modules/drivers_sensor_grove_light.yml
+- modules/drivers_pwm_userspace.yml
 - modules/drivers_pwm.yml
+- modules/drivers_memc.yml
+- modules/drivers_led.yml
+- modules/drivers_kscan_userspace.yml
+- modules/drivers_kscan.yml
+- modules/drivers_ipc.yml
+- modules/drivers_i2s.yml
+- modules/drivers_i2c.yml
+- modules/drivers_gpio.yml
 - modules/drivers_fram.yml
+- modules/drivers_flash.yml
 - modules/drivers_espi.yml
+- modules/drivers_dma.yml
+- modules/drivers_console.yml
 - modules/drivers.yml
+- modules/driver_sensor_subsys.yml
+- modules/driver_sensor.yml
+- modules/driver_entropy.yml
+- modules/driver_can.yml
+- modules/driver.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

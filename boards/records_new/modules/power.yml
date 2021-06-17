@@ -26,3 +26,22 @@ cases:
     path: samples/subsys/pm/device_pm
     catalog: power
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
+  subsys.pm.device_pm:
+    path: tests/subsys/pm/device_runtime
+    catalog: power
+    arch_exclude: arc xtensa
+  subsys.pm.device_pm.power_mgmt:
+    path: tests/subsys/pm/power_mgmt
+    catalog: power
+    arch_exclude: arc xtensa
+    platform_exclude: rv32m1_vega_ri5cy rv32m1_vega_zero_riscy litex_vexriscv nrf5340dk_nrf5340_cpunet
+      thingy53_nrf5340_cpunet bl5340_dvk_cpunet
+  subsys.pm.pm_soc:
+    path: tests/subsys/pm/power_mgmt_soc
+    catalog: power
+    platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
+      nucleo_wb55rg nucleo_l476rg
+  pm-states-api.dts:
+    path: tests/subsys/pm/power_states_api
+    catalog: power
+    platform_allow: native_posix

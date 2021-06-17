@@ -1,0 +1,6 @@
+---
+cases:
+  kernel.multiprocessing.smp:
+    path: tests/kernel/smp
+    catalog: kernel smp ignore_faults
+    filter: "(CONFIG_MP_NUM_CPUS > 1)"

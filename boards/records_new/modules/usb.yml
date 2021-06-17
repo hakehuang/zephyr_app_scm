@@ -102,3 +102,7 @@ cases:
     catalog: usb
     depends_on: usb_device
     platform_exclude: native_posix native_posix_64
+  usb.device:
+    path: tests/subsys/usb/device
+    catalog: usb
+    depends_on: usb_device

@@ -1,0 +1,183 @@
+---
+cases:
+  kernel.common.context:
+    path: tests/kernel/context
+    catalog: kernel
+  kernel.logging.message_capture:
+    path: tests/kernel/fatal/message_capture
+    catalog: kernel
+    platform_exclude: intel_adsp_cavs15
+  kernel.fifo:
+    path: tests/kernel/fifo/fifo_api
+    catalog: kernel
+  kernel.fifo.timeout:
+    path: tests/kernel/fifo/fifo_timeout
+    catalog: kernel
+  kernel.fifo.usage:
+    path: tests/kernel/fifo/fifo_usage
+    catalog: kernel
+  kernel.fpu_sharing.generic.arc:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_ISA_ARCV2 and CONFIG_CPU_HAS_FPU
+    min_ram: 16
+  kernel.fpu_sharing.generic.arm:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_ram: 16
+  kernel.fpu_sharing.generic.arm64:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    arch_allow: arm64
+    filter: CONFIG_CPU_CORTEX_A
+  kernel.fpu_sharing.generic.riscv32:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
+    min_ram: 16
+  kernel.fpu_sharing.generic.riscv64:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
+    min_ram: 16
+  kernel.fpu_sharing.generic.sparc:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
+  kernel.fpu_sharing.generic.x86.fpu:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont
+  kernel.fpu_sharing.generic.x86.sse:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont
+  kernel.lifo:
+    path: tests/kernel/lifo/lifo_api
+    catalog: kernel
+  kernel.lifo.usage:
+    path: tests/kernel/lifo/lifo_usage
+    catalog: kernel
+    platform_exclude: m2gl025_miv
+  kernel.mailbox.api:
+    path: tests/kernel/mbox/mbox_api
+    catalog: kernel
+  kernel.mailbox.usage:
+    path: tests/kernel/mbox/mbox_usage
+    catalog: kernel
+  kernel.memory_heap:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
+    extra_configs:
+    - CONFIG_IRQ_OFFLOAD=y
+  kernel.memory_heap_no_multithreading:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    platform_allow: qemu_cortex_m3 qemu_cortex_m0
+  kernel.memory_protection.sys_sem.nouser:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+  kernel.memory_slabs.api:
+    path: tests/kernel/mem_slab/mslab
+    catalog: kernel
+  kernel.memory_slabs.api.mslab_api:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
+  kernel.memory_slabs.api_no_multithreading:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    platform_allow: qemu_cortex_m3 qemu_cortex_m0
+  kernel.memory_slabs.concept:
+    path: tests/kernel/mem_slab/mslab_concept
+    catalog: kernel
+  kernel.memory_slabs.threadsafe:
+    path: tests/kernel/mem_slab/mslab_threadsafe
+    catalog: kernel
+  kernel.message_queue_usage:
+    path: tests/kernel/msgq/msgq_usage
+    catalog: kernel
+  system.mutex.nouser:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+  kernel.objects:
+    path: tests/kernel/pending
+    catalog: kernel
+  kernel.common.profiling:
+    path: tests/kernel/profiling/profiling_api
+    catalog: kernel
+    arch_exclude: nios2
+    platform_exclude: em_starterkit litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
+      nrf5340dk_nrf5340_cpunet
+  kernel.scheduler.deadline:
+    path: tests/kernel/sched/deadline
+    catalog: kernel
+  kernel.scheduler.metairq:
+    path: tests/kernel/sched/metairq
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52dk_nrf52810
+  kernel.scheduler.preempt:
+    path: tests/kernel/sched/preempt
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52dk_nrf52810
+  kernel.threads.no-multithreading:
+    path: tests/kernel/threads/no-multithreading
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_allow: qemu_cortex_m0 qemu_cortex_m3 mps2_an385 mps2_an521 nrf52840dk_nrf52840
+      nrf9160dk_nrf9160 nrf51dk_nrf51422
+  kernel.tickless.concept:
+    path: tests/kernel/tickless/tickless_concept
+    catalog: kernel
+    arch_exclude: nios2
+    platform_exclude: litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy nrf5340dk_nrf5340_cpunet
+  kernel.workqueue:
+    path: tests/kernel/workq/critical
+    catalog: kernel
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: not CONFIG_WDT_SAM
+  kernel.workqueue.sam:
+    path: tests/kernel/workq/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_WDT_DISABLE_AT_BOOT=y
+    filter: CONFIG_WDT_SAM
+  kernel.workqueue.nsim:
+    path: tests/kernel/workq/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+  kernel.work.api:
+    path: tests/kernel/workq/work
+    catalog: kernel
+    min_flash: 34
+  kernel.workqueue.work_queue:
+    path: tests/kernel/workq/work_queue
+    catalog: kernel
+    min_flash: 34

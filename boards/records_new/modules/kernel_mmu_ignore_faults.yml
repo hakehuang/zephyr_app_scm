@@ -1,0 +1,21 @@
+---
+cases:
+  kernel.memory_protection.mem_map:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    filter: CONFIG_MMU and not CONFIG_X86_64
+    platform_exclude: qemu_x86_64
+  kernel.memory_protection.mem_map.x86_64:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    filter: CONFIG_MMU and CONFIG_X86_64 and not CONFIG_COVERAGE
+  kernel.memory_protection.mem_map.x86_64.coverage:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    extra_args: EXTRA_CFLAGS=-DSKIP_EXECUTE_TESTS
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
+  kernel.memory_protection.mem_map.x86_64.coverage.exec:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    extra_args: CONF_FILE=prj_x86_64_coverage_exec.conf
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE

@@ -3,6 +3,7 @@ settings:
   case_pipe_name: "twr_ke18f_kernel"
   version: zephyr-v2.6.0-286-g46029914a7
 __load__:
+- modules/kernel.yml
 - skips/twr_ke18f.yml
 - boards/twr_ke18f.yml
 cases:

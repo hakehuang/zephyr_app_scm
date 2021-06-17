@@ -1,0 +1,36 @@
+---
+cases:
+  kernel.common.stack_sentinel:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults
+    extra_args: CONF_FILE=sentinel.conf
+  kernel.no-mt.cpu_exception:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=0
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.oops:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=1
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.panic:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=2
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.zephyr_assert:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=3
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.arbitrary_reason:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=4
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.arbitrary_reason_negative:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=5
+    platform_allow: qemu_cortex_m3

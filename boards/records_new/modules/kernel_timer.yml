@@ -1,0 +1,17 @@
+---
+cases:
+  kernel.timer.starve:
+    path: tests/kernel/timer/starve
+    catalog: kernel timer
+    build_only: true
+  kernel.timer.no_multitheading:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    - CONFIG_TEST_USERSPACE=n
+    - CONFIG_SPIN_VALIDATE=n
+    platform_allow: qemu_cortex_m3
+  kernel.timer.monotonic:
+    path: tests/kernel/timer/timer_monotonic
+    catalog: kernel timer

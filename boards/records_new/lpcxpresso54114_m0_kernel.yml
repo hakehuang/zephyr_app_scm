@@ -3,6 +3,7 @@ settings:
   case_pipe_name: "lpcxpresso54114_m0_kernel"
   version: zephyr-v2.6.0-286-g46029914a7
 __load__:
+- modules/kernel.yml
 - skips/lpcxpresso54114_m0.yml
 - boards/lpcxpresso54114_m0.yml
 cases:

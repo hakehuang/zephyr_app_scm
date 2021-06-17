@@ -4,3 +4,8 @@ cases:
     path: samples/net/vlan
     catalog: net vlan
     depends_on: netif
+  net.vlan:
+    path: tests/net/vlan
+    catalog: net vlan
+    min_ram: 32
+    depends_on: netif

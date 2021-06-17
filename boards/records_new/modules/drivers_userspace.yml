@@ -1,0 +1,15 @@
+---
+cases:
+  peripheral.eeprom:
+    path: tests/drivers/eeprom
+    catalog: drivers userspace
+    platform_allow: native_posix native_posix_64 qemu_x86
+  peripheral.eeprom.generic:
+    path: tests/drivers/eeprom
+    catalog: drivers userspace
+    build_only: true
+    depends_on: eeprom
+  drivers.i2s:
+    path: tests/drivers/i2s/i2s_api
+    catalog: drivers userspace
+    depends_on: i2s

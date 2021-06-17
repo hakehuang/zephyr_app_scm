@@ -1,0 +1,57 @@
+---
+cases:
+  arch.arm.no_multithreading:
+    path: tests/arch/arm/arm_no_multithreading
+    catalog: arm
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    platform_allow: qemu_cortex_m0 qemu_cortex_m3 mps2_an385 mps2_an521 nrf52840dk_nrf52840
+      nrf9160dk_nrf9160 nrf51dk_nrf51422
+    arch_allow: arm
+  arch.arm.sw_vector_relay:
+    path: tests/arch/arm/arm_sw_vector_relay
+    catalog: arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: arm
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common.no_optimizations:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: arm
+    extra_configs:
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    min_flash: 192
+    arch_allow: arm
+  arch.arm.swap.common.fpu_sharing:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: arm
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_FPU_SHARING=y
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common.fpu_sharing.no_optimizations:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: arm
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_FPU_SHARING=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    min_flash: 192
+    arch_allow: arm

@@ -5,3 +5,9 @@ cases:
     catalog: debug
     build_only: true
     platform_allow: qemu_x86
+  buildsystem.debug.build:
+    path: tests/misc/test_build
+    catalog: debug
+    extra_args: CONF_FILE=debug.conf
+    platform_exclude: lpcxpresso55s69_ns
+    build_only: true

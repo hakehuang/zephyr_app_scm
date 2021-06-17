@@ -1,5 +1,10 @@
 ---
 cases:
+  sample.syscall_performances:
+    path: samples/userspace/syscall_perf
+    catalog: userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_allow: riscv32
   sample.net.sockets.net_mgmt.usermode:
     path: samples/net/sockets/net_mgmt
     catalog: userspace
@@ -15,8 +20,3 @@ cases:
     catalog: userspace
     filter: CONFIG_ARCH_HAS_USERSPACE
     platform_exclude: twr_ke18f
-  sample.syscall_performances:
-    path: samples/userspace/syscall_perf
-    catalog: userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_allow: riscv32

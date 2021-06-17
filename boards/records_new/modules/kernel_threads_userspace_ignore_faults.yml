@@ -1,0 +1,15 @@
+---
+cases:
+  kernel.threads.dynamic:
+    path: tests/kernel/threads/dynamic_thread
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_exclude: x86
+  kernel.threads.apis:
+    path: tests/kernel/threads/thread_apis
+    catalog: kernel threads userspace ignore_faults
+    min_flash: 34
+  kernel.threads.error.case:
+    path: tests/kernel/threads/thread_error_case
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_USERSPACE

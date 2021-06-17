@@ -4,3 +4,8 @@ cases:
     path: samples/net/promiscuous_mode
     catalog: net promisc
     depends_on: netif
+  net.promisc:
+    path: tests/net/promiscuous
+    catalog: net promisc
+    min_ram: 16
+    depends_on: netif

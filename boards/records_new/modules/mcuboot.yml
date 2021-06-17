@@ -1,0 +1,9 @@
+---
+cases:
+  bootloader.mcuboot.build:
+    path: tests/misc/test_build
+    catalog: mcuboot
+    extra_configs:
+    - CONFIG_BOOTLOADER_MCUBOOT=y
+    build_only: true
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832

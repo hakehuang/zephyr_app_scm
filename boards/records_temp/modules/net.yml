@@ -47,3 +47,59 @@ cases:
     build_only: true
     platform_allow: frdm_k64f
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.coap.simple:
+    path: tests/net/lib/coap
+    catalog: net
+    min_ram: 16
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.packet:
+    path: tests/net/net_pkt
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 20
+  net.packet.preempt:
+    path: tests/net/net_pkt
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 20
+  net.packet.large_buffer:
+    path: tests/net/net_pkt
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_BUF_FIXED_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_SIZE=512
+    depends_on: netif
+    min_ram: 20
+  net.pm:
+    path: tests/net/pm
+    catalog: net
+    platform_allow: qemu_x86 qemu_leon3 qemu_riscv32 qemu_riscv64
+    depends_on: netif
+  net.udp:
+    path: tests/net/udp
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 20
+  net.udp.preempt:
+    path: tests/net/udp
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 20
+  can.frame:
+    path: tests/subsys/canbus/frame
+    catalog: net
+    platform_allow: native_posix native_posix_64 qemu_x86 qemu_cortex_m3 qemu_leon3
+      qemu_riscv32 qemu_riscv64
+  utilities.net_timeout:
+    path: tests/unit/net_timeout
+    catalog: net
+    type: unit

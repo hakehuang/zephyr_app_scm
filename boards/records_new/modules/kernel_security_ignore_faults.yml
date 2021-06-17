@@ -1,0 +1,7 @@
+---
+cases:
+  kernel.memory_protection.protection:
+    path: tests/kernel/mem_protect/protection
+    catalog: kernel security ignore_faults
+    platform_exclude: twr_ke18f
+    filter: CONFIG_SRAM_REGION_PERMISSIONS

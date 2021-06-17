@@ -1,0 +1,57 @@
+---
+cases:
+  net.dns.addremove:
+    path: tests/net/lib/dns_addremove
+    catalog: dns net
+    min_ram: 21
+    depends_on: netif
+  net.dns.addremove.no_ipv6:
+    path: tests/net/lib/dns_addremove
+    catalog: dns net
+    extra_configs:
+    - CONFIG_NET_IPV6=n
+    depends_on: netif
+    min_ram: 16
+  net.dns.no_ipv4:
+    path: tests/net/lib/dns_addremove
+    catalog: dns net
+    extra_configs:
+    - CONFIG_NET_IPV4=n
+    depends_on: netif
+    min_ram: 16
+  net.dns:
+    path: tests/net/lib/dns_packet
+    catalog: dns net
+    min_ram: 16
+    depends_on: netif
+  net.dns.resolve:
+    path: tests/net/lib/dns_resolve
+    catalog: dns net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.dns.resolve.preempt:
+    path: tests/net/lib/dns_resolve
+    catalog: dns net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.dns.resolve.no_ipv6:
+    path: tests/net/lib/dns_resolve
+    catalog: dns net
+    extra_args: CONF_FILE=prj-no-ipv6.conf
+    min_ram: 21
+    depends_on: netif
+  net.dns.sd:
+    path: tests/net/lib/dns_sd
+    catalog: dns net
+    min_ram: 21
+    depends_on: netif
+  net.dns.sd.no_ipv6:
+    path: tests/net/lib/dns_sd
+    catalog: dns net
+    extra_args: CONF_FILE=prj-no-ipv6.conf
+    min_ram: 16
+    depends_on: netif

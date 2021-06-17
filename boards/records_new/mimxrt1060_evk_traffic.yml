@@ -3,6 +3,7 @@ settings:
   case_pipe_name: "mimxrt1060_evk_traffic"
   version: zephyr-v2.6.0-286-g46029914a7
 __load__:
+- modules/net_traffic_class.yml
 - skips/mimxrt1060_evk.yml
 - boards/mimxrt1060_evk.yml
 cases:

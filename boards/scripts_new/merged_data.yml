@@ -135,3 +135,157 @@ cases:
     comments: need add support
     result: FAILURE
     attribute: required
+  kernel.common:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    min_flash: 33
+    attribute: required
+  kernel.common.tls:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    min_flash: 33
+    attribute: required
+  kernel.common.misra:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_MISRA_SANE=y
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    min_flash: 33
+    attribute: required
+  kernel.common.nano32:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    filter: not CONFIG_KERNEL_COHERENCE
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 33
+    attribute: required
+  kernel.common.nano64:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    filter: not CONFIG_KERNEL_COHERENCE
+    min_flash: 33
+    attribute: required
+  kernel.fpu_sharing.float_disable.arm:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_INTERRUPTS=y
+    arch_allow: arm
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    attribute: required
+  kernel.fpu_sharing.float_disable.riscv32:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
+    attribute: required
+  kernel.fpu_sharing.float_disable.riscv64:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
+    attribute: required
+  kernel.fpu_sharing.float_disable.sparc:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
+    attribute: required
+  kernel.fpu_sharing.float_disable.x86.fpu:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont
+    attribute: required
+  kernel.fpu_sharing.float_disable.x86.sse:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont
+    attribute: required
+  kernel.futex:
+    path: tests/kernel/mem_protect/futex
+    catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.memory_protection.sys_sem:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel userspace
+    attribute: required
+  kernel.message_queue:
+    path: tests/kernel/msgq/msgq_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.mutex:
+    path: tests/kernel/mutex/mutex_api
+    catalog: kernel userspace
+    attribute: required
+  system.mutex:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.pipe.api:
+    path: tests/kernel/pipe/pipe_api
+    catalog: kernel userspace
+    attribute: required
+  kernel.work.user:
+    path: tests/kernel/workq/user_work
+    catalog: kernel userspace
+    min_flash: 34
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.condvar:
+    path: tests/kernel/condvar/condvar_api
+    catalog: kernel userspace condition_variables ignore_faults
+    attribute: required
+  kernel.mutex.mutex_error_case:
+    path: tests/kernel/mutex/mutex_error_case
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.pipe:
+    path: tests/kernel/pipe/pipe
+    catalog: kernel userspace ignore_faults
+    attribute: required
+  kernel.poll:
+    path: tests/kernel/poll
+    catalog: kernel userspace ignore_faults
+    platform_exclude: nrf52dk_nrf52810
+    attribute: required
+  kernel.queue:
+    path: tests/kernel/queue
+    catalog: kernel userspace ignore_faults
+    attribute: required
+  kernel.semaphore:
+    path: tests/kernel/semaphore/semaphore
+    catalog: kernel userspace ignore_faults
+    attribute: required
+  kernel.semaphore.usage:
+    path: tests/kernel/semaphore/sys_sem
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.stack.usage:
+    path: tests/kernel/stack/stack
+    catalog: kernel userspace ignore_faults
+    attribute: required
+  arch.common.xip:
+    path: tests/kernel/xip
+    catalog: kernel xip
+    filter: CONFIG_XIP
+    attribute: required

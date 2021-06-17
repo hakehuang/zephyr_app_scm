@@ -6,3 +6,10 @@ cases:
     filter: CONFIG_FLASH_HAS_DRIVER_ENABLED
     platform_exclude: nucleo_h745zi_q_m4 stm32h747i_disco_m4
     min_ram: 12
+  shell.history:
+    path: tests/subsys/shell/shell_flash
+    catalog: flash shell
+    min_flash: 64
+    min_ram: 32
+    filter: "( CONFIG_FLASH_SHELL )"
+    platform_allow: qemu_x86 native_posix

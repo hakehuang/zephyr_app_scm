@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.adc.sam.afec.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_sam_afec
+    extra_args: CONFIG_ADC_SAM_AFEC=y
+    platform_allow: sam_e70_xplained
+    build_only: true

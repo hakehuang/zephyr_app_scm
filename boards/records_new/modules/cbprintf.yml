@@ -1,0 +1,67 @@
+---
+cases:
+  libraries.cbprintf_package:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  libraries.cbprintf_package_no_generic:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  libraries.cbprintf_package_fp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  libraries.cbprintf_package_fp_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  libraries.cbprintf_package_long_double:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_riscv32
+  libraries.cbprintf_package_long_double_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_riscv32
+  libraries.cbprintf_package_nano:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX

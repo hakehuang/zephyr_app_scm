@@ -5,3 +5,60 @@ cases:
     catalog: posix
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     platform_exclude: m2gl025_miv intel_adsp_cavs15
+  portability.posix.common:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.newlib:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.tls:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.tls.newlib:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
+    filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
+      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.nsim:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.newlib.nsim:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+    arch_exclude: posix

@@ -207,3 +207,361 @@ cases:
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="overlay-fs.conf"
     platform_allow: nrf52840dk_nrf52840
+  bluetooth.adv:
+    path: tests/bluetooth/adv
+    catalog: bluetooth
+    platform_allow: nrf52_bsim nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.at:
+    path: tests/bluetooth/at
+    catalog: bluetooth
+    build_only: true
+    min_ram: 16
+    platform_allow: qemu_x86 qemu_cortex_m3
+  bluetooth.general:
+    path: tests/bluetooth/bluetooth
+    catalog: bluetooth
+    platform_allow: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
+  bluetooth.ctrl_sw_privacy.test:
+    path: tests/bluetooth/ctrl_sw_privacy
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+    build_only: true
+  bluetooth.privacy.test:
+    path: tests/bluetooth/ctrl_sw_privacy_unit
+    catalog: bluetooth
+    platform_allow: native_posix
+  bluetooth.ctrl_user_ext.test:
+    path: tests/bluetooth/ctrl_user_ext
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+    build_only: true
+  bluetooth.df.conectionless_cte_rx:
+    path: tests/bluetooth/df/connectionless_cte_rx
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.df.conectionless_cte_tx:
+    path: tests/bluetooth/df/connectionless_cte_tx
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.hci_codecs_info:
+    path: tests/bluetooth/hci_codecs_info
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.init.test:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_0:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_0.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_1:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_1.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_10:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_10.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_11:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_11.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_12:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_12.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_13:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_13.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_14:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_14.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_15:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_15.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_16:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_16.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_17:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_17.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_18:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_18.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_19:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_19.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_2:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_2.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_20:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_20.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_21:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_21.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_22:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_22.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_3:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_3.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_4:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_4.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_5:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_5.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_6:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_6.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_7:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_7.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_8:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_8.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_9:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_9.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_ctlr:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_4_0:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_4_0.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_tiny:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_tiny.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_dbg:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_dbg.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_broadcaster:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_broadcaster.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_observer:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_observer.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_central:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_central_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_broadcaster_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_broadcaster_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_ext_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_ext_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_oberver_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_observer_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_ext_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_ext_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_per_adv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_per_adv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_per_sync:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_per_sync.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_iso:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_iso.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_iso:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_iso.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_h5:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_h5.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_h5_dbg:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_h5_dbg.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.ll_settings:
+    path: tests/bluetooth/ll_settings
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.mesh.mesh_shell:
+    path: tests/bluetooth/mesh_shell
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf51dk_nrf51422
+    platform_exclude: nrf52dk_nrf52810
+  bluetooth.shell.main:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    platform_allow: qemu_cortex_m3 qemu_x86 native_posix native_posix_64 nrf52840dk_nrf52840
+    platform_exclude: nrf52dk_nrf52810
+    min_flash: 145
+  bluetooth.shell.cdc_acm:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG=cdc_acm.conf
+    depends_on: usb_device
+    platform_allow: qemu_cortex_m3 qemu_x86 native_posix native_posix_64 nrf52840dk_nrf52840
+    platform_exclude: nrf52dk_nrf52810
+    min_flash: 350
+  bluetooth.shell.shell_br:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    extra_args: CONF_FILE="prj_br.conf"
+    platform_allow: qemu_cortex_m3 qemu_x86 native_posix native_posix_64
+    platform_exclude: nrf52dk_nrf52810
+  bluetooth.shell.no_privacy:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_args: CONFIG_BT_PRIVACY=n
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.general.tester:
+    path: tests/bluetooth/tester
+    catalog: bluetooth
+    platform_allow: qemu_x86

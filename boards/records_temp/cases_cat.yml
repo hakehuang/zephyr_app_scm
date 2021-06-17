@@ -1,4 +1,70 @@
 ---
+test_framework:
+  testing.ztest.mock:
+    path: "."
+    catalog: test_framework
+    arch_exclude: arm
+  testing.ztest.unit:
+    path: "."
+    catalog: test_framework
+    type: unit
+  testing.drivers.sbs_gauge:
+    path: tests/drivers/sensor/sbs_gauge
+    catalog: test_framework
+    build_only: true
+    filter: dt_compat_enabled("sbs,sbs-gauge")
+  testing.ztest.base:
+    path: tests/ztest/base
+    catalog: test_framework
+    type: unit
+  testing.ztest.verbose_0:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_0.conf
+  testing.ztest.verbose_1:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_1.conf
+  testing.ztest.verbose_2:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_2.conf
+  testing.ztest.regular_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+  testing.ztest.customized_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_customized_output.conf
+  testing.ztest.mock.mock:
+    path: tests/ztest/mock
+    catalog: test_framework
+    arch_exclude: arm
+  testing.ztest.unit.mock:
+    path: tests/ztest/mock
+    catalog: test_framework
+    type: unit
+userspace:
+  sample.syscall_performances:
+    path: samples/userspace/syscall_perf
+    catalog: userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_allow: riscv32
+  sample.net.sockets.net_mgmt.usermode:
+    path: samples/net/sockets/net_mgmt
+    catalog: userspace
+    extra_configs:
+    - CONFIG_USERSPACE=y
+    depends_on: netif
+  sample.userspace.prod_consumer:
+    path: samples/userspace/prod_consumer
+    catalog: userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  sample.kernel.memory_protection.shared_mem:
+    path: samples/userspace/shared_mem
+    catalog: userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: twr_ke18f
 linker:
   sample.application_development.code_relocation:
     path: samples/application_development/code_relocation
@@ -407,6 +473,364 @@ bluetooth:
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG="overlay-fs.conf"
     platform_allow: nrf52840dk_nrf52840
+  bluetooth.adv:
+    path: tests/bluetooth/adv
+    catalog: bluetooth
+    platform_allow: nrf52_bsim nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.at:
+    path: tests/bluetooth/at
+    catalog: bluetooth
+    build_only: true
+    min_ram: 16
+    platform_allow: qemu_x86 qemu_cortex_m3
+  bluetooth.general:
+    path: tests/bluetooth/bluetooth
+    catalog: bluetooth
+    platform_allow: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
+  bluetooth.ctrl_sw_privacy.test:
+    path: tests/bluetooth/ctrl_sw_privacy
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+    build_only: true
+  bluetooth.privacy.test:
+    path: tests/bluetooth/ctrl_sw_privacy_unit
+    catalog: bluetooth
+    platform_allow: native_posix
+  bluetooth.ctrl_user_ext.test:
+    path: tests/bluetooth/ctrl_user_ext
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+    build_only: true
+  bluetooth.df.conectionless_cte_rx:
+    path: tests/bluetooth/df/connectionless_cte_rx
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.df.conectionless_cte_tx:
+    path: tests/bluetooth/df/connectionless_cte_tx
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.hci_codecs_info:
+    path: tests/bluetooth/hci_codecs_info
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.init.test:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_0:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_0.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_1:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_1.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_10:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_10.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_11:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_11.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_12:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_12.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_13:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_13.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_14:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_14.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_15:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_15.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_16:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_16.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_17:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_17.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_18:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_18.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_19:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_19.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_2:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_2.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_20:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_20.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_21:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_21.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_22:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_22.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_3:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_3.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_4:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_4.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_5:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_5.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_6:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_6.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_7:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_7.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_8:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_8.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_9:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_9.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_ctlr:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_4_0:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_4_0.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_tiny:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_tiny.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_dbg:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_dbg.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_broadcaster:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_broadcaster.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_observer:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_observer.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_central:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_central_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 rv32m1_vega_ri5cy
+    build_only: true
+  bluetooth.init.test_ctlr_broadcaster_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_broadcaster_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_ext_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_ext_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_oberver_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_observer_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_ext:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_ext.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_ext_priv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_ext_priv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_per_adv:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_per_adv.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_per_sync:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_per_sync.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_peripheral_iso:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_peripheral_iso.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_central_iso:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_central_iso.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_h5:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_h5.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_h5_dbg:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_h5_dbg.conf
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.ll_settings:
+    path: tests/bluetooth/ll_settings
+    catalog: bluetooth
+    platform_allow: nrf52_bsim
+  bluetooth.mesh.mesh_shell:
+    path: tests/bluetooth/mesh_shell
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf51dk_nrf51422
+    platform_exclude: nrf52dk_nrf52810
+  bluetooth.shell.main:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    platform_allow: qemu_cortex_m3 qemu_x86 native_posix native_posix_64 nrf52840dk_nrf52840
+    platform_exclude: nrf52dk_nrf52810
+    min_flash: 145
+  bluetooth.shell.cdc_acm:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG=cdc_acm.conf
+    depends_on: usb_device
+    platform_allow: qemu_cortex_m3 qemu_x86 native_posix native_posix_64 nrf52840dk_nrf52840
+    platform_exclude: nrf52dk_nrf52810
+    min_flash: 350
+  bluetooth.shell.shell_br:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    extra_args: CONF_FILE="prj_br.conf"
+    platform_allow: qemu_cortex_m3 qemu_x86 native_posix native_posix_64
+    platform_exclude: nrf52dk_nrf52810
+  bluetooth.shell.no_privacy:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_args: CONFIG_BT_PRIVACY=n
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.general.tester:
+    path: tests/bluetooth/tester
+    catalog: bluetooth
+    platform_allow: qemu_x86
 unknown:
   sample.bluetooth.direction_finding_connectionless_rx.aod:
     path: samples/bluetooth/direction_finding_connectionless_rx
@@ -456,6 +880,109 @@ unknown:
     path: samples/net/civetweb/websocket_server
     catalog: unknown
     platform_allow: nucleo_h745zi_q_m7
+  arch.x86.info:
+    path: tests/arch/x86/info
+    catalog: unknown
+    arch_allow: x86
+    platform_allow: qemu_x86 ehl_crb up_squared
+  arch.x86.info.userspace:
+    path: tests/arch/x86/info
+    catalog: unknown
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    platform_allow: qemu_x86 ehl_crb up_squared
+  boards.native_posix.cpu_wait:
+    path: tests/boards/native_posix/cpu_wait
+    catalog: unknown
+    platform_allow: native_posix native_posix_64
+  boards.native_posix.native_tasks:
+    path: tests/boards/native_posix/native_tasks
+    catalog: unknown
+    arch_allow: posix
+  boards.native_posix_64.native_tasks:
+    path: tests/boards/native_posix/native_tasks
+    catalog: unknown
+    arch_allow: posix
+  boards.native_posix.rtc:
+    path: tests/boards/native_posix/rtc
+    catalog: unknown
+    platform_allow: native_posix native_posix_64
+    build_only: true
+  boards.qemu_x86_64.ivshmem:
+    path: tests/boards/qemu_x86_64/ivshmem
+    catalog: unknown
+    arch_allow: x86
+    platform_allow: qemu_x86_64
+  lib.cbprintf_fp.printk:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTK=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
+  lib.cbprintf_fp.printf:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
+  lib.cbprintf_fp.printf_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONSOLE_HAS_DRIVER
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
+  lib.cbprintf_fp.printfcb_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONSOLE_HAS_DRIVER
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.fprintf:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTF=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
+  lib.cbprintf_fp.fprintfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: unknown
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTFCB=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONSOLE_HAS_DRIVER
+  filesystem.native_posix.fcb_0x00:
+    path: tests/subsys/fs/fcb
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_allow: native_posix
+  filesystem.qemu_x86.fcb_0x00:
+    path: tests/subsys/fs/fcb
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
+  utilities.math:
+    path: tests/unit/math_extras
+    catalog: unknown
+    type: unit
 bluetooth spi:
   sample.bluetooth.hci_spi:
     path: samples/bluetooth/hci_spi
@@ -881,6 +1408,25 @@ power:
     path: samples/subsys/pm/device_pm
     catalog: power
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
+  subsys.pm.device_pm:
+    path: tests/subsys/pm/device_runtime
+    catalog: power
+    arch_exclude: arc xtensa
+  subsys.pm.device_pm.power_mgmt:
+    path: tests/subsys/pm/power_mgmt
+    catalog: power
+    arch_exclude: arc xtensa
+    platform_exclude: rv32m1_vega_ri5cy rv32m1_vega_zero_riscy litex_vexriscv nrf5340dk_nrf5340_cpunet
+      thingy53_nrf5340_cpunet bl5340_dvk_cpunet
+  subsys.pm.pm_soc:
+    path: tests/subsys/pm/power_mgmt_soc
+    catalog: power
+    platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
+      nucleo_wb55rg nucleo_l476rg
+  pm-states-api.dts:
+    path: tests/subsys/pm/power_states_api
+    catalog: power
+    platform_allow: native_posix
 board:
   sample.boards.nrf.nrfx:
     path: samples/boards/nrf/nrfx
@@ -1011,6 +1557,440 @@ drivers:
     path: samples/subsys/display/grove_display
     catalog: drivers
     depends_on: i2c
+  drivers.counter.build.xlnx:
+    path: tests/drivers/build_all/counter
+    catalog: drivers
+    extra_configs:
+    - CONFIG_COUNTER_XLNX_AXI_TIMER=y
+    platform_allow: arty_a7_arm_designstart_m1
+    build_only: true
+  drivers.dac.build:
+    path: tests/drivers/build_all/dac
+    catalog: drivers
+    min_ram: 32
+    depends_on: dac spi
+    platform_exclude: serpente
+    build_only: true
+  drivers.eeprom.build:
+    path: tests/drivers/build_all/eeprom
+    catalog: drivers
+    min_ram: 32
+    platform_exclude: serpente
+    depends_on: gpio i2c spi
+    build_only: true
+  net.ethernet.build:
+    path: tests/drivers/build_all/ethernet
+    catalog: drivers
+    min_flash: 42
+    min_ram: 32
+    platform_exclude: frdm_kw41z
+    depends_on: spi netif
+    build_only: true
+  drivers.gpio.build:
+    path: tests/drivers/build_all/gpio
+    catalog: drivers
+    min_ram: 32
+    platform_exclude: serpente
+    depends_on: gpio spi i2c
+    build_only: true
+  drivers.led.build:
+    path: tests/drivers/build_all/led
+    catalog: drivers
+    build_only: true
+    min_ram: 32
+  drivers.modem.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers
+    extra_args: CONF_FILE=modem.conf
+    platform_exclude: serpente particle_boron rak5010_nrf52840
+    build_only: true
+  drivers.modem.ublox_sara.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers
+    extra_args: CONF_FILE=modem_ublox_sara.conf
+    platform_exclude: serpente pinnacle_100_dvk
+    build_only: true
+  drivers.modem.quectel_bg9x.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers
+    extra_args: CONF_FILE=modem_quectel_bg9x.conf
+    platform_exclude: serpente pinnacle_100_dvk
+    build_only: true
+  drivers.pwm.build.xlnx:
+    path: tests/drivers/build_all/pwm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_PWM_XLNX_AXI_TIMER=y
+    platform_allow: arty_a7_arm_designstart_m1
+    build_only: true
+  sensors.build.trigger_a_h:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_trigger_a_h.conf
+    depends_on:
+    - adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.trigger_i_z:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_trigger_i_z.conf
+    depends_on:
+    - gpio adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.a_h:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_a_h.conf
+    min_flash: 44
+    depends_on:
+    - adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.i_z:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_i_z.conf
+    depends_on:
+    - gpio adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.stmemsc:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_stmemsc.conf
+    depends_on:
+    - adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.stmemsc_trigger:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_stmemsc_trigger.conf
+    depends_on:
+    - adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  drivers.clock.clock_control_nrf5:
+    path: tests/drivers/clock_control/clock_control_api
+    catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.clock.clock_control_nrf5_lfclk_rc:
+    path: tests/drivers/clock_control/clock_control_api
+    catalog: drivers
+    extra_args: CONF_FILE="nrf_lfclk_rc.conf"
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.clock.nrf5_clock_calibration:
+    path: tests/drivers/clock_control/nrf_clock_calibration
+    catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.clock.nrf_lf_clock_start_xtal_stable:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+      nrf5340dk_nrf5340_cpuapp nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_xtal_available:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+      nrf5340dk_nrf5340_cpuapp nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_xtal_no_wait:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+      nrf5340dk_nrf5340_cpuapp nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_rc_stable:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_rc_available:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_rc_no_wait:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_synth_stable:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_synth_available:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_synth_no_wait:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_onoff_and_bt:
+    path: tests/drivers/clock_control/nrf_onoff_and_bt
+    catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.clock.clock_control_onoff:
+    path: tests/drivers/clock_control/onoff
+    catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.counter:
+    path: tests/drivers/counter/counter_basic_api
+    catalog: drivers
+    depends_on: counter
+    min_ram: 16
+    platform_exclude: nucleo_f302r8
+  drivers.counter.cmos:
+    path: tests/drivers/counter/counter_cmos
+    catalog: drivers
+    arch_allow: x86
+  drivers.counter.fixed_top:
+    path: tests/drivers/counter/counter_nrf_rtc/fixed_top
+    catalog: drivers
+    depends_on: counter
+    platform_allow: nrf52840dk_nrf52840
+  drivers.counter.maxim_ds3231:
+    path: tests/drivers/counter/maxim_ds3231_api
+    catalog: drivers
+    depends_on: counter i2c
+    min_ram: 16
+    filter: dt_compat_enabled("maxim,ds3231")
+  drivers.timer.nrf_rtc_timer:
+    path: tests/drivers/timer/nrf_rtc_timer
+    catalog: drivers
+    extra_configs:
+    - CONFIG_ZERO_LATENCY_IRQS=y
+    platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.timer.nrf_rtc_timer_no_zli:
+    path: tests/drivers/timer/nrf_rtc_timer
+    catalog: drivers
+    platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf52_bsim
+  drivers.uart.uart_async_api:
+    path: tests/drivers/uart/uart_async_api
+    catalog: drivers
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
+  drivers.uart.uart_async_api.rtt:
+    path: tests/drivers/uart/uart_async_api
+    catalog: drivers
+    extra_configs:
+    - CONFIG_USE_SEGGER_RTT=y
+    - CONFIG_UART_RTT=y
+    extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
+    build_only: true
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
+  drivers.uart:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers
+    filter: CONFIG_UART_CONSOLE
+  drivers.uart.poll:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers
+    extra_args: CONF_FILE=prj_poll.conf
+    filter: CONFIG_UART_CONSOLE
+  drivers.uart.shell:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers
+    extra_args: CONF_FILE=prj_shell.conf
+    min_flash: 64
+    filter: CONFIG_UART_CONSOLE
+  drivers.uart.uart_mix_poll:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_fifo:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_low_power:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_fifo_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_with_ppi_low_power:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_pm:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_no_rxpin:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;nrf_no_rx_pin.overlay"
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_int_driven:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_int_driven_enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_async:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_async_enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
 crypto:
   sample.drivers.crypto.mbedtls:
     path: samples/drivers/crypto
@@ -1032,6 +2012,10 @@ crypto:
     build_only: true
     min_ram: 20
     arch_exclude: xtensa
+  benchmark.crypto.mbedtls:
+    path: tests/benchmarks/mbedtls
+    catalog: crypto
+    filter: CONFIG_TEST_RANDOM_GENERATOR
 DAC:
   sample.drivers.dac:
     path: samples/drivers/dac
@@ -1113,6 +2097,13 @@ flash shell:
     filter: CONFIG_FLASH_HAS_DRIVER_ENABLED
     platform_exclude: nucleo_h745zi_q_m4 stm32h747i_disco_m4
     min_ram: 12
+  shell.history:
+    path: tests/subsys/shell/shell_flash
+    catalog: flash shell
+    min_flash: 64
+    min_ram: 32
+    filter: "( CONFIG_FLASH_SHELL )"
+    platform_allow: qemu_x86 native_posix
 LED:
   sample.drivers.ht16k33:
     path: samples/drivers/ht16k33
@@ -1253,6 +2244,23 @@ drivers watchdog:
     catalog: drivers watchdog
     filter: dt_compat_enabled("st,stm32-window-watchdog")
     depends_on: watchdog
+  drivers.watchdog:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: drivers watchdog
+    depends_on: watchdog
+    filter: not (CONFIG_WDT_SAM or dt_compat_enabled("st,stm32-window-watchdog"))
+    platform_exclude: mec15xxevb_assy6853
+  drivers.watchdog.stm32wwdg:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: drivers watchdog
+    depends_on: watchdog
+    filter: dt_compat_enabled("st,stm32-window-watchdog")
+  drivers.watchdog.mec15xxevb_assy6853:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: drivers watchdog
+    depends_on: watchdog
+    build_only: true
+    platform_allow: mec15xxevb_assy6853
 kernel condition_variables:
   sample.kernel.cond_var:
     path: samples/kernel/condition_variables/condvar
@@ -1394,6 +2402,62 @@ net:
     build_only: true
     platform_allow: frdm_k64f
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.coap.simple:
+    path: tests/net/lib/coap
+    catalog: net
+    min_ram: 16
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.packet:
+    path: tests/net/net_pkt
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 20
+  net.packet.preempt:
+    path: tests/net/net_pkt
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 20
+  net.packet.large_buffer:
+    path: tests/net/net_pkt
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_BUF_FIXED_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_SIZE=512
+    depends_on: netif
+    min_ram: 20
+  net.pm:
+    path: tests/net/pm
+    catalog: net
+    platform_allow: qemu_x86 qemu_leon3 qemu_riscv32 qemu_riscv64
+    depends_on: netif
+  net.udp:
+    path: tests/net/udp
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 20
+  net.udp.preempt:
+    path: tests/net/udp
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 20
+  can.frame:
+    path: tests/subsys/canbus/frame
+    catalog: net
+    platform_allow: native_posix native_posix_64 qemu_x86 qemu_cortex_m3 qemu_leon3
+      qemu_riscv32 qemu_riscv64
+  utilities.net_timeout:
+    path: tests/unit/net_timeout
+    catalog: net
+    type: unit
 net gptp:
   sample.net.gptp:
     path: samples/net/gptp
@@ -1485,6 +2549,50 @@ net mqtt:
     catalog: net mqtt
     extra_args: CONFIG_USERSPACE=y
     platform_allow: frdm_k64f qemu_x86
+  net.mqtt:
+    path: tests/net/lib/mqtt_publisher
+    catalog: net mqtt
+    min_ram: 16
+    depends_on: netif
+  net.mqtt.tls:
+    path: tests/net/lib/mqtt_publisher
+    catalog: net mqtt
+    extra_configs:
+    - CONFIG_NET_PKT_RX_COUNT=20
+    - CONFIG_NET_PKT_TX_COUNT=20
+    - CONFIG_NET_BUF_RX_COUNT=20
+    - CONFIG_NET_BUF_TX_COUNT=20
+    extra_args: CONF_FILE="prj_tls.conf"
+    min_ram: 16
+    depends_on: netif
+  net.mqtt.pubsub:
+    path: tests/net/lib/mqtt_pubsub
+    catalog: net mqtt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.mqtt.pubsub.preempt:
+    path: tests/net/lib/mqtt_pubsub
+    catalog: net mqtt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.mqtt.subscriber:
+    path: tests/net/lib/mqtt_subscriber
+    catalog: net mqtt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.mqtt.subscriber.preempt:
+    path: tests/net/lib/mqtt_subscriber
+    catalog: net mqtt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
 net mqtt bluetooth:
   sample.net.mqtt_publisher.bt:
     path: samples/net/mqtt_publisher
@@ -1518,6 +2626,11 @@ net promisc:
   sample.net.promiscuous_mode:
     path: samples/net/promiscuous_mode
     catalog: net promisc
+    depends_on: netif
+  net.promisc:
+    path: tests/net/promiscuous
+    catalog: net promisc
+    min_ram: 16
     depends_on: netif
 net socket:
   sample.net.sockets.big_http_download:
@@ -1853,6 +2966,10 @@ usb:
     catalog: usb
     depends_on: usb_device
     platform_exclude: native_posix native_posix_64
+  usb.device:
+    path: tests/subsys/usb/device
+    catalog: usb
+    depends_on: usb_device
 net socket http:
   sample.net.sockets.dumb_http_server_mt:
     path: samples/net/sockets/dumb_http_server_mt
@@ -1936,27 +3053,6 @@ net socket mgmt:
     extra_configs:
     - CONFIG_USERSPACE=n
     depends_on: netif
-userspace:
-  sample.net.sockets.net_mgmt.usermode:
-    path: samples/net/sockets/net_mgmt
-    catalog: userspace
-    extra_configs:
-    - CONFIG_USERSPACE=y
-    depends_on: netif
-  sample.userspace.prod_consumer:
-    path: samples/userspace/prod_consumer
-    catalog: userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  sample.kernel.memory_protection.shared_mem:
-    path: samples/userspace/shared_mem
-    catalog: userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_exclude: twr_ke18f
-  sample.syscall_performances:
-    path: samples/userspace/syscall_perf
-    catalog: userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_allow: riscv32
 net sockets packet-socket:
   sample.net.sockets.packet:
     path: samples/net/sockets/packet
@@ -2033,6 +3129,11 @@ net vlan:
   sample.net.vlan:
     path: samples/net/vlan
     catalog: net vlan
+    depends_on: netif
+  net.vlan:
+    path: tests/net/vlan
+    catalog: net vlan
+    min_ram: 32
     depends_on: netif
 net wifi:
   sample.net.wifi:
@@ -2131,6 +3232,63 @@ posix:
     catalog: posix
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     platform_exclude: m2gl025_miv intel_adsp_cavs15
+  portability.posix.common:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.newlib:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.tls:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.tls.newlib:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
+    filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
+      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.nsim:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    min_ram: 64
+    arch_exclude: posix
+  portability.posix.common.newlib.nsim:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+    arch_exclude: posix
 posix net:
   sample.posix.gettimeofday:
     path: samples/posix/gettimeofday
@@ -2202,6 +3360,115 @@ shell:
     extra_args: CONF_FILE="prj_login.conf"
     filter: "( CONFIG_SERIAL and CONFIG_UART_SHELL_ON_DEV_NAME )"
     min_ram: 40
+  shell.core:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    min_flash: 64
+    min_ram: 32
+  shell.min:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_cmds:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_cmds.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_cmds_all:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_cmds_all.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_cmds_resize:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_cmds_resize.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_cmds_select:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_cmds_select.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_colors:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_colors.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_help:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_help.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_help_all:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_help_all.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_history:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_history.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_log_backend:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_log_backend.conf
+    min_flash: 64
+    build_only: true
+    min_ram: 32
+  shell.min_metakeys:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_metakeys.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_tab:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_tab.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_tab_auto:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_tab_auto.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.min_wildcards:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_wildcards.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32
+  shell.history.shell_history:
+    path: tests/subsys/shell/shell_history
+    catalog: shell
+    min_flash: 64
+    min_ram: 32
+    filter: "( CONFIG_SHELL )"
 shield:
   sample.shields.lmp90100_evb.rtd:
     path: samples/shields/lmp90100_evb/rtd
@@ -2329,12 +3596,36 @@ cpp:
     path: samples/subsys/cpp/cpp_synchronization
     catalog: cpp
     arch_exclude: posix
+  cpp.main:
+    path: tests/subsys/cpp/cxx
+    catalog: cpp
+  cpp.libcxx.newlib:
+    path: tests/subsys/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC_NANO=n
+    - CONFIG_EXCEPTIONS=y
+    min_flash: 54
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  cpp.libcxx.newlib_nano:
+    path: tests/subsys/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    min_flash: 54
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
 debug:
   sample.debug.gdbstub:
     path: samples/subsys/debug/gdbstub
     catalog: debug
     build_only: true
     platform_allow: qemu_x86
+  buildsystem.debug.build:
+    path: tests/misc/test_build
+    catalog: debug
+    extra_args: CONF_FILE=debug.conf
+    platform_exclude: lpcxpresso55s69_ns
+    build_only: true
 edac:
   sample.subsys.edac:
     path: samples/subsys/edac
@@ -2355,6 +3646,33 @@ filesystem:
     build_only: true
     platform_allow: nrf52840dk_nrf52840 particle_xenon disco_l475_iot1 mimxrt685_evk_cm33
       mimxrt1060_evk mimxrt1064_evk qemu_x86 native_posix
+  filesystem.fat.api:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    platform_allow: native_posix
+  filesystem.fat.api.lfn:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_args: CONF_FILE="prj_lfn.conf"
+    platform_allow: native_posix
+  filesystem.fat.dual_drive:
+    path: tests/subsys/fs/fat_fs_dual_drive
+    catalog: filesystem
+    platform_allow: qemu_x86 native_posix qemu_leon3 qemu_riscv32 qemu_riscv64
+  filesystem.api:
+    path: tests/subsys/fs/fs_api
+    catalog: filesystem
+  filesystem.littlefs.default:
+    path: tests/subsys/fs/littlefs
+    catalog: filesystem
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64 mimxrt1060_evk
+  filesystem.littlefs.custom:
+    path: tests/subsys/fs/littlefs
+    catalog: filesystem
+    extra_configs:
+    - CONFIG_APP_TEST_CUSTOM=y
+    - CONFIG_FS_LITTLEFS_FC_HEAP_SIZE=16384
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64 mimxrt1060_evk
 samples ipm:
   sample.ipc.ipm.ipm_imx:
     path: samples/subsys/ipc/ipm_imx
@@ -2423,6 +3741,58 @@ logging:
     path: samples/subsys/logging/syst
     catalog: logging
     platform_allow: mps2_an385 sam_e70_xplained
+  logging.log_benchmark_v1:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG_STRDUP_BUF_COUNT=8
+    - CONFIG_LOG_STRDUP_MAX_STRING=32
+    - CONFIG_LOG_MODE_DEFERRED=y
+  logging.log_benchmark_user_v1:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG_STRDUP_BUF_COUNT=8
+    - CONFIG_LOG_STRDUP_MAX_STRING=32
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_TEST_USERSPACE=y
+    platform_allow: qemu_x86 native_posix
+  logging.log_benchmark_v2:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG2_MODE_DEFERRED=y
+  logging.log_benchmark_v2_speed:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_SPEED=y
+  logging.log_benchmark_user_v2:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_TEST_USERSPACE=y
+    platform_allow: qemu_x86 native_posix
+  logging.add.async:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+  logging.add.sync:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_sync.conf
+  logging.add.user:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_user.conf
+    filter: CONFIG_USERSPACE
 logging usermode:
   sample.logger.usermode:
     path: samples/subsys/logging/logger
@@ -2490,6 +3860,15 @@ modbus:
     filter: dt_compat_enabled_with_alias("gpio-leds", "led0") and dt_compat_enabled_with_alias("gpio-leds",
       "led1") and dt_compat_enabled_with_alias("gpio-leds", "led2")
     depends_on: gpio, netif
+  subsys.modbus.rtu:
+    path: tests/subsys/modbus
+    catalog: modbus
+    platform_allow: frdm_k64f
+  subsys.modbus.rtu.build_only:
+    path: tests/subsys/modbus
+    catalog: modbus
+    build_only: true
+    filter: CONFIG_UART_CONSOLE and CONFIG_UART_INTERRUPT_DRIVEN
 settings:
   sample.nvs.basic:
     path: samples/subsys/nvs
@@ -2551,6 +3930,17 @@ cmsis_rtos:
   sample.portability.cmsis_rtos_v2.timer_synchronization:
     path: samples/subsys/portability/cmsis_rtos_v2/timer_synchronization
     catalog: cmsis_rtos
+    min_ram: 32
+    min_flash: 34
+  portability.cmsis_rtos_v1:
+    path: tests/subsys/portability/cmsis_rtos_v1
+    catalog: cmsis_rtos
+    min_ram: 32
+    min_flash: 34
+  portability.cmsis_rtos_v2:
+    path: tests/subsys/portability/cmsis_rtos_v2
+    catalog: cmsis_rtos
+    platform_exclude: m2gl025_miv intel_adsp_cavs15
     min_ram: 32
     min_flash: 34
 shell filesystem:
@@ -2723,3 +4113,3714 @@ introduction tfm:
     platform_allow: mps2_an521_nonsecure lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuappns
       nrf9160dk_nrf9160ns nucleo_l552ze_q_ns stm32l562e_dk_ns v2m_musca_s1_nonsecure
       v2m_musca_b1_nonsecure bl5340_dvk_cpuappns
+gen_inc_file:
+  buildsystem.include_file:
+    path: tests/application_development/gen_inc_file
+    catalog: gen_inc_file
+arm interrupt ignore_faults:
+  arch.interrupt.arm:
+    path: tests/arch/arm/arm_interrupt
+    catalog: arm interrupt ignore_faults
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.interrupt.no_optimizations:
+    path: tests/arch/arm/arm_interrupt
+    catalog: arm interrupt ignore_faults
+    extra_configs:
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    - CONFIG_MAIN_STACK_SIZE=1024
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.interrupt.extra_exception_info:
+    path: tests/arch/arm/arm_interrupt
+    catalog: arm interrupt ignore_faults
+    extra_configs:
+    - CONFIG_EXTRA_EXCEPTION_INFO=y
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+arm interrupt:
+  arch.arm.irq_advanced_features:
+    path: tests/arch/arm/arm_irq_advanced_features
+    catalog: arm interrupt
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.irq_advanced_features.secure_fw:
+    path: tests/arch/arm/arm_irq_advanced_features
+    catalog: arm interrupt
+    filter:
+    - CONFIG_TRUSTED_EXECUTION_SECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+arm interrupt vector_table:
+  arch.arm.irq_vector_table:
+    path: tests/arch/arm/arm_irq_vector_table
+    catalog: arm interrupt vector_table
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+arm:
+  arch.arm.no_multithreading:
+    path: tests/arch/arm/arm_no_multithreading
+    catalog: arm
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    platform_allow: qemu_cortex_m0 qemu_cortex_m3 mps2_an385 mps2_an521 nrf52840dk_nrf52840
+      nrf9160dk_nrf9160 nrf51dk_nrf51422
+    arch_allow: arm
+  arch.arm.sw_vector_relay:
+    path: tests/arch/arm/arm_sw_vector_relay
+    catalog: arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: arm
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common.no_optimizations:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: arm
+    extra_configs:
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    min_flash: 192
+    arch_allow: arm
+  arch.arm.swap.common.fpu_sharing:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: arm
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_FPU_SHARING=y
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common.fpu_sharing.no_optimizations:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: arm
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_FPU_SHARING=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    min_flash: 192
+    arch_allow: arm
+arm userspace:
+  arch.arm.ramfunc:
+    path: tests/arch/arm/arm_ramfunc
+    catalog: arm userspace
+    filter: CONFIG_ARCH_HAS_RAMFUNC_SUPPORT
+    arch_allow: arm
+nmi interrupt arm:
+  arch.interrupt.arm.nmi:
+    path: tests/arch/arm/arm_runtime_nmi
+    catalog: nmi interrupt arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+arm tfm:
+  arch.arm.swap.tz:
+    path: tests/arch/arm/arm_thread_swap_tz
+    catalog: arm tfm
+    filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
+    arch_allow: arm
+  arch.arm.swap.tz_off:
+    path: tests/arch/arm/arm_thread_swap_tz
+    catalog: arm tfm
+    extra_configs:
+    - CONFIG_ARM_NONSECURE_PREEMPTIBLE_SECURE_CALLS=n
+    filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
+    arch_allow: arm
+arm tz_ns tz_wrap_func:
+  arch.arm.tz_wrap_func:
+    path: tests/arch/arm/arm_tz_wrap_func
+    catalog: arm tz_ns tz_wrap_func
+    arch_allow: arm
+    filter: CONFIG_CPU_CORTEX_M
+arm psci drivers userspace:
+  arch.arm64.psci:
+    path: tests/arch/arm64/arm64_psci
+    catalog: arm psci drivers userspace
+    arch_allow: arm
+    filter: CONFIG_PM_CPU_OPS_PSCI
+kernel security userspace scrub registers:
+  arch.x86.syscalls.cpu_scrubs_regs:
+    path: tests/arch/x86/cpu_scrubs_regs
+    catalog: kernel security userspace scrub registers
+    arch_allow: x86
+    filter: CONFIG_ARCH_HAS_USERSPACE
+interrupt nmi:
+  arch.interrupt.nmi:
+    path: tests/arch/x86/nmi
+    catalog: interrupt nmi
+    extra_configs:
+    - CONFIG_USERSPACE=n
+    arch_allow: x86
+    filter: CONFIG_X86_64
+  arch.interrupt.nmi.kpti:
+    path: tests/arch/x86/nmi
+    catalog: interrupt nmi
+    extra_configs:
+    - CONFIG_USERSPACE=y
+    arch_allow: x86
+    filter: CONFIG_X86_64
+userspace mmu:
+  arch.x86.pagetables:
+    path: tests/arch/x86/pagetables
+    catalog: userspace mmu
+    arch_allow: x86
+    filter: CONFIG_MMU
+ignore_faults interrupt idt:
+  arch.interrupt.x86:
+    path: tests/arch/x86/static_idt
+    catalog: ignore_faults interrupt idt
+    arch_allow: x86
+    filter: not CONFIG_X86_64
+benchmark:
+  benchmark.kernel.application:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    arch_allow: x86 arm riscv32 riscv64
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.arm:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: arm
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.fpu:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=y
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.sse:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=y
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.posix:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    arch_allow: posix
+    min_ram: 32
+  benchmark.kernel.footprints.default:
+    path: tests/benchmarks/footprints
+    catalog: benchmark
+    build_only: true
+  benchmark.kernel.latency:
+    path: tests/benchmarks/latency_measure
+    catalog: benchmark
+    arch_allow: x86 arm riscv32 riscv64
+    platform_exclude: qemu_x86_64 qemu_cortex_m0 m2gl025_miv
+    filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
+  benchmark.kernel.latency.stm32:
+    path: tests/benchmarks/latency_measure
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=20
+    filter: CONFIG_PRINTK and CONFIG_SOC_FAMILY_STM32
+    platform_exclude: qemu_cortex_m0
+  benchmark.kernel.scheduler:
+    path: tests/benchmarks/sched
+    catalog: benchmark
+  benchmark.kernel.core:
+    path: tests/benchmarks/sys_kernel
+    catalog: benchmark
+    arch_exclude: nios2 xtensa
+    min_ram: 32
+benchmark cmsis_dsp:
+  benchmark.cmsis_dsp.basicmath:
+    path: tests/benchmarks/cmsis_dsp/basicmath
+    catalog: benchmark cmsis_dsp
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
+    min_flash: 128
+    min_ram: 64
+benchmark dlist:
+  benchmark.data_structures:
+    path: tests/benchmarks/data_structure_perf/dlist_perf
+    catalog: benchmark dlist
+benchmark rbtree:
+  benchmark.data_structures.rbtree_perf:
+    path: tests/benchmarks/data_structure_perf/rbtree_perf
+    catalog: benchmark rbtree
+benchmark userspace:
+  benchmark.kernel.footprints.userspace:
+    path: tests/benchmarks/footprints
+    catalog: benchmark userspace
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_allow: x86 arm arc
+    build_only: true
+bluetooth gatt:
+  bluetooth.gatt:
+    path: tests/bluetooth/gatt
+    catalog: bluetooth gatt
+    platform_allow: native_posix native_posix_64 qemu_x86 qemu_cortex_m3
+bluetooth hci prop event:
+  bluetooth.hci_prop_evt:
+    path: tests/bluetooth/hci_prop_evt
+    catalog: bluetooth hci prop event
+    platform_allow: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
+bluetooth l2cap:
+  bluetooth.gatt.l2cap:
+    path: tests/bluetooth/l2cap
+    catalog: bluetooth l2cap
+    platform_allow: native_posix native_posix_64 qemu_x86 qemu_cortex_m3
+bluetooth mesh:
+  bluetooth.mesh.main:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.mesh.dbg:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    extra_args: CONF_FILE=dbg.conf
+    build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.mesh.friend:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    extra_args: CONF_FILE=friend.conf
+    build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.mesh.gatt:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    extra_args: CONF_FILE=gatt.conf
+    build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.mesh.lpn:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    extra_args: CONF_FILE=lpn.conf
+    build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.mesh.main.microbit:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    extra_args: CONF_FILE=microbit.conf
+    build_only: true
+    platform_allow: bbc_microbit
+  bluetooth.mesh.pb_gatt:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    extra_args: CONF_FILE=pb_gatt.conf
+    build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.mesh.proxy:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    extra_args: CONF_FILE=proxy.conf
+    build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
+  bluetooth.mesh.ext_adv:
+    path: tests/bluetooth/mesh
+    catalog: bluetooth mesh
+    extra_args: CONF_FILE=ext_adv.conf
+    build_only: true
+    platform_allow: qemu_x86 nrf51dk_nrf51422 nrf52840dk_nrf52840
+bluetooth uuid:
+  bluetooth.gatt.uuid:
+    path: tests/bluetooth/uuid
+    catalog: bluetooth uuid
+    platform_allow: native_posix native_posix_64 qemu_x86 qemu_cortex_m3
+i2c:
+  boards.altera_max10.i2c_master:
+    path: tests/boards/altera_max10/i2c_master
+    catalog: i2c
+    platform_allow: altera_max10
+dma:
+  boards.altera_max10.dma:
+    path: tests/boards/altera_max10/msgdma
+    catalog: dma
+    platform_allow: altera_max10
+qspi flash:
+  boards.altera_max10.qspi:
+    path: tests/boards/altera_max10/qspi
+    catalog: qspi flash
+    platform_allow: altera_max10
+sysid:
+  boards.altera_max10.sysid:
+    path: tests/boards/altera_max10/sysid
+    catalog: sysid
+    platform_allow: altera_max10
+boards:
+  boards.s1000_crb.cache:
+    path: tests/boards/intel_s1000_crb/cache
+    catalog: boards
+    platform_allow: intel_s1000_crb
+  boards.s1000_crb.main:
+    path: tests/boards/intel_s1000_crb/main
+    catalog: boards
+    platform_allow: intel_s1000_crb
+drivers i2c:
+  boards.mec15xxevb_assy6853.i2c:
+    path: tests/boards/mec15xxevb_assy6853/i2c_api
+    catalog: drivers i2c
+    depends_on: i2c
+    filter: dt_compat_enabled("nxp,pca95xx")
+    platform_allow: mec15xxevb_assy6853
+  drivers.i2c:
+    path: tests/drivers/i2c/i2c_api
+    catalog: drivers i2c
+    depends_on: i2c
+    filter: dt_alias_exists("accel-0")
+  drivers.i2c_slave.dual_role:
+    path: tests/drivers/i2c/i2c_slave_api
+    catalog: drivers i2c
+    extra_configs:
+    - CONFIG_APP_DUAL_ROLE_I2C=y
+    platform_allow: nucleo_f091rc stm32f072b_disco nucleo_g071rb
+    depends_on: i2c
+drivers spi qspi:
+  boards.mec15xxevb_assy6853.qspi:
+    path: tests/boards/mec15xxevb_assy6853/qspi
+    catalog: drivers spi qspi
+    platform_allow: mec15xxevb_assy6853
+crypto mbedtls userspace:
+  crypto.mbedtls:
+    path: tests/crypto/mbedtls
+    catalog: crypto mbedtls userspace
+    arch_exclude: riscv64
+    min_flash: 65
+    min_ram: 36
+  crypto.mbedtls.riscv64:
+    path: tests/crypto/mbedtls
+    catalog: crypto mbedtls userspace
+    extra_configs:
+    - CONFIG_ZTEST_STACKSIZE=8192
+    arch_allow: riscv64
+    min_flash: 65
+    min_ram: 36
+crypto random security:
+  crypto.rand32:
+    path: tests/crypto/rand32
+    catalog: crypto random security
+    min_ram: 16
+  crypto.rand32.random_sw_systimer:
+    path: tests/crypto/rand32
+    catalog: crypto random security
+    extra_args: CONF_FILE=prj_sw_random_systimer.conf
+    min_ram: 16
+crypto entropy random security:
+  crypto.rand32.random_hw_xoroshiro:
+    path: tests/crypto/rand32
+    catalog: crypto entropy random security
+    extra_args: CONF_FILE=prj_hw_random_xoroshiro.conf
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+    min_ram: 16
+  crypto.rand32.random_ctr_drbg:
+    path: tests/crypto/rand32
+    catalog: crypto entropy random security
+    extra_args: CONF_FILE=prj_ctr_drbg.conf
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+    min_ram: 16
+tinycrypt crypto aes ccm:
+  crypto.tinycrypt:
+    path: tests/crypto/tinycrypt
+    catalog: tinycrypt crypto aes ccm
+    platform_exclude: qemu_arc_em qemu_arc_hs intel_adsp_cavs15
+tinycrypt crypto sha256 hmac prng:
+  crypto.tinycrypt.hmac_prng:
+    path: tests/crypto/tinycrypt_hmac_prng
+    catalog: tinycrypt crypto sha256 hmac prng
+    platform_exclude: mec15xxevb_assy6853 mec1501modular_assy6885
+adc drivers userspace:
+  drivers.adc:
+    path: tests/drivers/adc/adc_api
+    catalog: adc drivers userspace
+    depends_on: adc
+  drivers.adc.emul:
+    path: tests/drivers/adc/adc_emul
+    catalog: adc drivers userspace
+    depends_on: adc
+    platform_allow: native_posix
+adc dma trigger:
+  drivers.adc-dma:
+    path: tests/drivers/adc/adc_dma
+    catalog: adc dma trigger
+    depends_on: adc dma pit
+    platform_allow: frdm_k82f frdm_k64f
+adc_mcp302x adc_lmp90xxx:
+  drivers.adc.spi.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_mcp302x adc_lmp90xxx
+    extra_args: CONFIG_SPI=y CONFIG_ADC_MCP320X=y CONFIG_ADC_LMP90XXX=y
+    platform_allow: native_posix
+    build_only: true
+adc_emul:
+  drivers.adc.emul.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_emul
+    extra_args: CONFIG_ADC_EMUL=y
+    platform_allow: native_posix
+    build_only: true
+adc_cc32xx:
+  drivers.adc.cc32xx.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_cc32xx
+    extra_args: CONFIG_ADC_CC32XX=y
+    platform_allow: cc3220sf_launchxl
+    build_only: true
+adc_ite_it8xxx2:
+  drivers.adc.ite.it8xxx2.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_ite_it8xxx2
+    extra_args: CONFIG_ADC_ITE_IT8XXX2=y
+    platform_allow: it8xxx2_evb
+    build_only: true
+adc_mcux_adc12:
+  drivers.adc.mcux.adc12.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_mcux_adc12
+    extra_args: CONFIG_ADC_MCUX_ADC12=y
+    platform_allow: twr_ke18f
+    build_only: true
+adc_mcux_adc16:
+  drivers.adc.mcux.adc16.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_mcux_adc16
+    extra_args: CONFIG_ADC_MCUX_ADC16=y
+    platform_allow: frdm_k22f
+    build_only: true
+adc_mcux_lpadc:
+  drivers.adc.mcux.lpadc.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_mcux_lpadc
+    extra_args: CONFIG_ADC_MCUX_LPADC=y
+    platform_allow: lpcxpresso55s28
+    build_only: true
+adc_npcx:
+  drivers.adc.npcx.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_npcx
+    extra_args: CONFIG_ADC_NPCX=y
+    platform_allow: npcx7m6fb_evb
+    build_only: true
+adc_nrfx_adc:
+  drivers.adc.nrf.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_nrfx_adc
+    extra_args: CONFIG_ADC_NRFX_ADC=y
+    platform_allow: nrf51dk_nrf51422
+    build_only: true
+adc_nrfx_saadc:
+  drivers.adc.nrf.saadc.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_nrfx_saadc
+    extra_args: CONFIG_ADC_NRFX_SAADC=y
+    platform_allow: nrf21540dk_nrf52840
+    build_only: true
+adc_sam0:
+  drivers.adc.sam0.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_sam0
+    extra_args: CONFIG_ADC_SAM0=y
+    platform_allow: atsame54_xpro
+    build_only: true
+adc_sam_afec:
+  drivers.adc.sam.afec.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_sam_afec
+    extra_args: CONFIG_ADC_SAM_AFEC=y
+    platform_allow: sam_e70_xplained
+    build_only: true
+adc_stm32:
+  drivers.adc.stm32.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_stm32
+    extra_args: CONFIG_ADC_STM32=y
+    platform_allow: disco_l475_iot1
+    build_only: true
+adc_xec:
+  drivers.adc.xec.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_xec
+    extra_args: CONFIG_ADC_XEC=y
+    platform_allow: mec15xxevb_assy6853
+    build_only: true
+driver can:
+  drivers.can:
+    path: tests/drivers/can/api
+    catalog: driver can
+    depends_on: can
+  drivers.canfd:
+    path: tests/drivers/can/canfd
+    catalog: driver can
+    depends_on: canfd
+  drivers.can.stm32:
+    path: tests/drivers/can/stm32
+    catalog: driver can
+    depends_on: can
+  drivers.can.timing:
+    path: tests/drivers/can/timing
+    catalog: driver can
+    depends_on: can
+  drivers.can.timing_loopback:
+    path: tests/drivers/can/timing
+    catalog: driver can
+    extra_args: CONF_FILE="prj_loopback.conf"
+    platform_allow: native_posix
+drivers console:
+  drivers.console.uart:
+    path: tests/drivers/console
+    catalog: drivers console
+    filter: CONFIG_UART_CONSOLE
+  drivers.console.semihost:
+    path: tests/drivers/console
+    catalog: drivers console
+    extra_args: CONF_FILE=prj_semihost.conf
+    arch_allow: arm
+    filter: CONFIG_CPU_CORTEX_M and CONFIG_QEMU_TARGET
+dac drivers userspace:
+  drivers.dac:
+    path: tests/drivers/dac/dac_api
+    catalog: dac drivers userspace
+    platform_allow: frdm_k22f frdm_k64f nucleo_l073rz nucleo_l152re twr_ke18f nucleo_f767zi
+      nucleo_f429zi bl652_dvk bl653_dvk bl654_dvk bl5340_dvk_cpuapp stm32f3_disco
+    depends_on: dac
+dac drivers:
+  drivers.dac.dac_loopback:
+    path: tests/drivers/dac/dac_loopback
+    catalog: dac drivers
+    depends_on: dac adc
+    platform_allow: |
+      frdm_k22f frdm_k64f nucleo_f207zg nucleo_l073rz nucleo_l152re twr_ke18f
+      bl652_dvk bl653_dvk bl654_dvk bl5340_dvk_cpuapp stm32f3_disco
+drivers dma:
+  drivers.dma:
+    path: tests/drivers/dma/chan_blen_transfer
+    catalog: drivers dma
+    min_ram: 16
+    depends_on: dma
+  drivers.dma.interactive:
+    path: tests/drivers/dma/chan_blen_transfer
+    catalog: drivers dma
+    extra_args: CONF_FILE=prj_shell.conf
+    depends_on: dma
+    min_ram: 16
+  drivers.dma.chan_link_transfer:
+    path: tests/drivers/dma/chan_link_transfer
+    catalog: drivers dma
+    min_ram: 16
+    depends_on: dma
+    platform_allow: frdm_k64f mimxrt1060_evk
+  drivers.dma.interactive.chan_link_transfer:
+    path: tests/drivers/dma/chan_link_transfer
+    catalog: drivers dma
+    extra_args: CONF_FILE=prj_shell.conf
+    depends_on: dma
+    min_ram: 16
+    platform_allow: frdm_k64f mimxrt1060_evk
+  drivers.dma.loop_transfer:
+    path: tests/drivers/dma/loop_transfer
+    catalog: drivers dma
+    depends_on: dma
+drivers userspace:
+  peripheral.eeprom:
+    path: tests/drivers/eeprom
+    catalog: drivers userspace
+    platform_allow: native_posix native_posix_64 qemu_x86
+  peripheral.eeprom.generic:
+    path: tests/drivers/eeprom
+    catalog: drivers userspace
+    build_only: true
+    depends_on: eeprom
+  drivers.i2s:
+    path: tests/drivers/i2s/i2s_api
+    catalog: drivers userspace
+    depends_on: i2s
+driver entropy:
+  drivers.entropy:
+    path: tests/drivers/entropy/api
+    catalog: driver entropy
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+flash nrf52 nrf_qspi_fash:
+  drivers.flash.nrf_qspi_nor:
+    path: tests/drivers/flash
+    catalog: flash nrf52 nrf_qspi_fash
+    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
+    platform_allow: nrf52840dk_nrf52840
+nrf52 soc_flash_nrf:
+  drivers.flash.soc_flash_nrf:
+    path: tests/drivers/flash
+    catalog: nrf52 soc_flash_nrf
+    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_soc.conf
+    platform_allow: nrf52840dk_nrf52840
+mcux:
+  drivers.flash.default:
+    path: tests/drivers/flash
+    catalog: mcux
+    platform_allow: mimxrt1060_evk
+drivers flash:
+  drivers.flash.stm32:
+    path: tests/drivers/flash
+    catalog: drivers flash
+    filter: dt_compat_enabled("st,stm32-flash-controller") and dt_compat_enabled_with_label("fixed-partitions",
+      "storage_partition")
+driver:
+  drivers.flash.flash_simulator:
+    path: tests/drivers/flash_simulator
+    catalog: driver
+    platform_allow: qemu_x86 native_posix native_posix_64
+  drivers.flash.flash_simulator.qemu_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: driver
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
+  drivers.flash.flash_simulator.posix_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: driver
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_allow: native_posix
+  drivers.flash.flash_simulator.posix_64_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: driver
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
+    platform_allow: native_posix_64
+  drivers.hwinfo.api:
+    path: tests/drivers/hwinfo/api
+    catalog: driver
+drivers gpio:
+  peripheral.gpio.1pin:
+    path: tests/drivers/gpio/gpio_api_1pin
+    catalog: drivers gpio
+    depends_on: gpio
+    min_flash: 48
+    platform_exclude: mps2_an385 mps2_an521
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
+  drivers.gpio.2pin:
+    path: tests/drivers/gpio/gpio_basic_api
+    catalog: drivers gpio
+    depends_on: gpio
+    min_flash: 34
+    filter: dt_compat_enabled("test,gpio_basic_api")
+  drivers.regulator.fixed.onoff:
+    path: tests/drivers/regulator/fixed
+    catalog: drivers gpio
+    depends_on: gpio
+    filter: dt_compat_enabled("test,regulator-fixed")
+  drivers.regulator.fixed.onoff.on_delay:
+    path: tests/drivers/regulator/fixed
+    catalog: drivers gpio
+    extra_args: DTS_EXTRA_CPPFLAGS=-DAPP_DTS_REGULATOR_ON_DELAYED
+    depends_on: gpio
+    filter: dt_compat_enabled("test,regulator-fixed")
+  drivers.regulator.fixed.onoff.off_delay:
+    path: tests/drivers/regulator/fixed
+    catalog: drivers gpio
+    extra_args: DTS_EXTRA_CPPFLAGS=-DAPP_DTS_REGULATOR_OFF_DELAYED
+    depends_on: gpio
+    filter: dt_compat_enabled("test,regulator-fixed")
+  drivers.regulator.fixed.onoff.boot_on:
+    path: tests/drivers/regulator/fixed
+    catalog: drivers gpio
+    extra_args: DTS_EXTRA_CPPFLAGS=-DAPP_DTS_REGULATOR_BOOT_ON
+    depends_on: gpio
+    filter: dt_compat_enabled("test,regulator-fixed")
+  drivers.regulator.fixed.onoff.always_on:
+    path: tests/drivers/regulator/fixed
+    catalog: drivers gpio
+    extra_args: DTS_EXTRA_CPPFLAGS=-DAPP_DTS_REGULATOR_ALWAYS_ON
+    depends_on: gpio
+    filter: dt_compat_enabled("test,regulator-fixed")
+  drivers.regulator.fixed.sync:
+    path: tests/drivers/regulator/fixed
+    catalog: drivers gpio
+    extra_args: DTS_EXTRA_CPPFLAGS=-DAPP_DTS_REGULATOR_SYNC
+    depends_on: gpio
+    filter: dt_compat_enabled("test,regulator-fixed")
+  drivers.regulator.fixed.sync.boot_on:
+    path: tests/drivers/regulator/fixed
+    catalog: drivers gpio
+    extra_args: DTS_EXTRA_CPPFLAGS=-DAPP_DTS_REGULATOR_SYNC;-DAPP_DTS_REGULATOR_BOOT_ON
+    depends_on: gpio
+    filter: dt_compat_enabled("test,regulator-fixed")
+  drivers.regulator.fixed.sync.always_on:
+    path: tests/drivers/regulator/fixed
+    catalog: drivers gpio
+    extra_args: DTS_EXTRA_CPPFLAGS=-DAPP_DTS_REGULATOR_SYNC;-DAPP_DTS_REGULATOR_ALWAYS_ON
+    depends_on: gpio
+    filter: dt_compat_enabled("test,regulator-fixed")
+drivers i2s:
+  drivers.i2s.speed:
+    path: tests/drivers/i2s/i2s_speed
+    catalog: drivers i2s
+    depends_on: i2s
+drivers ipc:
+  drivers.ipc.mailbox:
+    path: tests/drivers/ipm
+    catalog: drivers ipc
+    arch_exclude: posix xtensa
+drivers kscan userspace:
+  drivers.kscan:
+    path: tests/drivers/kscan/kscan_api
+    catalog: drivers kscan userspace
+    depends_on: kscan
+    platform_exclude: mec15xxevb_assy6853
+drivers kscan:
+  drivers.kscan.mec15xxevb_assy6853:
+    path: tests/drivers/kscan/kscan_api
+    catalog: drivers kscan
+    extra_args: CONF_FILE="mec15xxevb_assy6853.conf"
+    depends_on: kscan
+    platform_allow: mec15xxevb_assy6853
+drivers led:
+  drivers.i2c.led_api:
+    path: tests/drivers/led/led_api
+    catalog: drivers led
+    depends_on: led
+    filter: dt_alias_exists("led-controller-0")
+drivers memc:
+  drivers.memc.stm32_sdram:
+    path: tests/drivers/memc/stm32_sdram
+    catalog: drivers memc
+    depends_on: memc
+    filter: dt_compat_enabled("st,stm32-fmc-sdram")
+drivers pwm userspace:
+  drivers.pwm:
+    path: tests/drivers/pwm/pwm_api
+    catalog: drivers pwm userspace
+    filter: dt_alias_exists("pwm-0") or dt_alias_exists("pwm-1") or dt_alias_exists("pwm-2")
+      or dt_alias_exists("pwm-3") or dt_compat_enabled("st,stm32-pwm")
+    depends_on: pwm
+pwm drivers userspace:
+  drivers.pwm.loopback:
+    path: tests/drivers/pwm/pwm_loopback
+    catalog: pwm drivers userspace
+    depends_on: pwm
+    filter: dt_compat_enabled("test,pwm_loopback")
+driver sensor subsys:
+  driver.sensor:
+    path: tests/drivers/sensor/accel
+    catalog: driver sensor subsys
+    platform_allow: native_posix
+driver sensor:
+  driver.sensor.generic:
+    path: tests/drivers/sensor/generic
+    catalog: driver sensor
+  driver.sensor.fpu:
+    path: tests/drivers/sensor/generic
+    catalog: driver sensor
+    extra_args: CONF_FILE=prj_fpu.conf
+drivers spi:
+  drivers.spi.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: drivers spi
+    depends_on: spi
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
+      arduino_zero adafruit_trinket_m0
+  driver.spi.loopback.internal:
+    path: tests/drivers/spi/spi_loopback
+    catalog: drivers spi
+    filter: CONFIG_SPI_LOOPBACK_MODE_LOOP
+    depends_on: spi
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
+      arduino_zero adafruit_trinket_m0
+kernel userspace:
+  kernel.common:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    min_flash: 33
+  kernel.common.tls:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    min_flash: 33
+  kernel.common.misra:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_MISRA_SANE=y
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    min_flash: 33
+  kernel.common.nano32:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    filter: not CONFIG_KERNEL_COHERENCE
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 33
+  kernel.common.nano64:
+    path: tests/kernel/common
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    filter: not CONFIG_KERNEL_COHERENCE
+    min_flash: 33
+  kernel.fpu_sharing.float_disable.arm:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_INTERRUPTS=y
+    arch_allow: arm
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+  kernel.fpu_sharing.float_disable.riscv32:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
+  kernel.fpu_sharing.float_disable.riscv64:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
+  kernel.fpu_sharing.float_disable.sparc:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
+  kernel.fpu_sharing.float_disable.x86.fpu:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont
+  kernel.fpu_sharing.float_disable.x86.sse:
+    path: tests/kernel/fpu_sharing/float_disable
+    catalog: kernel userspace
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont
+  kernel.futex:
+    path: tests/kernel/mem_protect/futex
+    catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.memory_protection.sys_sem:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel userspace
+  kernel.message_queue:
+    path: tests/kernel/msgq/msgq_api
+    catalog: kernel userspace
+  kernel.mutex:
+    path: tests/kernel/mutex/mutex_api
+    catalog: kernel userspace
+  system.mutex:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.pipe.api:
+    path: tests/kernel/pipe/pipe_api
+    catalog: kernel userspace
+  kernel.work.user:
+    path: tests/kernel/workq/user_work
+    catalog: kernel userspace
+    min_flash: 34
+    filter: CONFIG_ARCH_HAS_USERSPACE
+kernel userspace condition_variables ignore_faults:
+  kernel.condvar:
+    path: tests/kernel/condvar/condvar_api
+    catalog: kernel userspace condition_variables ignore_faults
+kernel:
+  kernel.common.context:
+    path: tests/kernel/context
+    catalog: kernel
+  kernel.logging.message_capture:
+    path: tests/kernel/fatal/message_capture
+    catalog: kernel
+    platform_exclude: intel_adsp_cavs15
+  kernel.fifo:
+    path: tests/kernel/fifo/fifo_api
+    catalog: kernel
+  kernel.fifo.timeout:
+    path: tests/kernel/fifo/fifo_timeout
+    catalog: kernel
+  kernel.fifo.usage:
+    path: tests/kernel/fifo/fifo_usage
+    catalog: kernel
+  kernel.fpu_sharing.generic.arc:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_ISA_ARCV2 and CONFIG_CPU_HAS_FPU
+    min_ram: 16
+  kernel.fpu_sharing.generic.arm:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_ram: 16
+  kernel.fpu_sharing.generic.arm64:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    arch_allow: arm64
+    filter: CONFIG_CPU_CORTEX_A
+  kernel.fpu_sharing.generic.riscv32:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
+    min_ram: 16
+  kernel.fpu_sharing.generic.riscv64:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
+    min_ram: 16
+  kernel.fpu_sharing.generic.sparc:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
+  kernel.fpu_sharing.generic.x86.fpu:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont
+  kernel.fpu_sharing.generic.x86.sse:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont
+  kernel.lifo:
+    path: tests/kernel/lifo/lifo_api
+    catalog: kernel
+  kernel.lifo.usage:
+    path: tests/kernel/lifo/lifo_usage
+    catalog: kernel
+    platform_exclude: m2gl025_miv
+  kernel.mailbox.api:
+    path: tests/kernel/mbox/mbox_api
+    catalog: kernel
+  kernel.mailbox.usage:
+    path: tests/kernel/mbox/mbox_usage
+    catalog: kernel
+  kernel.memory_heap:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
+    extra_configs:
+    - CONFIG_IRQ_OFFLOAD=y
+  kernel.memory_heap_no_multithreading:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    platform_allow: qemu_cortex_m3 qemu_cortex_m0
+  kernel.memory_protection.sys_sem.nouser:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+  kernel.memory_slabs.api:
+    path: tests/kernel/mem_slab/mslab
+    catalog: kernel
+  kernel.memory_slabs.api.mslab_api:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
+  kernel.memory_slabs.api_no_multithreading:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    platform_allow: qemu_cortex_m3 qemu_cortex_m0
+  kernel.memory_slabs.concept:
+    path: tests/kernel/mem_slab/mslab_concept
+    catalog: kernel
+  kernel.memory_slabs.threadsafe:
+    path: tests/kernel/mem_slab/mslab_threadsafe
+    catalog: kernel
+  kernel.message_queue_usage:
+    path: tests/kernel/msgq/msgq_usage
+    catalog: kernel
+  system.mutex.nouser:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+  kernel.objects:
+    path: tests/kernel/pending
+    catalog: kernel
+  kernel.common.profiling:
+    path: tests/kernel/profiling/profiling_api
+    catalog: kernel
+    arch_exclude: nios2
+    platform_exclude: em_starterkit litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
+      nrf5340dk_nrf5340_cpunet
+  kernel.scheduler.deadline:
+    path: tests/kernel/sched/deadline
+    catalog: kernel
+  kernel.scheduler.metairq:
+    path: tests/kernel/sched/metairq
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52dk_nrf52810
+  kernel.scheduler.preempt:
+    path: tests/kernel/sched/preempt
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52dk_nrf52810
+  kernel.threads.no-multithreading:
+    path: tests/kernel/threads/no-multithreading
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_allow: qemu_cortex_m0 qemu_cortex_m3 mps2_an385 mps2_an521 nrf52840dk_nrf52840
+      nrf9160dk_nrf9160 nrf51dk_nrf51422
+  kernel.tickless.concept:
+    path: tests/kernel/tickless/tickless_concept
+    catalog: kernel
+    arch_exclude: nios2
+    platform_exclude: litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy nrf5340dk_nrf5340_cpunet
+  kernel.workqueue:
+    path: tests/kernel/workq/critical
+    catalog: kernel
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: not CONFIG_WDT_SAM
+  kernel.workqueue.sam:
+    path: tests/kernel/workq/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_WDT_DISABLE_AT_BOOT=y
+    filter: CONFIG_WDT_SAM
+  kernel.workqueue.nsim:
+    path: tests/kernel/workq/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+  kernel.work.api:
+    path: tests/kernel/workq/work
+    catalog: kernel
+    min_flash: 34
+  kernel.workqueue.work_queue:
+    path: tests/kernel/workq/work_queue
+    catalog: kernel
+    min_flash: 34
+kernel device:
+  kernel.device:
+    path: tests/kernel/device
+    catalog: kernel device
+  kernel.device.pm:
+    path: tests/kernel/device
+    catalog: kernel device
+    extra_configs:
+    - CONFIG_PM_DEVICE=y
+    platform_exclude: mec15xxevb_assy6853
+kernel sleep:
+  kernel.common.sleep:
+    path: tests/kernel/early_sleep
+    catalog: kernel sleep
+  kernel.common.timing:
+    path: tests/kernel/sleep
+    catalog: kernel sleep
+kernel ignore_faults userspace:
+  kernel.common.stack_protection:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+  kernel.common.stack_protection_arm_fpu_sharing:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_arm_fpu_sharing.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
+  kernel.common.stack_protection_armv8m_mpu_stack_guard:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults userspace
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_allow: arm
+  kernel.memory_protection.stackprot:
+    path: tests/kernel/mem_protect/stackprot
+    catalog: kernel ignore_faults userspace
+    arch_exclude: nios2 xtensa posix sparc
+kernel ignore_faults memory_protection:
+  kernel.common.stack_protection_no_userspace:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults memory_protection
+    extra_args: CONF_FILE=protection_no_userspace.conf
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    arch_allow: arm
+kernel ignore_faults:
+  kernel.common.stack_sentinel:
+    path: tests/kernel/fatal/exception
+    catalog: kernel ignore_faults
+    extra_args: CONF_FILE=sentinel.conf
+  kernel.no-mt.cpu_exception:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=0
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.oops:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=1
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.panic:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=2
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.zephyr_assert:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=3
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.arbitrary_reason:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=4
+    platform_allow: qemu_cortex_m3
+  kernel.no-mt.arbitrary_reason_negative:
+    path: tests/kernel/fatal/no-multithreading
+    catalog: kernel ignore_faults
+    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=5
+    platform_allow: qemu_cortex_m3
+kernel interrupt isr_table:
+  arch.interrupt.gen_isr_table.arm_baseline:
+    path: tests/kernel/gen_isr_table
+    catalog: kernel interrupt isr_table
+    extra_configs:
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    arch_allow: arm
+    platform_allow: bbc_microbit atsamr21_xpro nrf51dk_nrf51422 nucleo_g071rb qemu_cortex_m0
+    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
+  arch.interrupt.gen_isr_table.arm_mainline:
+    path: tests/kernel/gen_isr_table
+    catalog: kernel interrupt isr_table
+    extra_configs:
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    arch_allow: arm
+    platform_exclude: stmf103_mini nucleo_f103rb olimexino_stm32 stm32_min_dev_black
+      stm32_min_dev_blue usb_kw24d512 v2m_beetle cc1352r1_launchxl cc26x2r1_launchxl
+      olimex_stm32_h103 cc1352r_sensortag
+    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+  arch.interrupt.gen_isr_table.disabled:
+    path: tests/kernel/gen_isr_table
+    catalog: kernel interrupt isr_table
+    extra_configs:
+    - CONFIG_GEN_ISR_TABLES=n
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    arch_allow: arm
+    build_only: true
+  arch.interrupt.gen_isr_table.arc:
+    path: tests/kernel/gen_isr_table
+    catalog: kernel interrupt isr_table
+    extra_configs:
+    - CONFIG_ARC_FIRQ_STACK=y
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    arch_allow: arc
+    filter: CONFIG_RGF_NUM_BANKS > 1
+kernel interrupt:
+  arch.interrupt:
+    path: tests/kernel/interrupt
+    catalog: kernel interrupt
+    arch_exclude: nios2 x86
+    filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE
+  arch.interrupt.x86_64:
+    path: tests/kernel/interrupt
+    catalog: kernel interrupt
+    arch_allow: x86
+    filter: CONFIG_X86_64
+  arch.interrupt.x86.interrupt:
+    path: tests/kernel/interrupt
+    catalog: kernel interrupt
+    extra_configs:
+    - CONFIG_COMPILER_OPT="-mgeneral-regs-only"
+    arch_allow: x86
+    filter: not CONFIG_X86_64
+k_heap_api kernel:
+  kernel.k_heap_api:
+    path: tests/kernel/mem_heap/k_heap_api
+    catalog: k_heap_api kernel
+kernel mmu demand_paging ignore_faults:
+  kernel.demand_paging:
+    path: tests/kernel/mem_protect/demand_paging
+    catalog: kernel mmu demand_paging ignore_faults
+    filter: CONFIG_DEMAND_PAGING
+  kernel.demand_paging.timing_funcs:
+    path: tests/kernel/mem_protect/demand_paging
+    catalog: kernel mmu demand_paging ignore_faults
+    extra_configs:
+    - CONFIG_DEMAND_PAGING_STATS_USING_TIMING_FUNCTIONS=y
+    platform_allow: qemu_x86_tiny
+    filter: CONFIG_DEMAND_PAGING
+kernel mmu ignore_faults:
+  kernel.memory_protection.mem_map:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    filter: CONFIG_MMU and not CONFIG_X86_64
+    platform_exclude: qemu_x86_64
+  kernel.memory_protection.mem_map.x86_64:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    filter: CONFIG_MMU and CONFIG_X86_64 and not CONFIG_COVERAGE
+  kernel.memory_protection.mem_map.x86_64.coverage:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    extra_args: EXTRA_CFLAGS=-DSKIP_EXECUTE_TESTS
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
+  kernel.memory_protection.mem_map.x86_64.coverage.exec:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: kernel mmu ignore_faults
+    extra_args: CONF_FILE=prj_x86_64_coverage_exec.conf
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
+kernel security userspace ignore_faults:
+  kernel.memory_protection:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: twr_ke18f qemu_arc_hs qemu_arc_em
+  kernel.memory_protection.gap_filling.arc:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arc
+  kernel.memory_protection.gap_filling.arm:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arm
+    platform_allow: efr32_radio_brd4180a mps2_an521 nrf9160dk_nrf9160
+  kernel.memory_protection.syscalls:
+    path: tests/kernel/mem_protect/syscalls
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.memory_protection.userspace:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.memory_protection.userspace.gap_filling.arc:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arc
+  kernel.memory_protection.userspace.gap_filling.arm:
+    path: tests/kernel/mem_protect/userspace
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arm
+    platform_allow: efr32_radio_brd4180a mps2_an521 nrf9160dk_nrf9160
+  kernel.threads.thread_stack:
+    path: tests/kernel/threads/thread_stack
+    catalog: kernel security userspace ignore_faults
+    min_ram: 16
+  kernel.threads.armv8m_mpu_stack_guard:
+    path: tests/kernel/threads/thread_stack
+    catalog: kernel security userspace ignore_faults
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    min_ram: 16
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_allow: arm
+kernel security userspace:
+  kernel.memory_protection.obj_validation:
+    path: tests/kernel/mem_protect/obj_validation
+    catalog: kernel security userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+kernel security ignore_faults:
+  kernel.memory_protection.protection:
+    path: tests/kernel/mem_protect/protection
+    catalog: kernel security ignore_faults
+    platform_exclude: twr_ke18f
+    filter: CONFIG_SRAM_REGION_PERMISSIONS
+kernel memory_protection:
+  kernel.memory_protection.stack_random:
+    path: tests/kernel/mem_protect/stack_random
+    catalog: kernel memory_protection
+    arch_exclude: posix
+kernel smp:
+  kernel.multiprocessing:
+    path: tests/kernel/mp
+    catalog: kernel smp
+    filter: CONFIG_MP_NUM_CPUS > 1
+kernel userspace ignore_faults:
+  kernel.mutex.mutex_error_case:
+    path: tests/kernel/mutex/mutex_error_case
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.pipe:
+    path: tests/kernel/pipe/pipe
+    catalog: kernel userspace ignore_faults
+  kernel.poll:
+    path: tests/kernel/poll
+    catalog: kernel userspace ignore_faults
+    platform_exclude: nrf52dk_nrf52810
+  kernel.queue:
+    path: tests/kernel/queue
+    catalog: kernel userspace ignore_faults
+  kernel.semaphore:
+    path: tests/kernel/semaphore/semaphore
+    catalog: kernel userspace ignore_faults
+  kernel.semaphore.usage:
+    path: tests/kernel/semaphore/sys_sem
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.stack.usage:
+    path: tests/kernel/stack/stack
+    catalog: kernel userspace ignore_faults
+kernel threads sched userspace ignore_faults:
+  kernel.scheduler:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace ignore_faults
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    filter: not CONFIG_SCHED_MULTIQ
+  kernel.scheduler.no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace ignore_faults
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    filter: not CONFIG_SCHED_MULTIQ
+  kernel.scheduler.multiq:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace ignore_faults
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    extra_args: CONF_FILE=prj_multiq.conf
+  kernel.scheduler.dumb_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace ignore_faults
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_dumb.conf
+kernel threads sched userspacei ignore_faults:
+  kernel.scheduler.multiq_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspacei ignore_faults
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_multiq.conf
+kernel smp ignore_faults:
+  kernel.multiprocessing.smp:
+    path: tests/kernel/smp
+    catalog: kernel smp ignore_faults
+    filter: "(CONFIG_MP_NUM_CPUS > 1)"
+kernel smp spinlock:
+  kernel.multiprocessing.spinlock:
+    path: tests/kernel/spinlock
+    catalog: kernel smp spinlock
+    filter: CONFIG_SMP and CONFIG_MP_NUM_CPUS > 1 and CONFIG_MP_NUM_CPUS <= 4
+kernel threads userspace ignore_faults:
+  kernel.threads.dynamic:
+    path: tests/kernel/threads/dynamic_thread
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_exclude: x86
+  kernel.threads.apis:
+    path: tests/kernel/threads/thread_apis
+    catalog: kernel threads userspace ignore_faults
+    min_flash: 34
+  kernel.threads.error.case:
+    path: tests/kernel/threads/thread_error_case
+    catalog: kernel threads userspace ignore_faults
+    filter: CONFIG_USERSPACE
+kernel threads userspace:
+  kernel.threads.init:
+    path: tests/kernel/threads/thread_init
+    catalog: kernel threads userspace
+  kernel.threads.tls.userspace:
+    path: tests/kernel/threads/tls
+    catalog: kernel threads userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_ARCH_HAS_USERSPACE and
+      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+kernel threads:
+  kernel.threads.tls:
+    path: tests/kernel/threads/tls
+    catalog: kernel threads
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+kernel timer:
+  kernel.timer.starve:
+    path: tests/kernel/timer/starve
+    catalog: kernel timer
+    build_only: true
+  kernel.timer.no_multitheading:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    - CONFIG_TEST_USERSPACE=n
+    - CONFIG_SPIN_VALIDATE=n
+    platform_allow: qemu_cortex_m3
+  kernel.timer.monotonic:
+    path: tests/kernel/timer/timer_monotonic
+    catalog: kernel timer
+kernel timer userspace:
+  kernel.timer:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer userspace
+  kernel.timer.tickless:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer userspace
+    extra_args: CONF_FILE="prj_tickless.conf"
+    arch_exclude: nios2 posix
+    platform_exclude: litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy nrf5340dk_nrf5340_cpunet
+kernel timer userspace ignore_faults:
+  kernel.timer.timer_error_case:
+    path: tests/kernel/timer/timer_error_case
+    catalog: kernel timer userspace ignore_faults
+kernel xip:
+  arch.common.xip:
+    path: tests/kernel/xip
+    catalog: kernel xip
+    filter: CONFIG_XIP
+clib ignore_faults:
+  libraries.libc:
+    path: tests/lib/c_lib
+    catalog: clib ignore_faults
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+cbprintf:
+  libraries.cbprintf_package:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  libraries.cbprintf_package_no_generic:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  libraries.cbprintf_package_fp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  libraries.cbprintf_package_fp_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  libraries.cbprintf_package_long_double:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_riscv32
+  libraries.cbprintf_package_long_double_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter:
+    - CONFIG_CPU_HAS_FPU
+    - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_riscv32
+  libraries.cbprintf_package_nano:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+cmsis_dsp:
+  libraries.cmsis_dsp.basicmath:
+    path: tests/lib/cmsis_dsp/basicmath
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.bayes:
+    path: tests/lib/cmsis_dsp/bayes
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 64
+    min_ram: 32
+  libraries.cmsis_dsp.complexmath:
+    path: tests/lib/cmsis_dsp/complexmath
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.distance:
+    path: tests/lib/cmsis_dsp/distance
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 64
+    min_ram: 32
+  libraries.cmsis_dsp.fastmath:
+    path: tests/lib/cmsis_dsp/fastmath
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.filtering:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    skip: true
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.filtering.biquad:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_BIQUAD=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.filtering.fir:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_FIR=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.filtering.misc:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_MISC=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 256
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.matrix:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    skip: true
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.matrix.unary_q15:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q15=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.matrix.unary_q31:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.matrix.unary_f32:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.matrix.unary_f64:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F64=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 128
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.matrix.binary_q15:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
+    extra_args: CONF_FILE=prj_base.conf
+    platform_exclude: mps2_an521 frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.matrix.binary_q31:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
+    extra_args: CONF_FILE=prj_base.conf
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.matrix.binary_f32:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
+    extra_args: CONF_FILE=prj_base.conf
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.statistics:
+    path: tests/lib/cmsis_dsp/statistics
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.support:
+    path: tests/lib/cmsis_dsp/support
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.svm:
+    path: tests/lib/cmsis_dsp/svm
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.transform:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    skip: true
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.transform.cq15:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ15=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 512
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.transform.rq15:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ15=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 512
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.transform.cq31:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.transform.rq31:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ31=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.transform.cf32:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.transform.rf32:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF32=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 512
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.transform.cf64:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF64=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 96
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+  libraries.cmsis_dsp.transform.rf64:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF64=y
+    extra_args: CONF_FILE=prj_base.conf
+    min_flash: 1024
+    min_ram: 64
+    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+devicetree:
+  libraries.devicetree:
+    path: tests/lib/devicetree/api
+    catalog: devicetree
+  libraries.devicetree.devices:
+    path: tests/lib/devicetree/devices
+    catalog: devicetree
+    platform_exclude: hsdk hsdk_2cores
+fdtable:
+  libraries.os.fdtable:
+    path: tests/lib/fdtable
+    catalog: fdtable
+display gui:
+  libraries.gui.lvgl:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    platform_allow: native_posix
+  libraries.gui.lvgl.dynamic.heap.libc:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LVGL_MEM_POOL_HEAP_LIB_C=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_allow: native_posix
+  libraries.gui.lvgl.dynamic.pool.user:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LVGL_MEM_POOL_USER=y
+    - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
+    - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
+    platform_allow: native_posix
+  libraries.gui.lvgl.dynamic.pool.kernel:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LVGL_MEM_POOL_KERNEL=y
+    - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
+    - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
+    platform_allow: native_posix
+  libraries.gui.lvgl.16bit:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_COLOR_DEPTH_16=y
+    platform_allow: native_posix
+  libraries.gui.lvgl.8bit:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_COLOR_DEPTH_8=y
+    platform_allow: native_posix
+  libraries.gui.lvgl.mono:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_COLOR_DEPTH_1=y
+    platform_allow: native_posix
+  libraries.gui.lvgl.16bit.swap:
+    path: tests/lib/gui/lvgl
+    catalog: display gui
+    extra_configs:
+    - CONFIG_LVGL_COLOR_DEPTH_16=y
+    - CONFIG_LVGL_COLOR_16_SWAP=y
+    platform_allow: native_posix
+heap:
+  lib.heap:
+    path: tests/lib/heap
+    catalog: heap
+    platform_exclude: m2gl025_miv qemu_xtensa
+    filter: not CONFIG_SOC_NSIM
+  lib.heap_align:
+    path: tests/lib/heap_align
+    catalog: heap
+json:
+  libraries.encoding.json:
+    path: tests/lib/json
+    catalog: json
+    filter: not CONFIG_NEWLIB_LIBC
+    min_flash: 34
+clib minimal_libc userspace:
+  libraries.libc.minimal.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog: clib minimal_libc userspace
+    extra_args: CONF_FILE=prj.conf
+    arch_exclude: posix
+    platform_exclude: twr_ke18f native_posix_64 nrf52_bsim
+  libraries.libc.minimal.mem_alloc_negative_testing:
+    path: tests/lib/mem_alloc
+    catalog: clib minimal_libc userspace
+    extra_args: CONF_FILE=prj_negative_testing.conf
+    arch_exclude: posix
+    platform_exclude: twr_ke18f native_posix_64 nrf52_bsim
+clib newlib userspace:
+  libraries.libc.newlib.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog: clib newlib userspace
+    extra_args: CONF_FILE=prj_newlib.conf
+    min_ram: 16
+    arch_exclude: posix
+    platform_exclude: twr_ke18f native_posix_64 nrf52_bsim
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  libraries.libc.newlib_nano.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog: clib newlib userspace
+    extra_args: CONF_FILE=prj_newlibnano.conf
+    filter: CONFIG_HAS_NEWLIB_LIBC_NANO
+mpsc_pbuf:
+  lib.mpsc_pbuf:
+    path: tests/lib/mpsc_pbuf
+    catalog: mpsc_pbuf
+    platform_allow: 'qemu_arc_em qemu_arc_hs qemu_cortex_a53 qemu_cortex_m0 qemu_cortex_m3
+      qemu_cortex_r5 qemu_leon3 qemu_nios2 qemu_riscv32 qemu_riscv64 qemu_x86 qemu_x86_64
+      qemu_xtensa
+
+      '
+clib newlib:
+  libraries.libc.newlib.thread_safety:
+    path: tests/lib/newlib/thread_safety
+    catalog: clib newlib
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+  libraries.libc.newlib_nano.thread_safety:
+    path: tests/lib/newlib/thread_safety
+    catalog: clib newlib
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    filter:
+    - CONFIG_HAS_NEWLIB_LIBC_NANO
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+notify:
+  libraries.data_structures:
+    path: tests/lib/notify
+    catalog: notify
+onoff timer:
+  libraries.onoff:
+    path: tests/lib/onoff
+    catalog: onoff timer
+p4wq:
+  lib.p4wq:
+    path: tests/lib/p4workq
+    catalog: p4wq
+ring_buffer circular_buffer:
+  libraries.data_structures.ringbuffer:
+    path: tests/lib/ringbuffer
+    catalog: ring_buffer circular_buffer
+libc ignore_faults:
+  libraries.libc.sprintf:
+    path: tests/lib/sprintf
+    catalog: libc ignore_faults
+    extra_args: CONF_FILE=prj.conf
+    filter: not CONFIG_SOC_MCIMX7_M4
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+libc:
+  libraries.libc.sprintf_new:
+    path: tests/lib/sprintf
+    catalog: libc
+    extra_args: CONF_FILE=prj_new.conf
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  libraries.libc.time:
+    path: tests/lib/time
+    catalog: libc
+    filter: not CONFIG_ARCH_POSIX or CONFIG_NATIVE_POSIX_SLOWDOWN_TO_REAL_TIME
+mcuboot:
+  bootloader.mcuboot.build:
+    path: tests/misc/test_build
+    catalog: mcuboot
+    extra_configs:
+    - CONFIG_BOOTLOADER_MCUBOOT=y
+    build_only: true
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832
+kconfig:
+  buildsystem.kconfig.utf8_in_values:
+    path: tests/misc/test_build
+    catalog: kconfig
+    extra_configs:
+    - CONFIG_KERNEL_BIN_NAME="A_kconfig_value_with_a_utf8_char_in_it_Bøe_"
+    build_only: true
+net 6loWPAN:
+  net.6lo:
+    path: tests/net/6lo
+    catalog: net 6loWPAN
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    min_ram: 32
+    depends_on: netif
+  net.6lo.preempt:
+    path: tests/net/6lo
+    catalog: net 6loWPAN
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    min_ram: 32
+    depends_on: netif
+net net-all:
+  net.build:
+    path: tests/net/all
+    catalog: net net-all
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    platform_allow: qemu_x86
+    build_only: true
+    min_ram: 32
+  net.build.preempt:
+    path: tests/net/all
+    catalog: net net-all
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    platform_allow: qemu_x86
+    build_only: true
+    min_ram: 32
+net arp:
+  net.arp:
+    path: tests/net/arp
+    catalog: net arp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.arp.preempt:
+    path: tests/net/arp
+    catalog: net arp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
+net buf:
+  net.buf:
+    path: tests/net/buf
+    catalog: net buf
+    min_ram: 16
+net checksum_offload:
+  net.offload:
+    path: tests/net/checksum_offload
+    catalog: net checksum_offload
+    min_ram: 16
+    depends_on: netif
+net net_context:
+  net.context:
+    path: tests/net/context
+    catalog: net net_context
+    extra_configs:
+    - CONFIG_ASSERT_LEVEL=0
+    min_ram: 16
+    depends_on: netif
+net dhcpv4:
+  net.dhcp:
+    path: tests/net/dhcpv4
+    catalog: net dhcpv4
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+  net.dhcp.preempt:
+    path: tests/net/dhcpv4
+    catalog: net dhcpv4
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+net ethernet_mgmt:
+  net.ethernet_mgmt:
+    path: tests/net/ethernet_mgmt
+    catalog: net ethernet_mgmt
+    min_ram: 32
+    depends_on: netif
+net hostname:
+  net.hostname:
+    path: tests/net/hostname
+    catalog: net hostname
+    extra_configs:
+    - CONFIG_NET_HOSTNAME_UNIQUE=n
+    min_ram: 16
+    depends_on: netif
+  net.hostname.unique:
+    path: tests/net/hostname
+    catalog: net hostname
+    extra_configs:
+    - CONFIG_NET_HOSTNAME_UNIQUE=y
+    min_ram: 16
+    depends_on: netif
+net icmpv4:
+  net.icmpv6:
+    path: tests/net/icmpv4
+    catalog: net icmpv4
+    min_ram: 16
+    depends_on: netif
+net icmpv6:
+  net.icmpv6.icmpv6:
+    path: tests/net/icmpv6
+    catalog: net icmpv6
+    min_ram: 16
+    depends_on: netif
+net ieee802154 fragment:
+  net.ieee802154.fragment:
+    path: tests/net/ieee802154/fragment
+    catalog: net ieee802154 fragment
+    depends_on: ieee802154
+    min_ram: 48
+net ieee802154 l2:
+  net.ieee802154.l2:
+    path: tests/net/ieee802154/l2
+    catalog: net ieee802154 l2
+    min_ram: 16
+    depends_on: ieee802154
+net iface userspace:
+  net.iface:
+    path: tests/net/iface
+    catalog: net iface userspace
+    min_ram: 16
+    depends_on: netif
+net igmp:
+  net.igmp:
+    path: tests/net/igmp
+    catalog: net igmp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+  net.igmp.preempt:
+    path: tests/net/igmp
+    catalog: net igmp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+net ip-addr:
+  net.ip-addr:
+    path: tests/net/ip-addr
+    catalog: net ip-addr
+    min_ram: 16
+    depends_on: netif
+net ipv6:
+  net.ipv6:
+    path: tests/net/ipv6
+    catalog: net ipv6
+    depends_on: netif
+net ipv6 fragment:
+  net.ipv6.fragment:
+    path: tests/net/ipv6_fragment
+    catalog: net ipv6 fragment
+    depends_on: netif
+dns net:
+  net.dns.addremove:
+    path: tests/net/lib/dns_addremove
+    catalog: dns net
+    min_ram: 21
+    depends_on: netif
+  net.dns.addremove.no_ipv6:
+    path: tests/net/lib/dns_addremove
+    catalog: dns net
+    extra_configs:
+    - CONFIG_NET_IPV6=n
+    depends_on: netif
+    min_ram: 16
+  net.dns.no_ipv4:
+    path: tests/net/lib/dns_addremove
+    catalog: dns net
+    extra_configs:
+    - CONFIG_NET_IPV4=n
+    depends_on: netif
+    min_ram: 16
+  net.dns:
+    path: tests/net/lib/dns_packet
+    catalog: dns net
+    min_ram: 16
+    depends_on: netif
+  net.dns.resolve:
+    path: tests/net/lib/dns_resolve
+    catalog: dns net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.dns.resolve.preempt:
+    path: tests/net/lib/dns_resolve
+    catalog: dns net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.dns.resolve.no_ipv6:
+    path: tests/net/lib/dns_resolve
+    catalog: dns net
+    extra_args: CONF_FILE=prj-no-ipv6.conf
+    min_ram: 21
+    depends_on: netif
+  net.dns.sd:
+    path: tests/net/lib/dns_sd
+    catalog: dns net
+    min_ram: 21
+    depends_on: netif
+  net.dns.sd.no_ipv6:
+    path: tests/net/lib/dns_sd
+    catalog: dns net
+    extra_args: CONF_FILE=prj-no-ipv6.conf
+    min_ram: 16
+    depends_on: netif
+http net:
+  net.http:
+    path: tests/net/lib/http_header_fields
+    catalog: http net
+    min_ram: 16
+    depends_on: netif
+mqtt net userspace:
+  net.mqtt.packet:
+    path: tests/net/lib/mqtt_packet
+    catalog: mqtt net userspace
+    min_ram: 16
+    depends_on: netif
+net tls:
+  net.tls_credentials:
+    path: tests/net/lib/tls_credentials
+    catalog: net tls
+    depends_on: netif
+net mgmt:
+  net.management:
+    path: tests/net/mgmt
+    catalog: net mgmt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.management.preempt:
+    path: tests/net/mgmt
+    catalog: net mgmt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
+net mld:
+  net.mld:
+    path: tests/net/mld
+    catalog: net mld
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+  net.mld.preempt:
+    path: tests/net/mld
+    catalog: net mld
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+net neighbour:
+  net.neighbour:
+    path: tests/net/neighbor
+    catalog: net neighbour
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.neighbor.preempt:
+    path: tests/net/neighbor
+    catalog: net neighbour
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
+net ppp:
+  net.ppp:
+    path: tests/net/ppp/driver
+    catalog: net ppp
+    min_ram: 21
+    depends_on: serial-net
+net ptp gptp userspace:
+  net.ptp.clock:
+    path: tests/net/ptp/clock
+    catalog: net ptp gptp userspace
+    min_ram: 32
+    depends_on: netif
+    platform_allow: frdm_k64f sam_e70_xplained native_posix
+net route:
+  net.route:
+    path: tests/net/route
+    catalog: net route
+    min_ram: 16
+    depends_on: netif
+net route_mcast:
+  net.route_mcast:
+    path: tests/net/route_mcast
+    catalog: net route_mcast
+    min_ram: 21
+    depends_on: netif
+net net-shell:
+  net.shell:
+    path: tests/net/shell
+    catalog: net net-shell
+    min_ram: 20
+    depends_on: netif
+net socket af_packet:
+  net.socket.packet:
+    path: tests/net/socket/af_packet
+    catalog: net socket af_packet
+    min_ram: 21
+    depends_on: netif
+    platform_exclude: native_posix native_posix_64
+net socket getaddrinfo userspace:
+  net.socket.get_addr_info:
+    path: tests/net/socket/getaddrinfo
+    catalog: net socket getaddrinfo userspace
+    min_ram: 21
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+net socket userspace:
+  net.socket.get_name_info:
+    path: tests/net/socket/getnameinfo
+    catalog: net socket userspace
+    min_ram: 21
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.misc:
+    path: tests/net/socket/misc
+    catalog: net socket userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 21
+  net.socket.misc.userspace:
+    path: tests/net/socket/misc
+    catalog: net socket userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 21
+  net.socket.select:
+    path: tests/net/socket/select
+    catalog: net socket userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.select.preempt:
+    path: tests/net/socket/select
+    catalog: net socket userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.socketpair:
+    path: tests/net/socket/socketpair
+    catalog: net socket userspace
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: intel_adsp_cavs15
+    depends_on: netif
+  net.socket.tcp:
+    path: tests/net/socket/tcp
+    catalog: net socket userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tcp.preempt:
+    path: tests/net/socket/tcp
+    catalog: net socket userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+net socket net_mgmt userspace:
+  net.socket.mgmt:
+    path: tests/net/socket/net_mgmt
+    catalog: net socket net_mgmt userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.socket.mgmt.preempt:
+    path: tests/net/socket/net_mgmt
+    catalog: net socket net_mgmt userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+net socket poll:
+  net.socket.poll:
+    path: tests/net/socket/poll
+    catalog: net socket poll
+    min_ram: 21
+    depends_on: netif
+net socket socket.register:
+  net.socket.register:
+    path: tests/net/socket/register
+    catalog: net socket socket.register
+    extra_configs:
+    - CONFIG_NET_SOCKETS_SOCKOPT_TLS=n
+    depends_on: netif
+  net.socket.register.tls:
+    path: tests/net/socket/register
+    catalog: net socket socket.register
+    extra_configs:
+    - CONFIG_MBEDTLS=y
+    - CONFIG_MBEDTLS_BUILTIN=y
+    - CONFIG_MBEDTLS_ENABLE_HEAP=y
+    - CONFIG_MBEDTLS_HEAP_SIZE=60000
+    - CONFIG_MBEDTLS_SSL_MAX_CONTENT_LEN=2048
+    - CONFIG_NET_SOCKETS_SOCKOPT_TLS=y
+    - CONFIG_NET_SOCKETS_TLS_MAX_CONTEXTS=6
+    - CONFIG_NET_SOCKETS_ENABLE_DTLS=y
+    - CONFIG_NET_SOCKETS_DTLS_TIMEOUT=30000
+    - CONFIG_MAIN_STACK_SIZE=2048
+    depends_on: netif
+net socket tls:
+  net.socket.tls:
+    path: tests/net/socket/tls
+    catalog: net socket tls
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tls.preempt:
+    path: tests/net/socket/tls
+    catalog: net socket tls
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tls.tls_ext:
+    path: tests/net/socket/tls_ext
+    catalog: net socket tls
+    min_ram: 65536
+net socket udp:
+  net.socket.udp:
+    path: tests/net/socket/udp
+    catalog: net socket udp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.udp.preempt:
+    path: tests/net/socket/udp
+    catalog: net socket udp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+net websocket:
+  net.socket.websocket:
+    path: tests/net/socket/websocket
+    catalog: net websocket
+    min_ram: 21
+    platform_exclude: native_posix_64
+    depends_on: netif
+net tcp2:
+  net.tcp2.simple:
+    path: tests/net/tcp2
+    catalog: net tcp2
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=1000
+    depends_on: netif
+  net.tcp2.no_recv_queue:
+    path: tests/net/tcp2
+    catalog: net tcp2
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=0
+    depends_on: netif
+net traffic_class:
+  net.traffic_class.1:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=1
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.2:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=2
+    - CONFIG_NET_TC_RX_COUNT=2
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.3:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=3
+    - CONFIG_NET_TC_RX_COUNT=3
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.4:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=4
+    - CONFIG_NET_TC_RX_COUNT=4
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.5:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=5
+    - CONFIG_NET_TC_RX_COUNT=5
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.6:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=6
+    - CONFIG_NET_TC_RX_COUNT=6
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.7:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=7
+    - CONFIG_NET_TC_RX_COUNT=7
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.8:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=8
+    - CONFIG_NET_TC_RX_COUNT=8
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.2_no_rx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=2
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.3_no_rx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=3
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.4_no_rx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=4
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.5_no_rx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=5
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.6_no_rx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=6
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.7_no_rx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=7
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.8_no_rx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=8
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.2_no_tx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=2
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.3_no_tx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=3
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.4_no_tx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=4
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.5_no_tx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.6_no_tx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=6
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.7_no_tx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=7
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.8_no_tx:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=8
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_2_rx_3:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=3
+    - CONFIG_NET_TC_TX_COUNT=2
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_3_rx_8:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=8
+    - CONFIG_NET_TC_TX_COUNT=3
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.rx_4_tx_8:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=4
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.rx_5_tx_7:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_6_rx_2:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=2
+    - CONFIG_NET_TC_TX_COUNT=6
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_7_rx_5:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_8_rx_7:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=7
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.2_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=2
+    - CONFIG_NET_TC_RX_COUNT=2
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.3_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=3
+    - CONFIG_NET_TC_RX_COUNT=3
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.4_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=4
+    - CONFIG_NET_TC_RX_COUNT=4
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.5_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=5
+    - CONFIG_NET_TC_RX_COUNT=5
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.6_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=6
+    - CONFIG_NET_TC_RX_COUNT=6
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.7_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=7
+    - CONFIG_NET_TC_RX_COUNT=7
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.8_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=8
+    - CONFIG_NET_TC_RX_COUNT=8
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_2_rx_3_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=3
+    - CONFIG_NET_TC_TX_COUNT=2
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_3_rx_8_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=8
+    - CONFIG_NET_TC_TX_COUNT=3
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.rx_4_tx_8_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=4
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.rx_5_tx_7_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_6_rx_2_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=2
+    - CONFIG_NET_TC_TX_COUNT=6
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_7_rx_5_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_8_rx_7_sr_ab:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=7
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.2_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=2
+    - CONFIG_NET_TC_RX_COUNT=2
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.3_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=3
+    - CONFIG_NET_TC_RX_COUNT=3
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.4_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=4
+    - CONFIG_NET_TC_RX_COUNT=4
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.5_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=5
+    - CONFIG_NET_TC_RX_COUNT=5
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.6_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=6
+    - CONFIG_NET_TC_RX_COUNT=6
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.7_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=7
+    - CONFIG_NET_TC_RX_COUNT=7
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.8_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=8
+    - CONFIG_NET_TC_RX_COUNT=8
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_2_rx_3_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=3
+    - CONFIG_NET_TC_TX_COUNT=2
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_3_rx_8_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=8
+    - CONFIG_NET_TC_TX_COUNT=3
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.rx_4_tx_8_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=4
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.rx_5_tx_7_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_6_rx_2_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=2
+    - CONFIG_NET_TC_TX_COUNT=6
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_7_rx_5_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: native_posix native_posix_64
+  net.traffic_class.tx_8_rx_7_sr_b:
+    path: tests/net/traffic_class
+    catalog: net traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=7
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: native_posix native_posix_64
+net trickle:
+  net.trickle:
+    path: tests/net/trickle
+    catalog: net trickle
+    min_ram: 12
+    depends_on: netif
+net tx_timestamp gptp:
+  net.timestamp:
+    path: tests/net/tx_timestamp
+    catalog: net tx_timestamp gptp
+    min_ram: 16
+    depends_on: netif
+net userspace:
+  net.util:
+    path: tests/net/utils
+    catalog: net userspace
+    min_ram: 24
+    depends_on: netif
+net tunnel virtual:
+  net.virtual.tunnel.ipip:
+    path: tests/net/virtual
+    catalog: net tunnel virtual
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="192.0.2.2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="198.51.100.1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ipip"
+    depends_on: netif
+    min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+  net.virtual.tunnel.ip6ip:
+    path: tests/net/virtual
+    catalog: net tunnel virtual
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="192.0.2.2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip"
+    depends_on: netif
+    min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+  net.virtual.tunnel.ipip6:
+    path: tests/net/virtual
+    catalog: net tunnel virtual
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="198.51.100.1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ipip6"
+    depends_on: netif
+    min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+  net.virtual.tunnel.ip6ip6:
+    path: tests/net/virtual
+    catalog: net tunnel virtual
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip6"
+    depends_on: netif
+    min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+posix pthread eventfd:
+  portability.posix.eventfd:
+    path: tests/posix/eventfd
+    catalog: posix pthread eventfd
+    arch_exclude: posix
+    min_ram: 32
+  posix.eventfd_basic:
+    path: tests/posix/eventfd_basic
+    catalog: posix pthread eventfd
+    extra_configs:
+    - CONFIG_POSIX_API=n
+    arch_exclude: posix
+    min_ram: 32
+  posix.eventfd_basic.posix_api:
+    path: tests/posix/eventfd_basic
+    catalog: posix pthread eventfd
+    extra_configs:
+    - CONFIG_POSIX_API=y
+    arch_exclude: posix
+    min_ram: 32
+posix filesystem:
+  portability.posix.fs:
+    path: tests/posix/fs
+    catalog: posix filesystem
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    arch_exclude: nios2 posix
+    min_ram: 128
+  portability.posix.fs.newlib:
+    path: tests/posix/fs
+    catalog: posix filesystem
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    arch_exclude: nios2 posix
+    min_ram: 128
+  portability.posix.fs.tls:
+    path: tests/posix/fs
+    catalog: posix filesystem
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=n
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    arch_exclude: nios2 posix
+    min_ram: 128
+  portability.posix.fs.tls.newlib:
+    path: tests/posix/fs
+    catalog: posix filesystem
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
+      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    arch_exclude: nios2 posix
+    min_ram: 128
+can isotp:
+  can.isotp.conformance:
+    path: tests/subsys/canbus/isotp/conformance
+    catalog: can isotp
+    depends_on: can
+  can.isotp.implemmentation:
+    path: tests/subsys/canbus/isotp/implementation
+    catalog: can isotp
+    depends_on: can
+ignore_faults ignore_qemu_crash:
+  coredump.logging_backend:
+    path: tests/subsys/debug/coredump
+    catalog: ignore_faults ignore_qemu_crash
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+  coredump.backends.logging:
+    path: tests/subsys/debug/coredump_backends
+    catalog: ignore_faults ignore_qemu_crash
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+  coredump.backends.flash:
+    path: tests/subsys/debug/coredump_backends
+    catalog: ignore_faults ignore_qemu_crash
+    extra_args: CONF_FILE=prj_flash_partition.conf
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_allow: qemu_x86
+dfu_image_util:
+  dfu.image_util:
+    path: tests/subsys/dfu/img_util
+    catalog: dfu_image_util
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+  dfu.image_util.progressive:
+    path: tests/subsys/dfu/img_util
+    catalog: dfu_image_util
+    extra_args: OVERLAY_CONFIG=progressively_overlay.conf
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+dfu_mcuboot:
+  dfu.mcuboot:
+    path: tests/subsys/dfu/mcuboot
+    catalog: dfu_mcuboot
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+edac ibecc:
+  edac.ibecc.production:
+    path: tests/subsys/edac/ibecc
+    catalog: edac ibecc
+    extra_configs:
+    - CONFIG_EDAC_ERROR_INJECT=n
+    - CONFIG_EDAC_LOG_LEVEL_DBG=y
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.injection:
+    path: tests/subsys/edac/ibecc
+    catalog: edac ibecc
+    extra_configs:
+    - CONFIG_EDAC_ERROR_INJECT=y
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.injection.user:
+    path: tests/subsys/edac/ibecc
+    catalog: edac ibecc
+    extra_configs:
+    - CONFIG_EDAC_ERROR_INJECT=y
+    - CONFIG_USERSPACE=y
+    arch_allow: x86
+    platform_allow: ehl_crb
+flash_circural_buffer:
+  filesystem.fcb:
+    path: tests/subsys/fs/fcb
+    catalog: flash_circural_buffer
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422 native_posix
+      native_posix_64
+littlefs fatfs filesystem qemu_x86:
+  filesystem.multifs:
+    path: tests/subsys/fs/multi-fs
+    catalog: littlefs fatfs filesystem qemu_x86
+    platform_allow: native_posix qemu_x86
+littlefs fatfs filesystem:
+  filesystem.fs_shell:
+    path: tests/subsys/fs/multi-fs
+    catalog: littlefs fatfs filesystem
+    extra_args: CONF_FILE="prj_fs_shell.conf"
+    platform_allow: native_posix qemu_x86
+nvs:
+  filesystem.nvs:
+    path: tests/subsys/fs/nvs
+    catalog: nvs
+    platform_allow: qemu_x86
+  filesystem.nvs_0x00:
+    path: tests/subsys/fs/nvs
+    catalog: nvs
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
+jwt:
+  libraries.encoding.jwt:
+    path: tests/subsys/jwt
+    catalog: jwt
+    min_ram: 96
+    min_flash: 72
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+log_api logging:
+  logging.log_api_deferred_overflow_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_deferred_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_deferred_no_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_deferred_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_deferred_func_prefix:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    - CONFIG_LOG_DETECT_MISSED_STRDUP=n
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_immediate:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_immediate_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_immediate_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_overflow_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_no_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_func_prefix:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_64b_timestamp:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_immediate:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_immediate_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_immediate_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_immediate_64b_timestamp:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2_no_overflow:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2_64b_timestamp:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2_fp:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_msg2_fp_64b_timestamp:
+    path: tests/subsys/logging/log_msg2
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+logging backend filesystem fs:
+  subsys.logging.log_backend_fs.automounted:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: logging backend filesystem fs
+    platform_allow: native_posix native_posix_64 nrf52840dk_nrf52840
+  subsys.logging.log_backend_fs.manualmounted.native_posix:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: logging backend filesystem fs
+    extra_args: DTC_OVERLAY_FILE="./boards/native_posix.overlay;./boards/automount.overlay"
+    platform_allow: native_posix
+  subsys.logging.log_backend_fs.manualmounted.native_posix_64:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: logging backend filesystem fs
+    extra_args: DTC_OVERLAY_FILE="./boards/native_posix_64.overlay;./boards/automount.overlay"
+    platform_allow: native_posix_64
+  subsys.logging.log_backend_fs.manualmounted.nrf5840dk:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: logging backend filesystem fs
+    extra_args: DTC_OVERLAY_FILE="./boards/nrf52840dk_nrf52840.overlay;./boards/automount.overlay"
+    platform_allow: nrf52840dk_nrf52840
+log_core logging:
+  logging.log_core:
+    path: tests/subsys/logging/log_core
+    catalog: log_core logging
+    filter: not CONFIG_LOG_IMMEDIATE
+  logging.log_immediate:
+    path: tests/subsys/logging/log_immediate
+    catalog: log_core logging
+    platform_exclude: nucleo_l053r8 nucleo_f030r8 intel_adsp_cavs15 stm32f0_disco
+      nrf52_bsim
+  logging.log_immediate.clean_output:
+    path: tests/subsys/logging/log_immediate
+    catalog: log_core logging
+    extra_args: CONFIG_LOG_IMMEDIATE_CLEAN_OUTPUT=y
+    platform_exclude: nucleo_l053r8 nucleo_f030r8 intel_adsp_cavs15 stm32f0_disco
+      nrf52_bsim
+log_list logging:
+  logging.log_list:
+    path: tests/subsys/logging/log_list
+    catalog: log_list logging
+log_msg logging:
+  logging.log_msg:
+    path: tests/subsys/logging/log_msg
+    catalog: log_msg logging
+log_output logging:
+  logging.log_output:
+    path: tests/subsys/logging/log_output
+    catalog: log_output logging
+    platform_exclude: intel_adsp_cavs15
+ec_host_cmd:
+  ec_host_cmd.core:
+    path: tests/subsys/mgmt/ec_host_cmd
+    catalog: ec_host_cmd
+    platform_allow: native_posix
+ot_radio:
+  openthread.radio:
+    path: tests/subsys/openthread
+    catalog: ot_radio
+    platform_allow: native_posix native_posix_64
+settings_fcb:
+  system.settings.fcb.raw:
+    path: tests/subsys/settings/fcb/raw
+    catalog: settings_fcb
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 native_posix native_posix_64
+  system.settings.functional.fcb:
+    path: tests/subsys/settings/functional/fcb
+    catalog: settings_fcb
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 native_posix native_posix_64
+settings_intialization_fcb:
+  system.settings.fcb:
+    path: tests/subsys/settings/fcb_init
+    catalog: settings_intialization_fcb
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
+settings_file:
+  system.settings.file:
+    path: tests/subsys/settings/functional/file
+    catalog: settings_file
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 native_posix native_posix_64
+settings_nvs:
+  system.settings.functional.nvs:
+    path: tests/subsys/settings/functional/nvs
+    catalog: settings_nvs
+    platform_allow: qemu_x86 native_posix native_posix_64
+  system.settings.functional.nvs.dk:
+    path: tests/subsys/settings/functional/nvs
+    catalog: settings_nvs
+    extra_args: OVERLAY_CONFIG=mpu.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
+  system.settings.nvs:
+    path: tests/subsys/settings/nvs/raw
+    catalog: settings_nvs
+    depends_on: nvs
+    min_ram: 32
+settings_fs filesystem:
+  system.settings.littlefs.base64:
+    path: tests/subsys/settings/littlefs/base64
+    catalog: settings_fs filesystem
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+settings_fs settings_littlefs:
+  system.settings.littlefs.raw:
+    path: tests/subsys/settings/littlefs/raw
+    catalog: settings_fs settings_littlefs
+    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+flash_map:
+  storage.flash_map:
+    path: tests/subsys/storage/flash_map
+    catalog: flash_map
+    platform_allow: nrf51dk_nrf51422 qemu_x86 native_posix native_posix_64
+  storage.flash_map.mpu:
+    path: tests/subsys/storage/flash_map
+    catalog: flash_map
+    extra_args: OVERLAY_CONFIG=overlay-mpu.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 frdm_k64f hexiwear_k64 twr_ke18f
+stream_flash:
+  storage.stream_flash:
+    path: tests/subsys/storage/stream/stream_flash
+    catalog: stream_flash
+    platform_allow: native_posix native_posix_64
+  storage.stream_flash.dword_wbs:
+    path: tests/subsys/storage/stream/stream_flash
+    catalog: stream_flash
+    extra_args: DTC_OVERLAY_FILE=unaligned_flush.overlay
+    platform_allow: native_posix native_posix_64
+  storage.stream_flash.no_erase:
+    path: tests/subsys/storage/stream/stream_flash
+    catalog: stream_flash
+    extra_args: OVERLAY_CONFIG=no_erase.overlay
+    platform_allow: native_posix native_posix_64
+  storage.stream_flash.mpu_allow_flash_write:
+    path: tests/subsys/storage/stream/stream_flash
+    catalog: stream_flash
+    extra_args: OVERLAY_CONFIG=mpu_allow_flash_write.overlay
+    platform_allow: nrf52840_pca10056
+usb bos:
+  usb.bos:
+    path: tests/subsys/usb/bos
+    catalog: usb bos
+    depends_on: usb_device
+usb desc_sections:
+  usb.desc_sections:
+    path: tests/subsys/usb/desc_sections
+    catalog: usb desc_sections
+    depends_on: usb_device
+usb osdesc:
+  usb.osdesc:
+    path: tests/subsys/usb/os_desc
+    catalog: usb osdesc
+    platform_allow: native_posix native_posix_64 frdm_k64f
+base64:
+  utilities.base64:
+    path: tests/unit/base64
+    catalog: base64
+    type: unit
+prf:
+  utilities.prf.m32v00:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x00
+    type: unit
+  utilities.prf.m32v01:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x01
+    type: unit
+  utilities.prf.m32v02:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x02
+    type: unit
+  utilities.prf.m32v03:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x03
+    type: unit
+  utilities.prf.m32v07:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x07
+    type: unit
+  utilities.prf.m32v08:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x08
+    type: unit
+  utilities.prf.m32v80:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x80
+    type: unit
+  utilities.prf.m32v101:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x101
+    type: unit
+  utilities.prf.m32v181:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x181
+    type: unit
+  utilities.prf.m32v200:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m32v201:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x201
+    type: unit
+  utilities.prf.m32v207:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x207
+    type: unit
+  utilities.prf.m32v208:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x208
+    type: unit
+  utilities.prf.m32v281:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
+    type: unit
+  utilities.prf.m32v1207:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x1207
+    type: unit
+  utilities.prf.m32va00:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m32va01:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa01
+    type: unit
+  utilities.prf.m32va07:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa07
+    type: unit
+  utilities.prf.m32va08:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa08
+    type: unit
+  utilities.prf.m32va81:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa81
+    type: unit
+  utilities.prf.m64v00:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x00
+    type: unit
+  utilities.prf.m64v01:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x01
+    type: unit
+  utilities.prf.m64v03:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x03
+    type: unit
+  utilities.prf.m64v17:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x07
+    type: unit
+  utilities.prf.m64v80:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x80
+    type: unit
+  utilities.prf.m64v101:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x101
+    type: unit
+  utilities.prf.m64v181:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x181
+    type: unit
+  utilities.prf.m64v200:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v201:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x201
+    type: unit
+  utilities.prf.m64v207:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x207
+    type: unit
+  utilities.prf.m64v208:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x208
+    type: unit
+  utilities.prf.m64v281:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
+    type: unit
+  utilities.prf.m64v600:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x600
+    type: unit
+  utilities.prf.m64v601:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x601
+    type: unit
+  utilities.prf.m64v607:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x607
+    type: unit
+  utilities.prf.m64v608:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x608
+    type: unit
+  utilities.prf.m64v681:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x681
+    type: unit
+  utilities.prf.m64v1607:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x1607
+    type: unit
+  utilities.prf.m64va00:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m64va01:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa01
+    type: unit
+  utilities.prf.m64va07:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa07
+    type: unit
+  utilities.prf.m64va08:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa08
+    type: unit
+  utilities.prf.m64va81:
+    path: tests/unit/cbprintf
+    catalog: prf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa81
+    type: unit
+net crc:
+  utilities.crc:
+    path: tests/unit/crc
+    catalog: net crc
+    type: unit
+util intmath:
+  utilities.intmath:
+    path: tests/unit/intmath
+    catalog: util intmath
+    type: unit
+utils lists:
+  utilities.lists:
+    path: tests/unit/list
+    catalog: utils lists
+    type: unit
+rbtree:
+  utilities.red_black_tree:
+    path: tests/unit/rbtree
+    catalog: rbtree
+    type: unit
+timeutil:
+  utilities.time:
+    path: tests/unit/timeutil
+    catalog: timeutil
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.time.64bit:
+    path: tests/unit/timeutil
+    catalog: timeutil
+    extra_args: M64_MODE=1
+    type: unit
+lib_sys_util_tests:
+  utilities.dec:
+    path: tests/unit/util
+    catalog: lib_sys_util_tests
+    type: unit
+test_framework userspace ignore_faults:
+  testing.ztest.error_hook:
+    path: tests/ztest/error_hook
+    catalog: test_framework userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+test_framework ignore_faults:
+  testing.ztest.error_hook.no_userspace:
+    path: tests/ztest/error_hook
+    catalog: test_framework ignore_faults
+    extra_args: CONF_FILE=prj_no_userspace.conf
+    filter: not CONFIG_ARCH_HAS_USERSPACE

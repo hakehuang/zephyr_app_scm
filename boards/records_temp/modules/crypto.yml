@@ -20,3 +20,7 @@ cases:
     build_only: true
     min_ram: 20
     arch_exclude: xtensa
+  benchmark.crypto.mbedtls:
+    path: tests/benchmarks/mbedtls
+    catalog: crypto
+    filter: CONFIG_TEST_RANDOM_GENERATOR

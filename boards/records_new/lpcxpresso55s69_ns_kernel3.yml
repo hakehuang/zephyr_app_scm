@@ -3,7 +3,15 @@ settings:
   case_pipe_name: "lpcxpresso55s69_ns_kernel3"
   version: zephyr-v2.6.0-286-g46029914a7
 __load__:
+- modules/kernel_timer_userspace_ignore_faults.yml
+- modules/kernel_timer_userspace.yml
+- modules/kernel_timer.yml
+- modules/kernel_threads_userspace_ignore_faults.yml
+- modules/kernel_threads_userspace.yml
+- modules/kernel_threads_sched_userspacei_ignore_faults.yml
+- modules/kernel_threads_sched_userspace_ignore_faults.yml
 - modules/kernel_threads_gpio.yml
+- modules/kernel_threads.yml
 - skips/lpcxpresso55s69_ns.yml
 - boards/lpcxpresso55s69_ns.yml
 cases:

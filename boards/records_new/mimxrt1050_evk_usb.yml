@@ -4,8 +4,11 @@ settings:
   version: zephyr-v2.6.0-286-g46029914a7
 __load__:
 - modules/usb_sensors.yml
+- modules/usb_osdesc.yml
 - modules/usb_net_zperf.yml
 - modules/usb_ieee802154.yml
+- modules/usb_desc_sections.yml
+- modules/usb_bos.yml
 - modules/usb_bluetooth.yml
 - modules/usb.yml
 - skips/mimxrt1050_evk.yml

@@ -414,6 +414,7 @@ def split_test_catalog(fn, outdir, template_dir)
 end
 
 get_version("C:/github/zephyrproject/zephyr/")
-scan("C:/github/zephyrproject/zephyr/samples/", "../records_temp", "test.yml")
+#scan("C:/github/zephyrproject/zephyr/samples/", "../records_temp", "test.yml")
 #scan("C:/github/zephyrproject/zephyr/tests/", "../records_temp", "test.yml")
+scan("C:/github/zephyrproject/zephyr/", "../records_temp", "test.yml")
 split_test_catalog("../records_temp/test.yml", "../records_temp", template_dir="../template")

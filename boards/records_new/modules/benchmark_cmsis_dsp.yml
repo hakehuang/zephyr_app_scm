@@ -1,0 +1,9 @@
+---
+cases:
+  benchmark.cmsis_dsp.basicmath:
+    path: tests/benchmarks/cmsis_dsp/basicmath
+    catalog: benchmark cmsis_dsp
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1"
+    min_flash: 128
+    min_ram: 64

@@ -1,0 +1,14 @@
+---
+cases:
+  net.mld:
+    path: tests/net/mld
+    catalog: net mld
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+  net.mld.preempt:
+    path: tests/net/mld
+    catalog: net mld
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif

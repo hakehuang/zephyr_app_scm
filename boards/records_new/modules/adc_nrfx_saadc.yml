@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.adc.nrf.saadc.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_nrfx_saadc
+    extra_args: CONFIG_ADC_NRFX_SAADC=y
+    platform_allow: nrf21540dk_nrf52840
+    build_only: true

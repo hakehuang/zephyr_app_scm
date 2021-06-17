@@ -1,0 +1,9 @@
+---
+cases:
+  libraries.devicetree:
+    path: tests/lib/devicetree/api
+    catalog: devicetree
+  libraries.devicetree.devices:
+    path: tests/lib/devicetree/devices
+    catalog: devicetree
+    platform_exclude: hsdk hsdk_2cores

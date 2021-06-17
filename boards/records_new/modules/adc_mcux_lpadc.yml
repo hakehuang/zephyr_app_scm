@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.adc.mcux.lpadc.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_mcux_lpadc
+    extra_args: CONFIG_ADC_MCUX_LPADC=y
+    platform_allow: lpcxpresso55s28
+    build_only: true

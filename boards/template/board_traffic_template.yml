@@ -3,6 +3,7 @@ settings:
   case_pipe_name: "${@board}_traffic"
   version: zephyr-v2.6.0-286-g46029914a7
 __load__:
+- modules/net_traffic_class.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

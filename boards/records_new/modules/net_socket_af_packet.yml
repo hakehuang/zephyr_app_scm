@@ -1,0 +1,8 @@
+---
+cases:
+  net.socket.packet:
+    path: tests/net/socket/af_packet
+    catalog: net socket af_packet
+    min_ram: 21
+    depends_on: netif
+    platform_exclude: native_posix native_posix_64

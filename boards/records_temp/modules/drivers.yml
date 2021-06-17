@@ -54,3 +54,437 @@ cases:
     path: samples/subsys/display/grove_display
     catalog: drivers
     depends_on: i2c
+  drivers.counter.build.xlnx:
+    path: tests/drivers/build_all/counter
+    catalog: drivers
+    extra_configs:
+    - CONFIG_COUNTER_XLNX_AXI_TIMER=y
+    platform_allow: arty_a7_arm_designstart_m1
+    build_only: true
+  drivers.dac.build:
+    path: tests/drivers/build_all/dac
+    catalog: drivers
+    min_ram: 32
+    depends_on: dac spi
+    platform_exclude: serpente
+    build_only: true
+  drivers.eeprom.build:
+    path: tests/drivers/build_all/eeprom
+    catalog: drivers
+    min_ram: 32
+    platform_exclude: serpente
+    depends_on: gpio i2c spi
+    build_only: true
+  net.ethernet.build:
+    path: tests/drivers/build_all/ethernet
+    catalog: drivers
+    min_flash: 42
+    min_ram: 32
+    platform_exclude: frdm_kw41z
+    depends_on: spi netif
+    build_only: true
+  drivers.gpio.build:
+    path: tests/drivers/build_all/gpio
+    catalog: drivers
+    min_ram: 32
+    platform_exclude: serpente
+    depends_on: gpio spi i2c
+    build_only: true
+  drivers.led.build:
+    path: tests/drivers/build_all/led
+    catalog: drivers
+    build_only: true
+    min_ram: 32
+  drivers.modem.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers
+    extra_args: CONF_FILE=modem.conf
+    platform_exclude: serpente particle_boron rak5010_nrf52840
+    build_only: true
+  drivers.modem.ublox_sara.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers
+    extra_args: CONF_FILE=modem_ublox_sara.conf
+    platform_exclude: serpente pinnacle_100_dvk
+    build_only: true
+  drivers.modem.quectel_bg9x.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers
+    extra_args: CONF_FILE=modem_quectel_bg9x.conf
+    platform_exclude: serpente pinnacle_100_dvk
+    build_only: true
+  drivers.pwm.build.xlnx:
+    path: tests/drivers/build_all/pwm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_PWM_XLNX_AXI_TIMER=y
+    platform_allow: arty_a7_arm_designstart_m1
+    build_only: true
+  sensors.build.trigger_a_h:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_trigger_a_h.conf
+    depends_on:
+    - adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.trigger_i_z:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_trigger_i_z.conf
+    depends_on:
+    - gpio adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.a_h:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_a_h.conf
+    min_flash: 44
+    depends_on:
+    - adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.i_z:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_i_z.conf
+    depends_on:
+    - gpio adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.stmemsc:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_stmemsc.conf
+    depends_on:
+    - adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  sensors.build.stmemsc_trigger:
+    path: tests/drivers/build_all/sensor
+    catalog: drivers
+    extra_args: CONF_FILE=sensors_stmemsc_trigger.conf
+    depends_on:
+    - adc spi
+    - gpio spi i2c
+    platform_exclude: frdm_kw41z serpente
+    min_ram: 32
+    build_only: true
+  drivers.clock.clock_control_nrf5:
+    path: tests/drivers/clock_control/clock_control_api
+    catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.clock.clock_control_nrf5_lfclk_rc:
+    path: tests/drivers/clock_control/clock_control_api
+    catalog: drivers
+    extra_args: CONF_FILE="nrf_lfclk_rc.conf"
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.clock.nrf5_clock_calibration:
+    path: tests/drivers/clock_control/nrf_clock_calibration
+    catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.clock.nrf_lf_clock_start_xtal_stable:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+      nrf5340dk_nrf5340_cpuapp nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_xtal_available:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+      nrf5340dk_nrf5340_cpuapp nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_xtal_no_wait:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+      nrf5340dk_nrf5340_cpuapp nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_rc_stable:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_rc_available:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_rc_no_wait:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_synth_stable:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_synth_available:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_lf_clock_start_synth_no_wait:
+    path: tests/drivers/clock_control/nrf_lf_clock_start
+    catalog: drivers
+    extra_configs:
+    - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
+    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+      nrf5340dk_nrf5340_cpunet
+  drivers.clock.nrf_onoff_and_bt:
+    path: tests/drivers/clock_control/nrf_onoff_and_bt
+    catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.clock.clock_control_onoff:
+    path: tests/drivers/clock_control/onoff
+    catalog: drivers
+    platform_allow: nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.counter:
+    path: tests/drivers/counter/counter_basic_api
+    catalog: drivers
+    depends_on: counter
+    min_ram: 16
+    platform_exclude: nucleo_f302r8
+  drivers.counter.cmos:
+    path: tests/drivers/counter/counter_cmos
+    catalog: drivers
+    arch_allow: x86
+  drivers.counter.fixed_top:
+    path: tests/drivers/counter/counter_nrf_rtc/fixed_top
+    catalog: drivers
+    depends_on: counter
+    platform_allow: nrf52840dk_nrf52840
+  drivers.counter.maxim_ds3231:
+    path: tests/drivers/counter/maxim_ds3231_api
+    catalog: drivers
+    depends_on: counter i2c
+    min_ram: 16
+    filter: dt_compat_enabled("maxim,ds3231")
+  drivers.timer.nrf_rtc_timer:
+    path: tests/drivers/timer/nrf_rtc_timer
+    catalog: drivers
+    extra_configs:
+    - CONFIG_ZERO_LATENCY_IRQS=y
+    platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840
+  drivers.timer.nrf_rtc_timer_no_zli:
+    path: tests/drivers/timer/nrf_rtc_timer
+    catalog: drivers
+    platform_allow: nrf52dk_nrf52832 nrf52840dk_nrf52840 nrf52_bsim
+  drivers.uart.uart_async_api:
+    path: tests/drivers/uart/uart_async_api
+    catalog: drivers
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
+  drivers.uart.uart_async_api.rtt:
+    path: tests/drivers/uart/uart_async_api
+    catalog: drivers
+    extra_configs:
+    - CONFIG_USE_SEGGER_RTT=y
+    - CONFIG_UART_RTT=y
+    extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
+    build_only: true
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
+  drivers.uart:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers
+    filter: CONFIG_UART_CONSOLE
+  drivers.uart.poll:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers
+    extra_args: CONF_FILE=prj_poll.conf
+    filter: CONFIG_UART_CONSOLE
+  drivers.uart.shell:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers
+    extra_args: CONF_FILE=prj_shell.conf
+    min_flash: 64
+    filter: CONFIG_UART_CONSOLE
+  drivers.uart.uart_mix_poll:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_fifo:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_low_power:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_fifo_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_with_ppi_low_power:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_pm:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_no_rxpin:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;nrf_no_rx_pin.overlay"
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_int_driven:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_int_driven_enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_async:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+  drivers.uart_async_enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
