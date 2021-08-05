@@ -7,7 +7,9 @@ require 'rbdtb'
 
 
 def load_board_data(search_base, board_name, board_settings)
-  board = board_name.gsub('_m4', '').gsub('_m0', '').gsub('_cpu0', '').gsub('_cpu1', '').gsub('_ns', '').gsub('_cm33', '')
+  board = board_name.gsub('_m4', '').gsub('_m0', '')
+          .gsub('_cpu0', '').gsub('_cpu1', '').gsub('_ns', '').gsub('_cm33', '')
+          .gsub('_cm4', '').gsub('_cm7', '')
   board_file = File.join(search_base, "boards", "arm", board,"#{board_name}.yaml")
   board_info = {}
   if File.exist?(board_file)

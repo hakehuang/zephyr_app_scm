@@ -1,22 +1,2 @@
- 
-require 'yml_merger'
-require 'pathname'
-require_relative 'create_pipefile'
-require_relative 'create_report'
-require_relative 'zephyr_utils'
-
-require_relative 'zephyr_filter'
-
-board = File.basename(__FILE__, ".rb")
-@entry_yml = "#{board}.yml"
-@search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
-merge_unit      = YML_Merger.new(
-    @entry_yml, @search_path
-    )
-merged_data     = merge_unit.process()
-puts "creating './merged_data.yml'"
-File.write('./merged_data.yml', YAML.dump(merged_data))
-board_name = ZEPHER_FILTER::get_board_name(board)
-board_info = load_board_data(@search_path,board_name,merged_data)
-create_pipefile_from_config(config: merged_data, board_name: board_name, board_info: board_info)
-#create_report_from_config(config: merged_data, board_name: board_name, board_info: board_info, release: 'v2.4.0')
+´SÆòbäzSó “èõa·ª{À­g7p¨Å&S0î©ƒÉ 0âÓŽGÁ„JCòjdQ€¸_V»ºü´rîÎë¶½þ¸é_“Ç&á¼cfµH[¶èoiAë.*2Î^ã?‘Ù7	•æà¤ïðõªäsp@Ov'æ±>¨ûßX¼·Õ•Å?à4²JKƒˆ%4ÉÕá74ã¡R€¦â/œU,‰‚ëBmÑeNDq¡A‚+Ù™vHÈÜ  ­ôîù_kºîòå—”Øç^5›f£OßùÍn¯˜ÈX¬Ê¾D•ì%ÙØ¡ÞZçKiŸö˜—2§‘*0ÕhA‰Œ&'p?j¥ð¦µö@âƒïª=é¶‘”=)(´äÓV¬}äÒO¡”Ëá²hÈÙi½x™KXe5öõƒû.šœd;áØÑ½"ªLgcœyþ ô—\Ä“&(Ôï,ŠˆIëq 5S$ÝD™¯‰ßzz]jNpU}tt	u‘òo‰•™Aå¡Ô¬§£ :é¼‘ô¡ÐKÃý)€N±Y#qv­)Ô´“Ï"hIªð2–µDmö[±¡ì`Eê4Ö©•ufÚ|Îx÷|aº)f)»tå/q*(u×ej®¡¦»½1|%pbP1Ê};ÏD1±f‚aê¿Ÿ/®±.M:xAoÔík„mÄÝN¾)ûÏ¶÷ììÖ¦{ÄÓs­·«"xj®~“5ñÓ·¬µ7U"›ßÈÎºs>±pp–g¬Ë‘îwÄà2Ákn)MtÒ^QÏ}‰é@¥ )ªl³…ÙwŒ¿|>;Ýunûãézaw3‹„ì×XôƒÚY€q5á<ôwcá–WIDýeó‡Ë=Ô&¨«ÐfF0µW¼lö
+ç•âˆäWßÓk˜a²xèªôkŠãLÚˆoo_^D IÉ²Û©Ì`‘é¿Ü“:ç¹×)F>Ø{*×ë×ÚíÕ¨°€÷Š¸îQ·9ž¿Nñ%‰O÷ð±Wx4Ju¦Ïu.ö~‹±¼(1ìÒ\Ø÷òsÔ£Bh\È}„úN`µV’šU†ˆ#¸ô7w,kÄl9£¸¬1ß¥œ	UOß¥ÁÜ½	q¶†¹tp”øn{ô!— ´+ú–,7ÁW
