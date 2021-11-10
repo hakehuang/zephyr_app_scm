@@ -1,0 +1,9 @@
+---
+cases:
+  drivers.i2c.i2c_tca9546a:
+    path: tests/drivers/i2c/i2c_tca9546a
+    catalog: testing drivers
+    build_only: true
+    depends_on: i2c
+    filter: dt_compat_enabled("ti,tca9546a")
+    platform_allow: nrf52840dk_nrf52840

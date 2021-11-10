@@ -1,0 +1,12 @@
+---
+cases:
+  libraries.smf.hierarchical:
+    path: tests/lib/smf
+    catalog: smf
+    extra_configs:
+    - CONFIG_SMF_ANCESTOR_SUPPORT=y
+    platform_allow: native_posix
+  libraries.smf.flat:
+    path: tests/lib/smf
+    catalog: smf
+    platform_allow: native_posix

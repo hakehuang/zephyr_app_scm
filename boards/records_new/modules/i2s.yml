@@ -1,7 +1,7 @@
 ---
 cases:
-  sample.board.intel_s1000_crb.i2s:
-    path: samples/boards/intel_s1000_crb/i2s
-    catalog: i2s
-    platform_allow: intel_s1000_crb
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.drivers.i2s.echo:
+    path: samples/drivers/i2s/echo
+    catalog: I2S
+    filter: dt_nodelabel_enabled("i2s_rxtx") or (dt_nodelabel_enabled("i2s_rx") and
+      dt_nodelabel_enabled("i2s_tx"))

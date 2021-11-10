@@ -21,5 +21,11 @@ cases:
     path: samples/net/cloud/tagoio_http_post
     catalog: net cloud dns http ppp modem gsm wifi
     extra_args: OVERLAY_CONFIG="overlay-modem.conf"
-    platform_allow: sam4e_xpro frdm_k64f
+    platform_allow: sam4e_xpro
+    min_ram: 64
+  sample.net.cloud.tagoio_http_post.modem.arduino:
+    path: samples/net/cloud/tagoio_http_post
+    catalog: net cloud dns http ppp modem gsm wifi
+    extra_args: OVERLAY_CONFIG="overlay-modem.conf" DTC_OVERLAY_FILE="arduino.overlay"
+    platform_allow: frdm_k64f
     min_ram: 64

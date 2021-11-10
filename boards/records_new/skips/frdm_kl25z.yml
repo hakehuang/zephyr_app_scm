@@ -20,3 +20,6 @@ cases:
   kernel.timer:
     comments: "need update settings http://10.192.225.198/dapeng/request/119687/testcases/"
     build_only: true
+  cpp.libcxx.newlib:
+    comments: "memory space available for newlib heap is less than the minimum required size specified by CONFIG_NEWLIB_LIBC_MIN_REQUIRED_HEAP_SIZE"
+    build_only: true

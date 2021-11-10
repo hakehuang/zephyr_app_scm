@@ -3,6 +3,8 @@ cases:
   sample.drivers.jesd216:
     path: samples/drivers/jesd216
     catalog: spi flash
+    platform_exclude: hifive1 hifive_unleashed hifive_unmatched mimxrt1170_evk_cm7
+      mimxrt1170_evk_cm4
     filter: dt_compat_enabled("jedec,spi-nor")
     depends_on: spi
   sample.drivers.spi.flash:

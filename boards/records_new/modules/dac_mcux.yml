@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.dac.mcux.build:
+    path: tests/drivers/build_all/dac
+    catalog: dac_mcux
+    extra_args: CONFIG_DAC_MCUX_DAC=y
+    platform_allow: frdm_k22f
+    build_only: true

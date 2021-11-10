@@ -4,13 +4,13 @@ cases:
     path: samples/drivers/counter/alarm
     catalog: drivers
     platform_allow: nucleo_f746zg nrf51dk_nrf51422 nrf52dk_nrf52832 nrf52840dk_nrf52840
-      nrf9160dk_nrf9160 atsamd20_xpro
+      nrf9160dk_nrf9160 atsamd20_xpro bl5340_dvk_cpuapp
     depends_on: counter
   sample.drivers.i2c.fujitsu_fram:
     path: samples/drivers/i2c_fujitsu_fram
     catalog: drivers
     depends_on: i2c
-    filter: dt_alias_exists("i2c-0")
+    filter: dt_nodelabel_enabled("i2c0")
   sample.drivers.kscan:
     path: samples/drivers/kscan
     catalog: drivers
@@ -61,13 +61,6 @@ cases:
     - CONFIG_COUNTER_XLNX_AXI_TIMER=y
     platform_allow: arty_a7_arm_designstart_m1
     build_only: true
-  drivers.dac.build:
-    path: tests/drivers/build_all/dac
-    catalog: drivers
-    min_ram: 32
-    depends_on: dac spi
-    platform_exclude: serpente
-    build_only: true
   drivers.eeprom.build:
     path: tests/drivers/build_all/eeprom
     catalog: drivers
@@ -80,7 +73,8 @@ cases:
     catalog: drivers
     min_flash: 42
     min_ram: 32
-    platform_exclude: frdm_kw41z
+    platform_exclude: frdm_kw41z mimxrt1020_evk mimxrt1024_evk mimxrt1050_evk mimxrt1060_evk
+      mimxrt1064_evk
     depends_on: spi netif
     build_only: true
   drivers.gpio.build:
@@ -99,87 +93,19 @@ cases:
     path: tests/drivers/build_all/modem
     catalog: drivers
     extra_args: CONF_FILE=modem.conf
-    platform_exclude: serpente particle_boron rak5010_nrf52840
+    platform_exclude: serpente particle_boron rak5010_nrf52840 litex_vexriscv
     build_only: true
   drivers.modem.ublox_sara.build:
     path: tests/drivers/build_all/modem
     catalog: drivers
     extra_args: CONF_FILE=modem_ublox_sara.conf
-    platform_exclude: serpente pinnacle_100_dvk
+    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv
     build_only: true
   drivers.modem.quectel_bg9x.build:
     path: tests/drivers/build_all/modem
     catalog: drivers
     extra_args: CONF_FILE=modem_quectel_bg9x.conf
-    platform_exclude: serpente pinnacle_100_dvk
-    build_only: true
-  drivers.pwm.build.xlnx:
-    path: tests/drivers/build_all/pwm
-    catalog: drivers
-    extra_configs:
-    - CONFIG_PWM_XLNX_AXI_TIMER=y
-    platform_allow: arty_a7_arm_designstart_m1
-    build_only: true
-  sensors.build.trigger_a_h:
-    path: tests/drivers/build_all/sensor
-    catalog: drivers
-    extra_args: CONF_FILE=sensors_trigger_a_h.conf
-    depends_on:
-    - adc spi
-    - gpio spi i2c
-    platform_exclude: frdm_kw41z serpente
-    min_ram: 32
-    build_only: true
-  sensors.build.trigger_i_z:
-    path: tests/drivers/build_all/sensor
-    catalog: drivers
-    extra_args: CONF_FILE=sensors_trigger_i_z.conf
-    depends_on:
-    - gpio adc spi
-    - gpio spi i2c
-    platform_exclude: frdm_kw41z serpente
-    min_ram: 32
-    build_only: true
-  sensors.build.a_h:
-    path: tests/drivers/build_all/sensor
-    catalog: drivers
-    extra_args: CONF_FILE=sensors_a_h.conf
-    min_flash: 44
-    depends_on:
-    - adc spi
-    - gpio spi i2c
-    platform_exclude: frdm_kw41z serpente
-    min_ram: 32
-    build_only: true
-  sensors.build.i_z:
-    path: tests/drivers/build_all/sensor
-    catalog: drivers
-    extra_args: CONF_FILE=sensors_i_z.conf
-    depends_on:
-    - gpio adc spi
-    - gpio spi i2c
-    platform_exclude: frdm_kw41z serpente
-    min_ram: 32
-    build_only: true
-  sensors.build.stmemsc:
-    path: tests/drivers/build_all/sensor
-    catalog: drivers
-    extra_args: CONF_FILE=sensors_stmemsc.conf
-    depends_on:
-    - adc spi
-    - gpio spi i2c
-    platform_exclude: frdm_kw41z serpente
-    min_ram: 32
-    build_only: true
-  sensors.build.stmemsc_trigger:
-    path: tests/drivers/build_all/sensor
-    catalog: drivers
-    extra_args: CONF_FILE=sensors_stmemsc_trigger.conf
-    depends_on:
-    - adc spi
-    - gpio spi i2c
-    platform_exclude: frdm_kw41z serpente
-    min_ram: 32
+    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv
     build_only: true
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
@@ -280,6 +206,14 @@ cases:
     depends_on: counter
     min_ram: 16
     platform_exclude: nucleo_f302r8
+  drivers.counter_nrf_zli:
+    path: tests/drivers/counter/counter_basic_api
+    catalog: drivers
+    extra_args: 'OVERLAY_CONFIG="zli.conf;boards/nrf52840dk_nrf52840_zli.conf"
+
+      '
+    depends_on: counter
+    platform_allow: nrf52840dk_nrf52840
   drivers.counter.cmos:
     path: tests/drivers/counter/counter_cmos
     catalog: drivers

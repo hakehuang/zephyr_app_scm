@@ -1,9 +1,10 @@
 ---
 settings:
   case_pipe_name: "mimxrt1020_evk_cmsis"
-  version: zephyr-v2.6.0-286-g46029914a7
+  version: v2.7.99-1182-g0ab1bf42b3
 __load__:
 - modules/cmsis_rtos.yml
+- modules/cmsis_dsp_fpu.yml
 - modules/cmsis_dsp.yml
 - skips/mimxrt1020_evk.yml
 - boards/mimxrt1020_evk.yml

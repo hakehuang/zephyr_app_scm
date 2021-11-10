@@ -4,3 +4,9 @@ cases:
     path: tests/drivers/i2s/i2s_speed
     catalog: drivers i2s
     depends_on: i2s
+    filter: not CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
+  drivers.i2s.speed.gpio_loopback:
+    path: tests/drivers/i2s/i2s_speed
+    catalog: drivers i2s
+    depends_on: i2s
+    filter: CONFIG_I2S_TEST_USE_GPIO_LOOPBACK

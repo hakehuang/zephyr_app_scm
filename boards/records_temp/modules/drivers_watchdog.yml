@@ -10,7 +10,7 @@ cases:
     catalog: drivers watchdog
     depends_on: watchdog
     filter: not (CONFIG_WDT_SAM or dt_compat_enabled("st,stm32-window-watchdog"))
-    platform_exclude: mec15xxevb_assy6853
+    platform_exclude: mec15xxevb_assy6853 mimxrt685_evk_cm33
   drivers.watchdog.stm32wwdg:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
@@ -22,3 +22,9 @@ cases:
     depends_on: watchdog
     build_only: true
     platform_allow: mec15xxevb_assy6853
+  drivers.watchdog.counter_watchdog:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: drivers watchdog
+    extra_args: OVERLAY_CONFIG="boards/nrf52840dk_nrf52840_counter.conf" DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840_counter.overlay"
+    depends_on: watchdog
+    platform_allow: nrf52840dk_nrf52840

@@ -4,3 +4,11 @@ cases:
     path: tests/boards/altera_max10/msgdma
     catalog: dma
     platform_allow: altera_max10
+  drivers.mcux_dspi_dma.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: dma
+    extra_args: OVERLAY_CONFIG="overlay-mcux-dspi-dma.conf"
+    platform_allow: frdm_k64f
+    depends_on: spi
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
+      arduino_zero adafruit_trinket_m0

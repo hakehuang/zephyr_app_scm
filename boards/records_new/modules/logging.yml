@@ -83,5 +83,9 @@ cases:
   logging.add.user:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
-    extra_args: CONF_FILE=log_user.conf
+    extra_args: CONF_FILE=log_user.conf USERSPACE_TEST=1
     filter: CONFIG_USERSPACE
+  logging.add.log2:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log2.conf

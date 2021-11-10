@@ -1,0 +1,9 @@
+---
+cases:
+  drivers.pwm.build.sam:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_sam
+    extra_configs:
+    - CONFIG_PWM_SAM=y
+    platform_allow: sam_e70_xplained sam_v71b_xult
+    build_only: true

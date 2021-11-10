@@ -1,0 +1,11 @@
+---
+cases:
+  drivers.pinctrl.api:
+    path: tests/drivers/pinctrl/api
+    catalog: drivers pinctrl
+    platform_allow: native_posix native_posix_64
+  derivers.pinctrl.api_reg:
+    path: tests/drivers/pinctrl/api
+    catalog: drivers pinctrl
+    extra_args: CONF_FILE="prj.conf;reg.conf"
+    platform_allow: native_posix native_posix_64

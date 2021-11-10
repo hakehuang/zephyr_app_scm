@@ -27,6 +27,12 @@ cases:
     depends_on: backup_sram
     build_only: true
     filter: dt_compat_enabled("st,stm32-backup-sram")
+  sample.boards.stm32.h7_dual_core:
+    path: samples/boards/stm32/h7_dual_core
+    catalog: unknown
+    depends_on: mailbox
+    build_only: true
+    filter: dt_compat_enabled("st,stm32-hsem-mailbox")
   sample.basic.maxim_ds3231:
     path: samples/drivers/counter/maxim_ds3231
     catalog: unknown
@@ -48,6 +54,12 @@ cases:
     path: samples/net/civetweb/websocket_server
     catalog: unknown
     platform_allow: nucleo_h745zi_q_m7
+  arch.arm64.gicv3_its:
+    path: tests/arch/arm64/arm64_gicv3_its
+    catalog: unknown
+    build_only: true
+    platform_allow: fvp_base_revc_2xaemv8a
+    skip: true
   arch.x86.info:
     path: tests/arch/x86/info
     catalog: unknown
@@ -77,66 +89,11 @@ cases:
     catalog: unknown
     platform_allow: native_posix native_posix_64
     build_only: true
-  boards.qemu_x86_64.ivshmem:
-    path: tests/boards/qemu_x86_64/ivshmem
+  virtualization.ivshmem:
+    path: tests/drivers/virtualization/ivshmem
     catalog: unknown
     arch_allow: x86
     platform_allow: qemu_x86_64
-  lib.cbprintf_fp.printk:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTK=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
-  lib.cbprintf_fp.printf:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTF=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
-  lib.cbprintf_fp.printf_nl:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTF=y
-    - CONFIG_NEWLIB_LIBC=y
-    filter:
-    - TOOLCHAIN_HAS_NEWLIB == 1
-    - CONSOLE_HAS_DRIVER
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-  lib.cbprintf_fp.printfcb:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTFCB=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
-  lib.cbprintf_fp.printfcb_nl:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_PRINTFCB=y
-    - CONFIG_NEWLIB_LIBC=y
-    filter:
-    - TOOLCHAIN_HAS_NEWLIB == 1
-    - CONSOLE_HAS_DRIVER
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-  lib.cbprintf_fp.fprintf:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_FPRINTF=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
-  lib.cbprintf_fp.fprintfcb:
-    path: tests/lib/cbprintf_fp
-    catalog: unknown
-    extra_configs:
-    - CONFIG_APP_FORMATTER_FPRINTFCB=y
-    platform_exclude: native_posix native_posix_64 nrf52_bsim
-    filter: CONSOLE_HAS_DRIVER
   filesystem.native_posix.fcb_0x00:
     path: tests/subsys/fs/fcb
     catalog: unknown
@@ -146,6 +103,13 @@ cases:
     path: tests/subsys/fs/fcb
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
+  tracing.transport.uart.sync.test:
+    path: tests/subsys/tracing/tracing_api
+    catalog: unknown
+    extra_configs:
+    - CONFIG_TRACING_SYNC=y
+    extra_args: 'CONF_FILE="prj.conf" '
     platform_allow: qemu_x86
   utilities.math:
     path: tests/unit/math_extras

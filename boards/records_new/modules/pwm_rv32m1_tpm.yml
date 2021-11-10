@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.pwm.rv32m1.tpm.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_rv32m1_tpm
+    extra_args: CONFIG_PWM_RV32M1_TPM=y
+    platform_allow: rv32m1_vega_ri5cy
+    build_only: true

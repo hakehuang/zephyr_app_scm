@@ -222,5 +222,5 @@ if __FILE__ == $0
 
  ap get_no_pass_cases_by_plat()
 
- return 0
+ # return 0
 end

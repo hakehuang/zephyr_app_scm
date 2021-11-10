@@ -13,3 +13,44 @@ cases:
     catalog: clib newlib userspace
     extra_args: CONF_FILE=prj_newlibnano.conf
     filter: CONFIG_HAS_NEWLIB_LIBC_NANO
+  libraries.libc.newlib.thread_safety.userspace:
+    path: tests/lib/newlib/thread_safety
+    catalog: clib newlib userspace
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter:
+    - CONFIG_ARCH_HAS_USERSPACE
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+  libraries.libc.newlib_nano.thread_safety.userspace:
+    path: tests/lib/newlib/thread_safety
+    catalog: clib newlib userspace
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter:
+    - CONFIG_ARCH_HAS_USERSPACE and CONFIG_HAS_NEWLIB_LIBC_NANO
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+  libraries.libc.newlib.thread_safety.userspace.stress:
+    path: tests/lib/newlib/thread_safety
+    catalog: clib newlib userspace
+    extra_configs:
+    - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
+    - CONFIG_NEWLIB_LIBC_ALIGNED_HEAP_SIZE=8192
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter:
+    - CONFIG_ARCH_HAS_USERSPACE
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+  libraries.libc.newlib_nano.thread_safety.userspace.stress:
+    path: tests/lib/newlib/thread_safety
+    catalog: clib newlib userspace
+    extra_configs:
+    - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    - CONFIG_NEWLIB_LIBC_ALIGNED_HEAP_SIZE=2048
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter:
+    - CONFIG_ARCH_HAS_USERSPACE and CONFIG_HAS_NEWLIB_LIBC_NANO
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64

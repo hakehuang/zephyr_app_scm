@@ -15,6 +15,11 @@ cases:
     path: samples/kernel/metairq_dispatch
     catalog: introduction
     filter: not CONFIG_ARCH_POSIX
+  sample.modules.canopennode:
+    path: samples/modules/canopennode
+    catalog: introduction
+    depends_on: can
+    platform_allow: twr_ke18f frdm_k64f
   sample.kernel.philosopher:
     path: samples/philosophers
     catalog: introduction
@@ -59,11 +64,6 @@ cases:
     - CONFIG_NUM_PREEMPT_PRIORITIES=0
     - CONFIG_NUM_COOP_PRIORITIES=7
     extra_args: " DEBUG_PRINTF=1"
-  sample.subsys.canbus.canopen:
-    path: samples/subsys/canbus/canopen
-    catalog: introduction
-    depends_on: can
-    platform_allow: twr_ke18f frdm_k64f
   sample.helloworld:
     path: samples/userspace/hello_world_user
     catalog: introduction

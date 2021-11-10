@@ -1,0 +1,12 @@
+---
+cases:
+  benchmark.cmsis_dsp.basicmath.fpu:
+    path: tests/benchmarks/cmsis_dsp/basicmath
+    catalog: benchmark cmsis_dsp fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU and
+      TOOLCHAIN_HAS_NEWLIB == 1"
+    min_flash: 128
+    min_ram: 64
+    platform_exclude: mps3_an547

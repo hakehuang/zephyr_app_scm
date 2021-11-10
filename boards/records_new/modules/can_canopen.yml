@@ -1,15 +1,15 @@
 ---
 cases:
-  sample.subsys.canbus.canopen.program_download:
-    path: samples/subsys/canbus/canopen
+  sample.modules.canopennode.program_download:
+    path: samples/modules/canopennode
     catalog: can canopen
     extra_configs:
     - CONFIG_BOOTLOADER_MCUBOOT=y
     build_only: true
     depends_on: can
     platform_allow: twr_ke18f frdm_k64f
-  sample.subsys.canbus.canopen.no_storage:
-    path: samples/subsys/canbus/canopen
+  sample.modules.canopennode.no_storage:
+    path: samples/modules/canopennode
     catalog: can canopen
     extra_args: CONF_FILE=prj_no_storage.conf
     depends_on: can

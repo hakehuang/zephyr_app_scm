@@ -1,7 +1,44 @@
 ---
 cases:
+  arch.arm.mem_protect.syscalls:
+    path: tests/arch/arm/arm_mem_protect
+    catalog: arm userspace
+    arch_allow: arm
+    filter: CONFIG_CPU_CORTEX_R and CONFIG_ARCH_HAS_USERSPACE
   arch.arm.ramfunc:
     path: tests/arch/arm/arm_ramfunc
     catalog: arm userspace
     filter: CONFIG_ARCH_HAS_RAMFUNC_SUPPORT
     arch_allow: arm
+  arch.arm64.high_addr.high_sram_low_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: arm userspace
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x00400000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.low_sram_high_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: arm userspace
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x00400000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_equal_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: arm userspace
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_high_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: arm userspace
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200800000
+    arch_allow: arm64
+    build_only: true

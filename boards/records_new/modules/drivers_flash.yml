@@ -3,5 +3,5 @@ cases:
   drivers.flash.stm32:
     path: tests/drivers/flash
     catalog: drivers flash
-    filter: dt_compat_enabled("st,stm32-flash-controller") and dt_compat_enabled_with_label("fixed-partitions",
-      "storage_partition")
+    filter: dt_compat_enabled("st,stm32-flash-controller") and dt_label_with_parent_compat_enabled("storage_partition",
+      "fixed-partitions")

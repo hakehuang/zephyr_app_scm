@@ -5,7 +5,9 @@ cases:
     catalog: net ppp modem gsm
     extra_configs:
     - CONFIG_TEST_RANDOM_GENERATOR=y
+    extra_args: ' DTC_OVERLAY_FILE="boards/frdm_uart2_dts.overlay"'
     depends_on: serial-net
+    platform_allow: frdm_k64f
   sample.net.ppp.gsm.modem.mux:
     path: samples/net/gsm_modem
     catalog: net ppp modem gsm
@@ -13,4 +15,6 @@ cases:
     - CONFIG_TEST_RANDOM_GENERATOR=y
     - CONFIG_GSM_MUX=y
     - CONFIG_UART_MUX=y
+    extra_args: ' DTC_OVERLAY_FILE="boards/frdm_uart2_dts.overlay"'
     depends_on: serial-net
+    platform_allow: frdm_k64f

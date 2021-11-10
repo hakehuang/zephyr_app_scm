@@ -4,13 +4,13 @@ cases:
     path: samples/net/openthread/coprocessor
     catalog: ci_build
     build_only: true
-    platform_allow: nrf52840dk_nrf52840 nrf52833dk_nrf52833
+    platform_allow: nrf52840dk_nrf52840 nrf52833dk_nrf52833 tlsr9518adk80d
     depends_on: netif
     min_flash: 140
   sample.net.openthread.coprocessor.usb:
     path: samples/net/openthread/coprocessor
     catalog: ci_build
-    extra_args: OVERLAY_CONFIG=overlay-usb-nrf-br.conf
+    extra_args: OVERLAY_CONFIG=overlay-usb-nrf-br.conf DTC_OVERLAY_FILE="usb.overlay"
     build_only: true
     platform_allow: nrf52840dk_nrf52840 nrf52833dk_nrf52833
     depends_on: netif
@@ -20,6 +20,6 @@ cases:
     catalog: ci_build
     extra_args: OVERLAY_CONFIG=overlay-rcp.conf
     build_only: true
-    platform_allow: nrf52840dk_nrf52840 nrf52833dk_nrf52833
+    platform_allow: nrf52840dk_nrf52840 nrf52833dk_nrf52833 tlsr9518adk80d
     depends_on: netif
     min_flash: 140

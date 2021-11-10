@@ -61,6 +61,7 @@ cases:
     catalog: shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
     depends_on: arduino_gpio arduino_i2c arduino_spi
+    min_ram: 175
     platform_exclude: reel_board reel_board_v2 ubx_evkannab1_nrf52832
   sample.display.waveshare_epaper_gdeh0213b1:
     path: samples/subsys/display/lvgl
@@ -86,4 +87,4 @@ cases:
     path: samples/subsys/fs/fat_fs
     catalog: shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
-    depends_on: arduino_spi arduino_gpio
+    depends_on: arduino_spi arduino_gpio arduino_i2c

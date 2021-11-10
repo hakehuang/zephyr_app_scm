@@ -1,0 +1,11 @@
+---
+cases:
+  kernel.scheduler.linker_generator:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace ignore_faults linker_generator
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 34

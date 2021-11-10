@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.pwm.litex.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_litex
+    extra_args: CONFIG_PWM_LITEX=y
+    platform_allow: litex_vexriscv
+    build_only: true

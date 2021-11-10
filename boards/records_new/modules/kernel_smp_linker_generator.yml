@@ -1,0 +1,9 @@
+---
+cases:
+  kernel.multiprocessing.linker_generator:
+    path: tests/kernel/mp
+    catalog: kernel smp linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+    filter: CONFIG_MP_NUM_CPUS > 1

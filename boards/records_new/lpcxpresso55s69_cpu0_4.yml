@@ -1,21 +1,39 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s69_cpu0_4"
-  version: zephyr-v2.6.0-286-g46029914a7
+  version: v2.7.99-1182-g0ab1bf42b3
 __load__:
+- modules/pwm_xlnx_axi_timer.yml
+- modules/pwm_xec.yml
+- modules/pwm_stm32.yml
+- modules/pwm_sifive.yml
+- modules/pwm_sam0_tcc.yml
+- modules/pwm_sam.yml
+- modules/pwm_rv32m1_tpm.yml
+- modules/pwm_nrfx.yml
+- modules/pwm_nrf5_sw.yml
+- modules/pwm_npcx.yml
+- modules/pwm_mcux_tpm.yml
+- modules/pwm_mcux_sctimer.yml
+- modules/pwm_mcux_pwt.yml
+- modules/pwm_mcux.yml
+- modules/pwm_litex.yml
+- modules/pwm_imx.yml
+- modules/pwm_gecko.yml
 - modules/pwm_drivers_userspace.yml
-- modules/prf.yml
 - modules/power.yml
 - modules/posix_pthread_eventfd.yml
 - modules/posix_net.yml
 - modules/posix_filesystem.yml
 - modules/posix.yml
+- modules/pm.yml
 - modules/p4wq.yml
 - modules/out_of_tree.yml
 - modules/ot_radio.yml
 - modules/osdp.yml
 - modules/onoff_timer.yml
 - modules/nvs.yml
+- modules/nrfx.yml
 - modules/nrf52_soc_flash_nrf.yml
 - modules/notify.yml
 - modules/nmi_interrupt_arm.yml
@@ -29,6 +47,7 @@ __load__:
 - modules/mdns.yml
 - modules/mcux.yml
 - modules/mcuboot.yml
+- modules/mbox.yml
 - modules/lorawan.yml
 - modules/lora.yml
 - modules/logging_usermode.yml
@@ -42,6 +61,7 @@ __load__:
 - modules/llmnr.yml
 - modules/littlefs_fatfs_filesystem_qemu_x86.yml
 - modules/littlefs_fatfs_filesystem.yml
+- modules/linker_generator.yml
 - modules/linker.yml
 - modules/libc_ignore_faults.yml
 - modules/libc.yml

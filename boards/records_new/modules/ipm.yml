@@ -1,5 +1,10 @@
 ---
 cases:
+  sample.ipc.rpmsg_service.nrf:
+    path: samples/subsys/ipc/rpmsg_service
+    catalog: ipm
+    platform_allow: nrf5340dk_nrf5340_cpuapp bl5340_dvk_cpuapp
+    build_only: true
   sample.ipc.ipm.ipm_mcux:
     path: samples/subsys/ipc/ipm_mcux
     catalog: ipm
@@ -7,7 +12,7 @@ cases:
   sample.ipc.ipm.ipm_mhu_dual_core:
     path: samples/subsys/ipc/ipm_mhu_dual_core
     catalog: ipm
-    platform_allow: v2m_musca_b1 v2m_musca_b1_nonsecure
+    platform_allow: v2m_musca_b1 v2m_musca_b1_ns
   sample.ipc.openamp:
     path: samples/subsys/ipc/openamp
     catalog: ipm
@@ -21,8 +26,3 @@ cases:
     path: samples/subsys/ipc/rpmsg_service
     catalog: ipm
     platform_allow: mps2_an521 v2m_musca_b1
-  sample.ipc.rpmsg_service.nrf:
-    path: samples/subsys/ipc/rpmsg_service
-    catalog: ipm
-    platform_allow: nrf5340dk_nrf5340_cpuapp
-    build_only: true

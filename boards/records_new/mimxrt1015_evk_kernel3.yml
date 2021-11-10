@@ -1,14 +1,16 @@
 ---
 settings:
   case_pipe_name: "mimxrt1015_evk_kernel3"
-  version: zephyr-v2.6.0-286-g46029914a7
+  version: v2.7.99-1182-g0ab1bf42b3
 __load__:
 - modules/kernel_timer_userspace_ignore_faults.yml
 - modules/kernel_timer_userspace.yml
+- modules/kernel_timer_linker_generator.yml
 - modules/kernel_timer.yml
 - modules/kernel_threads_userspace_ignore_faults.yml
 - modules/kernel_threads_userspace.yml
 - modules/kernel_threads_sched_userspacei_ignore_faults.yml
+- modules/kernel_threads_sched_userspace_ignore_faults_linker_generator.yml
 - modules/kernel_threads_sched_userspace_ignore_faults.yml
 - modules/kernel_threads_gpio.yml
 - modules/kernel_threads.yml

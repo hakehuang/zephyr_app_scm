@@ -15,10 +15,6 @@ cases:
     catalog: sensors
     platform_allow: sensortile_box
     depends_on: i2c spi gpio
-  sample.drivers.current_sensing:
-    path: samples/drivers/current_sensing
-    catalog: sensors
-    depends_on: i2c
   sample.sensor.adt7420:
     path: samples/sensor/adt7420
     catalog: sensors
@@ -116,7 +112,7 @@ cases:
     - CONFIG_FXOS8700_MOTION_INT1=y
     - CONFIG_FXOS8700_MAG_VECM=y
     platform_allow: frdm_k64f hexiwear_k64 warp7_m4 frdm_kw41z rv32m1_vega_ri5cy twr_ke18f
-      lpcxpresso55s16 mimxrt685_evk_cm33 frdm_k22f
+      lpcxpresso55s16 mimxrt685_evk_cm33 frdm_k22f mimxrt1024_evk
     depends_on: i2c gpio
   sample.sensor.fxos8700.accel:
     path: samples/sensor/fxos8700
@@ -133,11 +129,20 @@ cases:
     path: samples/sensor/hts221
     catalog: sensors
     depends_on: i2c hts221
+  sample.sensor.i3g4250d:
+    path: samples/sensor/i3g4250d
+    catalog: sensors
+    platform_allow: stm32f3_disco@E
   sample.sensor.icm42605:
     path: samples/sensor/icm42605
     catalog: sensors
     build_only: true
     platform_allow: nrf52dk_nrf52832
+  sample.drivers.ina219:
+    path: samples/sensor/ina219
+    catalog: sensors
+    build_only: true
+    platform_allow: blackpill_f411ce
   sample.sensor.isl29035:
     path: samples/sensor/isl29035
     catalog: sensors
@@ -211,6 +216,11 @@ cases:
     path: samples/sensor/qdec
     catalog: sensors
     platform_allow: sam_e70_xplained
+  sample.sensor.sgp40_sht4x:
+    path: samples/sensor/sgp40_sht4x
+    catalog: sensors
+    build_only: true
+    platform_allow: blackpill_f411ce
   sample.sensor.sht3xd:
     path: samples/sensor/sht3xd
     catalog: sensors
@@ -272,3 +282,8 @@ cases:
     catalog: sensors
     depends_on: i2c gpio
     filter: dt_compat_enabled("we,wsen-itds")
+  sensors.build:
+    path: tests/drivers/build_all/sensor
+    catalog: sensors
+    platform_allow: native_posix
+    build_only: true

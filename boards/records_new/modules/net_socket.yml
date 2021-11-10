@@ -42,6 +42,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 96
+    platform_exclude: intel_adsp_cavs15 intel_adsp_cavs25
   sample.net.sockets.dumb_http_server.posix:
     path: samples/net/sockets/dumb_http_server
     catalog: net socket
@@ -51,6 +52,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 96
+    platform_exclude: intel_adsp_cavs15 intel_adsp_cavs25
   sample.net.sockets.echo:
     path: samples/net/sockets/echo
     catalog: net socket
@@ -155,6 +157,13 @@ cases:
     platform_allow: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
+  sample.net.sockets.echo_client.b91_802154:
+    path: samples/net/sockets/echo_client
+    catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: tlsr9518adk80d
+    depends_on: netif
+    min_flash: 140
   sample.net.sockets.echo_client.userspace:
     path: samples/net/sockets/echo_client
     catalog: net socket
@@ -187,6 +196,13 @@ cases:
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: nrf52840dk_nrf52840
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.b91_802154:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: tlsr9518adk80d
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.userspace:

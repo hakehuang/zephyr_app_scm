@@ -1,0 +1,51 @@
+---
+cases:
+  ieee802154.build.external:
+    path: tests/drivers/build_all/ieee802154
+    catalog: drivers ieee802154
+    extra_args: OVERLAY_CONFIG=external.conf
+    platform_allow: native_posix
+    build_only: true
+  ieee802154.build.cc12xx_cc2520:
+    path: tests/drivers/build_all/ieee802154
+    catalog: drivers ieee802154
+    extra_configs:
+    - CONFIG_IEEE802154_CC13XX_CC26XX=y
+    - CONFIG_IEEE802154_CC13XX_CC26XX_SUB_GHZ=y
+    platform_allow: cc1352_sensortag
+    build_only: true
+  ieee802154.build.kw41z:
+    path: tests/drivers/build_all/ieee802154
+    catalog: drivers ieee802154
+    extra_configs:
+    - CONFIG_IEEE802154_KW41Z=y
+    platform_allow: frdm_kw41z
+    build_only: true
+  ieee802154.build.mcr20a:
+    path: tests/drivers/build_all/ieee802154
+    catalog: drivers ieee802154
+    extra_configs:
+    - CONFIG_IEEE802154_MCR20A=y
+    platform_allow: usb_kw24d512
+    build_only: true
+  ieee802154.build.nrf5:
+    path: tests/drivers/build_all/ieee802154
+    catalog: drivers ieee802154
+    extra_configs:
+    - CONFIG_IEEE802154_NRF5=y
+    platform_allow: nrf52840dk_nrf52840
+    build_only: true
+  ieee802154.build.telink_b91:
+    path: tests/drivers/build_all/ieee802154
+    catalog: drivers ieee802154
+    extra_configs:
+    - CONFIG_IEEE802154_TELINK_B91=y
+    platform_allow: tlsr9518adk80d
+    build_only: true
+  ieee802154.build.upipe:
+    path: tests/drivers/build_all/ieee802154
+    catalog: drivers ieee802154
+    extra_configs:
+    - CONFIG_IEEE802154_UPIPE=y
+    platform_allow: qemu_x86
+    build_only: true

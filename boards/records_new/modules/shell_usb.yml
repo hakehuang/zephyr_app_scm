@@ -3,6 +3,6 @@ cases:
   sample.shell.shell_module.usb:
     path: samples/subsys/shell/shell_module
     catalog: shell usb
-    extra_args: OVERLAY_CONFIG="overlay-usb.conf"
+    extra_args: OVERLAY_CONFIG="overlay-usb.conf" DTC_OVERLAY_FILE="usb.overlay"
     depends_on: usb_device
     min_ram: 40

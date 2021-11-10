@@ -1,27 +1,31 @@
 ---
 settings:
   case_pipe_name: "twr_ke18f"
-  version: zephyr-v2.6.0-286-g46029914a7
+  version: v2.7.99-1182-g0ab1bf42b3
 __load__:
 - modules/button_gpio.yml
 - modules/boards.yml
 - modules/board_pm.yml
+- modules/board_multi_heap.yml
 - modules/board.yml
 - modules/benchmark_userspace.yml
 - modules/benchmark_rbtree.yml
 - modules/benchmark_dlist.yml
+- modules/benchmark_cmsis_dsp_fpu.yml
 - modules/benchmark_cmsis_dsp.yml
 - modules/benchmark.yml
 - modules/battery.yml
 - modules/base64.yml
+- modules/base_userspace.yml
 - modules/audio.yml
 - modules/arm_userspace.yml
 - modules/arm_tz_ns_tz_wrap_func.yml
-- modules/arm_tfm.yml
 - modules/arm_psci_drivers_userspace.yml
 - modules/arm_interrupt_vector_table.yml
-- modules/arm_interrupt_ignore_faults.yml
 - modules/arm_interrupt.yml
+- modules/arm_fpu_tfm.yml
+- modules/arm_fpu_interrupt_ignore_faults.yml
+- modules/arm_fpu.yml
 - modules/arm.yml
 - modules/adc_xec.yml
 - modules/adc_stm32.yml

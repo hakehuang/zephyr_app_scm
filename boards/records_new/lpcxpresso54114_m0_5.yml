@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso54114_m0_5"
-  version: zephyr-v2.6.0-286-g46029914a7
+  version: v2.7.99-1182-g0ab1bf42b3
 __load__:
 - modules/video_net_socket.yml
 - modules/video.yml
@@ -10,8 +10,10 @@ __load__:
 - modules/userspace_mmu.yml
 - modules/userspace.yml
 - modules/unknown.yml
+- modules/uefi.yml
 - modules/uart_modbus.yml
 - modules/uart_bluetooth.yml
+- modules/tracing_testing.yml
 - modules/tracing_debug.yml
 - modules/tinycrypt_crypto_sha256_hmac_prng.yml
 - modules/tinycrypt_crypto_aes_ccm.yml
@@ -19,17 +21,21 @@ __load__:
 - modules/tfm.yml
 - modules/tests.yml
 - modules/testing_pytest.yml
+- modules/testing_drivers.yml
 - modules/testing.yml
 - modules/test_framework_userspace_ignore_faults.yml
 - modules/test_framework_ignore_faults.yml
 - modules/test_framework.yml
 - modules/tensorflow.yml
 - modules/sysid.yml
+- modules/synchronization.yml
 - modules/subsys.yml
 - modules/stream_flash.yml
+- modules/spiram_spiflash_cache.yml
 - modules/spi_flash.yml
 - modules/sound.yml
 - modules/sof.yml
+- modules/smf.yml
 - modules/shell_usb.yml
 - modules/shell_filesystem.yml
 - modules/shell.yml
@@ -47,6 +53,7 @@ __load__:
 - modules/samples_display_gui.yml
 - modules/samples_board.yml
 - modules/samples.yml
+- modules/sample_board_reserved_memory.yml
 - modules/ring_buffer_circular_buffer.yml
 - modules/rbtree.yml
 - modules/qspi_flash.yml

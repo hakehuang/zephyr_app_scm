@@ -9,18 +9,18 @@ cases:
   sample.shell.shell_module:
     path: samples/subsys/shell/shell_module
     catalog: shell
-    filter: "( CONFIG_SERIAL and CONFIG_UART_SHELL_ON_DEV_NAME )"
+    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
     min_ram: 40
   sample.shell.shell_module.minimal:
     path: samples/subsys/shell/shell_module
     catalog: shell
     extra_args: CONF_FILE="prj_minimal.conf"
-    filter: "( CONFIG_SERIAL and CONFIG_UART_SHELL_ON_DEV_NAME )"
+    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
   sample.shell.shell_module.getopt:
     path: samples/subsys/shell/shell_module
     catalog: shell
     extra_args: CONF_FILE="prj_getopt.conf"
-    filter: "( CONFIG_SERIAL and CONFIG_UART_SHELL_ON_DEV_NAME )"
+    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
     min_ram: 40
   sample.shell.shell_module.minimal_rtt:
     path: samples/subsys/shell/shell_module
@@ -31,7 +31,7 @@ cases:
     path: samples/subsys/shell/shell_module
     catalog: shell
     extra_args: CONF_FILE="prj_login.conf"
-    filter: "( CONFIG_SERIAL and CONFIG_UART_SHELL_ON_DEV_NAME )"
+    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
     min_ram: 40
   shell.core:
     path: tests/subsys/shell/shell

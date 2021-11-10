@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "mimxrt1170_evk_cm7_kernel"
+  version: v2.7.99-1182-g0ab1bf42b3
+__load__:
+- modules/kernel.yml
+- skips/mimxrt1170_evk_cm7.yml
+- boards/mimxrt1170_evk_cm7.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

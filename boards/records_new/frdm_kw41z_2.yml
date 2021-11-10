@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_kw41z_2"
-  version: zephyr-v2.6.0-286-g46029914a7
+  version: v2.7.99-1182-g0ab1bf42b3
 __load__:
 - modules/dns_net.yml
 - modules/dmic.yml
@@ -13,6 +13,12 @@ __load__:
 - modules/dfu_image_util.yml
 - modules/devicetree.yml
 - modules/debug.yml
+- modules/dac_stm32.yml
+- modules/dac_sam0.yml
+- modules/dac_mcux32.yml
+- modules/dac_mcux.yml
+- modules/dac_dacx3608_dac_mcp4725.yml
+- modules/dac_dacx0508.yml
 - modules/dac_drivers_userspace.yml
 - modules/dac_drivers.yml
 - modules/crypto_random_security.yml
@@ -29,6 +35,7 @@ __load__:
 - modules/clib_ignore_faults.yml
 - modules/ci_build.yml
 - modules/cbprintf.yml
+- modules/DMIC.yml
 - modules/DAC.yml
 - modules/CAN.yml
 - skips/frdm_kw41z.yml

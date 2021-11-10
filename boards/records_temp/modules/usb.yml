@@ -8,6 +8,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 96
+    platform_exclude: intel_adsp_cavs15 intel_adsp_cavs25
   sample.net.sockets.dumb_http_server.netusb_zeroconf:
     path: samples/net/sockets/dumb_http_server
     catalog: usb
@@ -16,16 +17,17 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 96
+    platform_exclude: intel_adsp_cavs15 intel_adsp_cavs25
   sample.usb.audio.headphones_microphone:
     path: samples/subsys/usb/audio/headphones_microphone
     catalog: usb
     depends_on: usb_device
-    filter: dt_alias_exists("usbd0")
+    platform_exclude: native_posix native_posix_64
   sample.usb.audio.headset:
     path: samples/subsys/usb/audio/headset
     catalog: usb
     depends_on: usb_device
-    filter: dt_alias_exists("usbd0")
+    platform_exclude: native_posix native_posix_64
   sample.usb.cdc-acm:
     path: samples/subsys/usb/cdc_acm
     catalog: usb
@@ -58,12 +60,12 @@ cases:
     catalog: usb
     build_only: true
     platform_exclude: native_posix native_posix_64 mimxrt1010_evk mimxrt1050_evk_qspi
-      mimxrt1020_evk mimxrt1015_evk mimxrt1060_evk mimxrt1050_evk mimxrt1060_evk_hyperflash
-      nucleo_f207zg
+      mimxrt1020_evk mimxrt1015_evk mimxrt1060_evk sam4l_ek mimxrt1050_evk mimxrt1060_evk_hyperflash
+      nucleo_f207zg teensy40 teensy41
     depends_on: usb_device
-    filter: dt_compat_enabled_with_label("fixed-partitions", "slot0_partition") and
-      dt_compat_enabled_with_label("fixed-partitions", "slot1_partition") and dt_chosen_enabled("zephyr,flash-controller")
-      and CONFIG_FLASH_HAS_DRIVER_ENABLED
+    filter: dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")
+      and dt_label_with_parent_compat_enabled("slot1_partition", "fixed-partitions")
+      and dt_chosen_enabled("zephyr,flash-controller") and CONFIG_FLASH_HAS_DRIVER_ENABLED
   sample.usb.hid:
     path: samples/subsys/usb/hid
     catalog: usb

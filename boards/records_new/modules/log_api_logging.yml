@@ -65,6 +65,7 @@ cases:
     - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_overflow:
     path: tests/subsys/logging/log_api
@@ -72,6 +73,7 @@ cases:
     extra_configs:
     - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_no_overflow:
     path: tests/subsys/logging/log_api
@@ -79,6 +81,7 @@ cases:
     extra_configs:
     - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_static_filter:
     path: tests/subsys/logging/log_api
@@ -86,6 +89,7 @@ cases:
     extra_configs:
     - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_func_prefix:
     path: tests/subsys/logging/log_api
@@ -94,6 +98,7 @@ cases:
     - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_64b_timestamp:
     path: tests/subsys/logging/log_api
@@ -101,12 +106,14 @@ cases:
     extra_configs:
     - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_immediate:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG2_MODE_IMMEDIATE=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_immediate_rt_filter:
     path: tests/subsys/logging/log_api
@@ -114,6 +121,7 @@ cases:
     extra_configs:
     - CONFIG_LOG2_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_immediate_static_filter:
     path: tests/subsys/logging/log_api
@@ -121,6 +129,7 @@ cases:
     extra_configs:
     - CONFIG_LOG2_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_immediate_64b_timestamp:
     path: tests/subsys/logging/log_api
@@ -128,6 +137,7 @@ cases:
     extra_configs:
     - CONFIG_LOG2_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log_msg2:
     path: tests/subsys/logging/log_msg2
@@ -135,12 +145,14 @@ cases:
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_arc_hs6x
   logging.log_msg2_no_overflow:
     path: tests/subsys/logging/log_msg2
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_OVERFLOW=n
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_arc_hs6x
   logging.log_msg2_64b_timestamp:
     path: tests/subsys/logging/log_msg2
     catalog: log_api logging
@@ -148,6 +160,7 @@ cases:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_arc_hs6x
   logging.log_msg2_fp:
     path: tests/subsys/logging/log_msg2
     catalog: log_api logging
@@ -155,6 +168,7 @@ cases:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_CBPRINTF_FP_SUPPORT=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_arc_hs6x
   logging.log_msg2_fp_64b_timestamp:
     path: tests/subsys/logging/log_msg2
     catalog: log_api logging
@@ -163,3 +177,4 @@ cases:
     - CONFIG_CBPRINTF_FP_SUPPORT=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_arc_hs6x

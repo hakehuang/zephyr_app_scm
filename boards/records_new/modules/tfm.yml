@@ -3,23 +3,23 @@ cases:
   sample.tfm.protected_storage:
     path: samples/tfm_integration/psa_protected_storage
     catalog: tfm
-    platform_allow: mps2_an521_nonsecure v2m_musca_s1_nonsecure nrf5340dk_nrf5340_cpuappns
-      nrf9160dk_nrf9160ns bl5340_dvk_cpuappns
+    platform_allow: mps2_an521_ns v2m_musca_s1_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
+      bl5340_dvk_cpuapp_ns
   sample.tfm.psa_protected_storage_test:
     path: samples/tfm_integration/tfm_psa_test
     catalog: tfm
     extra_args: CONFIG_TFM_PSA_TEST_PROTECTED_STORAGE=y
-    platform_allow: mps2_an521_nonsecure v2m_musca_s1_nonsecure nrf5340dk_nrf5340_cpuappns
-      nrf9160dk_nrf9160ns
+    platform_allow: mps2_an521_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
+      v2m_musca_s1_ns
   sample.tfm.psa_internal_trusted_storage_test:
     path: samples/tfm_integration/tfm_psa_test
     catalog: tfm
     extra_args: CONFIG_TFM_PSA_TEST_INTERNAL_TRUSTED_STORAGE=y
-    platform_allow: mps2_an521_nonsecure v2m_musca_s1_nonsecure nrf5340dk_nrf5340_cpuappns
-      nrf9160dk_nrf9160ns
+    platform_allow: mps2_an521_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
+      v2m_musca_s1_ns
   sample.tfm.tfm_regression:
     path: samples/tfm_integration/tfm_regression_test
     catalog: tfm
     extra_args: ''
-    platform_allow: mps2_an521_nonsecure v2m_musca_s1_nonsecure nrf5340dk_nrf5340_cpuappns
-      nrf9160dk_nrf9160ns bl5340_dvk_cpuappns
+    platform_allow: lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
+      v2m_musca_s1_ns

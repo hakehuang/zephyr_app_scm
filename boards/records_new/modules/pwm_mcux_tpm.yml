@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.pwm.mcux.ftm.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_mcux_tpm
+    extra_args: CONFIG_PWM_MCUX_TPM=y
+    platform_allow: frdm_kw41z
+    build_only: true

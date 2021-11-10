@@ -1,0 +1,54 @@
+---
+cases:
+  kernel.fpu_sharing.generic.arc:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: fpu kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_ISA_ARCV2 and CONFIG_CPU_HAS_FPU
+    min_ram: 16
+  kernel.fpu_sharing.generic.arm:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: fpu kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_ARMV7_M_ARMV8_M_FP
+    min_ram: 16
+  kernel.fpu_sharing.generic.arm64:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: fpu kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    arch_allow: arm64
+    filter: CONFIG_CPU_CORTEX_A
+  kernel.fpu_sharing.generic.riscv32:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: fpu kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv32
+    min_ram: 16
+  kernel.fpu_sharing.generic.riscv64:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: fpu kernel
+    extra_args: PI_NUM_ITERATIONS=500
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: riscv64
+    min_ram: 16
+  kernel.fpu_sharing.generic.sparc:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: fpu kernel
+    extra_args: PI_NUM_ITERATIONS=70000
+    filter: CONFIG_CPU_HAS_FPU
+    arch_allow: sparc
+  kernel.fpu_sharing.generic.x86.fpu:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: fpu kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont
+  kernel.fpu_sharing.generic.x86.sse:
+    path: tests/kernel/fpu_sharing/generic
+    catalog: fpu kernel
+    extra_configs:
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_x86.conf
+    platform_allow: qemu_x86 qemu_x86_lakemont

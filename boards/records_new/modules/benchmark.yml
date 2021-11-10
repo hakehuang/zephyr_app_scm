@@ -45,6 +45,11 @@ cases:
     path: tests/benchmarks/footprints
     catalog: benchmark
     build_only: true
+  benchmark.kernel.footprints.pm:
+    path: tests/benchmarks/footprints
+    catalog: benchmark
+    extra_args: CONF_FILE=prj_pm.conf
+    build_only: true
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
     catalog: benchmark

@@ -4,6 +4,7 @@ cases:
     path: tests/kernel/fatal/exception
     catalog: kernel ignore_faults
     extra_args: CONF_FILE=sentinel.conf
+    platform_exclude: qemu_cortex_a9
   kernel.no-mt.cpu_exception:
     path: tests/kernel/fatal/no-multithreading
     catalog: kernel ignore_faults

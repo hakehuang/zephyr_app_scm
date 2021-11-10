@@ -1,13 +1,16 @@
 ---
 settings:
   case_pipe_name: "twr_kv58f220m_3"
-  version: zephyr-v2.6.0-286-g46029914a7
+  version: v2.7.99-1182-g0ab1bf42b3
 __load__:
 - modules/kconfig.yml
+- modules/k_heap_api_kernel_linker_generator.yml
 - modules/k_heap_api_kernel.yml
 - modules/jwt.yml
 - modules/json.yml
+- modules/iterable_sections.yml
 - modules/ipm.yml
+- modules/ipc_service.yml
 - modules/introduction_tfm_crypto.yml
 - modules/introduction_tfm.yml
 - modules/introduction.yml
@@ -22,6 +25,9 @@ __load__:
 - modules/gpio.yml
 - modules/google_iot_mqtt.yml
 - modules/gen_inc_file.yml
+- modules/fpu_kernel_userspace.yml
+- modules/fpu_kernel_ignore_faults_userspace.yml
+- modules/fpu_kernel.yml
 - modules/footprint.yml
 - modules/flash_map.yml
 - modules/flash_circural_buffer.yml
@@ -38,6 +44,7 @@ __load__:
 - modules/edac.yml
 - modules/ec_host_cmd.yml
 - modules/ec.yml
+- modules/I2S.yml
 - skips/twr_kv58f220m.yml
 - boards/twr_kv58f220m.yml
 cases:

@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: mimx8mm_evk_kernel4
-  version: zephyr-v2.6.0-1424-g14f09a3b00
+  version: v2.7.99-1182-g0ab1bf42b3
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_mimx8mm_evk.sh
   no_filter:
@@ -177,7 +177,12 @@ cases:
     path: tests/kernel/condvar/condvar_api
     catalog: kernel userspace condition_variables ignore_faults
     attribute: required
-  kernel.mutex.mutex_error_case:
+  kernel.events.usage:
+    path: tests/kernel/events/sys_event
+    catalog: kernel userspace ignore_faults
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    attribute: required
+  kernel.mutex_error_case:
     path: tests/kernel/mutex/mutex_error_case
     catalog: kernel userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
@@ -211,5 +216,13 @@ cases:
   arch.common.xip:
     path: tests/kernel/xip
     catalog: kernel xip
+    filter: CONFIG_XIP
+    attribute: required
+  arch.common.xip.linker_generator:
+    path: tests/kernel/xip
+    catalog: kernel xip linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
     filter: CONFIG_XIP
     attribute: required

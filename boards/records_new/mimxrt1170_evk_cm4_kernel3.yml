@@ -1,0 +1,22 @@
+---
+settings:
+  case_pipe_name: "mimxrt1170_evk_cm4_kernel3"
+  version: v2.7.99-1182-g0ab1bf42b3
+__load__:
+- modules/kernel_timer_userspace_ignore_faults.yml
+- modules/kernel_timer_userspace.yml
+- modules/kernel_timer_linker_generator.yml
+- modules/kernel_timer.yml
+- modules/kernel_threads_userspace_ignore_faults.yml
+- modules/kernel_threads_userspace.yml
+- modules/kernel_threads_sched_userspacei_ignore_faults.yml
+- modules/kernel_threads_sched_userspace_ignore_faults_linker_generator.yml
+- modules/kernel_threads_sched_userspace_ignore_faults.yml
+- modules/kernel_threads_gpio.yml
+- modules/kernel_threads.yml
+- skips/mimxrt1170_evk_cm4.yml
+- boards/mimxrt1170_evk_cm4.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

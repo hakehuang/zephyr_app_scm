@@ -5,3 +5,8 @@ cases:
     catalog: drivers espi
     filter: dt_compat_enabled("microchip,mec15xx-board-power")
     depends_on: espi
+  drivers.espi.acpi:
+    path: tests/drivers/espi
+    catalog: drivers espi
+    filter: dt_compat_enabled("zephyr,espi-emul-controller")
+    platform_allow: native_posix
