@@ -33,9 +33,7 @@ cases:
   subsys.pm.device_pm:
     path: tests/subsys/pm/power_mgmt
     catalog: power
-    arch_exclude: arc xtensa
-    platform_exclude: rv32m1_vega_ri5cy rv32m1_vega_zero_riscy litex_vexriscv nrf5340dk_nrf5340_cpunet
-      thingy53_nrf5340_cpunet bl5340_dvk_cpunet
+    platform_allow: native_posix
   subsys.pm.pm_soc:
     path: tests/subsys/pm/power_mgmt_soc
     catalog: power

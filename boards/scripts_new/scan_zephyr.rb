@@ -18,7 +18,7 @@ require_relative "parse_testcase"
 require_relative "parse_sample"
 require_relative "zephyr_filter"
 
-$version = "v2.7.0"
+$version = "v2.7.99"
 
 LONG_CASE_DURATION = {
   'benchmark.crypto.mbedtls' => {'timeout' => 1000},

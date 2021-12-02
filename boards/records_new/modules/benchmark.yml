@@ -54,7 +54,7 @@ cases:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
     arch_allow: x86 arm riscv32 riscv64
-    platform_exclude: qemu_x86_64 qemu_cortex_m0 m2gl025_miv
+    platform_exclude: qemu_cortex_m0 m2gl025_miv
     filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.latency.stm32:
     path: tests/benchmarks/latency_measure

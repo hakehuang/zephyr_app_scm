@@ -1,5 +1,15 @@
 ---
 cases:
+  kernel.timer.cycle64:
+    path: tests/kernel/timer/cycle64
+    catalog: kernel timer
+    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
+    platform_exclude: native_posix
+  kernel.timer.cycle64.fast:
+    path: tests/kernel/timer/cycle64
+    catalog: kernel timer
+    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
+    platform_allow: native_posix
   kernel.timer.starve:
     path: tests/kernel/timer/starve
     catalog: kernel timer

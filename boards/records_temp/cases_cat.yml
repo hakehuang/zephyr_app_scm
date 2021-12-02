@@ -291,6 +291,10 @@ bluetooth:
     path: samples/bluetooth/beacon
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86 nrf52dk_nrf52832
+  sample.bluetooth.broadcaster:
+    path: samples/bluetooth/broadcaster
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.central:
     path: samples/bluetooth/central
     catalog: bluetooth
@@ -374,6 +378,10 @@ bluetooth:
     path: samples/bluetooth/mesh_provisioner
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86 nrf51dk_nrf51422
+  sample.bluetooth.observer:
+    path: samples/bluetooth/observer
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.periodic_adv:
     path: samples/bluetooth/periodic_adv
     catalog: bluetooth
@@ -738,7 +746,7 @@ bluetooth:
   bluetooth.init.test_ctlr_dbg:
     path: tests/bluetooth/init
     catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_dbg.conf
+    extra_args: CONF_FILE=prj_ctlr_dbg.conf DTC_OVERLAY_FILE=pa_lna.overlay
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_ctlr_broadcaster:
@@ -848,6 +856,12 @@ bluetooth:
     catalog: bluetooth
     extra_args: CONF_FILE=prj_h5_dbg.conf
     platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_llcp:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_llcp.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.ll_settings:
     path: tests/bluetooth/ll_settings
@@ -999,6 +1013,47 @@ bluetooth:
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
+  bluetooth.shell.audio.no_mcs:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_MCS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_mcc:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_MCC=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_ots:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_OTS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_mcc_ots:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_MCC_OTS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_otsc:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_OTS=n
+    - CONFIG_BT_MCC_OTS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
   bluetooth.general.tester:
     path: tests/bluetooth/tester
     catalog: bluetooth
@@ -1020,6 +1075,11 @@ unknown:
     extra_args: SHIELD=x_nucleo_idb05a1
     platform_allow: nucleo_l4r5zi
     depends_on: arduino_spi arduino_gpio
+  sample.boards.nrf.dynamic_pinctrl:
+    path: samples/boards/nrf/dynamic_pinctrl
+    catalog: unknown
+    build_only: true
+    platform_allow: nrf52840dk_nrf52840
   sample.boards.nrf.802154_rpmsg:
     path: samples/boards/nrf/ieee802154/802154_rpmsg
     catalog: unknown
@@ -1092,6 +1152,12 @@ unknown:
     path: tests/boards/native_posix/rtc
     catalog: unknown
     platform_allow: native_posix native_posix_64
+    build_only: true
+  config_dir.user_defined:
+    path: tests/cmake/config_dir
+    catalog: unknown
+    extra_args: APPLICATION_CONFIG_DIR:PATH=foo
+    platform_allow: native_posix
     build_only: true
   virtualization.ivshmem:
     path: tests/drivers/virtualization/ivshmem
@@ -1566,9 +1632,7 @@ power:
   subsys.pm.device_pm:
     path: tests/subsys/pm/power_mgmt
     catalog: power
-    arch_exclude: arc xtensa
-    platform_exclude: rv32m1_vega_ri5cy rv32m1_vega_zero_riscy litex_vexriscv nrf5340dk_nrf5340_cpunet
-      thingy53_nrf5340_cpunet bl5340_dvk_cpunet
+    platform_allow: native_posix
   subsys.pm.pm_soc:
     path: tests/subsys/pm/power_mgmt_soc
     catalog: power
@@ -1635,6 +1699,11 @@ LED power:
     extra_args: CONFIG_DEBUG=y
     filter: dt_compat_enabled("zephyr,power-state") and dt_enabled_alias_with_parent_compat("led0",
       "gpio-leds") and dt_compat_enabled("st,stm32-lptim")
+bluetooth pm:
+  sample.boards.stm32.pm.stm32wb_ble_pm:
+    path: samples/boards/stm32/power_mgmt/stm32wb_ble
+    catalog: bluetooth pm
+    platform_allow: nucleo_wb55rg
 gpio:
   sample.board.up_squared.gpio_counter:
     path: samples/boards/up_squared/gpio_counter
@@ -2243,7 +2312,7 @@ LED:
   sample.drivers.led.pca9633:
     path: samples/drivers/led_pca9633
     catalog: LED
-    platform_allow: stm32373c_eval
+    depends_on: arduino_i2c
   sample.drivers.led.led_pwm:
     path: samples/drivers/led_pwm
     catalog: LED
@@ -2275,6 +2344,40 @@ i2s example:
       type: one_line
       regex:
       - i2s example (.*)
+samples ipm:
+  sample.ipm.ipm_imx:
+    path: samples/drivers/ipm/ipm_imx
+    catalog: samples ipm
+    build_only: true
+    filter: CONFIG_SOC_FAMILY_IMX
+    platform_allow: udoo_neo_full_m4 colibri_imx7d_m4 warp7_m4
+ipm:
+  sample.ipm.ipm_mcux:
+    path: samples/drivers/ipm/ipm_mcux
+    catalog: ipm
+    platform_allow: lpcxpresso54114_m4 lpcxpresso55s69_cpu0
+  sample.ipm.ipm_mhu_dual_core:
+    path: samples/drivers/ipm/ipm_mhu_dual_core
+    catalog: ipm
+    platform_allow: v2m_musca_b1 v2m_musca_b1_ns
+  sample.ipc.openamp:
+    path: samples/subsys/ipc/openamp
+    catalog: ipm
+    platform_allow: lpcxpresso54114_m4 lpcxpresso55s69_cpu0 mps2_an521 v2m_musca v2m_musca_b1
+  sample.subsys.ipc.openamp_rs_table:
+    path: samples/subsys/ipc/openamp_rsc_table
+    catalog: ipm
+    build_only: true
+    platform_allow: stm32mp157c_dk2
+  sample.ipc.rpmsg_service:
+    path: samples/subsys/ipc/rpmsg_service
+    catalog: ipm
+    platform_allow: mps2_an521 v2m_musca_b1
+  sample.ipc.rpmsg_service.nrf:
+    path: samples/subsys/ipc/rpmsg_service
+    catalog: ipm
+    platform_allow: nrf5340dk_nrf5340_cpuapp bl5340_dvk_cpuapp
+    build_only: true
 spi flash:
   sample.drivers.jesd216:
     path: samples/drivers/jesd216
@@ -2396,144 +2499,6 @@ kernel condition_variables:
   sample.kernel.cond_var.simple:
     path: samples/kernel/condition_variables/simple
     catalog: kernel condition_variables
-kernel:
-  sample.kernel.cycle64:
-    path: samples/kernel/cycle64
-    catalog: kernel
-    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
-  kernel.common.context:
-    path: tests/kernel/context
-    catalog: kernel
-  kernel.events:
-    path: tests/kernel/events/event_api
-    catalog: kernel
-  kernel.logging.message_capture:
-    path: tests/kernel/fatal/message_capture
-    catalog: kernel
-    platform_exclude: intel_adsp_cavs15
-  kernel.fifo:
-    path: tests/kernel/fifo/fifo_api
-    catalog: kernel
-  kernel.fifo.timeout:
-    path: tests/kernel/fifo/fifo_timeout
-    catalog: kernel
-  kernel.fifo.usage:
-    path: tests/kernel/fifo/fifo_usage
-    catalog: kernel
-  kernel.lifo:
-    path: tests/kernel/lifo/lifo_api
-    catalog: kernel
-  kernel.lifo.usage:
-    path: tests/kernel/lifo/lifo_usage
-    catalog: kernel
-    platform_exclude: m2gl025_miv
-    min_ram: 20
-  kernel.mailbox.api:
-    path: tests/kernel/mbox/mbox_api
-    catalog: kernel
-  kernel.mailbox.usage:
-    path: tests/kernel/mbox/mbox_usage
-    catalog: kernel
-  kernel.memory_heap:
-    path: tests/kernel/mem_heap/mheap_api_concept
-    catalog: kernel
-    extra_configs:
-    - CONFIG_IRQ_OFFLOAD=y
-  kernel.memory_heap_no_multithreading:
-    path: tests/kernel/mem_heap/mheap_api_concept
-    catalog: kernel
-    extra_configs:
-    - CONFIG_MULTITHREADING=n
-    platform_allow: qemu_cortex_m3 qemu_cortex_m0
-  kernel.memory_protection.sys_sem.nouser:
-    path: tests/kernel/mem_protect/sys_sem
-    catalog: kernel
-    extra_configs:
-    - CONFIG_TEST_USERSPACE=n
-  kernel.memory_slabs.api:
-    path: tests/kernel/mem_slab/mslab
-    catalog: kernel
-  kernel.memory_slabs.api.mslab_api:
-    path: tests/kernel/mem_slab/mslab_api
-    catalog: kernel
-  kernel.memory_slabs.api_no_multithreading:
-    path: tests/kernel/mem_slab/mslab_api
-    catalog: kernel
-    extra_configs:
-    - CONFIG_MULTITHREADING=n
-    platform_allow: qemu_cortex_m3 qemu_cortex_m0
-  kernel.memory_slabs.concept:
-    path: tests/kernel/mem_slab/mslab_concept
-    catalog: kernel
-  kernel.memory_slabs.threadsafe:
-    path: tests/kernel/mem_slab/mslab_threadsafe
-    catalog: kernel
-  kernel.message_queue_usage:
-    path: tests/kernel/msgq/msgq_usage
-    catalog: kernel
-  system.mutex.nouser:
-    path: tests/kernel/mutex/sys_mutex
-    catalog: kernel
-    extra_configs:
-    - CONFIG_TEST_USERSPACE=n
-  kernel.objects:
-    path: tests/kernel/pending
-    catalog: kernel
-  kernel.common.profiling:
-    path: tests/kernel/profiling/profiling_api
-    catalog: kernel
-    arch_exclude: nios2
-    platform_exclude: em_starterkit litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
-      nrf5340dk_nrf5340_cpunet
-  kernel.scheduler.deadline:
-    path: tests/kernel/sched/deadline
-    catalog: kernel
-  kernel.scheduler.metairq:
-    path: tests/kernel/sched/metairq
-    catalog: kernel
-    filter: not CONFIG_SMP
-    platform_exclude: nrf52dk_nrf52810
-  kernel.scheduler.preempt:
-    path: tests/kernel/sched/preempt
-    catalog: kernel
-    filter: not CONFIG_SMP
-    platform_exclude: nrf52dk_nrf52810
-  kernel.threads.no-multithreading:
-    path: tests/kernel/threads/no-multithreading
-    catalog: kernel
-    filter: not CONFIG_SMP
-    platform_allow: qemu_cortex_m0 qemu_cortex_m3 mps2_an385 mps2_an521 nrf52840dk_nrf52840
-      nrf9160dk_nrf9160 nrf51dk_nrf51422
-  kernel.tickless.concept:
-    path: tests/kernel/tickless/tickless_concept
-    catalog: kernel
-    arch_exclude: nios2
-    platform_exclude: litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy nrf5340dk_nrf5340_cpunet
-  kernel.workqueue:
-    path: tests/kernel/workq/critical
-    catalog: kernel
-    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
-    filter: not CONFIG_WDT_SAM
-  kernel.workqueue.sam:
-    path: tests/kernel/workq/critical
-    catalog: kernel
-    extra_configs:
-    - CONFIG_WDT_DISABLE_AT_BOOT=y
-    filter: CONFIG_WDT_SAM
-  kernel.workqueue.nsim:
-    path: tests/kernel/workq/critical
-    catalog: kernel
-    extra_configs:
-    - CONFIG_TEST_HW_STACK_PROTECTION=n
-    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
-  kernel.work.api:
-    path: tests/kernel/workq/work
-    catalog: kernel
-    min_flash: 34
-  kernel.workqueue.work_queue:
-    path: tests/kernel/workq/work_queue
-    catalog: kernel
-    min_flash: 34
 can canopen:
   sample.modules.canopennode.program_download:
     path: samples/modules/canopennode
@@ -3590,6 +3555,7 @@ posix:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
     - CONFIG_THREAD_LOCAL_STORAGE=y
+    - CONFIG_MAIN_STACK_SIZE=1152
     platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
     filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
     min_ram: 64
@@ -3600,6 +3566,7 @@ posix:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_THREAD_LOCAL_STORAGE=y
+    - CONFIG_MAIN_STACK_SIZE=1152
     platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard ehl_crb
     filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
       CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
@@ -4004,40 +3971,17 @@ filesystem:
     - CONFIG_APP_TEST_CUSTOM=y
     - CONFIG_FS_LITTLEFS_FC_HEAP_SIZE=16384
     platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64 mimxrt1060_evk
-ipm:
-  sample.ipc.rpmsg_service.nrf:
-    path: samples/subsys/ipc/rpmsg_service
-    catalog: ipm
+ipc:
+  sample.ipc.static_vrings:
+    path: samples/subsys/ipc/ipc_service/static_vrings
+    catalog: ipc
+    platform_allow: nrf5340dk_nrf5340_cpuapp
+    build_only: true
+  sample.ipc.static_vrings_mi.nrf:
+    path: samples/subsys/ipc/ipc_service/static_vrings_mi
+    catalog: ipc
     platform_allow: nrf5340dk_nrf5340_cpuapp bl5340_dvk_cpuapp
     build_only: true
-  sample.ipc.ipm.ipm_mcux:
-    path: samples/subsys/ipc/ipm_mcux
-    catalog: ipm
-    platform_allow: lpcxpresso54114_m4 lpcxpresso55s69_cpu0
-  sample.ipc.ipm.ipm_mhu_dual_core:
-    path: samples/subsys/ipc/ipm_mhu_dual_core
-    catalog: ipm
-    platform_allow: v2m_musca_b1 v2m_musca_b1_ns
-  sample.ipc.openamp:
-    path: samples/subsys/ipc/openamp
-    catalog: ipm
-    platform_allow: lpcxpresso54114_m4 lpcxpresso55s69_cpu0 mps2_an521 v2m_musca v2m_musca_b1
-  sample.subsys.ipc.openamp_rs_table:
-    path: samples/subsys/ipc/openamp_rsc_table
-    catalog: ipm
-    build_only: true
-    platform_allow: stm32mp157c_dk2
-  sample.ipc.rpmsg_service:
-    path: samples/subsys/ipc/rpmsg_service
-    catalog: ipm
-    platform_allow: mps2_an521 v2m_musca_b1
-samples ipm:
-  sample.ipc.ipm.ipm_imx:
-    path: samples/subsys/ipc/ipm_imx
-    catalog: samples ipm
-    build_only: true
-    filter: CONFIG_SOC_FAMILY_IMX
-    platform_allow: udoo_neo_full_m4 colibri_imx7d_m4 warp7_m4
 logging:
   sample.logger.basic.dictionary:
     path: samples/subsys/logging/dictionary
@@ -4412,10 +4356,10 @@ synchronization:
   sample.kernel.synchronization:
     path: samples/synchronization
     catalog: synchronization
-introduction tfm crypto:
+introduction tfm crypto csr:
   sample.psa_crypto:
     path: samples/tfm_integration/psa_crypto
-    catalog: introduction tfm crypto
+    catalog: introduction tfm crypto csr
     platform_allow: mps2_an521_ns lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
       nucleo_l552ze_q_ns v2m_musca_s1_ns stm32l562e_dk_ns bl5340_dvk_cpuapp_ns
 tfm:
@@ -4442,6 +4386,17 @@ tfm:
     extra_args: ''
     platform_allow: lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
       v2m_musca_s1_ns
+  sample.tfm.secure_partition:
+    path: samples/tfm_integration/tfm_secure_partition
+    catalog: tfm
+    platform_allow: mps2_an521_nonsecure v2m_musca_s1_nonsecure nrf5340dk_nrf5340_cpuappns
+      nrf9160dk_nrf9160ns
+  sample.tfm.secure_partition.ipc:
+    path: samples/tfm_integration/tfm_secure_partition
+    catalog: tfm
+    extra_args: CONFIG_TFM_IPC=y
+    platform_allow: mps2_an521_nonsecure v2m_musca_s1_nonsecure nrf5340dk_nrf5340_cpuappns
+      nrf9160dk_nrf9160ns
 introduction tfm:
   sample.tfm_ipc:
     path: samples/tfm_integration/tfm_ipc
@@ -4733,7 +4688,7 @@ benchmark:
     path: tests/benchmarks/latency_measure
     catalog: benchmark
     arch_allow: x86 arm riscv32 riscv64
-    platform_exclude: qemu_x86_64 qemu_cortex_m0 m2gl025_miv
+    platform_exclude: qemu_cortex_m0 m2gl025_miv
     filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.latency.stm32:
     path: tests/benchmarks/latency_measure
@@ -4786,6 +4741,124 @@ benchmark userspace:
     filter: CONFIG_ARCH_HAS_USERSPACE
     arch_allow: x86 arm arc
     build_only: true
+test_framework bluetooth bt_api bt_ull_llcp:
+  bluetooth.controller.ctrl_api.test:
+    path: tests/bluetooth/controller/ctrl_api
+    catalog: test_framework bluetooth bt_api bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_chmu bt_ull_llcp:
+  bluetooth.controller.ctrl_chmu.test:
+    path: tests/bluetooth/controller/ctrl_chmu
+    catalog: test_framework bluetooth bt_chmu bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_conn_update bt_conn_param_req bt_ull_llcp:
+  bluetooth.controller.ctrl_conn_update.test:
+    path: tests/bluetooth/controller/ctrl_conn_update
+    catalog: test_framework bluetooth bt_conn_update bt_conn_param_req bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_conn_update.no_param_req_test:
+    path: tests/bluetooth/controller/ctrl_conn_update
+    catalog: test_framework bluetooth bt_conn_update bt_conn_param_req bt_ull_llcp
+    extra_args: KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit
+test_framework bluetooth bt_le_cte_req bt_ull_llcp:
+  bluetooth.controller.ctrl_cte_req.test:
+    path: tests/bluetooth/controller/ctrl_cte_req
+    catalog: test_framework bluetooth bt_le_cte_req bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_data_length_update bt_ull_llcp:
+  bluetooth.controller.ctrl_data_length_update.test:
+    path: tests/bluetooth/controller/ctrl_data_length_update
+    catalog: test_framework bluetooth bt_data_length_update bt_ull_llcp
+    extra_args: CONFIG_BT_CTLR_PHY=y
+    type: unit
+  bluetooth.controller.ctrl_data_length_update.test_codedphy:
+    path: tests/bluetooth/controller/ctrl_data_length_update
+    catalog: test_framework bluetooth bt_data_length_update bt_ull_llcp
+    extra_args: CONFIG_BT_CTLR_PHY=y CONFIG_BT_CTLR_PHY_CODED=y
+    type: unit
+  bluetooth.controller.ctrl_data_length_update.test_nophy:
+    path: tests/bluetooth/controller/ctrl_data_length_update
+    catalog: test_framework bluetooth bt_data_length_update bt_ull_llcp
+    extra_args: KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit
+test_framework bluetooth bt_encrypt bt_ull_llcp:
+  bluetooth.controller.ctrl_encrypt.test:
+    path: tests/bluetooth/controller/ctrl_encrypt
+    catalog: test_framework bluetooth bt_encrypt bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_feature_exchange bt_ull_llcp:
+  bluetooth.controller.ctrl_feature_exchange.test:
+    path: tests/bluetooth/controller/ctrl_feature_exchange
+    catalog: test_framework bluetooth bt_feature_exchange bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_ctrl_hci bt_ull_llcp:
+  bluetooth.controller.ctrl_hci.test:
+    path: tests/bluetooth/controller/ctrl_hci
+    catalog: test_framework bluetooth bt_ctrl_hci bt_ull_llcp
+    skip: true
+    type: unit
+test_framework bluetooth bt_le_ping bt_ull_llcp:
+  bluetooth.controller.ctrl_le_ping.test:
+    path: tests/bluetooth/controller/ctrl_le_ping
+    catalog: test_framework bluetooth bt_le_ping bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_min_used_chans bt_ull_llcp:
+  bluetooth.controller.ctrl_min_used_chans.test:
+    path: tests/bluetooth/controller/ctrl_min_used_chans
+    catalog: test_framework bluetooth bt_min_used_chans bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_phy_update bt_ull_llcp:
+  bluetooth.controller.ctrl_phy_update.test:
+    path: tests/bluetooth/controller/ctrl_phy_update
+    catalog: test_framework bluetooth bt_phy_update bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_terminate bt_ull_llcp:
+  bluetooth.controller.ctrl_terminate.test:
+    path: tests/bluetooth/controller/ctrl_terminate
+    catalog: test_framework bluetooth bt_terminate bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_tx_buffer_alloc bt_ull_llcp:
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_0_per_conn:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: test_framework bluetooth bt_tx_buffer_alloc bt_ull_llcp
+    extra_args: CONFIG_BT_CTLR_LLCP_PER_CONN_TX_CTRL_BUF_NUM=0
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_1_per_conn:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: test_framework bluetooth bt_tx_buffer_alloc bt_ull_llcp
+    extra_args: CONFIG_BT_CTLR_LLCP_PER_CONN_TX_CTRL_BUF_NUM=1
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_2_per_conn:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: test_framework bluetooth bt_tx_buffer_alloc bt_ull_llcp
+    extra_args: CONFIG_BT_CTLR_LLCP_PER_CONN_TX_CTRL_BUF_NUM=2
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_3_per_conn:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: test_framework bluetooth bt_tx_buffer_alloc bt_ull_llcp
+    extra_args: CONFIG_BT_CTLR_LLCP_PER_CONN_TX_CTRL_BUF_NUM=3
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_max_per_conn_alloc:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: test_framework bluetooth bt_tx_buffer_alloc bt_ull_llcp
+    extra_args: CONFIG_BT_CTLR_LLCP_PER_CONN_TX_CTRL_BUF_NUM=4
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_max_common_alloc:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: test_framework bluetooth bt_tx_buffer_alloc bt_ull_llcp
+    extra_args: KCONFIG_OVERRIDE_FILE="kconfig_override_max_common.h"
+    type: unit
+bluetooth bt_ull_llcp:
+  bluetooth.ctrl_tx_queue.test:
+    path: tests/bluetooth/controller/ctrl_tx_queue
+    catalog: bluetooth bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_version_exchange bt_ull_llcp:
+  bluetooth.controller.ctrl_version.test:
+    path: tests/bluetooth/controller/ctrl_version
+    catalog: test_framework bluetooth bt_version_exchange bt_ull_llcp
+    type: unit
 bluetooth gatt:
   bluetooth.gatt:
     path: tests/bluetooth/gatt
@@ -5463,8 +5536,8 @@ drivers flash:
   drivers.flash.stm32:
     path: tests/drivers/flash
     catalog: drivers flash
-    filter: dt_compat_enabled("st,stm32-flash-controller") and dt_label_with_parent_compat_enabled("storage_partition",
-      "fixed-partitions")
+    filter: (dt_compat_enabled("st,stm32-flash-controller") or dt_compat_enabled("st,stm32h7-flash-controller"))
+      and dt_label_with_parent_compat_enabled("storage_partition", "fixed-partitions")
 driver:
   drivers.flash.flash_simulator:
     path: tests/drivers/flash_simulator
@@ -5608,6 +5681,18 @@ drivers pinctrl:
     catalog: drivers pinctrl
     extra_args: CONF_FILE="prj.conf;reg.conf"
     platform_allow: native_posix native_posix_64
+  drivers.pinctrl.gd32_af:
+    path: tests/drivers/pinctrl/gd32
+    catalog: drivers pinctrl
+    platform_allow: gd32f450i_eval
+  drivers.pinctrl.gd32_afio:
+    path: tests/drivers/pinctrl/gd32
+    catalog: drivers pinctrl
+    platform_allow: gd32f403z_eval
+  drivers.pinctrl.nrf:
+    path: tests/drivers/pinctrl/nrf
+    catalog: drivers pinctrl
+    depends_on: pinctrl nrf
 drivers pwm userspace:
   drivers.pwm:
     path: tests/drivers/pwm/pwm_api
@@ -5700,6 +5785,140 @@ kernel userspace condition_variables ignore_faults:
   kernel.condvar:
     path: tests/kernel/condvar/condvar_api
     catalog: kernel userspace condition_variables ignore_faults
+kernel:
+  kernel.common.context:
+    path: tests/kernel/context
+    catalog: kernel
+  kernel.events:
+    path: tests/kernel/events/event_api
+    catalog: kernel
+  kernel.logging.message_capture:
+    path: tests/kernel/fatal/message_capture
+    catalog: kernel
+    platform_exclude: intel_adsp_cavs15
+  kernel.fifo:
+    path: tests/kernel/fifo/fifo_api
+    catalog: kernel
+  kernel.fifo.timeout:
+    path: tests/kernel/fifo/fifo_timeout
+    catalog: kernel
+  kernel.fifo.usage:
+    path: tests/kernel/fifo/fifo_usage
+    catalog: kernel
+  kernel.lifo:
+    path: tests/kernel/lifo/lifo_api
+    catalog: kernel
+  kernel.lifo.usage:
+    path: tests/kernel/lifo/lifo_usage
+    catalog: kernel
+    platform_exclude: m2gl025_miv
+    min_ram: 20
+  kernel.mailbox.api:
+    path: tests/kernel/mbox/mbox_api
+    catalog: kernel
+  kernel.mailbox.usage:
+    path: tests/kernel/mbox/mbox_usage
+    catalog: kernel
+  kernel.memory_heap:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
+    extra_configs:
+    - CONFIG_IRQ_OFFLOAD=y
+  kernel.memory_heap_no_multithreading:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: kernel
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    platform_allow: qemu_cortex_m3 qemu_cortex_m0
+  kernel.memory_protection.sys_sem.nouser:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+  kernel.memory_slabs.api:
+    path: tests/kernel/mem_slab/mslab
+    catalog: kernel
+  kernel.memory_slabs.api.mslab_api:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
+  kernel.memory_slabs.api_no_multithreading:
+    path: tests/kernel/mem_slab/mslab_api
+    catalog: kernel
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    platform_allow: qemu_cortex_m3 qemu_cortex_m0
+  kernel.memory_slabs.concept:
+    path: tests/kernel/mem_slab/mslab_concept
+    catalog: kernel
+  kernel.memory_slabs.threadsafe:
+    path: tests/kernel/mem_slab/mslab_threadsafe
+    catalog: kernel
+  kernel.message_queue_usage:
+    path: tests/kernel/msgq/msgq_usage
+    catalog: kernel
+  system.mutex.nouser:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+  kernel.objects:
+    path: tests/kernel/pending
+    catalog: kernel
+  kernel.common.profiling:
+    path: tests/kernel/profiling/profiling_api
+    catalog: kernel
+    arch_exclude: nios2
+    platform_exclude: em_starterkit litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy
+      nrf5340dk_nrf5340_cpunet
+  kernel.scheduler.deadline:
+    path: tests/kernel/sched/deadline
+    catalog: kernel
+  kernel.scheduler.metairq:
+    path: tests/kernel/sched/metairq
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52dk_nrf52810
+  kernel.scheduler.preempt:
+    path: tests/kernel/sched/preempt
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_exclude: nrf52dk_nrf52810
+  kernel.threads.no-multithreading:
+    path: tests/kernel/threads/no-multithreading
+    catalog: kernel
+    filter: not CONFIG_SMP
+    platform_allow: qemu_cortex_m0 qemu_cortex_m3 mps2_an385 mps2_an521 nrf52840dk_nrf52840
+      nrf9160dk_nrf9160 nrf51dk_nrf51422
+  kernel.tickless.concept:
+    path: tests/kernel/tickless/tickless_concept
+    catalog: kernel
+    arch_exclude: nios2
+    platform_exclude: litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy nrf5340dk_nrf5340_cpunet
+  kernel.workqueue:
+    path: tests/kernel/workq/critical
+    catalog: kernel
+    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    filter: not CONFIG_WDT_SAM
+  kernel.workqueue.sam:
+    path: tests/kernel/workq/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_WDT_DISABLE_AT_BOOT=y
+    filter: CONFIG_WDT_SAM
+  kernel.workqueue.nsim:
+    path: tests/kernel/workq/critical
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+  kernel.work.api:
+    path: tests/kernel/workq/work
+    catalog: kernel
+    min_flash: 34
+  kernel.workqueue.work_queue:
+    path: tests/kernel/workq/work_queue
+    catalog: kernel
+    min_flash: 34
 kernel linker_generator:
   kernel.common.linker_generator:
     path: tests/kernel/context
@@ -6256,6 +6475,10 @@ kernel smp:
     path: tests/kernel/mp
     catalog: kernel smp
     filter: CONFIG_MP_NUM_CPUS > 1
+  kernel.multiprocessing.smp_boot_delay:
+    path: tests/kernel/smp_boot_delay
+    catalog: kernel smp
+    platform_allow: intel_adsp_cavs15 intel_adsp_cavs18 intel_adsp_cavs20 intel_adsp_cavs25
 kernel smp linker_generator:
   kernel.multiprocessing.linker_generator:
     path: tests/kernel/mp
@@ -6368,6 +6591,16 @@ kernel threads:
     catalog: kernel threads
     filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
 kernel timer:
+  kernel.timer.cycle64:
+    path: tests/kernel/timer/cycle64
+    catalog: kernel timer
+    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
+    platform_exclude: native_posix
+  kernel.timer.cycle64.fast:
+    path: tests/kernel/timer/cycle64
+    catalog: kernel timer
+    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
+    platform_allow: native_posix
   kernel.timer.starve:
     path: tests/kernel/timer/starve
     catalog: kernel timer
@@ -6408,7 +6641,7 @@ kernel timer userspace:
     arch_exclude: nios2 posix
     platform_exclude: litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy nrf5340dk_nrf5340_cpunet
 kernel timer userspace ignore_faults:
-  kernel.timer.timer_error_case:
+  kernel.timer.error_case:
     path: tests/kernel/timer/timer_error_case
     catalog: kernel timer userspace ignore_faults
 linker_generator:
@@ -8385,16 +8618,16 @@ net websocket:
     min_ram: 21
     platform_exclude: native_posix_64
     depends_on: netif
-net tcp2:
-  net.tcp2.simple:
-    path: tests/net/tcp2
-    catalog: net tcp2
+net tcp:
+  net.tcp.simple:
+    path: tests/net/tcp
+    catalog: net tcp
     extra_configs:
     - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=1000
     depends_on: netif
-  net.tcp2.no_recv_queue:
-    path: tests/net/tcp2
-    catalog: net tcp2
+  net.tcp.no_recv_queue:
+    path: tests/net/tcp
+    catalog: net tcp
     extra_configs:
     - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=0
     depends_on: netif
@@ -9007,6 +9240,25 @@ edac ibecc:
     - CONFIG_USERSPACE=y
     arch_allow: x86
     platform_allow: ehl_crb
+ibecc ibecc_cov:
+  edac.ibecc.coverage:
+    path: tests/subsys/edac/ibecc_cov
+    catalog: ibecc ibecc_cov
+    extra_args: EXTRA_CFLAGS=-DEMULATE_SKU=0
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.coverage_sku:
+    path: tests/subsys/edac/ibecc_cov
+    catalog: ibecc ibecc_cov
+    extra_args: EXTRA_CFLAGS=-DEMULATE_SKU=0x45148086
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.coverage_sku_en:
+    path: tests/subsys/edac/ibecc_cov
+    catalog: ibecc ibecc_cov
+    extra_args: EXTRA_CPPFLAGS=-DEMULATE_SKU=0x45148086 EXTRA_CFLAGS=-DIBECC_ENABLED=1
+    arch_allow: x86
+    platform_allow: ehl_crb
 flash_circural_buffer:
   filesystem.fcb:
     path: tests/subsys/fs/fcb
@@ -9344,6 +9596,11 @@ flash_map:
     catalog: flash_map
     extra_args: OVERLAY_CONFIG=overlay-mpu.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 frdm_k64f hexiwear_k64 twr_ke18f
+  storage.flash_map.mbedtls:
+    path: tests/subsys/storage/flash_map
+    catalog: flash_map
+    extra_args: OVERLAY_CONFIG=overlay-mbedtls.conf
+    platform_allow: nrf51dk_nrf51422 qemu_x86 native_posix native_posix_64
 stream_flash:
   storage.stream_flash:
     path: tests/subsys/storage/stream/stream_flash

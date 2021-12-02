@@ -16,6 +16,11 @@ cases:
     extra_args: SHIELD=x_nucleo_idb05a1
     platform_allow: nucleo_l4r5zi
     depends_on: arduino_spi arduino_gpio
+  sample.boards.nrf.dynamic_pinctrl:
+    path: samples/boards/nrf/dynamic_pinctrl
+    catalog: unknown
+    build_only: true
+    platform_allow: nrf52840dk_nrf52840
   sample.boards.nrf.802154_rpmsg:
     path: samples/boards/nrf/ieee802154/802154_rpmsg
     catalog: unknown
@@ -88,6 +93,12 @@ cases:
     path: tests/boards/native_posix/rtc
     catalog: unknown
     platform_allow: native_posix native_posix_64
+    build_only: true
+  config_dir.user_defined:
+    path: tests/cmake/config_dir
+    catalog: unknown
+    extra_args: APPLICATION_CONFIG_DIR:PATH=foo
+    platform_allow: native_posix
     build_only: true
   virtualization.ivshmem:
     path: tests/drivers/virtualization/ivshmem

@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_kw41z_5"
-  version: v2.7.99-1182-g0ab1bf42b3
+  version: v2.7.99-1953-g8171417f77
 __load__:
 - modules/video_net_socket.yml
 - modules/video.yml
@@ -25,6 +25,20 @@ __load__:
 - modules/testing.yml
 - modules/test_framework_userspace_ignore_faults.yml
 - modules/test_framework_ignore_faults.yml
+- modules/test_framework_bluetooth_bt_version_exchange_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_tx_buffer_alloc_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_terminate_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_phy_update_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_min_used_chans_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_le_ping_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_le_cte_req_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_feature_exchange_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_encrypt_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_data_length_update_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_ctrl_hci_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_conn_update_bt_conn_param_req_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_chmu_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_api_bt_ull_llcp.yml
 - modules/test_framework.yml
 - modules/tensorflow.yml
 - modules/sysid.yml

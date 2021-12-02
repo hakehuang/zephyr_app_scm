@@ -4,6 +4,10 @@ cases:
     path: samples/bluetooth/beacon
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86 nrf52dk_nrf52832
+  sample.bluetooth.broadcaster:
+    path: samples/bluetooth/broadcaster
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.central:
     path: samples/bluetooth/central
     catalog: bluetooth
@@ -87,6 +91,10 @@ cases:
     path: samples/bluetooth/mesh_provisioner
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86 nrf51dk_nrf51422
+  sample.bluetooth.observer:
+    path: samples/bluetooth/observer
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.periodic_adv:
     path: samples/bluetooth/periodic_adv
     catalog: bluetooth
@@ -451,7 +459,7 @@ cases:
   bluetooth.init.test_ctlr_dbg:
     path: tests/bluetooth/init
     catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_dbg.conf
+    extra_args: CONF_FILE=prj_ctlr_dbg.conf DTC_OVERLAY_FILE=pa_lna.overlay
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_ctlr_broadcaster:
@@ -561,6 +569,12 @@ cases:
     catalog: bluetooth
     extra_args: CONF_FILE=prj_h5_dbg.conf
     platform_allow: qemu_cortex_m3
+    build_only: true
+  bluetooth.init.test_llcp:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_llcp.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 rv32m1_vega_ri5cy
     build_only: true
   bluetooth.ll_settings:
     path: tests/bluetooth/ll_settings
@@ -709,6 +723,47 @@ cases:
     catalog: bluetooth
     extra_configs:
     - CONFIG_BT_MICS_CLIENT_MAX_AICS_INST=0
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_mcs:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_MCS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_mcc:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_MCC=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_ots:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_OTS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_mcc_ots:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_MCC_OTS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_otsc:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_OTS=n
+    - CONFIG_BT_MCC_OTS=n
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix

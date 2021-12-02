@@ -9,3 +9,15 @@ cases:
     catalog: drivers pinctrl
     extra_args: CONF_FILE="prj.conf;reg.conf"
     platform_allow: native_posix native_posix_64
+  drivers.pinctrl.gd32_af:
+    path: tests/drivers/pinctrl/gd32
+    catalog: drivers pinctrl
+    platform_allow: gd32f450i_eval
+  drivers.pinctrl.gd32_afio:
+    path: tests/drivers/pinctrl/gd32
+    catalog: drivers pinctrl
+    platform_allow: gd32f403z_eval
+  drivers.pinctrl.nrf:
+    path: tests/drivers/pinctrl/nrf
+    catalog: drivers pinctrl
+    depends_on: pinctrl nrf

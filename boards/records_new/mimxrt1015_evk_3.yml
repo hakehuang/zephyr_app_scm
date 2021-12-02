@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1015_evk_3"
-  version: v2.7.99-1182-g0ab1bf42b3
+  version: v2.7.99-1953-g8171417f77
 __load__:
 - modules/kconfig.yml
 - modules/k_heap_api_kernel_linker_generator.yml
@@ -11,12 +11,14 @@ __load__:
 - modules/iterable_sections.yml
 - modules/ipm.yml
 - modules/ipc_service.yml
-- modules/introduction_tfm_crypto.yml
+- modules/ipc.yml
+- modules/introduction_tfm_crypto_csr.yml
 - modules/introduction_tfm.yml
 - modules/introduction.yml
 - modules/interrupt_nmi.yml
 - modules/ignore_faults_interrupt_idt.yml
 - modules/ignore_faults_ignore_qemu_crash.yml
+- modules/ibecc_ibecc_cov.yml
 - modules/i2s_example.yml
 - modules/i2s.yml
 - modules/i2c.yml
