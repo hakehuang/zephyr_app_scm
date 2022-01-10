@@ -1,5 +1,9 @@
 ---
 cases:
+  libraries.libc.newlib.heap_listener:
+    path: tests/lib/newlib/heap_listener
+    catalog: clib newlib
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
   libraries.libc.newlib.thread_safety:
     path: tests/lib/newlib/thread_safety
     catalog: clib newlib

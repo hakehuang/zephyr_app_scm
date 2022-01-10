@@ -1,0 +1,20 @@
+---
+settings:
+  case_pipe_name: "mimxrt1160_evk_cm7_bt1"
+  version: v2.7.99-2752-g241b477f93
+__load__:
+- modules/bluetooth_uuid.yml
+- modules/bluetooth_spi.yml
+- modules/bluetooth_pm.yml
+- modules/bluetooth_net.yml
+- modules/bluetooth_mesh.yml
+- modules/bluetooth_l2cap.yml
+- modules/bluetooth_hci_prop_event.yml
+- modules/bluetooth_gatt.yml
+- modules/bluetooth_bt_ull_llcp.yml
+- skips/mimxrt1160_evk_cm7.yml
+- boards/mimxrt1160_evk_cm7.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

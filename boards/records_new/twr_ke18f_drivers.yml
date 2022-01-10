@@ -1,13 +1,14 @@
 ---
 settings:
   case_pipe_name: "twr_ke18f_drivers"
-  version: v2.7.99-1953-g8171417f77
+  version: v2.7.99-2752-g241b477f93
 __load__:
 - modules/drivers_watchdog.yml
 - modules/drivers_userspace.yml
 - modules/drivers_usb.yml
 - modules/drivers_syscon.yml
 - modules/drivers_spi_qspi.yml
+- modules/drivers_spi_gpio.yml
 - modules/drivers_spi.yml
 - modules/drivers_sensors.yml
 - modules/drivers_sensor_grove_temperature.yml

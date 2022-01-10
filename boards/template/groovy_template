@@ -1,0 +1,46 @@
+<?rb for l, items in @catalog ?>
+  <?rb items['cases'].each do |k, item| ?>
+   <?rb ll=l.gsub(/\-|\./, '_')  ?>
+   <?rb kk=k.gsub(/\-|\./, '_')  ?>
+   def test_#{ll}_#{kk}_result
+   def test_#{ll}_#{kk}() {
+      echo 'Test #{k}'
+      echo '#{item['opt'][0]}'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        script {
+          test_#{ll}_#{kk}_result = "BUILD_FAILURE"
+        }
+        <?rb if item['scripts'] ?>
+          <?rb item['scripts'].each do |cmd| ?>
+            sh '''docker exec #{@docker} run_script.sh $(basename $(pwd)) #{item['opt'][1]} #{cmd}'''
+          <?rb end ?>  
+        <?rb end ?>
+        <?rb if item['opt'][2] ?>
+          sh '''docker exec #{@docker} #{@build_script}  $(basename $(pwd)) #{item['opt'][1]} #{@board} #{item['build']} #{item['opt'][2..-1].join(' ')}'''
+        <?rb else ?>
+          sh 'docker exec #{@docker} #{@build_script} $(basename $(pwd)) #{item['opt'][1]} #{item['opt'][0]} #{item['build']}'
+        <?rb end ?>
+        script {
+          test_#{ll}_#{kk}_result = "FAILURE"
+        }
+        <?rb if ! item.has_key?('build_only') ?>
+          retry(2)  {
+            sh 'docker exec #{@docker} #{@run_script} $(basename $(pwd)) #{item['build_path']} #{item['opt'][0]} #{item['bin']}'
+          }
+        <?rb end ?>
+          sh 'docker exec #{@docker} rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/#{item['build_path']}'
+        script {
+          test_#{ll}_#{kk}_result = "SUCCESS"
+        }  
+      }
+      script {
+        echo test_#{ll}_#{kk}_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': '#{@board}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
+        mycustomDataMapTags = ['results_info' :['board_name': '#{@board}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+  <?rb end ?>
+<?rb end ?>
+
+return this

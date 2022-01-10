@@ -1,0 +1,213 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	model = "NXP MIMXRT685-EVK board";
+	compatible = "nxp,mimxrt685";
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,console = &flexcomm0;
+		zephyr,shell-uart = &flexcomm0;
+	};
+	aliases {
+		gpio-0 = &gpio0;
+		gpio-1 = &gpio1;
+		sw0 = &user_button_1;
+		sw1 = &user_button_2;
+		led0 = &green_led;
+		led1 = &blue_led;
+		led2 = &red_led;
+		usart-0 = &flexcomm0;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+			status = "disabled";
+		};
+		sram: sram@30000000 {
+			ranges = < 0x20000000 0x30000000 0x480000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			sram0: memory@20000000 {
+				compatible = "mmio-sram";
+				reg = < 0x20000000 0x480000 >;
+			};
+		};
+		peripheral: peripheral@50000000 {
+			ranges = < 0x0 0x50000000 0x10000000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			gpio0: gpio@0 {
+				compatible = "nxp,lpc-gpio";
+				reg = < 0x100000 0x4000 >;
+				interrupts = < 0x4 0x2 >, < 0x5 0x2 >, < 0x6 0x2 >, < 0x7 0x2 >;
+				label = "GPIO_0";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "okay";
+				phandle = < 0x3 >;
+			};
+			gpio1: gpio@1 {
+				compatible = "nxp,lpc-gpio";
+				reg = < 0x100000 0x4000 >;
+				interrupts = < 0x23 0x2 >, < 0x24 0x2 >, < 0x25 0x2 >, < 0x26 0x2 >;
+				label = "GPIO_1";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				status = "okay";
+				phandle = < 0x2 >;
+			};
+			flexspi: spi@134000 {
+				compatible = "nxp,imx-flexspi";
+				reg = < 0x134000 0x1000 >;
+				interrupts = < 0x2a 0x0 >;
+				label = "FLEXSPI";
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			flexcomm0: flexcomm@106000 {
+				compatible = "nxp,lpc-usart";
+				reg = < 0x106000 0x1000 >;
+				interrupts = < 0xe 0x0 >;
+				label = "FLEXCOMM_0";
+				status = "okay";
+				current-speed = < 0x1c200 >;
+			};
+			flexcomm1: flexcomm@107000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x107000 0x1000 >;
+				interrupts = < 0xf 0x0 >;
+				label = "FLEXCOMM_1";
+				status = "disabled";
+			};
+			flexcomm2: arduino_i2c: flexcomm@108000 {
+				compatible = "nxp,lpc-i2c";
+				reg = < 0x108000 0x1000 >;
+				interrupts = < 0x10 0x0 >;
+				label = "FLEXCOMM_2";
+				status = "okay";
+				clock-frequency = < 0x61a80 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				fxos8700@1e {
+					compatible = "nxp,fxos8700";
+					reg = < 0x1e >;
+					label = "FXOS8700";
+					int1-gpios = < &gpio1 0x5 0x1 >;
+					reset-gpios = < &gpio1 0x7 0x0 >;
+				};
+			};
+			flexcomm3: flexcomm@109000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x109000 0x1000 >;
+				interrupts = < 0x11 0x0 >;
+				label = "FLEXCOMM_3";
+				status = "disabled";
+			};
+			flexcomm4: flexcomm@122000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x122000 0x1000 >;
+				interrupts = < 0x12 0x0 >;
+				label = "FLEXCOMM_4";
+				status = "disabled";
+			};
+			flexcomm5: arduino_spi: flexcomm@123000 {
+				compatible = "nxp,lpc-spi";
+				reg = < 0x123000 0x1000 >;
+				interrupts = < 0x13 0x0 >;
+				label = "FLEXCOMM_5";
+				status = "okay";
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			flexcomm6: flexcomm@124000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x124000 0x1000 >;
+				interrupts = < 0x2b 0x0 >;
+				label = "FLEXCOMM_6";
+				status = "disabled";
+			};
+			flexcomm7: flexcomm@125000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x125000 0x1000 >;
+				interrupts = < 0x2c 0x0 >;
+				label = "FLEXCOMM_7";
+				status = "disabled";
+			};
+			hs_lspi: spi@126000 {
+				compatible = "nxp,lpc-spi";
+				reg = < 0x126000 0x1000 >;
+				interrupts = < 0x14 0x0 >;
+				label = "HS_LSPI";
+				status = "disabled";
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			compatible = "arm,cortex-m33f";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv8m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+				arm,num-mpu-regions = < 0x8 >;
+			};
+		};
+	};
+	flash0: flash@18000000 {
+		reg = < 0x18000000 0x4000000 >;
+	};
+	gpio_keys {
+		compatible = "gpio-keys";
+		user_button_1: button_0 {
+			label = "User SW1";
+			gpios = < &gpio1 0x1 0x1 >;
+			status = "okay";
+		};
+		user_button_2: button_1 {
+			label = "User SW2";
+			gpios = < &gpio0 0xa 0x1 >;
+			status = "okay";
+		};
+	};
+	leds {
+		compatible = "gpio-leds";
+		green_led: led_1 {
+			gpios = < &gpio0 0xe 0x0 >;
+			label = "User LED_GREEN";
+			status = "okay";
+		};
+		blue_led: led_2 {
+			gpios = < &gpio0 0x1a 0x0 >;
+			label = "User LED_BLUE";
+			status = "okay";
+		};
+		red_led: led_3 {
+			gpios = < &gpio0 0x1f 0x0 >;
+			label = "User LED_RED";
+			status = "okay";
+		};
+	};
+};

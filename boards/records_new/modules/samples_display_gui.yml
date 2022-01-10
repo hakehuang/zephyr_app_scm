@@ -5,11 +5,11 @@ cases:
     catalog: samples display gui
     extra_configs:
     - CONFIG_DUMMY_DISPLAY=y
-    - CONFIG_DUMMY_DISPLAY_DEV_NAME="DISPLAY"
     - CONFIG_KSCAN=n
     - CONFIG_SDL_DISPLAY=n
+    extra_args: DTC_OVERLAY_FILE="dummy_dc.overlay"
     build_only: true
-    platform_allow: native_posix
+    platform_allow: native_posix native_posix_64
   sample.gui.lvgl:
     path: samples/subsys/display/lvgl
     catalog: samples display gui

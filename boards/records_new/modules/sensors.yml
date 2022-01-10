@@ -197,6 +197,12 @@ cases:
     depends_on: i2c
     filter: dt_compat_enabled("microchip,mcp9808")
     platform_allow: nucleo_l053r8
+  sample.sensor.mhz19b:
+    path: samples/sensor/mhz19b
+    catalog: sensors
+    build_only: true
+    depends_on: serial
+    filter: dt_compat_enabled("winsen,mhz19b")
   sample.sensor.mpr:
     path: samples/sensor/mpr
     catalog: sensors
@@ -256,6 +262,11 @@ cases:
     catalog: sensors
     platform_allow: reel_board nucleo_l496zg
     depends_on: i2c
+  sample.sensor.tmp108:
+    path: samples/sensor/tmp108
+    catalog: sensors
+    depends_on: i2c gpio
+    filter: dt_compat_enabled("ti,tmp108")
   sample.sensor.tmp112:
     path: samples/sensor/tmp112
     catalog: sensors

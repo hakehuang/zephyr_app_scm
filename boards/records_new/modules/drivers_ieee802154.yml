@@ -12,7 +12,7 @@ cases:
     extra_configs:
     - CONFIG_IEEE802154_CC13XX_CC26XX=y
     - CONFIG_IEEE802154_CC13XX_CC26XX_SUB_GHZ=y
-    platform_allow: cc1352_sensortag
+    platform_allow: cc1352r_sensortag
     build_only: true
   ieee802154.build.kw41z:
     path: tests/drivers/build_all/ieee802154

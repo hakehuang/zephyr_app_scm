@@ -10,9 +10,15 @@ cases:
   drivers.gpio.2pin:
     path: tests/drivers/gpio/gpio_basic_api
     catalog: drivers gpio
-    depends_on: gpio
     min_flash: 34
     filter: dt_compat_enabled("test-gpio-basic-api")
+    depends_on: gpio
+  drivers.gpio.nrf_sense_edge:
+    path: tests/drivers/gpio/gpio_basic_api
+    catalog: drivers gpio
+    extra_args: DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840.overlay;boards/nrf52840dk_nrf52840_sense_edge.overlay
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
   drivers.regulator.fixed.onoff:
     path: tests/drivers/regulator/fixed
     catalog: drivers gpio

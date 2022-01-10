@@ -1,0 +1,188 @@
+def loadValuesYaml(){
+  def valuesYaml = readYaml (file: '#{@board}.yaml') 
+  return valuesYaml;
+}
+
+def stage_list0 = new ArrayList();
+def stage_list1 = new ArrayList();
+def stage_list2 = new ArrayList();
+def stage_list3 = new ArrayList();
+def stage_list4 = new ArrayList();
+def stage_list5 = new ArrayList();
+def stage_list6 = new ArrayList();
+def stage_list7 = new ArrayList();
+def stage_list8 = new ArrayList();
+def stage_list9 = new ArrayList();
+
+def generateStage(job) {
+    return {
+        stage("stage: $job") {
+            def var1 = load "boards/#{@board}.groovy"
+            var1."$job"()
+            println("**********$job************")
+        }
+    }
+}
+
+pipeline {
+  agent any
+  environment {
+    PATH = "/root/.local/bin/:$PATH"
+  }
+  stages {
+    stage('CICD Initialize') {
+      steps {
+        script{
+            valuesYaml = loadValuesYaml()
+            for (entry in valuesYaml.catalog0) {
+              stage_list0.add("$entry.key")
+            }
+            for (entry in valuesYaml.catalog1) {
+              stage_list1.add("$entry.key")
+            }
+            for (entry in valuesYaml.catalog2) {
+              stage_list2.add("$entry.key")
+            }
+            for (entry in valuesYaml.catalog3) {
+              stage_list3.add("$entry.key")
+            }
+            for (entry in valuesYaml.catalog4) {
+              stage_list4.add("$entry.key")
+            }
+            for (entry in valuesYaml.catalog5) {
+              stage_list5.add("$entry.key")
+            }
+            for (entry in valuesYaml.catalog6) {
+              stage_list6.add("$entry.key")
+            }
+            for (entry in valuesYaml.catalog7) {
+              stage_list7.add("$entry.key")
+            }
+            for (entry in valuesYaml.catalog8) {
+              stage_list8.add("$entry.key")
+            }
+            for (entry in valuesYaml.catalog9) {
+              stage_list9.add("$entry.key")
+            }
+          echo 'not parallel stage'
+        }
+      }
+    }
+    stage('env build') {
+      parallel {
+        stage('hello world') {
+          steps {
+            sh '''docker exec confident_sinoussi run_setup.sh $(basename $(pwd)) #{@board}'''
+            sh 'docker exec confident_sinoussi build_zephyr_elf.sh  $(basename $(pwd)) samples/hello_world #{@board} build'
+            sh 'docker exec confident_sinoussi run_zephyr_elf.sh $(basename $(pwd)) samples/hello_world'
+          }
+        }
+      }
+    }
+    stage('first stages') {
+      steps {
+          script {                    
+              def parallelStagesMap0 = stage_list0.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap0
+          }
+      }
+    }
+    stage('second stages') {
+      steps {
+          script {                    
+              def parallelStagesMap1 = stage_list1.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap1
+          }
+      }
+    }
+    stage('third stages') {
+      steps {
+          script {                    
+              def parallelStagesMap2 = stage_list2.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap2
+          }
+      }
+    }
+    stage('forth stages') {
+      steps {
+          script {                    
+              def parallelStagesMap3 = stage_list3.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap3
+          }
+      }
+    }
+    stage('fifth stages') {
+      steps {
+          script {                    
+              def parallelStagesMap4 = stage_list4.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap4
+          }
+      }
+    }
+    stage('sixth stages') {
+      steps {
+          script {                    
+              def parallelStagesMap5 = stage_list5.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap5
+          }
+      }
+    }
+    stage('seventh stages') {
+      steps {
+          script {                    
+              def parallelStagesMap6 = stage_list6.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap6
+          }
+      }
+    }
+    stage('eighth stages') {
+      steps {
+          script {                    
+              def parallelStagesMap7 = stage_list7.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap7
+          }
+      }
+    }
+    stage('ninth stages') {
+      steps {
+          script {                    
+              def parallelStagesMap8 = stage_list8.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap8
+          }
+      }
+    }
+    stage('tenth stages') {
+      steps {
+          script {                    
+              def parallelStagesMap9 = stage_list9.collectEntries {
+              ["$it" : generateStage(it)]
+            }
+            parallel parallelStagesMap9
+          }
+      }
+    }
+  }
+  post {
+      always {
+          junit '*.xml'
+      }
+  }
+}

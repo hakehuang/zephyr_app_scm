@@ -75,6 +75,10 @@ cases:
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_USERSPACE=n
+  kernel.objects.tracking:
+    path: tests/kernel/obj_tracking
+    catalog: kernel
+    platform_exclude: qemu_x86_tiny
   kernel.objects:
     path: tests/kernel/pending
     catalog: kernel
@@ -111,7 +115,7 @@ cases:
   kernel.workqueue:
     path: tests/kernel/workq/critical
     catalog: kernel
-    platform_exclude: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    platform_exclude: nsim_sem_mpu_stack_guard
     filter: not CONFIG_WDT_SAM
   kernel.workqueue.sam:
     path: tests/kernel/workq/critical
@@ -124,11 +128,12 @@ cases:
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
-    platform_allow: nsim_sem_mpu_stack_guard nsim_em_mpu_stack_guard
+    platform_allow: nsim_sem_mpu_stack_guard
   kernel.work.api:
     path: tests/kernel/workq/work
     catalog: kernel
     min_flash: 34
+    platform_exclude: hifive1
   kernel.workqueue.work_queue:
     path: tests/kernel/workq/work_queue
     catalog: kernel

@@ -93,19 +93,25 @@ cases:
     path: tests/drivers/build_all/modem
     catalog: drivers
     extra_args: CONF_FILE=modem.conf
-    platform_exclude: serpente particle_boron rak5010_nrf52840 litex_vexriscv
+    platform_exclude: serpente particle_boron rak5010_nrf52840 litex_vexriscv ip_k66f
     build_only: true
   drivers.modem.ublox_sara.build:
     path: tests/drivers/build_all/modem
     catalog: drivers
     extra_args: CONF_FILE=modem_ublox_sara.conf
-    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv
+    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
+    build_only: true
+  drivers.modem.simcom_sim7080.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers
+    extra_args: CONF_FILE=modem_simcom_sim7080.conf
+    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
     build_only: true
   drivers.modem.quectel_bg9x.build:
     path: tests/drivers/build_all/modem
     catalog: drivers
     extra_args: CONF_FILE=modem_quectel_bg9x.conf
-    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv
+    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
     build_only: true
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
@@ -214,15 +220,21 @@ cases:
       '
     depends_on: counter
     platform_allow: nrf52840dk_nrf52840
-  drivers.counter.cmos:
-    path: tests/drivers/counter/counter_cmos
-    catalog: drivers
-    arch_allow: x86
   drivers.counter.fixed_top:
     path: tests/drivers/counter/counter_nrf_rtc/fixed_top
     catalog: drivers
     depends_on: counter
     platform_allow: nrf52840dk_nrf52840
+  drivers.counter.cmos:
+    path: tests/drivers/counter/counter_seconds
+    catalog: drivers
+    extra_configs:
+    - CONFIG_COUNTER_CMOS=y
+    arch_allow: x86
+  drivers.counter.mcux.snvs.rtc:
+    path: tests/drivers/counter/counter_seconds
+    catalog: drivers
+    platform_allow: mimxrt1064_evk
   drivers.counter.maxim_ds3231:
     path: tests/drivers/counter/maxim_ds3231_api
     catalog: drivers

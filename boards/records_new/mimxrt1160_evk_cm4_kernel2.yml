@@ -1,0 +1,35 @@
+---
+settings:
+  case_pipe_name: "mimxrt1160_evk_cm4_kernel2"
+  version: v2.7.99-2752-g241b477f93
+__load__:
+- modules/kernel_smp_spinlock.yml
+- modules/kernel_smp_linker_generator.yml
+- modules/kernel_smp_ignore_faults_linker_generator.yml
+- modules/kernel_smp_ignore_faults.yml
+- modules/kernel_smp.yml
+- modules/kernel_sleep_linker_generator.yml
+- modules/kernel_sleep.yml
+- modules/kernel_security_userspace_scrub_registers.yml
+- modules/kernel_security_userspace_ignore_faults.yml
+- modules/kernel_security_userspace.yml
+- modules/kernel_security_ignore_faults.yml
+- modules/kernel_mmu_ignore_faults.yml
+- modules/kernel_mmu_demand_paging_ignore_faults.yml
+- modules/kernel_memory_protection.yml
+- modules/kernel_linker_generator.yml
+- modules/kernel_interrupt_linker_generator.yml
+- modules/kernel_interrupt_isr_table_linker_generator.yml
+- modules/kernel_interrupt_isr_table.yml
+- modules/kernel_interrupt.yml
+- modules/kernel_ignore_faults_userspace.yml
+- modules/kernel_ignore_faults_memory_protection.yml
+- modules/kernel_ignore_faults.yml
+- modules/kernel_device.yml
+- modules/kernel_condition_variables.yml
+- skips/mimxrt1160_evk_cm4.yml
+- boards/mimxrt1160_evk_cm4.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

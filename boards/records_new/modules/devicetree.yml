@@ -3,7 +3,10 @@ cases:
   libraries.devicetree:
     path: tests/lib/devicetree/api
     catalog: devicetree
+  libraries.devicetree_ext:
+    path: tests/lib/devicetree/api_ext
+    catalog: devicetree
   libraries.devicetree.devices:
     path: tests/lib/devicetree/devices
     catalog: devicetree
-    platform_exclude: hsdk hsdk_2cores
+    platform_exclude: hsdk hsdk_2cores thingy52_nrf52832

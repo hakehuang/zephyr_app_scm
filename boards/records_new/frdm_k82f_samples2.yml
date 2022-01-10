@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_k82f_samples2"
-  version: v2.7.99-1953-g8171417f77
+  version: v2.7.99-2752-g241b477f93
 __load__:
 - modules/net_zperf.yml
 - modules/net_wifi_updatehub.yml
@@ -24,6 +24,7 @@ __load__:
 - modules/net_ppp_modem_gsm.yml
 - modules/net_ppp.yml
 - modules/net_openthread.yml
+- modules/net_npf.yml
 - modules/net_net_context.yml
 - modules/net_net-shell.yml
 - modules/net_net-all.yml

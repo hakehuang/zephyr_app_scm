@@ -64,7 +64,7 @@ LONG_CASE_DURATION = {
   'libraries.libc.newlib.thread_safety.userspace.stress' => {'timeout' => 600},
   'libraries.libc.newlib_nano.thread_safety.stress' => {'timeout' => 600},
   'libraries.libc.newlib_nano.thread_safety.userspace.stress' => {'timeout' => 600},
-  'libraries.libc.newlib.thread_safety.stress' => {'timeout' => 600},
+  'libraries.libc.newlib.thread_safety.stress' => {'timeout' => 1000},
 }
 
 class Parser
@@ -361,6 +361,7 @@ def split_test_catalog(fn, outdir, template_dir)
   cases_cat.keys().sort!.each do |k|
     module_name = "#{k.gsub(" ", "_")}.yml"
     # puts module_name
+#=begin
     if module_name.downcase().start_with?("usb")
       template_files_hash['board_usb_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^cmsis_dsp/) or
@@ -408,6 +409,8 @@ def split_test_catalog(fn, outdir, template_dir)
     else
       template_files_hash['board_5_template.yml']["__load__"].unshift("modules/#{module_name}")
     end
+#=end
+  # template_files_hash['board_template.yml']["__load__"].unshift("modules/#{module_name}")
   end
 
   template_files_hash.each do |k, v|

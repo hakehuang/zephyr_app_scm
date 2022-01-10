@@ -3,3 +3,24 @@ cases:
   subsys.pm.device_runtime_api:
     path: tests/subsys/pm/device_runtime_api
     catalog: pm
+  pm-device-wakeup-api.dts:
+    path: tests/subsys/pm/device_wakeup_api
+    catalog: pm
+    platform_allow: native_posix
+  subsys.pm.system:
+    path: tests/subsys/pm/power_mgmt
+    catalog: pm
+    platform_allow: native_posix
+  subsys.pm.multicore:
+    path: tests/subsys/pm/power_mgmt_multicore
+    catalog: pm
+    platform_allow: qemu_x86_64
+  subsys.pm.pm_soc:
+    path: tests/subsys/pm/power_mgmt_soc
+    catalog: pm
+    platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
+      nucleo_wb55rg nucleo_l476rg twr_ke18f
+  pm-states-api.dts:
+    path: tests/subsys/pm/power_states_api
+    catalog: pm
+    platform_allow: native_posix

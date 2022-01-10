@@ -26,6 +26,10 @@ cases:
     catalog: unknown
     build_only: true
     platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.boards.nrf.nrf_led_matrix:
+    path: samples/boards/nrf/nrf_led_matrix
+    catalog: unknown
+    filter: dt_compat_enabled("nordic,nrf-led-matrix")
   sample.boards.stm32.backup_sram:
     path: samples/boards/stm32/backup_sram
     catalog: unknown
@@ -42,7 +46,7 @@ cases:
     path: samples/drivers/counter/maxim_ds3231
     catalog: unknown
     build_only: true
-    platform_allow: efr32mg_sltb004a frdm_k64f nrf51_pca10028 nucleo_l476rg particle_xenon
+    platform_allow: efr32mg_sltb004a frdm_k64f nrf51dk_nrf51422 nucleo_l476rg particle_xenon
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   sample.display.shield.waveshare_epaper_gdeh0213b1:
     path: samples/drivers/display
@@ -99,6 +103,41 @@ cases:
     catalog: unknown
     extra_args: APPLICATION_CONFIG_DIR:PATH=foo
     platform_allow: native_posix
+    build_only: true
+  drivers.stm32_clock_configuration.u5.sysclksrc_pll_msis_160:
+    path: tests/drivers/clock_control/stm32_clock_configuration
+    catalog: unknown
+    platform_allow: b_u585i_iot02a
+  drivers.stm32_clock_configuration.u5.sysclksrc_pll_msis_80:
+    path: tests/drivers/clock_control/stm32_clock_configuration
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_pll_msi_80.overlay
+    platform_allow: b_u585i_iot02a
+  drivers.stm32_clock_configuration.u5.sysclksrc_pll_hsi_160:
+    path: tests/drivers/clock_control/stm32_clock_configuration
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_pll_hsi_160.overlay
+    platform_allow: b_u585i_iot02a
+  drivers.stm32_clock_configuration.u5.sysclksrc_pll_hsi_40:
+    path: tests/drivers/clock_control/stm32_clock_configuration
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_pll_hsi_40.overlay
+    platform_allow: b_u585i_iot02a
+  drivers.stm32_clock_configuration.u5.sysclksrc_msis_48:
+    path: tests/drivers/clock_control/stm32_clock_configuration
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_msis_48.overlay
+    platform_allow: b_u585i_iot02a
+  drivers.stm32_clock_configuration.u5.sysclksrc_msis_24:
+    path: tests/drivers/clock_control/stm32_clock_configuration
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_msis_24.overlay
+    platform_allow: b_u585i_iot02a
+  drivers.stm32_clock_configuration.u5.sysclksrc_pll_hse_160:
+    path: tests/drivers/clock_control/stm32_clock_configuration
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/nucleo_u575zi_q_pll_hse_160.overlay
+    platform_allow: nucleo_u575zi_q
     build_only: true
   virtualization.ivshmem:
     path: tests/drivers/virtualization/ivshmem

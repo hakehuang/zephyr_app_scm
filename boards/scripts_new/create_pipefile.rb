@@ -242,6 +242,8 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
       pipe_data[:catalog][catalog]['cases'][key]['bin'] = @content["cases"][key]["bin"]
     end
   end
+  #File.write('./merged_data_pipe.yml', YAML.dump(pipe_data))
+  
   output = engine.render(template, pipe_data)
   out_line = ''
   output.each_line do |line|

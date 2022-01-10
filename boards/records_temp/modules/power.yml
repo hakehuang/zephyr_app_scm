@@ -26,20 +26,3 @@ cases:
     path: samples/subsys/pm/device_pm
     catalog: power
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
-  pm-device-wakeup-api.dts:
-    path: tests/subsys/pm/device_wakeup_api
-    catalog: power
-    platform_allow: native_posix
-  subsys.pm.device_pm:
-    path: tests/subsys/pm/power_mgmt
-    catalog: power
-    platform_allow: native_posix
-  subsys.pm.pm_soc:
-    path: tests/subsys/pm/power_mgmt_soc
-    catalog: power
-    platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
-      nucleo_wb55rg nucleo_l476rg twr_ke18f
-  pm-states-api.dts:
-    path: tests/subsys/pm/power_states_api
-    catalog: power
-    platform_allow: native_posix

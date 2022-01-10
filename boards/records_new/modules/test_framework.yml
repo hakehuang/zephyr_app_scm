@@ -1,8 +1,9 @@
 ---
 cases:
-  testing.ztest.register:
+  testing.ztest.ztress:
     path: "."
     catalog: test_framework
+    filter: CONFIG_QEMU_TARGET
   testing.drivers.sbs_gauge:
     path: tests/drivers/sensor/sbs_gauge
     catalog: test_framework
@@ -62,6 +63,10 @@ cases:
     catalog: test_framework
     extra_args: CONF_FILE=prj_global.conf
     filter: CONFIG_ZEPHYR_FFF_MODULE
-  testing.ztest.register.register:
+  testing.ztest.register:
     path: tests/ztest/register
     catalog: test_framework
+  testing.ztest.ztress.ztress:
+    path: tests/ztest/ztress
+    catalog: test_framework
+    filter: CONFIG_QEMU_TARGET
