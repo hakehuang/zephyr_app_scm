@@ -1,5 +1,9 @@
 ---
 cases:
+  tracing.user:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_user.conf"
   tracing.format.sysview:
     path: samples/subsys/tracing
     catalog: tracing debug

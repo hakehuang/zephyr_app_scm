@@ -1,8 +1,9 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s28_5"
-  version: v2.7.99-2752-g241b477f93
+  version: zephyr-v3.0.0-838-gc050d1f2ec
 __load__:
+- modules/winstream.yml
 - modules/video_net_socket.yml
 - modules/video.yml
 - modules/utils_lists.yml
@@ -26,6 +27,7 @@ __load__:
 - modules/test_framework_userspace_ignore_faults.yml
 - modules/test_framework_ignore_faults.yml
 - modules/test_framework_bluetooth_bt_version_exchange_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_unsupported_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_tx_buffer_alloc_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_terminate_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_phy_update_bt_ull_llcp.yml
@@ -60,6 +62,7 @@ __load__:
 - modules/settings_file.yml
 - modules/settings_fcb.yml
 - modules/settings.yml
+- modules/serial_uart.yml
 - modules/secure.yml
 - modules/samples_sensor.yml
 - modules/samples_nanopb.yml

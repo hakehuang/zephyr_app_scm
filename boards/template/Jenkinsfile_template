@@ -43,6 +43,18 @@
   <?rb end ?>
 <?rb end ?>
 
+properties([
+  // only keep 1 builds to prevent disk usage from growing out of control
+  buildDiscarder(
+    logRotator(
+      artifactDaysToKeepStr: '7', 
+      artifactNumToKeepStr: '1', 
+      daysToKeepStr: '', 
+      numToKeepStr: '',
+    ),
+  ),
+])
+
 pipeline {
   agent any
   environment {

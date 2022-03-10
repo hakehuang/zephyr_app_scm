@@ -1,0 +1,14 @@
+---
+settings:
+  case_pipe_name: "mimxrt595_evk_cm33_cmsis"
+  version: zephyr-v3.0.0-838-gc050d1f2ec
+__load__:
+- modules/cmsis_rtos.yml
+- modules/cmsis_dsp_fpu.yml
+- modules/cmsis_dsp.yml
+- skips/mimxrt595_evk_cm33.yml
+- boards/mimxrt595_evk_cm33.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

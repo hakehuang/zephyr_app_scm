@@ -10,7 +10,7 @@ cases:
     path: tests/crypto/mbedtls
     catalog: crypto mbedtls userspace
     extra_configs:
-    - CONFIG_ZTEST_STACKSIZE=8192
+    - CONFIG_ZTEST_STACK_SIZE=8192
     arch_allow: riscv64
     min_flash: 65
     min_ram: 36

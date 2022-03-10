@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1060_evk"
-  version: v2.7.99-2752-g241b477f93
+  version: zephyr-v3.0.0-838-gc050d1f2ec
 __load__:
 - modules/button_gpio.yml
 - modules/boards.yml
@@ -28,6 +28,7 @@ __load__:
 - modules/arm_fpu.yml
 - modules/arm.yml
 - modules/adc_xec.yml
+- modules/adc_test.yml
 - modules/adc_stm32.yml
 - modules/adc_sam_afec.yml
 - modules/adc_sam0.yml
@@ -41,6 +42,7 @@ __load__:
 - modules/adc_ite_it8xxx2.yml
 - modules/adc_emul.yml
 - modules/adc_cc32xx.yml
+- modules/adc_ads1x1x.yml
 - modules/adc_drivers_userspace.yml
 - modules/adc_dma_trigger.yml
 - modules/ADC.yml

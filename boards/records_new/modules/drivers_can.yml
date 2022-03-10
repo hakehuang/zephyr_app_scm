@@ -1,0 +1,22 @@
+---
+cases:
+  drivers.can.api:
+    path: tests/drivers/can/api
+    catalog: drivers can
+    depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")
+  drivers.can.canfd:
+    path: tests/drivers/can/canfd
+    catalog: drivers can
+    depends_on: canfd
+    filter: dt_chosen_enabled("zephyr,canbus")
+  drivers.can.stm32:
+    path: tests/drivers/can/stm32
+    catalog: drivers can
+    depends_on: can
+    filter: dt_compat_enabled("st,stm32-can") and dt_chosen_enabled("zephyr,canbus")
+  drivers.can.timing:
+    path: tests/drivers/can/timing
+    catalog: drivers can
+    depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")

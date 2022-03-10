@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1170_evk_cm4_4"
-  version: v2.7.99-2752-g241b477f93
+  version: zephyr-v3.0.0-838-gc050d1f2ec
 __load__:
 - modules/pwm_xlnx_axi_timer.yml
 - modules/pwm_xec.yml
@@ -48,6 +48,7 @@ __load__:
 - modules/mcux.yml
 - modules/mcuboot.yml
 - modules/mbox.yml
+- modules/lwm2m_net.yml
 - modules/lorawan.yml
 - modules/lora.yml
 - modules/logging_usermode.yml

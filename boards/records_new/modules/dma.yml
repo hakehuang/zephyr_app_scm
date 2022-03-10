@@ -12,3 +12,13 @@ cases:
     depends_on: spi
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
       arduino_zero adafruit_trinket_m0
+  drivers.stm32_spi_dma.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: dma
+    extra_args: OVERLAY_CONFIG="overlay-stm32-spi-dma.conf"
+    filter: CONFIG_SOC_FAMILY_STM32
+    platform_allow: nucleo_g474re nucleo_f207zg nucleo_f429zi nucleo_f746zg nucleo_wb55rg
+      nucleo_wl55jc nucleo_h743zi
+    depends_on: spi
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
+      arduino_zero adafruit_trinket_m0

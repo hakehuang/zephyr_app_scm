@@ -105,7 +105,7 @@ cases:
     - CONFIG_CPU_HAS_FPU
     - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
     platform_exclude:
-    - qemu_riscv32
+    - qemu_riscv32 qemu_riscv32_smp
     - qemu_arc_hs6x
   libraries.cbprintf_package_long_double_align_offset:
     path: tests/lib/cbprintf_package
@@ -120,7 +120,7 @@ cases:
     - CONFIG_CPU_HAS_FPU
     - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
     platform_exclude:
-    - qemu_riscv32
+    - qemu_riscv32 qemu_riscv32_smp
     - qemu_arc_hs6x
   libraries.cbprintf_package_nano:
     path: tests/lib/cbprintf_package

@@ -23,3 +23,7 @@ cases:
     path: tests/benchmarks/mbedtls
     catalog: crypto
     filter: CONFIG_TEST_RANDOM_GENERATOR
+  crypto.hash:
+    path: tests/crypto/crypto_hash
+    catalog: crypto
+    platform_allow: native_posix

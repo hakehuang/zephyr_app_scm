@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1170_evk_cm4_socket"
-  version: v2.7.99-2752-g241b477f93
+  version: zephyr-v3.0.0-838-gc050d1f2ec
 __load__:
 - modules/net_syslog.yml
 - modules/net_statistics.yml
@@ -17,7 +17,7 @@ __load__:
 - modules/net_socket_mgmt.yml
 - modules/net_socket_http.yml
 - modules/net_socket_getaddrinfo_userspace.yml
-- modules/net_socket_can_CAN.yml
+- modules/net_socket_can.yml
 - modules/net_socket_af_packet.yml
 - modules/net_socket.yml
 - skips/mimxrt1170_evk_cm4.yml

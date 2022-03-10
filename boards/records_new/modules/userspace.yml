@@ -4,7 +4,7 @@ cases:
     path: samples/userspace/syscall_perf
     catalog: userspace
     filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_allow: riscv32
+    arch_allow: riscv32 riscv64
   sample.net.sockets.net_mgmt.usermode:
     path: samples/net/sockets/net_mgmt
     catalog: userspace

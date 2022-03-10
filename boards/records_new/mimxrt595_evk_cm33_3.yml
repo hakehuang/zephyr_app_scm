@@ -1,0 +1,55 @@
+---
+settings:
+  case_pipe_name: "mimxrt595_evk_cm33_3"
+  version: zephyr-v3.0.0-838-gc050d1f2ec
+__load__:
+- modules/kconfig.yml
+- modules/k_heap_api_kernel_linker_generator.yml
+- modules/k_heap_api_kernel.yml
+- modules/jwt.yml
+- modules/json.yml
+- modules/iterable_sections.yml
+- modules/ipm.yml
+- modules/ipc_service.yml
+- modules/ipc.yml
+- modules/introduction_tfm_crypto_csr.yml
+- modules/introduction_tfm.yml
+- modules/introduction.yml
+- modules/interrupt_nmi.yml
+- modules/ignore_faults_interrupt_idt.yml
+- modules/ignore_faults_ignore_qemu_crash.yml
+- modules/ibecc_ibecc_cov.yml
+- modules/i2s_example.yml
+- modules/i2s.yml
+- modules/i2c.yml
+- modules/http_net.yml
+- modules/heap.yml
+- modules/gpio.yml
+- modules/getopt.yml
+- modules/gen_inc_file.yml
+- modules/fpu_kernel_userspace.yml
+- modules/fpu_kernel_ignore_faults_userspace.yml
+- modules/fpu_kernel.yml
+- modules/footprint.yml
+- modules/flash_map.yml
+- modules/flash_circural_buffer.yml
+- modules/flash_shell.yml
+- modules/flash_nrf52_nrf_qspi_fash.yml
+- modules/flash_nrf52_nrf9160.yml
+- modules/filesystem.yml
+- modules/fdtable.yml
+- modules/external.yml
+- modules/esp32.yml
+- modules/eeprom_shield.yml
+- modules/eeprom.yml
+- modules/edac_ibecc.yml
+- modules/edac.yml
+- modules/ec_host_cmd.yml
+- modules/ec.yml
+- modules/I2S.yml
+- skips/mimxrt595_evk_cm33.yml
+- boards/mimxrt595_evk_cm33.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

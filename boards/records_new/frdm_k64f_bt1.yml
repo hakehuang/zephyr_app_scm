@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_k64f_bt1"
-  version: v2.7.99-2752-g241b477f93
+  version: zephyr-v3.0.0-838-gc050d1f2ec
 __load__:
 - modules/bluetooth_uuid.yml
 - modules/bluetooth_spi.yml
@@ -9,6 +9,7 @@ __load__:
 - modules/bluetooth_net.yml
 - modules/bluetooth_mesh.yml
 - modules/bluetooth_l2cap.yml
+- modules/bluetooth_host.yml
 - modules/bluetooth_hci_prop_event.yml
 - modules/bluetooth_gatt.yml
 - modules/bluetooth_bt_ull_llcp.yml

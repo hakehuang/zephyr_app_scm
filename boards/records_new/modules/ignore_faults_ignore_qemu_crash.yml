@@ -16,3 +16,9 @@ cases:
     extra_args: CONF_FILE=prj_flash_partition.conf
     filter: CONFIG_ARCH_SUPPORTS_COREDUMP
     platform_allow: qemu_x86
+  coredump.backends.other:
+    path: tests/subsys/debug/coredump_backends
+    catalog: ignore_faults ignore_qemu_crash
+    extra_args: CONF_FILE=prj_backend_other.conf
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_exclude: acrn_ehl_crb

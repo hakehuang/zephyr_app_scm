@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "twr_ke18f_2"
-  version: v2.7.99-2752-g241b477f93
+  version: zephyr-v3.0.0-838-gc050d1f2ec
 __load__:
 - modules/dns_net.yml
 - modules/dmic.yml
@@ -36,9 +36,9 @@ __load__:
 - modules/clib_ignore_faults.yml
 - modules/ci_build.yml
 - modules/cbprintf.yml
+- modules/can.yml
 - modules/DMIC.yml
 - modules/DAC.yml
-- modules/CAN.yml
 - skips/twr_ke18f.yml
 - boards/twr_ke18f.yml
 cases:

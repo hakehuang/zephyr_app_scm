@@ -3,6 +3,9 @@ test_framework:
   testing.ztest.ztress:
     path: "."
     catalog: test_framework
+    extra_configs:
+    - CONFIG_MP_NUM_CPUS=1
+    platform_exclude: qemu_cortex_a9
     filter: CONFIG_QEMU_TARGET
   testing.drivers.sbs_gauge:
     path: tests/drivers/sensor/sbs_gauge
@@ -69,13 +72,16 @@ test_framework:
   testing.ztest.ztress.ztress:
     path: tests/ztest/ztress
     catalog: test_framework
+    extra_configs:
+    - CONFIG_MP_NUM_CPUS=1
+    platform_exclude: qemu_cortex_a9
     filter: CONFIG_QEMU_TARGET
 userspace:
   sample.syscall_performances:
     path: samples/userspace/syscall_perf
     catalog: userspace
     filter: CONFIG_ARCH_HAS_USERSPACE
-    platform_allow: riscv32
+    arch_allow: riscv32 riscv64
   sample.net.sockets.net_mgmt.usermode:
     path: samples/net/sockets/net_mgmt
     catalog: userspace
@@ -96,6 +102,10 @@ linker:
     path: samples/application_development/code_relocation
     catalog: linker
     platform_allow: qemu_cortex_m3 mps2_an385 sam_e70_xplained
+  sample.application_development.code_relocation_nocopy:
+    path: samples/application_development/code_relocation_nocopy
+    catalog: linker
+    platform_allow: qemu_cortex_m3 nrf5340dk_nrf5340_cpuapp
 external:
   sample.app_dev.external_lib:
     path: samples/application_development/external_lib
@@ -131,11 +141,6 @@ introduction:
     path: samples/kernel/metairq_dispatch
     catalog: introduction
     filter: not CONFIG_ARCH_POSIX
-  sample.modules.canopennode:
-    path: samples/modules/canopennode
-    catalog: introduction
-    depends_on: can
-    platform_allow: twr_ke18f frdm_k64f
   sample.kernel.philosopher:
     path: samples/philosophers
     catalog: introduction
@@ -143,27 +148,27 @@ introduction:
   sample.kernel.philosopher.same_prio:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+    extra_args: SAME_PRIO=1 DEBUG_PRINTF=1
   sample.kernel.philosopher.static:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DSTATIC_OBJS=1 DEBUG_PRINTF=1"
+    extra_args: STATIC_OBJS=1 DEBUG_PRINTF=1
   sample.kernel.philosopher.semaphores:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+    extra_args: FORKS=SEMAPHORES DEBUG_PRINTF=1
   sample.kernel.philosopher.stacks:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=STACKS DEBUG_PRINTF=1"
+    extra_args: FORKS=STACKS DEBUG_PRINTF=1
   sample.kernel.philosopher.fifos:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=FIFOS DEBUG_PRINTF=1"
+    extra_args: FORKS=FIFOS DEBUG_PRINTF=1
   sample.kernel.philosopher.lifos:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=LIFOS DEBUG_PRINTF=1"
+    extra_args: FORKS=LIFOS DEBUG_PRINTF=1
   sample.kernel.philosopher.preempt_only:
     path: samples/philosophers
     catalog: introduction
@@ -183,6 +188,7 @@ introduction:
   sample.helloworld:
     path: samples/userspace/hello_world_user
     catalog: introduction
+    filter: CONFIG_ARCH_HAS_USERSPACE
     platform_exclude: intel_adsp_cavs15
 LED gpio:
   sample.basic.blinky:
@@ -325,13 +331,18 @@ bluetooth:
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86 nrf52_bsim
   sample.bluetooth.direction_finding_connectionless_rx:
-    path: samples/bluetooth/direction_finding_connectionless_rx
+    path: samples/bluetooth/direction_finding_peripheral
     catalog: bluetooth
-    platform_allow: nrf52833dk_nrf52833
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding_connectionless_rx.aod:
+    path: samples/bluetooth/direction_finding_peripheral
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-aoa.conf"
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.direction_finding_connectionless:
     path: samples/bluetooth/direction_finding_connectionless_tx
     catalog: bluetooth
-    platform_allow: nrf52833dk_nrf52833
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.eddystone:
     path: samples/bluetooth/eddystone
     catalog: bluetooth
@@ -466,6 +477,14 @@ bluetooth:
     path: samples/bluetooth/st_ble_sensor
     catalog: bluetooth
     platform_allow: nucleo_wb55rg
+  sample.bluetooth.audio_unicast_client:
+    path: samples/bluetooth/unicast_audio_client
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.audio_unicast_server:
+    path: samples/bluetooth/unicast_audio_server
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.mesh.onoff:
     path: samples/boards/nrf/mesh/onoff-app
     catalog: bluetooth
@@ -493,11 +512,6 @@ bluetooth:
     platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
-  sample.mcumg.smp_svr.bt_tiny:
-    path: samples/subsys/mgmt/mcumgr/smp_svr
-    catalog: bluetooth
-    extra_args: OVERLAY_CONFIG="overlay-bt-tiny.conf"
-    platform_allow: nrf51dk_nrf51422
   sample.mcumg.smp_svr.bt:
     path: samples/subsys/mgmt/mcumgr/smp_svr
     catalog: bluetooth
@@ -547,6 +561,10 @@ bluetooth:
     path: tests/bluetooth/bluetooth
     catalog: bluetooth
     platform_allow: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
+  bluetooth.isoal.test:
+    path: tests/bluetooth/ctrl_isoal
+    catalog: bluetooth
+    platform_allow: native_posix
   bluetooth.ctrl_sw_privacy.test:
     path: tests/bluetooth/ctrl_sw_privacy
     catalog: bluetooth
@@ -1068,16 +1086,11 @@ bluetooth:
     catalog: bluetooth
     platform_allow: qemu_x86
 unknown:
-  sample.bluetooth.direction_finding_connectionless_rx.aod:
-    path: samples/bluetooth/direction_finding_connectionless_rx
-    catalog: unknown
-    extra_args: OVERLAY_CONFIG="overlay-aod.conf"
-    platform_allow: nrf52833dk_nrf52833
   sample.bluetooth.direction_finding_connectionless.aoa:
     path: samples/bluetooth/direction_finding_connectionless_tx
     catalog: unknown
     extra_args: OVERLAY_CONFIG="overlay-aoa.conf"
-    platform_allow: nrf52833dk_nrf52833
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.peripheral.x_nucleo_idb05a1_shield:
     path: samples/bluetooth/peripheral
     catalog: unknown
@@ -1094,6 +1107,18 @@ unknown:
     catalog: unknown
     build_only: true
     platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.boards.nrf.nrf53_sync_rtc:
+    path: samples/boards/nrf/nrf53_sync_rtc
+    catalog: unknown
+    platform_allow: nrf5340dk_nrf5340_cpuapp
+    build_only: true
+  sample.boards.nrf.nrf53_sync_rtc_mbox:
+    path: samples/boards/nrf/nrf53_sync_rtc
+    catalog: unknown
+    extra_args: OVERLAY_CONFIG="boards/nrf5340dk_nrf5340_cpuapp_mbox.conf" DTC_OVERLAY_FILE="boards/nrf5340dk_nrf5340_cpuapp_mbox.overlay"
+      NET_OVERLAY_CONF="boards/nrf5340dk_nrf5340_cpunet_mbox.conf" NET_DTC_OVERLAY_FILE="boards/nrf5340dk_nrf5340_cpunet_mbox.overlay"
+    platform_allow: nrf5340dk_nrf5340_cpuapp
+    build_only: true
   sample.boards.nrf.nrf_led_matrix:
     path: samples/boards/nrf/nrf_led_matrix
     catalog: unknown
@@ -1110,6 +1135,11 @@ unknown:
     depends_on: mailbox
     build_only: true
     filter: dt_compat_enabled("st,stm32-hsem-mailbox")
+  sample.drivers.can.dfrobot_can_bus_v2_0:
+    path: samples/drivers/can
+    catalog: unknown
+    extra_args: SHIELD=dfrobot_can_bus_v2_0
+    platform_allow: nrf52840dk_nrf52840
   sample.basic.maxim_ds3231:
     path: samples/drivers/counter/maxim_ds3231
     catalog: unknown
@@ -1120,6 +1150,11 @@ unknown:
     path: samples/drivers/display
     catalog: unknown
     extra_args: SHIELD=waveshare_epaper_gdeh0213b1
+    platform_allow: nrf52840dk_nrf52840
+  sample.display.shield.waveshare_epaper_gdew042t2:
+    path: samples/drivers/display
+    catalog: unknown
+    extra_args: SHIELD=waveshare_epaper_gdew042t2
     platform_allow: nrf52840dk_nrf52840
   sample.net.civetweb.http_server:
     path: samples/net/civetweb/http_server
@@ -1141,14 +1176,66 @@ unknown:
     path: tests/arch/x86/info
     catalog: unknown
     arch_allow: x86
-    platform_allow: qemu_x86 ehl_crb up_squared
+    filter: CONFIG_X86_PC_COMPATIBLE
   arch.x86.info.userspace:
     path: tests/arch/x86/info
     catalog: unknown
     extra_configs:
     - CONFIG_TEST_USERSPACE=y
     arch_allow: x86
-    platform_allow: qemu_x86 ehl_crb up_squared
+    filter: CONFIG_X86_PC_COMPATIBLE
+  bluetooth.audio_shell.no_pac_snk:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_PAC_SNK=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_pac_src:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_PAC_SRC=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_unicast_client:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_AUDIO_UNICAST_CLIENT=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_unicast_server:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_AUDIO_UNICAST_SERVER=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_broadcast_source:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_AUDIO_BROADCAST_SOURCE=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_broadcast_sink:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_AUDIO_BROADCAST_SINK=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  boards.intel_adsp:
+    path: tests/boards/intel_adsp/smoke
+    catalog: unknown
+    platform_allow: intel_adsp_cavs15 intel_adsp_cavs18 intel_adsp_cavs20 intel_adsp_cavs25
   boards.native_posix.cpu_wait:
     path: tests/boards/native_posix/cpu_wait
     catalog: unknown
@@ -1172,41 +1259,79 @@ unknown:
     extra_args: APPLICATION_CONFIG_DIR:PATH=foo
     platform_allow: native_posix
     build_only: true
-  drivers.stm32_clock_configuration.u5.sysclksrc_pll_msis_160:
-    path: tests/drivers/clock_control/stm32_clock_configuration
+  drivers.stm32_clock_configuration.h7.sysclksrc_pll_hse_96:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7
     catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse_96.overlay"
+    platform_allow: nucleo_h723zg
+  drivers.stm32_clock_configuration.h7.sysclksrc_pll_hsi_96:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hsi_96.overlay"
+    platform_allow: nucleo_h723zg
+  drivers.stm32_clock_configuration.h7.sysclksrc_hsi_64:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_64.overlay"
+    platform_allow: nucleo_h723zg
+  drivers.stm32_clock_configuration.h7.sysclksrc_csi_4:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/csi_4.overlay"
+    platform_allow: nucleo_h723zg
+  drivers.stm32_clock_configuration.h7.sysclksrc_hse_8:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hse_8.overlay"
+    platform_allow: nucleo_h723zg
+  drivers.stm32_clock_configuration.h7.sysclksrc_pll_csi_96:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_csi_96.overlay"
+    platform_allow: nucleo_h723zg
+  drivers.stm32_clock_configuration.h7.sysclksrc_pll_hse_550:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse_550.overlay"
+    platform_allow:
+    - nucleo_h723zg stm32h735g_disco
+    - nucleo_h723zg
+  drivers.stm32_clock_configuration.u5.sysclksrc_pll_msis_160:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_msis_160.overlay"
     platform_allow: b_u585i_iot02a
   drivers.stm32_clock_configuration.u5.sysclksrc_pll_msis_80:
-    path: tests/drivers/clock_control/stm32_clock_configuration
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5
     catalog: unknown
-    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_pll_msi_80.overlay
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_msis_80.overlay"
     platform_allow: b_u585i_iot02a
   drivers.stm32_clock_configuration.u5.sysclksrc_pll_hsi_160:
-    path: tests/drivers/clock_control/stm32_clock_configuration
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5
     catalog: unknown
-    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_pll_hsi_160.overlay
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hsi_160.overlay"
     platform_allow: b_u585i_iot02a
   drivers.stm32_clock_configuration.u5.sysclksrc_pll_hsi_40:
-    path: tests/drivers/clock_control/stm32_clock_configuration
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5
     catalog: unknown
-    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_pll_hsi_40.overlay
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hsi_40.overlay"
     platform_allow: b_u585i_iot02a
   drivers.stm32_clock_configuration.u5.sysclksrc_msis_48:
-    path: tests/drivers/clock_control/stm32_clock_configuration
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5
     catalog: unknown
-    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_msis_48.overlay
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/msis_48.overlay"
     platform_allow: b_u585i_iot02a
   drivers.stm32_clock_configuration.u5.sysclksrc_msis_24:
-    path: tests/drivers/clock_control/stm32_clock_configuration
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5
     catalog: unknown
-    extra_args: DTC_OVERLAY_FILE=boards/b_u585i_iot02a_msis_24.overlay
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/msis_24.overlay"
     platform_allow: b_u585i_iot02a
   drivers.stm32_clock_configuration.u5.sysclksrc_pll_hse_160:
-    path: tests/drivers/clock_control/stm32_clock_configuration
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5
     catalog: unknown
-    extra_args: DTC_OVERLAY_FILE=boards/nucleo_u575zi_q_pll_hse_160.overlay
-    platform_allow: nucleo_u575zi_q
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse_160.overlay"
     build_only: true
+    platform_allow: b_u585i_iot02a
   virtualization.ivshmem:
     path: tests/drivers/virtualization/ivshmem
     catalog: unknown
@@ -1513,7 +1638,7 @@ sensors:
     catalog: sensors
     depends_on: adc
     build_only: true
-    platform_allow: nucleo_f401re stm32f103_mini
+    platform_allow: nucleo_f401re stm32f103_mini stm32l562e_dk
   sample.sensor.sx9500:
     path: samples/sensor/sx9500
     catalog: sensors
@@ -1523,7 +1648,7 @@ sensors:
     path: samples/sensor/th02
     catalog: sensors
     depends_on: i2c
-    filter: dt_compat_enabled("hoperf,th02")
+    filter: dt_compat_enabled("hoperf,th02") and dt_compat_enabled("seeed,grove-lcd-rgb")
   sample.sensor.thermometer:
     path: samples/sensor/thermometer
     catalog: sensors
@@ -1689,8 +1814,8 @@ board:
     path: samples/boards/nrf/nrfx
     catalog: board
     platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
-  sample.board.olimex_stm32_e407.ccm:
-    path: samples/boards/olimex_stm32_e407/ccm
+  sample.board.stm32.ccm:
+    path: samples/boards/stm32/ccm
     catalog: board
     platform_allow: olimex_stm32_e407
 nrfx:
@@ -1750,7 +1875,7 @@ compression lz4:
   sample.compression.lz4:
     path: samples/compression/lz4
     catalog: compression lz4
-    min_ram: 32
+    min_ram: 40
     filter: TOOLCHAIN_HAS_NEWLIB == 1
 ADC:
   sample.drivers.adc:
@@ -1764,15 +1889,17 @@ DMIC:
     path: samples/drivers/audio/dmic
     catalog: DMIC
     filter: dt_nodelabel_enabled("dmic_dev")
-CAN:
+can:
   sample.drivers.can:
     path: samples/drivers/can
-    catalog: CAN
+    catalog: can
     depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")
   sample.subsys.canbus.isotp:
     path: samples/subsys/canbus/isotp
-    catalog: CAN
+    catalog: can
     depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")
 clock litex vexriscv mmcm:
   sample.driver.clock_control_litex:
     path: samples/drivers/clock_control_litex
@@ -1804,6 +1931,11 @@ drivers:
     extra_args: SHIELD=ftdi_vm800c
     depends_on: spi
     platform_allow: nrf52840dk_nrf52840
+  sample.drivers.misc.grove_display:
+    path: samples/drivers/misc/grove_display
+    catalog: drivers
+    depends_on: i2c
+    filter: dt_compat_enabled("seeed,grove-lcd-rgb")
   sample.drivers.peci:
     path: samples/drivers/peci
     catalog: drivers
@@ -1829,10 +1961,6 @@ drivers:
     - CONFIG_MCUX_ACMP_TRIGGER=n
     build_only: true
     platform_allow: twr_ke18f
-  sample.display.grove_display:
-    path: samples/subsys/display/grove_display
-    catalog: drivers
-    depends_on: i2c
   drivers.counter.build.xlnx:
     path: tests/drivers/build_all/counter
     catalog: drivers
@@ -1868,30 +1996,6 @@ drivers:
     catalog: drivers
     build_only: true
     min_ram: 32
-  drivers.modem.build:
-    path: tests/drivers/build_all/modem
-    catalog: drivers
-    extra_args: CONF_FILE=modem.conf
-    platform_exclude: serpente particle_boron rak5010_nrf52840 litex_vexriscv ip_k66f
-    build_only: true
-  drivers.modem.ublox_sara.build:
-    path: tests/drivers/build_all/modem
-    catalog: drivers
-    extra_args: CONF_FILE=modem_ublox_sara.conf
-    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
-    build_only: true
-  drivers.modem.simcom_sim7080.build:
-    path: tests/drivers/build_all/modem
-    catalog: drivers
-    extra_args: CONF_FILE=modem_simcom_sim7080.conf
-    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
-    build_only: true
-  drivers.modem.quectel_bg9x.build:
-    path: tests/drivers/build_all/modem
-    catalog: drivers
-    extra_args: CONF_FILE=modem_quectel_bg9x.conf
-    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
-    build_only: true
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
     catalog: drivers
@@ -2010,6 +2114,7 @@ drivers:
     extra_configs:
     - CONFIG_COUNTER_CMOS=y
     arch_allow: x86
+    filter: CONFIG_X86_PC_COMPATIBLE
   drivers.counter.mcux.snvs.rtc:
     path: tests/drivers/counter/counter_seconds
     catalog: drivers
@@ -2020,6 +2125,28 @@ drivers:
     depends_on: counter i2c
     min_ram: 16
     filter: dt_compat_enabled("maxim,ds3231")
+  drivers.flash.flash_simulator:
+    path: tests/drivers/flash_simulator
+    catalog: drivers
+    platform_allow: qemu_x86 native_posix native_posix_64
+  drivers.flash.flash_simulator.qemu_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: drivers
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
+  drivers.flash.flash_simulator.posix_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: drivers
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_allow: native_posix
+  drivers.flash.flash_simulator.posix_64_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: drivers
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
+    platform_allow: native_posix_64
+  drivers.hwinfo.api:
+    path: tests/drivers/hwinfo/api
+    catalog: drivers
   drivers.timer.nrf_rtc_timer:
     path: tests/drivers/timer/nrf_rtc_timer
     catalog: drivers
@@ -2034,6 +2161,15 @@ drivers:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
+  drivers.uart.uart_async_api.nrf_uart:
+    path: tests/drivers/uart/uart_async_api
+    catalog: drivers
+    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;boards/nrf_uart.overlay"
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+    platform_allow: nrf52840dk_nrf52840
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
       atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
       atsamd21_xpro adafruit_feather_m0_basic_proto
@@ -2091,6 +2227,20 @@ drivers:
     - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
     - CONFIG_NRFX_TIMER2=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_const:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    - CONFIG_UART_ASYNC_TX_CACHE_SIZE=2
+    extra_args: TEST_CONST_BUFFER=1
     platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
   drivers.uart.uart_mix_poll_async_api_low_power:
     path: tests/drivers/uart/uart_mix_fifo_poll
@@ -2237,6 +2387,10 @@ crypto:
     path: tests/benchmarks/mbedtls
     catalog: crypto
     filter: CONFIG_TEST_RANDOM_GENERATOR
+  crypto.hash:
+    path: tests/crypto/crypto_hash
+    catalog: crypto
+    platform_allow: native_posix
 DAC:
   sample.drivers.dac:
     path: samples/drivers/dac
@@ -2245,7 +2399,7 @@ DAC:
       arduino_zero frdm_k22f frdm_k64f nucleo_f091rc nucleo_g071rb nucleo_g431rb
       nucleo_l073rz nucleo_l152re twr_ke18f nucleo_f767zi nucleo_f429zi bl652_dvk
       bl653_dvk bl654_dvk bl5340_dvk_cpuapp stm32f3_disco stm32l562e_dk nucleo_l552ze_q
-      gd32f450i_eval
+      gd32f450i_eval longan_nano longan_nano_lite
     depends_on: dac
 display shield:
   sample.display.shield.adafruit_2_8_tft_touch_v2:
@@ -2253,7 +2407,7 @@ display shield:
     catalog: display shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
     depends_on: arduino_gpio arduino_i2c arduino_spi
-    platform_exclude: reel_board reel_board_v2 ubx_evkannab1_nrf52832
+    platform_exclude: reel_board reel_board_v2 ubx_evkannab1_nrf52832 stm32f769i_disco
   sample.display.shield.ssd1306_128x32:
     path: samples/drivers/display
     catalog: display shield
@@ -2273,6 +2427,16 @@ display shield:
     path: samples/drivers/display
     catalog: display shield
     extra_args: SHIELD=st7789v_waveshare_240x240
+    platform_allow: nrf52dk_nrf52832
+  sample.display.ls013b7dh03:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=ls013b7dh03
+    platform_allow: nrf52dk_nrf52832
+  sample.display.st7735r_ada_160x128:
+    path: samples/drivers/display
+    catalog: display shield
+    extra_args: SHIELD=st7735r_ada_160x128
     platform_allow: nrf52dk_nrf52832
 samples display gui:
   sample.display.dummy:
@@ -2298,7 +2462,7 @@ eeprom:
   sample.drivers.eeprom:
     path: samples/drivers/eeprom
     catalog: eeprom
-    platform_allow: native_posix
+    platform_allow: native_posix gd32f450i_eval
 eeprom shield:
   sample.drivers.eeprom.shield.x_nucleo_eeprma2:
     path: samples/drivers/eeprom
@@ -2415,6 +2579,11 @@ ipm:
     path: samples/subsys/ipc/openamp
     catalog: ipm
     platform_allow: lpcxpresso54114_m4 lpcxpresso55s69_cpu0 mps2_an521 v2m_musca_b1
+  sample.subsys.ipc.openamp_performance:
+    path: samples/subsys/ipc/openamp_performance
+    catalog: ipm
+    build_only: true
+    platform_allow: nrf5340dk_nrf5340_cpuapp
   sample.subsys.ipc.openamp_rs_table:
     path: samples/subsys/ipc/openamp_rsc_table
     catalog: ipm
@@ -2520,6 +2689,16 @@ drivers fram:
     catalog: drivers fram
     depends_on: gpio spi
     filter: dt_alias_exists("spi-1")
+serial uart:
+  sample.drivers.uart:
+    path: samples/drivers/uart/echo_bot
+    catalog: serial uart
+    filter: CONFIG_SERIAL and CONFIG_UART_INTERRUPT_DRIVEN and dt_chosen_enabled("zephyr,shell-uart")
+drivers uart:
+  sample.drivers.uart.stm32.single_wire:
+    path: samples/drivers/uart/stm32/single_wire
+    catalog: drivers uart
+    platform_allow: stm32f3_disco
 drivers watchdog:
   sample.drivers.watchdog.stm32wwdg:
     path: samples/drivers/watchdog
@@ -2557,20 +2736,26 @@ kernel condition_variables:
     path: samples/kernel/condition_variables/simple
     catalog: kernel condition_variables
 can canopen:
+  sample.modules.canopennode:
+    path: samples/modules/canopennode
+    catalog: can canopen
+    filter: dt_chosen_enabled("zephyr,canbus")
+    depends_on: can
   sample.modules.canopennode.program_download:
     path: samples/modules/canopennode
     catalog: can canopen
     extra_configs:
     - CONFIG_BOOTLOADER_MCUBOOT=y
     build_only: true
+    platform_exclude: native_posix native_posix_64 rcar_h3ulcb_cr7
+    filter: dt_chosen_enabled("zephyr,canbus")
     depends_on: can
-    platform_allow: twr_ke18f frdm_k64f
   sample.modules.canopennode.no_storage:
     path: samples/modules/canopennode
     catalog: can canopen
     extra_args: CONF_FILE=prj_no_storage.conf
     depends_on: can
-    platform_allow: twr_ke18f frdm_k64f
+    filter: dt_chosen_enabled("zephyr,canbus")
 samples nanopb:
   sample.modules.nanopb:
     path: samples/modules/nanopb
@@ -3194,18 +3379,20 @@ net socket:
   sample.net.sockets.socketpair:
     path: samples/net/sockets/socketpair
     catalog: net socket
-net socket can CAN:
-  sample.net.sockets.can.test_with_one_socket:
+net socket can:
+  sample.net.sockets.can.one_socket:
     path: samples/net/sockets/can
-    catalog: net socket can CAN
+    catalog: net socket can
     extra_configs:
     - CONFIG_NET_SOCKETS_CAN_RECEIVERS=1
+    filter: dt_chosen_enabled("zephyr,canbus")
     depends_on: can
-  sample.net.sockets.can.test_with_two_sockets:
+  sample.net.sockets.can.two_sockets:
     path: samples/net/sockets/can
-    catalog: net socket can CAN
+    catalog: net socket can
     extra_configs:
     - CONFIG_NET_SOCKETS_CAN_RECEIVERS=2
+    filter: dt_chosen_enabled("zephyr,canbus")
     depends_on: can
 usb:
   sample.net.sockets.dumb_http_server.netusb:
@@ -3244,7 +3431,7 @@ usb:
   sample.usb.cdc-acm.comp:
     path: samples/subsys/usb/cdc_acm
     catalog: usb
-    extra_args: "-DOVERLAY_CONFIG=overlay-composite-cdc-msc.conf"
+    extra_args: OVERLAY_CONFIG=overlay-composite-cdc-msc.conf
     depends_on: usb_device
     platform_exclude: native_posix native_posix_64
   sample.usb.cdc-acm.buildonly:
@@ -3721,7 +3908,8 @@ shell:
     path: samples/subsys/shell/shell_module
     catalog: shell
     extra_args: CONF_FILE="prj_getopt.conf"
-    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
+    platform_exclude: native_posix native_posix_64
+    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart") and not CONFIG_NEWLIB_LIBC
     min_ram: 40
   sample.shell.shell_module.minimal_rtt:
     path: samples/subsys/shell/shell_module
@@ -3906,7 +4094,7 @@ shield:
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
     depends_on: arduino_gpio arduino_i2c arduino_spi
     min_ram: 175
-    platform_exclude: reel_board reel_board_v2 ubx_evkannab1_nrf52832
+    platform_exclude: reel_board reel_board_v2 ubx_evkannab1_nrf52832 stm32f769i_disco
   sample.display.waveshare_epaper_gdeh0213b1:
     path: samples/subsys/display/lvgl
     catalog: shield
@@ -3932,6 +4120,7 @@ shield:
     catalog: shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
     depends_on: arduino_spi arduino_gpio arduino_i2c
+    platform_exclude: stm32f769i_disco
 sof:
   sample.audio.sof:
     path: samples/subsys/audio/sof
@@ -3997,6 +4186,7 @@ debug:
     extra_args: CONF_FILE=debug.conf
     platform_exclude: lpcxpresso55s69_ns nrf9160dk_nrf9160_ns nrf5340dk_nrf5340_cpuapp_ns
     build_only: true
+    filter: CONFIG_CONSOLE_HAS_DRIVER
 edac:
   sample.subsys.edac:
     path: samples/subsys/edac
@@ -4050,11 +4240,6 @@ ipc:
     catalog: ipc
     platform_allow: nrf5340dk_nrf5340_cpuapp
     build_only: true
-  sample.ipc.static_vrings_mi.nrf:
-    path: samples/subsys/ipc/ipc_service/static_vrings_mi
-    catalog: ipc
-    platform_allow: nrf5340dk_nrf5340_cpuapp bl5340_dvk_cpuapp
-    build_only: true
 logging:
   sample.logger.basic.dictionary:
     path: samples/subsys/logging/dictionary
@@ -4085,14 +4270,33 @@ logging:
     - CONFIG_LOG_BACKEND_RTT=y
     - CONFIG_USE_SEGGER_RTT=y
     filter: CONFIG_HAS_SEGGER_RTT
-  sample.logger.syst:
+  sample.logger.syst.v1.deferred:
     path: samples/subsys/logging/syst
     catalog: logging
-    platform_allow: mps2_an385 sam_e70_xplained
+    extra_configs:
+    - CONFIG_LOG1=y
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
+  sample.logger.syst.v1.immediate:
+    path: samples/subsys/logging/syst
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG1=y
+    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
+  sample.logger.syst.v2.deferred:
+    path: samples/subsys/logging/syst
+    catalog: logging
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
+  sample.logger.syst.v2.immediate:
+    path: samples/subsys/logging/syst
+    catalog: logging
+    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
   logging.log_benchmark_v1:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_STRDUP_BUF_COUNT=8
     - CONFIG_LOG_STRDUP_MAX_STRING=32
@@ -4101,6 +4305,7 @@ logging:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_STRDUP_BUF_COUNT=8
     - CONFIG_LOG_STRDUP_MAX_STRING=32
@@ -4111,40 +4316,40 @@ logging:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG2_MODE_DEFERRED=y
   logging.log_benchmark_v2_speed:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_LOG_SPEED=y
   logging.log_benchmark_user_v2:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_TEST_USERSPACE=y
     platform_allow: qemu_x86 native_posix
   logging.add.async:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
+    extra_args: CONF_FILE=log2.conf
   logging.add.sync:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
     extra_args: CONF_FILE=log_sync.conf
-  logging.add.user:
+  logging.add.log1_user:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
     extra_args: CONF_FILE=log_user.conf USERSPACE_TEST=1
     filter: CONFIG_USERSPACE
-  logging.add.log2:
+  logging.add.log1:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
-    extra_args: CONF_FILE=log2.conf
+    extra_args: CONF_FILE=prj.conf
 logging usermode:
   sample.logger.usermode:
     path: samples/subsys/logging/logger
@@ -4196,11 +4401,13 @@ uart modbus:
   sample.modbus.rtu_client:
     path: samples/subsys/modbus/rtu_client
     catalog: uart modbus
+    build_only: true
     platform_allow: nrf52840dk_nrf52840 frdm_k64f
     depends_on: gpio arduino_serial
   sample.modbus.rtu_server:
     path: samples/subsys/modbus/rtu_server
     catalog: uart modbus
+    build_only: true
     platform_allow: nrf52840dk_nrf52840 frdm_k64f
     filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds") and dt_enabled_alias_with_parent_compat("led1",
       "gpio-leds") and dt_enabled_alias_with_parent_compat("led2", "gpio-leds")
@@ -4209,11 +4416,13 @@ modbus:
   sample.modbus.tcp_gateway:
     path: samples/subsys/modbus/tcp_gateway
     catalog: modbus
+    build_only: true
     platform_allow: frdm_k64f
     depends_on: gpio netif arduino_serial
   sample.modbus.tcp_server:
     path: samples/subsys/modbus/tcp_server
     catalog: modbus
+    build_only: true
     platform_allow: frdm_k64f
     filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds") and dt_enabled_alias_with_parent_compat("led1",
       "gpio-leds") and dt_enabled_alias_with_parent_compat("led2", "gpio-leds")
@@ -4247,13 +4456,13 @@ cmsis_rtos:
   sample.portability.cmsis_rtos_v1.philosopher.same_prio:
     path: samples/subsys/portability/cmsis_rtos_v1/philosophers
     catalog: cmsis_rtos
-    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+    extra_args: SAME_PRIO=1 DEBUG_PRINTF=1
     min_ram: 32
     min_flash: 34
   sample.portability.cmsis_rtos_v1.philosopher.semaphores:
     path: samples/subsys/portability/cmsis_rtos_v1/philosophers
     catalog: cmsis_rtos
-    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+    extra_args: FORKS=SEMAPHORES DEBUG_PRINTF=1
     min_ram: 32
     min_flash: 34
   sample.portability.cmsis_rtos_v1.timer_synchronization:
@@ -4271,14 +4480,14 @@ cmsis_rtos:
   sample.portability.cmsis_rtos_v2.philosopher.same_prio:
     path: samples/subsys/portability/cmsis_rtos_v2/philosophers
     catalog: cmsis_rtos
-    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+    extra_args: SAME_PRIO=1 DEBUG_PRINTF=1
     min_ram: 32
     min_flash: 34
     platform_exclude: qemu_xtensa qemu_x86_64
   sample.portability.cmsis_rtos_v2.philosopher.semaphores:
     path: samples/subsys/portability/cmsis_rtos_v2/philosophers
     catalog: cmsis_rtos
-    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+    extra_args: FORKS=SEMAPHORES DEBUG_PRINTF=1
     min_ram: 32
     min_flash: 34
     platform_exclude: qemu_xtensa qemu_x86_64
@@ -4327,6 +4536,10 @@ testing pytest:
     catalog: testing pytest
     platform_allow: native_posix
 tracing debug:
+  tracing.user:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_user.conf"
   tracing.format.sysview:
     path: samples/subsys/tracing
     catalog: tracing debug
@@ -4431,7 +4644,7 @@ introduction tfm crypto csr:
     path: samples/tfm_integration/psa_crypto
     catalog: introduction tfm crypto csr
     platform_allow: mps2_an521_ns lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
-      nucleo_l552ze_q_ns v2m_musca_s1_ns stm32l562e_dk_ns bl5340_dvk_cpuapp_ns
+      v2m_musca_s1_ns stm32l562e_dk_ns bl5340_dvk_cpuapp_ns
 tfm:
   sample.tfm.protected_storage:
     path: samples/tfm_integration/psa_protected_storage
@@ -4557,7 +4770,7 @@ arm userspace:
     path: tests/arch/arm/arm_mem_protect
     catalog: arm userspace
     arch_allow: arm
-    filter: CONFIG_CPU_CORTEX_R and CONFIG_ARCH_HAS_USERSPACE
+    filter: CONFIG_CPU_AARCH32_CORTEX_R and CONFIG_ARCH_HAS_USERSPACE
   arch.arm.ramfunc:
     path: tests/arch/arm/arm_ramfunc
     catalog: arm userspace
@@ -4647,6 +4860,7 @@ arm fpu tfm:
   arch.arm.swap.tz:
     path: tests/arch/arm/arm_thread_swap_tz
     catalog: arm fpu tfm
+    platform_exclude: mps3_an547_ns
     filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
     arch_allow: arm
   arch.arm.swap.tz_off:
@@ -4654,6 +4868,7 @@ arm fpu tfm:
     catalog: arm fpu tfm
     extra_configs:
     - CONFIG_ARM_NONSECURE_PREEMPTIBLE_SECURE_CALLS=n
+    platform_exclude: mps3_an547_ns
     filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
     arch_allow: arm
 arm tz_ns tz_wrap_func:
@@ -4777,7 +4992,7 @@ benchmark cmsis_dsp:
   benchmark.cmsis_dsp.basicmath:
     path: tests/benchmarks/cmsis_dsp/basicmath
     catalog: benchmark cmsis_dsp
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "(CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1"
     min_flash: 128
     min_ram: 64
@@ -4788,8 +5003,8 @@ benchmark cmsis_dsp fpu:
     catalog: benchmark cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "(CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU and
-      TOOLCHAIN_HAS_NEWLIB == 1"
+    filter: "(CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1"
     min_flash: 128
     min_ram: 64
     platform_exclude: mps3_an547
@@ -4922,6 +5137,31 @@ bluetooth bt_ull_llcp:
     path: tests/bluetooth/controller/ctrl_tx_queue
     catalog: bluetooth bt_ull_llcp
     type: unit
+test_framework bluetooth bt_unsupported bt_ull_llcp:
+  bluetooth.controller.ctrl_unsupported.default.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_unsupported.no_enc.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    extra_args: NO_ENC=y KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit
+  bluetooth.controller.ctrl_unsupported.no_per_feat_exch.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    extra_args: NO_PER_FEAT_EXCH=y KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit
+  bluetooth.controller.ctrl_unsupported.no_cpr.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    extra_args: NO_CPR=y KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit
+  bluetooth.controller.ctrl_unsupported.no_phy.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    extra_args: NO_PHY=y KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit
 test_framework bluetooth bt_version_exchange bt_ull_llcp:
   bluetooth.controller.ctrl_version.test:
     path: tests/bluetooth/controller/ctrl_version
@@ -4937,6 +5177,11 @@ bluetooth hci prop event:
     path: tests/bluetooth/hci_prop_evt
     catalog: bluetooth hci prop event
     platform_allow: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
+bluetooth host:
+  bluetooth.host_long_adv_recv:
+    path: tests/bluetooth/host_long_adv_recv
+    catalog: bluetooth host
+    platform_allow: native_posix native_posix_64
 bluetooth l2cap:
   bluetooth.gatt.l2cap:
     path: tests/bluetooth/l2cap
@@ -5025,6 +5270,16 @@ dma:
     depends_on: spi
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
       arduino_zero adafruit_trinket_m0
+  drivers.stm32_spi_dma.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: dma
+    extra_args: OVERLAY_CONFIG="overlay-stm32-spi-dma.conf"
+    filter: CONFIG_SOC_FAMILY_STM32
+    platform_allow: nucleo_g474re nucleo_f207zg nucleo_f429zi nucleo_f746zg nucleo_wb55rg
+      nucleo_wl55jc nucleo_h743zi
+    depends_on: spi
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
+      arduino_zero adafruit_trinket_m0
 qspi flash:
   boards.altera_max10.qspi:
     path: tests/boards/altera_max10/qspi
@@ -5041,6 +5296,10 @@ spiram spiflash cache:
     catalog: spiram spiflash cache
     platform_allow: esp32
 boards:
+  boards.intel_adsp.mm:
+    path: tests/boards/intel_adsp/mm
+    catalog: boards
+    platform_allow: intel_adsp_cavs25
   boards.s1000_crb.cache:
     path: tests/boards/intel_s1000_crb/cache
     catalog: boards
@@ -5066,7 +5325,7 @@ drivers i2c:
     catalog: drivers i2c
     extra_configs:
     - CONFIG_APP_DUAL_ROLE_I2C=y
-    platform_allow: nucleo_f091rc stm32f072b_disco nucleo_g071rb
+    platform_allow: nucleo_f091rc stm32f072b_disco nucleo_g071rb rpi_pico
     depends_on: i2c
   drivers.regulator.i2c.onoff:
     path: tests/drivers/regulator/pmic
@@ -5094,7 +5353,7 @@ crypto mbedtls userspace:
     path: tests/crypto/mbedtls
     catalog: crypto mbedtls userspace
     extra_configs:
-    - CONFIG_ZTEST_STACKSIZE=8192
+    - CONFIG_ZTEST_STACK_SIZE=8192
     arch_allow: riscv64
     min_flash: 65
     min_ram: 36
@@ -5168,7 +5427,14 @@ adc_mcp302x adc_lmp90xxx:
   drivers.adc.spi.build:
     path: tests/drivers/build_all/adc
     catalog: adc_mcp302x adc_lmp90xxx
-    extra_args: CONFIG_SPI=y CONFIG_ADC_MCP320X=y CONFIG_ADC_LMP90XXX=y
+    extra_args: CONFIG_GPIO=y CONFIG_SPI=y CONFIG_ADC_MCP320X=y CONFIG_ADC_LMP90XXX=y
+    platform_allow: native_posix
+    build_only: true
+adc_ads1x1x:
+  drivers.adc.i2c.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_ads1x1x
+    extra_args: CONFIG_I2C=y CONFIG_ADC_ADS1X1X=y
     platform_allow: native_posix
     build_only: true
 adc_emul:
@@ -5262,11 +5528,17 @@ adc_xec:
     extra_args: CONFIG_ADC_XEC=y
     platform_allow: mec15xxevb_assy6853
     build_only: true
+adc_test:
+  drivers.adc.test.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_test
+    platform_allow: qemu_cortex_m3
+    build_only: true
 dac_dacx0508:
   drivers.dac.spi.build:
     path: tests/drivers/build_all/dac
     catalog: dac_dacx0508
-    extra_args: CONFIG_SPI=y CONFIG_DAC_DACX0508=y
+    extra_args: CONFIG_GPIO=y CONFIG_SPI=y CONFIG_DAC_DACX0508=y
     platform_allow: native_posix
     build_only: true
 dac_dacx3608 dac_mcp4725:
@@ -5353,6 +5625,33 @@ drivers ieee802154:
     extra_configs:
     - CONFIG_IEEE802154_UPIPE=y
     platform_allow: qemu_x86
+    build_only: true
+drivers net:
+  drivers.modem.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers net
+    extra_args: CONF_FILE=modem.conf
+    platform_exclude: serpente particle_boron rak5010_nrf52840 litex_vexriscv ip_k66f
+    min_ram: 36
+    build_only: true
+  drivers.modem.ublox_sara.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers net
+    extra_args: CONF_FILE=modem_ublox_sara.conf
+    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
+    build_only: true
+  drivers.modem.simcom_sim7080.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers net
+    extra_args: CONF_FILE=modem_simcom_sim7080.conf
+    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
+    build_only: true
+  drivers.modem.quectel_bg9x.build:
+    path: tests/drivers/build_all/modem
+    catalog: drivers net
+    extra_args: CONF_FILE=modem_quectel_bg9x.conf
+    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
+    min_ram: 36
     build_only: true
 pwm_gecko:
   drivers.pwm.gecko.build:
@@ -5490,28 +5789,27 @@ drivers sensors:
     - CONFIG_PM_DEVICE=y
     platform_allow: native_posix
     build_only: true
-driver can:
-  drivers.can:
+drivers can:
+  drivers.can.api:
     path: tests/drivers/can/api
-    catalog: driver can
+    catalog: drivers can
     depends_on: can
-  drivers.canfd:
+    filter: dt_chosen_enabled("zephyr,canbus")
+  drivers.can.canfd:
     path: tests/drivers/can/canfd
-    catalog: driver can
+    catalog: drivers can
     depends_on: canfd
+    filter: dt_chosen_enabled("zephyr,canbus")
   drivers.can.stm32:
     path: tests/drivers/can/stm32
-    catalog: driver can
+    catalog: drivers can
     depends_on: can
+    filter: dt_compat_enabled("st,stm32-can") and dt_chosen_enabled("zephyr,canbus")
   drivers.can.timing:
     path: tests/drivers/can/timing
-    catalog: driver can
+    catalog: drivers can
     depends_on: can
-  drivers.can.timing_loopback:
-    path: tests/drivers/can/timing
-    catalog: driver can
-    extra_args: CONF_FILE="prj_loopback.conf"
-    platform_allow: native_posix
+    filter: dt_chosen_enabled("zephyr,canbus")
 drivers console:
   drivers.console.uart:
     path: tests/drivers/console
@@ -5539,7 +5837,7 @@ dac drivers:
     platform_allow: |
       frdm_k22f frdm_k64f nucleo_f207zg nucleo_l073rz nucleo_l152re twr_ke18f
       bl652_dvk bl653_dvk bl654_dvk bl5340_dvk_cpuapp stm32f3_disco stm32l562e_dk
-      nucleo_l552ze_q nucleo_f429zi nucleo_f746zg
+      nucleo_l552ze_q nucleo_f429zi nucleo_f746zg nucleo_wl55jc
 disk mcux:
   drivers.disk.usdhc:
     path: tests/drivers/disk
@@ -5594,10 +5892,10 @@ drivers userspace:
     catalog: drivers userspace
     depends_on: i2s
     filter: CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
-driver entropy:
+drivers entropy:
   drivers.entropy:
     path: tests/drivers/entropy/api
-    catalog: driver entropy
+    catalog: drivers entropy
     filter: CONFIG_ENTROPY_HAS_DRIVER
 flash nrf52 nrf_qspi_fash:
   drivers.flash.nrf_qspi_nor:
@@ -5615,36 +5913,13 @@ mcux:
   drivers.flash.default:
     path: tests/drivers/flash
     catalog: mcux
-    platform_allow: mimxrt1060_evk
+    platform_allow: mimxrt1060_evk it8xxx2_evb mimxrt685_evk_cm33
 drivers flash:
   drivers.flash.stm32:
     path: tests/drivers/flash
     catalog: drivers flash
     filter: (dt_compat_enabled("st,stm32-flash-controller") or dt_compat_enabled("st,stm32h7-flash-controller"))
       and dt_label_with_parent_compat_enabled("storage_partition", "fixed-partitions")
-driver:
-  drivers.flash.flash_simulator:
-    path: tests/drivers/flash_simulator
-    catalog: driver
-    platform_allow: qemu_x86 native_posix native_posix_64
-  drivers.flash.flash_simulator.qemu_erase_value_0x00:
-    path: tests/drivers/flash_simulator
-    catalog: driver
-    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
-    platform_allow: qemu_x86
-  drivers.flash.flash_simulator.posix_erase_value_0x00:
-    path: tests/drivers/flash_simulator
-    catalog: driver
-    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
-    platform_allow: native_posix
-  drivers.flash.flash_simulator.posix_64_erase_value_0x00:
-    path: tests/drivers/flash_simulator
-    catalog: driver
-    extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
-    platform_allow: native_posix_64
-  drivers.hwinfo.api:
-    path: tests/drivers/hwinfo/api
-    catalog: driver
 drivers gpio:
   peripheral.gpio.1pin:
     path: tests/drivers/gpio/gpio_api_1pin
@@ -5766,7 +6041,7 @@ drivers pinctrl:
     path: tests/drivers/pinctrl/api
     catalog: drivers pinctrl
     platform_allow: native_posix native_posix_64
-  derivers.pinctrl.api_reg:
+  drivers.pinctrl.api_reg:
     path: tests/drivers/pinctrl/api
     catalog: drivers pinctrl
     extra_args: CONF_FILE="prj.conf;reg.conf"
@@ -5796,30 +6071,39 @@ pwm drivers userspace:
     catalog: pwm drivers userspace
     depends_on: pwm
     filter: dt_compat_enabled("test-pwm-loopback")
-driver sensor subsys:
-  driver.sensor:
+drivers sensor subsys:
+  drivers.sensor:
     path: tests/drivers/sensor/accel
-    catalog: driver sensor subsys
+    catalog: drivers sensor subsys
     platform_allow: native_posix
-driver sensor:
-  driver.sensor.generic:
+drivers sensor:
+  drivers.sensor.generic:
     path: tests/drivers/sensor/generic
-    catalog: driver sensor
-  driver.sensor.fpu:
+    catalog: drivers sensor
+  drivers.sensor.fpu:
     path: tests/drivers/sensor/generic
-    catalog: driver sensor
+    catalog: drivers sensor
     extra_args: CONF_FILE=prj_fpu.conf
 drivers spi:
   drivers.spi.loopback:
     path: tests/drivers/spi/spi_loopback
     catalog: drivers spi
+    filter: not CONFIG_SOC_FAMILY_STM32
     depends_on: spi
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
       arduino_zero adafruit_trinket_m0
-  driver.spi.loopback.internal:
+  drivers.spi.loopback.internal:
     path: tests/drivers/spi/spi_loopback
     catalog: drivers spi
     filter: CONFIG_SPI_LOOPBACK_MODE_LOOP
+    depends_on: spi
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
+      arduino_zero adafruit_trinket_m0
+  drivers.stm32_spi.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: drivers spi
+    extra_args: OVERLAY_CONFIG="overlay-stm32-spi.conf"
+    filter: CONFIG_SOC_FAMILY_STM32
     depends_on: spi
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
       arduino_zero adafruit_trinket_m0
@@ -5885,7 +6169,6 @@ kernel:
   kernel.logging.message_capture:
     path: tests/kernel/fatal/message_capture
     catalog: kernel
-    platform_exclude: intel_adsp_cavs15
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
@@ -6871,7 +7154,7 @@ cbprintf:
     - CONFIG_CPU_HAS_FPU
     - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
     platform_exclude:
-    - qemu_riscv32
+    - qemu_riscv32 qemu_riscv32_smp
     - qemu_arc_hs6x
   libraries.cbprintf_package_long_double_align_offset:
     path: tests/lib/cbprintf_package
@@ -6886,7 +7169,7 @@ cbprintf:
     - CONFIG_CPU_HAS_FPU
     - CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
     platform_exclude:
-    - qemu_riscv32
+    - qemu_riscv32 qemu_riscv32_smp
     - qemu_arc_hs6x
   libraries.cbprintf_package_nano:
     path: tests/lib/cbprintf_package
@@ -7139,7 +7422,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.basicmath:
     path: tests/lib/cmsis_dsp/basicmath
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7147,7 +7430,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.bayes:
     path: tests/lib/cmsis_dsp/bayes
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 64
     min_ram: 32
@@ -7155,7 +7438,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.complexmath:
     path: tests/lib/cmsis_dsp/complexmath
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7163,7 +7446,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.distance:
     path: tests/lib/cmsis_dsp/distance
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 64
     min_ram: 32
@@ -7171,7 +7454,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.fastmath:
     path: tests/lib/cmsis_dsp/fastmath
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7179,7 +7462,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.filtering:
     path: tests/lib/cmsis_dsp/filtering
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     skip: true
     platform_exclude: mps3_an547
@@ -7189,7 +7472,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_BIQUAD=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7200,7 +7483,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_DECIM=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7211,7 +7494,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_FIR=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7222,7 +7505,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_MISC=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 256
     min_ram: 64
@@ -7230,7 +7513,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.interpolation:
     path: tests/lib/cmsis_dsp/interpolation
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7238,7 +7521,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.matrix:
     path: tests/lib/cmsis_dsp/matrix
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     skip: true
     platform_exclude: mps3_an547
@@ -7248,7 +7531,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q7=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7259,7 +7542,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q15=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7270,7 +7553,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q31=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7281,7 +7564,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F16=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7292,7 +7575,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F32=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7303,7 +7586,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F64=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7314,7 +7597,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q7=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7327,7 +7610,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7340,7 +7623,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7353,7 +7636,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F16=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 144
@@ -7364,7 +7647,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7377,7 +7660,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F64=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7387,7 +7670,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.quaternionmath:
     path: tests/lib/cmsis_dsp/quaternionmath
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7395,7 +7678,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.statistics:
     path: tests/lib/cmsis_dsp/statistics
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7403,7 +7686,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.support:
     path: tests/lib/cmsis_dsp/support
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7411,7 +7694,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.svm:
     path: tests/lib/cmsis_dsp/svm
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7419,7 +7702,7 @@ cmsis_dsp:
   libraries.cmsis_dsp.transform:
     path: tests/lib/cmsis_dsp/transform
     catalog: cmsis_dsp
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     skip: true
     platform_exclude: mps3_an547
@@ -7429,7 +7712,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ15=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7440,7 +7723,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ15=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7451,7 +7734,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ31=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -7462,7 +7745,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ31=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -7473,7 +7756,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF16=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7484,7 +7767,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF16=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7495,7 +7778,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF32=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -7506,7 +7789,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF32=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7517,7 +7800,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF64=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 96
@@ -7528,7 +7811,7 @@ cmsis_dsp:
     extra_configs:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF64=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
       == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -7539,7 +7822,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7549,7 +7832,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 64
     min_ram: 32
@@ -7559,7 +7842,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7569,7 +7852,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 64
     min_ram: 32
@@ -7579,7 +7862,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7591,7 +7874,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_BIQUAD=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7603,7 +7886,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_DECIM=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7615,7 +7898,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_FIR=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7627,7 +7910,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_MISC=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 256
     min_ram: 64
@@ -7637,7 +7920,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7649,7 +7932,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q7=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7661,7 +7944,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q15=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7673,7 +7956,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q31=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7685,7 +7968,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F16=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7697,7 +7980,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F32=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7709,7 +7992,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F64=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7721,7 +8004,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q7=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7735,7 +8018,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7749,7 +8032,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7763,7 +8046,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F16=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 144
@@ -7775,7 +8058,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7789,7 +8072,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F64=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -7801,7 +8084,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7811,7 +8094,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7821,7 +8104,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7831,7 +8114,7 @@ cmsis_dsp fpu:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -7843,7 +8126,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ15=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7855,7 +8138,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ15=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7867,7 +8150,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ31=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -7879,7 +8162,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ31=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -7891,7 +8174,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF16=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7903,7 +8186,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF16=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7915,7 +8198,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF32=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -7927,7 +8210,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF32=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -7939,7 +8222,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF64=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 96
@@ -7951,7 +8234,7 @@ cmsis_dsp fpu:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF64=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -7975,59 +8258,50 @@ display gui:
   libraries.gui.lvgl:
     path: tests/lib/gui/lvgl
     catalog: display gui
-    platform_allow: native_posix
+    platform_allow: native_posix_64
   libraries.gui.lvgl.dynamic.heap.libc:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
-    - CONFIG_LVGL_MEM_POOL_HEAP_LIB_C=y
+    - CONFIG_LV_Z_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LV_Z_MEM_POOL_HEAP_LIB_C=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    platform_allow: native_posix
-  libraries.gui.lvgl.dynamic.pool.user:
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.dynamic.pool.sys_heap:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
-    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
-    - CONFIG_LVGL_MEM_POOL_USER=y
-    - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
-    - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
-    platform_allow: native_posix
-  libraries.gui.lvgl.dynamic.pool.kernel:
-    path: tests/lib/gui/lvgl
-    catalog: display gui
-    extra_configs:
-    - CONFIG_LVGL_BUFFER_ALLOC_DYNAMIC=y
-    - CONFIG_LVGL_MEM_POOL_KERNEL=y
-    - CONFIG_LVGL_MEM_POOL_NUMBER_BLOCKS=3
-    - CONFIG_LVGL_MEM_POOL_MAX_SIZE=32768
-    platform_allow: native_posix
+    - CONFIG_LV_Z_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LV_Z_MEM_POOL_SYS_HEAP=y
+    - CONFIG_LV_Z_MEM_POOL_NUMBER_BLOCKS=3
+    - CONFIG_LV_Z_MEM_POOL_MAX_SIZE=32768
+    platform_allow: native_posix_64
   libraries.gui.lvgl.16bit:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
-    - CONFIG_LVGL_COLOR_DEPTH_16=y
-    platform_allow: native_posix
+    - CONFIG_LV_COLOR_DEPTH_16=y
+    platform_allow: native_posix_64
   libraries.gui.lvgl.8bit:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
-    - CONFIG_LVGL_COLOR_DEPTH_8=y
-    platform_allow: native_posix
+    - CONFIG_LV_COLOR_DEPTH_8=y
+    platform_allow: native_posix_64
   libraries.gui.lvgl.mono:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
-    - CONFIG_LVGL_COLOR_DEPTH_1=y
-    platform_allow: native_posix
+    - CONFIG_LV_COLOR_DEPTH_1=y
+    platform_allow: native_posix_64
   libraries.gui.lvgl.16bit.swap:
     path: tests/lib/gui/lvgl
     catalog: display gui
     extra_configs:
-    - CONFIG_LVGL_COLOR_DEPTH_16=y
-    - CONFIG_LVGL_COLOR_16_SWAP=y
-    platform_allow: native_posix
+    - CONFIG_LV_COLOR_DEPTH_16=y
+    - CONFIG_LV_COLOR_16_SWAP=y
+    platform_allow: native_posix_64
 heap:
   lib.heap:
     path: tests/lib/heap
@@ -8036,6 +8310,9 @@ heap:
     filter: not CONFIG_SOC_NSIM
   lib.heap_align:
     path: tests/lib/heap_align
+    catalog: heap
+  lib.mem_blocks:
+    path: tests/lib/mem_blocks
     catalog: heap
 json:
   libraries.encoding.json:
@@ -8172,11 +8449,14 @@ ring_buffer circular_buffer:
   libraries.ring_buffer:
     path: tests/lib/ringbuffer
     catalog: ring_buffer circular_buffer
+    extra_configs:
+    - CONFIG_MP_NUM_CPUS=1
   libraries.ring_buffer_concurrent:
     path: tests/lib/ringbuffer
     catalog: ring_buffer circular_buffer
     extra_configs:
     - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    - CONFIG_MP_NUM_CPUS=1
     platform_allow: qemu_x86
 smf:
   libraries.smf.hierarchical:
@@ -8468,6 +8748,23 @@ http net:
     path: tests/net/lib/http_header_fields
     catalog: http net
     min_ram: 16
+    depends_on: netif
+lwm2m net:
+  net.lwm2m.content_json:
+    path: tests/net/lib/lwm2m/content_json
+    catalog: lwm2m net
+    depends_on: netif
+  net.lwm2m.content_link_format:
+    path: tests/net/lib/lwm2m/content_link_format
+    catalog: lwm2m net
+    depends_on: netif
+  net.lwm2m.content_oma_tlv:
+    path: tests/net/lib/lwm2m/content_oma_tlv
+    catalog: lwm2m net
+    depends_on: netif
+  net.lwm2m.content_plain_text:
+    path: tests/net/lib/lwm2m/content_plain_text
+    catalog: lwm2m net
     depends_on: netif
 mqtt net userspace:
   net.mqtt.packet:
@@ -9286,15 +9583,25 @@ posix filesystem:
       CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
     arch_exclude: nios2 posix
     min_ram: 128
+getopt:
+  shell.getopt:
+    path: tests/posix/getopt
+    catalog: getopt
+    platform_exclude: native_posix native_posix_64
+    min_flash: 64
+    min_ram: 32
+    filter: "(CONFIG_GETOPT and not CONFIG_NEWLIB_LIBC)"
 can isotp:
-  can.isotp.conformance:
+  subsys.canbus.isotp.conformance:
     path: tests/subsys/canbus/isotp/conformance
     catalog: can isotp
     depends_on: can
-  can.isotp.implemmentation:
+    filter: dt_chosen_enabled("zephyr,canbus")
+  subsys.canbus.isotp.implementation:
     path: tests/subsys/canbus/isotp/implementation
     catalog: can isotp
     depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")
 ignore_faults ignore_qemu_crash:
   coredump.logging_backend:
     path: tests/subsys/debug/coredump
@@ -9312,6 +9619,12 @@ ignore_faults ignore_qemu_crash:
     extra_args: CONF_FILE=prj_flash_partition.conf
     filter: CONFIG_ARCH_SUPPORTS_COREDUMP
     platform_allow: qemu_x86
+  coredump.backends.other:
+    path: tests/subsys/debug/coredump_backends
+    catalog: ignore_faults ignore_qemu_crash
+    extra_args: CONF_FILE=prj_backend_other.conf
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_exclude: acrn_ehl_crb
 dfu_image_util:
   dfu.image_util:
     path: tests/subsys/dfu/img_util
@@ -9420,6 +9733,7 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
@@ -9428,6 +9742,7 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
@@ -9435,6 +9750,7 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
@@ -9442,6 +9758,7 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
@@ -9449,6 +9766,7 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
@@ -9458,12 +9776,14 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_IMMEDIATE=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log_api_immediate_rt_filter:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
@@ -9471,6 +9791,7 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
@@ -9478,64 +9799,82 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
-    platform_exclude: qemu_arc_hs6x qemu_cortex_a9
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_overflow:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
-    platform_exclude: qemu_arc_hs6x qemu_cortex_a9
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_no_overflow:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
-    platform_exclude: qemu_arc_hs6x qemu_cortex_a9
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_static_filter:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
-    platform_exclude: qemu_arc_hs6x qemu_cortex_a9
+    platform_exclude: qemu_arc_hs6x
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_deferred_printk:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG_PROCESS_THREAD=y
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_func_prefix:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
-    platform_exclude: qemu_arc_hs6x qemu_cortex_a9
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_64b_timestamp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
-    platform_exclude: qemu_arc_hs6x qemu_cortex_a9
+    platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_immediate:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    platform_exclude: qemu_arc_hs6x
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log2_api_immediate_printk:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_PRINTK=y
     platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_immediate_rt_filter:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
@@ -9543,7 +9882,7 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
@@ -9551,7 +9890,7 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG2_MODE_IMMEDIATE=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
@@ -9575,10 +9914,8 @@ log_api logging:
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
-    platform_exclude:
-    - qemu_cortex_a9
-    - qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_arc_hs6x
   logging.log_msg2_fp:
     path: tests/subsys/logging/log_msg2
     catalog: log_api logging
@@ -9594,10 +9931,72 @@ log_api logging:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_CBPRINTF_FP_SUPPORT=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
-    platform_exclude:
-    - qemu_cortex_a9
-    - qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+    platform_exclude: qemu_arc_hs6x
+  logging.log_stack_deferred:
+    path: tests/subsys/logging/log_stack
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    filter: CONFIG_QEMU_TARGET
+  logging.log_stack_deferred_no_opt:
+    path: tests/subsys/logging/log_stack
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    filter:
+    - not CONFIG_MIPS
+    - CONFIG_QEMU_TARGET
+  logging.log_stack_immediate:
+    path: tests/subsys/logging/log_stack
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    filter: CONFIG_QEMU_TARGET
+  logging.log_stack_immediate_no_opt:
+    path: tests/subsys/logging/log_stack
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    filter:
+    - not CONFIG_MIPS
+    - CONFIG_QEMU_TARGET
+  logging.log_stack_deferred_cpp:
+    path: tests/subsys/logging/log_stack
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_CPLUSPLUS=y
+    filter: CONFIG_QEMU_TARGET
+  logging.log_stack_deferred_cpp_no_opt:
+    path: tests/subsys/logging/log_stack
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_CPLUSPLUS=y
+    filter:
+    - not CONFIG_MIPS
+    - CONFIG_QEMU_TARGET
+  logging.log_stack_immediate_cpp:
+    path: tests/subsys/logging/log_stack
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_CPLUSPLUS=y
+    filter: CONFIG_QEMU_TARGET
+  logging.log_stack_immediate_cpp_no_opt:
+    path: tests/subsys/logging/log_stack
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_CPLUSPLUS=y
+    filter:
+    - not CONFIG_MIPS
+    - CONFIG_QEMU_TARGET
 logging backend filesystem fs:
   subsys.logging.log_backend_fs.automounted:
     path: tests/subsys/logging/log_backend_fs
@@ -9622,7 +10021,7 @@ log_core logging:
   logging.log_core:
     path: tests/subsys/logging/log_core
     catalog: log_core logging
-    filter: not CONFIG_LOG_IMMEDIATE
+    filter: not CONFIG_LOG_MODE_IMMEDIATE
   logging.log_immediate:
     path: tests/subsys/logging/log_immediate
     catalog: log_core logging
@@ -9658,11 +10057,29 @@ ot_radio:
     catalog: ot_radio
     platform_allow: native_posix native_posix_64
 pm:
+  subsys.pm.device_power_domains:
+    path: tests/subsys/pm/device_power_domains
+    catalog: pm
+    platform_allow: qemu_cortex_m3
   subsys.pm.device_runtime_api:
     path: tests/subsys/pm/device_runtime_api
     catalog: pm
   pm-device-wakeup-api.dts:
     path: tests/subsys/pm/device_wakeup_api
+    catalog: pm
+    platform_allow: native_posix
+  subsys.pm.policy_api:
+    path: tests/subsys/pm/policy_api
+    catalog: pm
+    platform_allow: native_posix native_posix_64
+  subsys.pm.policy_api_app:
+    path: tests/subsys/pm/policy_api
+    catalog: pm
+    extra_configs:
+    - CONFIG_PM_POLICY_APP=y
+    platform_allow: native_posix native_posix_64
+  subsys.pm.power_domain:
+    path: tests/subsys/pm/power_domain
     catalog: pm
     platform_allow: native_posix
   subsys.pm.system:
@@ -9686,7 +10103,14 @@ settings_fcb:
   system.settings.fcb.raw:
     path: tests/subsys/settings/fcb/raw
     catalog: settings_fcb
-    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 native_posix native_posix_64
+    extra_configs:
+    - CONFIG_ARM_MPU=n
+    - CONFIG_STDOUT_CONSOLE=y
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
+  system.settings.fcb.raw_native_posix:
+    path: tests/subsys/settings/fcb/raw
+    catalog: settings_fcb
+    platform_allow: native_posix native_posix_64
   system.settings.functional.fcb:
     path: tests/subsys/settings/functional/fcb
     catalog: settings_fcb
@@ -9720,12 +10144,26 @@ settings_fs filesystem:
   system.settings.littlefs.base64:
     path: tests/subsys/settings/littlefs/base64
     catalog: settings_fs filesystem
-    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+    extra_configs:
+    - CONFIG_STDOUT_CONSOLE=y
+    - CONFIG_ARM_MPU=n
+    platform_allow: nrf52840dk_nrf52840
+  system.settings.littlefs.base64_native_posix:
+    path: tests/subsys/settings/littlefs/base64
+    catalog: settings_fs filesystem
+    platform_allow: native_posix native_posix_64
 settings_fs settings_littlefs:
   system.settings.littlefs.raw:
     path: tests/subsys/settings/littlefs/raw
     catalog: settings_fs settings_littlefs
-    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64
+    extra_configs:
+    - CONFIG_STDOUT_CONSOLE=y
+    - CONFIG_ARM_MPU=n
+    platform_allow: nrf52840dk_nrf52840
+  system.settings.littlefs.raw_native_posix:
+    path: tests/subsys/settings/littlefs/raw
+    catalog: settings_fs settings_littlefs
+    platform_allow: native_posix native_posix_64
 flash_map:
   storage.flash_map:
     path: tests/subsys/storage/flash_map
@@ -9822,6 +10260,11 @@ lib_sys_util_tests:
   utilities.dec:
     path: tests/unit/util
     catalog: lib_sys_util_tests
+    type: unit
+winstream:
+  utilities.winstream:
+    path: tests/unit/winstream
+    catalog: winstream
     type: unit
 test_framework userspace ignore_faults:
   testing.ztest.error_hook:

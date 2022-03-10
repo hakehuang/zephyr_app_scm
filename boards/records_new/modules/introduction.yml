@@ -15,11 +15,6 @@ cases:
     path: samples/kernel/metairq_dispatch
     catalog: introduction
     filter: not CONFIG_ARCH_POSIX
-  sample.modules.canopennode:
-    path: samples/modules/canopennode
-    catalog: introduction
-    depends_on: can
-    platform_allow: twr_ke18f frdm_k64f
   sample.kernel.philosopher:
     path: samples/philosophers
     catalog: introduction
@@ -27,27 +22,27 @@ cases:
   sample.kernel.philosopher.same_prio:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DSAME_PRIO=1 DEBUG_PRINTF=1"
+    extra_args: SAME_PRIO=1 DEBUG_PRINTF=1
   sample.kernel.philosopher.static:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DSTATIC_OBJS=1 DEBUG_PRINTF=1"
+    extra_args: STATIC_OBJS=1 DEBUG_PRINTF=1
   sample.kernel.philosopher.semaphores:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=SEMAPHORES DEBUG_PRINTF=1"
+    extra_args: FORKS=SEMAPHORES DEBUG_PRINTF=1
   sample.kernel.philosopher.stacks:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=STACKS DEBUG_PRINTF=1"
+    extra_args: FORKS=STACKS DEBUG_PRINTF=1
   sample.kernel.philosopher.fifos:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=FIFOS DEBUG_PRINTF=1"
+    extra_args: FORKS=FIFOS DEBUG_PRINTF=1
   sample.kernel.philosopher.lifos:
     path: samples/philosophers
     catalog: introduction
-    extra_args: "-DFORKS=LIFOS DEBUG_PRINTF=1"
+    extra_args: FORKS=LIFOS DEBUG_PRINTF=1
   sample.kernel.philosopher.preempt_only:
     path: samples/philosophers
     catalog: introduction
@@ -67,4 +62,5 @@ cases:
   sample.helloworld:
     path: samples/userspace/hello_world_user
     catalog: introduction
+    filter: CONFIG_ARCH_HAS_USERSPACE
     platform_exclude: intel_adsp_cavs15

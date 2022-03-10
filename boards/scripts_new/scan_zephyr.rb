@@ -18,7 +18,7 @@ require_relative "parse_testcase"
 require_relative "parse_sample"
 require_relative "zephyr_filter"
 
-$version = "v2.7.99"
+$version = "v3.0.0"
 
 LONG_CASE_DURATION = {
   'benchmark.crypto.mbedtls' => {'timeout' => 1000},
@@ -65,6 +65,10 @@ LONG_CASE_DURATION = {
   'libraries.libc.newlib_nano.thread_safety.stress' => {'timeout' => 600},
   'libraries.libc.newlib_nano.thread_safety.userspace.stress' => {'timeout' => 600},
   'libraries.libc.newlib.thread_safety.stress' => {'timeout' => 1000},
+  'benchmark.kernel.application.fp.arm' => {'timeout' => 1000},
+  'benchmark.kernel.core' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.matrix.binary_f16' => {'timeout' => 1000},
+  'libraries.ring_buffer' => {'timeout' => 1000},
 }
 
 class Parser

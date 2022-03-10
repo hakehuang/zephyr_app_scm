@@ -11,3 +11,4 @@ cases:
     extra_args: CONF_FILE=debug.conf
     platform_exclude: lpcxpresso55s69_ns nrf9160dk_nrf9160_ns nrf5340dk_nrf5340_cpuapp_ns
     build_only: true
+    filter: CONFIG_CONSOLE_HAS_DRIVER

@@ -3,6 +3,9 @@ cases:
   testing.ztest.ztress:
     path: "."
     catalog: test_framework
+    extra_configs:
+    - CONFIG_MP_NUM_CPUS=1
+    platform_exclude: qemu_cortex_a9
     filter: CONFIG_QEMU_TARGET
   testing.drivers.sbs_gauge:
     path: tests/drivers/sensor/sbs_gauge
@@ -69,4 +72,7 @@ cases:
   testing.ztest.ztress.ztress:
     path: tests/ztest/ztress
     catalog: test_framework
+    extra_configs:
+    - CONFIG_MP_NUM_CPUS=1
+    platform_exclude: qemu_cortex_a9
     filter: CONFIG_QEMU_TARGET

@@ -5,7 +5,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -15,7 +15,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 64
     min_ram: 32
@@ -25,7 +25,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -35,7 +35,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 64
     min_ram: 32
@@ -45,7 +45,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -57,7 +57,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_BIQUAD=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -69,7 +69,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_DECIM=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -81,7 +81,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_FIR=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -93,7 +93,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_FILTERING_MISC=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 256
     min_ram: 64
@@ -103,7 +103,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -115,7 +115,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q7=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -127,7 +127,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q15=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -139,7 +139,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q31=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -151,7 +151,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F16=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -163,7 +163,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F32=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -175,7 +175,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F64=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -187,7 +187,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q7=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -201,7 +201,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -215,7 +215,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -229,7 +229,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F16=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 144
@@ -241,7 +241,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -255,7 +255,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F64=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     platform_exclude:
     - frdm_kw41z
@@ -267,7 +267,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -277,7 +277,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -287,7 +287,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -297,7 +297,7 @@ cases:
     catalog: cmsis_dsp fpu
     extra_configs:
     - CONFIG_FPU=y
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 128
     min_ram: 64
@@ -309,7 +309,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ15=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -321,7 +321,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ15=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -333,7 +333,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ31=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -345,7 +345,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ31=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -357,7 +357,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF16=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -369,7 +369,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF16=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -381,7 +381,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF32=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64
@@ -393,7 +393,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF32=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 512
     min_ram: 64
@@ -405,7 +405,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF64=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 96
@@ -417,7 +417,7 @@ cases:
     - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF64=y
     - CONFIG_FPU=y
     extra_args: CONF_FILE=prj_base.conf
-    filter: "((CONFIG_CPU_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
       and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
     min_flash: 1024
     min_ram: 64

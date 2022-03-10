@@ -3,7 +3,7 @@ cases:
   logging.log_core:
     path: tests/subsys/logging/log_core
     catalog: log_core logging
-    filter: not CONFIG_LOG_IMMEDIATE
+    filter: not CONFIG_LOG_MODE_IMMEDIATE
   logging.log_immediate:
     path: tests/subsys/logging/log_immediate
     catalog: log_core logging

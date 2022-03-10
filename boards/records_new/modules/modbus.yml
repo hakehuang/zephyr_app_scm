@@ -3,11 +3,13 @@ cases:
   sample.modbus.tcp_gateway:
     path: samples/subsys/modbus/tcp_gateway
     catalog: modbus
+    build_only: true
     platform_allow: frdm_k64f
     depends_on: gpio netif arduino_serial
   sample.modbus.tcp_server:
     path: samples/subsys/modbus/tcp_server
     catalog: modbus
+    build_only: true
     platform_allow: frdm_k64f
     filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds") and dt_enabled_alias_with_parent_compat("led1",
       "gpio-leds") and dt_enabled_alias_with_parent_compat("led2", "gpio-leds")

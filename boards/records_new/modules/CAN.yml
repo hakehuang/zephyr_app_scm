@@ -2,9 +2,11 @@
 cases:
   sample.drivers.can:
     path: samples/drivers/can
-    catalog: CAN
+    catalog: can
     depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")
   sample.subsys.canbus.isotp:
     path: samples/subsys/canbus/isotp
-    catalog: CAN
+    catalog: can
     depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")

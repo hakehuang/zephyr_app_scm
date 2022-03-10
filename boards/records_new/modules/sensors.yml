@@ -243,7 +243,7 @@ cases:
     catalog: sensors
     depends_on: adc
     build_only: true
-    platform_allow: nucleo_f401re stm32f103_mini
+    platform_allow: nucleo_f401re stm32f103_mini stm32l562e_dk
   sample.sensor.sx9500:
     path: samples/sensor/sx9500
     catalog: sensors
@@ -253,7 +253,7 @@ cases:
     path: samples/sensor/th02
     catalog: sensors
     depends_on: i2c
-    filter: dt_compat_enabled("hoperf,th02")
+    filter: dt_compat_enabled("hoperf,th02") and dt_compat_enabled("seeed,grove-lcd-rgb")
   sample.sensor.thermometer:
     path: samples/sensor/thermometer
     catalog: sensors

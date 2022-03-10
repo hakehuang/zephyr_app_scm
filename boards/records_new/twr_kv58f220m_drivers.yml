@@ -1,21 +1,25 @@
 ---
 settings:
   case_pipe_name: "twr_kv58f220m_drivers"
-  version: v2.7.99-2752-g241b477f93
+  version: zephyr-v3.0.0-838-gc050d1f2ec
 __load__:
 - modules/drivers_watchdog.yml
 - modules/drivers_userspace.yml
 - modules/drivers_usb.yml
+- modules/drivers_uart.yml
 - modules/drivers_syscon.yml
 - modules/drivers_spi_qspi.yml
 - modules/drivers_spi_gpio.yml
 - modules/drivers_spi.yml
 - modules/drivers_sensors.yml
+- modules/drivers_sensor_subsys.yml
 - modules/drivers_sensor_grove_temperature.yml
 - modules/drivers_sensor_grove_light.yml
+- modules/drivers_sensor.yml
 - modules/drivers_pwm_userspace.yml
 - modules/drivers_pwm.yml
 - modules/drivers_pinctrl.yml
+- modules/drivers_net.yml
 - modules/drivers_memc.yml
 - modules/drivers_led.yml
 - modules/drivers_kscan_userspace.yml
@@ -28,15 +32,12 @@ __load__:
 - modules/drivers_fram.yml
 - modules/drivers_flash.yml
 - modules/drivers_espi.yml
+- modules/drivers_entropy.yml
 - modules/drivers_dma.yml
 - modules/drivers_console.yml
+- modules/drivers_can.yml
 - modules/drivers_bbram.yml
 - modules/drivers.yml
-- modules/driver_sensor_subsys.yml
-- modules/driver_sensor.yml
-- modules/driver_entropy.yml
-- modules/driver_can.yml
-- modules/driver.yml
 - skips/twr_kv58f220m.yml
 - boards/twr_kv58f220m.yml
 cases:

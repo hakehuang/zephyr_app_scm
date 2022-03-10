@@ -29,14 +29,33 @@ cases:
     - CONFIG_LOG_BACKEND_RTT=y
     - CONFIG_USE_SEGGER_RTT=y
     filter: CONFIG_HAS_SEGGER_RTT
-  sample.logger.syst:
+  sample.logger.syst.v1.deferred:
     path: samples/subsys/logging/syst
     catalog: logging
-    platform_allow: mps2_an385 sam_e70_xplained
+    extra_configs:
+    - CONFIG_LOG1=y
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
+  sample.logger.syst.v1.immediate:
+    path: samples/subsys/logging/syst
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG1=y
+    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
+  sample.logger.syst.v2.deferred:
+    path: samples/subsys/logging/syst
+    catalog: logging
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
+  sample.logger.syst.v2.immediate:
+    path: samples/subsys/logging/syst
+    catalog: logging
+    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
   logging.log_benchmark_v1:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_STRDUP_BUF_COUNT=8
     - CONFIG_LOG_STRDUP_MAX_STRING=32
@@ -45,6 +64,7 @@ cases:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG1=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_STRDUP_BUF_COUNT=8
     - CONFIG_LOG_STRDUP_MAX_STRING=32
@@ -55,37 +75,37 @@ cases:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG2_MODE_DEFERRED=y
   logging.log_benchmark_v2_speed:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_LOG_SPEED=y
   logging.log_benchmark_user_v2:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG2_MODE_DEFERRED=y
     - CONFIG_TEST_USERSPACE=y
     platform_allow: qemu_x86 native_posix
   logging.add.async:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
+    extra_args: CONF_FILE=log2.conf
   logging.add.sync:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
     extra_args: CONF_FILE=log_sync.conf
-  logging.add.user:
+  logging.add.log1_user:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
     extra_args: CONF_FILE=log_user.conf USERSPACE_TEST=1
     filter: CONFIG_USERSPACE
-  logging.add.log2:
+  logging.add.log1:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
-    extra_args: CONF_FILE=log2.conf
+    extra_args: CONF_FILE=prj.conf

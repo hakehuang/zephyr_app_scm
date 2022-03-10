@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimx8mm_evk_3"
-  version: v2.7.99-2752-g241b477f93
+  version: zephyr-v3.0.0-838-gc050d1f2ec
 __load__:
 - modules/kconfig.yml
 - modules/k_heap_api_kernel_linker_generator.yml
@@ -25,6 +25,7 @@ __load__:
 - modules/http_net.yml
 - modules/heap.yml
 - modules/gpio.yml
+- modules/getopt.yml
 - modules/gen_inc_file.yml
 - modules/fpu_kernel_userspace.yml
 - modules/fpu_kernel_ignore_faults_userspace.yml

@@ -33,13 +33,18 @@ cases:
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86 nrf52_bsim
   sample.bluetooth.direction_finding_connectionless_rx:
-    path: samples/bluetooth/direction_finding_connectionless_rx
+    path: samples/bluetooth/direction_finding_peripheral
     catalog: bluetooth
-    platform_allow: nrf52833dk_nrf52833
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding_connectionless_rx.aod:
+    path: samples/bluetooth/direction_finding_peripheral
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-aoa.conf"
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.direction_finding_connectionless:
     path: samples/bluetooth/direction_finding_connectionless_tx
     catalog: bluetooth
-    platform_allow: nrf52833dk_nrf52833
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.eddystone:
     path: samples/bluetooth/eddystone
     catalog: bluetooth
@@ -174,6 +179,14 @@ cases:
     path: samples/bluetooth/st_ble_sensor
     catalog: bluetooth
     platform_allow: nucleo_wb55rg
+  sample.bluetooth.audio_unicast_client:
+    path: samples/bluetooth/unicast_audio_client
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.audio_unicast_server:
+    path: samples/bluetooth/unicast_audio_server
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.mesh.onoff:
     path: samples/boards/nrf/mesh/onoff-app
     catalog: bluetooth
@@ -201,11 +214,6 @@ cases:
     platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
-  sample.mcumg.smp_svr.bt_tiny:
-    path: samples/subsys/mgmt/mcumgr/smp_svr
-    catalog: bluetooth
-    extra_args: OVERLAY_CONFIG="overlay-bt-tiny.conf"
-    platform_allow: nrf51dk_nrf51422
   sample.mcumg.smp_svr.bt:
     path: samples/subsys/mgmt/mcumgr/smp_svr
     catalog: bluetooth
@@ -255,6 +263,10 @@ cases:
     path: tests/bluetooth/bluetooth
     catalog: bluetooth
     platform_allow: qemu_x86 qemu_cortex_m3 native_posix native_posix_64
+  bluetooth.isoal.test:
+    path: tests/bluetooth/ctrl_isoal
+    catalog: bluetooth
+    platform_allow: native_posix
   bluetooth.ctrl_sw_privacy.test:
     path: tests/bluetooth/ctrl_sw_privacy
     catalog: bluetooth

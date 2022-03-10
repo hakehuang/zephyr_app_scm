@@ -25,6 +25,11 @@ cases:
     extra_args: SHIELD=ftdi_vm800c
     depends_on: spi
     platform_allow: nrf52840dk_nrf52840
+  sample.drivers.misc.grove_display:
+    path: samples/drivers/misc/grove_display
+    catalog: drivers
+    depends_on: i2c
+    filter: dt_compat_enabled("seeed,grove-lcd-rgb")
   sample.drivers.peci:
     path: samples/drivers/peci
     catalog: drivers
@@ -50,10 +55,6 @@ cases:
     - CONFIG_MCUX_ACMP_TRIGGER=n
     build_only: true
     platform_allow: twr_ke18f
-  sample.display.grove_display:
-    path: samples/subsys/display/grove_display
-    catalog: drivers
-    depends_on: i2c
   drivers.counter.build.xlnx:
     path: tests/drivers/build_all/counter
     catalog: drivers
@@ -89,30 +90,6 @@ cases:
     catalog: drivers
     build_only: true
     min_ram: 32
-  drivers.modem.build:
-    path: tests/drivers/build_all/modem
-    catalog: drivers
-    extra_args: CONF_FILE=modem.conf
-    platform_exclude: serpente particle_boron rak5010_nrf52840 litex_vexriscv ip_k66f
-    build_only: true
-  drivers.modem.ublox_sara.build:
-    path: tests/drivers/build_all/modem
-    catalog: drivers
-    extra_args: CONF_FILE=modem_ublox_sara.conf
-    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
-    build_only: true
-  drivers.modem.simcom_sim7080.build:
-    path: tests/drivers/build_all/modem
-    catalog: drivers
-    extra_args: CONF_FILE=modem_simcom_sim7080.conf
-    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
-    build_only: true
-  drivers.modem.quectel_bg9x.build:
-    path: tests/drivers/build_all/modem
-    catalog: drivers
-    extra_args: CONF_FILE=modem_quectel_bg9x.conf
-    platform_exclude: serpente pinnacle_100_dvk litex_vexriscv ip_k66f
-    build_only: true
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
     catalog: drivers
@@ -231,6 +208,7 @@ cases:
     extra_configs:
     - CONFIG_COUNTER_CMOS=y
     arch_allow: x86
+    filter: CONFIG_X86_PC_COMPATIBLE
   drivers.counter.mcux.snvs.rtc:
     path: tests/drivers/counter/counter_seconds
     catalog: drivers
@@ -241,6 +219,28 @@ cases:
     depends_on: counter i2c
     min_ram: 16
     filter: dt_compat_enabled("maxim,ds3231")
+  drivers.flash.flash_simulator:
+    path: tests/drivers/flash_simulator
+    catalog: drivers
+    platform_allow: qemu_x86 native_posix native_posix_64
+  drivers.flash.flash_simulator.qemu_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: drivers
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
+  drivers.flash.flash_simulator.posix_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: drivers
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_allow: native_posix
+  drivers.flash.flash_simulator.posix_64_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: drivers
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
+    platform_allow: native_posix_64
+  drivers.hwinfo.api:
+    path: tests/drivers/hwinfo/api
+    catalog: drivers
   drivers.timer.nrf_rtc_timer:
     path: tests/drivers/timer/nrf_rtc_timer
     catalog: drivers
@@ -255,6 +255,15 @@ cases:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+    platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
+      atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
+      atsamd21_xpro adafruit_feather_m0_basic_proto
+  drivers.uart.uart_async_api.nrf_uart:
+    path: tests/drivers/uart/uart_async_api
+    catalog: drivers
+    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;boards/nrf_uart.overlay"
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+    platform_allow: nrf52840dk_nrf52840
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
       atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
       atsamd21_xpro adafruit_feather_m0_basic_proto
@@ -312,6 +321,20 @@ cases:
     - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
     - CONFIG_NRFX_TIMER2=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
+  drivers.uart.uart_mix_poll_async_api_const:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: drivers
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    - CONFIG_UART_ASYNC_TX_CACHE_SIZE=2
+    extra_args: TEST_CONST_BUFFER=1
     platform_allow: nrf52840dk_nrf52840 nrf9160dk_nrf9160
   drivers.uart.uart_mix_poll_async_api_low_power:
     path: tests/drivers/uart/uart_mix_fifo_poll

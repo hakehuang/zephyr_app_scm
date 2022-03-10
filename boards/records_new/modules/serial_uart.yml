@@ -1,0 +1,6 @@
+---
+cases:
+  sample.drivers.uart:
+    path: samples/drivers/uart/echo_bot
+    catalog: serial uart
+    filter: CONFIG_SERIAL and CONFIG_UART_INTERRUPT_DRIVEN and dt_chosen_enabled("zephyr,shell-uart")
