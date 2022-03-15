@@ -1,0 +1,7 @@
+---
+cases:
+  sample.usbc.sink:
+    path: samples/boards/stm32/usbc/sink
+    catalog: usbc
+    depends_on: tcpc
+    platform_allow: stm32g081b_eval

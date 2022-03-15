@@ -14,6 +14,14 @@ cases:
     - CONFIG_TIMESLICING=n
     filter: not CONFIG_SCHED_MULTIQ
     min_ram: 34
+  kernel.scheduler.slice_perthread:
+    path: tests/kernel/sched/schedule_api
+    catalog: kernel threads sched userspace ignore_faults
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    - CONFIG_TIMESLICE_PER_THREAD=y
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 34
   kernel.scheduler.multiq:
     path: tests/kernel/sched/schedule_api
     catalog: kernel threads sched userspace ignore_faults

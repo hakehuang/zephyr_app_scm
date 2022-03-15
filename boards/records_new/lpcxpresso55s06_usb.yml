@@ -1,0 +1,20 @@
+---
+settings:
+  case_pipe_name: "lpcxpresso55s06_usb"
+  version: zephyr-v3.0.0-1108-ge65e261621
+__load__:
+- modules/usbc.yml
+- modules/usb_sensors.yml
+- modules/usb_osdesc.yml
+- modules/usb_net_zperf.yml
+- modules/usb_ieee802154.yml
+- modules/usb_desc_sections.yml
+- modules/usb_bos.yml
+- modules/usb_bluetooth.yml
+- modules/usb.yml
+- skips/lpcxpresso55s06.yml
+- boards/lpcxpresso55s06.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

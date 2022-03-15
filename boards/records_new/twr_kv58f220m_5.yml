@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "twr_kv58f220m_5"
-  version: zephyr-v3.0.0-838-gc050d1f2ec
+  version: zephyr-v3.0.0-1108-ge65e261621
 __load__:
 - modules/winstream.yml
 - modules/video_net_socket.yml
@@ -44,6 +44,7 @@ __load__:
 - modules/test_framework.yml
 - modules/tensorflow.yml
 - modules/sysid.yml
+- modules/sys_util.yml
 - modules/synchronization.yml
 - modules/subsys.yml
 - modules/stream_flash.yml

@@ -1,0 +1,8 @@
+__load__:
+  - boards/common.yml
+
+settings:
+  build_script: build_zephyr_elf.sh
+  run_script: run_zephyr_elf_lpcxpresso55s06.sh
+  no_filter:
+    - CONFIG_ARCH_HAS_USERSPACE

@@ -66,6 +66,36 @@ cases:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_frontend_dbg:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    platform_exclude: qemu_arc_hs6x
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_frontend:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_DEFERRED=y
+    platform_exclude: qemu_arc_hs6x
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_frontend_no_backends:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_LOG_BACKEND_NATIVE_POSIX=n
+    - CONFIG_LOG_BACKEND_XTENSA_SIM=n
+    extra_args: EXTRA_CPPFLAGS=-DNO_BACKENDS=1
+    platform_exclude: qemu_arc_hs6x
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log2_api_deferred_overflow_rt_filter:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
@@ -163,6 +193,22 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_exclude: qemu_arc_hs6x
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_frontend_immediate:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    platform_exclude: qemu_arc_hs6x
+    filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
+  logging.log_api_frontend_only:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
     platform_exclude: qemu_arc_hs6x
     filter: CONFIG_QEMU_TARGET or CONFIG_BOARD_NATIVE_POSIX
   logging.log_msg2:

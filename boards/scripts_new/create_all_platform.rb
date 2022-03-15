@@ -107,6 +107,6 @@ platforms.each do |plat, v|
         output.each_line do |line|
             out_line += line.rstrip() + "\n"
         end
-        File.open(filename, 'w') {|f| f.write(out_line) }  
+        File.open(filename, 'w') {|f| f.write(out_line) }
     end
 end

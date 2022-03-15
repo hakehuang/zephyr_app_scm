@@ -1,8 +1,9 @@
 ---
 settings:
   case_pipe_name: "mimxrt1015_evk_usb"
-  version: zephyr-v3.0.0-838-gc050d1f2ec
+  version: zephyr-v3.0.0-1108-ge65e261621
 __load__:
+- modules/usbc.yml
 - modules/usb_sensors.yml
 - modules/usb_osdesc.yml
 - modules/usb_net_zperf.yml

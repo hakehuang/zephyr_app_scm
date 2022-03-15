@@ -1,0 +1,12 @@
+---
+settings:
+  case_pipe_name: "lpcxpresso55s06_kernel"
+  version: zephyr-v3.0.0-1108-ge65e261621
+__load__:
+- modules/kernel.yml
+- skips/lpcxpresso55s06.yml
+- boards/lpcxpresso55s06.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required
