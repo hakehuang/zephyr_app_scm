@@ -95,6 +95,9 @@ module ZEPHER_FILTER
 
               if case_hash[k].class.name == "Array"
                 case_hash[k].each do |ik|
+                  if board_hash['settings']["no_filter"].include? ik
+                    return true
+                  end
                   if ! zephyr_filter_parser(ik, board_hash)
                     return false
                   end
