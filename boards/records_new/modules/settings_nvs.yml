@@ -4,6 +4,11 @@ cases:
     path: tests/subsys/settings/functional/nvs
     catalog: settings_nvs
     platform_allow: qemu_x86 native_posix native_posix_64
+  system.settings.functional.nvs.chosen:
+    path: tests/subsys/settings/functional/nvs
+    catalog: settings_nvs
+    extra_args: DTC_OVERLAY_FILE=./chosen.overlay
+    platform_allow: native_posix native_posix_64
   system.settings.functional.nvs.dk:
     path: tests/subsys/settings/functional/nvs
     catalog: settings_nvs

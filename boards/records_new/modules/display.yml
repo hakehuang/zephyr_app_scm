@@ -13,6 +13,15 @@ cases:
     catalog: display
     build_only: true
     platform_allow: native_posix_64
+  sample.display.dummy:
+    path: samples/drivers/display
+    catalog: display
+    extra_configs:
+    - CONFIG_DUMMY_DISPLAY=y
+    - CONFIG_SDL_DISPLAY=n
+    - CONFIG_TEST=y
+    extra_args: DTC_OVERLAY_FILE="dummy_dc.overlay"
+    platform_allow: native_posix
   sample.drivers.lcd.hd44780:
     path: samples/drivers/lcd_hd44780
     catalog: display

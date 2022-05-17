@@ -206,7 +206,6 @@ cases:
   sample.sensor.mpr:
     path: samples/sensor/mpr
     catalog: sensors
-    depends_on: i2c
     platform_allow: arduino_due
   sample.sensor.mpu6050:
     path: samples/sensor/mpu6050
@@ -281,7 +280,6 @@ cases:
     path: samples/sensor/vcnl4040
     catalog: sensors
     platform_allow: adafruit_feather_stm32f405
-    depends_on: i2c gpio
     filter: dt_compat_enabled("vishay,vcnl4040")
   sample.sensor.vl53l0x:
     path: samples/sensor/vl53l0x

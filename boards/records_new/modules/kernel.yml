@@ -1,6 +1,6 @@
 ---
 cases:
-  kernel.common.context:
+  kernel.context:
     path: tests/kernel/context
     catalog: kernel
   kernel.events:
@@ -48,10 +48,10 @@ cases:
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_USERSPACE=n
-  kernel.memory_slabs.api:
+  kernel.memory_slabs:
     path: tests/kernel/mem_slab/mslab
     catalog: kernel
-  kernel.memory_slabs.api.mslab_api:
+  kernel.memory_slabs.api:
     path: tests/kernel/mem_slab/mslab_api
     catalog: kernel
   kernel.memory_slabs.api_no_multithreading:
@@ -111,18 +111,23 @@ cases:
     catalog: kernel
     arch_exclude: nios2
     platform_exclude: litex_vexriscv rv32m1_vega_zero_riscy rv32m1_vega_ri5cy nrf5340dk_nrf5340_cpunet
-  kernel.workqueue:
+  kernel.usage:
+    path: tests/kernel/usage/thread_runtime_stats
+    catalog: kernel
+    arch_exclude: posix riscv32 sparc mips
+    filter: not CONFIG_SMP
+  kernel.workqueue.critical:
     path: tests/kernel/workq/critical
     catalog: kernel
     platform_exclude: nsim_sem_mpu_stack_guard
     filter: not CONFIG_WDT_SAM
-  kernel.workqueue.sam:
+  kernel.workqueue.critical.sam:
     path: tests/kernel/workq/critical
     catalog: kernel
     extra_configs:
     - CONFIG_WDT_DISABLE_AT_BOOT=y
     filter: CONFIG_WDT_SAM
-  kernel.workqueue.nsim:
+  kernel.workqueue.critical.nsim:
     path: tests/kernel/workq/critical
     catalog: kernel
     extra_configs:
@@ -133,7 +138,7 @@ cases:
     catalog: kernel
     min_flash: 34
     platform_exclude: hifive1
-  kernel.workqueue.work_queue:
+  kernel.workqueue:
     path: tests/kernel/workq/work_queue
     catalog: kernel
     min_flash: 34

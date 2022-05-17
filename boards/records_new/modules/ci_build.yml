@@ -15,7 +15,7 @@ cases:
     platform_allow: nrf52840dk_nrf52840 nrf52833dk_nrf52833
     depends_on: netif
     min_flash: 140
-  samples.openthread.coprocessor.rcp:
+  sample.openthread.coprocessor.rcp:
     path: samples/net/openthread/coprocessor
     catalog: ci_build
     extra_args: OVERLAY_CONFIG=overlay-rcp.conf

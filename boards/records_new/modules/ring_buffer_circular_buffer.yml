@@ -3,12 +3,9 @@ cases:
   libraries.ring_buffer:
     path: tests/lib/ringbuffer
     catalog: ring_buffer circular_buffer
-    extra_configs:
-    - CONFIG_MP_NUM_CPUS=1
   libraries.ring_buffer_concurrent:
     path: tests/lib/ringbuffer
     catalog: ring_buffer circular_buffer
     extra_configs:
     - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
-    - CONFIG_MP_NUM_CPUS=1
     platform_allow: qemu_x86

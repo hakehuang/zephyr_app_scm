@@ -3,11 +3,7 @@ cases:
   testing.ztest.ztress:
     path: "."
     catalog: test_framework
-    extra_configs:
-    - CONFIG_MP_NUM_CPUS=1
-    platform_exclude: qemu_cortex_a9
-    filter: CONFIG_QEMU_TARGET
-  testing.drivers.sbs_gauge:
+  drivers.sbs_gauge:
     path: tests/drivers/sensor/sbs_gauge
     catalog: test_framework
     build_only: true
@@ -19,15 +15,15 @@ cases:
     path: tests/ztest/base
     catalog: test_framework
     type: unit
-  testing.ztest.verbose_0:
+  testing.ztest.base.verbose_0:
     path: tests/ztest/base
     catalog: test_framework
     extra_args: CONF_FILE=prj_verbose_0.conf
-  testing.ztest.verbose_1:
+  testing.ztest.base.verbose_1:
     path: tests/ztest/base
     catalog: test_framework
     extra_args: CONF_FILE=prj_verbose_1.conf
-  testing.ztest.verbose_2:
+  testing.ztest.base.verbose_2:
     path: tests/ztest/base
     catalog: test_framework
     extra_args: CONF_FILE=prj_verbose_2.conf
@@ -72,7 +68,3 @@ cases:
   testing.ztest.ztress.ztress:
     path: tests/ztest/ztress
     catalog: test_framework
-    extra_configs:
-    - CONFIG_MP_NUM_CPUS=1
-    platform_exclude: qemu_cortex_a9
-    filter: CONFIG_QEMU_TARGET

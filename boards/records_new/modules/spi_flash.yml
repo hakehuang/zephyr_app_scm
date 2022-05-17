@@ -11,6 +11,7 @@ cases:
     path: samples/drivers/spi_flash
     catalog: spi flash
     filter: dt_compat_enabled("jedec,spi-nor") or dt_compat_enabled("st,stm32-qspi-nor")
+      or dt_compat_enabled("st,stm32-ospi-nor")
     depends_on: spi
   sample.drivers.spi.flash_dpd:
     path: samples/drivers/spi_flash

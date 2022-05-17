@@ -3,7 +3,7 @@ cases:
   lib.heap:
     path: tests/lib/heap
     catalog: heap
-    platform_exclude: m2gl025_miv qemu_xtensa
+    platform_exclude: m2gl025_miv qemu_xtensa esp32s2_saola
     filter: not CONFIG_SOC_NSIM
   lib.heap_align:
     path: tests/lib/heap_align

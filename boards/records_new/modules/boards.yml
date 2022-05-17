@@ -4,6 +4,11 @@ cases:
     path: tests/boards/intel_adsp/mm
     catalog: boards
     platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.ssp:
+    path: tests/boards/intel_adsp/ssp
+    catalog: boards
+    depends_on: dai dma
+    platform_allow: intel_adsp_cavs25 intel_adsp_cavs15
   boards.s1000_crb.cache:
     path: tests/boards/intel_s1000_crb/cache
     catalog: boards

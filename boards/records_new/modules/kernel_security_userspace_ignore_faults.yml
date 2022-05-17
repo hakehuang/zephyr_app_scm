@@ -3,6 +3,7 @@ cases:
   kernel.memory_protection:
     path: tests/kernel/mem_protect/mem_protect
     catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_TEST_HW_STACK_PROTECTION=n
     filter: CONFIG_ARCH_HAS_USERSPACE
     platform_exclude: twr_ke18f qemu_arc_hs qemu_arc_em
   kernel.memory_protection.gap_filling.arc:
@@ -22,9 +23,11 @@ cases:
     path: tests/kernel/mem_protect/syscalls
     catalog: kernel security userspace ignore_faults
     filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: qemu_arc_em
   kernel.memory_protection.userspace:
     path: tests/kernel/mem_protect/userspace
     catalog: kernel security userspace ignore_faults
+    extra_args: CONFIG_TEST_HW_STACK_PROTECTION=n
     filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.memory_protection.userspace.gap_filling.arc:
     path: tests/kernel/mem_protect/userspace

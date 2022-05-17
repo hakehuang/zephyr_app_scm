@@ -101,43 +101,43 @@ cases:
     platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
-  sample.net.sockets.echo_server.802154.rf2xx:
-    path: samples/net/sockets/echo_server
+  sample.net.sockets.echo_client.802154.rf2xx:
+    path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: atsamr21_xpro
     depends_on: netif
     min_flash: 140
-  sample.net.sockets.echo_server.802154.rf2xx.xplained:
-    path: samples/net/sockets/echo_server
+  sample.net.sockets.echo_client.802154.rf2xx.xplained:
+    path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_xplained OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: sam4s_xplained
     depends_on: netif
     min_flash: 140
-  sample.net.sockets.echo_server.802154.rf2xx.xpro:
-    path: samples/net/sockets/echo_server
+  sample.net.sockets.echo_client.802154.rf2xx.xpro:
+    path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_xpro OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: sam4e_xpro sam_v71_xult
     depends_on: netif
     min_flash: 140
-  sample.net.sockets.echo_server.802154.rf2xx.legacy:
-    path: samples/net/sockets/echo_server
+  sample.net.sockets.echo_client.802154.rf2xx.legacy:
+    path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_legacy OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: sam4e_xpro sam_v71_xult
     depends_on: netif
     min_flash: 140
-  sample.net.sockets.echo_server.802154.rf2xx.arduino:
-    path: samples/net/sockets/echo_server
+  sample.net.sockets.echo_client.802154.rf2xx.arduino:
+    path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_arduino OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: sam_v71_xult frdm_k64f nucleo_f767zi
     depends_on: netif
     min_flash: 140
-  sample.net.sockets.echo_server.802154.rf2xx.mikrobus:
-    path: samples/net/sockets/echo_server
+  sample.net.sockets.echo_client.802154.rf2xx.mikrobus:
+    path: samples/net/sockets/echo_client
     catalog: net socket
     extra_args: SHIELD=atmel_rf2xx_mikrobus OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: lpcxpresso55s69_ns
@@ -182,6 +182,48 @@ cases:
     catalog: net socket
     extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
     platform_allow: qemu_x86
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: atsamr21_xpro
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.xplained:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_xplained OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam4s_xplained
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.xpro:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_xpro OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam4e_xpro sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.legacy:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_legacy OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam4e_xpro sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.arduino:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_arduino OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam_v71_xult frdm_k64f nucleo_f767zi
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.mikrobus:
+    path: samples/net/sockets/echo_server
+    catalog: net socket
+    extra_args: SHIELD=atmel_rf2xx_mikrobus OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: lpcxpresso55s69_ns
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.mcr20a:
@@ -233,3 +275,7 @@ cases:
   sample.net.sockets.socketpair:
     path: samples/net/sockets/socketpair
     catalog: net socket
+  net.socket.offload.dispatcher:
+    path: tests/net/socket/offload_dispatcher
+    catalog: net socket
+    depends_on: netif

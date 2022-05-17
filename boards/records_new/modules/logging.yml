@@ -19,6 +19,32 @@ cases:
     - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
     build_only: true
     filter: CONFIG_CPU_HAS_FPU
+  sample.logger.basic.dictionary.uart_async_frontend:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_FRONTEND_DICT_UART=y
+    build_only: true
+    platform_allow: nrf52840dk_nrf52840
+  sample.logger.basic.dictionary.uart_int_frontend:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_FRONTEND_DICT_UART=y
+    build_only: true
+    filter: CONFIG_SERIAL_SUPPORT_INTERRUPT and CONFIG_UART_CONSOLE
   sample.logger.basic:
     path: samples/subsys/logging/logger
     catalog: logging
@@ -29,28 +55,6 @@ cases:
     - CONFIG_LOG_BACKEND_RTT=y
     - CONFIG_USE_SEGGER_RTT=y
     filter: CONFIG_HAS_SEGGER_RTT
-  sample.logger.syst.v1.deferred:
-    path: samples/subsys/logging/syst
-    catalog: logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
-    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
-  sample.logger.syst.v1.immediate:
-    path: samples/subsys/logging/syst
-    catalog: logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
-  sample.logger.syst.v2.deferred:
-    path: samples/subsys/logging/syst
-    catalog: logging
-    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
-    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
-  sample.logger.syst.v2.immediate:
-    path: samples/subsys/logging/syst
-    catalog: logging
-    platform_allow: mps2_an385 qemu_x86 sam_e70_xplained
   logging.log_benchmark_v1:
     path: tests/subsys/logging/log_benchmark
     catalog: logging

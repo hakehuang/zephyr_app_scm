@@ -15,7 +15,7 @@ merge_unit      = YML_Merger.new(
     )
 merged_data     = merge_unit.process()
 puts "creating './merged_data.yml'"
-File.write('./merged_data.yml', YAML.dump(merged_data))
+#File.write('./merged_data.yml', YAML.dump(merged_data))
 board_name = ZEPHER_FILTER::get_board_name(board)
 board_info = load_board_data(@search_path,board_name,merged_data)
 create_pipefile_from_config(config: merged_data, board_name: board_name, board_info: board_info)

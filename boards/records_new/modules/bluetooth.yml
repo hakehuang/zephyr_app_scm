@@ -4,6 +4,14 @@ cases:
     path: samples/bluetooth/beacon
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86 nrf52dk_nrf52832
+  sample.bluetooth.broadcast_audio_sink:
+    path: samples/bluetooth/broadcast_audio_sink
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf52_bsim
+  sample.bluetooth.broadcast_audio_source:
+    path: samples/bluetooth/broadcast_audio_source
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf52_bsim
   sample.bluetooth.broadcaster:
     path: samples/bluetooth/broadcaster
     catalog: bluetooth
@@ -32,18 +40,31 @@ cases:
     path: samples/bluetooth/central_past
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86 nrf52_bsim
-  sample.bluetooth.direction_finding_connectionless_rx:
-    path: samples/bluetooth/direction_finding_peripheral
+  sample.bluetooth.direction_finding.central:
+    path: samples/bluetooth/direction_finding_central
     catalog: bluetooth
     platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
-  sample.bluetooth.direction_finding_connectionless_rx.aod:
-    path: samples/bluetooth/direction_finding_peripheral
+  sample.bluetooth.direction_finding.central.aod:
+    path: samples/bluetooth/direction_finding_central
     catalog: bluetooth
-    extra_args: OVERLAY_CONFIG="overlay-aoa.conf"
+    extra_args: OVERLAY_CONFIG="overlay-aod.conf"
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding_connectionless_rx:
+    path: samples/bluetooth/direction_finding_connectionless_rx
+    catalog: bluetooth
     platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.direction_finding_connectionless:
     path: samples/bluetooth/direction_finding_connectionless_tx
     catalog: bluetooth
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding.peripheral:
+    path: samples/bluetooth/direction_finding_peripheral
+    catalog: bluetooth
+    platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding.peripheral.aod:
+    path: samples/bluetooth/direction_finding_peripheral
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-aoa.conf"
     platform_allow: nrf52833dk_nrf52833 nrf52833dk_nrf52820 nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.eddystone:
     path: samples/bluetooth/eddystone
@@ -62,6 +83,16 @@ cases:
     path: samples/bluetooth/hci_rpmsg
     catalog: bluetooth
     platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.iso_broadcast:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args: CONF_FILE="nrf5340_cpunet_iso_broadcast.conf"
+    platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.iso_receive:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args: CONF_FILE="nrf5340_cpunet_iso_receive.conf"
+    platform_allow: nrf5340dk_nrf5340_cpunet
   sample.bluetooth.ibeacon:
     path: samples/bluetooth/ibeacon
     catalog: bluetooth
@@ -70,12 +101,12 @@ cases:
     path: samples/bluetooth/iso_broadcast
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86 nrf52_bsim nrf52dk_nrf52832
-  samples.bluetooth.iso_broadcast_benchmark:
+  sample.bluetooth.iso_broadcast_benchmark:
     path: samples/bluetooth/iso_broadcast_benchmark
     catalog: bluetooth
     build_only: true
     platform_allow: nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
-  samples.bluetooth.iso_connected_benchmark:
+  sample.bluetooth.iso_connected_benchmark:
     path: samples/bluetooth/iso_connected_benchmark
     catalog: bluetooth
     build_only: true
@@ -290,7 +321,7 @@ cases:
     path: tests/bluetooth/df/connection_cte_tx_params
     catalog: bluetooth
     platform_allow: nrf52_bsim
-  bluetooth.df.conectionless_cte_tx:
+  bluetooth.df.connectionless_cte_chains:
     path: tests/bluetooth/df/connectionless_cte_chains
     catalog: bluetooth
     platform_allow: nrf52_bsim
@@ -298,7 +329,7 @@ cases:
     path: tests/bluetooth/df/connectionless_cte_rx
     catalog: bluetooth
     platform_allow: nrf52_bsim
-  bluetooth.df.conectionless_cte_tx.connectionless_cte_tx:
+  bluetooth.df.conectionless_cte_tx:
     path: tests/bluetooth/df/connectionless_cte_tx
     catalog: bluetooth
     platform_allow: nrf52_bsim
@@ -557,10 +588,28 @@ cases:
     extra_args: CONF_FILE=prj_ctlr_per_adv.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
+  bluetooth.init.test_ctlr_per_adv_no_adi:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_per_adv_no_adi.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
   bluetooth.init.test_ctlr_per_sync:
     path: tests/bluetooth/init
     catalog: bluetooth
     extra_args: CONF_FILE=prj_ctlr_per_sync.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_per_sync_no_adi:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_per_sync_no_adi.conf
+    platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
+    build_only: true
+  bluetooth.init.test_ctlr_per_sync_no_filter:
+    path: tests/bluetooth/init
+    catalog: bluetooth
+    extra_args: CONF_FILE=prj_ctlr_per_sync_no_filter.conf
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832 nrf51dk_nrf51422
     build_only: true
   bluetooth.init.test_ctlr_peripheral_iso:

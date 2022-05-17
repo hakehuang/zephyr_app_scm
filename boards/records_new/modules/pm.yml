@@ -1,44 +1,40 @@
 ---
 cases:
-  subsys.pm.device_power_domains:
+  pm.power_domain.device:
     path: tests/subsys/pm/device_power_domains
     catalog: pm
     platform_allow: qemu_cortex_m3
-  subsys.pm.device_runtime_api:
+  pm.device_runtime.api:
     path: tests/subsys/pm/device_runtime_api
     catalog: pm
   pm-device-wakeup-api.dts:
     path: tests/subsys/pm/device_wakeup_api
     catalog: pm
     platform_allow: native_posix
-  subsys.pm.policy_api:
-    path: tests/subsys/pm/policy_api
-    catalog: pm
-    platform_allow: native_posix native_posix_64
-  subsys.pm.policy_api_app:
+  pm.policy.api.app:
     path: tests/subsys/pm/policy_api
     catalog: pm
     extra_configs:
-    - CONFIG_PM_POLICY_APP=y
+    - CONFIG_PM_POLICY_CUSTOM=y
     platform_allow: native_posix native_posix_64
-  subsys.pm.power_domain:
+  pm.power_domain:
     path: tests/subsys/pm/power_domain
     catalog: pm
     platform_allow: native_posix
-  subsys.pm.system:
+  pm.system:
     path: tests/subsys/pm/power_mgmt
     catalog: pm
     platform_allow: native_posix
-  subsys.pm.multicore:
+  pm.multicore:
     path: tests/subsys/pm/power_mgmt_multicore
     catalog: pm
     platform_allow: qemu_x86_64
-  subsys.pm.pm_soc:
+  pm.soc:
     path: tests/subsys/pm/power_mgmt_soc
     catalog: pm
     platform_allow: cc26x2r1_launchxl cc1352r1_launchxl mec15xxevb_assy6853 mec1501modular_assy6885
       nucleo_wb55rg nucleo_l476rg twr_ke18f
-  pm-states-api.dts:
+  pm.states.api.dts:
     path: tests/subsys/pm/power_states_api
     catalog: pm
     platform_allow: native_posix

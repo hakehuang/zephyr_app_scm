@@ -8,6 +8,7 @@ cases:
     path: samples/arch/smp/pktqueue
     catalog: introduction
     filter: "(CONFIG_MP_NUM_CPUS > 1)"
+    platform_exclude: esp32 esp_wrover_kit heltec_wifi_lora32_v2 odroid_go olimex_esp32_evb
   sample.basic.helloworld:
     path: samples/hello_world
     catalog: introduction
@@ -15,6 +16,10 @@ cases:
     path: samples/kernel/metairq_dispatch
     catalog: introduction
     filter: not CONFIG_ARCH_POSIX
+  sample.modules.chre:
+    path: samples/modules/chre
+    catalog: introduction
+    filter: not CONFIG_MINIMAL_LIBC
   sample.kernel.philosopher:
     path: samples/philosophers
     catalog: introduction

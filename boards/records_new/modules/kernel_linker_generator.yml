@@ -1,6 +1,6 @@
 ---
 cases:
-  kernel.common.linker_generator:
+  kernel.context.linker_generator:
     path: tests/kernel/context
     catalog: kernel linker_generator
     extra_configs:
@@ -63,13 +63,13 @@ cases:
     - CONFIG_IRQ_OFFLOAD=y
     - CONFIG_CMAKE_LINKER_GENERATOR=y
     platform_allow: qemu_cortex_m3
-  kernel.memory_slabs.api.linker_generator:
+  kernel.memory_slabs.linker_generator:
     path: tests/kernel/mem_slab/mslab
     catalog: kernel linker_generator
     extra_configs:
     - CONFIG_CMAKE_LINKER_GENERATOR=y
     platform_allow: qemu_cortex_m3
-  kernel.memory_slabs.api.linker_generator.mslab_api:
+  kernel.memory_slabs.api.linker_generator:
     path: tests/kernel/mem_slab/mslab_api
     catalog: kernel linker_generator
     extra_configs:
@@ -122,7 +122,7 @@ cases:
     - CONFIG_CMAKE_LINKER_GENERATOR=y
     platform_allow: qemu_cortex_m3
     min_flash: 34
-  kernel.workqueue.linker_generator.work_queue:
+  kernel.workqueue.linker_generator:
     path: tests/kernel/workq/work_queue
     catalog: kernel linker_generator
     extra_configs:

@@ -1,10 +1,11 @@
 ---
 settings:
   case_pipe_name: "frdm_k22f_4"
-  version: zephyr-v3.0.0-1108-ge65e261621
+  version: v3.1.0-rc1
 __load__:
 - modules/pwm_xlnx_axi_timer.yml
 - modules/pwm_xec.yml
+- modules/pwm_test.yml
 - modules/pwm_stm32.yml
 - modules/pwm_sifive.yml
 - modules/pwm_sam0_tcc.yml
@@ -52,15 +53,16 @@ __load__:
 - modules/lorawan.yml
 - modules/lora.yml
 - modules/logging_usermode.yml
+- modules/logging_mipi-sys-t.yml
 - modules/logging_backend_filesystem_fs.yml
 - modules/logging.yml
+- modules/log_syst_logging.yml
 - modules/log_output_logging.yml
 - modules/log_msg_logging.yml
 - modules/log_list_logging.yml
 - modules/log_core_logging.yml
 - modules/log_api_logging.yml
 - modules/llmnr.yml
-- modules/littlefs_fatfs_filesystem_qemu_x86.yml
 - modules/littlefs_fatfs_filesystem.yml
 - modules/linker_generator.yml
 - modules/linker.yml

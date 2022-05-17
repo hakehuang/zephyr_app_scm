@@ -1,11 +1,11 @@
 ---
 cases:
-  subsys.canbus.isotp.conformance:
+  canbus.isotp.conformance:
     path: tests/subsys/canbus/isotp/conformance
     catalog: can isotp
     depends_on: can
     filter: dt_chosen_enabled("zephyr,canbus")
-  subsys.canbus.isotp.implementation:
+  canbus.isotp.implementation:
     path: tests/subsys/canbus/isotp/implementation
     catalog: can isotp
     depends_on: can

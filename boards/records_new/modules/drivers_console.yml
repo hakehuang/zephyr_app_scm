@@ -8,5 +8,4 @@ cases:
     path: tests/drivers/console
     catalog: drivers console
     extra_args: CONF_FILE=prj_semihost.conf
-    arch_allow: arm
-    filter: CONFIG_CPU_CORTEX_M and CONFIG_QEMU_TARGET
+    arch_allow: arm arm64 riscv32 riscv64

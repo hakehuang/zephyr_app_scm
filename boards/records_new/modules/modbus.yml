@@ -14,11 +14,11 @@ cases:
     filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds") and dt_enabled_alias_with_parent_compat("led1",
       "gpio-leds") and dt_enabled_alias_with_parent_compat("led2", "gpio-leds")
     depends_on: gpio netif
-  subsys.modbus.rtu:
+  modbus.rtu:
     path: tests/subsys/modbus
     catalog: modbus
     platform_allow: frdm_k64f
-  subsys.modbus.rtu.build_only:
+  modbus.rtu.build_only:
     path: tests/subsys/modbus
     catalog: modbus
     build_only: true

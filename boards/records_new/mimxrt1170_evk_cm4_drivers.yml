@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1170_evk_cm4_drivers"
-  version: zephyr-v3.0.0-1108-ge65e261621
+  version: v3.1.0-rc1
 __load__:
 - modules/drivers_watchdog.yml
 - modules/drivers_userspace.yml
@@ -10,6 +10,7 @@ __load__:
 - modules/drivers_syscon.yml
 - modules/drivers_spi_qspi.yml
 - modules/drivers_spi_gpio.yml
+- modules/drivers_spi_devicetree.yml
 - modules/drivers_spi.yml
 - modules/drivers_sensors.yml
 - modules/drivers_sensor_subsys.yml
@@ -20,6 +21,7 @@ __load__:
 - modules/drivers_pwm.yml
 - modules/drivers_pinctrl.yml
 - modules/drivers_net.yml
+- modules/drivers_mipi_dsi.yml
 - modules/drivers_memc.yml
 - modules/drivers_led.yml
 - modules/drivers_kscan_userspace.yml
@@ -38,6 +40,7 @@ __load__:
 - modules/drivers_can.yml
 - modules/drivers_bbram.yml
 - modules/drivers.yml
+- modules/driver_entropy_bluetooth.yml
 - skips/mimxrt1170_evk_cm4.yml
 - boards/mimxrt1170_evk_cm4.yml
 cases:

@@ -5,6 +5,11 @@ cases:
     catalog: shield
     platform_allow: frdm_k64f
     depends_on: arduino_spi
+  sample.shields.x_nucleo_53l0a1:
+    path: samples/shields/x_nucleo_53l0a1
+    catalog: shield
+    depends_on: arduino_i2c
+    filter: dt_enabled_alias_with_parent_compat("sw0", "gpio-keys")
   sample.shields.x_nucleo_iks01a1:
     path: samples/shields/x_nucleo_iks01a1
     catalog: shield
@@ -56,29 +61,29 @@ cases:
     catalog: shield
     extra_args: SHIELD=ssd1306_128x32
     platform_allow: frdm_k64f
-  sample.display.adafruit_2_8_tft_touch_v2:
+  sample.display.lvgl.adafruit_2_8_tft_touch_v2:
     path: samples/subsys/display/lvgl
     catalog: shield
     extra_args: SHIELD=adafruit_2_8_tft_touch_v2
     depends_on: arduino_gpio arduino_i2c arduino_spi
     min_ram: 175
     platform_exclude: reel_board reel_board_v2 ubx_evkannab1_nrf52832 stm32f769i_disco
-  sample.display.waveshare_epaper_gdeh0213b1:
+  sample.display.lvgl.waveshare_epaper_gdeh0213b1:
     path: samples/subsys/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh0213b1
     platform_allow: nrf52840dk_nrf52840
-  sample.display.waveshare_epaper_gdeh0213b72:
+  sample.display.lvgl.waveshare_epaper_gdeh0213b72:
     path: samples/subsys/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh0213b72
     platform_allow: nrf52840dk_nrf52840
-  sample.display.waveshare_epaper_gdeh029a1:
+  sample.display.lvgl.waveshare_epaper_gdeh029a1:
     path: samples/subsys/display/lvgl
     catalog: shield
     extra_args: SHIELD=waveshare_epaper_gdeh029a1
     platform_allow: nrf52840dk_nrf52840
-  sample.display.buydisplay_2_8_tft_touch_arduino:
+  sample.display.lvgl.buydisplay_2_8_tft_touch_arduino:
     path: samples/subsys/display/lvgl
     catalog: shield
     extra_args: SHIELD=buydisplay_2_8_tft_touch_arduino

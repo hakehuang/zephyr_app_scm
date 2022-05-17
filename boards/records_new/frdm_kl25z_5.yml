@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_kl25z_5"
-  version: zephyr-v3.0.0-1108-ge65e261621
+  version: v3.1.0-rc1
 __load__:
 - modules/winstream.yml
 - modules/video_net_socket.yml
@@ -34,6 +34,7 @@ __load__:
 - modules/test_framework_bluetooth_bt_min_used_chans_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_le_ping_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_le_cte_req_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_invalid_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_feature_exchange_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_encrypt_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_data_length_update_bt_ull_llcp.yml
@@ -52,6 +53,7 @@ __load__:
 - modules/spi_flash.yml
 - modules/sound.yml
 - modules/sof.yml
+- modules/smp_reassembly.yml
 - modules/smf.yml
 - modules/shell_usb.yml
 - modules/shell_filesystem.yml
@@ -65,11 +67,13 @@ __load__:
 - modules/settings.yml
 - modules/serial_uart.yml
 - modules/secure.yml
+- modules/sdhc.yml
 - modules/samples_sensor.yml
 - modules/samples_nanopb.yml
 - modules/samples_ipm.yml
 - modules/samples_display_gui.yml
 - modules/samples.yml
+- modules/sample_board_sram_mpu.yml
 - modules/sample_board_reserved_memory.yml
 - modules/ring_buffer_circular_buffer.yml
 - modules/rbtree.yml

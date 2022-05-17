@@ -1,6 +1,10 @@
 ---
 cases:
   sample.board.esp32:
-    path: samples/boards/esp32/wifi_station
+    path: samples/boards/esp32/flash_encryption
     catalog: esp32
-    platform_allow: esp32 esp32s2_saola
+    platform_allow: esp32
+  sample.board.esp32.spiram:
+    path: samples/boards/esp32/spiram_test
+    catalog: esp32
+    platform_allow: esp32

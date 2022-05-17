@@ -4,6 +4,7 @@ cases:
     path: tests/crypto/mbedtls
     catalog: crypto mbedtls userspace
     arch_exclude: riscv64
+    platform_exclude: m2gl025_miv
     min_flash: 65
     min_ram: 36
   crypto.mbedtls.riscv64:

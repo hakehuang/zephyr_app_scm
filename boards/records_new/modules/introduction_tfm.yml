@@ -1,5 +1,17 @@
 ---
 cases:
+  sample.update-success:
+    path: samples/tfm_integration/psa_firmware
+    catalog: introduction tfm
+    extra_configs:
+    - CONFIG_APP_FIRMWARE_UPDATE_IMAGE_VERSION="0.0.2+0"
+    platform_allow: mps3_an547_ns
+  sample.fail-rollback:
+    path: samples/tfm_integration/psa_firmware
+    catalog: introduction tfm
+    extra_configs:
+    - CONFIG_APP_FIRMWARE_UPDATE_IMAGE_VERSION="0.0.0+0"
+    platform_allow: mps3_an547_ns
   sample.tfm_ipc:
     path: samples/tfm_integration/tfm_ipc
     catalog: introduction tfm

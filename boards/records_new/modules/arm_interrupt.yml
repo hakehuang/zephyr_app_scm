@@ -14,3 +14,19 @@ cases:
     - CONFIG_TRUSTED_EXECUTION_SECURE
     - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
+  arch.arm.irq_zero_latency_levels:
+    path: tests/arch/arm/arm_irq_zero_latency_levels
+    catalog: arm interrupt
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - "(CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE) and not
+      CONFIG_SOC_FAMILY_NRF"
+    arch_allow: arm
+  arch.arm.irq_zero_latency_levels.secure_fw:
+    path: tests/arch/arm/arm_irq_zero_latency_levels
+    catalog: arm interrupt
+    filter:
+    - CONFIG_TRUSTED_EXECUTION_SECURE
+    - "(CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE) and not
+      CONFIG_SOC_FAMILY_NRF"
+    arch_allow: arm

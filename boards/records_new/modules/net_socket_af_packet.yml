@@ -1,12 +1,12 @@
 ---
 cases:
-  net.socket.packet:
+  net.socket.af_packet:
     path: tests/net/socket/af_packet
     catalog: net socket af_packet
     min_ram: 21
     depends_on: netif
     platform_exclude: native_posix native_posix_64
-  net.socket.packet.af_packet_ipproto_raw:
+  net.socket.af_packet.ipproto_raw:
     path: tests/net/socket/af_packet_ipproto_raw
     catalog: net socket af_packet
     min_ram: 21
