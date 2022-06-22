@@ -3,6 +3,8 @@ cases:
   testing.ztest.ztress:
     path: "."
     catalog: test_framework
+    platform_type:
+    - qemu
   drivers.sbs_gauge:
     path: tests/drivers/sensor/sbs_gauge
     catalog: test_framework
@@ -15,6 +17,11 @@ cases:
     path: tests/ztest/base
     catalog: test_framework
     type: unit
+  testing.ztest.base.cpp:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_cpp.conf
+    platform_allow: native_posix
   testing.ztest.base.verbose_0:
     path: tests/ztest/base
     catalog: test_framework
@@ -68,3 +75,5 @@ cases:
   testing.ztest.ztress.ztress:
     path: tests/ztest/ztress
     catalog: test_framework
+    platform_type:
+    - qemu

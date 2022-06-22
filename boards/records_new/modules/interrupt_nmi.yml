@@ -11,6 +11,6 @@ cases:
     path: tests/arch/x86/nmi
     catalog: interrupt nmi
     extra_configs:
-    - CONFIG_USERSPACE=y
+    - CONFIG_TEST_USERSPACE=y
     arch_allow: x86
     filter: CONFIG_X86_64

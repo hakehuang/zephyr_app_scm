@@ -110,7 +110,7 @@ cases:
     path: samples/bluetooth/iso_connected_benchmark
     catalog: bluetooth
     build_only: true
-    platform_allow: nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+    platform_allow: nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.iso_receive:
     path: samples/bluetooth/iso_receive
     catalog: bluetooth
@@ -830,6 +830,22 @@ cases:
     extra_configs:
     - CONFIG_BT_OTS=n
     - CONFIG_BT_MCC_OTS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_tbs:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_TBS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_tbs_client:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_TBS_CLIENT=n
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix

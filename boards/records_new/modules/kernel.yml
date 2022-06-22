@@ -114,7 +114,7 @@ cases:
   kernel.usage:
     path: tests/kernel/usage/thread_runtime_stats
     catalog: kernel
-    arch_exclude: posix riscv32 sparc mips
+    arch_exclude: posix sparc mips
     filter: not CONFIG_SMP
   kernel.workqueue.critical:
     path: tests/kernel/workq/critical

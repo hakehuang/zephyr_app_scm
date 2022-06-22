@@ -39,6 +39,9 @@ module ZEPHER_FILTER
             if k == "platform_allow" and ! case_hash[k].include?(board_hash["identifier"])
                 return false
             end
+            if k == "platform_type" and ! case_hash[k].include?(board_hash["identifier"])
+                return false
+            end
         end
     end
     #processing neural_list
@@ -121,7 +124,7 @@ module ZEPHER_FILTER
   module_function :neg_list
 
   def pos_list
-    ["arch_whitelist", "arch_allow", "platform_whitelist", "platform_allow"]
+    ["arch_whitelist", "arch_allow", "platform_whitelist", "platform_allow", "platform_type"]
   end
   module_function :pos_list
   

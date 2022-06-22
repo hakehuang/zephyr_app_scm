@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_k82f_4"
-  version: v3.1.0-rc1
+  version: zephyr-v3.1.0-583-g83e4f5dd58
 __load__:
 - modules/pwm_xlnx_axi_timer.yml
 - modules/pwm_xec.yml
@@ -58,8 +58,6 @@ __load__:
 - modules/logging.yml
 - modules/log_syst_logging.yml
 - modules/log_output_logging.yml
-- modules/log_msg_logging.yml
-- modules/log_list_logging.yml
 - modules/log_core_logging.yml
 - modules/log_api_logging.yml
 - modules/llmnr.yml

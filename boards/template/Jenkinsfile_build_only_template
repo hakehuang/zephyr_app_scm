@@ -1,3 +1,52 @@
+<?rb for l, items in @catalog ?>
+  <?rb items['cases'].each do |k, item| ?>
+   <?rb ll=l.gsub(/\-|\./, '_')  ?>
+   <?rb kk=k.gsub(/\-|\./, '_')  ?>
+   def test_#{ll}_#{kk}_result
+   def test_#{ll}_#{kk}() {
+      echo 'Test #{k}'
+      echo '#{item['opt'][0]}'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        script {
+          test_#{ll}_#{kk}_result = "BUILD_FAILURE"
+        }
+        <?rb if item['scripts'] ?>
+          <?rb item['scripts'].each do |cmd| ?>
+            sh '''docker exec #{@docker} run_script.sh $(basename $(pwd)) #{item['opt'][1]} #{cmd}'''
+          <?rb end ?>
+        <?rb end ?>
+        <?rb if item['opt'][2] ?>
+          sh '''docker exec #{@docker} #{@build_script}  $(basename $(pwd)) #{item['opt'][1]} #{@board} #{item['build']} #{item['opt'][2..-1].join(' ')}'''
+        <?rb else ?>
+          sh 'docker exec #{@docker} #{@build_script} $(basename $(pwd)) #{item['opt'][1]} #{item['opt'][0]} #{item['build']}'
+        <?rb end ?>
+          sh 'docker exec #{@docker} rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/#{item['build_path']}'
+        script {
+          test_#{ll}_#{kk}_result = "SUCCESS"
+        }  
+      }
+      script {
+        echo test_#{ll}_#{kk}_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': '#{@board}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
+        mycustomDataMapTags = ['results_info' :['board_name': '#{@board}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+  <?rb end ?>
+<?rb end ?>
+
+properties([
+  // only keep 1 builds to prevent disk usage from growing out of control
+  buildDiscarder(
+    logRotator(
+      artifactDaysToKeepStr: '7', 
+      artifactNumToKeepStr: '1', 
+      daysToKeepStr: '', 
+      numToKeepStr: '',
+    ),
+  ),
+])
+
 pipeline {
   agent any
   environment {
@@ -14,38 +63,15 @@ pipeline {
         }
       }
     }
-    <?rb for k, items in @catalog ?>
-    stage('#{k}') {
+    <?rb for l, items in @catalog ?>
+    stage('#{l}') {
       parallel {
       <?rb items['cases'].each do |k, item| ?>
         stage('#{k}') {
           steps {
-            echo 'Test #{k}'
-            echo '#{item['opt'][0]}'
-            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-              <?rb if item['scripts'] ?>
-                <?rb item['scripts'].each do |cmd| ?>
-                  sh '''docker exec #{@docker} run_script.sh $(basename $(pwd)) #{item['opt'][1]} #{cmd}'''
-                <?rb end ?>  
-              <?rb end ?>
-              <?rb if item['opt'][2] ?>
-                sh '''docker exec #{@docker} #{@build_script}  $(basename $(pwd)) #{item['opt'][1]} #{@board} #{item['build']} #{item['opt'][2..-1].join(' ')}'''
-              <?rb else ?>
-                sh 'docker exec #{@docker} #{@build_script} $(basename $(pwd)) #{item['opt'][1]} #{item['opt'][0]} #{item['build']}'
-              <?rb end ?>
-                sh 'docker exec #{@docker} rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/#{item['build_path']}'
-                script {
-                  currentBuild.result = 'SUCCESS'
-                }
-            }
-            script {
-              if (currentBuild.result == null) {
-                  currentBuild.result = 'FAILURE'
-              }
-              myCustomMeasurementFields = ['results_info' : ['board_name': '#{@board}', 'app_name': '#{k}', 'result': currentBuild.result, 'version': '#{@version}']]
-              mycustomDataMapTags = ['results_info' :['board_name': '#{@board}', 'app_name': '#{k}', 'result': currentBuild.result, 'version': '#{@version}']]
-              influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
-            }
+            <?rb ll=l.gsub(/\-|\./, '_')  ?>
+            <?rb kk=k.gsub(/\-|\./, '_')  ?>
+            test_#{ll}_#{kk}()
           }
         }
       <?rb end ?>
@@ -56,7 +82,6 @@ pipeline {
   post {
       always {
           junit '*.xml'
-          step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'influxdb'])
       }
   }
 }

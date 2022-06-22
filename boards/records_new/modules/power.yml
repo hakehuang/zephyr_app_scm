@@ -1,5 +1,10 @@
 ---
 cases:
+  sample.boards.mimxrt1060_evk.system_off:
+    path: samples/boards/mimxrt1060_evk/system_off
+    catalog: power
+    build_only: true
+    platform_allow: mimxrt1060_evk mimxrt1060_evkb
   sample.boards.nrf.clock_skew:
     path: samples/boards/nrf/clock_skew
     catalog: power

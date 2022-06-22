@@ -9,11 +9,3 @@ cases:
     catalog: boards
     depends_on: dai dma
     platform_allow: intel_adsp_cavs25 intel_adsp_cavs15
-  boards.s1000_crb.cache:
-    path: tests/boards/intel_s1000_crb/cache
-    catalog: boards
-    platform_allow: intel_s1000_crb
-  boards.s1000_crb.main:
-    path: tests/boards/intel_s1000_crb/main
-    catalog: boards
-    platform_allow: intel_s1000_crb

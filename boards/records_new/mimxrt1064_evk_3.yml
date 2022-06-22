@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1064_evk_3"
-  version: v3.1.0-rc1
+  version: zephyr-v3.1.0-583-g83e4f5dd58
 __load__:
 - modules/kconfig.yml
 - modules/k_heap_api_kernel_linker_generator.yml
@@ -20,7 +20,6 @@ __load__:
 - modules/ignore_faults_ignore_qemu_crash.yml
 - modules/ibecc_ibecc_cov.yml
 - modules/i2s_example.yml
-- modules/i2s.yml
 - modules/i2c.yml
 - modules/http_net.yml
 - modules/heap.yml

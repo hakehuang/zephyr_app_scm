@@ -31,7 +31,7 @@ cases:
     filter:
     - CONFIG_ARCH_HAS_USERSPACE
     - TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
+    min_ram: 192
   libraries.libc.newlib_nano.thread_safety.userspace:
     path: tests/lib/newlib/thread_safety
     catalog: clib newlib userspace
@@ -53,4 +53,4 @@ cases:
     filter:
     - CONFIG_ARCH_HAS_USERSPACE and CONFIG_HAS_NEWLIB_LIBC_NANO
     - TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
+    min_ram: 192

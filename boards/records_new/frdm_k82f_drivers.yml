@@ -1,8 +1,9 @@
 ---
 settings:
   case_pipe_name: "frdm_k82f_drivers"
-  version: v3.1.0-rc1
+  version: zephyr-v3.1.0-583-g83e4f5dd58
 __load__:
+- modules/sensors.yml
 - modules/drivers_watchdog.yml
 - modules/drivers_userspace.yml
 - modules/drivers_usb.yml

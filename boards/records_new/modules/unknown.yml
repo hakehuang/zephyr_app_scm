@@ -89,6 +89,8 @@ cases:
     path: tests/arch/common/semihost
     catalog: unknown
     arch_allow: arm arm64 riscv32 riscv64
+    platform_type:
+    - qemu
   arch.x86.info:
     path: tests/arch/x86/info
     catalog: unknown
@@ -558,6 +560,10 @@ cases:
     catalog: unknown
     arch_allow: x86
     platform_allow: qemu_x86_64
+  lib.spsc_pbuf:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    platform_exclude: ast1030_evb
   filesystem.native_posix.fcb_0x00:
     path: tests/subsys/fs/fcb
     catalog: unknown
@@ -568,10 +574,6 @@ cases:
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
     platform_allow: qemu_x86
-  subsys.ipc.icmsg_buf:
-    path: tests/subsys/ipc/icmsg_buf
-    catalog: unknown
-    platform_exclude: qemu_malta ast1030_evb
   tracing.transport.uart.sync.test:
     path: tests/subsys/tracing/tracing_api
     catalog: unknown

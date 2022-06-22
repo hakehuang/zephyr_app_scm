@@ -12,6 +12,7 @@ cases:
   kernel.memory_protection.sys_sem:
     path: tests/kernel/mem_protect/sys_sem
     catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.message_queue:
     path: tests/kernel/msgq/msgq_api
     catalog: kernel userspace

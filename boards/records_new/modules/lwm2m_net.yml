@@ -16,3 +16,13 @@ cases:
     path: tests/net/lib/lwm2m/content_plain_text
     catalog: lwm2m net
     depends_on: netif
+  net.lwm2m.content_raw_cbor:
+    path: tests/net/lib/lwm2m/content_raw_cbor
+    catalog: lwm2m net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.content_senml_cbor:
+    path: tests/net/lib/lwm2m/content_senml_cbor
+    catalog: lwm2m net
+    platform_allow: native_posix
+    depends_on: netif

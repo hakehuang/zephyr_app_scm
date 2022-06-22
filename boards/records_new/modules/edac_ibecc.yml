@@ -20,6 +20,6 @@ cases:
     catalog: edac ibecc
     extra_configs:
     - CONFIG_EDAC_ERROR_INJECT=y
-    - CONFIG_USERSPACE=y
+    - CONFIG_TEST_USERSPACE=y
     arch_allow: x86
     platform_allow: ehl_crb

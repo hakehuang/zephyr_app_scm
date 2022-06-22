@@ -51,14 +51,14 @@ cases:
   sample.sensor.mcux_acmp:
     path: samples/sensor/mcux_acmp
     catalog: drivers
-    platform_allow: twr_ke18f
+    platform_allow: twr_ke18f mimxrt1170_evk_cm7 mimxrt1170_evk_cm4
   sample.sensor.mcux_acmp.no_trigger:
     path: samples/sensor/mcux_acmp
     catalog: drivers
     extra_configs:
     - CONFIG_MCUX_ACMP_TRIGGER=n
     build_only: true
-    platform_allow: twr_ke18f
+    platform_allow: twr_ke18f mimxrt1170_evk_cm7 mimxrt1170_evk_cm4
   drivers.counter.build.xlnx:
     path: tests/drivers/build_all/counter
     catalog: drivers

@@ -1,0 +1,9 @@
+---
+cases:
+  testing.ztest.base.verbose_0_userspace:
+    path: tests/ztest/base
+    catalog: test_framework userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    extra_args: CONF_FILE=prj_verbose_0.conf
+    filter: CONFIG_USERSPACE

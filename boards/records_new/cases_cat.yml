@@ -3,6 +3,8 @@ test_framework:
   testing.ztest.ztress:
     path: "."
     catalog: test_framework
+    platform_type:
+    - qemu
   drivers.sbs_gauge:
     path: tests/drivers/sensor/sbs_gauge
     catalog: test_framework
@@ -15,6 +17,11 @@ test_framework:
     path: tests/ztest/base
     catalog: test_framework
     type: unit
+  testing.ztest.base.cpp:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_cpp.conf
+    platform_allow: native_posix
   testing.ztest.base.verbose_0:
     path: tests/ztest/base
     catalog: test_framework
@@ -68,6 +75,8 @@ test_framework:
   testing.ztest.ztress.ztress:
     path: tests/ztest/ztress
     catalog: test_framework
+    platform_type:
+    - qemu
 userspace:
   sample.syscall_performances:
     path: samples/userspace/syscall_perf
@@ -407,7 +416,7 @@ bluetooth:
     path: samples/bluetooth/iso_connected_benchmark
     catalog: bluetooth
     build_only: true
-    platform_allow: nrf52840dk_nrf52840 nrf5340dk_nrf5340_cpuapp
+    platform_allow: nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.iso_receive:
     path: samples/bluetooth/iso_receive
     catalog: bluetooth
@@ -1130,6 +1139,22 @@ bluetooth:
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
+  bluetooth.shell.audio.no_tbs:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_TBS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.no_tbs_client:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_TBS_CLIENT=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
   bluetooth.general.tester:
     path: tests/bluetooth/tester
     catalog: bluetooth
@@ -1224,6 +1249,8 @@ unknown:
     path: tests/arch/common/semihost
     catalog: unknown
     arch_allow: arm arm64 riscv32 riscv64
+    platform_type:
+    - qemu
   arch.x86.info:
     path: tests/arch/x86/info
     catalog: unknown
@@ -1693,6 +1720,10 @@ unknown:
     catalog: unknown
     arch_allow: x86
     platform_allow: qemu_x86_64
+  lib.spsc_pbuf:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    platform_exclude: ast1030_evb
   filesystem.native_posix.fcb_0x00:
     path: tests/subsys/fs/fcb
     catalog: unknown
@@ -1703,10 +1734,6 @@ unknown:
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
     platform_allow: qemu_x86
-  subsys.ipc.icmsg_buf:
-    path: tests/subsys/ipc/icmsg_buf
-    catalog: unknown
-    platform_exclude: qemu_malta ast1030_evb
   tracing.transport.uart.sync.test:
     path: tests/subsys/tracing/tracing_api
     catalog: unknown
@@ -1723,7 +1750,6 @@ bluetooth spi:
     path: samples/bluetooth/hci_spi
     catalog: bluetooth spi
     platform_allow: 96b_carbon_nrf51 nrf51dk_nrf51422
-    depends_on: spi
 uart bluetooth:
   sample.bluetooth.hci_uart.arm:
     path: samples/bluetooth/hci_uart
@@ -1897,13 +1923,14 @@ sensors:
     - CONFIG_FXOS8700_MOTION_INT1=y
     - CONFIG_FXOS8700_MAG_VECM=y
     platform_allow: frdm_k64f hexiwear_k64 warp7_m4 frdm_kw41z rv32m1_vega_ri5cy twr_ke18f
-      lpcxpresso55s16 mimxrt685_evk_cm33 frdm_k22f mimxrt1024_evk
+      lpcxpresso55s16 mimxrt685_evk_cm33 frdm_k22f mimxrt1024_evk mimxrt595_evk_cm33
     depends_on: i2c gpio
   sample.sensor.fxos8700.accel:
     path: samples/sensor/fxos8700
     catalog: sensors
     extra_args: CONF_FILE=prj_accel.conf
     platform_allow: frdm_kl25z bbc_microbit lpcxpresso55s69_cpu0 reel_board mimxrt685_evk_cm33
+      mimxrt595_evk_cm33
     depends_on: i2c gpio
   sample.sensor.hmc5883l:
     path: samples/sensor/hmc5883l
@@ -2160,34 +2187,17 @@ ec:
     path: samples/boards/google_kukui
     catalog: ec
     platform_allow: google_kukui
-audio:
-  sample.board.intel_s1000_crb.audio:
-    path: samples/boards/intel_s1000_crb/audio
-    catalog: audio
-    platform_allow: intel_s1000_crb
-dmic:
-  sample.board.intel_s1000_crb.dmic:
-    path: samples/boards/intel_s1000_crb/dmic
-    catalog: dmic
-    platform_allow: intel_s1000_crb
-i2s:
-  sample.board.intel_s1000_crb.i2s:
-    path: samples/boards/intel_s1000_crb/i2s
-    catalog: i2s
-    platform_allow: intel_s1000_crb
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
 board pm:
   sample.board.mec15xxevb_assy6853.pm:
     path: samples/boards/mec15xxevb_assy6853/power_management
     catalog: board pm
     platform_allow: mec15xxevb_assy6853
-battery:
-  sample.boards.nrf.battery:
-    path: samples/boards/nrf/battery
-    catalog: battery
-    build_only: true
-    platform_allow: particle_xenon thingy52_nrf52832
 power:
+  sample.boards.mimxrt1060_evk.system_off:
+    path: samples/boards/mimxrt1060_evk/system_off
+    catalog: power
+    build_only: true
+    platform_allow: mimxrt1060_evk mimxrt1060_evkb
   sample.boards.nrf.clock_skew:
     path: samples/boards/nrf/clock_skew
     catalog: power
@@ -2214,6 +2224,12 @@ power:
     path: samples/subsys/pm/device_pm
     catalog: power
     platform_allow: nrf52840dk_nrf52840 nrf52dk_nrf52832
+battery:
+  sample.boards.nrf.battery:
+    path: samples/boards/nrf/battery
+    catalog: battery
+    build_only: true
+    platform_allow: particle_xenon thingy52_nrf52832
 board:
   sample.boards.nrf.nrfx:
     path: samples/boards/nrf/nrfx
@@ -2228,12 +2244,6 @@ nrfx:
     path: samples/boards/nrf/nrfx_prs
     catalog: nrfx
     platform_allow: nrf5340dk_nrf5340_cpuapp nrf9160dk_nrf9160
-sample board reserved_memory:
-  sample.board.qemu_cortex_a53.reserved_memory:
-    path: samples/boards/qemu_cortex_a53/reserved_memory
-    catalog: sample board reserved_memory
-    platform_allow: qemu_cortex_a53
-    build_only: true
 samples sensor:
   sample.board.reel_board.mesh_badge:
     path: samples/boards/reel_board/mesh_badge
@@ -2294,7 +2304,7 @@ ADC:
     catalog: ADC
     depends_on: adc
     platform_allow: nucleo_l073rz disco_l475_iot1 cc3220sf_launchxl cc3235sf_launchxl
-      stm32l496g_disco nrf51dk_nrf51422 nrf52840dk_nrf52840
+      stm32l496g_disco nrf51dk_nrf51422 nrf52840dk_nrf52840 mec172xevb_assy6906
 DMIC:
   sample.drivers.audio.dmic:
     path: samples/drivers/audio/dmic
@@ -2368,14 +2378,14 @@ drivers:
   sample.sensor.mcux_acmp:
     path: samples/sensor/mcux_acmp
     catalog: drivers
-    platform_allow: twr_ke18f
+    platform_allow: twr_ke18f mimxrt1170_evk_cm7 mimxrt1170_evk_cm4
   sample.sensor.mcux_acmp.no_trigger:
     path: samples/sensor/mcux_acmp
     catalog: drivers
     extra_configs:
     - CONFIG_MCUX_ACMP_TRIGGER=n
     build_only: true
-    platform_allow: twr_ke18f
+    platform_allow: twr_ke18f mimxrt1170_evk_cm7 mimxrt1170_evk_cm4
   drivers.counter.build.xlnx:
     path: tests/drivers/build_all/counter
     catalog: drivers
@@ -3122,26 +3132,42 @@ drivers watchdog:
   drivers.watchdog:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
+    filter: not (CONFIG_WDT_SAM or dt_compat_enabled("st,stm32-window-watchdog") or
+      dt_compat_enabled("st,stm32-watchdog"))
+    platform_exclude: mec15xxevb_assy6853 mimxrt685_evk_cm33 mimxrt595_evk_cm33
     depends_on: watchdog
-    filter: not (CONFIG_WDT_SAM or dt_compat_enabled("st,stm32-window-watchdog"))
-    platform_exclude: mec15xxevb_assy6853 mimxrt685_evk_cm33
   drivers.watchdog.stm32wwdg:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
+    extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg.overlay"
+    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+    platform_allow: nucleo_f091rc nucleo_f103rb nucleo_f207zg stm32f3_disco nucleo_f429zi
+      nucleo_f746zg nucleo_g071rb nucleo_g474re nucleo_l073rz nucleo_l152re nucleo_l4r5zi
+      stm32l562e_dk nucleo_wb55rg nucleo_wl55jc b_u585i_iot02a nucleo_u575zi_q nucleo_h753zi
+      nucleo_h743zi
     depends_on: watchdog
-    filter: dt_compat_enabled("st,stm32-window-watchdog")
+  drivers.watchdog.stm32iwdg:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: drivers watchdog
+    extra_args: DTC_OVERLAY_FILE="boards/stm32_iwdg.overlay"
+    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+    platform_allow: nucleo_f091rc nucleo_f103rb nucleo_f207zg stm32f3_disco nucleo_f429zi
+      nucleo_f746zg nucleo_g071rb nucleo_g474re nucleo_l073rz nucleo_l152re nucleo_l4r5zi
+      stm32l562e_dk nucleo_wb55rg nucleo_wl55jc b_u585i_iot02a nucleo_u575zi_q nucleo_h753zi
+      nucleo_h743zi
+    depends_on: watchdog
   drivers.watchdog.mec15xxevb_assy6853:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
-    depends_on: watchdog
     build_only: true
     platform_allow: mec15xxevb_assy6853
+    depends_on: watchdog
   drivers.watchdog.counter_watchdog:
     path: tests/drivers/watchdog/wdt_basic_api
     catalog: drivers watchdog
     extra_args: OVERLAY_CONFIG="boards/nrf52840dk_nrf52840_counter.conf" DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840_counter.overlay"
-    depends_on: watchdog
     platform_allow: nrf52840dk_nrf52840
+    depends_on: watchdog
 kernel condition_variables:
   sample.kernel.cond_var:
     path: samples/kernel/condition_variables/condvar
@@ -4785,40 +4811,20 @@ logging:
     - CONFIG_LOG_BACKEND_RTT=y
     - CONFIG_USE_SEGGER_RTT=y
     filter: CONFIG_HAS_SEGGER_RTT
-  logging.log_benchmark_v1:
-    path: tests/subsys/logging/log_benchmark
-    catalog: logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG_STRDUP_BUF_COUNT=8
-    - CONFIG_LOG_STRDUP_MAX_STRING=32
-    - CONFIG_LOG_MODE_DEFERRED=y
-  logging.log_benchmark_user_v1:
-    path: tests/subsys/logging/log_benchmark
-    catalog: logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_LOG_STRDUP_BUF_COUNT=8
-    - CONFIG_LOG_STRDUP_MAX_STRING=32
-    - CONFIG_LOG_MODE_DEFERRED=y
-    - CONFIG_TEST_USERSPACE=y
-    platform_allow: qemu_x86 native_posix
-  logging.log_benchmark_v2:
+  logging.log_benchmark:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CBPRINTF_COMPLETE=y
-  logging.log_benchmark_v2_speed:
+  logging.log_benchmark_speed:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_SPEED=y
-  logging.log_benchmark_user_v2:
+  logging.log_benchmark_user:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
     extra_configs:
@@ -4829,20 +4835,16 @@ logging:
   logging.add.async:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
-    extra_args: CONF_FILE=log2.conf
+    extra_args: CONF_FILE=prj.conf
   logging.add.sync:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
     extra_args: CONF_FILE=log_sync.conf
-  logging.add.log1_user:
+  logging.add.log_user:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
     extra_args: CONF_FILE=log_user.conf USERSPACE_TEST=1
     filter: CONFIG_USERSPACE
-  logging.add.log1:
-    path: tests/subsys/logging/log_core_additional
-    catalog: logging
-    extra_args: CONF_FILE=prj.conf
 logging usermode:
   sample.logger.usermode:
     path: samples/subsys/logging/logger
@@ -4851,102 +4853,67 @@ logging usermode:
     - CONFIG_USERSPACE=y
     filter: CONFIG_ARCH_HAS_USERSPACE
 logging mipi-sys-t:
-  sample.logger.syst.v1.deferred:
-    path: samples/subsys/logging/syst
-    catalog: logging mipi-sys-t
-    extra_configs:
-    - CONFIG_LOG1=y
-    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
-    arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.v1.immediate:
-    path: samples/subsys/logging/syst
-    catalog: logging mipi-sys-t
-    extra_configs:
-    - CONFIG_LOG1=y
-    extra_args: OVERLAY_CONFIG=overlay_immediate.conf
-    arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.v2.deferred:
+  sample.logger.syst.deferred:
     path: samples/subsys/logging/syst
     catalog: logging mipi-sys-t
     extra_args: OVERLAY_CONFIG=overlay_deferred.conf
     arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.v2.immediate:
+  sample.logger.syst.immediate:
     path: samples/subsys/logging/syst
     catalog: logging mipi-sys-t
     extra_args: OVERLAY_CONFIG=overlay_immediate.conf
     arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.catalog.v2.deferred:
+  sample.logger.syst.catalog.deferred:
     path: samples/subsys/logging/syst
     catalog: logging mipi-sys-t
     extra_configs:
     - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
     extra_args: OVERLAY_CONFIG=overlay_deferred.conf
     arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.catalog.v2.immediate:
+  sample.logger.syst.catalog.immediate:
     path: samples/subsys/logging/syst
     catalog: logging mipi-sys-t
     extra_configs:
     - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
     arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.v1.deferred_cpp:
-    path: samples/subsys/logging/syst
-    catalog: logging mipi-sys-t
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_CPLUSPLUS=y
-    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
-    platform_allow: mps2_an385 qemu_x86 qemu_x86_64 sam_e70_xplained qemu_cortex_a53
-    arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.v1.immediate_cpp:
-    path: samples/subsys/logging/syst
-    catalog: logging mipi-sys-t
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_CPLUSPLUS=y
-    platform_allow: mps2_an385 qemu_x86 qemu_x86_64 sam_e70_xplained qemu_cortex_a53
-    arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.v2.deferred_cpp:
+  sample.logger.syst.deferred_cpp:
     path: samples/subsys/logging/syst
     catalog: logging mipi-sys-t
     extra_configs:
     - CONFIG_CPLUSPLUS=y
     extra_args: OVERLAY_CONFIG=overlay_deferred.conf
-    platform_allow: mps2_an385 qemu_x86 qemu_x86_64 sam_e70_xplained qemu_cortex_a53
     arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.v2.immediate_cpp:
+  sample.logger.syst.immediate_cpp:
     path: samples/subsys/logging/syst
     catalog: logging mipi-sys-t
     extra_configs:
     - CONFIG_CPLUSPLUS=y
-    platform_allow: mps2_an385 qemu_x86 qemu_x86_64 sam_e70_xplained qemu_cortex_a53
     arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.catalog.v2.deferred_cpp:
+  sample.logger.syst.catalog.deferred_cpp:
     path: samples/subsys/logging/syst
     catalog: logging mipi-sys-t
     extra_configs:
     - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
     - CONFIG_CPLUSPLUS=y
     extra_args: OVERLAY_CONFIG=overlay_deferred.conf
-    platform_allow: mps2_an385 qemu_x86
     arch_exclude: mips nios2 posix sparc
-    filter: not CONFIG_64BIT
-  sample.logger.syst.catalog.v2.immediate_cpp:
+  sample.logger.syst.catalog.immediate_cpp:
     path: samples/subsys/logging/syst
     catalog: logging mipi-sys-t
     extra_configs:
     - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
     - CONFIG_CPLUSPLUS=y
-    platform_allow: mps2_an385 qemu_x86
+    arch_exclude: mips nios2 posix sparc
+  logger.syst.v2.deferred:
+    path: tests/subsys/logging/log_switch_format
+    catalog: logging mipi-sys-t
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    arch_exclude: mips nios2 posix sparc
+    filter: not CONFIG_64BIT
+  logger.syst.v2.immediate:
+    path: tests/subsys/logging/log_switch_format
+    catalog: logging mipi-sys-t
+    extra_args: OVERLAY_CONFIG=overlay_immediate.conf
     arch_exclude: mips nios2 posix sparc
     filter: not CONFIG_64BIT
 lorawan:
@@ -5235,8 +5202,8 @@ introduction tfm crypto csr:
   sample.psa_crypto:
     path: samples/tfm_integration/psa_crypto
     catalog: introduction tfm crypto csr
-    platform_allow: mps2_an521_ns lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
-      v2m_musca_s1_ns stm32l562e_dk_ns bl5340_dvk_cpuapp_ns
+    platform_allow: mps2_an521_ns mps3_an547_ns v2m_musca_s1_ns nrf5340dk_nrf5340_cpuapp_ns
+      nrf9160dk_nrf9160_ns stm32l562e_dk_ns bl5340_dvk_cpuapp_ns
 introduction tfm:
   sample.update-success:
     path: samples/tfm_integration/psa_firmware
@@ -5253,7 +5220,7 @@ introduction tfm:
   sample.tfm_ipc:
     path: samples/tfm_integration/tfm_ipc
     catalog: introduction tfm
-    platform_allow: mps2_an521_ns lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
+    platform_allow: mps2_an521_ns mps3_an547_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
       nucleo_l552ze_q_ns stm32l562e_dk_ns v2m_musca_s1_ns v2m_musca_b1_ns bl5340_dvk_cpuapp_ns
   sample.tfm_ipc.no_bl2:
     path: samples/tfm_integration/tfm_ipc
@@ -5283,8 +5250,7 @@ tfm:
     path: samples/tfm_integration/tfm_regression_test
     catalog: tfm
     extra_args: ''
-    platform_allow: lpcxpresso55s69_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
-      v2m_musca_s1_ns
+    platform_allow: nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns v2m_musca_s1_ns
   sample.tfm.secure_partition:
     path: samples/tfm_integration/tfm_secure_partition
     catalog: tfm
@@ -5432,7 +5398,8 @@ nmi interrupt arm:
   arch.interrupt.arm.nmi:
     path: tests/arch/arm/arm_runtime_nmi
     catalog: nmi interrupt arm
-    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE and
+      not CONFIG_BUILD_WITH_TFM
     arch_allow: arm
 arm fpu:
   arch.arm.swap.common:
@@ -5521,7 +5488,7 @@ interrupt nmi:
     path: tests/arch/x86/nmi
     catalog: interrupt nmi
     extra_configs:
-    - CONFIG_USERSPACE=y
+    - CONFIG_TEST_USERSPACE=y
     arch_allow: x86
     filter: CONFIG_X86_64
 userspace mmu:
@@ -5651,6 +5618,11 @@ test_framework bluetooth bt_chmu bt_ull_llcp:
   bluetooth.controller.ctrl_chmu.test:
     path: tests/bluetooth/controller/ctrl_chmu
     catalog: test_framework bluetooth bt_chmu bt_ull_llcp
+    type: unit
+test_framework bluetooth bt_collision bt_ull_llcp:
+  bluetooth.controller.ctrl_collision.test:
+    path: tests/bluetooth/controller/ctrl_collision
+    catalog: test_framework bluetooth bt_collision bt_ull_llcp
     type: unit
 test_framework bluetooth bt_conn_update bt_conn_param_req bt_ull_llcp:
   bluetooth.controller.ctrl_conn_update.test:
@@ -5932,14 +5904,6 @@ boards:
     catalog: boards
     depends_on: dai dma
     platform_allow: intel_adsp_cavs25 intel_adsp_cavs15
-  boards.s1000_crb.cache:
-    path: tests/boards/intel_s1000_crb/cache
-    catalog: boards
-    platform_allow: intel_s1000_crb
-  boards.s1000_crb.main:
-    path: tests/boards/intel_s1000_crb/main
-    catalog: boards
-    platform_allow: intel_s1000_crb
 drivers i2c:
   boards.mec15xxevb_assy6853.i2c:
     path: tests/boards/mec15xxevb_assy6853/i2c_api
@@ -6502,6 +6466,41 @@ drivers console:
     catalog: drivers console
     extra_args: CONF_FILE=prj_semihost.conf
     arch_allow: arm arm64 riscv32 riscv64
+    platform_type:
+    - qemu
+ignore_faults ignore_qemu_crash:
+  drivers.coredump.api.qemu_riscv32:
+    path: tests/drivers/coredump/coredump_api
+    catalog: ignore_faults ignore_qemu_crash
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_allow: qemu_riscv32
+  drivers.coredump.api:
+    path: tests/drivers/coredump/coredump_api
+    catalog: ignore_faults ignore_qemu_crash
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_exclude: qemu_riscv32
+  coredump.logging_backend:
+    path: tests/subsys/debug/coredump
+    catalog: ignore_faults ignore_qemu_crash
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_exclude: acrn_ehl_crb
+  coredump.backends.logging:
+    path: tests/subsys/debug/coredump_backends
+    catalog: ignore_faults ignore_qemu_crash
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_exclude: acrn_ehl_crb
+  coredump.backends.flash:
+    path: tests/subsys/debug/coredump_backends
+    catalog: ignore_faults ignore_qemu_crash
+    extra_args: CONF_FILE=prj_flash_partition.conf
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_allow: qemu_x86
+  coredump.backends.other:
+    path: tests/subsys/debug/coredump_backends
+    catalog: ignore_faults ignore_qemu_crash
+    extra_args: CONF_FILE=prj_backend_other.conf
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_exclude: acrn_ehl_crb
 dac drivers userspace:
   drivers.dac.api:
     path: tests/drivers/dac/dac_api
@@ -6616,7 +6615,7 @@ mcux:
   drivers.flash.default:
     path: tests/drivers/flash
     catalog: mcux
-    platform_allow: mimxrt1060_evk it8xxx2_evb mimxrt685_evk_cm33
+    platform_allow: mimxrt1060_evk it8xxx2_evb mimxrt685_evk_cm33 mimxrt595_evk_cm33
 drivers flash:
   drivers.flash.stm32:
     path: tests/drivers/flash
@@ -7000,7 +6999,7 @@ kernel:
   kernel.usage:
     path: tests/kernel/usage/thread_runtime_stats
     catalog: kernel
-    arch_exclude: posix riscv32 sparc mips
+    arch_exclude: posix sparc mips
     filter: not CONFIG_SMP
   kernel.workqueue.critical:
     path: tests/kernel/workq/critical
@@ -7303,14 +7302,14 @@ fpu kernel userspace:
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=n
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86 qemu_x86_lakemont
+    platform_allow: qemu_x86 qemu_x86_lakemont ehl_crb acrn_ehl_crb
   kernel.fpu_sharing.float_disable.x86.sse:
     path: tests/kernel/fpu_sharing/float_disable
     catalog: fpu kernel userspace
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
-    platform_allow: qemu_x86 qemu_x86_lakemont
+    platform_allow: qemu_x86 qemu_x86_lakemont ehl_crb acrn_ehl_crb
 kernel userspace:
   kernel.fpu_sharing.float_disable.sparc:
     path: tests/kernel/fpu_sharing/float_disable
@@ -7324,6 +7323,7 @@ kernel userspace:
   kernel.memory_protection.sys_sem:
     path: tests/kernel/mem_protect/sys_sem
     catalog: kernel userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.message_queue:
     path: tests/kernel/msgq/msgq_api
     catalog: kernel userspace
@@ -7764,6 +7764,14 @@ kernel timer userspace ignore_faults:
   kernel.timer.error_case:
     path: tests/kernel/timer/timer_error_case
     catalog: kernel timer userspace ignore_faults
+kernel timer apic_tsc:
+  kernel.timer.monotonic.apic.tsc:
+    path: tests/kernel/timer/timer_monotonic
+    catalog: kernel timer apic_tsc
+    extra_configs:
+    - CONFIG_APIC_TSC_DEADLINE_TIMER=y
+    - CONFIG_HPET_TIMER=n
+    platform_allow: ehl_crb
 linker_generator:
   kernel.workqueue.critical.linker_generator:
     path: tests/kernel/workq/critical
@@ -7851,6 +7859,9 @@ cbprintf:
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
+    platform_type: &1
+    - qemu
+    - native
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_no_generic:
@@ -7859,6 +7870,7 @@ cbprintf:
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_fp:
@@ -7869,6 +7881,7 @@ cbprintf:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_fp_align_offset:
@@ -7880,6 +7893,7 @@ cbprintf:
     - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_long_double:
@@ -7891,6 +7905,7 @@ cbprintf:
     - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_long_double_align_offset:
@@ -7903,6 +7918,7 @@ cbprintf:
     - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_nano:
@@ -7910,6 +7926,7 @@ cbprintf:
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_NANO=y
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_cpp:
@@ -7918,6 +7935,7 @@ cbprintf:
     extra_configs:
     - CONFIG_CPLUSPLUS=y
     - CONFIG_CBPRINTF_COMPLETE=y
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_no_generic_cpp:
@@ -7927,6 +7945,7 @@ cbprintf:
     - CONFIG_CPLUSPLUS=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_fp_cpp:
@@ -7938,6 +7957,7 @@ cbprintf:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_fp_align_offset_cpp:
@@ -7950,6 +7970,7 @@ cbprintf:
     - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_long_double_cpp:
@@ -7962,6 +7983,7 @@ cbprintf:
     - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_long_double_align_offset_cpp:
@@ -7975,6 +7997,7 @@ cbprintf:
     - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   libraries.cbprintf_package_nano_cpp:
@@ -7983,6 +8006,7 @@ cbprintf:
     extra_configs:
     - CONFIG_CPLUSPLUS=y
     - CONFIG_CBPRINTF_NANO=y
+    platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
   utilities.prf.m32v00:
@@ -9104,7 +9128,7 @@ clib newlib userspace:
     filter:
     - CONFIG_ARCH_HAS_USERSPACE
     - TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
+    min_ram: 192
   libraries.libc.newlib_nano.thread_safety.userspace:
     path: tests/lib/newlib/thread_safety
     catalog: clib newlib userspace
@@ -9126,7 +9150,7 @@ clib newlib userspace:
     filter:
     - CONFIG_ARCH_HAS_USERSPACE and CONFIG_HAS_NEWLIB_LIBC_NANO
     - TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
+    min_ram: 192
 mpsc_pbuf:
   lib.mpsc_pbuf:
     path: tests/lib/mpsc_pbuf
@@ -9144,15 +9168,15 @@ clib newlib:
   libraries.libc.newlib.thread_safety:
     path: tests/lib/newlib/thread_safety
     catalog: clib newlib
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 64
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
   libraries.libc.newlib.thread_safety.stress:
     path: tests/lib/newlib/thread_safety
     catalog: clib newlib
     extra_configs:
     - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
+    min_ram: 192
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
   libraries.libc.newlib_nano.thread_safety:
     path: tests/lib/newlib/thread_safety
     catalog: clib newlib
@@ -9171,7 +9195,7 @@ clib newlib:
     filter:
     - CONFIG_HAS_NEWLIB_LIBC_NANO
     - TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
+    min_ram: 192
   printk.format_newlib:
     path: tests/misc/print_format
     catalog: clib newlib
@@ -9214,7 +9238,7 @@ libc ignore_faults:
     path: tests/lib/sprintf
     catalog: libc ignore_faults
     extra_args: CONF_FILE=prj.conf
-    filter: not CONFIG_SOC_MCIMX7_M4
+    filter: not CONFIG_SOC_MCIMX7_M4 and CONFIG_STDOUT_CONSOLE
     platform_exclude: native_posix native_posix_64 nrf52_bsim
 libc:
   libraries.libc.sprintf_new:
@@ -9520,6 +9544,16 @@ lwm2m net:
     path: tests/net/lib/lwm2m/content_plain_text
     catalog: lwm2m net
     depends_on: netif
+  net.lwm2m.content_raw_cbor:
+    path: tests/net/lib/lwm2m/content_raw_cbor
+    catalog: lwm2m net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.content_senml_cbor:
+    path: tests/net/lib/lwm2m/content_senml_cbor
+    catalog: lwm2m net
+    platform_allow: native_posix
+    depends_on: netif
 mqtt net userspace:
   net.mqtt.packet:
     path: tests/net/lib/mqtt_packet
@@ -9772,6 +9806,14 @@ net socket udp:
     catalog: net socket udp
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.udp.ipv6_fragment:
+    path: tests/net/socket/udp
+    catalog: net socket udp
+    extra_configs:
+    - CONFIG_NET_IPV6_FRAGMENT=y
     depends_on: netif
     min_ram: 21
     filter: TOOLCHAIN_HAS_NEWLIB == 1
@@ -10356,29 +10398,6 @@ can isotp:
     catalog: can isotp
     depends_on: can
     filter: dt_chosen_enabled("zephyr,canbus")
-ignore_faults ignore_qemu_crash:
-  coredump.logging_backend:
-    path: tests/subsys/debug/coredump
-    catalog: ignore_faults ignore_qemu_crash
-    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_exclude: acrn_ehl_crb
-  coredump.backends.logging:
-    path: tests/subsys/debug/coredump_backends
-    catalog: ignore_faults ignore_qemu_crash
-    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_exclude: acrn_ehl_crb
-  coredump.backends.flash:
-    path: tests/subsys/debug/coredump_backends
-    catalog: ignore_faults ignore_qemu_crash
-    extra_args: CONF_FILE=prj_flash_partition.conf
-    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_allow: qemu_x86
-  coredump.backends.other:
-    path: tests/subsys/debug/coredump_backends
-    catalog: ignore_faults ignore_qemu_crash
-    extra_args: CONF_FILE=prj_backend_other.conf
-    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_exclude: acrn_ehl_crb
 dfu_image_util:
   dfu.image_util:
     path: tests/subsys/dfu/img_util
@@ -10419,7 +10438,7 @@ edac ibecc:
     catalog: edac ibecc
     extra_configs:
     - CONFIG_EDAC_ERROR_INJECT=y
-    - CONFIG_USERSPACE=y
+    - CONFIG_TEST_USERSPACE=y
     arch_allow: x86
     platform_allow: ehl_crb
 ibecc ibecc_cov:
@@ -10467,6 +10486,11 @@ nvs:
     catalog: nvs
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
     platform_allow: qemu_x86
+  filesystem.nvs_cache:
+    path: tests/subsys/fs/nvs
+    catalog: nvs
+    extra_args: CONFIG_NVS_LOOKUP_CACHE=y CONFIG_NVS_LOOKUP_CACHE_SIZE=64
+    platform_allow: native_posix
 ipc_service:
   ipc.ipc_service:
     path: tests/subsys/ipc/ipc_service
@@ -10486,60 +10510,120 @@ log_api logging:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: &2
+    - qemu
+    - native
   logging.log_api_deferred_overflow:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_deferred_no_overflow:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_deferred_static_filter:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_printk:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG_PROCESS_THREAD=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_deferred_func_prefix:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
-    - CONFIG_LOG_DETECT_MISSED_STRDUP=n
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_64b_timestamp:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_override_level:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    platform_allow: qemu_cortex_m3 qemu_cortex_a9 native_posix
+    platform_type: *2
+  logging.log_api_deferred_override_level_rt_filtering:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    platform_allow: qemu_cortex_m3 qemu_cortex_a9 native_posix
+    platform_type: *2
   logging.log_api_immediate:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_IMMEDIATE=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_immediate_printk:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_PRINTK=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_immediate_rt_filter:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_immediate_static_filter:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
-    - CONFIG_LOG1=y
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_immediate_64b_timestamp:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_frontend_dbg:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
@@ -10548,6 +10632,7 @@ log_api logging:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_frontend:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
@@ -10555,6 +10640,32 @@ log_api logging:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_MODE_DEFERRED=y
     platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_frontend_immediate:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_frontend_immediate_override_level:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    platform_allow: qemu_cortex_m3 qemu_cortex_a9 native_posix
+    platform_type: *2
+  logging.log_api_frontend_only:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_frontend_no_backends:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
@@ -10567,36 +10678,45 @@ log_api logging:
     - CONFIG_LOG_BACKEND_XTENSA_SIM=n
     extra_args: EXTRA_CPPFLAGS=-DNO_BACKENDS=1
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_overflow_rt_filter:
+    platform_type: *2
+  logging.log_api_deferred_overflow_rt_filter_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_overflow:
+    platform_type: *2
+  logging.log_api_deferred_overflow_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_no_overflow:
+    platform_type: *2
+  logging.log_api_deferred_no_overflow_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_static_filter:
+    platform_type: *2
+  logging.log_api_deferred_static_filter_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_printk:
+    platform_type: *2
+  logging.log_api_deferred_printk_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
@@ -10604,159 +10724,72 @@ log_api logging:
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_LOG_PROCESS_THREAD=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_func_prefix:
+    platform_type: *2
+  logging.log_api_deferred_func_prefix_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_64b_timestamp:
+    platform_type: *2
+  logging.log_api_deferred_64b_timestamp_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_override_level:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG_MODE_DEFERRED=y
-    - CONFIG_LOG_OVERRIDE_LEVEL=4
-    platform_allow: qemu_cortex_m3 qemu_cortex_a9 native_posix
-  logging.log2_api_deferred_override_level_rt_filtering:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG_MODE_DEFERRED=y
-    - CONFIG_LOG_RUNTIME_FILTERING=y
-    - CONFIG_LOG_OVERRIDE_LEVEL=4
-    platform_allow: qemu_cortex_m3 qemu_cortex_a9 native_posix
-  logging.log2_api_immediate:
+    platform_type: *2
+  logging.log_api_immediate_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_immediate_printk:
+    platform_type: *2
+  logging.log_api_immediate_printk_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_PRINTK=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_immediate_rt_filter:
+    platform_type: *2
+  logging.log_api_immediate_rt_filter_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_immediate_static_filter:
+    platform_type: *2
+  logging.log_api_immediate_static_filter_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_immediate_64b_timestamp:
+    platform_type: *2
+  logging.log_api_immediate_64b_timestamp_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log_api_frontend_immediate:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG_FRONTEND=y
-    - CONFIG_LOG_MODE_IMMEDIATE=y
-    platform_exclude: qemu_arc_hs6x
-  logging.log_api_frontend_immediate_override_level:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG_FRONTEND=y
-    - CONFIG_LOG_MODE_IMMEDIATE=y
-    - CONFIG_LOG_OVERRIDE_LEVEL=4
-    platform_allow: qemu_cortex_m3 qemu_cortex_a9 native_posix
-  logging.log_api_frontend_only:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG_FRONTEND=y
-    - CONFIG_LOG_FRONTEND_ONLY=y
-    platform_exclude: qemu_arc_hs6x
-  logging.log_api_deferred_overflow_rt_filter_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_LOG_MODE_DEFERRED=y
-    - CONFIG_LOG_MODE_OVERFLOW=y
-    - CONFIG_LOG_RUNTIME_FILTERING=y
-    - CONFIG_CPLUSPLUS=y
-  logging.log_api_deferred_overflow_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_LOG_MODE_DEFERRED=y
-    - CONFIG_LOG_MODE_OVERFLOW=y
-    - CONFIG_CPLUSPLUS=y
-  logging.log_api_deferred_no_overflow_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_LOG_MODE_DEFERRED=y
-    - CONFIG_LOG_MODE_OVERFLOW=n
-    - CONFIG_CPLUSPLUS=y
-  logging.log_api_deferred_static_filter_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_LOG_MODE_DEFERRED=y
-    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
-    - CONFIG_CPLUSPLUS=y
-  logging.log_api_deferred_func_prefix_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_LOG_MODE_DEFERRED=y
-    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
-    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
-    - CONFIG_LOG_DETECT_MISSED_STRDUP=n
-    - CONFIG_CPLUSPLUS=y
-  logging.log_api_immediate_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_LOG_MODE_IMMEDIATE=y
-    - CONFIG_CPLUSPLUS=y
-  logging.log_api_immediate_rt_filter_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_LOG_MODE_IMMEDIATE=y
-    - CONFIG_LOG_RUNTIME_FILTERING=y
-    - CONFIG_CPLUSPLUS=y
-  logging.log_api_immediate_static_filter_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG1=y
-    - CONFIG_LOG_MODE_IMMEDIATE=y
-    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
-    - CONFIG_CPLUSPLUS=y
+    platform_type: *2
   logging.log_api_frontend_dbg_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
@@ -10766,6 +10799,7 @@ log_api logging:
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_frontend_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
@@ -10774,6 +10808,25 @@ log_api logging:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CPLUSPLUS=y
     platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_frontend_immediate_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_CPLUSPLUS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_frontend_only_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_CPLUSPLUS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_api_frontend_no_backends_cpp:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
@@ -10787,7 +10840,138 @@ log_api logging:
     - CONFIG_CPLUSPLUS=y
     extra_args: EXTRA_CPPFLAGS=-DNO_BACKENDS=1
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_overflow_rt_filter_cpp:
+    platform_type: *2
+  logging.log_api_deferred_overflow_rt_filter.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_overflow.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_no_overflow.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_static_filter.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_printk.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG_PROCESS_THREAD=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_func_prefix.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_64b_timestamp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_override_level.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_allow: qemu_cortex_m3 qemu_cortex_a9
+    platform_type: *2
+  logging.log_api_deferred_override_level_rt_filtering.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_allow: qemu_cortex_m3 qemu_cortex_a9
+    platform_type: *2
+  logging.log_api_immediate.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_immediate_printk.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_immediate_rt_filter.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_immediate_static_filter.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_immediate_64b_timestamp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
+  logging.log_api_deferred_overflow_rt_filter_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
@@ -10795,32 +10979,40 @@ log_api logging:
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_overflow_cpp:
+    platform_type: *2
+  logging.log_api_deferred_overflow_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_no_overflow_cpp:
+    platform_type: *2
+  logging.log_api_deferred_no_overflow_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_static_filter_cpp:
+    platform_type: *2
+  logging.log_api_deferred_static_filter_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_printk_cpp:
+    platform_type: *2
+  logging.log_api_deferred_printk_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
@@ -10829,8 +11021,10 @@ log_api logging:
     - CONFIG_LOG_PRINTK=y
     - CONFIG_LOG_PROCESS_THREAD=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_func_prefix_cpp:
+    platform_type: *2
+  logging.log_api_deferred_func_prefix_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
@@ -10838,81 +11032,83 @@ log_api logging:
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_deferred_64b_timestamp_cpp:
+    platform_type: *2
+  logging.log_api_deferred_64b_timestamp_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_immediate_cpp:
+    platform_type: *2
+  logging.log_api_immediate_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_immediate_printk_cpp:
+    platform_type: *2
+  logging.log_api_immediate_printk_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_immediate_rt_filter_cpp:
+    platform_type: *2
+  logging.log_api_immediate_rt_filter_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_immediate_static_filter_cpp:
+    platform_type: *2
+  logging.log_api_immediate_static_filter_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log2_api_immediate_64b_timestamp_cpp:
+    platform_type: *2
+  logging.log_api_immediate_64b_timestamp_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_CPLUSPLUS=y
+    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
-  logging.log_api_frontend_immediate_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG_FRONTEND=y
-    - CONFIG_LOG_MODE_IMMEDIATE=y
-    - CONFIG_CPLUSPLUS=y
-    platform_exclude: qemu_arc_hs6x
-  logging.log_api_frontend_only_cpp:
-    path: tests/subsys/logging/log_api
-    catalog: log_api logging
-    extra_configs:
-    - CONFIG_LOG_FRONTEND=y
-    - CONFIG_LOG_FRONTEND_ONLY=y
-    - CONFIG_CPLUSPLUS=y
-    platform_exclude: qemu_arc_hs6x
+    platform_type: *2
   logging.log_msg2:
     path: tests/subsys/logging/log_msg2
     catalog: log_api logging
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
+    platform_type: &3
+    - qemu
+    - native
     platform_exclude: qemu_arc_hs6x
   logging.log_msg2_no_overflow:
     path: tests/subsys/logging/log_msg2
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_OVERFLOW=n
+    platform_type: *3
     platform_exclude: qemu_arc_hs6x
   logging.log_msg2_64b_timestamp:
     path: tests/subsys/logging/log_msg2
@@ -10920,6 +11116,7 @@ log_api logging:
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_type: *3
     platform_exclude: qemu_arc_hs6x
   logging.log_msg2_fp:
     path: tests/subsys/logging/log_msg2
@@ -10927,6 +11124,7 @@ log_api logging:
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_CBPRINTF_FP_SUPPORT=y
+    platform_type: *3
     platform_exclude: qemu_arc_hs6x
   logging.log_msg2_fp_64b_timestamp:
     path: tests/subsys/logging/log_msg2
@@ -10935,12 +11133,15 @@ log_api logging:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_CBPRINTF_FP_SUPPORT=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_type: *3
     platform_exclude: qemu_arc_hs6x
   logging.log_stack_deferred:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
+    platform_type: &4
+    - qemu
   logging.log_stack_deferred_no_opt:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -10948,11 +11149,13 @@ log_api logging:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_NO_OPTIMIZATIONS=y
     filter: not CONFIG_MIPS
+    platform_type: *4
   logging.log_stack_immediate:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
+    platform_type: *4
   logging.log_stack_immediate_no_opt:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -10960,12 +11163,14 @@ log_api logging:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_NO_OPTIMIZATIONS=y
     filter: not CONFIG_MIPS
+    platform_type: *4
   logging.log_stack_deferred_cpp:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CPLUSPLUS=y
+    platform_type: *4
   logging.log_stack_deferred_cpp_no_opt:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -10974,12 +11179,14 @@ log_api logging:
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_CPLUSPLUS=y
     filter: not CONFIG_MIPS
+    platform_type: *4
   logging.log_stack_immediate_cpp:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_CPLUSPLUS=y
+    platform_type: *4
   logging.log_stack_immediate_cpp_no_opt:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -10988,6 +11195,7 @@ log_api logging:
     - CONFIG_NO_OPTIMIZATIONS=y
     - CONFIG_CPLUSPLUS=y
     filter: not CONFIG_MIPS
+    platform_type: *4
 logging backend filesystem fs:
   logging.log_backend_fs.automounted:
     path: tests/subsys/logging/log_backend_fs
@@ -11009,8 +11217,8 @@ logging backend filesystem fs:
     extra_args: DTC_OVERLAY_FILE="./boards/nrf52840dk_nrf52840.overlay;./boards/automount.overlay"
     platform_allow: nrf52840dk_nrf52840
 log_core logging:
-  logging.log_core:
-    path: tests/subsys/logging/log_core
+  logging.log_backend_initialization:
+    path: tests/subsys/logging/log_backend_init
     catalog: log_core logging
     filter: not CONFIG_LOG_MODE_IMMEDIATE
   logging.log_immediate:
@@ -11024,14 +11232,6 @@ log_core logging:
     extra_args: CONFIG_LOG_IMMEDIATE_CLEAN_OUTPUT=y
     platform_exclude: nucleo_l053r8 nucleo_f030r8 intel_adsp_cavs15 stm32f0_disco
       nrf52_bsim
-log_list logging:
-  logging.log_list:
-    path: tests/subsys/logging/log_list
-    catalog: log_list logging
-log_msg logging:
-  logging.log_msg:
-    path: tests/subsys/logging/log_msg
-    catalog: log_msg logging
 log_output logging:
   logging.log_output:
     path: tests/subsys/logging/log_output
@@ -11285,6 +11485,14 @@ winstream:
     path: tests/unit/winstream
     catalog: winstream
     type: unit
+test_framework userspace:
+  testing.ztest.base.verbose_0_userspace:
+    path: tests/ztest/base
+    catalog: test_framework userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    extra_args: CONF_FILE=prj_verbose_0.conf
+    filter: CONFIG_USERSPACE
 test_framework userspace ignore_faults:
   testing.ztest.error_hook:
     path: tests/ztest/error_hook
@@ -11295,4 +11503,3 @@ test_framework ignore_faults:
     path: tests/ztest/error_hook
     catalog: test_framework ignore_faults
     extra_args: CONF_FILE=prj_no_userspace.conf
-    filter: not CONFIG_ARCH_HAS_USERSPACE

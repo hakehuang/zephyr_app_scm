@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1064_evk"
-  version: v3.1.0-rc1
+  version: zephyr-v3.1.0-583-g83e4f5dd58
 __load__:
 - modules/button_gpio.yml
 - modules/boards.yml
@@ -17,7 +17,6 @@ __load__:
 - modules/battery.yml
 - modules/base64.yml
 - modules/base_userspace.yml
-- modules/audio.yml
 - modules/arm_userspace.yml
 - modules/arm_tz_ns_tz_wrap_func.yml
 - modules/arm_psci_drivers_userspace.yml

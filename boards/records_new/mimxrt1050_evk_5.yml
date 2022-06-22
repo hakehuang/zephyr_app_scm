@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1050_evk_5"
-  version: v3.1.0-rc1
+  version: zephyr-v3.1.0-583-g83e4f5dd58
 __load__:
 - modules/winstream.yml
 - modules/video_net_socket.yml
@@ -25,6 +25,7 @@ __load__:
 - modules/testing_drivers.yml
 - modules/testing.yml
 - modules/test_framework_userspace_ignore_faults.yml
+- modules/test_framework_userspace.yml
 - modules/test_framework_ignore_faults.yml
 - modules/test_framework_bluetooth_bt_version_exchange_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_unsupported_bt_ull_llcp.yml
@@ -40,6 +41,7 @@ __load__:
 - modules/test_framework_bluetooth_bt_data_length_update_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_ctrl_hci_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_conn_update_bt_conn_param_req_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_collision_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_chmu_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_api_bt_ull_llcp.yml
 - modules/test_framework.yml
@@ -74,7 +76,6 @@ __load__:
 - modules/samples_display_gui.yml
 - modules/samples.yml
 - modules/sample_board_sram_mpu.yml
-- modules/sample_board_reserved_memory.yml
 - modules/ring_buffer_circular_buffer.yml
 - modules/rbtree.yml
 - modules/qspi_flash.yml

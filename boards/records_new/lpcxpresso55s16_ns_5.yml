@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s16_ns_5"
-  version: v3.1.0-rc1
+  version: v3.1.0-rc2-16-g70dbf7e695
 __load__:
 - modules/winstream.yml
 - modules/video_net_socket.yml
@@ -40,6 +40,7 @@ __load__:
 - modules/test_framework_bluetooth_bt_data_length_update_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_ctrl_hci_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_conn_update_bt_conn_param_req_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_collision_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_chmu_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_api_bt_ull_llcp.yml
 - modules/test_framework.yml

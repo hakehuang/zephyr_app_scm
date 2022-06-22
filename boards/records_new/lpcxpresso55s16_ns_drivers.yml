@@ -1,8 +1,9 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s16_ns_drivers"
-  version: v3.1.0-rc1
+  version: v3.1.0-rc2-16-g70dbf7e695
 __load__:
+- modules/sensors.yml
 - modules/drivers_watchdog.yml
 - modules/drivers_userspace.yml
 - modules/drivers_usb.yml

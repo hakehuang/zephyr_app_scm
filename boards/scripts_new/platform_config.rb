@@ -29,7 +29,7 @@ def platforms()
     platforms_config = {
     "frdm_kl25z" => ["", "2", "3", "4", "5", "cmsis", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4"],
     "frdm_k64f" => ["", "2", "3", "4", "5", "cmsis", "drivers", "samples",
-        "sensors", "shield", "bt1", "bt2", "can", "socket", "traffic",
+        "shield", "bt1", "bt2", "can", "socket", "traffic",
         "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
 #    "frdm_k32l2b3" => ["", "2", "3", "4", "5", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "usb"],
     "frdm_k22f" => ["", "2", "3", "4", "5", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
@@ -41,7 +41,7 @@ def platforms()
     "lpcxpresso55s69_cpu0"  => ["", "2", "3", "4", "5", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4"],
 #   "lpcxpresso55s69_cpu1"  => ["", "2", "3", "4", "5", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4"],
     "lpcxpresso55s69_ns"  => ["", "2", "3", "4", "5", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4"],
-    "lpcxpresso55s16_ns" => ["", "2", "3", "4", "5", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4"],
+    "lpcxpresso55s16" => ["", "2", "3", "4", "5", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4"],
     "lpcxpresso55s28_ns" => ["", "2", "3", "4", "5", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4"],
     "lpcxpresso55s28"    => ["", "2", "3", "4", "5", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4"],
     "mimxrt1010_evk" => ["", "2", "3", "4", "5", "cmsis","drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
