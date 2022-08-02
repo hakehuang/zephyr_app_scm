@@ -1,0 +1,1146 @@
+   def test_arm_fpu_interrupt_ignore_faults_arch_interrupt_no_optimizations_result
+   def test_arm_fpu_interrupt_ignore_faults_arch_interrupt_no_optimizations() {
+      echo 'Test arch.interrupt.no_optimizations'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_fpu_interrupt_ignore_faults_arch_interrupt_no_optimizations_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.interrupt.no_optimizations build_dcefd55 arch_interrupt_no_optimizations.json arch_interrupt_no_optimizations.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_dcefd55'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_fpu_interrupt_ignore_faults_arch_interrupt_no_optimizations_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_interrupt_no_optimizations.json arch_interrupt_no_optimizations.bin'
+            }
+        }
+        script {
+          test_arm_fpu_interrupt_ignore_faults_arch_interrupt_no_optimizations_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_fpu_interrupt_ignore_faults_arch_interrupt_no_optimizations_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.interrupt.no_optimizations', 'result': test_arm_fpu_interrupt_ignore_faults_arch_interrupt_no_optimizations_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.interrupt.no_optimizations', 'result': test_arm_fpu_interrupt_ignore_faults_arch_interrupt_no_optimizations_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_fpu_interrupt_ignore_faults_arch_interrupt_arm_result
+   def test_arm_fpu_interrupt_ignore_faults_arch_interrupt_arm() {
+      echo 'Test arch.interrupt.arm'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_fpu_interrupt_ignore_faults_arch_interrupt_arm_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.interrupt.arm build_15e7058 arch_interrupt_arm.json arch_interrupt_arm.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_15e7058'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_fpu_interrupt_ignore_faults_arch_interrupt_arm_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_interrupt_arm.json arch_interrupt_arm.bin'
+            }
+        }
+        script {
+          test_arm_fpu_interrupt_ignore_faults_arch_interrupt_arm_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_fpu_interrupt_ignore_faults_arch_interrupt_arm_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.interrupt.arm', 'result': test_arm_fpu_interrupt_ignore_faults_arch_interrupt_arm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.interrupt.arm', 'result': test_arm_fpu_interrupt_ignore_faults_arch_interrupt_arm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_fpu_interrupt_ignore_faults_arch_interrupt_extra_exception_info_result
+   def test_arm_fpu_interrupt_ignore_faults_arch_interrupt_extra_exception_info() {
+      echo 'Test arch.interrupt.extra_exception_info'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_fpu_interrupt_ignore_faults_arch_interrupt_extra_exception_info_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.interrupt.extra_exception_info build_69b008e arch_interrupt_extra_exception_info.json arch_interrupt_extra_exception_info.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_69b008e'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_fpu_interrupt_ignore_faults_arch_interrupt_extra_exception_info_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_interrupt_extra_exception_info.json arch_interrupt_extra_exception_info.bin'
+            }
+        }
+        script {
+          test_arm_fpu_interrupt_ignore_faults_arch_interrupt_extra_exception_info_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_fpu_interrupt_ignore_faults_arch_interrupt_extra_exception_info_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.interrupt.extra_exception_info', 'result': test_arm_fpu_interrupt_ignore_faults_arch_interrupt_extra_exception_info_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.interrupt.extra_exception_info', 'result': test_arm_fpu_interrupt_ignore_faults_arch_interrupt_extra_exception_info_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_adc_drivers_userspace_drivers_adc_result
+   def test_adc_drivers_userspace_drivers_adc() {
+      echo 'Test drivers.adc'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_adc_drivers_userspace_drivers_adc_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f drivers.adc build_0ff99a6 drivers_adc.json drivers_adc.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_0ff99a6'
+        }
+        node (label: 'twister') {
+          script {
+            test_adc_drivers_userspace_drivers_adc_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f drivers_adc.json drivers_adc.bin'
+            }
+        }
+        script {
+          test_adc_drivers_userspace_drivers_adc_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_adc_drivers_userspace_drivers_adc_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'drivers.adc', 'result': test_adc_drivers_userspace_drivers_adc_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'drivers.adc', 'result': test_adc_drivers_userspace_drivers_adc_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_arch_arm_sw_vector_relay_result
+   def test_arm_arch_arm_sw_vector_relay() {
+      echo 'Test arch.arm.sw_vector_relay'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_arch_arm_sw_vector_relay_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm.sw_vector_relay build_0f220c3 arch_arm_sw_vector_relay.json arch_arm_sw_vector_relay.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_0f220c3'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_arch_arm_sw_vector_relay_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm_sw_vector_relay.json arch_arm_sw_vector_relay.bin'
+            }
+        }
+        script {
+          test_arm_arch_arm_sw_vector_relay_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_arch_arm_sw_vector_relay_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm.sw_vector_relay', 'result': test_arm_arch_arm_sw_vector_relay_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm.sw_vector_relay', 'result': test_arm_arch_arm_sw_vector_relay_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_fpu_arch_arm_swap_common_result
+   def test_arm_fpu_arch_arm_swap_common() {
+      echo 'Test arch.arm.swap.common'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_fpu_arch_arm_swap_common_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm.swap.common build_1244c37 arch_arm_swap_common.json arch_arm_swap_common.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_1244c37'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_fpu_arch_arm_swap_common_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm_swap_common.json arch_arm_swap_common.bin'
+            }
+        }
+        script {
+          test_arm_fpu_arch_arm_swap_common_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_fpu_arch_arm_swap_common_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm.swap.common', 'result': test_arm_fpu_arch_arm_swap_common_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm.swap.common', 'result': test_arm_fpu_arch_arm_swap_common_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_fpu_arch_arm_swap_common_no_optimizations_result
+   def test_arm_fpu_arch_arm_swap_common_no_optimizations() {
+      echo 'Test arch.arm.swap.common.no_optimizations'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_fpu_arch_arm_swap_common_no_optimizations_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm.swap.common.no_optimizations build_fff130f arch_arm_swap_common_no_optimizations.json arch_arm_swap_common_no_optimizations.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_fff130f'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_fpu_arch_arm_swap_common_no_optimizations_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm_swap_common_no_optimizations.json arch_arm_swap_common_no_optimizations.bin'
+            }
+        }
+        script {
+          test_arm_fpu_arch_arm_swap_common_no_optimizations_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_fpu_arch_arm_swap_common_no_optimizations_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm.swap.common.no_optimizations', 'result': test_arm_fpu_arch_arm_swap_common_no_optimizations_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm.swap.common.no_optimizations', 'result': test_arm_fpu_arch_arm_swap_common_no_optimizations_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_interrupt_arch_arm_irq_advanced_features_result
+   def test_arm_interrupt_arch_arm_irq_advanced_features() {
+      echo 'Test arch.arm.irq_advanced_features'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_interrupt_arch_arm_irq_advanced_features_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm.irq_advanced_features build_09e8070 arch_arm_irq_advanced_features.json arch_arm_irq_advanced_features.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_09e8070'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_interrupt_arch_arm_irq_advanced_features_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm_irq_advanced_features.json arch_arm_irq_advanced_features.bin'
+            }
+        }
+        script {
+          test_arm_interrupt_arch_arm_irq_advanced_features_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_interrupt_arch_arm_irq_advanced_features_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm.irq_advanced_features', 'result': test_arm_interrupt_arch_arm_irq_advanced_features_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm.irq_advanced_features', 'result': test_arm_interrupt_arch_arm_irq_advanced_features_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_interrupt_vector_table_arch_arm_irq_vector_table_result
+   def test_arm_interrupt_vector_table_arch_arm_irq_vector_table() {
+      echo 'Test arch.arm.irq_vector_table'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_interrupt_vector_table_arch_arm_irq_vector_table_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm.irq_vector_table build_71cf0e1 arch_arm_irq_vector_table.json arch_arm_irq_vector_table.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_71cf0e1'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_interrupt_vector_table_arch_arm_irq_vector_table_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm_irq_vector_table.json arch_arm_irq_vector_table.bin'
+            }
+        }
+        script {
+          test_arm_interrupt_vector_table_arch_arm_irq_vector_table_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_interrupt_vector_table_arch_arm_irq_vector_table_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm.irq_vector_table', 'result': test_arm_interrupt_vector_table_arch_arm_irq_vector_table_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm.irq_vector_table', 'result': test_arm_interrupt_vector_table_arch_arm_irq_vector_table_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_tz_ns_tz_wrap_func_arch_arm_tz_wrap_func_result
+   def test_arm_tz_ns_tz_wrap_func_arch_arm_tz_wrap_func() {
+      echo 'Test arch.arm.tz_wrap_func'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_tz_ns_tz_wrap_func_arch_arm_tz_wrap_func_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm.tz_wrap_func build_bab57b5 arch_arm_tz_wrap_func.json arch_arm_tz_wrap_func.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_bab57b5'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_tz_ns_tz_wrap_func_arch_arm_tz_wrap_func_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm_tz_wrap_func.json arch_arm_tz_wrap_func.bin'
+            }
+        }
+        script {
+          test_arm_tz_ns_tz_wrap_func_arch_arm_tz_wrap_func_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_tz_ns_tz_wrap_func_arch_arm_tz_wrap_func_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm.tz_wrap_func', 'result': test_arm_tz_ns_tz_wrap_func_arch_arm_tz_wrap_func_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm.tz_wrap_func', 'result': test_arm_tz_ns_tz_wrap_func_arch_arm_tz_wrap_func_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_userspace_arch_arm_ramfunc_result
+   def test_arm_userspace_arch_arm_ramfunc() {
+      echo 'Test arch.arm.ramfunc'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_userspace_arch_arm_ramfunc_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm.ramfunc build_a5c1807 arch_arm_ramfunc.json arch_arm_ramfunc.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_a5c1807'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_userspace_arch_arm_ramfunc_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm_ramfunc.json arch_arm_ramfunc.bin'
+            }
+        }
+        script {
+          test_arm_userspace_arch_arm_ramfunc_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_userspace_arch_arm_ramfunc_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm.ramfunc', 'result': test_arm_userspace_arch_arm_ramfunc_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm.ramfunc', 'result': test_arm_userspace_arch_arm_ramfunc_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_userspace_arch_arm64_high_addr_high_sram_low_vm_result
+   def test_arm_userspace_arch_arm64_high_addr_high_sram_low_vm() {
+      echo 'Test arch.arm64.high_addr.high_sram_low_vm'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_userspace_arch_arm64_high_addr_high_sram_low_vm_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm64.high_addr.high_sram_low_vm build_10ba69c arch_arm64_high_addr_high_sram_low_vm.json arch_arm64_high_addr_high_sram_low_vm.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_10ba69c'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_userspace_arch_arm64_high_addr_high_sram_low_vm_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm64_high_addr_high_sram_low_vm.json arch_arm64_high_addr_high_sram_low_vm.bin'
+            }
+        }
+        script {
+          test_arm_userspace_arch_arm64_high_addr_high_sram_low_vm_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_userspace_arch_arm64_high_addr_high_sram_low_vm_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm64.high_addr.high_sram_low_vm', 'result': test_arm_userspace_arch_arm64_high_addr_high_sram_low_vm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm64.high_addr.high_sram_low_vm', 'result': test_arm_userspace_arch_arm64_high_addr_high_sram_low_vm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_userspace_arch_arm64_high_addr_low_sram_high_vm_result
+   def test_arm_userspace_arch_arm64_high_addr_low_sram_high_vm() {
+      echo 'Test arch.arm64.high_addr.low_sram_high_vm'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_userspace_arch_arm64_high_addr_low_sram_high_vm_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm64.high_addr.low_sram_high_vm build_f9ac851 arch_arm64_high_addr_low_sram_high_vm.json arch_arm64_high_addr_low_sram_high_vm.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_f9ac851'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_userspace_arch_arm64_high_addr_low_sram_high_vm_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm64_high_addr_low_sram_high_vm.json arch_arm64_high_addr_low_sram_high_vm.bin'
+            }
+        }
+        script {
+          test_arm_userspace_arch_arm64_high_addr_low_sram_high_vm_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_userspace_arch_arm64_high_addr_low_sram_high_vm_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm64.high_addr.low_sram_high_vm', 'result': test_arm_userspace_arch_arm64_high_addr_low_sram_high_vm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm64.high_addr.low_sram_high_vm', 'result': test_arm_userspace_arch_arm64_high_addr_low_sram_high_vm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_userspace_arch_arm64_high_addr_high_sram_equal_vm_result
+   def test_arm_userspace_arch_arm64_high_addr_high_sram_equal_vm() {
+      echo 'Test arch.arm64.high_addr.high_sram_equal_vm'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_userspace_arch_arm64_high_addr_high_sram_equal_vm_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm64.high_addr.high_sram_equal_vm build_8e0f8d6 arch_arm64_high_addr_high_sram_equal_vm.json arch_arm64_high_addr_high_sram_equal_vm.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_8e0f8d6'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_userspace_arch_arm64_high_addr_high_sram_equal_vm_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm64_high_addr_high_sram_equal_vm.json arch_arm64_high_addr_high_sram_equal_vm.bin'
+            }
+        }
+        script {
+          test_arm_userspace_arch_arm64_high_addr_high_sram_equal_vm_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_userspace_arch_arm64_high_addr_high_sram_equal_vm_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm64.high_addr.high_sram_equal_vm', 'result': test_arm_userspace_arch_arm64_high_addr_high_sram_equal_vm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm64.high_addr.high_sram_equal_vm', 'result': test_arm_userspace_arch_arm64_high_addr_high_sram_equal_vm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_arm_userspace_arch_arm64_high_addr_high_sram_high_vm_result
+   def test_arm_userspace_arch_arm64_high_addr_high_sram_high_vm() {
+      echo 'Test arch.arm64.high_addr.high_sram_high_vm'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_arm_userspace_arch_arm64_high_addr_high_sram_high_vm_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f arch.arm64.high_addr.high_sram_high_vm build_35f95f1 arch_arm64_high_addr_high_sram_high_vm.json arch_arm64_high_addr_high_sram_high_vm.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_35f95f1'
+        }
+        node (label: 'twister') {
+          script {
+            test_arm_userspace_arch_arm64_high_addr_high_sram_high_vm_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f arch_arm64_high_addr_high_sram_high_vm.json arch_arm64_high_addr_high_sram_high_vm.bin'
+            }
+        }
+        script {
+          test_arm_userspace_arch_arm64_high_addr_high_sram_high_vm_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_arm_userspace_arch_arm64_high_addr_high_sram_high_vm_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'arch.arm64.high_addr.high_sram_high_vm', 'result': test_arm_userspace_arch_arm64_high_addr_high_sram_high_vm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'arch.arm64.high_addr.high_sram_high_vm', 'result': test_arm_userspace_arch_arm64_high_addr_high_sram_high_vm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_base_userspace_kernel_common_result
+   def test_base_userspace_kernel_common() {
+      echo 'Test kernel.common'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_base_userspace_kernel_common_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f kernel.common build_a2c90ff kernel_common.json kernel_common.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_a2c90ff'
+        }
+        node (label: 'twister') {
+          script {
+            test_base_userspace_kernel_common_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f kernel_common.json kernel_common.bin'
+            }
+        }
+        script {
+          test_base_userspace_kernel_common_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_base_userspace_kernel_common_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'kernel.common', 'result': test_base_userspace_kernel_common_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'kernel.common', 'result': test_base_userspace_kernel_common_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_base_userspace_kernel_common_misra_result
+   def test_base_userspace_kernel_common_misra() {
+      echo 'Test kernel.common.misra'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_base_userspace_kernel_common_misra_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f kernel.common.misra build_c6e1e32 kernel_common_misra.json kernel_common_misra.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_c6e1e32'
+        }
+        node (label: 'twister') {
+          script {
+            test_base_userspace_kernel_common_misra_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f kernel_common_misra.json kernel_common_misra.bin'
+            }
+        }
+        script {
+          test_base_userspace_kernel_common_misra_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_base_userspace_kernel_common_misra_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'kernel.common.misra', 'result': test_base_userspace_kernel_common_misra_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'kernel.common.misra', 'result': test_base_userspace_kernel_common_misra_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_base_userspace_kernel_common_nano32_result
+   def test_base_userspace_kernel_common_nano32() {
+      echo 'Test kernel.common.nano32'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_base_userspace_kernel_common_nano32_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f kernel.common.nano32 build_0160fe5 kernel_common_nano32.json kernel_common_nano32.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_0160fe5'
+        }
+        node (label: 'twister') {
+          script {
+            test_base_userspace_kernel_common_nano32_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f kernel_common_nano32.json kernel_common_nano32.bin'
+            }
+        }
+        script {
+          test_base_userspace_kernel_common_nano32_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_base_userspace_kernel_common_nano32_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'kernel.common.nano32', 'result': test_base_userspace_kernel_common_nano32_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'kernel.common.nano32', 'result': test_base_userspace_kernel_common_nano32_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_base_userspace_kernel_common_nano64_result
+   def test_base_userspace_kernel_common_nano64() {
+      echo 'Test kernel.common.nano64'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_base_userspace_kernel_common_nano64_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f kernel.common.nano64 build_f3525a6 kernel_common_nano64.json kernel_common_nano64.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_f3525a6'
+        }
+        node (label: 'twister') {
+          script {
+            test_base_userspace_kernel_common_nano64_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f kernel_common_nano64.json kernel_common_nano64.bin'
+            }
+        }
+        script {
+          test_base_userspace_kernel_common_nano64_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_base_userspace_kernel_common_nano64_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'kernel.common.nano64', 'result': test_base_userspace_kernel_common_nano64_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'kernel.common.nano64', 'result': test_base_userspace_kernel_common_nano64_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_benchmark_kernel_application_result
+   def test_benchmark_benchmark_kernel_application() {
+      echo 'Test benchmark.kernel.application'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_benchmark_kernel_application_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.kernel.application build_08b6566 benchmark_kernel_application.json benchmark_kernel_application.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_08b6566'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_benchmark_kernel_application_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_kernel_application.json benchmark_kernel_application.bin'
+            }
+        }
+        script {
+          test_benchmark_benchmark_kernel_application_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_benchmark_kernel_application_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.application', 'result': test_benchmark_benchmark_kernel_application_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.application', 'result': test_benchmark_benchmark_kernel_application_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_benchmark_kernel_application_fp_arm_result
+   def test_benchmark_benchmark_kernel_application_fp_arm() {
+      echo 'Test benchmark.kernel.application.fp.arm'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_benchmark_kernel_application_fp_arm_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.kernel.application.fp.arm build_c222081 benchmark_kernel_application_fp_arm.json benchmark_kernel_application_fp_arm.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_c222081'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_benchmark_kernel_application_fp_arm_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_kernel_application_fp_arm.json benchmark_kernel_application_fp_arm.bin'
+            }
+        }
+        script {
+          test_benchmark_benchmark_kernel_application_fp_arm_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_benchmark_kernel_application_fp_arm_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.application.fp.arm', 'result': test_benchmark_benchmark_kernel_application_fp_arm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.application.fp.arm', 'result': test_benchmark_benchmark_kernel_application_fp_arm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_benchmark_kernel_footprints_default_result
+   def test_benchmark_benchmark_kernel_footprints_default() {
+      echo 'Test benchmark.kernel.footprints.default'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_benchmark_kernel_footprints_default_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.kernel.footprints.default build_b2ab465 benchmark_kernel_footprints_default.json benchmark_kernel_footprints_default.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_b2ab465'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_benchmark_kernel_footprints_default_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_kernel_footprints_default.json benchmark_kernel_footprints_default.bin'
+            }
+        }
+        script {
+          test_benchmark_benchmark_kernel_footprints_default_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_benchmark_kernel_footprints_default_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.footprints.default', 'result': test_benchmark_benchmark_kernel_footprints_default_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.footprints.default', 'result': test_benchmark_benchmark_kernel_footprints_default_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_benchmark_kernel_footprints_pm_result
+   def test_benchmark_benchmark_kernel_footprints_pm() {
+      echo 'Test benchmark.kernel.footprints.pm'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_benchmark_kernel_footprints_pm_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.kernel.footprints.pm build_6f27f66 benchmark_kernel_footprints_pm.json benchmark_kernel_footprints_pm.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_6f27f66'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_benchmark_kernel_footprints_pm_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_kernel_footprints_pm.json benchmark_kernel_footprints_pm.bin'
+            }
+        }
+        script {
+          test_benchmark_benchmark_kernel_footprints_pm_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_benchmark_kernel_footprints_pm_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.footprints.pm', 'result': test_benchmark_benchmark_kernel_footprints_pm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.footprints.pm', 'result': test_benchmark_benchmark_kernel_footprints_pm_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_benchmark_kernel_scheduler_result
+   def test_benchmark_benchmark_kernel_scheduler() {
+      echo 'Test benchmark.kernel.scheduler'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_benchmark_kernel_scheduler_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.kernel.scheduler build_6110a88 benchmark_kernel_scheduler.json benchmark_kernel_scheduler.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_6110a88'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_benchmark_kernel_scheduler_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_kernel_scheduler.json benchmark_kernel_scheduler.bin'
+            }
+        }
+        script {
+          test_benchmark_benchmark_kernel_scheduler_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_benchmark_kernel_scheduler_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.scheduler', 'result': test_benchmark_benchmark_kernel_scheduler_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.scheduler', 'result': test_benchmark_benchmark_kernel_scheduler_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_benchmark_kernel_core_result
+   def test_benchmark_benchmark_kernel_core() {
+      echo 'Test benchmark.kernel.core'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_benchmark_kernel_core_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.kernel.core build_7ef90b5 benchmark_kernel_core.json benchmark_kernel_core.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_7ef90b5'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_benchmark_kernel_core_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_kernel_core.json benchmark_kernel_core.bin'
+            }
+        }
+        script {
+          test_benchmark_benchmark_kernel_core_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_benchmark_kernel_core_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.core', 'result': test_benchmark_benchmark_kernel_core_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.core', 'result': test_benchmark_benchmark_kernel_core_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_cmsis_dsp_benchmark_cmsis_dsp_basicmath_result
+   def test_benchmark_cmsis_dsp_benchmark_cmsis_dsp_basicmath() {
+      echo 'Test benchmark.cmsis_dsp.basicmath'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_cmsis_dsp_benchmark_cmsis_dsp_basicmath_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.cmsis_dsp.basicmath build_bae11e2 benchmark_cmsis_dsp_basicmath.json benchmark_cmsis_dsp_basicmath.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_bae11e2'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_cmsis_dsp_benchmark_cmsis_dsp_basicmath_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_cmsis_dsp_basicmath.json benchmark_cmsis_dsp_basicmath.bin'
+            }
+        }
+        script {
+          test_benchmark_cmsis_dsp_benchmark_cmsis_dsp_basicmath_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_cmsis_dsp_benchmark_cmsis_dsp_basicmath_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.cmsis_dsp.basicmath', 'result': test_benchmark_cmsis_dsp_benchmark_cmsis_dsp_basicmath_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.cmsis_dsp.basicmath', 'result': test_benchmark_cmsis_dsp_benchmark_cmsis_dsp_basicmath_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_cmsis_dsp_fpu_benchmark_cmsis_dsp_basicmath_fpu_result
+   def test_benchmark_cmsis_dsp_fpu_benchmark_cmsis_dsp_basicmath_fpu() {
+      echo 'Test benchmark.cmsis_dsp.basicmath.fpu'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_cmsis_dsp_fpu_benchmark_cmsis_dsp_basicmath_fpu_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.cmsis_dsp.basicmath.fpu build_41ebefd benchmark_cmsis_dsp_basicmath_fpu.json benchmark_cmsis_dsp_basicmath_fpu.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_41ebefd'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_cmsis_dsp_fpu_benchmark_cmsis_dsp_basicmath_fpu_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_cmsis_dsp_basicmath_fpu.json benchmark_cmsis_dsp_basicmath_fpu.bin'
+            }
+        }
+        script {
+          test_benchmark_cmsis_dsp_fpu_benchmark_cmsis_dsp_basicmath_fpu_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_cmsis_dsp_fpu_benchmark_cmsis_dsp_basicmath_fpu_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.cmsis_dsp.basicmath.fpu', 'result': test_benchmark_cmsis_dsp_fpu_benchmark_cmsis_dsp_basicmath_fpu_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.cmsis_dsp.basicmath.fpu', 'result': test_benchmark_cmsis_dsp_fpu_benchmark_cmsis_dsp_basicmath_fpu_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_dlist_benchmark_data_structure_perf_dlist_result
+   def test_benchmark_dlist_benchmark_data_structure_perf_dlist() {
+      echo 'Test benchmark.data_structure_perf.dlist'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_dlist_benchmark_data_structure_perf_dlist_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.data_structure_perf.dlist build_0e92c8b benchmark_data_structure_perf_dlist.json benchmark_data_structure_perf_dlist.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_0e92c8b'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_dlist_benchmark_data_structure_perf_dlist_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_data_structure_perf_dlist.json benchmark_data_structure_perf_dlist.bin'
+            }
+        }
+        script {
+          test_benchmark_dlist_benchmark_data_structure_perf_dlist_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_dlist_benchmark_data_structure_perf_dlist_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.data_structure_perf.dlist', 'result': test_benchmark_dlist_benchmark_data_structure_perf_dlist_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.data_structure_perf.dlist', 'result': test_benchmark_dlist_benchmark_data_structure_perf_dlist_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_rbtree_benchmark_data_structure_perf_rbtree_result
+   def test_benchmark_rbtree_benchmark_data_structure_perf_rbtree() {
+      echo 'Test benchmark.data_structure_perf.rbtree'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_rbtree_benchmark_data_structure_perf_rbtree_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.data_structure_perf.rbtree build_4ae783e benchmark_data_structure_perf_rbtree.json benchmark_data_structure_perf_rbtree.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_4ae783e'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_rbtree_benchmark_data_structure_perf_rbtree_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_data_structure_perf_rbtree.json benchmark_data_structure_perf_rbtree.bin'
+            }
+        }
+        script {
+          test_benchmark_rbtree_benchmark_data_structure_perf_rbtree_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_rbtree_benchmark_data_structure_perf_rbtree_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.data_structure_perf.rbtree', 'result': test_benchmark_rbtree_benchmark_data_structure_perf_rbtree_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.data_structure_perf.rbtree', 'result': test_benchmark_rbtree_benchmark_data_structure_perf_rbtree_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+   def test_benchmark_userspace_benchmark_kernel_footprints_userspace_result
+   def test_benchmark_userspace_benchmark_kernel_footprints_userspace() {
+      echo 'Test benchmark.kernel.footprints.userspace'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_benchmark_userspace_benchmark_kernel_footprints_userspace_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec confident_sinoussi build_twister.sh $(basename $(pwd)) frdm_k64f benchmark.kernel.footprints.userspace build_08ee6c7 benchmark_kernel_footprints_userspace.json benchmark_kernel_footprints_userspace.bin'
+          sh 'docker exec confident_sinoussi rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/build_08ee6c7'
+        }
+        node (label: 'twister') {
+          script {
+            test_benchmark_userspace_benchmark_kernel_footprints_userspace_result = "FAILURE"
+          }
+            retry(2)  {
+              sh 'run_twister.sh frdm_k64f benchmark_kernel_footprints_userspace.json benchmark_kernel_footprints_userspace.bin'
+            }
+        }
+        script {
+          test_benchmark_userspace_benchmark_kernel_footprints_userspace_result = "SUCCESS"
+        }
+      }
+      script {
+        echo test_benchmark_userspace_benchmark_kernel_footprints_userspace_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.footprints.userspace', 'result': test_benchmark_userspace_benchmark_kernel_footprints_userspace_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        mycustomDataMapTags = ['results_info' :['board_name': 'frdm_k64f', 'app_name': 'benchmark.kernel.footprints.userspace', 'result': test_benchmark_userspace_benchmark_kernel_footprints_userspace_result, 'version': 'zephyr-v3.1.0-583-g83e4f5dd58']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+
+properties([
+  // only keep 1 builds to prevent disk usage from growing out of control
+  buildDiscarder(
+    logRotator(
+      artifactDaysToKeepStr: '7',
+      artifactNumToKeepStr: '1',
+      daysToKeepStr: '',
+      numToKeepStr: '',
+    ),
+  ),
+])
+
+pipeline {
+  agent any
+  environment {
+    PATH = "/root/.local/bin/:$PATH"
+  }
+  stages {
+    stage('build') {
+      parallel {
+        stage('hello world') {
+          steps {
+            sh '''docker exec confident_sinoussi run_setup.sh $(basename $(pwd)) frdm_k64f'''
+            sh 'docker exec confident_sinoussi build_twister.sh  $(basename $(pwd)) samples/hello_world frdm_k64f build'
+          }
+        }
+      }
+    }
+    stage('arm_fpu_interrupt_ignore_faults') {
+      parallel {
+        stage('arch.interrupt.no_optimizations') {
+          steps {
+            test_arm_fpu_interrupt_ignore_faults_arch_interrupt_no_optimizations()
+          }
+        }
+        stage('arch.interrupt.arm') {
+          steps {
+            test_arm_fpu_interrupt_ignore_faults_arch_interrupt_arm()
+          }
+        }
+        stage('arch.interrupt.extra_exception_info') {
+          steps {
+            test_arm_fpu_interrupt_ignore_faults_arch_interrupt_extra_exception_info()
+          }
+        }
+      }
+    }
+    stage('adc_drivers_userspace') {
+      parallel {
+        stage('drivers.adc') {
+          steps {
+            test_adc_drivers_userspace_drivers_adc()
+          }
+        }
+      }
+    }
+    stage('arm') {
+      parallel {
+        stage('arch.arm.sw_vector_relay') {
+          steps {
+            test_arm_arch_arm_sw_vector_relay()
+          }
+        }
+      }
+    }
+    stage('arm_fpu') {
+      parallel {
+        stage('arch.arm.swap.common') {
+          steps {
+            test_arm_fpu_arch_arm_swap_common()
+          }
+        }
+        stage('arch.arm.swap.common.no_optimizations') {
+          steps {
+            test_arm_fpu_arch_arm_swap_common_no_optimizations()
+          }
+        }
+      }
+    }
+    stage('arm_interrupt') {
+      parallel {
+        stage('arch.arm.irq_advanced_features') {
+          steps {
+            test_arm_interrupt_arch_arm_irq_advanced_features()
+          }
+        }
+      }
+    }
+    stage('arm_interrupt_vector_table') {
+      parallel {
+        stage('arch.arm.irq_vector_table') {
+          steps {
+            test_arm_interrupt_vector_table_arch_arm_irq_vector_table()
+          }
+        }
+      }
+    }
+    stage('arm_tz_ns_tz_wrap_func') {
+      parallel {
+        stage('arch.arm.tz_wrap_func') {
+          steps {
+            test_arm_tz_ns_tz_wrap_func_arch_arm_tz_wrap_func()
+          }
+        }
+      }
+    }
+    stage('arm_userspace') {
+      parallel {
+        stage('arch.arm.ramfunc') {
+          steps {
+            test_arm_userspace_arch_arm_ramfunc()
+          }
+        }
+        stage('arch.arm64.high_addr.high_sram_low_vm') {
+          steps {
+            test_arm_userspace_arch_arm64_high_addr_high_sram_low_vm()
+          }
+        }
+        stage('arch.arm64.high_addr.low_sram_high_vm') {
+          steps {
+            test_arm_userspace_arch_arm64_high_addr_low_sram_high_vm()
+          }
+        }
+        stage('arch.arm64.high_addr.high_sram_equal_vm') {
+          steps {
+            test_arm_userspace_arch_arm64_high_addr_high_sram_equal_vm()
+          }
+        }
+        stage('arch.arm64.high_addr.high_sram_high_vm') {
+          steps {
+            test_arm_userspace_arch_arm64_high_addr_high_sram_high_vm()
+          }
+        }
+      }
+    }
+    stage('base_userspace') {
+      parallel {
+        stage('kernel.common') {
+          steps {
+            test_base_userspace_kernel_common()
+          }
+        }
+        stage('kernel.common.misra') {
+          steps {
+            test_base_userspace_kernel_common_misra()
+          }
+        }
+        stage('kernel.common.nano32') {
+          steps {
+            test_base_userspace_kernel_common_nano32()
+          }
+        }
+        stage('kernel.common.nano64') {
+          steps {
+            test_base_userspace_kernel_common_nano64()
+          }
+        }
+      }
+    }
+    stage('benchmark') {
+      parallel {
+        stage('benchmark.kernel.application') {
+          steps {
+            test_benchmark_benchmark_kernel_application()
+          }
+        }
+        stage('benchmark.kernel.application.fp.arm') {
+          steps {
+            test_benchmark_benchmark_kernel_application_fp_arm()
+          }
+        }
+        stage('benchmark.kernel.footprints.default') {
+          steps {
+            test_benchmark_benchmark_kernel_footprints_default()
+          }
+        }
+        stage('benchmark.kernel.footprints.pm') {
+          steps {
+            test_benchmark_benchmark_kernel_footprints_pm()
+          }
+        }
+        stage('benchmark.kernel.scheduler') {
+          steps {
+            test_benchmark_benchmark_kernel_scheduler()
+          }
+        }
+        stage('benchmark.kernel.core') {
+          steps {
+            test_benchmark_benchmark_kernel_core()
+          }
+        }
+      }
+    }
+    stage('benchmark_cmsis_dsp') {
+      parallel {
+        stage('benchmark.cmsis_dsp.basicmath') {
+          steps {
+            test_benchmark_cmsis_dsp_benchmark_cmsis_dsp_basicmath()
+          }
+        }
+      }
+    }
+    stage('benchmark_cmsis_dsp_fpu') {
+      parallel {
+        stage('benchmark.cmsis_dsp.basicmath.fpu') {
+          steps {
+            test_benchmark_cmsis_dsp_fpu_benchmark_cmsis_dsp_basicmath_fpu()
+          }
+        }
+      }
+    }
+    stage('benchmark_dlist') {
+      parallel {
+        stage('benchmark.data_structure_perf.dlist') {
+          steps {
+            test_benchmark_dlist_benchmark_data_structure_perf_dlist()
+          }
+        }
+      }
+    }
+    stage('benchmark_rbtree') {
+      parallel {
+        stage('benchmark.data_structure_perf.rbtree') {
+          steps {
+            test_benchmark_rbtree_benchmark_data_structure_perf_rbtree()
+          }
+        }
+      }
+    }
+    stage('benchmark_userspace') {
+      parallel {
+        stage('benchmark.kernel.footprints.userspace') {
+          steps {
+            test_benchmark_userspace_benchmark_kernel_footprints_userspace()
+          }
+        }
+      }
+    }
+  }
+  post {
+      always {
+          junit '*.xml'
+      }
+  }
+}

@@ -1,0 +1,34 @@
+---
+cases:
+  sample.cpp.synchronization:
+    path: samples/subsys/cpp/cpp_synchronization
+    catalog: cpp
+    arch_exclude: posix
+  cpp.main:
+    path: tests/subsys/cpp/cxx
+    catalog: cpp
+  cpp.libcxx.newlib:
+    path: tests/subsys/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_NEWLIB_LIBC_NANO=n
+    - CONFIG_EXCEPTIONS=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_flash: 54
+    min_ram: 24
+  cpp.libcxx.newlib_nano:
+    path: tests/subsys/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_flash: 54
+  cpp.libcxx.arcmwdtlib:
+    path: tests/subsys/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_ARCMWDT_LIBC=y
+    platform_allow: nsim_hs nsim_em
+    min_flash: 54

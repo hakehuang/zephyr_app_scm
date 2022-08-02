@@ -1,5 +1,19 @@
 ---
 cases:
+  libraries.libc.minimal.strerror_table:
+    path: tests/lib/c_lib
+    catalog: clib
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    - CONFIG_MINIMAL_LIBC_STRING_ERROR_TABLE=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  libraries.libc.minimal.no_strerror_table:
+    path: tests/lib/c_lib
+    catalog: clib
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    - CONFIG_MINIMAL_LIBC_STRING_ERROR_TABLE=n
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
   printk.format:
     path: tests/misc/print_format
     catalog: clib

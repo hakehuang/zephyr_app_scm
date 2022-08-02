@@ -1,0 +1,21 @@
+---
+cases:
+  sample.display.lvgl.gui:
+    path: samples/subsys/display/lvgl
+    catalog: samples display gui
+    platform_allow: reel_board mimxrt1050_evk mimxrt1060_evk mimxrt1064_evk
+  sample.display.lvgl.sdl:
+    path: samples/subsys/display/lvgl
+    catalog: samples display gui
+    build_only: true
+    platform_allow: native_posix_64
+  sample.display.lvgl.dummy:
+    path: samples/subsys/display/lvgl
+    catalog: samples display gui
+    extra_configs:
+    - CONFIG_DUMMY_DISPLAY=y
+    - CONFIG_KSCAN=n
+    - CONFIG_SDL_DISPLAY=n
+    extra_args: DTC_OVERLAY_FILE="dummy_dc.overlay"
+    build_only: true
+    platform_allow: native_posix native_posix_64

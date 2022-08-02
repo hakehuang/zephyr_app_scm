@@ -1,0 +1,28 @@
+---
+cases:
+  net.lwm2m.content_json:
+    path: tests/net/lib/lwm2m/content_json
+    catalog: lwm2m net
+    depends_on: netif
+  net.lwm2m.content_link_format:
+    path: tests/net/lib/lwm2m/content_link_format
+    catalog: lwm2m net
+    depends_on: netif
+  net.lwm2m.content_oma_tlv:
+    path: tests/net/lib/lwm2m/content_oma_tlv
+    catalog: lwm2m net
+    depends_on: netif
+  net.lwm2m.content_plain_text:
+    path: tests/net/lib/lwm2m/content_plain_text
+    catalog: lwm2m net
+    depends_on: netif
+  net.lwm2m.content_raw_cbor:
+    path: tests/net/lib/lwm2m/content_raw_cbor
+    catalog: lwm2m net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.content_senml_cbor:
+    path: tests/net/lib/lwm2m/content_senml_cbor
+    catalog: lwm2m net
+    platform_allow: native_posix
+    depends_on: netif

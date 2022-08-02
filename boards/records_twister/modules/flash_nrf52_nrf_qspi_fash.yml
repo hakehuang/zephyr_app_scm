@@ -1,0 +1,17 @@
+---
+cases:
+  drivers.flash.nrf_qspi_nor:
+    path: tests/drivers/flash
+    catalog: flash nrf52 nrf_qspi_fash
+    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
+    platform_allow: nrf52840dk_nrf52840
+  drivers.flash.nrf_qspi_nor.size_in_bytes:
+    path: tests/drivers/flash
+    catalog: flash nrf52 nrf_qspi_fash
+    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf DTC_OVERLAY_FILE=boards/nrf52840_size_in_bytes.overlay
+    platform_allow: nrf52840dk_nrf52840
+  drivers.flash.nrf_qspi_nor_4B_addr:
+    path: tests/drivers/flash
+    catalog: flash nrf52 nrf_qspi_fash
+    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf DTC_OVERLAY_FILE=boards/nrf52840dk_mx25l51245g.overlay
+    platform_allow: nrf52840dk_nrf52840

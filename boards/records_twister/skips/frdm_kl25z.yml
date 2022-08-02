@@ -1,0 +1,25 @@
+__load__:
+  - skips/common.yml
+  - skips/build_only.yml
+
+cases:
+  kernel.fp_sharing:
+    comments: "no fp"
+    result: skip
+  peripheral.pinmux:
+    comments: "no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/"
+    result: FAILURE
+  peripheral.spi:
+    comments: "need add board support"
+    build_only: true
+  # kernel.threads.dynamic:
+  #   comments: "no CONFIG_ARCH_HAS_USERSPACE depends on MPU"
+  samples.net.google_iot_mqtt:
+    result: skip
+    comments: "not support"
+  kernel.timer:
+    comments: "need update settings http://10.192.225.198/dapeng/request/119687/testcases/"
+    build_only: true
+  cpp.libcxx.newlib:
+    comments: "memory space available for newlib heap is less than the minimum required size specified by CONFIG_NEWLIB_LIBC_MIN_REQUIRED_HEAP_SIZE"
+    build_only: true

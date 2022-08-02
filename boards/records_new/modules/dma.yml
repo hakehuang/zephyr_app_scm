@@ -11,7 +11,7 @@ cases:
     platform_allow: frdm_k64f
     depends_on: spi
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
-      arduino_zero adafruit_trinket_m0
+      arduino_zero adafruit_trinket_m0 arduino_mkrzero
   drivers.stm32_spi_dma.loopback:
     path: tests/drivers/spi/spi_loopback
     catalog: dma
@@ -21,4 +21,4 @@ cases:
       nucleo_wl55jc nucleo_h743zi
     depends_on: spi
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
-      arduino_zero adafruit_trinket_m0
+      arduino_zero adafruit_trinket_m0 arduino_mkrzero

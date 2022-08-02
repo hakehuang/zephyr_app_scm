@@ -1,12 +1,13 @@
 ---
 settings:
   case_pipe_name: "mimxrt685_evk_cm33_usb"
-  version: zephyr-v3.1.0-583-g83e4f5dd58
+  version: zephyr-v3.1.0-2871-gda041942c2
 __load__:
 - modules/usbc.yml
 - modules/usb_sensors.yml
 - modules/usb_osdesc.yml
 - modules/usb_net_zperf.yml
+- modules/usb_modbus.yml
 - modules/usb_ieee802154.yml
 - modules/usb_desc_sections.yml
 - modules/usb_bos.yml

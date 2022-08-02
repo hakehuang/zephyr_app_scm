@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso54114_m4_4"
-  version: zephyr-v3.1.0-583-g83e4f5dd58
+  version: zephyr-v3.1.0-2871-gda041942c2
 __load__:
 - modules/pwm_xlnx_axi_timer.yml
 - modules/pwm_xec.yml
@@ -23,11 +23,14 @@ __load__:
 - modules/pwm_gecko.yml
 - modules/pwm_drivers_userspace.yml
 - modules/power.yml
-- modules/posix_pthread_eventfd.yml
 - modules/posix_net.yml
+- modules/posix_getopt.yml
 - modules/posix_filesystem.yml
+- modules/posix_eventfd.yml
 - modules/posix.yml
 - modules/pm.yml
+- modules/picolibc_ignore_faults.yml
+- modules/picolibc.yml
 - modules/p4wq.yml
 - modules/out_of_tree.yml
 - modules/ot_radio.yml
@@ -64,6 +67,8 @@ __load__:
 - modules/littlefs_fatfs_filesystem.yml
 - modules/linker_generator.yml
 - modules/linker.yml
+- modules/libc_picolibc.yml
+- modules/libc_ignore_faults_picolibc.yml
 - modules/libc_ignore_faults.yml
 - modules/libc.yml
 - modules/lib_sys_util_tests.yml

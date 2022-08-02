@@ -1,0 +1,287 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	model = "NXP LPCXpresso55S06 board";
+	compatible = "nxp,lpc55xxx", "nxp,lpc";
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		sram: sram@400000 {
+			ranges = < 0x4000000 0x4000000 0x20000000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			sramx: memory@4000000 {
+				compatible = "mmio-sram";
+				reg = < 0x4000000 0x4000 >;
+			};
+			sram0: memory@20000000 {
+				compatible = "mmio-sram";
+				reg = < 0x20000000 0x8000 >;
+			};
+			sram1: memory@20008000 {
+				compatible = "zephyr,memory-region", "mmio-sram";
+				reg = < 0x20008000 0x4000 >;
+				zephyr,memory-region = "SRAM1";
+			};
+			sram2: memory@2000c000 {
+				compatible = "zephyr,memory-region", "mmio-sram";
+				reg = < 0x2000c000 0x4000 >;
+				zephyr,memory-region = "SRAM2";
+			};
+			sram3: memory@20010000 {
+				compatible = "zephyr,memory-region", "mmio-sram";
+				reg = < 0x20010000 0x4000 >;
+				zephyr,memory-region = "SRAM3";
+			};
+		};
+		peripheral: peripheral@40000000 {
+			ranges = < 0x0 0x40000000 0x10000000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			syscon: syscon@0 {
+				compatible = "nxp,lpc-syscon";
+				reg = < 0x0 0x4000 >;
+				label = "SYSCON";
+				#clock-cells = < 0x1 >;
+				phandle = < 0x2 >;
+			};
+			iap: flash-controller@34000 {
+				compatible = "nxp,lpc-iap";
+				label = "FLASH_IAP";
+				reg = < 0x34000 0x18 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x1 >;
+				flash0: flash@0 {
+					compatible = "soc-nv-flash";
+					label = "MCUX_FLASH";
+					reg = < 0x0 0x3d800 >;
+					erase-block-size = < 0x200 >;
+					write-block-size = < 0x200 >;
+				};
+				flash_reserved: flash@3d800 {
+					compatible = "soc-nv-flash";
+					reg = < 0x3d800 0x2800 >;
+					status = "disabled";
+				};
+				uuid: flash@9fc70 {
+					compatible = "nxp,lpc-uid";
+					reg = < 0x9fc70 0x10 >;
+				};
+				boot_rom: flash@3000000 {
+					compatible = "soc-nv-flash";
+					reg = < 0x3000000 0x20000 >;
+				};
+			};
+			iocon: iocon@1000 {
+				compatible = "nxp,lpc-iocon";
+				reg = < 0x1000 0x100 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x1 >;
+				ranges = < 0x0 0x1000 0x100 >;
+				pio0: pio0@0 {
+					compatible = "nxp,lpc-iocon-pio";
+					reg = < 0x0 0x80 >;
+				};
+				pio1: pio0@80 {
+					compatible = "nxp,lpc-iocon-pio";
+					reg = < 0x80 0x80 >;
+				};
+			};
+			gpio0: gpio@0 {
+				compatible = "nxp,lpc-gpio";
+				reg = < 0x8c000 0x2488 >;
+				interrupts = < 0x4 0x2 >, < 0x5 0x2 >, < 0x6 0x2 >, < 0x7 0x2 >;
+				label = "GPIO_0";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				port = < 0x0 >;
+				phandle = < 0x3 >;
+			};
+			gpio1: gpio@1 {
+				compatible = "nxp,lpc-gpio";
+				reg = < 0x8c000 0x2488 >;
+				interrupts = < 0x20 0x2 >, < 0x21 0x2 >, < 0x22 0x2 >, < 0x23 0x2 >;
+				label = "GPIO_1";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				port = < 0x1 >;
+				phandle = < 0x4 >;
+			};
+			flexcomm0: flexcomm@86000 {
+				compatible = "nxp,lpc-usart";
+				reg = < 0x86000 0x1000 >;
+				interrupts = < 0xe 0x0 >;
+				clocks = < &syscon 0x0 >;
+				label = "FLEXCOMM_0";
+				status = "okay";
+				current-speed = < 0x1c200 >;
+			};
+			flexcomm1: flexcomm@87000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x87000 0x1000 >;
+				interrupts = < 0xf 0x0 >;
+				clocks = < &syscon 0x1 >;
+				label = "FLEXCOMM_1";
+				status = "disabled";
+			};
+			flexcomm2: flexcomm@88000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x88000 0x1000 >;
+				interrupts = < 0x10 0x0 >;
+				clocks = < &syscon 0x2 >;
+				label = "FLEXCOMM_2";
+				status = "disabled";
+			};
+			flexcomm3: flexcomm@89000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x89000 0x1000 >;
+				interrupts = < 0x11 0x0 >;
+				clocks = < &syscon 0x3 >;
+				label = "FLEXCOMM_3";
+				status = "disabled";
+			};
+			flexcomm4: flexcomm@8a000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x8a000 0x1000 >;
+				interrupts = < 0x12 0x0 >;
+				clocks = < &syscon 0x4 >;
+				label = "FLEXCOMM_4";
+				status = "disabled";
+			};
+			flexcomm5: flexcomm@96000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x96000 0x1000 >;
+				interrupts = < 0x13 0x0 >;
+				clocks = < &syscon 0x5 >;
+				label = "FLEXCOMM_5";
+				status = "disabled";
+			};
+			flexcomm6: flexcomm@97000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x97000 0x1000 >;
+				interrupts = < 0x14 0x0 >;
+				clocks = < &syscon 0x6 >;
+				label = "FLEXCOMM_6";
+				status = "disabled";
+			};
+			flexcomm7: flexcomm@98000 {
+				compatible = "nxp,lpc-flexcomm";
+				reg = < 0x98000 0x1000 >;
+				interrupts = < 0x15 0x0 >;
+				clocks = < &syscon 0x7 >;
+				label = "FLEXCOMM_7";
+				status = "disabled";
+			};
+			hs_lspi: spi@9f000 {
+				compatible = "nxp,lpc-spi";
+				reg = < 0x9f000 0x1000 >;
+				interrupts = < 0x3b 0x0 >;
+				clocks = < &syscon 0xe >;
+				label = "HS_LSPI";
+				status = "disabled";
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+			};
+			rng: rng@3a000 {
+				compatible = "nxp,lpc-rng";
+				reg = < 0x3a000 0x1000 >;
+				status = "okay";
+				label = "RNG";
+			};
+		};
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+	};
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,code-partition = &sramx;
+		zephyr,console = &flexcomm0;
+		zephyr,shell-uart = &flexcomm0;
+		zephyr,entropy = &rng;
+	};
+	aliases {
+		led0 = &blue_led;
+		led1 = &red_led;
+		led2 = &green_led;
+		sw0 = &btn_wk;
+		sw1 = &btn_usr;
+		sw2 = &btn_isp;
+		usart-0 = &flexcomm0;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			compatible = "arm,cortex-m33f";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv8m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+				arm,num-mpu-regions = < 0x8 >;
+			};
+		};
+	};
+	leds {
+		compatible = "gpio-leds";
+		blue_led: led_0 {
+			gpios = < &gpio0 0x16 0x0 >;
+			label = "Blue LED";
+		};
+		red_led: led_1 {
+			gpios = < &gpio0 0x15 0x0 >;
+			label = "Red LED";
+		};
+		green_led: led_2 {
+			gpios = < &gpio0 0x12 0x0 >;
+			label = "Green LED";
+		};
+	};
+	gpio_keys {
+		compatible = "gpio-keys";
+		btn_wk: button_0 {
+			label = "Wakeup button";
+			gpios = < &gpio0 0x1c 0x1 >;
+		};
+		btn_usr: button_1 {
+			label = "User button";
+			gpios = < &gpio1 0x9 0x1 >;
+		};
+		btn_isp: button_2 {
+			label = "ISP button";
+			gpios = < &gpio0 0x5 0x1 >;
+		};
+	};
+	mikrobus_header: mikrobus-connector {
+		compatible = "mikro-bus";
+		#gpio-cells = < 0x2 >;
+		gpio-map-mask = < 0xffffffff 0xffffffc0 >;
+		gpio-map-pass-thru = < 0x0 0x3f >;
+		gpio-map = < 0x0 0x0 &gpio0 0x10 0x0 >, < 0x2 0x0 &gpio1 0x1 0x0 >, < 0x3 0x0 &gpio1 0x2 0x0 >, < 0x4 0x0 &gpio1 0x3 0x0 >, < 0x5 0x0 &gpio0 0x1a 0x0 >, < 0x6 0x0 &gpio1 0x5 0x0 >, < 0x7 0x0 &gpio0 0x1c 0x0 >, < 0x8 0x0 &gpio1 0xa 0x0 >, < 0x9 0x0 &gpio1 0xb 0x0 >, < 0xa 0x0 &gpio0 0x18 0x0 >, < 0xb 0x0 &gpio0 0x19 0x0 >;
+	};
+	arduino_header: arduino-connector {
+		compatible = "arduino-header-r3";
+		#gpio-cells = < 0x2 >;
+		gpio-map-mask = < 0xffffffff 0xffffffc0 >;
+		gpio-map-pass-thru = < 0x0 0x3f >;
+		gpio-map = < 0x0 0x0 &gpio0 0x10 0x0 >, < 0x1 0x0 &gpio0 0x17 0x0 >, < 0x2 0x0 &gpio0 0x9 0x0 >, < 0x3 0x0 &gpio0 0x0 0x0 >, < 0x4 0x0 &gpio0 0xd 0x0 >, < 0x5 0x0 &gpio0 0xe 0x0 >, < 0x6 0x0 &gpio1 0xa 0x0 >, < 0x7 0x0 &gpio1 0xb 0x0 >, < 0x8 0x0 &gpio0 0xf 0x0 >, < 0x9 0x0 &gpio0 0x17 0x0 >, < 0xa 0x0 &gpio0 0x16 0x0 >, < 0xb 0x0 &gpio0 0x13 0x0 >, < 0xc 0x0 &gpio0 0x12 0x0 >, < 0xd 0x0 &gpio0 0x2 0x0 >, < 0xe 0x0 &gpio0 0xa 0x0 >, < 0xf 0x0 &gpio0 0x19 0x0 >, < 0x10 0x0 &gpio1 0x1 0x0 >, < 0x11 0x0 &gpio0 0x1a 0x0 >, < 0x12 0x0 &gpio1 0x3 0x0 >, < 0x13 0x0 &gpio1 0x2 0x0 >;
+	};
+};

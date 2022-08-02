@@ -1,0 +1,8 @@
+---
+cases:
+  libraries.libc.picolibc.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog: clib picolibc userspace
+    extra_args: CONF_FILE=prj_picolibc.conf
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_exclude: twr_ke18f native_posix_64 nrf52_bsim

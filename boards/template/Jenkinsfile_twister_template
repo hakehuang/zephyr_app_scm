@@ -1,0 +1,89 @@
+<?rb for l, items in @catalog ?>
+  <?rb items['cases'].each do |k, item| ?>
+   <?rb ll=l.gsub(/\-|\./, '_')  ?>
+   <?rb kk=k.gsub(/\-|\./, '_')  ?>
+   def test_#{ll}_#{kk}_result
+   def test_#{ll}_#{kk}() {
+      echo 'Test #{k}'
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        node {
+          script {
+            test_#{ll}_#{kk}_result = "BUILD_FAILURE"
+          }
+          sh 'docker exec #{@docker} #{@build_script} $(basename $(pwd)) #{@board} #{item['case_name']} #{item['build_path']} #{item['test_plan']} #{item['bin_name']}'
+          sh 'docker exec #{@docker} rm -rf  /build/src/workspace/$(basename $(pwd))/zephyr/#{item['build_path']}'
+        }
+        node (label: 'twister') {
+          script {
+            test_#{ll}_#{kk}_result = "FAILURE"
+          }
+          <?rb if ! item.has_key?('build_only') ?>
+            retry(2)  {
+              sh '#{@run_script} #{@board} #{item['test_plan']} #{item['bin_name']}'
+            }
+          <?rb end ?>
+        }
+        script {
+          test_#{ll}_#{kk}_result = "SUCCESS"
+        }  
+      }
+      script {
+        echo test_#{ll}_#{kk}_result
+        myCustomMeasurementFields = ['results_info' : ['board_name': '#{@board}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
+        mycustomDataMapTags = ['results_info' :['board_name': '#{@board}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
+        influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
+      }
+   }
+  <?rb end ?>
+<?rb end ?>
+
+properties([
+  // only keep 1 builds to prevent disk usage from growing out of control
+  buildDiscarder(
+    logRotator(
+      artifactDaysToKeepStr: '7', 
+      artifactNumToKeepStr: '1', 
+      daysToKeepStr: '', 
+      numToKeepStr: '',
+    ),
+  ),
+])
+
+pipeline {
+  agent any
+  environment {
+    PATH = "/root/.local/bin/:$PATH"
+  }
+  stages {
+    stage('build') {
+      parallel {
+        stage('hello world') {
+          steps {
+            sh '''docker exec #{@docker} run_setup.sh $(basename $(pwd)) #{@board}'''
+            sh 'docker exec #{@docker} #{@build_script}  $(basename $(pwd)) samples/hello_world #{@board} build'
+          }
+        }
+      }
+    }
+    <?rb for l, items in @catalog ?>
+    stage('#{l}') {
+      parallel {
+      <?rb items['cases'].each do |k, item| ?>
+        stage('#{k}') {
+          steps {
+            <?rb ll=l.gsub(/\-|\./, '_')  ?>
+            <?rb kk=k.gsub(/\-|\./, '_')  ?>
+            test_#{ll}_#{kk}()
+          }
+        }
+      <?rb end ?>
+      }
+    }
+    <?rb end ?>
+  }
+  post {
+      always {
+          junit '*.xml'
+      }
+  }
+}

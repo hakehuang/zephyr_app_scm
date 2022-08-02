@@ -1,0 +1,9 @@
+---
+cases:
+  libraries.picolibc:
+    path: tests/lib/c_lib
+    catalog: picolibc ignore_faults
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_exclude: native_posix native_posix_64 nrf52_bsim

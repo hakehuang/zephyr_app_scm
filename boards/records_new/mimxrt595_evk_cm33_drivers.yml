@@ -1,10 +1,12 @@
 ---
 settings:
   case_pipe_name: "mimxrt595_evk_cm33_drivers"
-  version: zephyr-v3.1.0-583-g83e4f5dd58
+  version: zephyr-v3.1.0-2871-gda041942c2
 __load__:
 - modules/sensors.yml
 - modules/drivers_watchdog.yml
+- modules/drivers_w1_userspace.yml
+- modules/drivers_video.yml
 - modules/drivers_userspace.yml
 - modules/drivers_usb.yml
 - modules/drivers_uart.yml

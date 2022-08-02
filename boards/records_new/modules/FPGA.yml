@@ -1,0 +1,13 @@
+---
+cases:
+  sample.drivers.fpga_controller:
+    path: samples/drivers/fpga/fpga_controller
+    catalog: FPGA
+    platform_allow: quick_feather
+    build_only: true
+  sample.drivers.fpga_controller.shell:
+    path: samples/drivers/fpga/fpga_controller
+    catalog: FPGA
+    extra_args: CONF_FILE="prj_shell.conf"
+    platform_allow: quick_feather
+    build_only: true

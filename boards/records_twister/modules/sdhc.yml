@@ -1,0 +1,13 @@
+---
+cases:
+  drivers.sdhc.sdhc_api:
+    path: tests/drivers/sdhc
+    catalog: sdhc
+    filter: CONFIG_SDHC
+    depends_on: sdhc
+  subsys.sd.sdmmc:
+    path: tests/subsys/sd/sdmmc
+    catalog: sdhc
+    filter: CONFIG_SD_STACK
+    min_ram: 32
+    depends_on: sdhc

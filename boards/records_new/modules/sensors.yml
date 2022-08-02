@@ -41,8 +41,10 @@ cases:
     catalog: sensors
     extra_configs:
     - CONFIG_AMG88XX_TRIGGER_GLOBAL_THREAD=y
+    extra_args: SHIELD=amg88xx_eval_kit
     build_only: true
     depends_on: arduino_i2c arduino_gpio
+    platform_exclude: pan1781_evb pan1782_evb
   sample.sensor.apds9960:
     path: samples/sensor/apds9960
     catalog: sensors
@@ -69,11 +71,6 @@ cases:
     catalog: sensors
     depends_on: i2c gpio
     filter: dt_compat_enabled("bosch,bmg160")
-  sample.sensor.bmm150:
-    path: samples/sensor/bmm150
-    catalog: sensors
-    depends_on: gpio i2c
-    filter: dt_compat_enabled("bosch,bmm150")
   sample.sensor.bq274xx:
     path: samples/sensor/bq274xx
     catalog: sensors
@@ -94,6 +91,16 @@ cases:
     path: samples/sensor/dps310
     catalog: sensors
     depends_on: i2c arduino_i2c
+  sample.sensor.ds18b20.w1_serial:
+    path: samples/sensor/ds18b20
+    catalog: sensors
+    platform_allow: nucleo_g0b1re nrf52840dk_nrf52840
+  sample.sensor.ds18b20.w1_arduino_serial:
+    path: samples/sensor/ds18b20
+    catalog: sensors
+    extra_args: DTC_OVERLAY_FILE=arduino_serial.overlay
+    platform_allow: nucleo_g071rb
+    depends_on: arduino_serial
   sample.sensor.fdc2x1x:
     path: samples/sensor/fdc2x1x
     catalog: sensors
@@ -121,11 +128,6 @@ cases:
     platform_allow: frdm_kl25z bbc_microbit lpcxpresso55s69_cpu0 reel_board mimxrt685_evk_cm33
       mimxrt595_evk_cm33
     depends_on: i2c gpio
-  sample.sensor.hmc5883l:
-    path: samples/sensor/hmc5883l
-    catalog: sensors
-    depends_on: i2c gpio
-    filter: dt_compat_enabled("honeywell,hmc5883l")
   sample.sensor.hts221:
     path: samples/sensor/hts221
     catalog: sensors
@@ -165,12 +167,11 @@ cases:
   sample.sensor.lsm6dso:
     path: samples/sensor/lsm6dso
     catalog: sensors
-    depends_on: lsm6dso
+    filter: dt_compat_enabled("st,lsm6dso")
   sample.sensor.magn_polling:
     path: samples/sensor/magn_polling
     catalog: sensors
-    depends_on: i2c gpio
-    filter: dt_compat_enabled("bosch,bmc150_magn")
+    filter: dt_alias_exists("magn0")
   sample.sensor.max17262:
     path: samples/sensor/max17262
     catalog: sensors
@@ -218,10 +219,6 @@ cases:
     catalog: sensors
     build_only: true
     platform_allow: nrf52840dk_nrf52840
-  sample.sensor.qdec:
-    path: samples/sensor/qdec
-    catalog: sensors
-    platform_allow: sam_e70_xplained
   sample.sensor.sgp40_sht4x:
     path: samples/sensor/sgp40_sht4x
     catalog: sensors
@@ -244,6 +241,11 @@ cases:
     depends_on: adc
     build_only: true
     platform_allow: nucleo_f401re stm32f103_mini stm32l562e_dk
+  sample.sensor.stm32_vbat_sensor:
+    path: samples/sensor/stm32_vbat_sensor
+    catalog: sensors
+    depends_on: adc
+    platform_allow: nucleo_g071rb nucleo_wb55rg
   sample.sensor.sx9500:
     path: samples/sensor/sx9500
     catalog: sensors

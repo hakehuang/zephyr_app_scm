@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.pwm.mcux.sctimer.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_mcux_sctimer
+    extra_args: CONFIG_PWM_MCUX_SCTIMER=y
+    platform_allow: mimxrt685_evk_cm33
+    build_only: true

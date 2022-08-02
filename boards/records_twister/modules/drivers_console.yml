@@ -1,0 +1,13 @@
+---
+cases:
+  drivers.console.uart:
+    path: tests/drivers/console
+    catalog: drivers console
+    filter: CONFIG_UART_CONSOLE
+  drivers.console.semihost:
+    path: tests/drivers/console
+    catalog: drivers console
+    extra_args: CONF_FILE=prj_semihost.conf
+    arch_allow: arm arm64 riscv32 riscv64
+    platform_type:
+    - qemu

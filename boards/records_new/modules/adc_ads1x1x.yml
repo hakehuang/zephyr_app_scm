@@ -1,8 +1,0 @@
----
-cases:
-  drivers.adc.i2c.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_ads1x1x
-    extra_args: CONFIG_I2C=y CONFIG_ADC_ADS1X1X=y
-    platform_allow: native_posix
-    build_only: true

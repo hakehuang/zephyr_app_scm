@@ -1,0 +1,28 @@
+---
+cases:
+  kernel.timer.cycle64:
+    path: tests/kernel/timer/cycle64
+    catalog: kernel timer
+    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
+    platform_exclude: native_posix
+  kernel.timer.cycle64.fast:
+    path: tests/kernel/timer/cycle64
+    catalog: kernel timer
+    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
+    platform_allow: native_posix
+  kernel.timer.starve:
+    path: tests/kernel/timer/starve
+    catalog: kernel timer
+    build_only: true
+  kernel.timer.no_multitheading:
+    path: tests/kernel/timer/timer_api
+    catalog: kernel timer
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    - CONFIG_TEST_USERSPACE=n
+    - CONFIG_SPIN_VALIDATE=n
+    platform_allow: qemu_cortex_m3
+  kernel.timer.monotonic:
+    path: tests/kernel/timer/timer_monotonic
+    catalog: kernel timer
+    platform_exclude: qemu_arc_hs

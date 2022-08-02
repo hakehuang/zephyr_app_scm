@@ -1,0 +1,79 @@
+---
+cases:
+  testing.ztest.ztress:
+    path: "."
+    catalog: test_framework
+    platform_type:
+    - qemu
+  drivers.sbs_gauge:
+    path: tests/drivers/sensor/sbs_gauge
+    catalog: test_framework
+    build_only: true
+    filter: dt_compat_enabled("sbs,sbs-gauge")
+  testing.ztest.automain:
+    path: tests/ztest/automain
+    catalog: test_framework
+  testing.ztest.base:
+    path: tests/ztest/base
+    catalog: test_framework
+    type: unit
+  testing.ztest.base.cpp:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_cpp.conf
+    platform_allow: native_posix
+  testing.ztest.base.verbose_0:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_0.conf
+  testing.ztest.base.verbose_1:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_1.conf
+  testing.ztest.base.verbose_2:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_2.conf
+  testing.ztest.busy_sim:
+    path: tests/ztest/busy_sim
+    catalog: test_framework
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: counter
+  testing.ztest.busy_sim_nrf52840dk_pin:
+    path: tests/ztest/busy_sim
+    catalog: test_framework
+    extra_args: DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840_pin.overlay
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: counter
+  testing.ztest.regular_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+  testing.ztest.customized_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_customized_output.conf
+  testing.ztest.mock:
+    path: tests/ztest/mock
+    catalog: test_framework
+    arch_exclude: arm
+  testing.ztest.unit:
+    path: tests/ztest/mock
+    catalog: test_framework
+    type: unit
+  testing.ztest.mock_fff:
+    path: tests/ztest/mock_fff
+    catalog: test_framework
+    filter: CONFIG_ZEPHYR_FFF_MODULE
+  testing.ztest.mock_fff_global:
+    path: tests/ztest/mock_fff
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_global.conf
+    filter: CONFIG_ZEPHYR_FFF_MODULE
+  testing.ztest.register:
+    path: tests/ztest/register
+    catalog: test_framework
+  testing.ztest.ztress.ztress:
+    path: tests/ztest/ztress
+    catalog: test_framework
+    platform_type:
+    - qemu

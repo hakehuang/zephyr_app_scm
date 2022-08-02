@@ -1,0 +1,94 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	model = "NXP i.MX8M Mini EVK board";
+	compatible = "nxp,mimx8mm_evk";
+	chosen {
+		zephyr,flash = &tcml_code;
+		zephyr,sram = &tcmu_sys;
+		zephyr,console = &uart4;
+		zephyr,shell-uart = &uart4;
+	};
+	aliases {
+		uart-4 = &uart4;
+	};
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		nvic: interrupt-controller@e000e100 {
+			compatible = "arm,v7m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x4 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv7m-systick";
+			reg = < 0xe000e010 0x10 >;
+			status = "disabled";
+		};
+		tcml_code: code@1ffe0000 {
+			compatible = "nxp,imx-itcm";
+			reg = < 0x1ffe0000 0x20000 >;
+			label = "TCML CODE";
+		};
+		tcmu_sys: memory@20000000 {
+			compatible = "nxp,imx-dtcm";
+			reg = < 0x20000000 0x20000 >;
+			label = "TCMU SYSTEM";
+		};
+		ocram_code: code@900000 {
+			compatible = "nxp,imx-code-bus";
+			reg = < 0x900000 0x40000 >;
+			label = "OCRAM CODE";
+		};
+		ocram_sys: memory@20200000 {
+			device_type = "memory";
+			compatible = "nxp,imx-sys-bus";
+			reg = < 0x20200000 0x40000 >;
+			label = "OCRAM SYSTEM";
+		};
+		ocram_s_code: code@180000 {
+			compatible = "nxp,imx-code-bus";
+			reg = < 0x180000 0x8000 >;
+			label = "OCRAM_S CODE";
+		};
+		ocram_s_sys: memory@20180000 {
+			device_type = "memory";
+			compatible = "nxp,imx-sys-bus";
+			reg = < 0x20180000 0x8000 >;
+			label = "OCRAM_S SYSTEM";
+		};
+		ccm: ccm@30380000 {
+			compatible = "nxp,imx-ccm";
+			reg = < 0x30380000 0x10000 >;
+			label = "CCM";
+			#clock-cells = < 0x3 >;
+			phandle = < 0x2 >;
+		};
+		uart4: uart@30a60000 {
+			compatible = "nxp,imx-iuart";
+			reg = < 0x30a60000 0x10000 >;
+			interrupts = < 0x1d 0x3 >;
+			clocks = < &ccm 0x9 0x6c 0x18 >;
+			label = "UART_4";
+			status = "okay";
+			current-speed = < 0x1c200 >;
+		};
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m4";
+			reg = < 0x0 >;
+		};
+	};
+};

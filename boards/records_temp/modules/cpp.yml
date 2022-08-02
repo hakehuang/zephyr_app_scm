@@ -4,9 +4,33 @@ cases:
     path: samples/subsys/cpp/cpp_synchronization
     catalog: cpp
     arch_exclude: posix
-  cpp.main:
+  cpp.main.minimal:
     path: tests/subsys/cpp/cxx
     catalog: cpp
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+  cpp.main.newlib:
+    path: tests/subsys/cpp/cxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_NEWLIB_LIBC_NANO=n
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+  cpp.main.newlib_nano:
+    path: tests/subsys/cpp/cxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_HAS_NEWLIB_LIBC_NANO
+    min_ram: 24
+  cpp.main.picolibc:
+    path: tests/subsys/cpp/cxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
   cpp.libcxx.newlib:
     path: tests/subsys/cpp/libcxx
     catalog: cpp

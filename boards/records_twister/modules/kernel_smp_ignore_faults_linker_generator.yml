@@ -1,0 +1,10 @@
+---
+cases:
+  kernel.multiprocessing.smp.linker_generator:
+    path: tests/kernel/smp
+    catalog: kernel smp ignore_faults linker_generator
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+    filter: "(CONFIG_MP_NUM_CPUS > 1)"

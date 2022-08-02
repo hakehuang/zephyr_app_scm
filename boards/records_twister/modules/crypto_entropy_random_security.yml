@@ -1,0 +1,14 @@
+---
+cases:
+  crypto.rand32.random_hw_xoshiro:
+    path: tests/crypto/rand32
+    catalog: crypto entropy random security
+    extra_args: CONF_FILE=prj_hw_random_xoshiro.conf
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+    min_ram: 16
+  crypto.rand32.random_ctr_drbg:
+    path: tests/crypto/rand32
+    catalog: crypto entropy random security
+    extra_args: CONF_FILE=prj_ctr_drbg.conf
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+    min_ram: 16

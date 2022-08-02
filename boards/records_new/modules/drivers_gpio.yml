@@ -19,6 +19,13 @@ cases:
     extra_args: DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840.overlay;boards/nrf52840dk_nrf52840_sense_edge.overlay
     platform_allow: nrf52840dk_nrf52840
     depends_on: gpio
+  peripheral.gpio.get_direction:
+    path: tests/drivers/gpio/gpio_get_direction
+    catalog: drivers gpio
+    depends_on: gpio
+    min_flash: 48
+    platform_exclude: mps2_an385 mps2_an521 neorv32
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
   drivers.regulator.fixed.onoff:
     path: tests/drivers/regulator/fixed
     catalog: drivers gpio

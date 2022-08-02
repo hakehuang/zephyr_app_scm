@@ -1,0 +1,56 @@
+---
+cases:
+  sample.drivers.jesd216:
+    path: samples/drivers/jesd216
+    catalog: spi flash
+    platform_exclude: hifive1 hifive_unleashed hifive_unmatched mimxrt1170_evk_cm7
+      mimxrt1170_evk_cm4
+    filter: dt_compat_enabled("jedec,spi-nor")
+    depends_on: spi
+  sample.drivers.spi.flash:
+    path: samples/drivers/spi_flash
+    catalog: spi flash
+    filter: dt_compat_enabled("jedec,spi-nor") or dt_compat_enabled("st,stm32-qspi-nor")
+      or dt_compat_enabled("st,stm32-ospi-nor")
+    depends_on: spi
+  sample.drivers.spi.flash_dpd:
+    path: samples/drivers/spi_flash
+    catalog: spi flash
+    extra_configs:
+    - CONFIG_SPI_NOR_IDLE_IN_DPD=y
+    filter: dt_compat_enabled("jedec,spi-nor")
+    build_only: true
+    depends_on: spi
+  sample.drivers.spi.flash.at45.build:
+    path: samples/drivers/spi_flash_at45
+    catalog: spi flash
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
+  sample.drivers.spi.flash.at45.build.page_layout:
+    path: samples/drivers/spi_flash_at45
+    catalog: spi flash
+    extra_args: OVERLAY_CONFIG="overlay-page_layout.conf"
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
+  sample.drivers.spi.flash.at45.build.pm:
+    path: samples/drivers/spi_flash_at45
+    catalog: spi flash
+    extra_args: OVERLAY_CONFIG="overlay-pm.conf"
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
+  sample.drivers.spi.flash.at45.build.page_layout_pm:
+    path: samples/drivers/spi_flash_at45
+    catalog: spi flash
+    extra_args: OVERLAY_CONFIG="overlay-page_layout.conf;overlay-pm.conf"
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
+  sample.drivers.spi.flash.at45:
+    path: samples/drivers/spi_flash_at45
+    catalog: spi flash
+    extra_args: OVERLAY_CONFIG="overlay-page_layout.conf;overlay-pm.conf"
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")

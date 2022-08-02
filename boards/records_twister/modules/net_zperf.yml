@@ -1,0 +1,8 @@
+---
+cases:
+  sample.net.zperf:
+    path: samples/net/zperf
+    catalog: net zperf
+    platform_allow: qemu_x86
+    platform_exclude: native_posix native_posix_64 sam_e70_xplained
+    min_ram: 64

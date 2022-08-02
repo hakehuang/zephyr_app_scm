@@ -1,0 +1,11 @@
+__load__:
+  - boards/common.yml
+
+settings:
+  build_script: build_zephyr_elf.sh
+  run_script: run_elf_frdmkl46z.sh
+  additional_configs:
+    - CONFIG_ARCH_HAS_STACK_PROTECTION
+
+
+

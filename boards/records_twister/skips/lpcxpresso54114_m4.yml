@@ -1,0 +1,38 @@
+__load__:
+  - skips/common.yml
+  - skips/build_only.yml
+
+cases:
+  peripheral.pinmux:
+    comments: "no gpio-0 defined http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f_driver/detail/master/2/pipeline/219/"
+    result: skip
+  sample.net.sockets.http_client:
+    comments: "dependency missing netif"
+    result: skip
+  peripheral.pinmux:
+    comments: "no gpio-0"
+    result: skip
+  sample.subsys.ipc.ipm_mcux:
+    comments: "only for m0+"
+    result: skip
+  samples.net.google_iot_mqtt:
+    comments: "dependency missing netif"
+    result: skip
+  peripheral.spi:
+    comments: "need add board support"
+    build_only: true
+  kernel.threads.dynamic:
+    comments: "no console output"
+    build_only: true
+  kernel.memory_protection:
+    comments: "no console output"
+    build_only: true
+  arch.interrupt.arm:
+    comments: "no console output"
+    result: FAILURE
+  kernel.common.stack_protection:
+    comments: "no console output"
+    result: FAILURE
+  kernel.common.stack_protection_no_userspace:
+    comments: "no console output"
+    result: FAILURE

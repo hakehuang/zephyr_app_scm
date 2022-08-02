@@ -1,0 +1,8 @@
+---
+cases:
+  sample.net.sockets.websocket_client:
+    path: samples/net/sockets/websocket_client
+    catalog: net http http_client websocket_client websocket
+    platform_exclude: intel_adsp_cavs15 intel_adsp_cavs25
+    min_ram: 35
+    depends_on: netif

@@ -1,0 +1,12 @@
+__load__:
+  - skips/common.yml
+  - skips/build_only.yml
+
+cases:
+  samples.net.google_iot_mqtt:
+    comments: "dependency missing netif"
+    result: skip
+  sample.ipc.ipm.ipm_mcux:
+    bin: multicore.bin
+  sample.ipc.openamp:
+    bin: multicore.bin

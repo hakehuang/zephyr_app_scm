@@ -1,0 +1,45 @@
+
+cases:
+  __hierarchy__: 
+    result: FAILURE
+  test_utf8_in_kconfig_values:
+    comments: "build failure"
+  section.subsection:
+    comments: "build failure"
+  # sample.net.dns_resolve.llmnr:
+  #   comments: "meet bus fault"
+#  sample.net.dns_resolve.mdns:
+#    comments: "BUS Fault: http://92.120.145.179:8080/blue/organizations/jenkins/frdmk64f/detail/frdmk64f/7/pipeline"
+  sample.nfc.hello:
+    comments: "meet bus fault"
+#  testing.ztest:
+#    comments: "build error #20205"
+#  peripheral.uart_async_api:
+#    comments: "USER FAULT and not harness keyboard"
+  crypto.rand32.random_hw_xoroshiro:
+    comments: "not hw in chip"
+  kernel.common.stack_sentinel:
+    comments: "no sentinel"
+  sample.net.sockets.echo_server.usbnet:
+    comments: "not support"
+  sample.net.sockets.echo_server.usbnet_composite:
+    comments: "not support"
+  sample.driver.i2c_fujitsu_fram:
+    comments: "not support"
+  sample.servo_motor:
+    comments: "not support"
+  google_iot_mqtt:
+    comments: "compilation error"
+  drivers.spi:
+    comments: "not support well test case need update"
+  drivers.i2c:
+    comments: "not support well test case need update"
+  sample.drivers.i2c.fujitsu_fram:
+    comments: "not support"
+  sample.basic.servo_motor:
+    comments: "no motor"
+  drivers.pwm:
+    comments: "need add support"
+
+
+

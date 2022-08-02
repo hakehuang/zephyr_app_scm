@@ -100,6 +100,10 @@ cases:
     build_only: true
     min_ram: 32
     depends_on: gpio spi
+  drivers.clock.cavs_clock_control:
+    path: tests/drivers/clock_control/cavs_clock
+    catalog: drivers
+    platform_allow: intel_adsp_cavs15 intel_adsp_cavs18 intel_adsp_cavs20 intel_adsp_cavs25
   drivers.clock.clock_control_nrf5:
     path: tests/drivers/clock_control/clock_control_api
     catalog: drivers
@@ -267,7 +271,8 @@ cases:
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and not CONFIG_UART_MCUX_LPUART
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
       atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
-      atsamd21_xpro adafruit_feather_m0_basic_proto
+      atsamd21_xpro adafruit_feather_m0_basic_proto arduino_mkrzero atsaml21_xpro
+      atsamr34_xpro
   drivers.uart.async_api.nrf_uart:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
@@ -276,7 +281,8 @@ cases:
     platform_allow: nrf52840dk_nrf52840
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
       atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
-      atsamd21_xpro adafruit_feather_m0_basic_proto
+      atsamd21_xpro adafruit_feather_m0_basic_proto arduino_mkrzero atsaml21_xpro
+      atsamr34_xpro
   drivers.uart.async_api.rtt:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
@@ -289,7 +295,8 @@ cases:
     build_only: true
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
       atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
-      atsamd21_xpro adafruit_feather_m0_basic_proto
+      atsamd21_xpro adafruit_feather_m0_basic_proto arduino_mkrzero atsaml21_xpro
+      atsamr34_xpro
   drivers.uart.async_api.lpuart:
     path: tests/drivers/uart/uart_async_api
     catalog: drivers
@@ -297,7 +304,8 @@ cases:
     depends_on: dma
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro adafruit_itsybitsy_m4_express
       atsame54_xpro atsamd21_xpro adafruit_trinket_m0 arduino_nano_33_iot arduino_zero
-      atsamd21_xpro adafruit_feather_m0_basic_proto
+      atsamd21_xpro adafruit_feather_m0_basic_proto arduino_mkrzero atsaml21_xpro
+      atsamr34_xpro
   drivers.uart.basic_api:
     path: tests/drivers/uart/uart_basic_api
     catalog: drivers

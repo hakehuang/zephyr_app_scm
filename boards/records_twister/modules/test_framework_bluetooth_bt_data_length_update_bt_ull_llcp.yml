@@ -1,0 +1,17 @@
+---
+cases:
+  bluetooth.controller.ctrl_data_length_update.test:
+    path: tests/bluetooth/controller/ctrl_data_length_update
+    catalog: test_framework bluetooth bt_data_length_update bt_ull_llcp
+    extra_args: CONFIG_BT_CTLR_PHY=y
+    type: unit
+  bluetooth.controller.ctrl_data_length_update.test_codedphy:
+    path: tests/bluetooth/controller/ctrl_data_length_update
+    catalog: test_framework bluetooth bt_data_length_update bt_ull_llcp
+    extra_args: CONFIG_BT_CTLR_PHY=y CONFIG_BT_CTLR_PHY_CODED=y
+    type: unit
+  bluetooth.controller.ctrl_data_length_update.test_nophy:
+    path: tests/bluetooth/controller/ctrl_data_length_update
+    catalog: test_framework bluetooth bt_data_length_update bt_ull_llcp
+    extra_args: KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit

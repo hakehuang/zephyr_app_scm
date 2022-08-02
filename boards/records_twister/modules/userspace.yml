@@ -1,0 +1,24 @@
+---
+cases:
+  sample.syscall_performances:
+    path: samples/userspace/syscall_perf
+    catalog: userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_allow: riscv32 riscv64
+  sample.net.sockets.net_mgmt.usermode:
+    path: samples/net/sockets/net_mgmt
+    catalog: userspace
+    extra_configs:
+    - CONFIG_USERSPACE=y
+    depends_on: netif
+  sample.userspace.prod_consumer:
+    path: samples/userspace/prod_consumer
+    catalog: userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  sample.kernel.memory_protection.shared_mem:
+    path: samples/userspace/shared_mem
+    catalog: userspace
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: twr_ke18f

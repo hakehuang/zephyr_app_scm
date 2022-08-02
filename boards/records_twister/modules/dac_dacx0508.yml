@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.dac.spi.build:
+    path: tests/drivers/build_all/dac
+    catalog: dac_dacx0508
+    extra_args: CONFIG_GPIO=y CONFIG_SPI=y CONFIG_DAC_DACX0508=y
+    platform_allow: native_posix
+    build_only: true

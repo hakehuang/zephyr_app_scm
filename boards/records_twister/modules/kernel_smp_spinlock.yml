@@ -1,0 +1,6 @@
+---
+cases:
+  kernel.multiprocessing.spinlock:
+    path: tests/kernel/spinlock
+    catalog: kernel smp spinlock
+    filter: CONFIG_SMP and CONFIG_MP_NUM_CPUS > 1 and CONFIG_MP_NUM_CPUS <= 4

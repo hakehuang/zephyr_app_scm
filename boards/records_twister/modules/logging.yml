@@ -1,0 +1,91 @@
+---
+cases:
+  sample.logger.basic.dictionary:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    build_only: true
+  sample.logger.basic.dictionary.fpu:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_FPU=y
+    build_only: true
+    filter: CONFIG_CPU_HAS_FPU
+  sample.logger.basic.dictionary.fpu.long_double:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    build_only: true
+    filter: CONFIG_CPU_HAS_FPU
+  sample.logger.basic.dictionary.uart_async_frontend:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_FRONTEND_DICT_UART=y
+    build_only: true
+    platform_allow: nrf52840dk_nrf52840
+  sample.logger.basic.dictionary.uart_int_frontend:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_FRONTEND_DICT_UART=y
+    build_only: true
+    filter: CONFIG_SERIAL_SUPPORT_INTERRUPT and CONFIG_UART_CONSOLE
+  sample.logger.basic:
+    path: samples/subsys/logging/logger
+    catalog: logging
+  sample.logger.rtt:
+    path: samples/subsys/logging/logger
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_RTT=y
+    - CONFIG_USE_SEGGER_RTT=y
+    filter: CONFIG_HAS_SEGGER_RTT
+  logging.log_benchmark:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+  logging.log_benchmark_speed:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG_SPEED=y
+  logging.log_benchmark_user:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_TEST_USERSPACE=y
+    platform_allow: qemu_x86 native_posix
+  logging.add.async:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=prj.conf
+  logging.add.sync:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_sync.conf
+  logging.add.log_user:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_user.conf USERSPACE_TEST=1
+    filter: CONFIG_USERSPACE

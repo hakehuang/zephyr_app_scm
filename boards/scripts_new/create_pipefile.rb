@@ -254,4 +254,52 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
   File.open( output_path + "Jenkinsfile_" + board_pipe_name, 'w') {|f| f.write(out_line) }
 end
 
+def create_twister_pipefile_from_config(config: "",
+  board_name: "frdm_k64f", output_path: "../pipe_file/",
+  docker_name: "confident_sinoussi",
+  template: "../template/Jenkinsfile_template", board_info: nil)
+  engine = Tenjin::Engine.new()
+  @content = config
+  pipe_data = {
+    :docker => docker_name,
+    :build_script => @content["settings"]["build_script"], 
+    :run_script   => @content["settings"]["run_script"], 
+    :board => board_name,
+    :catalog => {},
+    :version =>  @content["settings"]["version"]
+  }
+  @content["cases"].keys().each do |key|
+    md5 = Digest::MD5.new
+    key_words = ["mode", "attribute"]
+    next if key_words.include?(key)
+    next if @content["cases"][key].nil?
+    #next if @content["cases"][key].has_key?('result')
+    next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "SKIP"
+    next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "FAILURE"
+    next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "ERROR"
+    next if ! @content["cases"][key].has_key?('path')
+    next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
+
+    catalog = @content["cases"][key]['catalog'].gsub(' ', '_')
+    pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
+    md5 << key
+    pipe_data[:catalog][catalog]['cases'][key] = {
+      'case_name' => key,
+      'test_plan' => key.gsub('.', '_') + ".json",
+      'bin_name' => key.gsub('.', '_') + ".bin",
+      'build_path' => "build_" + md5.hexdigest[0..6]
+    }
+  end
+  #File.write('./merged_data_pipe.yml', YAML.dump(pipe_data))
+  
+  output = engine.render(template, pipe_data)
+  out_line = ''
+  output.each_line do |line|
+    out_line += line.rstrip() + "\n"
+  end
+  FileUtils::mkdir_p output_path
+  board_pipe_name = @content["settings"]["case_pipe_name"]
+  File.open( output_path + "Jenkinsfile_" + board_pipe_name, 'w') {|f| f.write(out_line) }
+end
+
 #create_pipefile_from_config(ARGV)

@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.adc.ite.it8xxx2.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_ite_it8xxx2
+    extra_args: CONFIG_ADC_ITE_IT8XXX2=y
+    platform_allow: it8xxx2_evb
+    build_only: true

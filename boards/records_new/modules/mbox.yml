@@ -4,4 +4,7 @@ cases:
     path: samples/drivers/mbox
     catalog: mbox
     platform_allow: nrf5340dk_nrf5340_cpuapp
-    build_only: true
+  sample.drivers.mbox_remote:
+    path: samples/drivers/mbox/remote
+    catalog: mbox
+    platform_allow: nrf5340dk_nrf5340_cpunet

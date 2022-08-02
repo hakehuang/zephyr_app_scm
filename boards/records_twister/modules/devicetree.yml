@@ -1,0 +1,22 @@
+---
+cases:
+  libraries.devicetree.api:
+    path: tests/lib/devicetree/api
+    catalog: devicetree
+  libraries.devicetree.api_ext:
+    path: tests/lib/devicetree/api_ext
+    catalog: devicetree
+  libraries.devicetree.devices:
+    path: tests/lib/devicetree/devices
+    catalog: devicetree
+    platform_exclude: hsdk hsdk_2cores thingy52_nrf52832
+  libraries.devicetree.memory_region:
+    path: tests/lib/devicetree/memory_region
+    catalog: devicetree
+    platform_allow: qemu_cortex_m3
+  libraries.devicetree.memory_region.linker_generator:
+    path: tests/lib/devicetree/memory_region
+    catalog: devicetree
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3

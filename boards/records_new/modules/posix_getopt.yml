@@ -1,0 +1,15 @@
+---
+cases:
+  portability.posix.getopt:
+    path: tests/posix/getopt
+    catalog: posix getopt
+    min_flash: 64
+    min_ram: 32
+    arch_exclude: posix
+  portability.posix.getopt.newlib:
+    path: tests/posix/getopt
+    catalog: posix getopt
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    arch_exclude: posix

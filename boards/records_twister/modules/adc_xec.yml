@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.adc.xec.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_xec
+    extra_args: CONFIG_ADC_XEC=y
+    platform_allow: mec15xxevb_assy6853
+    build_only: true

@@ -12,8 +12,8 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
     platform_exclude: nsim_sem_mpu_stack_guard ehl_crb
-    min_ram: 64
     arch_exclude: posix
+    min_ram: 64
   portability.posix.common.newlib:
     path: tests/posix/common
     catalog: posix
@@ -21,15 +21,15 @@ cases:
     - CONFIG_NEWLIB_LIBC=y
     platform_exclude: nsim_sem_mpu_stack_guard ehl_crb lpcxpresso55s06
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
     arch_exclude: posix
+    min_ram: 64
   portability.posix.common.arcmwdtlib:
     path: tests/posix/common
     catalog: posix
     extra_configs:
     - CONFIG_ARCMWDT_LIBC=y
-    min_ram: 64
     arch_exclude: posix
+    min_ram: 64
   portability.posix.common.tls:
     path: tests/posix/common
     catalog: posix
@@ -39,8 +39,8 @@ cases:
     - CONFIG_MAIN_STACK_SIZE=1152
     platform_exclude: nsim_sem_mpu_stack_guard ehl_crb
     filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    min_ram: 64
     arch_exclude: posix
+    min_ram: 64
   portability.posix.common.tls.newlib:
     path: tests/posix/common
     catalog: posix
@@ -51,8 +51,8 @@ cases:
     platform_exclude: nsim_sem_mpu_stack_guard ehl_crb lpcxpresso55s06
     filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
       CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    min_ram: 64
     arch_exclude: posix
+    min_ram: 64
   portability.posix.common.nsim:
     path: tests/posix/common
     catalog: posix
@@ -60,8 +60,8 @@ cases:
     - CONFIG_NEWLIB_LIBC=n
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard
-    min_ram: 64
     arch_exclude: posix
+    min_ram: 64
   portability.posix.common.newlib.nsim:
     path: tests/posix/common
     catalog: posix
@@ -70,5 +70,5 @@ cases:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 64
     arch_exclude: posix
+    min_ram: 64

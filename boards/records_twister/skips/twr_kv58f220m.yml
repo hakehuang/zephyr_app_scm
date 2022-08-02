@@ -1,0 +1,18 @@
+__load__:
+  - skips/common.yml
+  - skips/build_only.yml
+
+cases:
+  samples.net.google_iot_mqtt:
+    result: skip
+    comments: "code size issue"
+  peripheral.spi:
+    comments: "need add board support"
+    build_only: true
+  sample.kernel.memory_protection.shared_mem:
+    build_only: true
+    comments: "download error"
+  benchmark.kernel.latency:
+    comments: "need update test condition for clock setting"
+  samples.net.sockets.tcp:
+    comments: "build failure need define undefined reference to `sys_rand32_get'"

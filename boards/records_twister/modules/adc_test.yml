@@ -1,0 +1,7 @@
+---
+cases:
+  drivers.adc.test.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_test
+    platform_allow: qemu_cortex_m3
+    build_only: true

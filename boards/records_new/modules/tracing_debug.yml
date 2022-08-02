@@ -19,6 +19,7 @@ cases:
     catalog: tracing debug
     extra_args: CONF_FILE="prj_uart.conf"
     platform_allow: qemu_x86 qemu_x86_64
+    filter: dt_chosen_enabled("zephyr,tracing-uart")
   tracing.transport.usb:
     path: samples/subsys/tracing
     catalog: tracing debug

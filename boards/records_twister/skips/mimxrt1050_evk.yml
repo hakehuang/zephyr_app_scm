@@ -1,0 +1,14 @@
+__load__:
+  - skips/common.yml
+  - skips/build_only.yml
+
+cases:
+  peripheral.spi:
+    comments: "no console output, seems conflicts with qspi need check"
+    build_only: true
+  peripheral.pinmux:
+    comments: "pinmux setting issue"
+    build_only: true
+  kernel.memory_protection:
+    comments: "can not support boot load mode"
+    build_only: true

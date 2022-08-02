@@ -1,19 +1,14 @@
 ---
 cases:
-  arch.interrupt:
-    path: tests/kernel/interrupt
-    catalog: kernel interrupt
-    arch_exclude: nios2 x86
-    filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE
-  arch.interrupt.x86_64:
-    path: tests/kernel/interrupt
-    catalog: kernel interrupt
-    arch_allow: x86
-    filter: CONFIG_X86_64
-  arch.interrupt.x86:
-    path: tests/kernel/interrupt
+  arch.interrupt.x86_direct_isr:
+    path: tests/arch/x86/direct_isr
     catalog: kernel interrupt
     extra_configs:
     - CONFIG_COMPILER_OPT="-mgeneral-regs-only"
     arch_allow: x86
     filter: not CONFIG_X86_64
+  arch.interrupt:
+    path: tests/kernel/interrupt
+    catalog: kernel interrupt
+    arch_exclude: nios2
+    filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE

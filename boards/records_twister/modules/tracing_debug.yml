@@ -1,0 +1,43 @@
+---
+cases:
+  tracing.user:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_user.conf"
+  tracing.format.sysview:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_sysview.conf"
+    platform_allow: nrf52840dk_nrf52840 mimxrt1050_evk mimxrt1064_evk
+  tracing.osawareness.openocd:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    arch_exclude: posix xtensa
+    platform_exclude: qemu_x86_64
+  tracing.transport.uart:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_uart.conf"
+    platform_allow: qemu_x86 qemu_x86_64
+  tracing.transport.usb:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_usb.conf"
+    platform_allow: sam_e70_xplained
+    depends_on: usb_device
+  tracing.transport.ctf:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_usb_ctf.conf"
+    platform_allow: sam_e70_xplained
+    depends_on: usb_device
+  tracing.transport.native_posix:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_native_posix.conf"
+    platform_allow: native_posix
+  tracing.transport.posix.ctf:
+    path: samples/subsys/tracing
+    catalog: tracing debug
+    extra_args: CONF_FILE="prj_native_posix_ctf.conf"
+    platform_allow: native_posix

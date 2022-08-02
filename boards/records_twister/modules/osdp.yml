@@ -1,0 +1,12 @@
+---
+cases:
+  sample.mgmt.osdp.control_panel:
+    path: samples/subsys/mgmt/osdp/control_panel
+    catalog: osdp
+    depends_on: gpio
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds") and CONFIG_SERIAL
+  sample.mgmt.osdp.peripheral_device:
+    path: samples/subsys/mgmt/osdp/peripheral_device
+    catalog: osdp
+    depends_on: gpio
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds") and CONFIG_SERIAL

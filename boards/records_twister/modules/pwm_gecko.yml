@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.pwm.gecko.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_gecko
+    extra_args: CONFIG_PWM_GECKO=y
+    platform_allow: efr32_radio_brd4250b
+    build_only: true

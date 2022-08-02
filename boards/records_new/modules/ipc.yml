@@ -4,9 +4,15 @@ cases:
     path: samples/subsys/ipc/ipc_service/icmsg
     catalog: ipc
     platform_allow: nrf5340dk_nrf5340_cpuapp
-    build_only: true
+  sample.ipc.icmsg_remote:
+    path: samples/subsys/ipc/ipc_service/icmsg/remote
+    catalog: ipc
+    platform_allow: nrf5340dk_nrf5340_cpunet
   sample.ipc.static_vrings:
     path: samples/subsys/ipc/ipc_service/static_vrings
     catalog: ipc
     platform_allow: nrf5340dk_nrf5340_cpuapp
-    build_only: true
+  sample.ipc.static_vrings_remote:
+    path: samples/subsys/ipc/ipc_service/static_vrings/remote
+    catalog: ipc
+    platform_allow: nrf5340dk_nrf5340_cpunet

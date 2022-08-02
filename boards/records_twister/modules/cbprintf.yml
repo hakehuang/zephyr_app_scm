@@ -1,0 +1,452 @@
+---
+cases:
+  lib.cbprintf_fp.printk:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTK=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  lib.cbprintf_fp.printf:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  lib.cbprintf_fp.printf_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONFIG_CONSOLE_HAS_DRIVER
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  lib.cbprintf_fp.printfcb_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONFIG_CONSOLE_HAS_DRIVER
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.fprintf:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTF=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  lib.cbprintf_fp.fprintfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTFCB=y
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_package:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    platform_type: &1
+    - qemu
+    - native
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_no_generic:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_fp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_fp_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_long_double:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_long_double_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_nano:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_no_generic_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_fp_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_fp_align_offset_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_long_double_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_long_double_align_offset_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_nano_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_NANO=y
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  utilities.prf.m32v00:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x00
+    type: unit
+  utilities.prf.m32v01:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x01
+    type: unit
+  utilities.prf.m32v02:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x02
+    type: unit
+  utilities.prf.m32v03:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x03
+    type: unit
+  utilities.prf.m32v07:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x07
+    type: unit
+  utilities.prf.m32v08:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x08
+    type: unit
+  utilities.prf.m32v80:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x80
+    type: unit
+  utilities.prf.m32v101:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x101
+    type: unit
+  utilities.prf.m32v181:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x181
+    type: unit
+  utilities.prf.m32v200:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m32v201:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x201
+    type: unit
+  utilities.prf.m32v207:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x207
+    type: unit
+  utilities.prf.m32v208:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x208
+    type: unit
+  utilities.prf.m32v281:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
+    type: unit
+  utilities.prf.m32v1207:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x1207
+    type: unit
+  utilities.prf.m32va00:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m32va01:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa01
+    type: unit
+  utilities.prf.m32va07:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa07
+    type: unit
+  utilities.prf.m32va08:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa08
+    type: unit
+  utilities.prf.m32va81:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=0 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa81
+    type: unit
+  utilities.prf.m64v00:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x00
+    type: unit
+  utilities.prf.m64v01:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x01
+    type: unit
+  utilities.prf.m64v03:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x03
+    type: unit
+  utilities.prf.m64v17:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x07
+    type: unit
+  utilities.prf.m64v80:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x80
+    type: unit
+  utilities.prf.m64v101:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x101
+    type: unit
+  utilities.prf.m64v181:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x181
+    type: unit
+  utilities.prf.m64v200:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v201:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x201
+    type: unit
+  utilities.prf.m64v207:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x207
+    type: unit
+  utilities.prf.m64v208:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x208
+    type: unit
+  utilities.prf.m64v281:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x281
+    type: unit
+  utilities.prf.m64v600:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x600
+    type: unit
+  utilities.prf.m64v601:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x601
+    type: unit
+  utilities.prf.m64v607:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x607
+    type: unit
+  utilities.prf.m64v608:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x608
+    type: unit
+  utilities.prf.m64v681:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x681
+    type: unit
+  utilities.prf.m64v1607:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x1607
+    type: unit
+  utilities.prf.m64va00:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m64va01:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa01
+    type: unit
+  utilities.prf.m64va07:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa07
+    type: unit
+  utilities.prf.m64va08:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa08
+    type: unit
+  utilities.prf.m64va81:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa81
+    type: unit
+  utilities.prf.m64v2200:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2200
+    type: unit
+  utilities.prf.m64v2201:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2201
+    type: unit
+  utilities.prf.m64v2207:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2207
+    type: unit
+  utilities.prf.m64v2208:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2208
+    type: unit
+  utilities.prf.m64v2281:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_args: M64_MODE=1 EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2281
+    type: unit

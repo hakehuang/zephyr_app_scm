@@ -1,0 +1,29 @@
+---
+cases:
+  sample.drivers.crypto.mbedtls:
+    path: samples/drivers/crypto
+    catalog: crypto
+    extra_args: CONF_FILE=prj_mtls_shim.conf
+    min_flash: 34
+    min_ram: 20
+    arch_exclude: xtensa
+  sample.drivers.crypto.mbedtls.micro:
+    path: samples/drivers/crypto
+    catalog: crypto
+    min_ram: 20
+    arch_exclude: xtensa
+  sample.drivers.crypto.stm32:
+    path: samples/drivers/crypto
+    catalog: crypto
+    extra_args: CONF_FILE=prj_stm32.conf
+    filter: dt_compat_enabled("st,stm32-aes") or dt_compat_enabled("st,stm32-cryp")
+    min_ram: 20
+    arch_exclude: xtensa
+  benchmark.crypto.mbedtls:
+    path: tests/benchmarks/mbedtls
+    catalog: crypto
+    filter: CONFIG_TEST_RANDOM_GENERATOR
+  crypto.hash:
+    path: tests/crypto/crypto_hash
+    catalog: crypto
+    platform_allow: native_posix

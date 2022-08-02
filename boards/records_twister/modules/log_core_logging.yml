@@ -1,0 +1,17 @@
+---
+cases:
+  logging.log_backend_initialization:
+    path: tests/subsys/logging/log_backend_init
+    catalog: log_core logging
+    filter: not CONFIG_LOG_MODE_IMMEDIATE
+  logging.log_immediate:
+    path: tests/subsys/logging/log_immediate
+    catalog: log_core logging
+    platform_exclude: nucleo_l053r8 nucleo_f030r8 intel_adsp_cavs15 stm32f0_disco
+      nrf52_bsim
+  logging.log_immediate.clean_output:
+    path: tests/subsys/logging/log_immediate
+    catalog: log_core logging
+    extra_args: CONFIG_LOG_IMMEDIATE_CLEAN_OUTPUT=y
+    platform_exclude: nucleo_l053r8 nucleo_f030r8 intel_adsp_cavs15 stm32f0_disco
+      nrf52_bsim

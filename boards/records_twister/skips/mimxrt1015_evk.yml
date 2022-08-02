@@ -1,0 +1,20 @@
+__load__:
+  - skips/common.yml
+  - skips/build_only.yml
+
+cases:
+  samples.net.google_iot_mqtt:
+    result: skip
+    commnets: "size issue"
+  peripheral.spi:
+    comments: "need add board support"
+    build_only: true
+  peripheral.pinmux:
+    comments: "pinmux setting issue"
+    build_only: true
+  sample.usb.cdc-acm.comp:
+    result: skip
+    commnets: "size issue"
+  net.socket.socketpair:
+    result: skip
+    comments: "code size issue"

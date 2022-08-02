@@ -1,0 +1,7 @@
+---
+cases:
+  drivers.adc-dma:
+    path: tests/drivers/adc/adc_dma
+    catalog: adc dma trigger
+    depends_on: adc dma
+    platform_allow: frdm_k82f frdm_k64f

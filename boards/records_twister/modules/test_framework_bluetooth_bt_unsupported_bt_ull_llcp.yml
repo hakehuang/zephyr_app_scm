@@ -1,0 +1,26 @@
+---
+cases:
+  bluetooth.controller.ctrl_unsupported.default.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_unsupported.no_enc.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    extra_args: NO_ENC=y KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit
+  bluetooth.controller.ctrl_unsupported.no_per_feat_exch.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    extra_args: NO_PER_FEAT_EXCH=y KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit
+  bluetooth.controller.ctrl_unsupported.no_cpr.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    extra_args: NO_CPR=y KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit
+  bluetooth.controller.ctrl_unsupported.no_phy.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: test_framework bluetooth bt_unsupported bt_ull_llcp
+    extra_args: NO_PHY=y KCONFIG_OVERRIDE_FILE="kconfig_override.h"
+    type: unit

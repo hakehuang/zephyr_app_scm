@@ -18,7 +18,7 @@ require_relative "parse_testcase"
 require_relative "parse_sample"
 require_relative "zephyr_filter"
 
-$version = "v3.0.0"
+$version = "v3.1.0"
 
 LONG_CASE_DURATION = {
   'crypto.mbedtls' => {'timeout' => 1000},
@@ -70,6 +70,7 @@ LONG_CASE_DURATION = {
   'libraries.cmsis_dsp.matrix.binary_f16' => {'timeout' => 1000},
   'libraries.ring_buffer' => {'timeout' => 1000},
   'drivers.counter.basic_api' => {'timeout' => 120},
+  'tracing.user' => {'timeout' => 120},
 }
 
 class Parser

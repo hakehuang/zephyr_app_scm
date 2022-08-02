@@ -51,13 +51,13 @@ cases:
     - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
     - CONFIG_CPLUSPLUS=y
     arch_exclude: mips nios2 posix sparc
-  logger.syst.v2.deferred:
+  logging.log_switch_format.deferred:
     path: tests/subsys/logging/log_switch_format
     catalog: logging mipi-sys-t
     extra_args: OVERLAY_CONFIG=overlay_deferred.conf
     arch_exclude: mips nios2 posix sparc
     filter: not CONFIG_64BIT
-  logger.syst.v2.immediate:
+  logging.log_switch_format.immediate:
     path: tests/subsys/logging/log_switch_format
     catalog: logging mipi-sys-t
     extra_args: OVERLAY_CONFIG=overlay_immediate.conf

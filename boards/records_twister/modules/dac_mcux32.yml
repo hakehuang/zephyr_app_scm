@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.dac.mcux32.build:
+    path: tests/drivers/build_all/dac
+    catalog: dac_mcux32
+    extra_args: CONFIG_DAC_MCUX_DAC32=y
+    platform_allow: twr_ke18f
+    build_only: true

@@ -8,6 +8,9 @@ cases:
   lib.heap_align:
     path: tests/lib/heap_align
     catalog: heap
-  lib.mem_blocks:
+  lib.mem_blocks.stats:
     path: tests/lib/mem_blocks
+    catalog: heap
+  lib.mem_blocks.stats.mem_blocks_stats:
+    path: tests/lib/mem_blocks_stats
     catalog: heap

@@ -1,0 +1,9 @@
+---
+cases:
+  drivers.pwm.build.xlnx:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_xlnx_axi_timer
+    extra_configs:
+    - CONFIG_PWM_XLNX_AXI_TIMER=y
+    platform_allow: arty_a7_arm_designstart_m1
+    build_only: true

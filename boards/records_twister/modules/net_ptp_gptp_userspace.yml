@@ -1,0 +1,8 @@
+---
+cases:
+  net.ptp.clock:
+    path: tests/net/ptp/clock
+    catalog: net ptp gptp userspace
+    min_ram: 32
+    depends_on: netif
+    platform_allow: frdm_k64f sam_e70_xplained native_posix

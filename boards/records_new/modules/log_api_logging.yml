@@ -342,7 +342,7 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_overflow.tagged_args:
@@ -351,7 +351,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_no_overflow.tagged_args:
@@ -360,7 +360,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_static_filter.tagged_args:
@@ -369,7 +369,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_printk.tagged_args:
@@ -380,7 +380,7 @@ cases:
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_LOG_PROCESS_THREAD=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_func_prefix.tagged_args:
@@ -390,7 +390,7 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_64b_timestamp.tagged_args:
@@ -399,7 +399,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_override_level.tagged_args:
@@ -408,7 +408,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_OVERRIDE_LEVEL=4
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_allow: qemu_cortex_m3 qemu_cortex_a9
     platform_type: *1
   logging.log_api_deferred_override_level_rt_filtering.tagged_args:
@@ -418,7 +418,7 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_LOG_OVERRIDE_LEVEL=4
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_allow: qemu_cortex_m3 qemu_cortex_a9
     platform_type: *1
   logging.log_api_immediate.tagged_args:
@@ -426,7 +426,7 @@ cases:
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_immediate_printk.tagged_args:
@@ -435,7 +435,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_PRINTK=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_immediate_rt_filter.tagged_args:
@@ -444,7 +444,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_immediate_static_filter.tagged_args:
@@ -453,7 +453,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_immediate_64b_timestamp.tagged_args:
@@ -462,7 +462,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_overflow_rt_filter_cpp.tagged_args:
@@ -473,7 +473,7 @@ cases:
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_overflow_cpp.tagged_args:
@@ -483,7 +483,7 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_no_overflow_cpp.tagged_args:
@@ -493,7 +493,7 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_static_filter_cpp.tagged_args:
@@ -503,7 +503,7 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_printk_cpp.tagged_args:
@@ -515,7 +515,7 @@ cases:
     - CONFIG_LOG_PRINTK=y
     - CONFIG_LOG_PROCESS_THREAD=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_func_prefix_cpp.tagged_args:
@@ -526,7 +526,7 @@ cases:
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_deferred_64b_timestamp_cpp.tagged_args:
@@ -536,7 +536,7 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_immediate_cpp.tagged_args:
@@ -545,7 +545,7 @@ cases:
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_immediate_printk_cpp.tagged_args:
@@ -555,7 +555,7 @@ cases:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_immediate_rt_filter_cpp.tagged_args:
@@ -565,7 +565,7 @@ cases:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_immediate_static_filter_cpp.tagged_args:
@@ -575,7 +575,7 @@ cases:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
   logging.log_api_immediate_64b_timestamp_cpp.tagged_args:
@@ -585,11 +585,11 @@ cases:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_CPLUSPLUS=y
-    - CONFIG_LOG2_USE_TAGGED_ARGUMENTS=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_exclude: qemu_arc_hs6x
     platform_type: *1
-  logging.log_msg2:
-    path: tests/subsys/logging/log_msg2
+  logging.log_msg:
+    path: tests/subsys/logging/log_msg
     catalog: log_api logging
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
@@ -597,31 +597,31 @@ cases:
     - qemu
     - native
     platform_exclude: qemu_arc_hs6x
-  logging.log_msg2_no_overflow:
-    path: tests/subsys/logging/log_msg2
+  logging.log_msg_no_overflow:
+    path: tests/subsys/logging/log_msg
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_OVERFLOW=n
     platform_type: *2
     platform_exclude: qemu_arc_hs6x
-  logging.log_msg2_64b_timestamp:
-    path: tests/subsys/logging/log_msg2
+  logging.log_msg_64b_timestamp:
+    path: tests/subsys/logging/log_msg
     catalog: log_api logging
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     platform_type: *2
     platform_exclude: qemu_arc_hs6x
-  logging.log_msg2_fp:
-    path: tests/subsys/logging/log_msg2
+  logging.log_msg_fp:
+    path: tests/subsys/logging/log_msg
     catalog: log_api logging
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_CBPRINTF_FP_SUPPORT=y
     platform_type: *2
     platform_exclude: qemu_arc_hs6x
-  logging.log_msg2_fp_64b_timestamp:
-    path: tests/subsys/logging/log_msg2
+  logging.log_msg_fp_64b_timestamp:
+    path: tests/subsys/logging/log_msg
     catalog: log_api logging
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
@@ -636,6 +636,7 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     platform_type: &3
     - qemu
+    skip: true
   logging.log_stack_deferred_no_opt:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -644,12 +645,14 @@ cases:
     - CONFIG_NO_OPTIMIZATIONS=y
     filter: not CONFIG_MIPS
     platform_type: *3
+    skip: true
   logging.log_stack_immediate:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     platform_type: *3
+    skip: true
   logging.log_stack_immediate_no_opt:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -658,6 +661,7 @@ cases:
     - CONFIG_NO_OPTIMIZATIONS=y
     filter: not CONFIG_MIPS
     platform_type: *3
+    skip: true
   logging.log_stack_deferred_cpp:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -665,6 +669,7 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CPLUSPLUS=y
     platform_type: *3
+    skip: true
   logging.log_stack_deferred_cpp_no_opt:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -674,6 +679,7 @@ cases:
     - CONFIG_CPLUSPLUS=y
     filter: not CONFIG_MIPS
     platform_type: *3
+    skip: true
   logging.log_stack_immediate_cpp:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -681,6 +687,7 @@ cases:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_CPLUSPLUS=y
     platform_type: *3
+    skip: true
   logging.log_stack_immediate_cpp_no_opt:
     path: tests/subsys/logging/log_stack
     catalog: log_api logging
@@ -690,3 +697,36 @@ cases:
     - CONFIG_CPLUSPLUS=y
     filter: not CONFIG_MIPS
     platform_type: *3
+    skip: true
+  logging.log_stress_light:
+    path: tests/subsys/logging/log_stress
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
+  logging.log_stress_light_no_overflow:
+    path: tests/subsys/logging/log_stress
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
+  logging.log_stress:
+    path: tests/subsys/logging/log_stress
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow: qemu_x86 qemu_cortex_a9 qemu_x86_64
+    filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
+  logging.log_stress_no_overflow:
+    path: tests/subsys/logging/log_stress
+    catalog: log_api logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow: qemu_x86 qemu_cortex_a9 qemu_x86_64
+    filter: CONFIG_QEMU_TARGET and not CONFIG_SMP

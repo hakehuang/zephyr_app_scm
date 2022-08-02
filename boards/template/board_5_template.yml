@@ -1,8 +1,9 @@
 ---
 settings:
   case_pipe_name: "${@board}_5"
-  version: zephyr-v3.1.0-583-g83e4f5dd58
+  version: zephyr-v3.1.0-2871-gda041942c2
 __load__:
+- modules/zcbor_bulk.yml
 - modules/winstream.yml
 - modules/video_net_socket.yml
 - modules/video.yml
@@ -42,6 +43,8 @@ __load__:
 - modules/test_framework_bluetooth_bt_ctrl_hci_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_conn_update_bt_conn_param_req_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_collision_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_cis_terminate_bt_ull_llcp.yml
+- modules/test_framework_bluetooth_bt_cis_create_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_chmu_bt_ull_llcp.yml
 - modules/test_framework_bluetooth_bt_api_bt_ull_llcp.yml
 - modules/test_framework.yml
@@ -63,7 +66,6 @@ __load__:
 - modules/settings_nvs.yml
 - modules/settings_intialization_fcb.yml
 - modules/settings_fs_settings_littlefs.yml
-- modules/settings_fs_filesystem.yml
 - modules/settings_file.yml
 - modules/settings_fcb.yml
 - modules/settings.yml
@@ -76,6 +78,7 @@ __load__:
 - modules/samples_display_gui.yml
 - modules/samples.yml
 - modules/sample_board_sram_mpu.yml
+- modules/rtio.yml
 - modules/ring_buffer_circular_buffer.yml
 - modules/rbtree.yml
 - modules/qspi_flash.yml

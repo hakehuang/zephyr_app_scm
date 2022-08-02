@@ -109,19 +109,6 @@ cases:
     platform_type: *1
     platform_exclude: qemu_arc_hs6x
     min_flash: 48
-  libraries.cbprintf_package_long_double_align_offset:
-    path: tests/lib/cbprintf_package
-    catalog: cbprintf
-    extra_configs:
-    - CONFIG_CBPRINTF_FP_SUPPORT=y
-    - CONFIG_CBPRINTF_COMPLETE=y
-    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
-    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
-    - CONFIG_FPU=y
-    filter: CONFIG_CPU_HAS_FPU
-    platform_type: *1
-    platform_exclude: qemu_arc_hs6x
-    min_flash: 48
   libraries.cbprintf_package_nano:
     path: tests/lib/cbprintf_package
     catalog: cbprintf

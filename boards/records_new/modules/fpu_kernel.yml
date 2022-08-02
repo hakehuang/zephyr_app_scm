@@ -35,6 +35,8 @@ cases:
   kernel.fpu_sharing.generic.sparc:
     path: tests/kernel/fpu_sharing/generic
     catalog: fpu kernel
+    extra_configs:
+    - CONFIG_MAIN_STACK_SIZE=2048
     extra_args: PI_NUM_ITERATIONS=70000
     filter: CONFIG_CPU_HAS_FPU
     arch_allow: sparc

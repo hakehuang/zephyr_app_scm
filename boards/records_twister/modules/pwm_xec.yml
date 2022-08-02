@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.pwm.xec.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_xec
+    extra_args: CONFIG_PWM_XEC=y
+    platform_allow: mec15xxevb_assy6853
+    build_only: true

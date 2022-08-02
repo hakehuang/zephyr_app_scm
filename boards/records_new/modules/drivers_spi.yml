@@ -6,14 +6,14 @@ cases:
     filter: not CONFIG_SOC_FAMILY_STM32
     depends_on: spi
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
-      arduino_zero adafruit_trinket_m0
+      arduino_zero adafruit_trinket_m0 arduino_mkrzero
   drivers.spi.loopback.internal:
     path: tests/drivers/spi/spi_loopback
     catalog: drivers spi
     filter: CONFIG_SPI_LOOPBACK_MODE_LOOP
     depends_on: spi
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
-      arduino_zero adafruit_trinket_m0
+      arduino_zero adafruit_trinket_m0 arduino_mkrzero
   drivers.stm32_spi.loopback:
     path: tests/drivers/spi/spi_loopback
     catalog: drivers spi
@@ -21,4 +21,4 @@ cases:
     filter: CONFIG_SOC_FAMILY_STM32
     depends_on: spi
     platform_exclude: seeeduino_xiao serpente arduino_nano_33_iot atsamr21_xpro atsamd21_xpro
-      arduino_zero adafruit_trinket_m0
+      arduino_zero adafruit_trinket_m0 arduino_mkrzero

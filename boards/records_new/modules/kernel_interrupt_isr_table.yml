@@ -33,3 +33,17 @@ cases:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     arch_allow: arc
     filter: CONFIG_RGF_NUM_BANKS > 1
+  arch.interrupt.gen_isr_table.riscv_direct:
+    path: tests/kernel/gen_isr_table
+    catalog: kernel interrupt isr_table
+    extra_configs:
+    - CONFIG_GEN_IRQ_VECTOR_TABLE=y
+    platform_exclude: m2gl025_miv
+    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
+  arch.interrupt.gen_isr_table.riscv_no_direct:
+    path: tests/kernel/gen_isr_table
+    catalog: kernel interrupt isr_table
+    extra_configs:
+    - CONFIG_GEN_IRQ_VECTOR_TABLE=n
+    platform_exclude: m2gl025_miv
+    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE

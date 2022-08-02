@@ -20,6 +20,10 @@ cases:
     path: samples/bluetooth/central
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.central_gatt_write:
+    path: samples/bluetooth/central_gatt_write
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf52_bsim
   sample.bluetooth.central_hr:
     path: samples/bluetooth/central_hr
     catalog: bluetooth
@@ -74,6 +78,25 @@ cases:
     path: samples/bluetooth/handsfree
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.hap_ha.monaural:
+    path: samples/bluetooth/hap_ha
+    catalog: bluetooth
+    platform_allow: native_posix
+    build_only: true
+  sample.bluetooth.hap_ha.banded:
+    path: samples/bluetooth/hap_ha
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="banded.conf"
+    platform_allow: native_posix
+    build_only: true
+  sample.bluetooth.hap_ha.binaural:
+    path: samples/bluetooth/hap_ha
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_HAP_HA_SET_RANK=2
+    extra_args: OVERLAY_CONFIG="binaural.conf"
+    platform_allow: native_posix
+    build_only: true
   sample.bluetooth.hci_pwr_ctrl:
     path: samples/bluetooth/hci_pwr_ctrl
     catalog: bluetooth
@@ -126,7 +149,7 @@ cases:
   sample.bluetooth.mesh_provisioner:
     path: samples/bluetooth/mesh_provisioner
     catalog: bluetooth
-    platform_allow: qemu_cortex_m3 qemu_x86 nrf51dk_nrf51422
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf51dk_nrf51422 nrf52dk_nrf52832
   sample.bluetooth.observer:
     path: samples/bluetooth/observer
     catalog: bluetooth
@@ -155,6 +178,10 @@ cases:
     path: samples/bluetooth/peripheral_esp
     catalog: bluetooth
     platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.peripheral_gatt_write:
+    path: samples/bluetooth/peripheral_gatt_write
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86 nrf52_bsim
   sample.bluetooth.peripheral_hids:
     path: samples/bluetooth/peripheral_hids
     catalog: bluetooth
@@ -710,7 +737,7 @@ cases:
     extra_configs:
     - CONFIG_BT_AICS_MAX_INSTANCE_COUNT=0
     - CONFIG_BT_VCS_AICS_INSTANCE_COUNT=0
-    - CONFIG_BT_MICS_AICS_INSTANCE_COUNT=0
+    - CONFIG_BT_MICP_MIC_DEV_AICS_INSTANCE_COUNT=0
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
@@ -722,7 +749,7 @@ cases:
     - CONFIG_BT_VCS_VOCS_INSTANCE_COUNT=0
     - CONFIG_BT_AICS_MAX_INSTANCE_COUNT=0
     - CONFIG_BT_VCS_AICS_INSTANCE_COUNT=0
-    - CONFIG_BT_MICS_AICS_INSTANCE_COUNT=0
+    - CONFIG_BT_MICP_MIC_DEV_AICS_INSTANCE_COUNT=0
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
@@ -759,36 +786,36 @@ cases:
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
-  bluetooth.shell.audio.no_mics:
+  bluetooth.shell.audio.no_micp_mic_dev:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_configs:
-    - CONFIG_BT_MICS=n
+    - CONFIG_BT_MICP_MIC_DEV=n
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
-  bluetooth.shell.audio.no_mics_client:
+  bluetooth.shell.audio.no_micp_mic_ctlr:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_configs:
-    - CONFIG_BT_MICS_CLIENT=n
+    - CONFIG_BT_MICP_MIC_CTLR=n
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
-  bluetooth.shell.audio.no_mics_mics_client:
+  bluetooth.shell.audio.no_micp_mic_dev_micp_mic_ctlr:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_configs:
-    - CONFIG_BT_MICS=n
-    - CONFIG_BT_MICS_CLIENT=n
+    - CONFIG_BT_MICP_MIC_DEV=n
+    - CONFIG_BT_MICP_MIC_CTLR=n
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
-  bluetooth.shell.audio.mics_client_no_aics_client:
+  bluetooth.shell.audio.micp_mic_ctlr_no_aics_client:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_configs:
-    - CONFIG_BT_MICS_CLIENT_MAX_AICS_INST=0
+    - CONFIG_BT_MICP_MIC_CTLR_MAX_AICS_INST=0
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix

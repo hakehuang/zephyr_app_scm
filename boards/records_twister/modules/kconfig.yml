@@ -1,0 +1,8 @@
+---
+cases:
+  buildsystem.kconfig.utf8_in_values:
+    path: tests/misc/test_build
+    catalog: kconfig
+    extra_configs:
+    - CONFIG_KERNEL_BIN_NAME="A_kconfig_value_with_a_utf8_char_in_it_Bøe_"
+    build_only: true

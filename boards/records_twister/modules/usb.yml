@@ -1,0 +1,122 @@
+---
+cases:
+  sample.net.sockets.dumb_http_server.netusb:
+    path: samples/net/sockets/dumb_http_server
+    catalog: usb
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: usb_device
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 96
+    platform_exclude: intel_adsp_cavs15 intel_adsp_cavs25
+  sample.net.sockets.dumb_http_server.netusb_zeroconf:
+    path: samples/net/sockets/dumb_http_server
+    catalog: usb
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf;overlay-zeroconf.conf"
+    depends_on: usb_device
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 96
+    platform_exclude: intel_adsp_cavs15 intel_adsp_cavs25
+  sample.usb.audio.headphones_microphone:
+    path: samples/subsys/usb/audio/headphones_microphone
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude: native_posix native_posix_64
+  sample.usb.audio.headset:
+    path: samples/subsys/usb/audio/headset
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude: native_posix native_posix_64
+  sample.usb.cdc-acm:
+    path: samples/subsys/usb/cdc_acm
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude: native_posix native_posix_64
+  sample.usb.cdc-acm.comp:
+    path: samples/subsys/usb/cdc_acm
+    catalog: usb
+    extra_args: OVERLAY_CONFIG=overlay-composite-cdc-msc.conf
+    depends_on: usb_device
+    platform_exclude: native_posix native_posix_64
+  sample.usb.cdc-acm.buildonly:
+    path: samples/subsys/usb/cdc_acm
+    catalog: usb
+    depends_on: usb_device
+    platform_allow: native_posix native_posix_64
+    build_only: true
+  sample.usb.cdc-acm-composite:
+    path: samples/subsys/usb/cdc_acm_composite
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude: native_posix native_posix_64
+  sample.usb.console:
+    path: samples/subsys/usb/console
+    catalog: usb
+    depends_on: usb_device usb_cdc
+    platform_exclude: native_posix native_posix_64
+  sample.usb.dfu:
+    path: samples/subsys/usb/dfu
+    catalog: usb
+    build_only: true
+    platform_exclude: native_posix native_posix_64 mimxrt1010_evk mimxrt1050_evk_qspi
+      mimxrt1020_evk mimxrt1015_evk mimxrt1060_evk sam4l_ek mimxrt1050_evk mimxrt1060_evk_hyperflash
+      nucleo_f207zg teensy40 teensy41 b_u585i_iot02a
+    depends_on: usb_device
+    filter: dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")
+      and dt_label_with_parent_compat_enabled("slot1_partition", "fixed-partitions")
+      and dt_chosen_enabled("zephyr,flash-controller") and CONFIG_FLASH_HAS_DRIVER_ENABLED
+  sample.usb.dfu.permanent.download:
+    path: samples/subsys/usb/dfu
+    catalog: usb
+    extra_args: OVERLAY_CONFIG=overlay-permanent-download.conf
+    build_only: true
+    platform_exclude: native_posix native_posix_64 mimxrt1010_evk mimxrt1050_evk_qspi
+      mimxrt1020_evk mimxrt1015_evk mimxrt1060_evk sam4l_ek mimxrt1050_evk mimxrt1060_evk_hyperflash
+      nucleo_f207zg teensy40 teensy41 b_u585i_iot02a
+    depends_on: usb_device
+    filter: dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")
+      and dt_label_with_parent_compat_enabled("slot1_partition", "fixed-partitions")
+      and dt_chosen_enabled("zephyr,flash-controller") and CONFIG_FLASH_HAS_DRIVER_ENABLED
+  sample.usb.hid:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude: native_posix native_posix_64
+  sample.usb.hid_composite:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    extra_configs:
+    - CONFIG_USB_COMPOSITE_DEVICE=y
+    depends_on: usb_device
+    platform_exclude: native_posix native_posix_64
+  sample.usb.hid.buildonly:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    depends_on: usb_device
+    platform_allow: native_posix native_posix_64
+    build_only: true
+  sample.usb.hid-cdc:
+    path: samples/subsys/usb/hid-cdc
+    catalog: usb
+    depends_on: usb_device
+    platform_allow: nrf52840dk_nrf52840 nrf52840dongle_nrf52840
+  sample.usb.hid-mouse:
+    path: samples/subsys/usb/hid-mouse
+    catalog: usb
+    depends_on: usb_device gpio
+    filter: dt_alias_exists("sw0") and dt_alias_exists("led0")
+  sample.usb.loopback:
+    path: samples/subsys/usb/testusb
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude: native_posix native_posix_64
+  sample.usb.webusb:
+    path: samples/subsys/usb/webusb
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude: native_posix native_posix_64
+  usb.device:
+    path: tests/subsys/usb/device
+    catalog: usb
+    depends_on: usb_device

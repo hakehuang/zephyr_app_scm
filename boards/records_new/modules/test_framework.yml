@@ -52,14 +52,6 @@ cases:
     path: tests/ztest/custom_output
     catalog: test_framework
     extra_args: CONF_FILE=prj_customized_output.conf
-  testing.ztest.mock:
-    path: tests/ztest/mock
-    catalog: test_framework
-    arch_exclude: arm
-  testing.ztest.unit:
-    path: tests/ztest/mock
-    catalog: test_framework
-    type: unit
   testing.ztest.mock_fff:
     path: tests/ztest/mock_fff
     catalog: test_framework

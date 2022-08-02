@@ -1,0 +1,18 @@
+---
+cases:
+  drivers.bbram.it8xxx2:
+    path: tests/drivers/bbram
+    catalog: drivers bbram
+    extra_args: CONF_FILE="it8xxx2.conf"
+    build_only: true
+    platform_exclude: native_posix
+  drivers.bbram.npcx:
+    path: tests/drivers/bbram
+    catalog: drivers bbram
+    extra_args: CONF_FILE="npcx.conf"
+    build_only: true
+    platform_exclude: native_posix
+  drivers.bbram.emul:
+    path: tests/drivers/bbram/emul
+    catalog: drivers bbram
+    platform_allow: native_posix

@@ -1,0 +1,33 @@
+
+cases:
+  __hierarchy__: 
+    build_only: true
+  samples.net.google_iot_mqtt:
+    comments: "no goolge web access so build only"
+    scripts:
+      - ''
+  libraries.libc.newlibnano:
+    comments: "http://92.120.145.179:8080/blue/organizations/jenkins/rt1015/detail/master/75/pipeline/164"
+  peripheral.entropy:
+    comments: "no entropy"
+  benchmark.latency:
+    comments: "TICK need customerize"
+  peripheral.i2c:
+    comments: "not all platform has such test devices"
+  peripheral.gpio:
+    commnets: "no loop back"
+  arch.interrupt.no_optimizations:
+    comments: "no console output too slow"
+  net.mqtt:
+    comments: "no mqtt"
+  net.mqtt.pubsub:
+    comments: "no mqtt"
+  net.mqtt.pubsub.preempt:
+    comments: "no mqtt"
+  net.mqtt.subscriber:
+    comments: "no mqtt"
+  net.mqtt.subscriber.preempt:
+    comments: "no mqtt"
+  net.mqtt.tls:
+    comments: "no mqtt"
+

@@ -1,0 +1,47 @@
+---
+cases:
+  portability.posix.eventfd:
+    path: tests/posix/eventfd
+    catalog: posix eventfd
+    min_ram: 32
+    arch_exclude: posix
+  portability.posix.eventfd.newlib:
+    path: tests/posix/eventfd
+    catalog: posix eventfd
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    arch_exclude: posix
+  portability.posix.eventfd_basic:
+    path: tests/posix/eventfd_basic
+    catalog: posix eventfd
+    extra_configs:
+    - CONFIG_POSIX_API=n
+    arch_exclude: posix
+    min_ram: 32
+  portability.posix.eventfd_basic.posix_api:
+    path: tests/posix/eventfd_basic
+    catalog: posix eventfd
+    extra_configs:
+    - CONFIG_POSIX_API=y
+    arch_exclude: posix
+    min_ram: 32
+  portability.posix.eventfd_basic.newlib:
+    path: tests/posix/eventfd_basic
+    catalog: posix eventfd
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_POSIX_API=n
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    arch_exclude: posix
+    min_ram: 32
+  portability.posix.eventfd_basic.newlib.posix_api:
+    path: tests/posix/eventfd_basic
+    catalog: posix eventfd
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_POSIX_API=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    arch_exclude: posix
+    min_ram: 32

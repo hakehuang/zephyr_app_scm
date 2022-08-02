@@ -1,16 +1,18 @@
 ---
 settings:
   case_pipe_name: "twr_ke18f_2"
-  version: zephyr-v3.1.0-583-g83e4f5dd58
+  version: zephyr-v3.1.0-2871-gda041942c2
 __load__:
 - modules/dns_net.yml
 - modules/dma.yml
 - modules/display_shield.yml
 - modules/display_gui.yml
 - modules/display.yml
+- modules/disk_sdhc.yml
 - modules/disk_mcux.yml
 - modules/dfu_mcuboot.yml
 - modules/dfu_image_util.yml
+- modules/devmem_devmem_load.yml
 - modules/devicetree.yml
 - modules/debug.yml
 - modules/dac_stm32.yml
@@ -30,10 +32,11 @@ __load__:
 - modules/compression_lz4.yml
 - modules/cmsis_nn.yml
 - modules/clock_litex_vexriscv_mmcm.yml
+- modules/clib_picolibc_userspace.yml
+- modules/clib_picolibc.yml
 - modules/clib_newlib_userspace.yml
 - modules/clib_newlib.yml
 - modules/clib_minimal_libc_userspace.yml
-- modules/clib_ignore_faults.yml
 - modules/clib.yml
 - modules/ci_build.yml
 - modules/cbprintf.yml

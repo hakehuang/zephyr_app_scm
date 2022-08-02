@@ -27,16 +27,14 @@ cases:
     build_only: true
     platform_allow: nrf5340dk_nrf5340_cpunet
   sample.boards.nrf.nrf53_sync_rtc:
-    path: samples/boards/nrf/nrf53_sync_rtc
+    path: samples/boards/nrf/nrf53_sync_rtc/net
     catalog: unknown
-    platform_allow: nrf5340dk_nrf5340_cpuapp
-    build_only: true
+    platform_allow: nrf5340dk_nrf5340_cpunet
   sample.boards.nrf.nrf53_sync_rtc_mbox:
-    path: samples/boards/nrf/nrf53_sync_rtc
+    path: samples/boards/nrf/nrf53_sync_rtc/net
     catalog: unknown
-    extra_args: OVERLAY_CONFIG="boards/nrf5340dk_nrf5340_cpuapp_mbox.conf" NET_OVERLAY_CONF="boards/nrf5340dk_nrf5340_cpunet_mbox.conf"
-    platform_allow: nrf5340dk_nrf5340_cpuapp
-    build_only: true
+    extra_args: OVERLAY_CONFIG="boards/nrf5340dk_nrf5340_cpunet_mbox.conf"
+    platform_allow: nrf5340dk_nrf5340_cpunet
   sample.boards.nrf.nrf_led_matrix:
     path: samples/boards/nrf/nrf_led_matrix
     catalog: unknown
@@ -69,16 +67,18 @@ cases:
     catalog: unknown
     extra_args: SHIELD=waveshare_epaper_gdew042t2
     platform_allow: nrf52840dk_nrf52840
-  sample.net.civetweb.http_server:
-    path: samples/net/civetweb/http_server
+  samples.drivers.w1.scanner.ds2484:
+    path: samples/drivers/w1/scanner
     catalog: unknown
-    arch_exclude: posix
-    depends_on: netif
-    filter: CONFIG_ENTROPY_DEVICE_RANDOM_GENERATOR
-  sample.net.civetweb.websocket_server:
-    path: samples/net/civetweb/websocket_server
+    extra_args: DTC_OVERLAY_FILE=ds2484.overlay OVERLAY_CONFIG=ds2484.conf
+    depends_on: arduino_i2c
+    platform_allow: nrf52840dk_nrf52840
+  samples.drivers.w1.scanner.w1_serial:
+    path: samples/drivers/w1/scanner
     catalog: unknown
-    platform_allow: nucleo_h745zi_q_m7
+    extra_args: DTC_OVERLAY_FILE=w1_serial.overlay OVERLAY_CONFIG=w1_serial.conf
+    depends_on: arduino_serial
+    platform_allow: nrf52840dk_nrf52840
   arch.arm64.gicv3_its:
     path: tests/arch/arm64/arm64_gicv3_its
     catalog: unknown
@@ -132,6 +132,7 @@ cases:
     catalog: unknown
     extra_configs:
     - CONFIG_BT_AUDIO_UNICAST_SERVER=n
+    - CONFIG_BT_HAS=n
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
@@ -164,6 +165,23 @@ cases:
     catalog: unknown
     extra_configs:
     - CONFIG_BT_HAS_CLIENT=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_cap_acceptor:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_CAP_ACCEPTOR=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_cap_acceptor_set_member:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_CAP_ACCEPTOR=n
+    - CONFIG_BT_CAP_ACCEPTOR_SET_MEMBER=n
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
@@ -249,16 +267,36 @@ cases:
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_64_hse_8.overlay"
     platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_core.g0_g4.sysclksrc_pll_64_hsi_16:
+  drivers.stm32_clock_configuration.common_core.g0.sysclksrc_hsi_g0_16_div_2:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_g0_16_div_2.overlay"
+    platform_allow: nucleo_g071rb
+  drivers.stm32_clock_configuration.common_core.g0.sysclksrc_hsi_g0_16_div_4:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_g0_16_div_4.overlay"
+    platform_allow: nucleo_g071rb
+  drivers.stm32_clock_configuration.common_core.g4.sysclksrc_pll_64_hsi_16:
     path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_64_hsi_16.overlay"
-    platform_allow: nucleo_g071rb nucleo_g474re
-  drivers.stm32_clock_configuration.common_core.g0_g4.sysclksrc_hsi_16:
+    platform_allow: nucleo_g474re
+  drivers.stm32_clock_configuration.common_core.g0.sysclksrc_pll_g0_64_hsi_16:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_g0_64_hsi_16.overlay"
+    platform_allow: nucleo_g071rb
+  drivers.stm32_clock_configuration.common_core.g4.sysclksrc_hsi_16:
     path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_16.overlay"
-    platform_allow: nucleo_g071rb nucleo_g474re
+    platform_allow: nucleo_g474re
+  drivers.stm32_clock_configuration.common_core.g0.sysclksrc_hsi_g0_16:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_g0_16.overlay"
+    platform_allow: nucleo_g071rb
   drivers.stm32_clock_configuration.common_core.g4.sysclksrc_hse_24:
     path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
     catalog: unknown
@@ -399,15 +437,15 @@ cases:
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE="boards/g0_i2c1_sysclk_lptim1_lsi.overlay"
     platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_device.g0.i2c1_hsi_lptim1_lse:
+  drivers.stm32_clock_configuration.common_device.g0.i2c1_hsi_lptim1_lse_adc1_pllp:
     path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
     catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/g0_i2c1_hsi_lptim1_lse.overlay"
+    extra_args: DTC_OVERLAY_FILE="boards/g0_i2c1_hsi_lptim1_lse_adc1_pllp.overlay"
     platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_device.wl.i2c1_hsi_lptim1_lse:
+  drivers.stm32_clock_configuration.common_device.wl.i2c1_hsi_lptim1_lse_adc1_pllp:
     path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
     catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/wl_i2c1_hsi_lptim1_lse.overlay"
+    extra_args: DTC_OVERLAY_FILE="boards/wl_i2c1_hsi_lptim1_lse_adc1_pllp.overlay"
     platform_allow: nucleo_wl55jc
   drivers.stm32_clock_configuration.common_device.wl.i2c1_sysclk_lptim1_lsi:
     path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
@@ -424,10 +462,10 @@ cases:
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE="boards/l4_i2c1_hsi_lptim1_lse.overlay"
     platform_allow: disco_l475_iot1
-  drivers.stm32_clock_configuration.common_device.g4.i2c1_hsi:
+  drivers.stm32_clock_configuration.common_device.g4.i2c1_hsi_adc1_pllp:
     path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
     catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/g4_i2c1_hsi.overlay"
+    extra_args: DTC_OVERLAY_FILE="boards/g4_i2c1_hsi_adc1_pllp.overlay"
     platform_allow: nucleo_g474re
   drivers.stm32_clock_configuration.common_device.f0.i2c1_hsi:
     path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
@@ -529,6 +567,17 @@ cases:
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/msis_24.overlay"
     platform_allow: b_u585i_iot02a
+  drivers.stm32_clock_configuration.u5.sysclksrc_hsi_16:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_16.overlay"
+    platform_allow: b_u585i_iot02a
+  drivers.stm32_clock_configuration.u5.sysclksrc_hse_16:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hse_16.overlay"
+    build_only: true
+    platform_allow: b_u585i_iot02a
   drivers.stm32_clock_configuration.u5.sysclksrc_pll_hse_160:
     path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
     catalog: unknown
@@ -564,6 +613,30 @@ cases:
     path: tests/lib/spsc_pbuf
     catalog: unknown
     platform_exclude: ast1030_evb
+  lib.spsc_pbuf_cache:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SPSC_PBUF_CACHE_ALWAYS=y
+    platform_exclude: ast1030_evb
+  lib.spsc_pbuf_nocache:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SPSC_PBUF_CACHE_NEVER=y
+    platform_exclude: ast1030_evb
+  lib.spsc_pbuf_utilization:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SPSC_PBUF_UTILIZATION=y
+    platform_exclude: ast1030_evb
+  lib.spsc_pbuf_stress:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow: qemu_x86
   filesystem.native_posix.fcb_0x00:
     path: tests/subsys/fs/fcb
     catalog: unknown

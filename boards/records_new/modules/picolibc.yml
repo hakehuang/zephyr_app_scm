@@ -1,0 +1,231 @@
+---
+cases:
+  arch.arm64.high_addr.high_sram_low_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x00400000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.low_sram_high_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x00400000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_equal_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_high_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200800000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  kernel.common.picolibc:
+    path: tests/kernel/common
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    min_flash: 33
+  lib.cbprintf_fp.printf.picolibc:
+    path: tests/lib/cbprintf_fp
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    - CONFIG_PICOLIBC=y
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - CONFIG_CONSOLE_HAS_DRIVER
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  lib.cbprintf_fp.printfcb.picolibc:
+    path: tests/lib/cbprintf_fp
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    - CONFIG_PICOLIBC=y
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - CONFIG_CONSOLE_HAS_DRIVER
+    platform_exclude: native_posix native_posix_64 nrf52_bsim
+  libraries.cbprintf_package_long_double_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: &1
+    - qemu
+    - native
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_no_generic.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_fp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_long_double.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_FPU=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_cpp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_no_generic_cpp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_fp_cpp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  libraries.cbprintf_package_long_double_cpp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_FPU=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    platform_exclude: qemu_arc_hs6x
+    min_flash: 48
+  portability.posix.common.picolibc:
+    path: tests/posix/common
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    arch_exclude: posix
+    min_ram: 64
+  portability.posix.eventfd.picolibc:
+    path: tests/posix/eventfd
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    arch_exclude: posix
+  portability.posix.eventfd_basic.picolibc:
+    path: tests/posix/eventfd_basic
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    arch_exclude: posix
+    min_ram: 32
+  portability.posix.eventfd_basic.picolibc.posix_api:
+    path: tests/posix/eventfd_basic
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    arch_exclude: posix
+    min_ram: 32
+  portability.posix.fs.picolibc:
+    path: tests/posix/fs
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    arch_exclude: nios2 posix
+    min_ram: 128
+  portability.posix.fs.tls.picolibc:
+    path: tests/posix/fs
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    arch_exclude: nios2 posix
+    min_ram: 128
+  portability.posix.getopt.picolibc:
+    path: tests/posix/getopt
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    arch_exclude: posix

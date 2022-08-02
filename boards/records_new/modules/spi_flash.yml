@@ -12,6 +12,7 @@ cases:
     catalog: spi flash
     filter: dt_compat_enabled("jedec,spi-nor") or dt_compat_enabled("st,stm32-qspi-nor")
       or dt_compat_enabled("st,stm32-ospi-nor")
+    platform_exclude: hifive_unmatched
     depends_on: spi
   sample.drivers.spi.flash_dpd:
     path: samples/drivers/spi_flash
@@ -19,6 +20,7 @@ cases:
     extra_configs:
     - CONFIG_SPI_NOR_IDLE_IN_DPD=y
     filter: dt_compat_enabled("jedec,spi-nor")
+    platform_exclude: hifive_unmatched
     build_only: true
     depends_on: spi
   sample.drivers.spi.flash.at45.build:

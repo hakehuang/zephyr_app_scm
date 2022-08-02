@@ -3,7 +3,7 @@ cases:
   arch.arm.swap.tz:
     path: tests/arch/arm/arm_thread_swap_tz
     catalog: arm fpu tfm
-    platform_exclude: mps3_an547_ns
+    platform_exclude: mps3_an547_ns nucleo_l552ze_q_ns
     filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
     arch_allow: arm
   arch.arm.swap.tz_off:
@@ -11,6 +11,6 @@ cases:
     catalog: arm fpu tfm
     extra_configs:
     - CONFIG_ARM_NONSECURE_PREEMPTIBLE_SECURE_CALLS=n
-    platform_exclude: mps3_an547_ns
+    platform_exclude: mps3_an547_ns nucleo_l552ze_q_ns
     filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
     arch_allow: arm

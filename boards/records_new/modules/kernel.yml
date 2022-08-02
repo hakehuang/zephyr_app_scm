@@ -63,6 +63,9 @@ cases:
   kernel.memory_slabs.concept:
     path: tests/kernel/mem_slab/mslab_concept
     catalog: kernel
+  kernel.memory_slab.stats:
+    path: tests/kernel/mem_slab/mslab_stats
+    catalog: kernel
   kernel.memory_slabs.threadsafe:
     path: tests/kernel/mem_slab/mslab_threadsafe
     catalog: kernel
@@ -93,12 +96,10 @@ cases:
   kernel.scheduler.metairq:
     path: tests/kernel/sched/metairq
     catalog: kernel
-    filter: not CONFIG_SMP
     platform_exclude: nrf52dk_nrf52810
   kernel.scheduler.preempt:
     path: tests/kernel/sched/preempt
     catalog: kernel
-    filter: not CONFIG_SMP
     platform_exclude: nrf52dk_nrf52810
   kernel.threads.no-multithreading:
     path: tests/kernel/threads/no-multithreading

@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "${@board}"
-  version: zephyr-v3.1.0-583-g83e4f5dd58
+  version: zephyr-v3.1.0-2871-gda041942c2
 __load__:
 - modules/button_gpio.yml
 - modules/boards.yml
@@ -41,7 +41,7 @@ __load__:
 - modules/adc_ite_it8xxx2.yml
 - modules/adc_emul.yml
 - modules/adc_cc32xx.yml
-- modules/adc_ads1x1x.yml
+- modules/adc_ads1x1x_adc_ads1119.yml
 - modules/adc_drivers_userspace.yml
 - modules/adc_dma_trigger.yml
 - modules/ADC.yml

@@ -1,0 +1,9 @@
+---
+cases:
+  kernel.workqueue.critical.linker_generator:
+    path: tests/kernel/workq/critical
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+    filter: not CONFIG_WDT_SAM

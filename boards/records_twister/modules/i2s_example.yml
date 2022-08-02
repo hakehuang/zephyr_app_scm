@@ -1,0 +1,11 @@
+---
+cases:
+  samples.drivers.i2s.litex:
+    path: samples/drivers/i2s/litex
+    catalog: i2s example
+    tags: introduction
+    harness: console
+    harness_config:
+      type: one_line
+      regex:
+      - i2s example (.*)

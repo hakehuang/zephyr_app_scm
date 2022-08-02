@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.uart.basic_api.cdc_acm:
+    path: tests/drivers/uart/uart_basic_api
+    catalog: drivers usb
+    extra_args: OVERLAY_CONFIG="overlay-usb.conf" DTC_OVERLAY_FILE="usb.overlay"
+    filter: CONFIG_UART_CONSOLE
+    depends_on: usb_device

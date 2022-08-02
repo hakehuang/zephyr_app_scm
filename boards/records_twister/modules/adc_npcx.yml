@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.adc.npcx.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_npcx
+    extra_args: CONFIG_ADC_NPCX=y
+    platform_allow: npcx7m6fb_evb
+    build_only: true

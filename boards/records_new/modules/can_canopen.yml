@@ -4,6 +4,7 @@ cases:
     path: samples/modules/canopennode
     catalog: can canopen
     filter: dt_chosen_enabled("zephyr,canbus")
+    platform_exclude: nucleo_h723zg nucleo_h743zi nucleo_h745zi_q nucleo_h753zi
     depends_on: can
   sample.modules.canopennode.program_download:
     path: samples/modules/canopennode

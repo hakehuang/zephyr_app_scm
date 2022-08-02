@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s06_3"
-  version: zephyr-v3.1.0-583-g83e4f5dd58
+  version: zephyr-v3.1.0-2871-gda041942c2
 __load__:
 - modules/kconfig.yml
 - modules/k_heap_api_kernel_linker_generator.yml
@@ -18,13 +18,13 @@ __load__:
 - modules/interrupt_nmi.yml
 - modules/ignore_faults_interrupt_idt.yml
 - modules/ignore_faults_ignore_qemu_crash.yml
+- modules/ignore_faults.yml
 - modules/ibecc_ibecc_cov.yml
 - modules/i2s_example.yml
 - modules/i2c.yml
 - modules/http_net.yml
 - modules/heap.yml
 - modules/gpio.yml
-- modules/getopt.yml
 - modules/gen_inc_file.yml
 - modules/fpu_kernel_userspace.yml
 - modules/fpu_kernel_ignore_faults_userspace.yml
@@ -46,6 +46,7 @@ __load__:
 - modules/ec_host_cmd.yml
 - modules/ec.yml
 - modules/I2S.yml
+- modules/FPGA.yml
 - modules/Espressif_ESP32_WiFi_Station.yml
 - skips/lpcxpresso55s06.yml
 - boards/lpcxpresso55s06.yml

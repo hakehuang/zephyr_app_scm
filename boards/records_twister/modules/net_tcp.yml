@@ -1,0 +1,14 @@
+---
+cases:
+  net.tcp.simple:
+    path: tests/net/tcp
+    catalog: net tcp
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=1000
+    depends_on: netif
+  net.tcp.no_recv_queue:
+    path: tests/net/tcp
+    catalog: net tcp
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=0
+    depends_on: netif

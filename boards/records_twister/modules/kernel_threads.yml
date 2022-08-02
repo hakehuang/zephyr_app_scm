@@ -1,0 +1,6 @@
+---
+cases:
+  kernel.threads.tls:
+    path: tests/kernel/threads/tls
+    catalog: kernel threads
+    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE

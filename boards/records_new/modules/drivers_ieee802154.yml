@@ -10,6 +10,7 @@ cases:
     path: tests/drivers/build_all/ieee802154
     catalog: drivers ieee802154
     extra_configs:
+    - CONFIG_IEEE802154_CC2520=y
     - CONFIG_IEEE802154_CC13XX_CC26XX=y
     - CONFIG_IEEE802154_CC13XX_CC26XX_SUB_GHZ=y
     platform_allow: cc1352r_sensortag

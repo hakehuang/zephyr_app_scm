@@ -1,0 +1,13 @@
+---
+cases:
+  sample.rtio.sensor_batch_processing:
+    path: samples/subsys/rtio/sensor_batch_processing
+    catalog: rtio
+  subsys.rtio.api:
+    path: tests/subsys/rtio/rtio_api
+    catalog: rtio
+  subsys.rtio.api.submit_sem:
+    path: tests/subsys/rtio/rtio_api
+    catalog: rtio
+    extra_configs:
+    - CONFIG_RTIO_SUBMIT_SEM=y

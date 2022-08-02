@@ -1,0 +1,18 @@
+---
+cases:
+  net.build:
+    path: tests/net/all
+    catalog: net net-all
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    platform_allow: qemu_x86
+    build_only: true
+    min_ram: 32
+  net.build.preempt:
+    path: tests/net/all
+    catalog: net net-all
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    platform_allow: qemu_x86
+    build_only: true
+    min_ram: 32

@@ -1,0 +1,14 @@
+---
+cases:
+  sample.net.cloud.google_iot_mqtt:
+    path: samples/net/cloud/google_iot_mqtt
+    catalog: net mqtt cloud
+    extra_args: " USE_DUMMY_KEY=1"
+    depends_on: netif
+    platform_allow: frdm_k64f qemu_x86
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.net.cloud.mqtt_azure:
+    path: samples/net/cloud/mqtt_azure
+    catalog: net mqtt cloud
+    platform_allow: sam_e70_xplained frdm_k64f qemu_x86
+    filter: TOOLCHAIN_HAS_NEWLIB == 1

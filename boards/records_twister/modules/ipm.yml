@@ -1,0 +1,33 @@
+---
+cases:
+  sample.ipm.ipm_mcux:
+    path: samples/drivers/ipm/ipm_mcux
+    catalog: ipm
+    platform_allow: lpcxpresso54114_m4 lpcxpresso55s69_cpu0
+  sample.ipm.ipm_mhu_dual_core:
+    path: samples/drivers/ipm/ipm_mhu_dual_core
+    catalog: ipm
+    platform_allow: v2m_musca_b1 v2m_musca_b1_ns
+  sample.ipc.openamp:
+    path: samples/subsys/ipc/openamp
+    catalog: ipm
+    platform_allow: lpcxpresso54114_m4 lpcxpresso55s69_cpu0 mps2_an521 v2m_musca_b1
+  sample.subsys.ipc.openamp_performance:
+    path: samples/subsys/ipc/openamp_performance
+    catalog: ipm
+    build_only: true
+    platform_allow: nrf5340dk_nrf5340_cpuapp
+  sample.subsys.ipc.openamp_rs_table:
+    path: samples/subsys/ipc/openamp_rsc_table
+    catalog: ipm
+    build_only: true
+    platform_allow: stm32mp157c_dk2
+  sample.ipc.rpmsg_service:
+    path: samples/subsys/ipc/rpmsg_service
+    catalog: ipm
+    platform_allow: mps2_an521 v2m_musca_b1
+  sample.ipc.rpmsg_service.nrf:
+    path: samples/subsys/ipc/rpmsg_service
+    catalog: ipm
+    platform_allow: nrf5340dk_nrf5340_cpuapp bl5340_dvk_cpuapp
+    build_only: true
