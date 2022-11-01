@@ -107,6 +107,9 @@ module ZEPHER_FILTER
                 end
                 return true
               end
+              if board_hash['settings']["no_filter"].include? case_hash[k]
+                return true
+              end
               return zephyr_filter_parser(case_hash[k], board_hash)
             end
             if k == "type" and case_hash[k] == "unit"

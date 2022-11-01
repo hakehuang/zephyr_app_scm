@@ -72,7 +72,7 @@ platforms.each do |plat, v|
         if File.exist?(filename)
             FileUtils.rm_r filename
         end
-        if plat == "frdm_k22f"
+        if ["frdm_k22f", "mimxrt1064_evk"].include? plat
             File.open(filename,"w") do |file|
                 file.write generator_build_only
             end
