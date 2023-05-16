@@ -79,7 +79,7 @@ platforms.each do |plat, v|
         else
             File.open(filename,"w") do |file|
                 file.write generator
-            end            
+            end
         end
     end
 end

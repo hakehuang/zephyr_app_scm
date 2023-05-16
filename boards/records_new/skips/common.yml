@@ -30,16 +30,25 @@ cases:
     comments: "not support"
   google_iot_mqtt:
     comments: "compilation error"
-  drivers.spi:
-    comments: "not support well test case need update"
-  drivers.i2c:
-    comments: "not support well test case need update"
+  #drivers.spi:
+  #  comments: "not support well test case need update"
+  #drivers.i2c:
+  #  comments: "not support well test case need update"
   sample.drivers.i2c.fujitsu_fram:
     comments: "not support"
   sample.basic.servo_motor:
     comments: "no motor"
   drivers.pwm:
     comments: "need add support"
-
-
-
+  boot.mcuboot:
+    comments: "need use sysbuild"
+  sample.modules.nanopb:
+    comments: "need use nanopb_generator"
+  net.virtual.tunnel.ip6ip:
+    comments: "not support"
+  net.virtual.tunnel.ip6ip6:
+    comments: "not support"
+  net.virtual.tunnel.ipip:
+    comments: "not support"
+  net.virtual.tunnel.ipip6:
+    comments: "not support"

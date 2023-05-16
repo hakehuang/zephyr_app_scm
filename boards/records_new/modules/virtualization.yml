@@ -1,0 +1,12 @@
+---
+cases:
+  virtualization.ivshmem:
+    path: tests/drivers/virtualization/ivshmem/plain
+    catalog: unknown
+    arch_allow:
+    - x86
+    - arm64
+    platform_allow:
+    - qemu_x86_64
+    - qemu_cortex_a53
+    - qemu_kvm_arm64

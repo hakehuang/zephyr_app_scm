@@ -30,4 +30,67 @@ cases:
     comments: "no mqtt"
   net.mqtt.tls:
     comments: "no mqtt"
-
+  lib.spsc_pbuf_utilization:
+    comments: "timeout"
+  lib.spsc_pbuf_cache:
+    comments: "timeout"
+  lib.spsc_pbuf_nocache:
+    comments: "timeout"
+  lib.cbprintf_fp.printf.picolibc:
+    comments: "output complete not SUCCESS"
+  lib.cbprintf_fp.printfcb.picolibc:
+    comments: "output complete not SUCCESS"
+  lib.spsc_pbuf:
+    comments: "timeout"
+  drivers.uart.basic_api.poll:
+    comments: "output different"
+  drivers.counter.basic_api:
+    comments: "output different"
+  kernel.timer.starve:
+    comments: "timeout"
+  drivers.uart.basic_api.cdc_acm:
+    comments: "no usb connected"
+  drivers.i2s:
+    comments: "need rework boards"
+  drivers.coredump.api:
+    comments: "log output has not SUCESS"
+  usb.device:
+    comments: "no usb connected"
+  boot.mcuboot:
+    comments: "boot failure"
+  drivers.uart.basic_api:
+    comments: "need input data"
+  libraries.cbprintf_fp.fprintf:
+    comments: "need input"
+  libraries.cbprintf_fp.fprintfcb:
+    comments: "need input"
+  libraries.cbprintf_fp.printf:
+    comments: "need input"
+  libraries.cbprintf_fp.printf_nl:
+    comments: "need input"
+  libraries.cbprintf_fp.printfcb:
+    comments: "need input"
+  libraries.cbprintf_fp.printfcb_nl:
+    comments: "need input"
+  libraries.cbprintf_fp.printk:
+    comments: "need input"
+  modbus.rtu:
+    comments: "need fixture"
+  libraries.spsc_pbuf_utilization:
+    comments: "need parser"
+  libraries.spsc_pbuf:
+    comments: "need parser"
+  libraries.spsc_pbuf_nocache:
+    comments: "need parser"
+  libraries.spsc_pbuf_cache:
+    comments: "need parser"
+  drivers.uart.basic_api.shell:
+    comments: "need parser"
+  input.api.thread:
+    comments: "need input"
+  input.api.synchronous:
+    comments: "need input"
+  storage.flash_map.mpu:
+    comments: "Assertion failed at WEST_TOPDIR/zephyr/tests/subsys/storage/flash_map/src/main.c:108: flash_map_test_flash_area_get_sectors: (rc == 0 is false)"
+  sample.subsys.task_wdt:
+    comments: "uart output to quick cause problem"

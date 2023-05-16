@@ -1,0 +1,11 @@
+---
+settings:
+  case_pipe_name: "rdrw610_evk_can"
+  version: zephyr-v3.3.0-3980-g7bdae081e3
+__load__:
+- skips/rdrw610_evk.yml
+- boards/rdrw610_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

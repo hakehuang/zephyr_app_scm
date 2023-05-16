@@ -1,9 +1,0 @@
----
-cases:
-  kernel.timer.monotonic.apic.tsc:
-    path: tests/kernel/timer/timer_monotonic
-    catalog: kernel timer apic_tsc
-    extra_configs:
-    - CONFIG_APIC_TSC_DEADLINE_TIMER=y
-    - CONFIG_HPET_TIMER=n
-    platform_allow: ehl_crb

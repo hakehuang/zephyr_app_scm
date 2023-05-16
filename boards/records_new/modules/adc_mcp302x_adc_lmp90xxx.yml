@@ -1,8 +1,0 @@
----
-cases:
-  drivers.adc.spi.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_mcp302x adc_lmp90xxx
-    extra_args: CONFIG_GPIO=y CONFIG_SPI=y CONFIG_ADC_MCP320X=y CONFIG_ADC_LMP90XXX=y
-    platform_allow: native_posix
-    build_only: true

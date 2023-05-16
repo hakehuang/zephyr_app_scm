@@ -1,8 +1,0 @@
----
-cases:
-  drivers.pwm.imx.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_imx
-    extra_args: CONFIG_PWM_IMX=y
-    platform_allow: colibri_imx7d_m4
-    build_only: true

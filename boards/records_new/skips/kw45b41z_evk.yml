@@ -1,0 +1,10 @@
+
+__load__:
+  - skips/common.yml
+  - skips/build_only.yml
+
+cases:
+  peripheral.spi:
+    build_only: true
+  subsys.modbus.rtu:
+    build_only: true

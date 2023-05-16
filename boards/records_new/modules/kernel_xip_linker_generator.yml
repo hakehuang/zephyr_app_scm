@@ -1,9 +1,0 @@
----
-cases:
-  arch.common.xip.linker_generator:
-    path: tests/kernel/xip
-    catalog: kernel xip linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-    filter: CONFIG_XIP

@@ -18,7 +18,7 @@ require_relative "parse_testcase"
 require_relative "parse_sample"
 require_relative "zephyr_filter"
 
-$version = "v3.2.0"
+$version = "v3.3.0"
 
 LONG_CASE_DURATION = {
   'crypto.mbedtls' => {'timeout' => 1000},
@@ -41,15 +41,18 @@ LONG_CASE_DURATION = {
   'kernel.threads.thread_stack.kernel.threads.thread_stack' => {'timeout' => 300},
   'libraries.cmsis_dsp.basicmath' => {'timeout' => 600},
   'libraries.cmsis_dsp.statistics' => {'timeout' => 600},
-  'libraries.cmsis_dsp.transform.cf64' => {'timeout' => 600},
-  'libraries.cmsis_dsp.transform.cq15' => {'timeout' => 600},
-  'libraries.cmsis_dsp.transform.rf32' => {'timeout' => 600},
-  'libraries.cmsis_dsp.transform.cf32' => {'timeout' => 600},
-  'libraries.cmsis_dsp.transform.cq31' => {'timeout' => 600},
-  'libraries.cmsis_dsp.transform.rq31' => {'timeout' => 600},
-  'libraries.cmsis_dsp.transform.rf64' => {'timeout' => 600},
-  'libraries.cmsis_dsp.support' => {'timeout' => 600},
-  'libraries.cmsis_dsp.complexmath' => {'timeout' => 600},
+  'libraries.cmsis_dsp.transform.cf64' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.transform.cq15' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.transform.rf32' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.transform.cf32' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.transform.cq31' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.transform.rq31' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.transform.rf64' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.support' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.complexmath' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.matrix.binary_q15' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.transform.cf64.fpu' => {'timeout' => 1000},
+  'libraries.cmsis_dsp.matrix.binary_q15.fpu' => {'timeout' => 1000},
   'lib.heap' => {'timeout' => 500},
   'shell.core.shell.core ' => {'timeout' => 300},
   'net.socket.tcp' => {'timeout' => 120},
@@ -69,8 +72,16 @@ LONG_CASE_DURATION = {
   'benchmark.kernel.core' => {'timeout' => 1000},
   'libraries.cmsis_dsp.matrix.binary_f16' => {'timeout' => 1000},
   'libraries.ring_buffer' => {'timeout' => 1000},
-  'drivers.counter.basic_api' => {'timeout' => 120},
   'tracing.user' => {'timeout' => 120},
+  'kernel.timer.starve' => {'timeout' => 600},
+  'drivers.counter.basic_api' => {'timeout' => 600},
+  'benchmark.kernel.application.fp' => {'timeout' => 1000},
+  'sample.drivers.crypto.mbedtls' => {'timeout' => 600},
+  'pm.device_runtime.api' => {'timeout' => 120},
+  'pm.soc' => {'timeout' => 120},
+  'libraries.spsc_pbuf' => {'timeout' => 240},
+  'libraries.spsc_pbuf_cache' => {'timeout' => 240},
+  'libraries.spsc_pbuf_nocache' => {'timeout' => 240},
 }
 
 class Parser
@@ -312,10 +323,11 @@ def split_test_catalog(fn, outdir, template_dir)
   FileUtils.mkdir_p out_put_dirs
   cases_cat = {}
   cases['cases'].each do |k, v|
-    if cases_cat[v['catalog']].nil?
-      cases_cat[v['catalog']] = {k => v}
+    _cat = k.split('.')[0]
+    if cases_cat[_cat].nil?
+      cases_cat[_cat] = {k => v}
     else
-      cases_cat[v['catalog']].merge!({k => v})
+      cases_cat[_cat].merge!({k => v})
     end
   end
   File.open(File.join(outdir, "cases_cat.yml"),"w") do |file|

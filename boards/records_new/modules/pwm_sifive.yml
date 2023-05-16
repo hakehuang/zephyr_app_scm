@@ -1,8 +1,0 @@
----
-cases:
-  drivers.pwm.sifive.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_sifive
-    extra_args: CONFIG_PWM_SIFIVE=y
-    platform_allow: hifive1_revb
-    build_only: true

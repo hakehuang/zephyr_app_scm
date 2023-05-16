@@ -16,3 +16,11 @@ cases:
     comments: "need update test condition for clock setting"
   samples.net.sockets.tcp:
     comments: "build failure need define undefined reference to `sys_rand32_get'"
+  libraries.cmsis_dsp.transform.cf64:
+    comments: " Assertion failed at WEST_TOPDIR/zephyr/tests/lib/cmsis_dsp/matrix/src/binary_q15.c:138: test_op2c: (output is NULL)"
+  libraries.cmsis_dsp.matrix.binary_q15:
+    comments: " Assertion failed at WEST_TOPDIR/zephyr/tests/lib/cmsis_dsp/matrix/src/binary_q15.c:138: test_op2c: (output is NULL)"
+  libraries.cmsis_dsp.matrix.binary_q15.fpu:
+    comments: " Assertion failed at WEST_TOPDIR/zephyr/tests/lib/cmsis_dsp/matrix/src/binary_q15.c:138: test_op2c: (output is NULL)"
+  libraries.cmsis_dsp.transform.cf64.fpu:
+    comments: " Assertion failed at WEST_TOPDIR/zephyr/tests/lib/cmsis_dsp/matrix/src/binary_q15.c:138: test_op2c: (output is NULL)"

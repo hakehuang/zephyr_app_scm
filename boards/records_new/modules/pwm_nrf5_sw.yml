@@ -1,8 +1,0 @@
----
-cases:
-  drivers.pwm.nrf.sw.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_nrf5_sw
-    extra_args: CONFIG_PWM_NRF5_SW=y
-    platform_allow: nrf51dk_nrf51422
-    build_only: true

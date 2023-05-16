@@ -1,7 +1,0 @@
----
-cases:
-  libraries.picolibc.sprintf_new:
-    path: tests/lib/sprintf
-    catalog: libc picolibc
-    extra_args: CONF_FILE=prj_picolibc_new.conf
-    filter: CONFIG_PICOLIBC_SUPPORTED

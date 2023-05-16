@@ -1,8 +1,0 @@
----
-cases:
-  drivers.adc.stm32.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_stm32
-    extra_args: CONFIG_ADC_STM32=y
-    platform_allow: disco_l475_iot1
-    build_only: true

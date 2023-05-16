@@ -1,8 +1,0 @@
----
-cases:
-  drivers.adc.emul.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_emul
-    extra_args: CONFIG_ADC_EMUL=y
-    platform_allow: native_posix
-    build_only: true

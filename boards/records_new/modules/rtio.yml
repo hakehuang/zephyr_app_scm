@@ -1,13 +1,33 @@
 ---
 cases:
-  sample.rtio.sensor_batch_processing:
-    path: samples/subsys/rtio/sensor_batch_processing
-    catalog: rtio
-  subsys.rtio.api:
+  rtio.api:
     path: tests/subsys/rtio/rtio_api
     catalog: rtio
-  subsys.rtio.api.submit_sem:
+    filter: not CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: m2gl025_miv
+  rtio.api.submit_sem:
     path: tests/subsys/rtio/rtio_api
     catalog: rtio
     extra_configs:
     - CONFIG_RTIO_SUBMIT_SEM=y
+    filter: not CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: m2gl025_miv
+  rtio.api.userspace:
+    path: tests/subsys/rtio/rtio_api
+    catalog:
+    - rtio
+    - userspace
+    extra_configs:
+    - CONFIG_USERSPACE=y
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: m2gl025_miv
+  rtio.api.userspace.submit_sem:
+    path: tests/subsys/rtio/rtio_api
+    catalog:
+    - rtio
+    - userspace
+    extra_configs:
+    - CONFIG_USERSPACE=y
+    - CONFIG_RTIO_SUBMIT_SEM=y
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: m2gl025_miv

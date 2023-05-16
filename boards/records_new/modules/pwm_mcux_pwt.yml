@@ -1,8 +1,0 @@
----
-cases:
-  drivers.pwm.mcux.pwt.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_mcux_pwt
-    extra_args: CONFIG_PWM_MCUX_PWT=y CONFIG_PWM_CAPTURE=y
-    platform_allow: twr_ke18f
-    build_only: true

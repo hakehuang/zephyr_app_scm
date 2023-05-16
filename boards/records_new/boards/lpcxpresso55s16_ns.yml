@@ -4,5 +4,7 @@ __load__:
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf_lpcxpresso55s16.sh
+  additional_configs:
+    - CONFIG_FLASH_HAS_DRIVER_ENABLED
 
 

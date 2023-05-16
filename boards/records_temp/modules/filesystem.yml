@@ -1,19 +1,5 @@
 ---
 cases:
-  sample.filesystem.fat_fs:
-    path: samples/subsys/fs/fat_fs
-    catalog: filesystem
-    depends_on: sdhc
-  sample.filesystem.fat_fs.overlay:
-    path: samples/subsys/fs/fat_fs
-    catalog: filesystem
-    platform_allow: nrf52840_blip
-  sample.filesystem.littlefs:
-    path: samples/subsys/fs/littlefs
-    catalog: filesystem
-    build_only: true
-    platform_allow: nrf52840dk_nrf52840 particle_xenon disco_l475_iot1 mimxrt685_evk_cm33
-      mimxrt1060_evk mimxrt1064_evk qemu_x86 native_posix mimxrt1160_evk_cm7
   filesystem.fat.api:
     path: tests/subsys/fs/fat_fs_api
     catalog: filesystem
@@ -23,21 +9,98 @@ cases:
     catalog: filesystem
     extra_args: CONF_FILE="prj_lfn.conf"
     platform_allow: native_posix
+  filesystem.fat.api.mmc:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_args: CONF_FILE="prj_mmc.conf"
+    filter: dt_compat_enabled("zephyr,mmc-disk")
+  filesystem.fat.ram.api:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_args: CONF_FILE="prj_native_posix_ram.conf"
+    platform_allow: native_posix
+  filesystem.fat.api.reentrant:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_configs:
+    - CONFIG_FS_FATFS_REENTRANT=y
+    - CONFIG_MULTITHREADING=y
+    platform_allow: native_posix
   filesystem.fat.dual_drive:
     path: tests/subsys/fs/fat_fs_dual_drive
     catalog: filesystem
-    platform_allow: qemu_x86 native_posix qemu_leon3 qemu_riscv32 qemu_riscv64
+    platform_allow:
+    - qemu_x86
+    - native_posix
+    - qemu_leon3
+    - qemu_riscv32
+    - qemu_riscv64
+  filesystem.fcb:
+    path: tests/subsys/fs/fcb
+    catalog: flash_circural_buffer
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf52dk_nrf52832
+    - nrf51dk_nrf51422
+    - native_posix
+    - native_posix_64
+  filesystem.native_posix.fcb_0x00:
+    path: tests/subsys/fs/fcb
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_allow: native_posix
+  filesystem.qemu_x86.fcb_0x00:
+    path: tests/subsys/fs/fcb
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
   filesystem.api:
     path: tests/subsys/fs/fs_api
     catalog: filesystem
   filesystem.littlefs.default:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
-    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64 mimxrt1060_evk
+    platform_allow: &1
+    - nrf52840dk_nrf52840
+    - native_posix
+    - native_posix_64
+    - mimxrt1060_evk
   filesystem.littlefs.custom:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
     extra_configs:
     - CONFIG_APP_TEST_CUSTOM=y
     - CONFIG_FS_LITTLEFS_FC_HEAP_SIZE=16384
-    platform_allow: nrf52840dk_nrf52840 native_posix native_posix_64 mimxrt1060_evk
+    platform_allow: *1
+  filesystem.multifs:
+    path: tests/subsys/fs/multi-fs
+    catalog: &2
+    - littlefs
+    - fatfs
+    - filesystem
+    platform_allow:
+    - native_posix
+    - qemu_x86
+  filesystem.fs_shell:
+    path: tests/subsys/fs/multi-fs
+    catalog: *2
+    extra_args: CONF_FILE="prj_fs_shell.conf"
+    platform_allow:
+    - native_posix
+    - qemu_x86
+  filesystem.nvs:
+    path: tests/subsys/fs/nvs
+    catalog: nvs
+    platform_allow: qemu_x86
+  filesystem.nvs_0x00:
+    path: tests/subsys/fs/nvs
+    catalog: nvs
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
+  filesystem.nvs_cache:
+    path: tests/subsys/fs/nvs
+    catalog: nvs
+    extra_args:
+    - CONFIG_NVS_LOOKUP_CACHE=y
+    - CONFIG_NVS_LOOKUP_CACHE_SIZE=64
+    platform_allow: native_posix

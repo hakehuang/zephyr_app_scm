@@ -1,50 +1,14 @@
 ---
 settings:
   case_pipe_name: "mimx8mm_evk"
-  version: zephyr-v3.1.0-2871-gda041942c2
+  version: zephyr-v3.3.0-3980-g7bdae081e3
 __load__:
-- modules/button_gpio.yml
+- modules/buildsystem.yml
+- modules/bootloader.yml
+- modules/boot.yml
 - modules/boards.yml
-- modules/board_pm.yml
-- modules/board_multi_heap.yml
-- modules/board.yml
-- modules/benchmark_userspace.yml
-- modules/benchmark_rbtree.yml
-- modules/benchmark_dlist.yml
-- modules/benchmark_cmsis_dsp_fpu.yml
-- modules/benchmark_cmsis_dsp.yml
 - modules/benchmark.yml
-- modules/battery.yml
-- modules/base64.yml
-- modules/base_userspace.yml
-- modules/arm_userspace.yml
-- modules/arm_tz_ns_tz_wrap_func.yml
-- modules/arm_psci_drivers_userspace.yml
-- modules/arm_interrupt_vector_table.yml
-- modules/arm_interrupt.yml
-- modules/arm_fpu_tfm.yml
-- modules/arm_fpu_interrupt_ignore_faults.yml
-- modules/arm_fpu.yml
-- modules/arm.yml
-- modules/adc_xec.yml
-- modules/adc_test.yml
-- modules/adc_stm32.yml
-- modules/adc_sam_afec.yml
-- modules/adc_sam0.yml
-- modules/adc_nrfx_saadc.yml
-- modules/adc_nrfx_adc.yml
-- modules/adc_npcx.yml
-- modules/adc_mcux_lpadc.yml
-- modules/adc_mcux_adc16.yml
-- modules/adc_mcux_adc12.yml
-- modules/adc_mcp302x_adc_lmp90xxx.yml
-- modules/adc_ite_it8xxx2.yml
-- modules/adc_emul.yml
-- modules/adc_cc32xx.yml
-- modules/adc_ads1x1x_adc_ads1119.yml
-- modules/adc_drivers_userspace.yml
-- modules/adc_dma_trigger.yml
-- modules/ADC.yml
+- modules/arch.yml
 - skips/mimx8mm_evk.yml
 - boards/mimx8mm_evk.yml
 cases:

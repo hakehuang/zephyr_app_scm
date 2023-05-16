@@ -1,7 +1,0 @@
----
-cases:
-  sample.basic.button:
-    path: samples/basic/button
-    catalog: button gpio
-    filter: dt_enabled_alias_with_parent_compat("sw0", "gpio-keys")
-    depends_on: gpio

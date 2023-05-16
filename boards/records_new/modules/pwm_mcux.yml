@@ -1,8 +1,0 @@
----
-cases:
-  drivers.pwm.mcux.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_mcux
-    extra_args: CONFIG_PWM_MCUX=y
-    platform_allow: mimxrt1064_evk
-    build_only: true

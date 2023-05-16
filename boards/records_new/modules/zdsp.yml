@@ -1,0 +1,24 @@
+---
+cases:
+  zdsp.basicmath:
+    path: tests/subsys/dsp/basicmath
+    catalog: zdsp
+    filter: TOOLCHAIN_HAS_NEWLIB == 1 or CONFIG_ARCH_POSIX
+    min_flash: 128
+    min_ram: 64
+  zdsp.basicmath.fpu:
+    path: tests/subsys/dsp/basicmath
+    catalog:
+    - zdsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "(CONFIG_CPU_HAS_FPU and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  zdsp.basicmath.arcmwdt:
+    path: tests/subsys/dsp/basicmath
+    catalog: unknown
+    extra_args: CONF_FILE=prj_arc.conf
+    filter: CONFIG_ISA_ARCV2
+    platform_allow: nsim_em11d

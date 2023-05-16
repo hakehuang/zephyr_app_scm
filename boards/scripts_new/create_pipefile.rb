@@ -223,6 +223,11 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
         options_array.insert(-1, %Q[-D#{conf.gsub('"', '')}])
       end
     end
+    if @content["cases"][key].has_key?("SPECIAL_BUILD_OPTIONS")
+      @content["cases"][key]["SPECIAL_BUILD_OPTIONS"].each do |conf|
+        options_array.insert(-1, %Q[-D#{conf.gsub('"', '')}])
+      end
+    end    
     case_array.insert(-1, options_array.join(' ')) if options_array.length
     pipe_data[:catalog][catalog]['cases'][key] = {}
     if @content["cases"][key].has_key?("build_only") and @content["cases"][key]['build_only']

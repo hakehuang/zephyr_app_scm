@@ -1,0 +1,483 @@
+---
+cases:
+  arch.interrupt.arm.hardfault_validation:
+    path: tests/arch/arm/arm_hardfault_validation
+    catalog: arm
+    filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.interrupt.arm:
+    path: tests/arch/arm/arm_interrupt
+    catalog: &1
+    - arm
+    - fpu
+    - interrupt
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.interrupt.no_optimizations:
+    path: tests/arch/arm/arm_interrupt
+    catalog: *1
+    extra_configs:
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    - CONFIG_MAIN_STACK_SIZE=2048
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.interrupt.extra_exception_info:
+    path: tests/arch/arm/arm_interrupt
+    catalog: *1
+    extra_configs:
+    - CONFIG_EXTRA_EXCEPTION_INFO=y
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.irq_advanced_features:
+    path: tests/arch/arm/arm_irq_advanced_features
+    catalog: &2
+    - arm
+    - interrupt
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.irq_advanced_features.secure_fw:
+    path: tests/arch/arm/arm_irq_advanced_features
+    catalog: *2
+    filter:
+    - CONFIG_TRUSTED_EXECUTION_SECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.irq_vector_table:
+    path: tests/arch/arm/arm_irq_vector_table
+    catalog:
+    - arm
+    - interrupt
+    - vector_table
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.irq_zero_latency_levels:
+    path: tests/arch/arm/arm_irq_zero_latency_levels
+    catalog: &3
+    - arm
+    - interrupt
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - "(CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE) and not
+      CONFIG_SOC_FAMILY_NRF"
+    arch_allow: arm
+  arch.arm.irq_zero_latency_levels.secure_fw:
+    path: tests/arch/arm/arm_irq_zero_latency_levels
+    catalog: *3
+    filter:
+    - CONFIG_TRUSTED_EXECUTION_SECURE
+    - "(CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE) and not
+      CONFIG_SOC_FAMILY_NRF"
+    arch_allow: arm
+  arch.arm.mem_protect.syscalls:
+    path: tests/arch/arm/arm_mem_protect
+    catalog:
+    - arm
+    - userspace
+    arch_allow: arm
+    filter: CONFIG_CPU_AARCH32_CORTEX_R and CONFIG_ARCH_HAS_USERSPACE
+  arch.mpu_regions.arm:
+    path: tests/arch/arm/arm_mpu_regions
+    catalog:
+    - sram
+    - mpu
+    platform_allow: mps2_an385
+  arch.arm.no_multithreading:
+    path: tests/arch/arm/arm_no_multithreading
+    catalog: arm
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    platform_allow:
+    - qemu_cortex_m0
+    - qemu_cortex_m3
+    - mps2_an385
+    - mps2_an521
+    - mps3_an547
+    - nrf52840dk_nrf52840
+    - nrf9160dk_nrf9160
+    - nrf51dk_nrf51422
+    arch_allow: arm
+  arch.arm.ramfunc:
+    path: tests/arch/arm/arm_ramfunc
+    catalog:
+    - arm
+    - userspace
+    extra_configs:
+    - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
+    filter: CONFIG_ARCH_HAS_RAMFUNC_SUPPORT
+    arch_allow: arm
+  arch.interrupt.arm.nmi:
+    path: tests/arch/arm/arm_runtime_nmi
+    catalog:
+    - nmi
+    - interrupt
+    - arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE and
+      not CONFIG_BUILD_WITH_TFM
+    arch_allow: arm
+  arch.arm.sw_vector_relay:
+    path: tests/arch/arm/arm_sw_vector_relay
+    catalog: arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: &4
+    - arm
+    - fpu
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common.no_optimizations:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: *4
+    extra_configs:
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    - CONFIG_MAIN_STACK_SIZE=2048
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    min_flash: 192
+    arch_allow: arm
+  arch.arm.swap.common.fpu_sharing:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: *4
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_FPU_SHARING=y
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common.fpu_sharing.no_optimizations:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: *4
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_FPU_SHARING=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    - CONFIG_MAIN_STACK_SIZE=2048
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    min_flash: 192
+    arch_allow: arm
+  arch.arm.swap.tz:
+    path: tests/arch/arm/arm_thread_swap_tz
+    catalog: &5
+    - arm
+    - fpu
+    - tfm
+    platform_exclude:
+    - mps3_an547_ns
+    - nucleo_l552ze_q_ns
+    filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
+    arch_allow: arm
+  arch.arm.swap.tz_off:
+    path: tests/arch/arm/arm_thread_swap_tz
+    catalog: *5
+    extra_configs:
+    - CONFIG_ARM_NONSECURE_PREEMPTIBLE_SECURE_CALLS=n
+    platform_exclude:
+    - mps3_an547_ns
+    - nucleo_l552ze_q_ns
+    filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
+    arch_allow: arm
+  arch.arm.tz_wrap_func:
+    path: tests/arch/arm/arm_tz_wrap_func
+    catalog:
+    - arm
+    - tz_ns
+    - tz_wrap_func
+    arch_allow: arm
+    filter: CONFIG_CPU_CORTEX_M
+  arch.arm64.gicv3_its:
+    path: tests/arch/arm64/arm64_gicv3_its
+    catalog: unknown
+    build_only: true
+    platform_allow: fvp_base_revc_2xaemv8a
+    skip: true
+  arch.arm64.high_addr.high_sram_low_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: &6
+    - arm
+    - userspace
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x00400000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.low_sram_high_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: *6
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x00400000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_equal_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: *6
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_high_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: *6
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200800000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_low_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x00400000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.low_sram_high_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x00400000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_equal_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_high_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200800000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.psci:
+    path: tests/arch/arm64/arm64_psci
+    catalog:
+    - arm
+    - psci
+    - drivers
+    - userspace
+    arch_allow: arm
+    filter: CONFIG_PM_CPU_OPS_PSCI
+  arch.arm64.smc_call.smc:
+    path: tests/arch/arm64/arm64_smc_call
+    catalog:
+    - arm
+    - smc
+    - drivers
+    - userspace
+    platform_allow: fvp_base_revc_2xaemv8a_smp_ns
+  arch.common.semihost:
+    path: tests/arch/common/semihost
+    catalog: unknown
+    arch_allow:
+    - arm
+    - arm64
+    - riscv32
+    - riscv64
+    platform_type:
+    - qemu
+  arch.common.timing:
+    path: tests/arch/common/timing
+    catalog:
+    - timing
+    - arch
+    filter: CONFIG_ARCH_HAS_TIMING_FUNCTIONS
+    platform_type:
+    - mcu
+    - native
+  arch.riscv.fpu_sharing:
+    path: tests/arch/riscv/fpu_sharing
+    catalog: unknown
+    arch_allow:
+    - riscv32
+    - riscv64
+    filter: CONFIG_CPU_HAS_FPU
+  arch.x86.syscalls.cpu_scrubs_regs:
+    path: tests/arch/x86/cpu_scrubs_regs
+    catalog:
+    - kernel
+    - security
+    - userspace
+    - scrub
+    - registers
+    arch_allow: x86
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  arch.interrupt.x86_direct_isr:
+    path: tests/arch/x86/direct_isr
+    catalog:
+    - kernel
+    - interrupt
+    extra_configs:
+    - CONFIG_COMPILER_OPT="-mgeneral-regs-only"
+    arch_allow: x86
+    filter: not CONFIG_X86_64
+  arch.x86.info:
+    path: tests/arch/x86/info
+    catalog: unknown
+    arch_allow: x86
+    filter: CONFIG_X86_PC_COMPATIBLE
+  arch.x86.info.userspace:
+    path: tests/arch/x86/info
+    catalog: unknown
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    filter: CONFIG_X86_PC_COMPATIBLE
+  arch.interrupt.nmi:
+    path: tests/arch/x86/nmi
+    catalog: &7
+    - interrupt
+    - nmi
+    extra_configs:
+    - CONFIG_USERSPACE=n
+    arch_allow: x86
+    filter: CONFIG_X86_64
+  arch.interrupt.nmi.kpti:
+    path: tests/arch/x86/nmi
+    catalog: *7
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    filter: CONFIG_X86_64
+  arch.x86.pagetables:
+    path: tests/arch/x86/pagetables
+    catalog:
+    - userspace
+    - mmu
+    extra_configs:
+    - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
+    arch_allow: x86
+    filter: CONFIG_MMU
+  arch.x86.interrupt:
+    path: tests/arch/x86/static_idt
+    catalog:
+    - interrupt
+    - idt
+    arch_allow: x86
+    filter: not CONFIG_X86_64
+  arch.interrupt.gen_isr_table.arm_baseline:
+    path: tests/kernel/gen_isr_table
+    catalog: &8
+    - kernel
+    - interrupt
+    - isr_table
+    extra_configs:
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    platform_allow: qemu_cortex_m3
+    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
+  arch.interrupt.gen_isr_table.arm_baseline.linker_generator:
+    path: tests/kernel/gen_isr_table
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
+  arch.interrupt.gen_isr_table.arm_mainline:
+    path: tests/kernel/gen_isr_table
+    catalog: *8
+    extra_configs:
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    platform_allow: qemu_cortex_m3
+    platform_exclude:
+    - stmf103_mini
+    - nucleo_f103rb
+    - olimexino_stm32
+    - stm32_min_dev_black
+    - stm32_min_dev_blue
+    - usb_kw24d512
+    - v2m_beetle
+    - cc1352r1_launchxl
+    - cc26x2r1_launchxl
+    - olimex_stm32_h103
+    - cc1352r_sensortag
+    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+  arch.interrupt.gen_isr_table.disabled:
+    path: tests/kernel/gen_isr_table
+    catalog: *8
+    extra_configs:
+    - CONFIG_GEN_ISR_TABLES=n
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  arch.interrupt.gen_isr_table.arc:
+    path: tests/kernel/gen_isr_table
+    catalog: *8
+    extra_configs:
+    - CONFIG_ARC_FIRQ_STACK=y
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    arch_allow: arc
+    filter: CONFIG_RGF_NUM_BANKS > 1
+  arch.interrupt.gen_isr_table.riscv_direct:
+    path: tests/kernel/gen_isr_table
+    catalog: *8
+    extra_configs:
+    - CONFIG_GEN_IRQ_VECTOR_TABLE=y
+    platform_exclude: m2gl025_miv
+    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
+  arch.interrupt.gen_isr_table.riscv_no_direct:
+    path: tests/kernel/gen_isr_table
+    catalog: *8
+    extra_configs:
+    - CONFIG_GEN_IRQ_VECTOR_TABLE=n
+    platform_exclude: m2gl025_miv
+    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
+  arch.interrupt:
+    path: tests/kernel/interrupt
+    catalog:
+    - kernel
+    - interrupt
+    arch_exclude: nios2
+    filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE
+  arch.interrupt.linker_generator:
+    path: tests/kernel/interrupt
+    catalog:
+    - interrupt
+    - linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+  arch.common.xip:
+    path: tests/kernel/xip
+    catalog:
+    - kernel
+    - xip
+    filter: CONFIG_XIP
+  arch.common.xip.linker_generator:
+    path: tests/kernel/xip
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3

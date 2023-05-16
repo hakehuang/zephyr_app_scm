@@ -1,8 +1,0 @@
----
-cases:
-  kernel.common.sleep.linker_generator:
-    path: tests/kernel/early_sleep
-    catalog: kernel sleep linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3

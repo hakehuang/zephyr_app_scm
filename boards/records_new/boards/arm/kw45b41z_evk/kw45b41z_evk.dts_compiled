@@ -1,0 +1,245 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	model = "NXP KW45B41Z83-EVK board";
+	compatible = "nxp,kw45";
+	soc {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		compatible = "simple-bus";
+		interrupt-parent = < &nvic >;
+		ranges;
+		flash: flash@10000000 {
+			reg = < 0x10000000 0x100000 >;
+			compatible = "soc-nv-flash";
+		};
+		ctcm: sram@14000000 {
+			reg = < 0x14000000 0x4000 >;
+			compatible = "mmio-sram";
+		};
+		stcm: sram@30000000 {
+			reg = < 0x30000000 0x1c000 >;
+			compatible = "mmio-sram";
+		};
+		peripheral: peripheral@50000000 {
+			ranges = < 0x0 0x50000000 0x80000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			scg: scg@1e000 {
+				compatible = "nxp,scg-k4";
+				reg = < 0x1e000 0x404 >;
+				#clock-cells = < 0x2 >;
+				phandle = < 0x2 >;
+			};
+			porta: pinmux@42000 {
+				compatible = "nxp,kinetis-pinmux";
+				reg = < 0x42000 0xe0 >;
+				clocks = < &scg 0x1 0x108 >;
+				phandle = < 0x7 >;
+			};
+			portb: pinmux@43000 {
+				compatible = "nxp,kinetis-pinmux";
+				reg = < 0x43000 0xe0 >;
+				clocks = < &scg 0x1 0x10c >;
+				phandle = < 0x8 >;
+			};
+			portc: pinmux@44000 {
+				compatible = "nxp,kinetis-pinmux";
+				reg = < 0x44000 0xe0 >;
+				clocks = < &scg 0x1 0x110 >;
+				phandle = < 0x9 >;
+			};
+			portd: pinmux@45000 {
+				compatible = "nxp,kinetis-pinmux";
+				reg = < 0x45000 0xe0 >;
+				clocks = < &scg 0x1 0x0 >;
+				phandle = < 0x4 >;
+			};
+			lpuart0: lpuart@38000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x38000 0x34 >;
+				interrupts = < 0x2c 0x0 >;
+				clocks = < &scg 0x7 0xe0 >;
+				status = "disabled";
+			};
+			lpuart1: lpuart@39000 {
+				compatible = "nxp,kinetis-lpuart";
+				reg = < 0x39000 0x34 >;
+				interrupts = < 0x2d 0x0 >;
+				clocks = < &scg 0x7 0xe4 >;
+				status = "okay";
+				current-speed = < 0x1c200 >;
+				pinctrl-0 = < &pinmux_lpuart1 >;
+				pinctrl-names = "default";
+			};
+			gpiod: gpio@46000 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &portd >;
+				reg = < 0x46000 0x128 >;
+				interrupts = < 0x41 0x0 >, < 0x42 0x0 >;
+			};
+			lpspi0: lpspi@36000 {
+				compatible = "nxp,imx-lpspi";
+				reg = < 0x36000 0x800 >;
+				interrupts = < 0x2a 0x0 >;
+				clocks = < &scg 0x7 0xd8 >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				status = "disabled";
+			};
+			lpspi1: lpspi@37000 {
+				compatible = "nxp,imx-lpspi";
+				reg = < 0x37000 0x800 >;
+				interrupts = < 0x2b 0x0 >;
+				clocks = < &scg 0x7 0xdc >;
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x0 >;
+				status = "okay";
+				pinctrl-0 = < &pinmux_lpspi1 >;
+				pinctrl-names = "default";
+			};
+			flexcan: can@3b000 {
+				compatible = "nxp,kinetis-flexcan";
+				reg = < 0x3b000 0x3080 >;
+				interrupts = < 0x2f 0x0 >;
+				interrupt-names = "common";
+				clocks = < &scg 0x7 0xec >;
+				clk-source = < 0x2 >;
+				sjw = < 0x1 >;
+				sample-point = < 0x36b >;
+				status = "okay";
+				bus-speed = < 0x1e848 >;
+				pinctrl-0 = < &pinmux_flexcan >;
+				pinctrl-names = "default";
+				can-transceiver {
+					max-bitrate = < 0x1908b100 >;
+				};
+			};
+			wdog0: wdog@1a000 {
+				compatible = "nxp,kinetis-wdog32";
+				reg = < 0x1a000 0x10 >;
+				interrupts = < 0x17 0x0 >;
+				clocks = < &scg 0x5 0x68 >;
+				clk-source = < 0x1 >;
+				clk-divider = < 0x100 >;
+			};
+			wdog1: wdog@1b000 {
+				compatible = "nxp,kinetis-wdog32";
+				reg = < 0x1b000 0x10 >;
+				interrupts = < 0x18 0x0 >;
+				clocks = < &scg 0x5 0x6c >;
+				clk-source = < 0x1 >;
+				clk-divider = < 0x100 >;
+			};
+		};
+		fast_peripheral: peripheral@58000000 {
+			ranges = < 0x0 0x58000000 0x800000 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			gpioa: gpio@10000 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &porta >;
+				reg = < 0x10000 0x128 >;
+				interrupts = < 0x3b 0x0 >, < 0x3c 0x0 >;
+			};
+			gpiob: gpio@20000 {
+				compatible = "nxp,kinetis-gpio";
+				status = "okay";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &portb >;
+				reg = < 0x20000 0x128 >;
+				interrupts = < 0x3d 0x0 >, < 0x3e 0x0 >;
+				phandle = < 0xa >;
+			};
+			gpioc: gpio@30000 {
+				compatible = "nxp,kinetis-gpio";
+				status = "disabled";
+				gpio-controller;
+				#gpio-cells = < 0x2 >;
+				nxp,kinetis-port = < &portc >;
+				reg = < 0x30000 0x128 >;
+				interrupts = < 0x3f 0x0 >, < 0x40 0x0 >;
+			};
+		};
+		nvic: interrupt-controller@e000e100 {
+			#address-cells = < 0x1 >;
+			compatible = "arm,v8m-nvic";
+			reg = < 0xe000e100 0xc00 >;
+			interrupt-controller;
+			#interrupt-cells = < 0x2 >;
+			arm,num-irq-priority-bits = < 0x3 >;
+			phandle = < 0x1 >;
+		};
+		systick: timer@e000e010 {
+			compatible = "arm,armv8m-systick";
+			reg = < 0xe000e010 0x10 >;
+		};
+	};
+	chosen {
+		zephyr,flash = &flash;
+		zephyr,sram = &stcm;
+		zephyr,console = &lpuart1;
+		zephyr,canbus = &flexcan;
+	};
+	aliases {
+		watchdog0 = &wdog0;
+		led0 = &blue_led;
+	};
+	cpus {
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		cpu@0 {
+			compatible = "arm,cortex-m33f";
+			reg = < 0x0 >;
+			#address-cells = < 0x1 >;
+			#size-cells = < 0x1 >;
+			mpu: mpu@e000ed90 {
+				compatible = "arm,armv8m-mpu";
+				reg = < 0xe000ed90 0x40 >;
+				arm,num-mpu-regions = < 0x8 >;
+			};
+		};
+	};
+	pinctrl: pinctrl {
+		compatible = "nxp,kinetis-pinctrl";
+		pinmux_lpuart1: pinmux_lpuart1 {
+			phandle = < 0x3 >;
+			group0 {
+				pinmux = < 0x20800300 >, < 0x20c00300 >;
+				drive-strength = "low";
+				slew-rate = "fast";
+			};
+		};
+		pinmux_lpspi1: pinmux_lpspi1 {
+			phandle = < 0x5 >;
+			group0 {
+				pinmux = < 0x10400200 >, < 0x10c00200 >;
+				slew-rate = "fast";
+				drive-strength = "low";
+			};
+		};
+		pinmux_flexcan: pinmux_flexcan {
+			phandle = < 0x6 >;
+			group0 {
+				pinmux = < 0x21400300 >, < 0x21000300 >;
+				slew-rate = "slow";
+				drive-strength = "low";
+			};
+		};
+	};
+	leds {
+		compatible = "gpio-leds";
+		blue_led: led {
+			gpios = < &gpiob 0x0 0x1 >;
+		};
+	};
+};

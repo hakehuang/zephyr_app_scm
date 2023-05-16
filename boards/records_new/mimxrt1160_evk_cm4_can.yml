@@ -1,10 +1,8 @@
 ---
 settings:
   case_pipe_name: "mimxrt1160_evk_cm4_can"
-  version: zephyr-v3.1.0-2871-gda041942c2
+  version: zephyr-v3.3.0-3980-g7bdae081e3
 __load__:
-- modules/can_isotp.yml
-- modules/can_canopen.yml
 - skips/mimxrt1160_evk_cm4.yml
 - boards/mimxrt1160_evk_cm4.yml
 cases:

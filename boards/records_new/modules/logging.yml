@@ -1,60 +1,584 @@
 ---
 cases:
-  sample.logger.basic.dictionary:
-    path: samples/subsys/logging/dictionary
-    catalog: logging
-    build_only: true
-  sample.logger.basic.dictionary.fpu:
-    path: samples/subsys/logging/dictionary
-    catalog: logging
+  logging.log_api_deferred_overflow_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: &1
+    - log_api
+    - logging
     extra_configs:
-    - CONFIG_FPU=y
-    build_only: true
-    filter: CONFIG_CPU_HAS_FPU
-  sample.logger.basic.dictionary.fpu.long_double:
-    path: samples/subsys/logging/dictionary
-    catalog: logging
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    platform_type: &2
+    - qemu
+    - native
+  logging.log_api_deferred_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: *1
     extra_configs:
-    - CONFIG_FPU=y
-    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
-    build_only: true
-    filter: CONFIG_CPU_HAS_FPU
-  sample.logger.basic.dictionary.uart_async_frontend:
-    path: samples/subsys/logging/dictionary
-    catalog: logging
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    platform_type: *2
+  logging.log_api_deferred_no_overflow:
+    path: tests/subsys/logging/log_api
+    catalog: *1
     extra_configs:
-    - CONFIG_LOG_BACKEND_UART=n
-    - CONFIG_LOG_BACKEND_RTT=n
-    - CONFIG_UART_ASYNC_API=y
-    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    platform_type: *2
+  logging.log_api_deferred_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    platform_type: *2
+  logging.log_api_deferred_printk:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG_PROCESS_THREAD=y
+    platform_type: *2
+  logging.log_api_deferred_func_prefix:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    platform_type: *2
+  logging.log_api_deferred_64b_timestamp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_type: *2
+  logging.log_api_deferred_override_level:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_cortex_a9
+    - native_posix
+    platform_type: *2
+  logging.log_api_immediate:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    platform_type: *2
+  logging.log_api_immediate_printk:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_PRINTK=y
+    platform_type: *2
+  logging.log_api_immediate_rt_filter:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    platform_type: *2
+  logging.log_api_immediate_static_filter:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    platform_type: *2
+  logging.log_api_immediate_64b_timestamp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_type: *2
+  logging.log_api_frontend_dbg:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    platform_type: *2
+  logging.log_api_frontend:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_DEFERRED=y
+    platform_type: *2
+  logging.log_api_frontend_immediate:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    platform_type: *2
+  logging.log_api_frontend_immediate_override_level:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_cortex_a9
+    - native_posix
+    platform_type: *2
+  logging.log_api_deferred_override_level_rt_filtering:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_cortex_a9
+    - native_posix
+    platform_type: *2
+  logging.log_api_frontend_only:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_FRONTEND_ONLY=y
-    - CONFIG_LOG_FRONTEND_DICT_UART=y
-    build_only: true
+    platform_type: *2
+  logging.log_api_frontend_no_backends:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_LOG_BACKEND_NATIVE_POSIX=n
+    - CONFIG_LOG_BACKEND_XTENSA_SIM=n
+    extra_args: EXTRA_CPPFLAGS=-DNO_BACKENDS=1
+    platform_type: *2
+  logging.log_api_deferred_overflow_rt_filter_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_deferred_overflow_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_deferred_no_overflow_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_deferred_static_filter_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_deferred_printk_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG_PROCESS_THREAD=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_deferred_func_prefix_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_deferred_64b_timestamp_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_immediate_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_immediate_printk_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_immediate_rt_filter_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_immediate_static_filter_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_immediate_64b_timestamp_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_frontend_dbg_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_frontend_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_frontend_immediate_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_frontend_only_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_CPP=y
+    platform_type: *2
+  logging.log_api_frontend_no_backends_cpp:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_LOG_BACKEND_NATIVE_POSIX=n
+    - CONFIG_LOG_BACKEND_XTENSA_SIM=n
+    - CONFIG_CPP=y
+    extra_args: EXTRA_CPPFLAGS=-DNO_BACKENDS=1
+    platform_type: *2
+  logging.log_api_deferred_overflow_rt_filter.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_overflow.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_no_overflow.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_static_filter.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_printk.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG_PROCESS_THREAD=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_func_prefix.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_64b_timestamp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_override_level.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_cortex_a9
+    - native_posix
+    platform_type: *2
+  logging.log_api_deferred_override_level_rt_filtering.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_cortex_a9
+    - native_posix
+    platform_type: *2
+  logging.log_api_immediate.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_immediate_printk.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_immediate_rt_filter.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_immediate_static_filter.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_immediate_64b_timestamp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_overflow_rt_filter_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_overflow_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_no_overflow_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_static_filter_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_printk_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG_PROCESS_THREAD=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_func_prefix_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_deferred_64b_timestamp_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_immediate_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_immediate_printk_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_immediate_rt_filter_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_RUNTIME_FILTERING=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_immediate_static_filter_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_api_immediate_64b_timestamp_cpp.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    - CONFIG_CPP=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2
+  logging.log_backend_fs.automounted:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: &3
+    - logging
+    - backend
+    - filesystem
+    - fs
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    - nrf52840dk_nrf52840
+  logging.log_backend_fs.manualmounted.native_posix:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: *3
+    extra_args: DTC_OVERLAY_FILE="./boards/native_posix.overlay;./boards/automount.overlay"
+    platform_allow: native_posix
+  logging.log_backend_fs.manualmounted.native_posix_64:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: *3
+    extra_args: DTC_OVERLAY_FILE="./boards/native_posix_64.overlay;./boards/automount.overlay"
+    platform_allow: native_posix_64
+  logging.log_backend_fs.manualmounted.nrf5840dk:
+    path: tests/subsys/logging/log_backend_fs
+    catalog: *3
+    extra_args: DTC_OVERLAY_FILE="./boards/nrf52840dk_nrf52840.overlay;./boards/automount.overlay"
     platform_allow: nrf52840dk_nrf52840
-  sample.logger.basic.dictionary.uart_int_frontend:
-    path: samples/subsys/logging/dictionary
-    catalog: logging
-    extra_configs:
-    - CONFIG_LOG_BACKEND_UART=n
-    - CONFIG_LOG_BACKEND_RTT=n
-    - CONFIG_UART_INTERRUPT_DRIVEN=y
-    - CONFIG_UART_ASYNC_API=n
-    - CONFIG_LOG_FRONTEND=y
-    - CONFIG_LOG_FRONTEND_ONLY=y
-    - CONFIG_LOG_FRONTEND_DICT_UART=y
-    build_only: true
-    filter: CONFIG_SERIAL_SUPPORT_INTERRUPT and CONFIG_UART_CONSOLE
-  sample.logger.basic:
-    path: samples/subsys/logging/logger
-    catalog: logging
-  sample.logger.rtt:
-    path: samples/subsys/logging/logger
-    catalog: logging
-    extra_configs:
-    - CONFIG_LOG_BACKEND_RTT=y
-    - CONFIG_USE_SEGGER_RTT=y
-    filter: CONFIG_HAS_SEGGER_RTT
+  logging.log_backend_initialization:
+    path: tests/subsys/logging/log_backend_init
+    catalog:
+    - log_core
+    - logging
+    filter: not CONFIG_LOG_MODE_IMMEDIATE
   logging.log_benchmark:
     path: tests/subsys/logging/log_benchmark
     catalog: logging
@@ -75,7 +599,14 @@ cases:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_TEST_USERSPACE=y
-    platform_allow: qemu_x86 native_posix
+    platform_allow:
+    - qemu_x86
+    - native_posix
+  logging.log_cache:
+    path: tests/subsys/logging/log_cache
+    catalog:
+    - log_cache
+    - logging
   logging.add.async:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
@@ -87,5 +618,299 @@ cases:
   logging.add.log_user:
     path: tests/subsys/logging/log_core_additional
     catalog: logging
-    extra_args: CONF_FILE=log_user.conf USERSPACE_TEST=1
+    extra_args:
+    - CONF_FILE=log_user.conf
+    - USERSPACE_TEST=1
     filter: CONFIG_USERSPACE
+  logging.log_custom_header:
+    path: tests/subsys/logging/log_custom_header
+    catalog:
+    - log_custom_header
+    - logging
+  logging.log_immediate:
+    path: tests/subsys/logging/log_immediate
+    catalog:
+    - log_core
+    - logging
+    platform_exclude:
+    - nucleo_l053r8
+    - nucleo_f030r8
+    - stm32f0_disco
+    - nrf52_bsim
+  logging.log_immediate.clean_output:
+    path: tests/subsys/logging/log_immediate
+    catalog:
+    - log_core
+    - logging
+    extra_args: CONFIG_LOG_IMMEDIATE_CLEAN_OUTPUT=y
+    platform_exclude:
+    - nucleo_l053r8
+    - nucleo_f030r8
+    - stm32f0_disco
+    - nrf52_bsim
+  logging.log_link_order:
+    path: tests/subsys/logging/log_link_order
+    catalog:
+    - log_links
+    - logging
+    filter: not CONFIG_LOG_MODE_IMMEDIATE
+  logging.log_links:
+    path: tests/subsys/logging/log_links
+    catalog:
+    - log_links
+    - logging
+    filter: not CONFIG_LOG_MODE_IMMEDIATE
+  logging.log_msg:
+    path: tests/subsys/logging/log_msg
+    catalog: &4
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    platform_type: &5
+    - qemu
+    - native
+    filter: not CONFIG_LOG_ALWAYS_RUNTIME
+  logging.log_msg_no_overflow:
+    path: tests/subsys/logging/log_msg
+    catalog: *4
+    extra_configs:
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    platform_type: *5
+    filter: not CONFIG_LOG_ALWAYS_RUNTIME
+  logging.log_msg_64b_timestamp:
+    path: tests/subsys/logging/log_msg
+    catalog: *4
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_type: *5
+    filter: not CONFIG_LOG_ALWAYS_RUNTIME
+  logging.log_msg_fp:
+    path: tests/subsys/logging/log_msg
+    catalog: *4
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    platform_type: *5
+    filter: not CONFIG_LOG_ALWAYS_RUNTIME
+  logging.log_msg_fp_64b_timestamp:
+    path: tests/subsys/logging/log_msg
+    catalog: *4
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+    platform_type: *5
+    filter: not CONFIG_LOG_ALWAYS_RUNTIME
+  logging.log_output:
+    path: tests/subsys/logging/log_output
+    catalog:
+    - log_output
+    - logging
+    extra_configs:
+    - CONFIG_LOG_TIMESTAMP_64BIT=n
+  logging.log_output_ts64:
+    path: tests/subsys/logging/log_output
+    catalog:
+    - log_output
+    - logging
+    extra_configs:
+    - CONFIG_LOG_TIMESTAMP_64BIT=y
+  logging.log_stack_deferred:
+    path: tests/subsys/logging/log_stack
+    catalog: &6
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    platform_type: &7
+    - qemu
+    skip: true
+  logging.log_stack_deferred_no_opt:
+    path: tests/subsys/logging/log_stack
+    catalog: *6
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=2048
+    filter: not CONFIG_MIPS
+    platform_type: *7
+    skip: true
+  logging.log_stack_immediate:
+    path: tests/subsys/logging/log_stack
+    catalog: *6
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    platform_type: *7
+    skip: true
+  logging.log_stack_immediate_no_opt:
+    path: tests/subsys/logging/log_stack
+    catalog: *6
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=2048
+    filter: not CONFIG_MIPS
+    platform_type: *7
+    skip: true
+  logging.log_stack_deferred_cpp:
+    path: tests/subsys/logging/log_stack
+    catalog: *6
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_CPP=y
+    platform_type: *7
+    skip: true
+  logging.log_stack_deferred_cpp_no_opt:
+    path: tests/subsys/logging/log_stack
+    catalog: *6
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_CPP=y
+    filter: not CONFIG_MIPS
+    platform_type: *7
+    skip: true
+  logging.log_stack_immediate_cpp:
+    path: tests/subsys/logging/log_stack
+    catalog: *6
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_CPP=y
+    platform_type: *7
+    skip: true
+  logging.log_stack_immediate_cpp_no_opt:
+    path: tests/subsys/logging/log_stack
+    catalog: *6
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_CPP=y
+    filter: not CONFIG_MIPS
+    platform_type: *7
+    skip: true
+  logging.log_stress_light:
+    path: tests/subsys/logging/log_stress
+    catalog: &8
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
+  logging.log_stress_light_no_overflow:
+    path: tests/subsys/logging/log_stress
+    catalog: *8
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
+  logging.log_stress:
+    path: tests/subsys/logging/log_stress
+    catalog: *8
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow:
+    - qemu_x86
+    - qemu_cortex_a9
+    - qemu_x86_64
+    filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
+  logging.log_stress_no_overflow:
+    path: tests/subsys/logging/log_stress
+    catalog: *8
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=n
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow:
+    - qemu_x86
+    - qemu_cortex_a9
+    - qemu_x86_64
+    filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
+  logging.log_switch_format.deferred:
+    path: tests/subsys/logging/log_switch_format
+    catalog: &9
+    - logging
+    - mipi-sys-t
+    extra_configs:
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    filter:
+    - CONFIG_FULL_LIBC_SUPPORTED
+    - not CONFIG_64BIT
+    arch_exclude: &10
+    - mips
+    - nios2
+    - posix
+    - sparc
+  logging.log_switch_format.immediate:
+    path: tests/subsys/logging/log_switch_format
+    catalog: *9
+    extra_configs:
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    extra_args: OVERLAY_CONFIG=overlay_immediate.conf
+    filter:
+    - CONFIG_FULL_LIBC_SUPPORTED
+    - not CONFIG_64BIT
+    arch_exclude: *10
+  logging.log_switch_format.custom_output:
+    path: tests/subsys/logging/log_switch_format
+    catalog: *9
+    extra_configs:
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    extra_args: OVERLAY_CONFIG=overlay_custom_output.conf
+    filter:
+    - CONFIG_FULL_LIBC_SUPPORTED
+    - not CONFIG_64BIT
+    arch_exclude: *10
+  logging.log_syst.mipi_syst:
+    path: tests/subsys/logging/log_syst
+    catalog:
+    - log_syst
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MIPI_SYST_ENABLE=y
+    - CONFIG_LOG_BACKEND_MOCK_OUTPUT_SYST=y
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    arch_exclude:
+    - mips
+    - nios2
+    - posix
+    - sparc
+    filter:
+    - CONFIG_FULL_LIBC_SUPPORTED
+    - not CONFIG_64BIT
+  logging.log_syst.text:
+    path: tests/subsys/logging/log_syst
+    catalog:
+    - log_syst
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MIPI_SYST_ENABLE=n
+    - CONFIG_LOG_BACKEND_MOCK_OUTPUT_SYST=n
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    arch_exclude:
+    - mips
+    - nios2
+    - posix
+    - sparc
+    filter:
+    - CONFIG_FULL_LIBC_SUPPORTED
+    - not CONFIG_64BIT
+  logging.log_output_default_timestamp:
+    path: tests/subsys/logging/log_timestamp
+    catalog:
+    - log_output
+    - logging
+    - timestamp
+  logging.log_output_custom_timestamp:
+    path: tests/subsys/logging/log_timestamp
+    catalog:
+    - log_output
+    - logging
+    - timestamp
+    extra_configs:
+    - CONFIG_LOG_OUTPUT_FORMAT_CUSTOM_TIMESTAMP=y

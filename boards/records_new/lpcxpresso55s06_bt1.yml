@@ -1,18 +1,8 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s06_bt1"
-  version: zephyr-v3.1.0-2871-gda041942c2
+  version: zephyr-v3.3.0-3980-g7bdae081e3
 __load__:
-- modules/bluetooth_uuid.yml
-- modules/bluetooth_spi.yml
-- modules/bluetooth_pm.yml
-- modules/bluetooth_net.yml
-- modules/bluetooth_mesh.yml
-- modules/bluetooth_l2cap.yml
-- modules/bluetooth_host.yml
-- modules/bluetooth_hci_prop_event.yml
-- modules/bluetooth_gatt.yml
-- modules/bluetooth_bt_ull_llcp.yml
 - skips/lpcxpresso55s06.yml
 - boards/lpcxpresso55s06.yml
 cases:

@@ -1,40 +1,8 @@
 ---
 settings:
   case_pipe_name: "mimxrt1160_evk_cm4_samples2"
-  version: zephyr-v3.1.0-2871-gda041942c2
+  version: zephyr-v3.3.0-3980-g7bdae081e3
 __load__:
-- modules/net_zperf.yml
-- modules/net_wifi_updatehub.yml
-- modules/net_wifi.yml
-- modules/net_websocket.yml
-- modules/net_vlan.yml
-- modules/net_virtual_tunnel.yml
-- modules/net_userspace.yml
-- modules/net_usb.yml
-- modules/net_tx_timestamp_gptp.yml
-- modules/net_tunnel_virtual.yml
-- modules/net_trickle.yml
-- modules/net_tls.yml
-- modules/net_telnet.yml
-- modules/net_tcp.yml
-- modules/net_route_mcast.yml
-- modules/net_route.yml
-- modules/net_ptp_gptp_userspace.yml
-- modules/net_promisc.yml
-- modules/net_ppp_modem_gsm.yml
-- modules/net_ppp.yml
-- modules/net_openthread.yml
-- modules/net_npf.yml
-- modules/net_net_context.yml
-- modules/net_net-shell.yml
-- modules/net_net-all.yml
-- modules/net_neighbour.yml
-- modules/net_mqtt_cloud.yml
-- modules/net_mqtt_bluetooth.yml
-- modules/net_mqtt.yml
-- modules/net_mld.yml
-- modules/net_mgmt.yml
-- modules/net_mdns.yml
 - skips/mimxrt1160_evk_cm4.yml
 - boards/mimxrt1160_evk_cm4.yml
 cases:

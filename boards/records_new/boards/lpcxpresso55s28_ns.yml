@@ -4,4 +4,6 @@ __load__:
 settings:
   build_script: build_zephyr_elf.sh
   run_script: run_zephyr_elf_lpc55s28_ns.sh
+  additional_configs:
+    - CONFIG_FLASH_HAS_DRIVER_ENABLED
 

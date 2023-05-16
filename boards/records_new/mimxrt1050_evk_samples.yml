@@ -1,37 +1,8 @@
 ---
 settings:
   case_pipe_name: "mimxrt1050_evk_samples"
-  version: zephyr-v3.1.0-2871-gda041942c2
+  version: zephyr-v3.3.0-3980-g7bdae081e3
 __load__:
-- modules/tcp.yml
-- modules/net_lwm2m.yml
-- modules/net_lldp.yml
-- modules/net_ipv6_fragment.yml
-- modules/net_ipv6.yml
-- modules/net_ipv4_autoconf.yml
-- modules/net_ip-addr.yml
-- modules/net_igmp.yml
-- modules/net_iface_userspace.yml
-- modules/net_ieee802154_usb.yml
-- modules/net_ieee802154_l2.yml
-- modules/net_ieee802154_fragment.yml
-- modules/net_icmpv6.yml
-- modules/net_icmpv4.yml
-- modules/net_http_http_client_websocket_client_websocket.yml
-- modules/net_http_http_client.yml
-- modules/net_http.yml
-- modules/net_hostname.yml
-- modules/net_gptp.yml
-- modules/net_ethernet_mgmt.yml
-- modules/net_dhcpv4.yml
-- modules/net_crc.yml
-- modules/net_cloud_dns_http_ppp_modem_gsm_wifi.yml
-- modules/net_checksum_offload.yml
-- modules/net_capture.yml
-- modules/net_buf.yml
-- modules/net_bridge.yml
-- modules/net_arp.yml
-- modules/net_6loWPAN.yml
 - modules/net.yml
 - skips/mimxrt1050_evk.yml
 - boards/mimxrt1050_evk.yml

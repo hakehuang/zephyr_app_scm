@@ -1,0 +1,14 @@
+---
+cases:
+  tracing.transport.uart.async.test:
+    path: tests/subsys/tracing/tracing_api
+    catalog: tracing_testing
+    extra_args: 'CONF_FILE="prj.conf" '
+    platform_allow: qemu_x86
+  tracing.transport.uart.sync.test:
+    path: tests/subsys/tracing/tracing_api
+    catalog: unknown
+    extra_configs:
+    - CONFIG_TRACING_SYNC=y
+    extra_args: 'CONF_FILE="prj.conf" '
+    platform_allow: qemu_x86

@@ -1,8 +1,0 @@
----
-cases:
-  drivers.dac.i2c.build:
-    path: tests/drivers/build_all/dac
-    catalog: dac_dacx3608 dac_mcp4725
-    extra_args: CONFIG_I2C=y CONFIG_DAC_DACX3608=y CONFIG_DAC_MCP4725=y
-    platform_allow: native_posix
-    build_only: true

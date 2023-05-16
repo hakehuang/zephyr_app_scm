@@ -1,6 +1,49 @@
 ---
 cases:
-  sample.subsys.edac:
-    path: samples/subsys/edac
-    catalog: edac
+  edac.ibecc.production:
+    path: tests/subsys/edac/ibecc
+    catalog: &1
+    - edac
+    - ibecc
+    extra_configs:
+    - CONFIG_EDAC_ERROR_INJECT=n
+    - CONFIG_EDAC_LOG_LEVEL_DBG=y
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.injection:
+    path: tests/subsys/edac/ibecc
+    catalog: *1
+    extra_configs:
+    - CONFIG_EDAC_ERROR_INJECT=y
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.injection.user:
+    path: tests/subsys/edac/ibecc
+    catalog: *1
+    extra_configs:
+    - CONFIG_EDAC_ERROR_INJECT=y
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.coverage:
+    path: tests/subsys/edac/ibecc_cov
+    catalog: &2
+    - ibecc
+    - ibecc_cov
+    extra_args: EXTRA_CFLAGS=-DEMULATE_SKU=0
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.coverage_sku:
+    path: tests/subsys/edac/ibecc_cov
+    catalog: *2
+    extra_args: EXTRA_CFLAGS=-DEMULATE_SKU=0x45148086
+    arch_allow: x86
+    platform_allow: ehl_crb
+  edac.ibecc.coverage_sku_en:
+    path: tests/subsys/edac/ibecc_cov
+    catalog: *2
+    extra_args:
+    - EXTRA_CPPFLAGS=-DEMULATE_SKU=0x45148086
+    - EXTRA_CFLAGS=-DIBECC_ENABLED=1
+    arch_allow: x86
     platform_allow: ehl_crb

@@ -1,0 +1,1604 @@
+---
+cases:
+  libraries.hash_map.minimal.separate_chaining.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_SC=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.minimal.open_addressing.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_OA_LP=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.newlib.separate_chaining.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_SC=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 24
+  libraries.hash_map.newlib.open_addressing.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_OA_LP=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 24
+  libraries.hash_map.newlib.cxx_unordered_map.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_CXX=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    - CONFIG_MAIN_STACK_SIZE=2048
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 24
+  libraries.hash_map.picolibc.separate_chaining.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_SC=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.picolibc.open_addressing.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_OA_LP=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.libc:
+    path: tests/lib/c_lib
+    catalog: clib
+    arch_exclude: posix
+  libraries.libc.picolibc:
+    path: tests/lib/c_lib
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    arch_exclude: posix
+  libraries.libc.minimal.strerror_table:
+    path: tests/lib/c_lib
+    catalog: clib
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    - CONFIG_MINIMAL_LIBC_STRING_ERROR_TABLE=y
+    arch_exclude: posix
+  libraries.libc.minimal.no_strerror_table:
+    path: tests/lib/c_lib
+    catalog: clib
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    - CONFIG_MINIMAL_LIBC_STRING_ERROR_TABLE=n
+    arch_exclude: posix
+  libraries.cbprintf_fp.printk:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTK=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.printf:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.printf_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONFIG_CONSOLE_HAS_DRIVER
+    arch_exclude: posix
+  libraries.cbprintf_fp.printfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.printfcb_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONFIG_CONSOLE_HAS_DRIVER
+    arch_exclude: posix
+  libraries.cbprintf_fp.fprintf:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTF=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.fprintfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTFCB=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.printf.picolibc:
+    path: tests/lib/cbprintf_fp
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    - CONFIG_PICOLIBC=y
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - CONFIG_CONSOLE_HAS_DRIVER
+    arch_exclude: posix
+  libraries.cbprintf_fp.printfcb.picolibc:
+    path: tests/lib/cbprintf_fp
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    - CONFIG_PICOLIBC=y
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - CONFIG_CONSOLE_HAS_DRIVER
+    arch_exclude: posix
+  libraries.cbprintf_package:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    platform_type: &1
+    - qemu
+    - native
+    min_flash: 48
+  libraries.cbprintf_package_no_generic:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_fp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_fp_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_long_double:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_FPU=y
+    - CONFIG_MINIMAL_LIBC=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_long_double_align_offset:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    - CONFIG_MINIMAL_LIBC=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_nano:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_no_generic_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_fp_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_fp_align_offset_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_long_double_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_FPU=y
+    - CONFIG_MINIMAL_LIBC=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_long_double_align_offset_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
+    - CONFIG_FPU=y
+    - CONFIG_MINIMAL_LIBC=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_nano_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_NANO=y
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_no_generic.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_fp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_CPU_HAS_FPU and CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_cpp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_no_generic_cpp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    min_flash: 48
+  libraries.cbprintf_package_fp_cpp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_CPU_HAS_FPU and CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    min_flash: 48
+  libraries.cmsis_dsp.bayes:
+    path: tests/lib/cmsis_dsp/bayes
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 64
+    min_ram: 32
+  libraries.cmsis_dsp.bayes.fpu:
+    path: tests/lib/cmsis_dsp/bayes
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 64
+    min_ram: 32
+  libraries.cmsis_dsp.complexmath:
+    path: tests/lib/cmsis_dsp/complexmath
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 144
+  libraries.cmsis_dsp.complexmath.fpu:
+    path: tests/lib/cmsis_dsp/complexmath
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 144
+  libraries.cmsis_dsp.distance:
+    path: tests/lib/cmsis_dsp/distance
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 64
+    min_ram: 32
+  libraries.cmsis_dsp.distance.fpu:
+    path: tests/lib/cmsis_dsp/distance
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 64
+    min_ram: 32
+  libraries.cmsis_dsp.fastmath:
+    path: tests/lib/cmsis_dsp/fastmath
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.fastmath.fpu:
+    path: tests/lib/cmsis_dsp/fastmath
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.filtering:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    skip: true
+  libraries.cmsis_dsp.filtering.biquad:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_BIQUAD=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.filtering.biquad.fpu:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_BIQUAD=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.filtering.decim:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_DECIM=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.filtering.decim.fpu:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_DECIM=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.filtering.fir:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_FIR=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.filtering.fir.fpu:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_FIR=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.filtering.misc:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_MISC=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 256
+    min_ram: 64
+  libraries.cmsis_dsp.filtering.misc.fpu:
+    path: tests/lib/cmsis_dsp/filtering
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_FILTERING_MISC=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 256
+    min_ram: 64
+  libraries.cmsis_dsp.interpolation:
+    path: tests/lib/cmsis_dsp/interpolation
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.interpolation.fpu:
+    path: tests/lib/cmsis_dsp/interpolation
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    skip: true
+  libraries.cmsis_dsp.matrix.unary_q7:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q7=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_q7.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q7=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_q15:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q15=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_q15.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q15=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_q31:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q31=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_q31.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_Q31=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_f16:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F16=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "(CONFIG_CMSIS_DSP_FLOAT16 and (CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M)
+      and TOOLCHAIN_HAS_NEWLIB == 1)"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_f16.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F16=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "(CONFIG_CMSIS_DSP_FLOAT16 and (CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M)
+      and CONFIG_CPU_HAS_FPU and TOOLCHAIN_HAS_NEWLIB == 1)"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_f32:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F32=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_f32.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F32=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.matrix.unary_f64:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F64=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 72
+  libraries.cmsis_dsp.matrix.unary_f64.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_UNARY_F64=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 72
+  libraries.cmsis_dsp.matrix.binary_q7:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q7=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.matrix.binary_q7.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q7=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.matrix.binary_q15:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 144
+  libraries.cmsis_dsp.matrix.binary_q15.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q15=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 144
+  libraries.cmsis_dsp.matrix.binary_q31:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.matrix.binary_q31.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_Q31=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.matrix.binary_f16:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F16=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "(CONFIG_CMSIS_DSP_FLOAT16 and (CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M)
+      and TOOLCHAIN_HAS_NEWLIB == 1)"
+    min_flash: 128
+    min_ram: 144
+  libraries.cmsis_dsp.matrix.binary_f16.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F16=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "(CONFIG_CMSIS_DSP_FLOAT16 and (CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M)
+      and CONFIG_CPU_HAS_FPU and TOOLCHAIN_HAS_NEWLIB == 1)"
+    min_flash: 128
+    min_ram: 144
+  libraries.cmsis_dsp.matrix.binary_f32:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.matrix.binary_f32.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F32=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.matrix.binary_f64:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F64=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.matrix.binary_f64.fpu:
+    path: tests/lib/cmsis_dsp/matrix
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_MATRIX_BINARY_F64=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    platform_exclude: frdm_kw41z
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.quaternionmath:
+    path: tests/lib/cmsis_dsp/quaternionmath
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.quaternionmath.fpu:
+    path: tests/lib/cmsis_dsp/quaternionmath
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.statistics:
+    path: tests/lib/cmsis_dsp/statistics
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.statistics.fpu:
+    path: tests/lib/cmsis_dsp/statistics
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.support:
+    path: tests/lib/cmsis_dsp/support
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.support.fpu:
+    path: tests/lib/cmsis_dsp/support
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 128
+  libraries.cmsis_dsp.svm:
+    path: tests/lib/cmsis_dsp/svm
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.svm.fpu:
+    path: tests/lib/cmsis_dsp/svm
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_FPU=y
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 128
+    min_ram: 64
+  libraries.cmsis_dsp.transform:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    skip: true
+  libraries.cmsis_dsp.transform.cq15:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ15=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.cq15.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ15=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.rq15:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ15=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.rq15.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ15=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.cq31:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ31=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 64
+  libraries.cmsis_dsp.transform.cq31.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CQ31=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 64
+  libraries.cmsis_dsp.transform.rq31:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ31=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 64
+  libraries.cmsis_dsp.transform.rq31.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RQ31=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 64
+  libraries.cmsis_dsp.transform.cf16:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF16=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "(CMSIS_DSP_FLOAT16 and (CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M)
+      and TOOLCHAIN_HAS_NEWLIB == 1)"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.cf16.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF16=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "(CMSIS_DSP_FLOAT16 and (CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M)
+      and CONFIG_CPU_HAS_FPU and TOOLCHAIN_HAS_NEWLIB == 1)"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.rf16:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF16=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "(CMSIS_DSP_FLOAT16 and (CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M)
+      and TOOLCHAIN_HAS_NEWLIB == 1)"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.rf16.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF16=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "(CMSIS_DSP_FLOAT16 and (CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M)
+      and CONFIG_CPU_HAS_FPU and TOOLCHAIN_HAS_NEWLIB == 1)"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.cf32:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF32=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 64
+  libraries.cmsis_dsp.transform.cf32.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF32=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 64
+  libraries.cmsis_dsp.transform.rf32:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF32=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.rf32.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF32=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 512
+    min_ram: 64
+  libraries.cmsis_dsp.transform.cf64:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF64=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 160
+  libraries.cmsis_dsp.transform.cf64.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_CF64=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 160
+  libraries.cmsis_dsp.transform.rf64:
+    path: tests/lib/cmsis_dsp/transform
+    catalog: cmsis_dsp
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF64=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and TOOLCHAIN_HAS_NEWLIB
+      == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 64
+  libraries.cmsis_dsp.transform.rf64.fpu:
+    path: tests/lib/cmsis_dsp/transform
+    catalog:
+    - cmsis_dsp
+    - fpu
+    extra_configs:
+    - CONFIG_CMSIS_DSP_TEST_TRANSFORM_RF64=y
+    - CONFIG_FPU=y
+    extra_args: CONF_FILE=prj_base.conf
+    filter: "((CONFIG_CPU_AARCH32_CORTEX_R or CONFIG_CPU_CORTEX_M) and CONFIG_CPU_HAS_FPU
+      and TOOLCHAIN_HAS_NEWLIB == 1) or CONFIG_ARCH_POSIX"
+    min_flash: 1024
+    min_ram: 64
+  libraries.cmsis_nn:
+    path: tests/lib/cmsis_nn
+    catalog: cmsis_nn
+    filter: CONFIG_CPU_CORTEX_M and TOOLCHAIN_HAS_NEWLIB == 1
+    min_flash: 64
+    min_ram: 32
+  libraries.devicetree.api:
+    path: tests/lib/devicetree/api
+    catalog: devicetree
+    platform_allow:
+    - native_posix
+    - qemu_x86
+    - qemu_x86_64
+    - qemu_cortex_m3
+  libraries.devicetree.api_ext:
+    path: tests/lib/devicetree/api_ext
+    catalog: devicetree
+  libraries.devicetree.devices:
+    path: tests/lib/devicetree/devices
+    catalog: devicetree
+    platform_exclude:
+    - hsdk
+    - hsdk_2cores
+    - thingy52_nrf52832
+    - bbc_microbit
+    - bbc_microbit_v2
+    - bt610
+    - bl5340_dvk_cpuapp
+    - bl5340_dvk_cpuapp_ns
+    - mimxrt595_evk_cm33
+  libraries.devicetree.memory_region:
+    path: tests/lib/devicetree/memory_region
+    catalog: devicetree
+    platform_allow: qemu_cortex_m3
+  libraries.devicetree.memory_region.linker_generator:
+    path: tests/lib/devicetree/memory_region
+    catalog: devicetree
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+  libraries.os.fdtable:
+    path: tests/lib/fdtable
+    catalog: fdtable
+  libraries.gui.lvgl:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.dynamic.heap.libc:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_LV_Z_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LV_Z_MEM_POOL_HEAP_LIB_C=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.dynamic.pool.sys_heap:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_Z_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LV_Z_MEM_POOL_SYS_HEAP=y
+    - CONFIG_LV_Z_MEM_POOL_NUMBER_BLOCKS=3
+    - CONFIG_LV_Z_MEM_POOL_MAX_SIZE=32768
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.16bit:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_COLOR_DEPTH_16=y
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.8bit:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_COLOR_DEPTH_8=y
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.mono:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_COLOR_DEPTH_1=y
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.16bit.swap:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_COLOR_DEPTH_16=y
+    - CONFIG_LV_COLOR_16_SWAP=y
+    platform_allow: native_posix_64
+  libraries.hash_function.identity:
+    path: tests/lib/hash_function
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_IDENTITY=y
+    platform_exclude: qemu_cortex_a53
+  libraries.hash_function.djb2:
+    path: tests/lib/hash_function
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_FUNC32_DJB2=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+  libraries.hash_map.separate_chaining.djb2:
+    path: tests/lib/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_MAP_CHOICE_SC=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.open_addressing.djb2:
+    path: tests/lib/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_MAP_CHOICE_OA_LP=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.cxx.djb2:
+    path: tests/lib/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_MAP_CHOICE_CXX=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 24
+  libraries.heap:
+    path: tests/lib/heap
+    catalog: heap
+    platform_exclude:
+    - m2gl025_miv
+    - qemu_xtensa
+    - esp32s2_saola
+    - esp32s3_devkitm
+    filter: not CONFIG_SOC_NSIM
+  libraries.heap_align:
+    path: tests/lib/heap_align
+    catalog:
+    - heap
+    - heap_align
+  libraries.encoding.json:
+    path: tests/lib/json
+    catalog: json
+    filter: not CONFIG_NEWLIB_LIBC
+    min_flash: 34
+  libraries.linear_range:
+    path: tests/lib/linear_range
+    catalog: unknown
+  libraries.libc.minimal.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog:
+    - clib
+    - minimal_libc
+    - userspace
+    extra_args: CONF_FILE=prj.conf
+    platform_exclude: twr_ke18f
+    arch_exclude: posix
+  libraries.libc.minimal.mem_alloc_negative_testing:
+    path: tests/lib/mem_alloc
+    catalog:
+    - clib
+    - minimal_libc
+    - userspace
+    extra_args: CONF_FILE=prj_negative_testing.conf
+    platform_exclude: twr_ke18f
+    arch_exclude: posix
+  libraries.libc.newlib.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog:
+    - clib
+    - newlib
+    - userspace
+    extra_args: CONF_FILE=prj_newlib.conf
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 16
+    platform_exclude:
+    - twr_ke18f
+    - native_posix_64
+    - nrf52_bsim
+    arch_exclude: posix
+  libraries.libc.newlib_nano.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog:
+    - clib
+    - newlib
+    - userspace
+    extra_args: CONF_FILE=prj_newlibnano.conf
+    filter: CONFIG_HAS_NEWLIB_LIBC_NANO
+    arch_exclude: posix
+  libraries.libc.picolibc.mem_alloc:
+    path: tests/lib/mem_alloc
+    catalog:
+    - clib
+    - picolibc
+    - userspace
+    extra_args: CONF_FILE=prj_picolibc.conf
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_exclude:
+    - twr_ke18f
+    - native_posix_64
+    - nrf52_bsim
+    arch_exclude: posix
+  libraries.mem_blocks:
+    path: tests/lib/mem_blocks
+    catalog:
+    - heap
+    - mem_blocks
+  libraries.mem_blocks.stats:
+    path: tests/lib/mem_blocks_stats
+    catalog:
+    - heap
+    - mem_blocks.stats
+  libraries.mpsc_pbuf:
+    path: tests/lib/mpsc_pbuf
+    catalog: mpsc_pbuf
+    platform_allow:
+    - qemu_arc_em
+    - qemu_arc_hs
+    - qemu_cortex_a53
+    - qemu_cortex_m0
+    - qemu_cortex_m3
+    - qemu_cortex_r5
+    - qemu_leon3
+    - qemu_nios2
+    - qemu_riscv32
+    - qemu_riscv64
+    - qemu_x86
+    - qemu_x86_64
+    - qemu_xtensa
+    - native_posix
+  libraries.mpsc_pbuf_concurrent:
+    path: tests/lib/mpsc_pbuf
+    catalog: mpsc_pbuf
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - qemu_x86_64
+  libraries.libc.newlib.heap_listener:
+    path: tests/lib/newlib/heap_listener
+    catalog:
+    - clib
+    - newlib
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  libraries.libc.newlib.thread_safety:
+    path: tests/lib/newlib/thread_safety
+    catalog:
+    - clib
+    - newlib
+    min_ram: 64
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  libraries.libc.newlib.thread_safety.stress:
+    path: tests/lib/newlib/thread_safety
+    catalog:
+    - clib
+    - newlib
+    extra_configs:
+    - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
+    min_ram: 192
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  libraries.libc.newlib.thread_safety.userspace:
+    path: tests/lib/newlib/thread_safety
+    catalog:
+    - clib
+    - newlib
+    - userspace
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter:
+    - CONFIG_ARCH_HAS_USERSPACE
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+  libraries.libc.newlib.thread_safety.userspace.stress:
+    path: tests/lib/newlib/thread_safety
+    catalog:
+    - clib
+    - newlib
+    - userspace
+    extra_configs:
+    - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
+    - CONFIG_NEWLIB_LIBC_ALIGNED_HEAP_SIZE=8192
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter:
+    - CONFIG_ARCH_HAS_USERSPACE
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 192
+  libraries.libc.newlib_nano.thread_safety:
+    path: tests/lib/newlib/thread_safety
+    catalog:
+    - clib
+    - newlib
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    filter:
+    - CONFIG_HAS_NEWLIB_LIBC_NANO
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+  libraries.libc.newlib_nano.thread_safety.stress:
+    path: tests/lib/newlib/thread_safety
+    catalog:
+    - clib
+    - newlib
+    extra_configs:
+    - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    filter:
+    - CONFIG_HAS_NEWLIB_LIBC_NANO
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 192
+  libraries.libc.newlib_nano.thread_safety.userspace:
+    path: tests/lib/newlib/thread_safety
+    catalog:
+    - clib
+    - newlib
+    - userspace
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter:
+    - CONFIG_ARCH_HAS_USERSPACE and CONFIG_HAS_NEWLIB_LIBC_NANO
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 64
+  libraries.libc.newlib_nano.thread_safety.userspace.stress:
+    path: tests/lib/newlib/thread_safety
+    catalog:
+    - clib
+    - newlib
+    - userspace
+    extra_configs:
+    - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    - CONFIG_NEWLIB_LIBC_ALIGNED_HEAP_SIZE=2048
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter:
+    - CONFIG_ARCH_HAS_USERSPACE and CONFIG_HAS_NEWLIB_LIBC_NANO
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 192
+  libraries.data_structures:
+    path: tests/lib/notify
+    catalog: notify
+  libraries.onoff:
+    path: tests/lib/onoff
+    catalog:
+    - onoff
+    - timer
+  libraries.p4wq:
+    path: tests/lib/p4workq
+    catalog: p4wq
+  libraries.ring_buffer:
+    path: tests/lib/ringbuffer
+    catalog: &2
+    - ring_buffer
+    - circular_buffer
+  libraries.ring_buffer_concurrent:
+    path: tests/lib/ringbuffer
+    catalog: *2
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow: qemu_x86
+  libraries.smf.flat:
+    path: tests/lib/smf
+    catalog: smf
+  libraries.smf.hierarchical:
+    path: tests/lib/smf
+    catalog: smf
+    extra_configs:
+    - CONFIG_SMF_ANCESTOR_SUPPORT=y
+  libraries.libc.sprintf:
+    path: tests/lib/sprintf
+    catalog: libc
+    extra_args: CONF_FILE=prj.conf
+    filter: not CONFIG_SOC_MCIMX7_M4 and CONFIG_STDOUT_CONSOLE
+    arch_exclude: posix
+  libraries.libc.sprintf_new:
+    path: tests/lib/sprintf
+    catalog: libc
+    extra_args: CONF_FILE=prj_new.conf
+    arch_exclude: posix
+  libraries.libc.picolibc.sprintf:
+    path: tests/lib/sprintf
+    catalog:
+    - libc
+    - picolibc
+    extra_args: CONF_FILE=prj_picolibc.conf
+    filter: CONFIG_PICOLIBC_SUPPORTED
+  libraries.libc.picolibc.sprintf_new:
+    path: tests/lib/sprintf
+    catalog:
+    - libc
+    - picolibc
+    extra_args: CONF_FILE=prj_picolibc_new.conf
+    filter: CONFIG_PICOLIBC_SUPPORTED
+  libraries.spsc_pbuf:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    platform_exclude: ast1030_evb
+  libraries.spsc_pbuf_cache:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SPSC_PBUF_CACHE_ALWAYS=y
+    platform_exclude: ast1030_evb
+  libraries.spsc_pbuf_nocache:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SPSC_PBUF_CACHE_NEVER=y
+    platform_exclude: ast1030_evb
+  libraries.spsc_pbuf_utilization:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SPSC_PBUF_UTILIZATION=y
+    platform_exclude: ast1030_evb
+  libraries.spsc_pbuf_stress:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow: qemu_x86
+  libraries.sys_util:
+    path: tests/lib/sys_util
+    catalog: sys_util
+  libraries.libc.time:
+    path: tests/lib/time
+    catalog: libc
+    filter: not CONFIG_ARCH_POSIX or CONFIG_NATIVE_POSIX_SLOWDOWN_TO_REAL_TIME
+  libraries.encoding.jwt:
+    path: tests/subsys/jwt
+    catalog: jwt
+    min_ram: 96
+    min_flash: 72
+    filter:
+    - CONFIG_ENTROPY_HAS_DRIVER
+    - TOOLCHAIN_HAS_NEWLIB == 1

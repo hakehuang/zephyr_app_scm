@@ -1,9 +1,0 @@
----
-cases:
-  net.context:
-    path: tests/net/context
-    catalog: net net_context
-    extra_configs:
-    - CONFIG_ASSERT_LEVEL=0
-    min_ram: 16
-    depends_on: netif

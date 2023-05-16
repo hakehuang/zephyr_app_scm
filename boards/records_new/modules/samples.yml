@@ -1,10 +1,18 @@
 ---
 cases:
-  sample.sensor.iaqcore:
-    path: samples/sensor/ams_iAQcore
-    catalog: samples
-    depends_on: i2c arduino_i2c
-  sample.sensor.ens210:
-    path: samples/sensor/ens210
-    catalog: samples
-    depends_on: i2c arduino_i2c
+  samples.drivers.w1.scanner.ds2485:
+    path: samples/drivers/w1/scanner
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=ds2485.overlay
+    depends_on: arduino_i2c
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nucleo_g0b1re
+  samples.drivers.w1.scanner.w1_serial:
+    path: samples/drivers/w1/scanner
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=w1_serial.overlay
+    depends_on: arduino_serial
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nucleo_g0b1re

@@ -1,17 +1,8 @@
 ---
 settings:
   case_pipe_name: "mimxrt1064_evk_usb"
-  version: zephyr-v3.1.0-2871-gda041942c2
+  version: zephyr-v3.3.0-3980-g7bdae081e3
 __load__:
-- modules/usbc.yml
-- modules/usb_sensors.yml
-- modules/usb_osdesc.yml
-- modules/usb_net_zperf.yml
-- modules/usb_modbus.yml
-- modules/usb_ieee802154.yml
-- modules/usb_desc_sections.yml
-- modules/usb_bos.yml
-- modules/usb_bluetooth.yml
 - modules/usb.yml
 - skips/mimxrt1064_evk.yml
 - boards/mimxrt1064_evk.yml

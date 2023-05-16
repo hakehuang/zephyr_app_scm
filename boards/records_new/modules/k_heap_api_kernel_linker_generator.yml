@@ -1,8 +1,0 @@
----
-cases:
-  kernel.k_heap_api.linker_generator:
-    path: tests/kernel/mem_heap/k_heap_api
-    catalog: k_heap_api kernel linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3

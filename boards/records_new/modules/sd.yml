@@ -1,0 +1,14 @@
+---
+cases:
+  sd.mmc:
+    path: tests/subsys/sd/mmc
+    catalog: sdhc
+    filter: dt_compat_enabled("zephyr,mmc-disk")
+    min_ram: 32
+    depends_on: sdhc
+  sd.sdmmc:
+    path: tests/subsys/sd/sdmmc
+    catalog: sdhc
+    filter: dt_alias_exists("sdhc0")
+    min_ram: 32
+    depends_on: sdhc

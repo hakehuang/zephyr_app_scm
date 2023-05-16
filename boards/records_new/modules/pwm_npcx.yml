@@ -1,8 +1,0 @@
----
-cases:
-  drivers.pwm.npcx.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_npcx
-    extra_args: CONFIG_PWM_NPCX=y
-    platform_allow: npcx7m6fb_evb
-    build_only: true

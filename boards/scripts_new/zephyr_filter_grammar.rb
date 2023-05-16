@@ -603,5 +603,6 @@ if __FILE__ == $0
     # $log.info  parser.parse("TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE")
     #$log.info  zephyr_filter_parser('dt_compat_enabled_with_alias("gpio-keys", "sw0")', board_hash)
     
-    $log.info  zephyr_filter_parser('dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")', board_hash)
+    #$log.info  zephyr_filter_parser('dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")', board_hash)
+    $log.info  zephyr_filter_parser('not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)', board_hash)
 end

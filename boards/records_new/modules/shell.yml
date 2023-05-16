@@ -1,39 +1,5 @@
 ---
 cases:
-  sample.sensor.shell:
-    path: samples/sensor/sensor_shell
-    catalog: shell
-    filter: "( CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT )"
-    min_ram: 20
-    min_flash: 33
-  sample.shell.shell_module:
-    path: samples/subsys/shell/shell_module
-    catalog: shell
-    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
-    min_ram: 40
-  sample.shell.shell_module.minimal:
-    path: samples/subsys/shell/shell_module
-    catalog: shell
-    extra_args: CONF_FILE="prj_minimal.conf"
-    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
-  sample.shell.shell_module.getopt:
-    path: samples/subsys/shell/shell_module
-    catalog: shell
-    extra_args: CONF_FILE="prj_getopt.conf"
-    platform_exclude: native_posix native_posix_64
-    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart") and not CONFIG_NEWLIB_LIBC
-    min_ram: 40
-  sample.shell.shell_module.minimal_rtt:
-    path: samples/subsys/shell/shell_module
-    catalog: shell
-    extra_args: CONF_FILE="prj_minimal_rtt.conf"
-    filter: CONFIG_HAS_SEGGER_RTT
-  sample.shell.shell_module.login:
-    path: samples/subsys/shell/shell_module
-    catalog: shell
-    extra_args: CONF_FILE="prj_login.conf"
-    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
-    min_ram: 40
   shell.core:
     path: tests/subsys/shell/shell
     catalog: shell
@@ -137,6 +103,17 @@ cases:
     min_flash: 32
     build_only: true
     min_ram: 32
+  shell.flash:
+    path: tests/subsys/shell/shell_flash
+    catalog:
+    - flash
+    - shell
+    min_flash: 64
+    min_ram: 32
+    filter: "( CONFIG_FLASH_SHELL )"
+    platform_allow:
+    - qemu_x86
+    - native_posix
   shell.history:
     path: tests/subsys/shell/shell_history
     catalog: shell

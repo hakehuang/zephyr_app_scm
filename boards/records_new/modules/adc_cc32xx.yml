@@ -1,8 +1,0 @@
----
-cases:
-  drivers.adc.cc32xx.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_cc32xx
-    extra_args: CONFIG_ADC_CC32XX=y
-    platform_allow: cc3220sf_launchxl
-    build_only: true

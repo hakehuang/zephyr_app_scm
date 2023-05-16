@@ -1,5 +1,8 @@
 
 cases:
+#  __common__:
+#    SPECIAL_BUILD_OPTIONS:
+#      - CONFIG_PM=y    
   misc.crc:
     bin: testbinary
 
@@ -7,4 +10,7 @@ settings:
   no_filter:
     - CONFIG_ENTROPY_HAS_DRIVER
     - CONFIG_CPU_ARCV2
+    - CONFIG_FLASH_HAS_DRIVER_ENABLED
   TOOLCHAIN_HAS_NEWLIB: 1
+
+ 

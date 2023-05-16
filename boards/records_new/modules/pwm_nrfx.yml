@@ -1,8 +1,0 @@
----
-cases:
-  drivers.pwm.nrf.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_nrfx
-    extra_args: CONFIG_PWM_NRFX=y
-    platform_allow: nrf52840dk_nrf52840
-    build_only: true

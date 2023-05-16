@@ -1,49 +1,10 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s28_ns_drivers"
-  version: zephyr-v3.1.0-2871-gda041942c2
+  version: zephyr-v3.3.0-3980-g7bdae081e3
 __load__:
 - modules/sensors.yml
-- modules/drivers_watchdog.yml
-- modules/drivers_w1_userspace.yml
-- modules/drivers_video.yml
-- modules/drivers_userspace.yml
-- modules/drivers_usb.yml
-- modules/drivers_uart.yml
-- modules/drivers_syscon.yml
-- modules/drivers_spi_qspi.yml
-- modules/drivers_spi_gpio.yml
-- modules/drivers_spi_devicetree.yml
-- modules/drivers_spi.yml
-- modules/drivers_sensors.yml
-- modules/drivers_sensor_subsys.yml
-- modules/drivers_sensor_grove_temperature.yml
-- modules/drivers_sensor_grove_light.yml
-- modules/drivers_sensor.yml
-- modules/drivers_pwm_userspace.yml
-- modules/drivers_pwm.yml
-- modules/drivers_pinctrl.yml
-- modules/drivers_net.yml
-- modules/drivers_mipi_dsi.yml
-- modules/drivers_memc.yml
-- modules/drivers_led.yml
-- modules/drivers_kscan_userspace.yml
-- modules/drivers_kscan.yml
-- modules/drivers_ipc.yml
-- modules/drivers_ieee802154.yml
-- modules/drivers_i2s.yml
-- modules/drivers_i2c.yml
-- modules/drivers_gpio.yml
-- modules/drivers_fram.yml
-- modules/drivers_flash.yml
-- modules/drivers_espi.yml
-- modules/drivers_entropy.yml
-- modules/drivers_dma.yml
-- modules/drivers_console.yml
-- modules/drivers_can.yml
-- modules/drivers_bbram.yml
 - modules/drivers.yml
-- modules/driver_entropy_bluetooth.yml
 - skips/lpcxpresso55s28_ns.yml
 - boards/lpcxpresso55s28_ns.yml
 cases:

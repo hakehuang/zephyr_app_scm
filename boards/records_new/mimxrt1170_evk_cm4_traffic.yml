@@ -1,9 +1,8 @@
 ---
 settings:
   case_pipe_name: "mimxrt1170_evk_cm4_traffic"
-  version: zephyr-v3.1.0-2871-gda041942c2
+  version: zephyr-v3.3.0-3980-g7bdae081e3
 __load__:
-- modules/net_traffic_class.yml
 - skips/mimxrt1170_evk_cm4.yml
 - boards/mimxrt1170_evk_cm4.yml
 cases:

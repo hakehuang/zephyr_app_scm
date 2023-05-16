@@ -1,0 +1,23 @@
+---
+settings:
+  case_pipe_name: "kw45b41z_evk_4"
+  version: zephyr-v3.3.0-3980-g7bdae081e3
+__load__:
+- modules/printk.yml
+- modules/portability.yml
+- modules/pm.yml
+- modules/os.yml
+- modules/openthread.yml
+- modules/modbus.yml
+- modules/misc.yml
+- modules/mgmt.yml
+- modules/message_bus.yml
+- modules/mcuboot.yml
+- modules/logging.yml
+- modules/libraries.yml
+- skips/kw45b41z_evk.yml
+- boards/kw45b41z_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

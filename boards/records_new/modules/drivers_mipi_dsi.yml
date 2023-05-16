@@ -1,7 +1,0 @@
----
-cases:
-  drivers.mipi_dsi.api:
-    path: tests/drivers/mipi_dsi/api
-    catalog: drivers mipi_dsi
-    depends_on: mipi_dsi
-    filter: dt_alias_exists("mipi-dsi")

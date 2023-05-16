@@ -1,0 +1,31 @@
+---
+cases:
+  dfu.image_util:
+    path: tests/subsys/dfu/img_util
+    catalog: dfu_image_util
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - native_posix
+    - native_posix_64
+  dfu.image_util.progressive:
+    path: tests/subsys/dfu/img_util
+    catalog: dfu_image_util
+    extra_args: OVERLAY_CONFIG=progressively_overlay.conf
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - native_posix
+    - native_posix_64
+  dfu.mcuboot:
+    path: tests/subsys/dfu/mcuboot
+    catalog: dfu_mcuboot
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - native_posix
+    - native_posix_64
+  dfu.mcuboot.multiimage:
+    path: tests/subsys/dfu/mcuboot_multi
+    catalog: dfu_mcuboot
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - native_posix
+    - native_posix_64

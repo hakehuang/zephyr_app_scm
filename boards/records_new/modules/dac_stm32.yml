@@ -1,8 +1,0 @@
----
-cases:
-  drivers.dac.stm32.build:
-    path: tests/drivers/build_all/dac
-    catalog: dac_stm32
-    extra_args: CONFIG_DAC_STM32=y
-    platform_allow: nucleo_f091rc
-    build_only: true

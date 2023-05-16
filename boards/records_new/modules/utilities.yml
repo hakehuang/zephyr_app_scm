@@ -1,0 +1,560 @@
+---
+cases:
+  utilities.base64:
+    path: tests/unit/base64
+    catalog: base64
+    type: unit
+  utilities.prf.m32v00:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.prf.m32v01:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.prf.m32v02:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.prf.m32v03:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.prf.m32v07:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.prf.m32v08:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_CBPRINTF_N_SPECIFIER=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.prf.m32v80:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.prf.m32v101:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_LIBC_SUBSTS=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.prf.m32v181:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_LIBC_SUBSTS=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.prf.m32v200:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m32v201:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m32v207:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m32v208:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m32v281:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m32v1207:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x1200
+    type: unit
+  utilities.prf.m32va00:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m32va01:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m32va07:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m32va08:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m32va81:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=0
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m64v00:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=1
+    type: unit
+  utilities.prf.m64v01:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=1
+    type: unit
+  utilities.prf.m64v03:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=1
+    type: unit
+  utilities.prf.m64v17:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=1
+    type: unit
+  utilities.prf.m64v80:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=1
+    type: unit
+  utilities.prf.m64v101:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_LIBC_SUBSTS=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=1
+    type: unit
+  utilities.prf.m64v181:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_LIBC_SUBSTS=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args: M64_MODE=1
+    type: unit
+  utilities.prf.m64v200:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v201:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v207:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v208:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_CBPRINTF_N_SPECIFIER=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v281:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v600:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v601:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v607:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v608:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_CBPRINTF_N_SPECIFIER=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v681:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x200
+    type: unit
+  utilities.prf.m64v1607:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x1200
+    type: unit
+  utilities.prf.m64va00:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m64va01:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m64va07:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m64va08:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_CBPRINTF_N_SPECIFIER=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m64va81:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0xa00
+    type: unit
+  utilities.prf.m64v2200:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2200
+    type: unit
+  utilities.prf.m64v2201:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2200
+    type: unit
+  utilities.prf.m64v2207:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_FP_A_SUPPORT=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2200
+    type: unit
+  utilities.prf.m64v2208:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    - CONFIG_CBPRINTF_N_SPECIFIER=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2200
+    type: unit
+  utilities.prf.m64v2281:
+    path: tests/unit/cbprintf
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_MINIMAL_LIBC=y
+    extra_args:
+    - M64_MODE=1
+    - EXTRA_CPPFLAGS=-DVIA_TWISTER=0x2200
+    type: unit
+  utilities.crc:
+    path: tests/unit/crc
+    catalog:
+    - net
+    - crc
+    type: unit
+  utilities.intmath:
+    path: tests/unit/intmath
+    catalog:
+    - util
+    - intmath
+    type: unit
+  utilities.lists:
+    path: tests/unit/list
+    catalog:
+    - utils
+    - lists
+    type: unit
+  utilities.math:
+    path: tests/unit/math_extras
+    catalog: unknown
+    type: unit
+  utilities.net_timeout:
+    path: tests/unit/net_timeout
+    catalog: net
+    type: unit
+  utilities.powers_of_two:
+    path: tests/unit/pot
+    catalog: pot
+    type: unit
+  utilities.red_black_tree:
+    path: tests/unit/rbtree
+    catalog: rbtree
+    type: unit
+  utilities.time_units.z_tmcvt:
+    path: tests/unit/time_units
+    catalog: time_units
+    type: unit
+  utilities.time:
+    path: tests/unit/timeutil
+    catalog: timeutil
+    extra_args: M64_MODE=0
+    type: unit
+  utilities.time.64bit:
+    path: tests/unit/timeutil
+    catalog: timeutil
+    extra_args: M64_MODE=1
+    type: unit
+  utilities.dec:
+    path: tests/unit/util
+    catalog:
+    - lib
+    - utilities
+    type: unit
+  utilities.winstream:
+    path: tests/unit/winstream
+    catalog: winstream
+    type: unit

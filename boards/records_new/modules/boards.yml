@@ -1,11 +1,132 @@
 ---
 cases:
+  boards.altera_max10.i2c_master:
+    path: tests/boards/altera_max10/i2c_master
+    catalog: i2c
+    platform_allow: altera_max10
+  boards.altera_max10.dma:
+    path: tests/boards/altera_max10/msgdma
+    catalog: dma
+    platform_allow: altera_max10
+  boards.altera_max10.qspi:
+    path: tests/boards/altera_max10/qspi
+    catalog:
+    - qspi
+    - flash
+    platform_allow: altera_max10
+  boards.altera_max10.sysid:
+    path: tests/boards/altera_max10/sysid
+    catalog: sysid
+    platform_allow: altera_max10
+  boards.esp32.cache_coex:
+    path: tests/boards/espressif_esp32/cache_coex
+    catalog:
+    - spiram
+    - spiflash
+    - cache
+    platform_allow: esp32
+  boards.frdm_k64f.i2c:
+    path: tests/boards/frdm_k64f/i2c
+    catalog: i2c
+    platform_allow: frdm_k64f
+  boards.intel_adsp.cache:
+    path: tests/boards/intel_adsp/cache
+    catalog: boards
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda:
+    path: tests/boards/intel_adsp/hda
+    catalog:
+    - hda
+    - dma
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda.1cpu:
+    path: tests/boards/intel_adsp/hda
+    catalog:
+    - hda
+    - dma
+    extra_configs:
+    - CONFIG_MP_MAX_NUM_CPUS=1
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda_log:
+    path: tests/boards/intel_adsp/hda_log
+    catalog: unknown
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda_log.printk:
+    path: tests/boards/intel_adsp/hda_log
+    catalog: unknown
+    extra_configs:
+    - CONFIG_LOG_PRINTK=y
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda_log.1cpu:
+    path: tests/boards/intel_adsp/hda_log
+    catalog: unknown
+    extra_configs:
+    - CONFIG_MP_MAX_NUM_CPUS=1
+    platform_allow: intel_adsp_cavs25
   boards.intel_adsp.mm:
     path: tests/boards/intel_adsp/mm
     catalog: boards
     platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.smoke:
+    path: tests/boards/intel_adsp/smoke
+    catalog: unknown
+    platform_allow: intel_adsp_cavs25
   boards.intel_adsp.ssp:
     path: tests/boards/intel_adsp/ssp
-    catalog: boards
-    depends_on: dai dma
-    platform_allow: intel_adsp_cavs25 intel_adsp_cavs15
+    catalog:
+    - dai
+    - dma
+    depends_on:
+    - dai
+    - dma
+    platform_allow: intel_adsp_cavs25
+  boards.mec15xxevb_assy6853.i2c:
+    path: tests/boards/mec15xxevb_assy6853/i2c_api
+    catalog:
+    - drivers
+    - i2c
+    depends_on: i2c
+    filter: dt_compat_enabled("nxp,pca95xx")
+    platform_allow: mec15xxevb_assy6853
+  boards.mec15xxevb_assy6853.qspi:
+    path: tests/boards/mec15xxevb_assy6853/qspi
+    catalog:
+    - drivers
+    - spi
+    - qspi
+    platform_allow: mec15xxevb_assy6853
+  boards.mec172xevb_assy6906.i2c:
+    path: tests/boards/mec172xevb_assy6906/i2c_api
+    catalog:
+    - drivers
+    - i2c
+    depends_on: i2c
+    filter: dt_compat_enabled("nxp,pca95xx")
+    platform_allow: mec172xevb_assy6906
+  boards.native_posix.cpu_wait:
+    path: tests/boards/native_posix/cpu_wait
+    catalog: unknown
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  boards.native_posix.native_tasks:
+    path: tests/boards/native_posix/native_tasks
+    catalog: unknown
+    arch_allow: posix
+  boards.native_posix_64.native_tasks:
+    path: tests/boards/native_posix/native_tasks
+    catalog: unknown
+    arch_allow: posix
+  boards.native_posix.rtc:
+    path: tests/boards/native_posix/rtc
+    catalog: unknown
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    build_only: true
+  boards.nrf52_bsim.egu:
+    path: tests/boards/nrf52_bsim/egu
+    catalog: unknown
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf52_bsim

@@ -41,8 +41,8 @@ properties([
     logRotator(
       artifactDaysToKeepStr: '7', 
       artifactNumToKeepStr: '1', 
-      daysToKeepStr: '', 
-      numToKeepStr: '',
+      daysToKeepStr: '10', 
+      numToKeepStr: '5',
     ),
   ),
 ])
@@ -78,10 +78,5 @@ pipeline {
       }
     }
     <?rb end ?>
-  }
-  post {
-      always {
-          junit '*.xml'
-      }
   }
 }

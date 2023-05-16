@@ -1,8 +1,0 @@
----
-cases:
-  printk.format.picolibc:
-    path: tests/misc/print_format
-    catalog: clib picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED

@@ -1,8 +1,0 @@
----
-cases:
-  drivers.adc.nrf.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_nrfx_adc
-    extra_args: CONFIG_ADC_NRFX_ADC=y
-    platform_allow: nrf51dk_nrf51422
-    build_only: true

@@ -1,0 +1,24 @@
+---
+cases:
+  message_bus.zbus.dyn_channel.static_and_dynamic_channels:
+    path: tests/subsys/zbus/dyn_channel
+    catalog: zbus
+    platform_exclude: fvp_base_revc_2xaemv8a_smp_ns
+  message_bus.zbus.module_interaction_no_error:
+    path: tests/subsys/zbus/integration
+    catalog: zbus
+    platform_exclude:
+    - qemu_cortex_a9
+    - hifive_unleashed
+    - fvp_base_revc_2xaemv8a_smp_ns
+  message_bus.zbus.runtime_obs_reg.add_and_remove_observers:
+    path: tests/subsys/zbus/runtime_observers_registration
+    catalog: zbus
+  message_bus.zbus.hard_and_readonly_channels:
+    path: tests/subsys/zbus/unittests
+    catalog: zbus
+    platform_exclude: fvp_base_revc_2xaemv8a_smp_ns
+  message_bus.zbus.user_data.channel_user_data:
+    path: tests/subsys/zbus/user_data
+    catalog: zbus
+    platform_exclude: fvp_base_revc_2xaemv8a_smp_ns

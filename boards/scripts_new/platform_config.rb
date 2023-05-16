@@ -69,6 +69,12 @@ def platforms()
     "lpcxpresso55s06" => ["", "2", "3", "4", "5", "cmsis", "drivers", "samples",
         "sensors", "shield", "bt1", "bt2", "can", "socket", "traffic",
         "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
+    "rdrw610_evk" => ["", "2", "3", "4", "5", "cmsis", "drivers", "samples",
+        "sensors", "shield", "bt1", "bt2", "can", "socket", "traffic",
+        "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
+    "kw45b41z_evk" => ["", "2", "3", "4", "5", "cmsis", "drivers", "samples",
+        "sensors", "bt1", "bt2", "can", "socket", "traffic",
+        "samples2", "kernel", "kernel2", "kernel3", "kernel4"],
     }
     return platforms_config
 end

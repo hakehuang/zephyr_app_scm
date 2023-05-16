@@ -1,0 +1,98 @@
+/*
+ * Copyright 2022 NXP
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <nxp/nxp_rw6xx.dtsi>
+#include "rdrw610_evk-pinctrl.dtsi"
+
+/ {
+	model = "NXP RW610-EVK board";
+	compatible = "nxp,rw610";
+
+	aliases {
+		usart-0 = &flexcomm3;
+		led0 = &green_led;
+		sw0 = &sw_4;
+		watchdog0 = &wwdt;
+		pwm-0 = &sc_timer;
+	};
+
+	chosen {
+		zephyr,sram = &sram_data;
+		zephyr,flash = &flash0;
+		zephyr,console = &flexcomm3;
+		zephyr,shell-uart = &flexcomm3;
+	};
+
+	flash0: flash@18000000 {
+		reg = <0x18000000 DT_SIZE_M(64)>;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		green_led: led_1 {
+			gpios = <&hsgpio1 20 0>;
+			label = "User LED_GREEN";
+		};
+	};
+
+	gpio_keys {
+		compatible = "gpio-keys";
+		sw_4: sw_4 {
+			label = "User SW4";
+			gpios = <&hsgpio0 25 0>;
+		};
+	};
+};
+
+&flexcomm2 {
+	compatible = "nxp,lpc-i2c";
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_FAST>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-0 = <&pinmux_flexcomm2_i2c>;
+	pinctrl-names = "default";
+};
+
+&flexcomm3 {
+	compatible = "nxp,lpc-usart";
+	status = "okay";
+	current-speed = <115200>;
+	pinctrl-0 = <&pinmux_flexcomm3_usart>;
+	pinctrl-names = "default";
+};
+
+&hsgpio0 {
+	status = "okay";
+};
+
+&wwdt {
+	status = "okay";
+};
+
+&os_timer {
+	status = "okay";
+};
+
+zephyr_udc0: &usb_otg {
+	status = "okay";
+};
+
+&adc0 {
+	status = "okay";
+};
+
+&adc1 {
+	status = "okay";
+};
+
+&sc_timer {
+	status = "okay";
+	pinctrl-0 = <&pinmux_pwm0>;
+	pinctrl-names = "default";
+};

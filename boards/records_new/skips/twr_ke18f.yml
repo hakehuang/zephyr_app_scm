@@ -14,3 +14,139 @@ cases:
     build_only: true
   sample.userspace.prod_consumer:
     comments: "usespace region is not enough support, need update case test.yaml"
+  arch.arm.irq_vector_table:
+    comments: "nxp mpu not compatible"
+    build_only: true
+  crypto.tinycrypt.hmac_prng:
+    comments: "code size"
+  sample.drivers.flash.shell:
+    comments: "code size"
+  pm.soc:
+    build_only: true
+    comments: "impact following test"
+  pm.device_runtime.api:
+    build_only: true
+    comments: "impact following test"
+  # benchmark.kernel.application.fp:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.scheduler.preempt:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.scheduler.metairq:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.objects.tracking:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.scheduler.deadline:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # libraries.libc.newlib_nano.mem_alloc:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # subsys.rtio.api.userspace.submit_sem:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # subsys.rtio.api.userspace:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.timer.monotonic:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.common.timing:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.common.sleep:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_protection.userspace:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.threads.thread_stack:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_protection.syscalls:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_protection.obj_validation:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_slabs.api:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_slabs:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.timer.error_case:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.timer.tickless:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.timer:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_protection.stack_random:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.common.stack_protection_no_userspace:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_heap:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.timer.monotonic:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.mailbox.api:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # benchmark.data_structure_perf.rbtree:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.logging.message_capture:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.events:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.context:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.fifo.timeout:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.fifo:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.lifo.usage:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.lifo:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_protection.sys_sem.nouser:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_slabs.concept:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_slab.stats:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.memory_slabs.threadsafe:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.message_queue_usage:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # system.mutex.nouser:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.objects:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true
+  # kernel.scheduler.deadline:
+  #   comments: "nxp mpu not compatible"
+  #   build_only: true

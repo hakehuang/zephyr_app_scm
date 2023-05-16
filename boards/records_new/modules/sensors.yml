@@ -1,301 +1,41 @@
 ---
 cases:
-  sample.board.96b_argonkey.microphone:
-    path: samples/boards/96b_argonkey/microphone
-    catalog: sensors
-    platform_allow: 96b_argonkey
-    depends_on: i2s gpio
-  sample.board.96b_argonkey.sensors:
-    path: samples/boards/96b_argonkey/sensors
-    catalog: sensors
-    platform_allow: 96b_argonkey
-    depends_on: i2c spi gpio
-  sample.board.sensortile_box.sensors:
-    path: samples/boards/sensortile_box
-    catalog: sensors
-    platform_allow: sensortile_box
-    depends_on: i2c spi gpio
-  sample.sensor.adt7420:
-    path: samples/sensor/adt7420
-    catalog: sensors
-    platform_allow: frdm_k64f
-    depends_on: i2c
-  sample.sensor.adxl362:
-    path: samples/sensor/adxl362
-    catalog: sensors
-    depends_on: spi
-    platform_allow: nrf52dk_nrf52832
-  sample.sensor.adxl372:
-    path: samples/sensor/adxl372
-    catalog: sensors
-    depends_on: spi
-    platform_allow: nrf52dk_nrf52832
-  sample.sensor.adxl372.i2c:
-    path: samples/sensor/adxl372
-    catalog: sensors
-    extra_args: CONF_FILE=prj_i2c.conf
-    depends_on: i2c
-    platform_allow: frdm_k64f
-  sample.sensor.amg88xx:
-    path: samples/sensor/amg88xx
-    catalog: sensors
-    extra_configs:
-    - CONFIG_AMG88XX_TRIGGER_GLOBAL_THREAD=y
-    extra_args: SHIELD=amg88xx_eval_kit
+  sensors.build.sensorhub:
+    path: tests/drivers/build_all/sensor
+    catalog: &1
+    - drivers
+    - sensors
+    extra_args: OVERLAY_CONFIG=sensors_shub.conf
+    platform_allow: native_posix
     build_only: true
-    depends_on: arduino_i2c arduino_gpio
-    platform_exclude: pan1781_evb pan1782_evb
-  sample.sensor.apds9960:
-    path: samples/sensor/apds9960
-    catalog: sensors
-    platform_allow: reel_board
-    depends_on: i2c gpio
-  sample.sensor.apds9960.trigger:
-    path: samples/sensor/apds9960
-    catalog: sensors
-    extra_configs:
-    - CONFIG_APDS9960_TRIGGER_GLOBAL_THREAD=y
-    platform_allow: reel_board
-    depends_on: i2c gpio
-  sample.sensor.bme280:
-    path: samples/sensor/bme280
-    catalog: sensors
-    platform_allow: adafruit_feather_m0_basic_proto
-  sample.sensor.bme280.spi:
-    path: samples/sensor/bme280
-    catalog: sensors
-    extra_args: DTC_OVERLAY_FILE=arduino_spi.overlay
-    depends_on: spi bme280
-  sample.sensor.bmg160:
-    path: samples/sensor/bmg160
-    catalog: sensors
-    depends_on: i2c gpio
-    filter: dt_compat_enabled("bosch,bmg160")
-  sample.sensor.bq274xx:
-    path: samples/sensor/bq274xx
-    catalog: sensors
-    platform_allow: nrf9160_innblue22
-    depends_on: i2c
-  sample.sensor.ccs811:
-    path: samples/sensor/ccs811
-    catalog: sensors
-    platform_allow: thingy52_nrf52832 efr32mg_sltb004a
-    depends_on: i2c
-  sample.sensor.dht:
-    path: samples/sensor/dht
-    catalog: sensors
+  sensors.build.trigger.own:
+    path: tests/drivers/build_all/sensor
+    catalog: *1
+    extra_args: OVERLAY_CONFIG=sensors_trigger_own.conf
+    platform_allow: native_posix
     build_only: true
-    platform_allow: nrf52dk_nrf52832
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  sample.sensor.dps310:
-    path: samples/sensor/dps310
-    catalog: sensors
-    depends_on: i2c arduino_i2c
-  sample.sensor.ds18b20.w1_serial:
-    path: samples/sensor/ds18b20
-    catalog: sensors
-    platform_allow: nucleo_g0b1re nrf52840dk_nrf52840
-  sample.sensor.ds18b20.w1_arduino_serial:
-    path: samples/sensor/ds18b20
-    catalog: sensors
-    extra_args: DTC_OVERLAY_FILE=arduino_serial.overlay
-    platform_allow: nucleo_g071rb
-    depends_on: arduino_serial
-  sample.sensor.fdc2x1x:
-    path: samples/sensor/fdc2x1x
-    catalog: sensors
-    platform_allow: nrf9160dk_nrf9160
-  sample.sensor.fxas21002:
-    path: samples/sensor/fxas21002
-    catalog: sensors
-    platform_allow: hexiwear_k64 warp7_m4
-  sample.sensor.fxos8700.hybrid:
-    path: samples/sensor/fxos8700
-    catalog: sensors
-    extra_configs:
-    - CONFIG_FXOS8700_PULSE=y
-    - CONFIG_FXOS8700_PULSE_INT1=y
-    - CONFIG_FXOS8700_MOTION=y
-    - CONFIG_FXOS8700_MOTION_INT1=y
-    - CONFIG_FXOS8700_MAG_VECM=y
-    platform_allow: frdm_k64f hexiwear_k64 warp7_m4 frdm_kw41z rv32m1_vega_ri5cy twr_ke18f
-      lpcxpresso55s16 mimxrt685_evk_cm33 frdm_k22f mimxrt1024_evk mimxrt595_evk_cm33
-    depends_on: i2c gpio
-  sample.sensor.fxos8700.accel:
-    path: samples/sensor/fxos8700
-    catalog: sensors
-    extra_args: CONF_FILE=prj_accel.conf
-    platform_allow: frdm_kl25z bbc_microbit lpcxpresso55s69_cpu0 reel_board mimxrt685_evk_cm33
-      mimxrt595_evk_cm33
-    depends_on: i2c gpio
-  sample.sensor.hts221:
-    path: samples/sensor/hts221
-    catalog: sensors
-    depends_on: i2c hts221
-  sample.sensor.i3g4250d:
-    path: samples/sensor/i3g4250d
-    catalog: sensors
-    platform_allow: stm32f3_disco@E
-  sample.sensor.icm42605:
-    path: samples/sensor/icm42605
-    catalog: sensors
+  sensors.build.trigger.global:
+    path: tests/drivers/build_all/sensor
+    catalog: *1
+    extra_args: OVERLAY_CONFIG=sensors_trigger_global.conf
+    platform_allow: native_posix
     build_only: true
-    platform_allow: nrf52dk_nrf52832
-  sample.drivers.ina219:
-    path: samples/sensor/ina219
-    catalog: sensors
+  sensors.build.trigger.none:
+    path: tests/drivers/build_all/sensor
+    catalog: *1
+    extra_args: OVERLAY_CONFIG=sensors_trigger_none.conf
+    platform_allow: native_posix
     build_only: true
-    platform_allow: blackpill_f411ce
-  sample.sensor.isl29035:
-    path: samples/sensor/isl29035
-    catalog: sensors
-    depends_on: i2c
-    platform_allow: nrf52dk_nrf52832
-  sample.sensor.lps22hb:
-    path: samples/sensor/lps22hb
-    catalog: sensors
-    depends_on: i2c lps22hb
-  sample.sensor.lps22hh:
-    path: samples/sensor/lps22hh
-    catalog: sensors
-    depends_on: i2c
-    filter: dt_compat_enabled("st,lps22hh")
-  sample.sensor.lsm6dsl:
-    path: samples/sensor/lsm6dsl
-    catalog: sensors
-    depends_on: lsm6dsl
-  sample.sensor.lsm6dso:
-    path: samples/sensor/lsm6dso
-    catalog: sensors
-    filter: dt_compat_enabled("st,lsm6dso")
-  sample.sensor.magn_polling:
-    path: samples/sensor/magn_polling
-    catalog: sensors
-    filter: dt_alias_exists("magn0")
-  sample.sensor.max17262:
-    path: samples/sensor/max17262
-    catalog: sensors
-    build_only: true
-    depends_on: arduino_i2c
-    platform_allow: nrf52840dk_nrf52840
-  sample.sensor.max30101:
-    path: samples/sensor/max30101
-    catalog: sensors
-    platform_allow: hexiwear_k64
-    depends_on: i2c
-  sample.sensor.max44009:
-    path: samples/sensor/max44009
-    catalog: sensors
-    depends_on: i2c
-    filter: dt_compat_enabled("maxim,max44009")
-  sample.sensor.max6675:
-    path: samples/sensor/max6675
-    catalog: sensors
-    depends_on: spi
-    filter: dt_compat_enabled("maxim,max6675")
-  sample.sensor.mcp9808:
-    path: samples/sensor/mcp9808
-    catalog: sensors
-    depends_on: i2c
-    filter: dt_compat_enabled("microchip,mcp9808")
-    platform_allow: nucleo_l053r8
-  sample.sensor.mhz19b:
-    path: samples/sensor/mhz19b
-    catalog: sensors
-    build_only: true
-    depends_on: serial
-    filter: dt_compat_enabled("winsen,mhz19b")
-  sample.sensor.mpr:
-    path: samples/sensor/mpr
-    catalog: sensors
-    platform_allow: arduino_due
-  sample.sensor.mpu6050:
-    path: samples/sensor/mpu6050
-    catalog: sensors
-    build_only: true
-    platform_allow: nrf52dk_nrf52832
-  sample.sensor.ms5837:
-    path: samples/sensor/ms5837
-    catalog: sensors
-    build_only: true
-    platform_allow: nrf52840dk_nrf52840
-  sample.sensor.sgp40_sht4x:
-    path: samples/sensor/sgp40_sht4x
-    catalog: sensors
-    build_only: true
-    platform_allow: blackpill_f411ce
-  sample.sensor.sht3xd:
-    path: samples/sensor/sht3xd
-    catalog: sensors
-    build_only: true
-    platform_allow: efr32mg_sltb004a frdm_k64f nrf51_ble400 nrf52840dk_nrf52840 nucleo_l476rg
-  sample.sensor.sht3xd.trigger:
-    path: samples/sensor/sht3xd
-    catalog: sensors
-    extra_args: CONF_FILE="trigger.conf"
-    build_only: true
-    platform_allow: efr32mg_sltb004a frdm_k64f nrf51_ble400 nrf52840dk_nrf52840 nucleo_l476rg
-  sample.sensor.stm32_temp_sensor:
-    path: samples/sensor/stm32_temp_sensor
-    catalog: sensors
-    depends_on: adc
-    build_only: true
-    platform_allow: nucleo_f401re stm32f103_mini stm32l562e_dk
-  sample.sensor.stm32_vbat_sensor:
-    path: samples/sensor/stm32_vbat_sensor
-    catalog: sensors
-    depends_on: adc
-    platform_allow: nucleo_g071rb nucleo_wb55rg
-  sample.sensor.sx9500:
-    path: samples/sensor/sx9500
-    catalog: sensors
-    depends_on: i2c gpio
-    filter: dt_compat_enabled("semtech,sx9500")
-  sample.sensor.th02:
-    path: samples/sensor/th02
-    catalog: sensors
-    depends_on: i2c
-    filter: dt_compat_enabled("hoperf,th02") and dt_compat_enabled("seeed,grove-lcd-rgb")
-  sample.sensor.thermometer:
-    path: samples/sensor/thermometer
-    catalog: sensors
-  sample.sensor.ti_hdc:
-    path: samples/sensor/ti_hdc
-    catalog: sensors
-    platform_allow: reel_board nucleo_l496zg
-    depends_on: i2c
-  sample.sensor.tmp108:
-    path: samples/sensor/tmp108
-    catalog: sensors
-    depends_on: i2c gpio
-    filter: dt_compat_enabled("ti,tmp108")
-  sample.sensor.tmp112:
-    path: samples/sensor/tmp112
-    catalog: sensors
-    depends_on: i2c
-    filter: dt_compat_enabled("ti,tmp112")
-  sample.sensor.tmp116:
-    path: samples/sensor/tmp116
-    catalog: sensors
-    platform_allow: nucleo_f401re
-    depends_on: i2c
-  sample.sensor.vcnl4040:
-    path: samples/sensor/vcnl4040
-    catalog: sensors
-    platform_allow: adafruit_feather_stm32f405
-    filter: dt_compat_enabled("vishay,vcnl4040")
-  sample.sensor.vl53l0x:
-    path: samples/sensor/vl53l0x
-    catalog: sensors
-    build_only: true
-    depends_on: i2c vl53l0x
-  sample.sensor.wsen-itds:
-    path: samples/sensor/wsen_itds
-    catalog: sensors
-    depends_on: i2c gpio
-    filter: dt_compat_enabled("we,wsen-itds")
   sensors.build:
     path: tests/drivers/build_all/sensor
     catalog: sensors
+    platform_allow: native_posix
+    build_only: true
+  sensors.build.pm:
+    path: tests/drivers/build_all/sensor
+    catalog: *1
+    extra_configs:
+    - CONFIG_PM=y
+    - CONFIG_PM_DEVICE=y
     platform_allow: native_posix
     build_only: true

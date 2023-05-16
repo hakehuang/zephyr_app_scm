@@ -1,0 +1,25 @@
+---
+cases:
+  cmake.overlays.var_expansions.CONF_FILE:
+    path: tests/cmake/overlays/var_expansions
+    catalog: cmake
+    build_only: true
+    platform_allow: native_posix
+  cmake.overlays.var_expansions.OVERLAY_CONFIG:
+    path: tests/cmake/overlays/var_expansions
+    catalog: cmake
+    build_only: true
+    platform_allow: native_posix
+  cmake.overlays.var_expansions.DTC_OVERLAY_FILE:
+    path: tests/cmake/overlays/var_expansions
+    catalog: cmake
+    build_only: true
+    platform_allow: native_posix
+  cmake.snippets:
+    path: tests/cmake/snippets
+    catalog: snippets
+    platform_allow:
+    - native_posix
+    - qemu_x86
+    - qemu_x86_64
+    - qemu_cortex_m3

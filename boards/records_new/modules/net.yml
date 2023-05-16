@@ -1,58 +1,595 @@
 ---
 cases:
-  sample.net.eth_native_posix:
-    path: samples/net/eth_native_posix
-    catalog: net
-    platform_allow: native_posix native_posix_64
-  sample.net.sockets.echo_server.e1000:
-    path: samples/net/sockets/echo_server
-    catalog: net
-    extra_args: OVERLAY_CONFIG="overlay-e1000.conf"
-    platform_allow: qemu_x86
-    depends_on: netif
-    min_flash: 140
-  sample.net.sockets.echo_server.stellaris:
-    path: samples/net/sockets/echo_server
-    catalog: net
-    extra_args: OVERLAY_CONFIG="overlay-qemu_cortex_m3_eth.conf"
-    platform_allow: qemu_cortex_m3
-    depends_on: netif
-    min_flash: 140
-  sample.net.sockets.echo_server.smsc911x:
-    path: samples/net/sockets/echo_server
-    catalog: net
-    extra_args: OVERLAY_CONFIG="overlay-smsc911x.conf"
-    platform_allow: mps2_an385
-    depends_on: netif
-    min_flash: 140
-  sample.net.sockets.sntp_client:
-    path: samples/net/sockets/sntp_client
-    catalog: net
-    extra_configs:
-    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
-    platform_allow: qemu_x86
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  sample.net.sockets.sntp_client.posix:
-    path: samples/net/sockets/sntp_client
-    catalog: net
-    extra_configs:
-    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
-    - CONFIG_POSIX_API=y
-    platform_allow: qemu_x86
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  sample.net.hawkbit:
-    path: samples/subsys/mgmt/hawkbit
-    catalog: net
-    depends_on: netif
+  net.ethernet.build:
+    path: tests/drivers/build_all/ethernet
+    catalog:
+    - drivers
+    - ethernet
+    min_flash: 42
+    min_ram: 32
+    platform_exclude:
+    - frdm_kw41z
+    - mimxrt1020_evk
+    - mimxrt1024_evk
+    - mimxrt1050_evk
+    - mimxrt1060_evk
+    - mimxrt1064_evk
+    depends_on:
+    - spi
+    - netif
     build_only: true
-    platform_allow: frdm_k64f
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.eth_ivshmem_queue:
+    path: tests/drivers/ethernet/eth_ivshmem_queue
+    catalog: unknown
+    platform_allow: qemu_cortex_a53
+  net.6lo:
+    path: tests/net/6lo
+    catalog: &1
+    - net
+    - 6loWPAN
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    min_ram: 32
+    depends_on: netif
+  net.6lo.preempt:
+    path: tests/net/6lo
+    catalog: *1
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    min_ram: 32
+    depends_on: netif
+  net.6lo.variable_buf_size:
+    path: tests/net/6lo
+    catalog: *1
+    extra_configs:
+    - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
+    min_ram: 32
+    depends_on: netif
+  net.build:
+    path: tests/net/all
+    catalog: &2
+    - net
+    - net-all
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    platform_allow: qemu_x86
+    build_only: true
+    min_ram: 32
+  net.build.preempt:
+    path: tests/net/all
+    catalog: *2
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    platform_allow: qemu_x86
+    build_only: true
+    min_ram: 32
+  net.arp:
+    path: tests/net/arp
+    catalog: &3
+    - net
+    - arp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.arp.preempt:
+    path: tests/net/arp
+    catalog: *3
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.eth_bridge:
+    path: tests/net/bridge
+    catalog: &4
+    - net
+    - bridge
+    extra_configs:
+    - CONFIG_NET_IPV4=n
+    - CONFIG_NET_IPV6=n
+    platform_exclude:
+    - mg100
+    - pinnacle_100_dvk
+    min_ram: 16
+    depends_on: netif
+  net.eth_bridge.ip:
+    path: tests/net/bridge
+    catalog: *4
+    extra_configs:
+    - CONFIG_NET_IPV4=y
+    - CONFIG_NET_IPV6=y
+    min_ram: 16
+    depends_on: netif
+  net.buf:
+    path: tests/net/buf
+    catalog:
+    - net
+    - buf
+    min_ram: 16
+  net.buf_simple:
+    path: tests/net/buf_simple
+    catalog:
+    - net
+    - buf
+    type: unit
+  net.offload:
+    path: tests/net/checksum_offload
+    catalog:
+    - net
+    - checksum_offload
+    min_ram: 16
+    depends_on: netif
+  net.conn_mgr_nodad:
+    path: tests/net/conn_mgr
+    catalog: net iface
+    extra_configs:
+    - CONFIG_NET_IPV6_DAD=n
+    min_ram: 16
+    depends_on: netif
+  net.conn_mgr_dad:
+    path: tests/net/conn_mgr
+    catalog: net iface
+    extra_configs:
+    - CONFIG_NET_IPV6_DAD=y
+    min_ram: 16
+    depends_on: netif
+  net.conn_mgr_conn:
+    path: tests/net/conn_mgr_conn
+    catalog:
+    - net
+    - iface
+    min_ram: 16
+    depends_on: netif
+  net.context:
+    path: tests/net/context
+    catalog:
+    - net
+    - net_context
+    extra_configs:
+    - CONFIG_ASSERT_LEVEL=0
+    min_ram: 16
+    depends_on: netif
+  net.dhcp:
+    path: tests/net/dhcpv4
+    catalog: &5
+    - net
+    - dhcpv4
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+  net.dhcp.preempt:
+    path: tests/net/dhcpv4
+    catalog: *5
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+  net.ethernet_mgmt:
+    path: tests/net/ethernet_mgmt
+    catalog:
+    - net
+    - ethernet_mgmt
+    min_ram: 32
+    depends_on: netif
+  net.hostname:
+    path: tests/net/hostname
+    catalog: &6
+    - net
+    - hostname
+    extra_configs:
+    - CONFIG_NET_HOSTNAME_UNIQUE=n
+    min_ram: 16
+    depends_on: netif
+  net.hostname.unique:
+    path: tests/net/hostname
+    catalog: *6
+    extra_configs:
+    - CONFIG_NET_HOSTNAME_UNIQUE=y
+    min_ram: 16
+    depends_on: netif
+  net.icmpv4:
+    path: tests/net/icmpv4
+    catalog:
+    - net
+    - icmpv4
+    min_ram: 16
+    depends_on: netif
+  net.icmpv6:
+    path: tests/net/icmpv6
+    catalog:
+    - net
+    - icmpv6
+    min_ram: 16
+    depends_on: netif
+  net.ieee802154.fragment:
+    path: tests/net/ieee802154/6lo_fragment
+    catalog:
+    - net
+    - ieee802154
+    - fragment
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    min_ram: 48
+  net.ieee802154.custom_l2:
+    path: tests/net/ieee802154/custom_l2
+    catalog:
+    - net
+    - ieee802154
+    - l2
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    min_ram: 16
+  net.ieee802154.l2:
+    path: tests/net/ieee802154/l2
+    catalog:
+    - net
+    - ieee802154
+    - l2
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    min_ram: 16
+  net.iface:
+    path: tests/net/iface
+    catalog:
+    - net
+    - iface
+    - userspace
+    min_ram: 16
+    depends_on: netif
+  net.igmp:
+    path: tests/net/igmp
+    catalog: &7
+    - net
+    - igmp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    platform_allow: qemu_x86
+  net.igmp.preempt:
+    path: tests/net/igmp
+    catalog: *7
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    platform_allow: qemu_x86
+  net.ip-addr:
+    path: tests/net/ip-addr
+    catalog:
+    - net
+    - ip-addr
+    min_ram: 16
+    depends_on: netif
+  net.ipv4.fragment:
+    path: tests/net/ipv4_fragment
+    catalog:
+    - net
+    - ipv4
+    - fragment
+    depends_on: netif
+  net.ipv6:
+    path: tests/net/ipv6
+    catalog: &8
+    - net
+    - ipv6
+    extra_configs:
+    - CONFIG_NET_BUF_FIXED_DATA_SIZE=y
+    depends_on: netif
+  net.ipv6.variable_buf_size:
+    path: tests/net/ipv6
+    catalog: *8
+    extra_configs:
+    - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
+    depends_on: netif
+  net.ipv6.fragment:
+    path: tests/net/ipv6_fragment
+    catalog:
+    - net
+    - ipv6
+    - fragment
+    depends_on: netif
   net.coap.simple:
     path: tests/net/lib/coap
     catalog: net
     min_ram: 16
     depends_on: netif
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.dns.addremove:
+    path: tests/net/lib/dns_addremove
+    catalog: &9
+    - dns
+    - net
+    min_ram: 21
+    depends_on: netif
+  net.dns.addremove.no_ipv6:
+    path: tests/net/lib/dns_addremove
+    catalog: *9
+    extra_configs:
+    - CONFIG_NET_IPV6=n
+    depends_on: netif
+    min_ram: 16
+  net.dns.no_ipv4:
+    path: tests/net/lib/dns_addremove
+    catalog: *9
+    extra_configs:
+    - CONFIG_NET_IPV4=n
+    depends_on: netif
+    min_ram: 16
+  net.dns:
+    path: tests/net/lib/dns_packet
+    catalog:
+    - dns
+    - net
+    min_ram: 16
+    depends_on: netif
+  net.dns.resolve:
+    path: tests/net/lib/dns_resolve
+    catalog: &10
+    - dns
+    - net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.dns.resolve.preempt:
+    path: tests/net/lib/dns_resolve
+    catalog: *10
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.dns.resolve.no_ipv6:
+    path: tests/net/lib/dns_resolve
+    catalog: *10
+    extra_args: CONF_FILE=prj-no-ipv6.conf
+    min_ram: 21
+    depends_on: netif
+  net.dns.sd:
+    path: tests/net/lib/dns_sd
+    catalog: &11
+    - dns
+    - net
+    min_ram: 21
+    depends_on: netif
+  net.dns.sd.no_ipv6:
+    path: tests/net/lib/dns_sd
+    catalog: *11
+    extra_args: CONF_FILE=prj-no-ipv6.conf
+    min_ram: 16
+    depends_on: netif
+  net.http:
+    path: tests/net/lib/http_header_fields
+    catalog:
+    - http
+    - net
+    min_ram: 16
+    depends_on: netif
+  net.http.server.common:
+    path: tests/net/lib/http_server/common
+    catalog:
+    - net
+    - http
+    - server
+    min_ram: 16
+  net.lwm2m.block_transfer:
+    path: tests/net/lib/lwm2m/block_transfer
+    catalog: lwm2m net
+    depends_on: netif
+  net.lwm2m.content_json:
+    path: tests/net/lib/lwm2m/content_json
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+  net.lwm2m.content_link_format:
+    path: tests/net/lib/lwm2m/content_link_format
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+  net.lwm2m.content_oma_tlv:
+    path: tests/net/lib/lwm2m/content_oma_tlv
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+  net.lwm2m.content_plain_text:
+    path: tests/net/lib/lwm2m/content_plain_text
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+  net.lwm2m.content_raw_cbor:
+    path: tests/net/lib/lwm2m/content_raw_cbor
+    catalog:
+    - lwm2m
+    - net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.content_senml_cbor:
+    path: tests/net/lib/lwm2m/content_senml_cbor
+    catalog:
+    - lwm2m
+    - net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.engine:
+    path: tests/net/lib/lwm2m/engine
+    catalog:
+    - lwm2m
+    - net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.lwm2m_engine:
+    path: tests/net/lib/lwm2m/lwm2m_engine
+    catalog:
+    - lwm2m
+    - net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.lwm2m_rd_client:
+    path: tests/net/lib/lwm2m/lwm2m_rd_client
+    catalog: &12
+    - net
+    - lwm2m
+    extra_args: EXTRA_CFLAGS=""
+    depends_on: netif
+    platform_allow: &13
+    - native_posix
+    - qemu_x86
+    - qemu_x86_64
+  net.lwm2m.lwm2m_rd_client_dtls:
+    path: tests/net/lib/lwm2m/lwm2m_rd_client
+    catalog: *12
+    extra_args: EXTRA_CFLAGS=-DCONFIG_LWM2M_DTLS_SUPPORT
+    depends_on: netif
+    platform_allow: *13
+  net.lwm2m.lwm2m_registry:
+    path: tests/net/lib/lwm2m/lwm2m_registry
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+  net.mqtt.packet:
+    path: tests/net/lib/mqtt_packet
+    catalog:
+    - mqtt
+    - net
+    - userspace
+    min_ram: 16
+    depends_on: netif
+  net.mqtt:
+    path: tests/net/lib/mqtt_publisher
+    catalog: &14
+    - net
+    - mqtt
+    min_ram: 16
+    depends_on: netif
+  net.mqtt.tls:
+    path: tests/net/lib/mqtt_publisher
+    catalog: *14
+    extra_configs:
+    - CONFIG_NET_PKT_RX_COUNT=20
+    - CONFIG_NET_PKT_TX_COUNT=20
+    - CONFIG_NET_BUF_RX_COUNT=20
+    - CONFIG_NET_BUF_TX_COUNT=20
+    extra_args: CONF_FILE="prj_tls.conf"
+    min_ram: 16
+    depends_on: netif
+  net.mqtt.pubsub:
+    path: tests/net/lib/mqtt_pubsub
+    catalog: &15
+    - net
+    - mqtt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.mqtt.pubsub.preempt:
+    path: tests/net/lib/mqtt_pubsub
+    catalog: *15
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.mqtt_sn.client:
+    path: tests/net/lib/mqtt_sn_client
+    catalog:
+    - mqtt_sn
+    - net
+    min_ram: 16
+    depends_on: netif
+  net.mqtt_sn.packet:
+    path: tests/net/lib/mqtt_sn_packet
+    catalog:
+    - mqtt_sn
+    - net
+    min_ram: 16
+  net.mqtt.subscriber:
+    path: tests/net/lib/mqtt_subscriber
+    catalog: &16
+    - net
+    - mqtt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.mqtt.subscriber.preempt:
+    path: tests/net/lib/mqtt_subscriber
+    catalog: *16
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.tls_credentials:
+    path: tests/net/lib/tls_credentials
+    catalog:
+    - net
+    - tls
+    depends_on: netif
+  net.tls_credentials.trusted_tfm:
+    path: tests/net/lib/tls_credentials
+    catalog:
+    - net
+    - tls
+    - trusted
+    extra_args: OVERLAY_CONFIG=./prj_trusted_tfm.conf
+    filter: CONFIG_BUILD_WITH_TFM
+    depends_on: netif
+  net.management:
+    path: tests/net/mgmt
+    catalog: &17
+    - net
+    - mgmt
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.management.preempt:
+    path: tests/net/mgmt
+    catalog: *17
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.mld:
+    path: tests/net/mld
+    catalog: &18
+    - net
+    - mld
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+  net.mld.preempt:
+    path: tests/net/mld
+    catalog: *18
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+  net.neighbour:
+    path: tests/net/neighbor
+    catalog: &19
+    - net
+    - neighbour
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16
+  net.neighbor.preempt:
+    path: tests/net/neighbor
+    catalog: *19
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 16
   net.packet:
     path: tests/net/net_pkt
     catalog: net
@@ -75,10 +612,797 @@ cases:
     - CONFIG_NET_BUF_DATA_SIZE=512
     depends_on: netif
     min_ram: 20
+  net.pkt_filter:
+    path: tests/net/npf
+    catalog:
+    - net
+    - npf
+    min_ram: 16
+    depends_on: netif
+  net.offloaded_netdev:
+    path: tests/net/offloaded_netdev
+    catalog:
+    - net
+    - iface
+    - userspace
+    min_ram: 16
+    depends_on: netif
   net.pm:
     path: tests/net/pm
     catalog: net
-    platform_allow: qemu_x86 qemu_leon3 qemu_riscv32 qemu_riscv64
+    platform_allow:
+    - qemu_x86
+    - qemu_leon3
+    - qemu_riscv32
+    - qemu_riscv64
+    depends_on: netif
+  net.ppp:
+    path: tests/net/ppp/driver
+    catalog:
+    - net
+    - ppp
+    min_ram: 21
+    depends_on: serial-net
+  net.promisc:
+    path: tests/net/promiscuous
+    catalog:
+    - net
+    - promisc
+    min_ram: 16
+    depends_on: netif
+  net.ptp.clock:
+    path: tests/net/ptp/clock
+    catalog:
+    - net
+    - ptp
+    - gptp
+    - userspace
+    min_ram: 32
+    depends_on: netif
+    platform_allow:
+    - frdm_k64f
+    - sam_e70_xplained
+    - native_posix
+  net.route:
+    path: tests/net/route
+    catalog:
+    - net
+    - route
+    min_ram: 16
+    depends_on: netif
+  net.route_mcast:
+    path: tests/net/route_mcast
+    catalog:
+    - net
+    - route_mcast
+    min_ram: 21
+    depends_on: netif
+  net.shell:
+    path: tests/net/shell
+    catalog:
+    - net
+    - net-shell
+    min_ram: 20
+    depends_on: netif
+  net.socket.af_packet:
+    path: tests/net/socket/af_packet
+    catalog:
+    - net
+    - socket
+    - af_packet
+    min_ram: 21
+    depends_on: netif
+    platform_exclude:
+    - native_posix
+    - native_posix_64
+  net.socket.af_packet.ipproto_raw:
+    path: tests/net/socket/af_packet_ipproto_raw
+    catalog:
+    - net
+    - socket
+    - af_packet
+    min_ram: 21
+    depends_on: netif
+    platform_exclude:
+    - native_posix
+    - native_posix_64
+  net.socket.can:
+    path: tests/net/socket/can
+    catalog:
+    - net
+    - can
+  net.socket.get_addr_info:
+    path: tests/net/socket/getaddrinfo
+    catalog:
+    - net
+    - socket
+    - getaddrinfo
+    - userspace
+    min_ram: 21
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.get_name_info:
+    path: tests/net/socket/getnameinfo
+    catalog:
+    - net
+    - socket
+    - userspace
+    min_ram: 21
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.misc:
+    path: tests/net/socket/misc
+    catalog: &20
+    - net
+    - socket
+    - userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 21
+  net.socket.misc.userspace:
+    path: tests/net/socket/misc
+    catalog: *20
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 21
+  net.socket.mgmt:
+    path: tests/net/socket/net_mgmt
+    catalog: &21
+    - net
+    - socket
+    - net_mgmt
+    - userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.socket.mgmt.preempt:
+    path: tests/net/socket/net_mgmt
+    catalog: *21
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.socket.offload.dispatcher:
+    path: tests/net/socket/offload_dispatcher
+    catalog:
+    - net
+    - socket
+    depends_on: netif
+    min_flash: 240
+  net.socket.poll:
+    path: tests/net/socket/poll
+    catalog:
+    - net
+    - socket
+    - poll
+    min_ram: 21
+    depends_on: netif
+    platform_exclude: mps2_an385
+  net.socket.register:
+    path: tests/net/socket/register
+    catalog: &22
+    - net
+    - socket
+    - socket.register
+    extra_configs:
+    - CONFIG_NET_SOCKETS_SOCKOPT_TLS=n
+    depends_on: netif
+  net.socket.register.tls:
+    path: tests/net/socket/register
+    catalog: *22
+    extra_configs:
+    - CONFIG_MBEDTLS=y
+    - CONFIG_MBEDTLS_BUILTIN=y
+    - CONFIG_MBEDTLS_ENABLE_HEAP=y
+    - CONFIG_MBEDTLS_HEAP_SIZE=60000
+    - CONFIG_MBEDTLS_SSL_MAX_CONTENT_LEN=2048
+    - CONFIG_NET_SOCKETS_SOCKOPT_TLS=y
+    - CONFIG_NET_SOCKETS_TLS_MAX_CONTEXTS=6
+    - CONFIG_NET_SOCKETS_ENABLE_DTLS=y
+    - CONFIG_NET_SOCKETS_DTLS_TIMEOUT=30000
+    - CONFIG_MAIN_STACK_SIZE=2048
+    depends_on: netif
+  net.socket.select:
+    path: tests/net/socket/select
+    catalog: &23
+    - net
+    - socket
+    - userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: mps2_an385
+  net.socket.select.preempt:
+    path: tests/net/socket/select
+    catalog: *23
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: mps2_an385
+  net.socket.socketpair:
+    path: tests/net/socket/socketpair
+    catalog: &24
+    - net
+    - socket
+    - userspace
+    depends_on: netif
+    min_ram: 21
+  net.socket.socketpair.newlib:
+    path: tests/net/socket/socketpair
+    catalog: *24
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+    min_ram: 21
+  net.socket.socketpair.picolibc:
+    path: tests/net/socket/socketpair
+    catalog: *24
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    depends_on: netif
+    min_ram: 21
+  net.socket.tcp:
+    path: tests/net/socket/tcp
+    catalog: &25
+    - net
+    - socket
+    - userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: mps2_an385
+  net.socket.tcp.preempt:
+    path: tests/net/socket/tcp
+    catalog: *25
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    - CONFIG_NET_TCP_RANDOMIZED_RTO=n
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: mps2_an385
+  net.socket.tls:
+    path: tests/net/socket/tls
+    catalog: &26
+    - net
+    - socket
+    - tls
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 32
+    min_flash: 260
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tls.preempt:
+    path: tests/net/socket/tls
+    catalog: *26
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    platform_exclude: mps2_an385
+    depends_on: netif
+    min_ram: 32
+    min_flash: 260
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tls.ext:
+    path: tests/net/socket/tls_ext
+    catalog:
+    - net
+    - socket
+    - tls
+    platform_allow: qemu_x86
+  net.socket.udp:
+    path: tests/net/socket/udp
+    catalog: &27
+    - net
+    - socket
+    - udp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.udp.preempt:
+    path: tests/net/socket/udp
+    catalog: *27
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.udp.ipv6_fragment:
+    path: tests/net/socket/udp
+    catalog: *27
+    extra_configs:
+    - CONFIG_NET_IPV6_FRAGMENT=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.websocket:
+    path: tests/net/socket/websocket
+    catalog:
+    - net
+    - websocket
+    min_ram: 21
+    depends_on: netif
+  net.tcp.simple:
+    path: tests/net/tcp
+    catalog: &28
+    - net
+    - tcp
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=1000
+    depends_on: netif
+  net.tcp.no_recv_queue:
+    path: tests/net/tcp
+    catalog: *28
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=0
+    depends_on: netif
+  net.tcp.variable_buf_size:
+    path: tests/net/tcp
+    catalog: *28
+    extra_configs:
+    - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
+    depends_on: netif
+  net.traffic_class.1:
+    path: tests/net/traffic_class
+    catalog: &29
+    - net
+    - traffic_class
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=1
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: &30
+    - native_posix
+    - native_posix_64
+  net.traffic_class.2:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=2
+    - CONFIG_NET_TC_RX_COUNT=2
+    platform_allow: *30
+  net.traffic_class.3:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=3
+    - CONFIG_NET_TC_RX_COUNT=3
+    platform_allow: *30
+  net.traffic_class.4:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=4
+    - CONFIG_NET_TC_RX_COUNT=4
+    platform_allow: *30
+  net.traffic_class.5:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=5
+    - CONFIG_NET_TC_RX_COUNT=5
+    platform_allow: *30
+  net.traffic_class.6:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=6
+    - CONFIG_NET_TC_RX_COUNT=6
+    platform_allow: *30
+  net.traffic_class.7:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=7
+    - CONFIG_NET_TC_RX_COUNT=7
+    platform_allow: *30
+  net.traffic_class.8:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=8
+    - CONFIG_NET_TC_RX_COUNT=8
+    platform_allow: *30
+  net.traffic_class.2_no_rx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=2
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.3_no_rx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=3
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.4_no_rx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=4
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.5_no_rx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=5
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.6_no_rx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=6
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.7_no_rx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=7
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.8_no_rx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_TX_COUNT=8
+    - CONFIG_NET_TC_RX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.2_no_tx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=2
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.3_no_tx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=3
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.4_no_tx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=4
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.5_no_tx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.6_no_tx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=6
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.7_no_tx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=7
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.8_no_tx:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=8
+    - CONFIG_NET_TC_TX_COUNT=1
+    platform_allow: *30
+  net.traffic_class.tx_2_rx_3:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=3
+    - CONFIG_NET_TC_TX_COUNT=2
+    platform_allow: *30
+  net.traffic_class.tx_3_rx_8:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=8
+    - CONFIG_NET_TC_TX_COUNT=3
+    platform_allow: *30
+  net.traffic_class.rx_4_tx_8:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=4
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: *30
+  net.traffic_class.rx_5_tx_7:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: *30
+  net.traffic_class.tx_6_rx_2:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=2
+    - CONFIG_NET_TC_TX_COUNT=6
+    platform_allow: *30
+  net.traffic_class.tx_7_rx_5:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: *30
+  net.traffic_class.tx_8_rx_7:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_RX_COUNT=7
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: *30
+  net.traffic_class.2_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=2
+    - CONFIG_NET_TC_RX_COUNT=2
+    platform_allow: *30
+  net.traffic_class.3_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=3
+    - CONFIG_NET_TC_RX_COUNT=3
+    platform_allow: *30
+  net.traffic_class.4_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=4
+    - CONFIG_NET_TC_RX_COUNT=4
+    platform_allow: *30
+  net.traffic_class.5_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=5
+    - CONFIG_NET_TC_RX_COUNT=5
+    platform_allow: *30
+  net.traffic_class.6_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=6
+    - CONFIG_NET_TC_RX_COUNT=6
+    platform_allow: *30
+  net.traffic_class.7_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=7
+    - CONFIG_NET_TC_RX_COUNT=7
+    platform_allow: *30
+  net.traffic_class.8_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_TX_COUNT=8
+    - CONFIG_NET_TC_RX_COUNT=8
+    platform_allow: *30
+  net.traffic_class.tx_2_rx_3_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=3
+    - CONFIG_NET_TC_TX_COUNT=2
+    platform_allow: *30
+  net.traffic_class.tx_3_rx_8_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=8
+    - CONFIG_NET_TC_TX_COUNT=3
+    platform_allow: *30
+  net.traffic_class.rx_4_tx_8_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=4
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: *30
+  net.traffic_class.rx_5_tx_7_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: *30
+  net.traffic_class.tx_6_rx_2_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=2
+    - CONFIG_NET_TC_TX_COUNT=6
+    platform_allow: *30
+  net.traffic_class.tx_7_rx_5_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: *30
+  net.traffic_class.tx_8_rx_7_sr_ab:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
+    - CONFIG_NET_TC_RX_COUNT=7
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: *30
+  net.traffic_class.2_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=2
+    - CONFIG_NET_TC_RX_COUNT=2
+    platform_allow: *30
+  net.traffic_class.3_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=3
+    - CONFIG_NET_TC_RX_COUNT=3
+    platform_allow: *30
+  net.traffic_class.4_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=4
+    - CONFIG_NET_TC_RX_COUNT=4
+    platform_allow: *30
+  net.traffic_class.5_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=5
+    - CONFIG_NET_TC_RX_COUNT=5
+    platform_allow: *30
+  net.traffic_class.6_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=6
+    - CONFIG_NET_TC_RX_COUNT=6
+    platform_allow: *30
+  net.traffic_class.7_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=7
+    - CONFIG_NET_TC_RX_COUNT=7
+    platform_allow: *30
+  net.traffic_class.8_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_TX_COUNT=8
+    - CONFIG_NET_TC_RX_COUNT=8
+    platform_allow: *30
+  net.traffic_class.tx_2_rx_3_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=3
+    - CONFIG_NET_TC_TX_COUNT=2
+    platform_allow: *30
+  net.traffic_class.tx_3_rx_8_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=8
+    - CONFIG_NET_TC_TX_COUNT=3
+    platform_allow: *30
+  net.traffic_class.rx_4_tx_8_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=4
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: *30
+  net.traffic_class.rx_5_tx_7_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: *30
+  net.traffic_class.tx_6_rx_2_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=2
+    - CONFIG_NET_TC_TX_COUNT=6
+    platform_allow: *30
+  net.traffic_class.tx_7_rx_5_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=5
+    - CONFIG_NET_TC_TX_COUNT=7
+    platform_allow: *30
+  net.traffic_class.tx_8_rx_7_sr_b:
+    path: tests/net/traffic_class
+    catalog: *29
+    extra_configs:
+    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
+    - CONFIG_NET_TC_RX_COUNT=7
+    - CONFIG_NET_TC_TX_COUNT=8
+    platform_allow: *30
+  net.trickle:
+    path: tests/net/trickle
+    catalog:
+    - net
+    - trickle
+    min_ram: 12
+    depends_on: netif
+  net.timestamp:
+    path: tests/net/tx_timestamp
+    catalog:
+    - net
+    - tx_timestamp
+    - gptp
+    min_ram: 16
     depends_on: netif
   net.udp:
     path: tests/net/udp
@@ -94,7 +1418,60 @@ cases:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
     min_ram: 20
-  utilities.net_timeout:
-    path: tests/unit/net_timeout
-    catalog: net
-    type: unit
+  net.util:
+    path: tests/net/utils
+    catalog:
+    - net
+    - userspace
+    min_ram: 24
+    depends_on: netif
+  net.virtual.tunnel.ipip:
+    path: tests/net/virtual
+    catalog: &31
+    - net
+    - tunnel
+    - virtual
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="192.0.2.2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="198.51.100.1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ipip"
+    depends_on: netif
+    min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+  net.virtual.tunnel.ip6ip:
+    path: tests/net/virtual
+    catalog: *31
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="192.0.2.2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip"
+    depends_on: netif
+    min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+  net.virtual.tunnel.ipip6:
+    path: tests/net/virtual
+    catalog: *31
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="198.51.100.1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ipip6"
+    depends_on: netif
+    min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+  net.virtual.tunnel.ip6ip6:
+    path: tests/net/virtual
+    catalog: *31
+    extra_configs:
+    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
+    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
+    - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip6"
+    depends_on: netif
+    min_ram: 32
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+  net.vlan:
+    path: tests/net/vlan
+    catalog:
+    - net
+    - vlan
+    min_ram: 32
+    depends_on: netif
