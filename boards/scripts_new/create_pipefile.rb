@@ -117,7 +117,11 @@ def create_pipefile_from_commandline(data, board_info: nil)
     next if @content["cases"][key]['result'] and @content["cases"][key]['result'].upcase == "ERROR"
     next if ! @content["cases"][key].has_key?('path')
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
-    catalog = @content["cases"][key]['catalog']
+    if @content["cases"][key]['catalog'].class == String
+      catalog = @content["cases"][key]['catalog'].gsub(" ", "_")
+    else
+      catalog = @content["cases"][key]['catalog'].join('_')
+    end
     pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]
     options_array = case_array
@@ -194,7 +198,11 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     next if ! @content["cases"][key].has_key?('path')
     next if board_info and ! ZEPHER_FILTER::case_validate(@content["cases"][key], board_info)
 
-    catalog = @content["cases"][key]['catalog'].gsub(' ', '_')
+    if @content["cases"][key]['catalog'].class == String
+      catalog = @content["cases"][key]['catalog'].gsub(" ", "_")
+    else
+      catalog = @content["cases"][key]['catalog'].join('_')
+    end
     pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]
     options_array = case_array

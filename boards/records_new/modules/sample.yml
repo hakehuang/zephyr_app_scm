@@ -227,7 +227,7 @@ cases:
     - qemu_x86
     - nrf5340dk_nrf5340_cpuapp
   sample.bluetooth.broadcast_audio_sink.bt_ll_sw_split:
-    path: samples/bluetooth/broadcast_audio_source
+    path: samples/bluetooth/broadcast_audio_sink
     catalog: bluetooth
     extra_args: OVERLAY_CONFIG=overlay-bt_ll_sw_split.conf
     platform_allow:
@@ -241,6 +241,14 @@ cases:
     - qemu_cortex_m3
     - qemu_x86
     - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.broadcast_audio_source.bt_ll_sw_split:
+    path: samples/bluetooth/broadcast_audio_source
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG=overlay-bt_ll_sw_split.conf
+    platform_allow:
+    - nrf52_bsim
+    - nrf52833dk_nrf52820
+    - nrf52833dk_nrf52833
   sample.bluetooth.broadcaster:
     path: samples/bluetooth/broadcaster
     catalog: bluetooth
@@ -703,6 +711,24 @@ cases:
     - qemu_x86
     - nrf52840dk_nrf52840
   sample.bluetooth.periodic_adv:
+    path: samples/bluetooth/periodic_adv
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
+  sample.bluetooth.periodic_adv_conn:
+    path: samples/bluetooth/periodic_adv_conn
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR=n
+    - CONFIG_BT_NO_DRIVER=y
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.periodic_adv_rsp:
     path: samples/bluetooth/periodic_adv_rsp
     catalog: bluetooth
     extra_configs:
@@ -713,6 +739,24 @@ cases:
     - qemu_x86
     - nrf52840dk_nrf52840
   sample.bluetooth.periodic_sync:
+    path: samples/bluetooth/periodic_sync
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
+  sample.bluetooth.periodic_sync_conn:
+    path: samples/bluetooth/periodic_sync_conn
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR=n
+    - CONFIG_BT_NO_DRIVER=y
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.periodic_sync_rsp:
     path: samples/bluetooth/periodic_sync_rsp
     catalog: bluetooth
     extra_configs:
@@ -941,6 +985,10 @@ cases:
     depends_on:
     - spi
     - gpio
+  sample.boards.mec172xevb_assy6906.rom_api:
+    path: samples/boards/mec172xevb_assy6906/rom_api
+    catalog: crypto
+    platform_allow: mec172xevb_assy6906
   sample.boards.mimxrt1060_evk.system_off:
     path: samples/boards/mimxrt1060_evk/system_off
     catalog: power
@@ -1965,8 +2013,8 @@ cases:
     catalog: NPU
     filter: dt_compat_enabled("arm,ethos-u")
     build_only: true
-  sample.thrift.hello.server.binaryProtocol:
-    path: samples/modules/thrift/hello/server
+  sample.thrift.hello.client.binaryProtocol:
+    path: samples/modules/thrift/hello/client
     catalog: &4
     - thrift
     - cpp
@@ -1976,20 +2024,46 @@ cases:
     - mps2_an385
     - qemu_x86_64
     filter: CONFIG_FULL_LIBCPP_SUPPORTED
-  sample.thrift.hello.server.compactProtocol:
-    path: samples/modules/thrift/hello/server
+  sample.thrift.hello.client.compactProtocol:
+    path: samples/modules/thrift/hello/client
     catalog: *4
     extra_configs:
     - CONFIG_THRIFT_COMPACT_PROTOCOL=y
     build_only: true
     platform_allow: *5
     filter: CONFIG_FULL_LIBCPP_SUPPORTED
-  sample.thrift.hello.server.tlsTransport:
-    path: samples/modules/thrift/hello/server
+  sample.thrift.hello.client.tlsTransport:
+    path: samples/modules/thrift/hello/client
     catalog: *4
     extra_args: OVERLAY_CONFIG="../overlay-tls.conf"
     build_only: true
     platform_allow: *5
+    filter: CONFIG_FULL_LIBCPP_SUPPORTED
+  sample.thrift.hello.server.binaryProtocol:
+    path: samples/modules/thrift/hello/server
+    catalog: &6
+    - thrift
+    - cpp
+    - sample
+    build_only: true
+    platform_allow: &7
+    - mps2_an385
+    - qemu_x86_64
+    filter: CONFIG_FULL_LIBCPP_SUPPORTED
+  sample.thrift.hello.server.compactProtocol:
+    path: samples/modules/thrift/hello/server
+    catalog: *6
+    extra_configs:
+    - CONFIG_THRIFT_COMPACT_PROTOCOL=y
+    build_only: true
+    platform_allow: *7
+    filter: CONFIG_FULL_LIBCPP_SUPPORTED
+  sample.thrift.hello.server.tlsTransport:
+    path: samples/modules/thrift/hello/server
+    catalog: *6
+    extra_args: OVERLAY_CONFIG="../overlay-tls.conf"
+    build_only: true
+    platform_allow: *7
     filter: CONFIG_FULL_LIBCPP_SUPPORTED
   sample.net.capture:
     path: samples/net/capture
@@ -2029,7 +2103,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   sample.net.cloud.tagoio_http_post:
     path: samples/net/cloud/tagoio_http_post
-    catalog: &6
+    catalog: &8
     - net
     - cloud
     - dns
@@ -2044,13 +2118,13 @@ cases:
     min_ram: 64
   sample.net.cloud.tagoio_http_post.wifi:
     path: samples/net/cloud/tagoio_http_post
-    catalog: *6
+    catalog: *8
     extra_args: OVERLAY_CONFIG="overlay-wifi.conf"
     platform_allow: disco_l475_iot1
     min_ram: 64
   sample.net.cloud.tagoio_http_post.wifi.esp:
     path: samples/net/cloud/tagoio_http_post
-    catalog: *6
+    catalog: *8
     extra_args:
     - SHIELD=esp_8266_arduino
     - OVERLAY_CONFIG="overlay-wifi.conf"
@@ -2060,13 +2134,13 @@ cases:
     min_ram: 64
   sample.net.cloud.tagoio_http_post.modem:
     path: samples/net/cloud/tagoio_http_post
-    catalog: *6
+    catalog: *8
     extra_args: OVERLAY_CONFIG="overlay-modem.conf"
     platform_allow: sam4e_xpro
     min_ram: 64
   sample.net.cloud.tagoio_http_post.modem.arduino:
     path: samples/net/cloud/tagoio_http_post
-    catalog: *6
+    catalog: *8
     extra_args:
     - OVERLAY_CONFIG="overlay-modem.conf"
     - DTC_OVERLAY_FILE="arduino.overlay"
@@ -2122,7 +2196,7 @@ cases:
     depends_on: netif
   sample.net.ppp.gsm.modem:
     path: samples/net/gsm_modem
-    catalog: &7
+    catalog: &9
     - net
     - ppp
     - modem
@@ -2134,7 +2208,7 @@ cases:
     platform_allow: frdm_k64f
   sample.net.ppp.gsm.modem.mux:
     path: samples/net/gsm_modem
-    catalog: *7
+    catalog: *9
     extra_configs:
     - CONFIG_TEST_RANDOM_GENERATOR=y
     - CONFIG_GSM_MUX=y
@@ -2237,7 +2311,7 @@ cases:
     - qemu_cortex_m3
   sample.net.mqtt_publisher:
     path: samples/net/mqtt_publisher
-    catalog: &8
+    catalog: &10
     - net
     - mqtt
     platform_allow:
@@ -2247,7 +2321,7 @@ cases:
     - mg100
   sample.net.mqtt_publisher.userspace:
     path: samples/net/mqtt_publisher
-    catalog: *8
+    catalog: *10
     extra_args: CONFIG_USERSPACE=y
     platform_allow:
     - frdm_k64f
@@ -2271,7 +2345,7 @@ cases:
     - mg100
   sample.net.openthread.coprocessor:
     path: samples/net/openthread/coprocessor
-    catalog: &9
+    catalog: &11
     - net
     - openthread
     build_only: true
@@ -2295,7 +2369,7 @@ cases:
     min_flash: 140
   sample.openthread.coprocessor.rcp:
     path: samples/net/openthread/coprocessor
-    catalog: *9
+    catalog: *11
     extra_args: OVERLAY_CONFIG=overlay-rcp.conf
     build_only: true
     platform_allow:
@@ -2312,7 +2386,7 @@ cases:
     depends_on: netif
   sample.net.sockets.big_http_download:
     path: samples/net/sockets/big_http_download
-    catalog: &10
+    catalog: &12
     - net
     - socket
     extra_configs:
@@ -2322,7 +2396,7 @@ cases:
     min_flash: 128
   sample.net.sockets.big_http_download.posix:
     path: samples/net/sockets/big_http_download
-    catalog: *10
+    catalog: *12
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
@@ -2331,14 +2405,14 @@ cases:
     min_flash: 128
   sample.net.sockets.big_http_download.ci:
     path: samples/net/sockets/big_http_download
-    catalog: *10
+    catalog: *12
     extra_args: OVERLAY_CONFIG=overlay-ci.conf
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 32
     min_flash: 128
   sample.net.sockets.can.one_socket:
     path: samples/net/sockets/can
-    catalog: &11
+    catalog: &13
     - net
     - socket
     - can
@@ -2348,7 +2422,7 @@ cases:
     depends_on: can
   sample.net.sockets.can.two_sockets:
     path: samples/net/sockets/can
-    catalog: *11
+    catalog: *13
     extra_configs:
     - CONFIG_NET_SOCKETS_CAN_RECEIVERS=2
     filter: dt_chosen_enabled("zephyr,canbus") and not dt_compat_enabled("kvaser,pcican")
@@ -2369,7 +2443,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   sample.net.sockets.dumb_http_server:
     path: samples/net/sockets/dumb_http_server
-    catalog: &12
+    catalog: &14
     - net
     - socket
     extra_configs:
@@ -2380,7 +2454,7 @@ cases:
     platform_exclude: intel_adsp_cavs25
   sample.net.sockets.dumb_http_server.posix:
     path: samples/net/sockets/dumb_http_server
-    catalog: *12
+    catalog: *14
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
@@ -2436,7 +2510,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   sample.net.sockets.echo_async:
     path: samples/net/sockets/echo_async
-    catalog: &13
+    catalog: &15
     - net
     - socket
     extra_configs:
@@ -2445,7 +2519,7 @@ cases:
     platform_allow: qemu_x86
   sample.net.sockets.echo_async.posix:
     path: samples/net/sockets/echo_async
-    catalog: *13
+    catalog: *15
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
@@ -2453,7 +2527,7 @@ cases:
     platform_allow: qemu_x86
   sample.net.sockets.echo_async_select:
     path: samples/net/sockets/echo_async_select
-    catalog: &14
+    catalog: &16
     - net
     - socket
     extra_configs:
@@ -2462,7 +2536,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   sample.net.sockets.echo_async_select.posix:
     path: samples/net/sockets/echo_async_select
-    catalog: *14
+    catalog: *16
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
@@ -2470,7 +2544,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   sample.net.sockets.echo_client:
     path: samples/net/sockets/echo_client
-    catalog: &15
+    catalog: &17
     - net
     - socket
     platform_allow:
@@ -2483,21 +2557,21 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_client.802154:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
     platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.802154.rf2xx:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: atsamr21_xpro
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_client.802154.rf2xx.xplained:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args:
     - SHIELD=atmel_rf2xx_xplained
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2506,7 +2580,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_client.802154.rf2xx.xpro:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args:
     - SHIELD=atmel_rf2xx_xpro
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2517,7 +2591,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_client.802154.rf2xx.legacy:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args:
     - SHIELD=atmel_rf2xx_legacy
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2528,7 +2602,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_client.802154.rf2xx.arduino:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args:
     - SHIELD=atmel_rf2xx_arduino
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2540,7 +2614,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_client.802154.rf2xx.mikrobus:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args:
     - SHIELD=atmel_rf2xx_mikrobus
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2556,7 +2630,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_client.mcr20a:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args:
     - SHIELD=frdm_cr20a
     - OVERLAY_CONFIG=overlay-802154.conf
@@ -2565,7 +2639,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_client.nrf_802154:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: nrf52840dk_nrf52840
     depends_on: netif
@@ -2582,7 +2656,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_client.b91_802154:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: tlsr9518adk80d
     depends_on: netif
@@ -2609,7 +2683,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_client.userspace:
     path: samples/net/sockets/echo_client
-    catalog: *15
+    catalog: *17
     extra_args:
     - CONFIG_USERSPACE=y
     - OVERLAY_CONFIG="overlay-e1000.conf"
@@ -2620,7 +2694,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_server:
     path: samples/net/sockets/echo_server
-    catalog: &16
+    catalog: &18
     - net
     - socket
     platform_allow:
@@ -2634,21 +2708,21 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_server.802154:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
     platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: atsamr21_xpro
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.xplained:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args:
     - SHIELD=atmel_rf2xx_xplained
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2657,7 +2731,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.xpro:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args:
     - SHIELD=atmel_rf2xx_xpro
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2668,7 +2742,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.legacy:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args:
     - SHIELD=atmel_rf2xx_legacy
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2679,7 +2753,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.arduino:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args:
     - SHIELD=atmel_rf2xx_arduino
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2691,7 +2765,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.mikrobus:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args:
     - SHIELD=atmel_rf2xx_mikrobus
     - OVERLAY_CONFIG="overlay-802154.conf"
@@ -2707,7 +2781,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_server.mcr20a:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args:
     - SHIELD=frdm_cr20a
     - OVERLAY_CONFIG=overlay-802154.conf
@@ -2716,14 +2790,14 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_server.nrf_802154:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: nrf52840dk_nrf52840
     depends_on: netif
     min_flash: 140
   sample.net.sockets.echo_server.b91_802154:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args: OVERLAY_CONFIG="overlay-802154.conf"
     platform_allow: tlsr9518adk80d
     depends_on: netif
@@ -2801,7 +2875,7 @@ cases:
     min_flash: 140
   sample.net.sockets.echo_server.userspace:
     path: samples/net/sockets/echo_server
-    catalog: *16
+    catalog: *18
     extra_args:
     - CONFIG_USERSPACE=y
     - OVERLAY_CONFIG="overlay-e1000.conf"
@@ -2820,7 +2894,7 @@ cases:
     depends_on: netif
   sample.net.sockets.http_get:
     path: samples/net/sockets/http_get
-    catalog: &17
+    catalog: &19
     - net
     - socket
     extra_configs:
@@ -2830,7 +2904,7 @@ cases:
     min_flash: 80
   sample.net.sockets.http_get.posix:
     path: samples/net/sockets/http_get
-    catalog: *17
+    catalog: *19
     extra_configs:
     - CONFIG_NET_SOCKETS_POSIX_NAMES=n
     - CONFIG_POSIX_API=y
@@ -2948,7 +3022,7 @@ cases:
     depends_on: netif
   sample.net.syslog.with_timefuncs:
     path: samples/net/syslog_net
-    catalog: &18
+    catalog: &20
     - net
     - syslog
     extra_configs:
@@ -2957,7 +3031,7 @@ cases:
     depends_on: netif
   sample.net.syslog.ipv4_only:
     path: samples/net/syslog_net
-    catalog: *18
+    catalog: *20
     extra_configs:
     - CONFIG_NET_IPV6=n
     - CONFIG_NET_CONFIG_NEED_IPV6=n
@@ -2968,7 +3042,7 @@ cases:
     depends_on: netif
   sample.net.syslog.ipv6_only:
     path: samples/net/syslog_net
-    catalog: *18
+    catalog: *20
     extra_configs:
     - CONFIG_NET_IPV4=n
     - CONFIG_NET_CONFIG_NEED_IPV4=n
@@ -2978,7 +3052,7 @@ cases:
     depends_on: netif
   sample.net.syslog.no_autostart:
     path: samples/net/syslog_net
-    catalog: *18
+    catalog: *20
     extra_configs:
     - CONFIG_LOG_BACKEND_NET_AUTOSTART=n
     filter: TOOLCHAIN_HAS_NEWLIB == 1
@@ -3004,7 +3078,7 @@ cases:
     depends_on: netif
   sample.net.wifi:
     path: samples/net/wifi
-    catalog: &19
+    catalog: &21
     - net
     - wifi
     platform_allow:
@@ -3013,38 +3087,38 @@ cases:
     - reel_board
   sample.net.wifi.mikroe_wifi_bt_click:
     path: samples/net/wifi
-    catalog: *19
+    catalog: *21
     extra_args: SHIELD=mikroe_wifi_bt_click_mikrobus
     platform_allow: lpcxpresso55s69_cpu0
   sample.net.wifi.esp_8266:
     path: samples/net/wifi
-    catalog: *19
+    catalog: *21
     extra_args: SHIELD=esp_8266
     platform_allow: sam4e_xpro
   sample.net.wifi.esp_8266_arduino:
     path: samples/net/wifi
-    catalog: *19
+    catalog: *21
     extra_args: SHIELD=esp_8266_arduino
     platform_allow:
     - frdm_k64f
     - disco_l475_iot1
   sample.net.wifi.inventek_eswifi_arduino_uart:
     path: samples/net/wifi
-    catalog: *19
+    catalog: *21
     extra_args: SHIELD=inventek_eswifi_arduino_uart
     platform_allow:
     - frdm_k64f
     - nucleo_f767zi
   sample.net.wifi.inventek_eswifi_arduino_spi:
     path: samples/net/wifi
-    catalog: *19
+    catalog: *21
     extra_args: SHIELD=inventek_eswifi_arduino_spi
     platform_allow:
     - frdm_k64f
     - nucleo_f767zi
   sample.net.wpan.serial:
     path: samples/net/wpan_serial
-    catalog: &20
+    catalog: &22
     - usb
     - ieee802154
     filter: dt_chosen_enabled("zephyr,ieee802154")
@@ -3052,14 +3126,14 @@ cases:
     depends_on: usb_device
   sample.net.wpan_serial.frdm_cr20a:
     path: samples/net/wpan_serial
-    catalog: *20
+    catalog: *22
     extra_args: SHIELD=frdm_cr20a
     platform_allow: frdm_k64f
     depends_on: usb_device
     platform_exclude: pinnacle_100_dvk
   sample.net.wpanusb:
     path: samples/net/wpanusb
-    catalog: &21
+    catalog: &23
     - net
     - ieee802154
     - usb
@@ -3068,29 +3142,29 @@ cases:
     depends_on: usb_device
   sample.net.wpanusb_frdm_cr20a:
     path: samples/net/wpanusb
-    catalog: *21
+    catalog: *23
     extra_args: SHIELD=frdm_cr20a
     platform_allow: frdm_k64f
     depends_on: usb_device
     platform_exclude: pinnacle_100_dvk
   sample.net.zperf:
     path: samples/net/zperf
-    catalog: &22
+    catalog: &24
     - net
     - zperf
     platform_allow: qemu_x86
-    platform_exclude: &23
+    platform_exclude: &25
     - native_posix
     - native_posix_64
     - sam_e70_xplained
     min_ram: 64
   sample.net.zperf_no_shell:
     path: samples/net/zperf
-    catalog: *22
+    catalog: *24
     extra_configs:
     - CONFIG_NET_SHELL=n
     platform_allow: qemu_x86
-    platform_exclude: *23
+    platform_exclude: *25
     min_ram: 64
   sample.net.zperf.netusb_ecm:
     path: samples/net/zperf
@@ -3100,7 +3174,7 @@ cases:
     - zperf
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
     depends_on: usb_device
-    platform_exclude: *23
+    platform_exclude: *25
     min_ram: 64
   sample.net.zperf.device_next_ecm:
     path: samples/net/zperf
@@ -3108,7 +3182,7 @@ cases:
     extra_args: OVERLAY_CONFIG="overlay-usbd_next_ecm.conf" DTC_OVERLAY_FILE="usbd_next_ecm.overlay"
     platform_allow: nrf52840dk_nrf52840 frdm_k64f
     depends_on: usb_device
-    platform_exclude: *23
+    platform_exclude: *25
     min_ram: 64
   sample.net.zperf.netusb_eem:
     path: samples/net/zperf
@@ -3121,7 +3195,7 @@ cases:
     - CONFIG_USB_DEVICE_NETWORK_EEM=y
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
     depends_on: usb_device
-    platform_exclude: *23
+    platform_exclude: *25
     min_ram: 64
   sample.net.zperf.netusb_rndis:
     path: samples/net/zperf
@@ -3134,7 +3208,7 @@ cases:
     - CONFIG_USB_DEVICE_NETWORK_RNDIS=y
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
     depends_on: usb_device
-    platform_exclude: *23
+    platform_exclude: *25
     min_ram: 64
   sample.net.zperf.shield:
     path: samples/net/zperf
@@ -3147,7 +3221,7 @@ cases:
     depends_on:
     - arduino_spi
     - arduino_gpio
-    platform_exclude: *23
+    platform_exclude: *25
     min_ram: 64
   sample.kernel.philosopher:
     path: samples/philosophers
@@ -3379,7 +3453,7 @@ cases:
     - frdm_k22f
     - mimxrt1024_evk
     - mimxrt595_evk_cm33
-    depends_on: &24
+    depends_on: &26
     - i2c
     - gpio
   sample.sensor.fxos8700.accel:
@@ -3393,7 +3467,7 @@ cases:
     - reel_board
     - mimxrt685_evk_cm33
     - mimxrt595_evk_cm33
-    depends_on: *24
+    depends_on: *26
   sample.sensor.usb.fxos8700-hid:
     path: samples/sensor/fxos8700-hid
     catalog:
@@ -3434,7 +3508,7 @@ cases:
     extra_configs:
     - CONFIG_HTS221_TRIGGER_NONE=y
     filter: dt_compat_enabled("st,hts221")
-    depends_on: &25
+    depends_on: &27
     - i2c
     - hts221
   sample.sensor.hts221.trigger:
@@ -3443,7 +3517,7 @@ cases:
     extra_configs:
     - CONFIG_HTS221_TRIGGER_OWN_THREAD=y
     filter: dt_compat_enabled("st,hts221")
-    depends_on: *25
+    depends_on: *27
   sample.sensor.i3g4250d:
     path: samples/sensor/i3g4250d
     catalog: sensors
@@ -3543,20 +3617,20 @@ cases:
     platform_allow: nucleo_l053r8
   sample.sensor.mcux_acmp:
     path: samples/sensor/mcux_acmp
-    catalog: &26
+    catalog: &28
     - drivers
     - sensor
-    platform_allow: &27
+    platform_allow: &29
     - twr_ke18f
     - mimxrt1170_evk_cm7
     - mimxrt1170_evk_cm4
   sample.sensor.mcux_acmp.no_trigger:
     path: samples/sensor/mcux_acmp
-    catalog: *26
+    catalog: *28
     extra_configs:
     - CONFIG_MCUX_ACMP_TRIGGER=n
     build_only: true
-    platform_allow: *27
+    platform_allow: *29
   sample.sensor.mhz19b:
     path: samples/sensor/mhz19b
     catalog: sensors
@@ -3607,7 +3681,7 @@ cases:
   sample.sensor.sht3xd:
     path: samples/sensor/sht3xd
     catalog: sensors
-    platform_allow: &28
+    platform_allow: &30
     - efr32mg_sltb004a
     - frdm_k64f
     - nrf51_ble400
@@ -3618,7 +3692,7 @@ cases:
     path: samples/sensor/sht3xd
     catalog: sensors
     extra_args: CONF_FILE="trigger.conf"
-    platform_allow: *28
+    platform_allow: *30
     build_only: true
   sample.sensor.sm351lt:
     path: samples/sensor/sm351lt
@@ -4096,79 +4170,79 @@ cases:
     build_only: true
   sample.logger.syst.deferred:
     path: samples/subsys/logging/syst
-    catalog: &29
+    catalog: &31
     - logging
     - mipi-sys-t
     extra_configs:
     - CONFIG_REQUIRES_FULL_LIBC=y
     extra_args: OVERLAY_CONFIG=overlay_deferred.conf
     filter: CONFIG_FULL_LIBC_SUPPORTED
-    arch_exclude: &30
+    arch_exclude: &32
     - mips
     - nios2
     - posix
     - sparc
   sample.logger.syst.immediate:
     path: samples/subsys/logging/syst
-    catalog: *29
+    catalog: *31
     extra_configs:
     - CONFIG_REQUIRES_FULL_LIBC=y
     extra_args: OVERLAY_CONFIG=overlay_immediate.conf
     filter: CONFIG_FULL_LIBC_SUPPORTED
-    arch_exclude: *30
+    arch_exclude: *32
   sample.logger.syst.catalog.deferred:
     path: samples/subsys/logging/syst
-    catalog: *29
+    catalog: *31
     extra_configs:
     - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
     - CONFIG_REQUIRES_FULL_LIBC=y
     extra_args: OVERLAY_CONFIG=overlay_deferred.conf
     filter: CONFIG_FULL_LIBC_SUPPORTED
-    arch_exclude: *30
+    arch_exclude: *32
   sample.logger.syst.catalog.immediate:
     path: samples/subsys/logging/syst
-    catalog: *29
+    catalog: *31
     extra_configs:
     - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
     - CONFIG_REQUIRES_FULL_LIBC=y
     filter: CONFIG_FULL_LIBC_SUPPORTED
-    arch_exclude: *30
+    arch_exclude: *32
   sample.logger.syst.deferred_cpp:
     path: samples/subsys/logging/syst
-    catalog: *29
+    catalog: *31
     extra_configs:
     - CONFIG_CPP=y
     - CONFIG_REQUIRES_FULL_LIBC=y
     extra_args: OVERLAY_CONFIG=overlay_deferred.conf
     filter: CONFIG_FULL_LIBC_SUPPORTED
-    arch_exclude: *30
+    arch_exclude: *32
   sample.logger.syst.immediate_cpp:
     path: samples/subsys/logging/syst
-    catalog: *29
+    catalog: *31
     extra_configs:
     - CONFIG_CPP=y
     - CONFIG_REQUIRES_FULL_LIBC=y
     filter: CONFIG_FULL_LIBC_SUPPORTED
-    arch_exclude: *30
+    arch_exclude: *32
   sample.logger.syst.catalog.deferred_cpp:
     path: samples/subsys/logging/syst
-    catalog: *29
+    catalog: *31
     extra_configs:
     - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
     - CONFIG_CPP=y
     - CONFIG_REQUIRES_FULL_LIBC=y
     extra_args: OVERLAY_CONFIG=overlay_deferred.conf
     filter: CONFIG_FULL_LIBC_SUPPORTED
-    arch_exclude: *30
+    arch_exclude: *32
   sample.logger.syst.catalog.immediate_cpp:
     path: samples/subsys/logging/syst
-    catalog: *29
+    catalog: *31
     extra_configs:
     - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
     - CONFIG_CPP=y
     - CONFIG_REQUIRES_FULL_LIBC=y
     filter: CONFIG_FULL_LIBC_SUPPORTED
-    arch_exclude: *30
+    arch_exclude: *32
   sample.lorawan.class_a.as923:
     path: samples/subsys/lorawan/class_a
     catalog: lorawan
@@ -4331,7 +4405,7 @@ cases:
       and CONFIG_SERIAL
   sample.net.updatehub:
     path: samples/subsys/mgmt/updatehub
-    catalog: &31
+    catalog: &33
     - net
     - wifi
     - updatehub
@@ -4345,7 +4419,7 @@ cases:
     platform_allow: frdm_k64f
   sample.net.updatehub.userspace:
     path: samples/subsys/mgmt/updatehub
-    catalog: *31
+    catalog: *33
     extra_configs:
     - CONFIG_UPDATEHUB_PRODUCT_UID="e4d37cfe6ec48a2d069cc0bbb8b078677e9a0d8df3a027c4d8ea131130c4265f"
     - CONFIG_UPDATEHUB_POLL_INTERVAL=1
@@ -4357,7 +4431,7 @@ cases:
     platform_allow: frdm_k64f
   sample.net.updatehub.dtls:
     path: samples/subsys/mgmt/updatehub
-    catalog: *31
+    catalog: *33
     extra_configs:
     - CONFIG_UPDATEHUB_PRODUCT_UID="e4d37cfe6ec48a2d069cc0bbb8b078677e9a0d8df3a027c4d8ea131130c4265f"
     - CONFIG_UPDATEHUB_POLL_INTERVAL=1
@@ -4471,7 +4545,7 @@ cases:
     extra_args: " DEBUG_PRINTF=1"
     min_ram: 32
     min_flash: 34
-    platform_exclude: &32
+    platform_exclude: &34
     - qemu_xtensa
     - qemu_x86_64
   sample.portability.cmsis_rtos_v2.philosopher.same_prio:
@@ -4480,14 +4554,14 @@ cases:
     extra_args: SAME_PRIO=1 DEBUG_PRINTF=1
     min_ram: 32
     min_flash: 34
-    platform_exclude: *32
+    platform_exclude: *34
   sample.portability.cmsis_rtos_v2.philosopher.semaphores:
     path: samples/subsys/portability/cmsis_rtos_v2/philosophers
     catalog: cmsis_rtos
     extra_args: FORKS=SEMAPHORES DEBUG_PRINTF=1
     min_ram: 32
     min_flash: 34
-    platform_exclude: *32
+    platform_exclude: *34
   sample.portability.cmsis_rtos_v2.timer_synchronization:
     path: samples/subsys/portability/cmsis_rtos_v2/timer_synchronization
     catalog: cmsis_rtos
@@ -4505,13 +4579,13 @@ cases:
     - native_posix_64
   sample.devmem_load.polled:
     path: samples/subsys/shell/devmem_load
-    catalog: &33
+    catalog: &35
     - devmem
     - devmem_load
     extra_args: OVERLAY_CONFIG="prj_poll.conf"
   sample.devmem_load.uart.interrupt:
     path: samples/subsys/shell/devmem_load
-    catalog: *33
+    catalog: *35
     filter: CONFIG_SERIAL_SUPPORT_INTERRUPT
   sample.filesystem.shell:
     path: samples/subsys/shell/fs
@@ -4587,13 +4661,13 @@ cases:
     platform_allow: native_posix
   sample.tracing.user:
     path: samples/subsys/tracing
-    catalog: &34
+    catalog: &36
     - tracing
     - debug
     extra_args: CONF_FILE="prj_user.conf"
   sample.tracing.format.sysview:
     path: samples/subsys/tracing
-    catalog: *34
+    catalog: *36
     extra_args: CONF_FILE="prj_sysview.conf"
     platform_allow:
     - nrf52840dk_nrf52840
@@ -4601,14 +4675,14 @@ cases:
     - mimxrt1064_evk
   sample.tracing.osawareness.openocd:
     path: samples/subsys/tracing
-    catalog: *34
+    catalog: *36
     arch_exclude:
     - posix
     - xtensa
     platform_exclude: qemu_x86_64
   sample.tracing.transport.uart:
     path: samples/subsys/tracing
-    catalog: *34
+    catalog: *36
     extra_args: CONF_FILE="prj_uart.conf"
     platform_allow:
     - qemu_x86
@@ -4616,13 +4690,13 @@ cases:
     filter: dt_chosen_enabled("zephyr,tracing-uart")
   sample.tracing.transport.usb:
     path: samples/subsys/tracing
-    catalog: *34
+    catalog: *36
     extra_args: CONF_FILE="prj_usb.conf"
     platform_allow: sam_e70_xplained
     depends_on: usb_device
   sample.tracing.transport.uart.ctf:
     path: samples/subsys/tracing
-    catalog: *34
+    catalog: *36
     extra_args: CONF_FILE="prj_uart_ctf.conf"
     platform_allow:
     - qemu_x86
@@ -4630,22 +4704,22 @@ cases:
     filter: dt_chosen_enabled("zephyr,tracing-uart")
   sample.tracing.transport.usb.ctf:
     path: samples/subsys/tracing
-    catalog: *34
+    catalog: *36
     extra_args: CONF_FILE="prj_usb_ctf.conf"
     platform_allow: sam_e70_xplained
     depends_on: usb_device
   sample.tracing.transport.native_posix:
     path: samples/subsys/tracing
-    catalog: *34
+    catalog: *36
     platform_allow: native_posix
   sample.tracing.transport.native_posix.ctf:
     path: samples/subsys/tracing
-    catalog: *34
+    catalog: *36
     extra_args: CONF_FILE="prj_native_posix_ctf.conf"
     platform_allow: native_posix
   sample.tracing.percepio:
     path: samples/subsys/tracing
-    catalog: *34
+    catalog: *36
     extra_args: CONF_FILE="prj_percepio.conf"
     platform_allow: frdm_k64f
   sample.usb.audio.headphones_microphone:
@@ -4702,7 +4776,7 @@ cases:
     catalog: usb
     build_only: true
     arch_exclude: posix
-    platform_exclude: &35
+    platform_exclude: &37
     - mimxrt1010_evk
     - mimxrt1050_evk_qspi
     - mimxrt1020_evk
@@ -4728,7 +4802,7 @@ cases:
     extra_args: OVERLAY_CONFIG=overlay-permanent-download.conf
     build_only: true
     arch_exclude: posix
-    platform_exclude: *35
+    platform_exclude: *37
     depends_on: usb_device
     filter: dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")
       and dt_label_with_parent_compat_enabled("slot1_partition", "fixed-partitions")
@@ -4900,6 +4974,11 @@ cases:
     - native_posix
     - native_posix_64
   sample.usbc.sink:
+    path: samples/subsys/usb_c/sink
+    catalog: usbc
+    depends_on: tcpc
+    platform_allow: b_g474e_dpow1
+  sample.usbc.source:
     path: samples/subsys/usb_c/source
     catalog: usbc
     depends_on: tcpc
@@ -5019,7 +5098,7 @@ cases:
     path: samples/tfm_integration/tfm_psa_test
     catalog: tfm
     extra_args: CONFIG_TFM_PSA_TEST_PROTECTED_STORAGE=y
-    platform_allow: &36
+    platform_allow: &38
     - mps2_an521_ns
     - nrf5340dk_nrf5340_cpuapp_ns
     - nrf9160dk_nrf9160_ns
@@ -5029,24 +5108,24 @@ cases:
     path: samples/tfm_integration/tfm_psa_test
     catalog: tfm
     extra_args: CONFIG_TFM_PSA_TEST_INTERNAL_TRUSTED_STORAGE=y
-    platform_allow: *36
+    platform_allow: *38
   sample.tfm.psa_test_storage:
     path: samples/tfm_integration/tfm_psa_test
     catalog: tfm
     extra_args: CONFIG_TFM_PSA_TEST_STORAGE=y
-    platform_allow: *36
+    platform_allow: *38
   sample.tfm.psa_test_crypto:
     path: samples/tfm_integration/tfm_psa_test
     catalog: tfm
     extra_args: CONFIG_TFM_PSA_TEST_CRYPTO=y
-    platform_allow: *36
+    platform_allow: *38
   sample.tfm.regression_ipc_lvl1:
     path: samples/tfm_integration/tfm_regression_test
     catalog: tfm
     extra_args:
     - CONFIG_TFM_IPC=y
     - CONFIG_TFM_ISOLATION_LEVEL=1
-    platform_allow: &37
+    platform_allow: &39
     - nrf5340dk_nrf5340_cpuapp_ns
     - nrf9160dk_nrf9160_ns
     - nrf9161dk_nrf9161_ns
@@ -5054,14 +5133,14 @@ cases:
   sample.tfm.regression_ipc_lvl2:
     path: samples/tfm_integration/tfm_regression_test
     catalog: tfm
-    platform_allow: *37
+    platform_allow: *39
   sample.tfm.regression_sfn:
     path: samples/tfm_integration/tfm_regression_test
     catalog: tfm
     extra_args:
     - CONFIG_TFM_SFN=y
     - CONFIG_TFM_ISOLATION_LEVEL=1
-    platform_allow: *37
+    platform_allow: *39
   sample.tfm.secure_partition:
     path: samples/tfm_integration/tfm_secure_partition
     catalog: tfm

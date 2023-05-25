@@ -203,6 +203,12 @@ cases:
     catalog: dac_stm32
     platform_allow: nucleo_f091rc
     build_only: true
+  drivers.display.ili9342c.build:
+    path: tests/drivers/build_all/display
+    catalog: drivers display
+    extra_args: CONF_FILE=display_ili9342c.conf
+    build_only: true
+    min_ram: 32
   drivers.eeprom.build:
     path: tests/drivers/build_all/eeprom
     catalog:
@@ -489,6 +495,12 @@ cases:
     path: tests/drivers/build_all/video
     catalog: *3
     platform_allow: mimxrt1064_evk
+    build_only: true
+  drivers.watchdog.build:
+    path: tests/drivers/build_all/watchdog
+    catalog: wdt_xilinx_axi
+    extra_args: CONFIG_WATCHDOG=y
+    platform_allow: qemu_cortex_m3
     build_only: true
   drivers.can.api:
     path: tests/drivers/can/api
@@ -1905,7 +1917,7 @@ cases:
     - api
     filter: dt_alias_exists("rtc")
     depends_on: rtc
-  drivers.rtc.rtc_api.rtc_api_helpers:
+  drivers.rtc.rtc_api_helpers:
     path: tests/drivers/rtc/rtc_api_helpers
     catalog:
     - drivers
@@ -2498,7 +2510,9 @@ cases:
     catalog:
     - usb
     - drivers
-    platform_allow: nrf52840dk_nrf52840
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - native_posix_64
   drivers.w1.w1-serial:
     path: tests/drivers/w1/w1_api
     catalog: &17

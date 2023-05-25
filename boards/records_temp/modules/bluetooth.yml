@@ -706,7 +706,7 @@ cases:
     - CONFIG_SETTINGS=y
     - CONFIG_BT_SETTINGS=y
     type: unit
-  bluetooth.host.bt_id_create.bt_privacy_enabled.bt_id_init:
+  bluetooth.host.bt_id_init.bt_privacy_enabled:
     path: tests/bluetooth/host/id/bt_id_init
     catalog: *20
     extra_configs:
@@ -862,7 +862,7 @@ cases:
     - bluetooth
     - host
     type: unit
-  bluetooth.host.bt_le_oob_get_local.bt_privacy_enabled:
+  bluetooth.host.bt_le_ext_adv_oob_get_local.bt_privacy_enabled:
     path: tests/bluetooth/host/id/bt_le_ext_adv_oob_get_local
     catalog: *28
     extra_configs:
@@ -875,7 +875,7 @@ cases:
     - bluetooth
     - host
     type: unit
-  bluetooth.host.bt_le_oob_get_local.bt_privacy_enabled.bt_le_oob_get_local:
+  bluetooth.host.bt_le_oob_get_local.bt_privacy_enabled:
     path: tests/bluetooth/host/id/bt_le_oob_get_local
     catalog: *29
     extra_configs:
@@ -955,7 +955,7 @@ cases:
     - CONFIG_SETTINGS=y
     - CONFIG_BT_SETTINGS=y
     type: unit
-  bluetooth.host.bt_id_create.default.bt_setup_random_id_addr:
+  bluetooth.host.bt_random_idcreate.default:
     path: tests/bluetooth/host/id/bt_setup_random_id_addr
     catalog: &32
     - bluetooth
@@ -963,27 +963,27 @@ cases:
     extra_configs:
     - CONFIG_BT_ID_MAX=1
     type: unit
-  bluetooth.host.bt_id_create.multiple_identities:
+  bluetooth.host.bt_random_idcreate.multiple_identities:
     path: tests/bluetooth/host/id/bt_setup_random_id_addr
     catalog: *32
     extra_configs:
     - CONFIG_BT_ID_MAX=4
     type: unit
-  bluetooth.host.bt_id_create.hci_vs_ext_detect:
+  bluetooth.host.bt_random_idcreate.hci_vs_ext_detect:
     path: tests/bluetooth/host/id/bt_setup_random_id_addr
     catalog: *32
     extra_configs:
     - CONFIG_BT_ID_MAX=1
     - CONFIG_BT_HCI_VS_EXT_DETECT=y
     type: unit
-  bluetooth.host.bt_id_create.multiple_identities_hci_vs_ext_detect:
+  bluetooth.host.bt_random_idcreate.multiple_identities_hci_vs_ext_detect:
     path: tests/bluetooth/host/id/bt_setup_random_id_addr
     catalog: *32
     extra_configs:
     - CONFIG_BT_ID_MAX=4
     - CONFIG_BT_HCI_VS_EXT_DETECT=y
     type: unit
-  bluetooth.host.bt_id_create.multiple_identities_hci_vs_ext_detect_privacy_enabled:
+  bluetooth.host.bt_random_idcreate.multiple_identities_hci_vs_ext_detect_privacy_enabled:
     path: tests/bluetooth/host/id/bt_setup_random_id_addr
     catalog: *32
     extra_configs:
@@ -992,7 +992,7 @@ cases:
     - CONFIG_BT_SMP=y
     - CONFIG_BT_PRIVACY=y
     type: unit
-  bluetooth.host.bt_id_create.multiple_identities_hci_vs_ext_detect_privacy_settings_enabled:
+  bluetooth.host.bt_random_idcreate.multiple_identities_hci_vs_ext_detect_privacy_settings_enabled:
     path: tests/bluetooth/host/id/bt_setup_random_id_addr
     catalog: *32
     extra_configs:

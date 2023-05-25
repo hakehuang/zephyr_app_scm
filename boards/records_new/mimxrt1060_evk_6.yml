@@ -1,0 +1,23 @@
+---
+settings:
+  case_pipe_name: "mimxrt1060_evk_6"
+  version: zephyr-v3.3.0-4123-gd01780fc94
+__load__:
+- modules/system.yml
+- modules/storage.yml
+- modules/shell.yml
+- modules/sd.yml
+- modules/samples.yml
+- modules/sample.yml
+- modules/rtio.yml
+- modules/printk.yml
+- modules/portability.yml
+- modules/pm.yml
+- modules/os.yml
+- modules/openthread.yml
+- skips/mimxrt1060_evk.yml
+- boards/mimxrt1060_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

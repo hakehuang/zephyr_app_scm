@@ -358,6 +358,8 @@ def split_test_catalog(fn, outdir, template_dir)
     'board_3_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_3", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_4_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_4", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_5_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_5", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_6_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_6", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_7_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_6", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_cmsis_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_cmsis", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_drivers_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_drivers", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_kernel_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel", "version" => "#{$version}"}}.deep_merge(common_hash),
@@ -421,8 +423,12 @@ def split_test_catalog(fn, outdir, template_dir)
       template_files_hash['board_2_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^[e-k]/)
       template_files_hash['board_3_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^[l-p]/)
+    elsif module_name.downcase().match(/^[l-m]/)
       template_files_hash['board_4_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^[n-s]/)
+      template_files_hash['board_6_template.yml']["__load__"].unshift("modules/#{module_name}")
+    elsif module_name.downcase().match(/^[t]/)
+      template_files_hash['board_7_template.yml']["__load__"].unshift("modules/#{module_name}")
     else
       template_files_hash['board_5_template.yml']["__load__"].unshift("modules/#{module_name}")
     end

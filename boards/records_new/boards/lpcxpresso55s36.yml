@@ -1,0 +1,9 @@
+__load__:
+  - boards/common.yml
+
+settings:
+  build_script: build_zephyr_elf.sh
+  run_script: run_zephyr_elf_lpc55s36.sh
+  additional_configs:
+    - CONFIG_FLASH_HAS_DRIVER_ENABLED
+

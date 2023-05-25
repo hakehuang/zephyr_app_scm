@@ -531,8 +531,16 @@ end
 def zephyr_expr_parser(expr)
     parser = ZephyrParse.new(ZephyrLex.new)
     ret = []
-    expr.split().each do |expr|
-      ret = ret | [parser.parse(expr)]
+    if expr.class == Array
+      expr.each do |expr_string|
+        expr_string.split().each do |_expr|
+          ret = ret | [parser.parse(_expr)]
+        end
+      end
+    else
+      expr.split().each do |_expr|
+        ret = ret | [parser.parse(_expr)]
+      end
     end
     return ret
 end

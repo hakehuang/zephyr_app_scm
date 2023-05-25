@@ -1,0 +1,15 @@
+---
+settings:
+  case_pipe_name: "mimxrt595_evk_cm33_6"
+  version: zephyr-v3.3.0-4123-gd01780fc94
+__load__:
+- modules/tracing.yml
+- modules/thrift.yml
+- modules/tests.yml
+- modules/testing.yml
+- skips/mimxrt595_evk_cm33.yml
+- boards/mimxrt595_evk_cm33.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

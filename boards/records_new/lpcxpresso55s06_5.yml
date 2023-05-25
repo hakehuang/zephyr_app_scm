@@ -1,22 +1,11 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s06_5"
-  version: zephyr-v3.3.0-3980-g7bdae081e3
+  version: zephyr-v3.3.0-4123-gd01780fc94
 __load__:
 - modules/zdsp.yml
 - modules/virtualization.yml
 - modules/utilities.yml
-- modules/tracing.yml
-- modules/thrift.yml
-- modules/tests.yml
-- modules/testing.yml
-- modules/system.yml
-- modules/storage.yml
-- modules/shell.yml
-- modules/sd.yml
-- modules/samples.yml
-- modules/sample.yml
-- modules/rtio.yml
 - skips/lpcxpresso55s06.yml
 - boards/lpcxpresso55s06.yml
 cases:

@@ -1,0 +1,11 @@
+---
+settings:
+  case_pipe_name: "mimxrt1040_evk_cmsis"
+  version: zephyr-v3.3.0-4123-gd01780fc94
+__load__:
+- skips/mimxrt1040_evk.yml
+- boards/mimxrt1040_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

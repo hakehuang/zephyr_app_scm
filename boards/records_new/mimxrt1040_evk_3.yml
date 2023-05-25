@@ -1,0 +1,18 @@
+---
+settings:
+  case_pipe_name: "mimxrt1040_evk_3"
+  version: zephyr-v3.3.0-4123-gd01780fc94
+__load__:
+- modules/ipc.yml
+- modules/input.yml
+- modules/ieee802154.yml
+- modules/fpga.yml
+- modules/filesystem.yml
+- modules/emul.yml
+- modules/edac.yml
+- skips/mimxrt1040_evk.yml
+- boards/mimxrt1040_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

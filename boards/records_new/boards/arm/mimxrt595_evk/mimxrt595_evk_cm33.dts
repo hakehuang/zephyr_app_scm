@@ -149,6 +149,7 @@
  */
 &os_timer {
 	status = "okay";
+	wakeup-source;
 };
 
 &rtc {
@@ -525,5 +526,12 @@ zephyr_udc0: &usbhs {
 &sc_timer {
 	pinctrl-0 = <&pinmux_sctimer_default>;
 	pinctrl-names = "default";
+	status = "okay";
+};
+
+&i3c0 {
+	pinctrl-0 = <&pinmux_i3c>;
+	pinctrl-names = "default";
+
 	status = "okay";
 };

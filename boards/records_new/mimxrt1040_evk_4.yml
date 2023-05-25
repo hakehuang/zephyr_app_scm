@@ -1,0 +1,18 @@
+---
+settings:
+  case_pipe_name: "mimxrt1040_evk_4"
+  version: zephyr-v3.3.0-4123-gd01780fc94
+__load__:
+- modules/modbus.yml
+- modules/misc.yml
+- modules/mgmt.yml
+- modules/message_bus.yml
+- modules/mcuboot.yml
+- modules/logging.yml
+- modules/libraries.yml
+- skips/mimxrt1040_evk.yml
+- boards/mimxrt1040_evk.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

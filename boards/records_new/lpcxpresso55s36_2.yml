@@ -1,0 +1,20 @@
+---
+settings:
+  case_pipe_name: "lpcxpresso55s36_2"
+  version: zephyr-v3.3.0-4123-gd01780fc94
+__load__:
+- modules/dsp_sharing.yml
+- modules/dfu.yml
+- modules/crypto.yml
+- modules/cpp.yml
+- modules/coredump.yml
+- modules/config_dir.yml
+- modules/cmake.yml
+- modules/cb.yml
+- modules/canbus.yml
+- skips/lpcxpresso55s36.yml
+- boards/lpcxpresso55s36.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required
