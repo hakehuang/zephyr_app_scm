@@ -1,0 +1,66 @@
+---
+cases:
+  drivers.smbus.api:
+    path: tests/drivers/smbus/smbus_api
+    catalog: smbus
+    platform_allow:
+    - qemu_x86_64
+    - &1
+      - ehl_crb
+      - rpl_crb
+  drivers.smbus.api.access.mmio:
+    path: tests/drivers/smbus/smbus_api
+    catalog: smbus
+    extra_configs:
+    - CONFIG_SMBUS_INTEL_PCH_ACCESS_MMIO=y
+    platform_exclude: qemu_x86_64
+    platform_allow: *1
+  drivers.smbus.api_user:
+    path: tests/drivers/smbus/smbus_api
+    catalog: smbus
+    extra_configs:
+    - CONFIG_USERSPACE=y
+    platform_allow:
+    - qemu_x86_64
+    - *1
+  drivers.smbus.api_stats:
+    path: tests/drivers/smbus/smbus_api
+    catalog: smbus
+    extra_configs:
+    - CONFIG_STATS=y
+    platform_allow:
+    - qemu_x86_64
+    - *1
+  drivers.smbus.api.no_smbalert:
+    path: tests/drivers/smbus/smbus_api
+    catalog: smbus
+    extra_configs:
+    - CONFIG_SMBUS_INTEL_PCH_SMBALERT=n
+    platform_allow:
+    - qemu_x86_64
+    - *1
+  drivers.smbus.api.no_host_notify:
+    path: tests/drivers/smbus/smbus_api
+    catalog: smbus
+    extra_configs:
+    - CONFIG_SMBUS_INTEL_PCH_HOST_NOTIFY=n
+    platform_allow:
+    - qemu_x86_64
+    - *1
+  drivers.smbus.api.debug:
+    path: tests/drivers/smbus/smbus_api
+    catalog: smbus
+    extra_configs:
+    - CONFIG_SMBUS_LOG_LEVEL_DBG=y
+    platform_allow:
+    - qemu_x86_64
+    - *1
+  drivers.smbus.emul:
+    path: tests/drivers/smbus/smbus_emul
+    catalog: smbus
+    platform_allow: native_posix
+  drivers.smbus.emul.peripheral.interrupt:
+    path: tests/drivers/smbus/smbus_emul
+    catalog: smbus
+    extra_args: EXTRA_CFLAGS=-DPERIPHERAL_INT=1
+    platform_allow: native_posix

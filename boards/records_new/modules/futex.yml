@@ -1,0 +1,8 @@
+---
+cases:
+  kernel.futex:
+    path: tests/kernel/mem_protect/futex
+    catalog:
+    - kernel
+    - userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE

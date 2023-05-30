@@ -1,0 +1,98 @@
+---
+cases:
+  sample.board.96b_argonkey.microphone:
+    path: samples/boards/96b_argonkey/microphone
+    catalog: sensors
+    platform_allow: 96b_argonkey
+    depends_on:
+    - i2s
+    - gpio
+  sample.board.96b_argonkey.sensors:
+    path: samples/boards/96b_argonkey/sensors
+    catalog: sensors
+    platform_allow: 96b_argonkey
+    depends_on:
+    - i2c
+    - spi
+    - gpio
+  sample.board.arc_secure_services:
+    path: samples/boards/arc_secure_services
+    catalog: secure
+    build_only: true
+    platform_allow:
+    - nsim_sem
+    - em_starterkit_em7d
+  sample.board.bbc_microbit.display:
+    path: samples/boards/bbc_microbit/display
+    catalog: display
+    platform_allow: bbc_microbit
+  sample.board.bbc_microbit.line_follower_robot:
+    path: samples/boards/bbc_microbit/line_follower_robot
+    catalog:
+    - microbit
+    - line-follower
+    - robot
+    - car
+    platform_allow: bbc_microbit
+  sample.board.bbc_microbit.pong:
+    path: samples/boards/bbc_microbit/pong
+    catalog:
+    - microbit
+    - mesh
+    - bluetooth
+    platform_allow: bbc_microbit
+  sample.board.bbc_microbit.sound:
+    path: samples/boards/bbc_microbit/sound
+    catalog: sound
+    platform_allow: bbc_microbit
+  sample.board.esp32.ethernet:
+    path: samples/boards/esp32/ethernet
+    catalog: esp32
+    platform_allow: esp32_ethernet_kit
+  sample.board.esp32:
+    path: samples/boards/esp32/flash_encryption
+    catalog: esp32
+    platform_allow: esp32
+  sample.board.esp32.spiram:
+    path: samples/boards/esp32/spiram_test
+    catalog: esp32
+    platform_allow: esp32
+  sample.board.google_kukui:
+    path: samples/boards/google_kukui
+    catalog: ec
+    platform_allow: google_kukui
+  sample.board.mec15xxevb_assy6853.pm:
+    path: samples/boards/mec15xxevb_assy6853/power_management
+    catalog:
+    - board
+    - pm
+    platform_allow: mec15xxevb_assy6853
+  sample.board.mec172xevb_assy6906.qmspi_ldma:
+    path: samples/boards/mec172xevb_assy6906/qmspi_ldma
+    catalog: spi
+    platform_allow: mec172xevb_assy6906
+    depends_on:
+    - spi
+    - gpio
+  sample.board.reel_board.mesh_badge:
+    path: samples/boards/reel_board/mesh_badge
+    catalog:
+    - samples
+    - sensor
+    platform_allow: reel_board
+  sample.board.sensortile_box.sensors:
+    path: samples/boards/sensortile_box
+    catalog: sensors
+    platform_allow: sensortile_box
+    depends_on:
+    - i2c
+    - spi
+    - gpio
+  sample.board.stm32.ccm:
+    path: samples/boards/stm32/ccm
+    catalog: board
+    platform_allow: olimex_stm32_e407
+  sample.board.up_squared.gpio_counter:
+    path: samples/boards/up_squared/gpio_counter
+    catalog: gpio
+    platform_allow: up_squared

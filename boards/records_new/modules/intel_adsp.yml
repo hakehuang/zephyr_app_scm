@@ -1,0 +1,57 @@
+---
+cases:
+  sample.intel_adsp.code_relocation:
+    path: samples/boards/intel_adsp/code_relocation
+    catalog: linker
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.cache:
+    path: tests/boards/intel_adsp/cache
+    catalog: boards
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda:
+    path: tests/boards/intel_adsp/hda
+    catalog:
+    - hda
+    - dma
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda.1cpu:
+    path: tests/boards/intel_adsp/hda
+    catalog:
+    - hda
+    - dma
+    extra_configs:
+    - CONFIG_MP_MAX_NUM_CPUS=1
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda_log:
+    path: tests/boards/intel_adsp/hda_log
+    catalog: unknown
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda_log.printk:
+    path: tests/boards/intel_adsp/hda_log
+    catalog: unknown
+    extra_configs:
+    - CONFIG_LOG_PRINTK=y
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.hda_log.1cpu:
+    path: tests/boards/intel_adsp/hda_log
+    catalog: unknown
+    extra_configs:
+    - CONFIG_MP_MAX_NUM_CPUS=1
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.mm:
+    path: tests/boards/intel_adsp/mm
+    catalog: boards
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.smoke:
+    path: tests/boards/intel_adsp/smoke
+    catalog: unknown
+    platform_allow: intel_adsp_cavs25
+  boards.intel_adsp.ssp:
+    path: tests/boards/intel_adsp/ssp
+    catalog:
+    - dai
+    - dma
+    depends_on:
+    - dai
+    - dma
+    platform_allow: intel_adsp_cavs25

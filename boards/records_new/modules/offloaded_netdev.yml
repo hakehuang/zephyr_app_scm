@@ -1,0 +1,10 @@
+---
+cases:
+  net.offloaded_netdev:
+    path: tests/net/offloaded_netdev
+    catalog:
+    - net
+    - iface
+    - userspace
+    min_ram: 16
+    depends_on: netif

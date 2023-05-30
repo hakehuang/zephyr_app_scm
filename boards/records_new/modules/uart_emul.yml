@@ -1,0 +1,9 @@
+---
+cases:
+  drivers.uart_emul.polling:
+    path: tests/drivers/uart/uart_emul
+    catalog:
+    - drivers
+    - uart
+    platform_allow: qemu_x86
+    depends_on: uart_emul

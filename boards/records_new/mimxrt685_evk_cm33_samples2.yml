@@ -3,6 +3,8 @@ settings:
   case_pipe_name: "mimxrt685_evk_cm33_samples2"
   version: zephyr-v3.3.0-4123-gd01780fc94
 __load__:
+- modules/net_timeout.yml
+- modules/ethernet_mgmt.yml
 - skips/mimxrt685_evk_cm33.yml
 - boards/mimxrt685_evk_cm33.yml
 cases:

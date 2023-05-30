@@ -1,0 +1,16 @@
+---
+cases:
+  net.dhcp:
+    path: tests/net/dhcpv4
+    catalog: &1
+    - net
+    - dhcpv4
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+  net.dhcp.preempt:
+    path: tests/net/dhcpv4
+    catalog: *1
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif

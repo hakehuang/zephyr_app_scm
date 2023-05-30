@@ -1,0 +1,9 @@
+---
+cases:
+  sample.syscall_performances:
+    path: samples/userspace/syscall_perf
+    catalog: userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_allow:
+    - riscv32
+    - riscv64

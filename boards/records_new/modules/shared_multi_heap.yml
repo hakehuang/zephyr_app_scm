@@ -1,0 +1,10 @@
+---
+cases:
+  kernel.shared_multi_heap:
+    path: tests/kernel/mem_heap/shared_multi_heap
+    catalog:
+    - kernel
+    - multi_heap
+    platform_allow:
+    - qemu_cortex_a53
+    - mps2_an521

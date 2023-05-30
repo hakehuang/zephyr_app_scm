@@ -1,24 +1,12 @@
 ---
 cases:
-  coredump.logging_backend:
-    path: tests/subsys/debug/coredump
+  drivers.coredump.api.qemu_riscv32:
+    path: tests/drivers/coredump/coredump_api
     catalog: coredump
     filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_exclude: acrn_ehl_crb
-  coredump.backends.logging:
-    path: tests/subsys/debug/coredump_backends
+    platform_allow: qemu_riscv32
+  drivers.coredump.api:
+    path: tests/drivers/coredump/coredump_api
     catalog: coredump
     filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_exclude: acrn_ehl_crb
-  coredump.backends.flash:
-    path: tests/subsys/debug/coredump_backends
-    catalog: coredump
-    extra_args: CONF_FILE=prj_flash_partition.conf
-    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_allow: qemu_x86
-  coredump.backends.other:
-    path: tests/subsys/debug/coredump_backends
-    catalog: coredump
-    extra_args: CONF_FILE=prj_backend_other.conf
-    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_exclude: acrn_ehl_crb
+    platform_exclude: qemu_riscv32

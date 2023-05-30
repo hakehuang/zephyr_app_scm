@@ -52,7 +52,7 @@ def platforms()
     "mimxrt1050_evk" => ["", "2", "3", "4", "5", "cmsis", "drivers", "samples", "sensors", "shield", "traffic",
         "bt1", "bt2", "can", "socket", "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
     "mimxrt1060_evk" => ["", "2", "3", "4", "5", "6", "7","cmsis", "drivers", "samples",  "traffic", "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
-    "mimxrt1040_evk" => ["", "2", "3", "4", "5", "cmsis", "drivers", "samples",  "traffic", "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
+    "mimxrt1040_evk" => ["", "2", "3", "4", "5", "6", "7","cmsis", "drivers", "samples",  "traffic", "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
     "mimxrt1064_evk" => ["", "2", "3", "4", "5", "6", "7","cmsis", "drivers", "samples",  "traffic",
         "sensors", "shield", "bt1", "bt2", "can", "socket", "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],
     "mimxrt685_evk_cm33" => ["", "2", "3", "4", "5", "cmsis", "drivers", "samples", "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"],

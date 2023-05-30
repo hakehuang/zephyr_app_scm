@@ -1,0 +1,29 @@
+---
+cases:
+  drivers.bbram.it8xxx2:
+    path: tests/drivers/bbram
+    catalog: &1
+    - drivers
+    - bbram
+    filter: dt_compat_enabled("ite,it8xxx2-bbram")
+    build_only: true
+    platform_exclude: native_posix
+  drivers.bbram.npcx:
+    path: tests/drivers/bbram
+    catalog: *1
+    filter: dt_compat_enabled("nuvoton,npcx-bbram")
+    build_only: true
+    platform_exclude: native_posix
+  drivers.bbram.stm32:
+    path: tests/drivers/bbram
+    catalog: *1
+    extra_args: OVERLAY_CONFIG="stm32.conf"
+    filter: dt_compat_enabled("st,stm32-bbram")
+    build_only: true
+    platform_exclude: native_posix
+  drivers.bbram.emul:
+    path: tests/drivers/bbram/emul
+    catalog:
+    - drivers
+    - bbram
+    platform_allow: native_posix

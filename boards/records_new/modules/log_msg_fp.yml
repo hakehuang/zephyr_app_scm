@@ -1,0 +1,14 @@
+---
+cases:
+  logging.log_msg_fp:
+    path: tests/subsys/logging/log_msg
+    catalog:
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    platform_type:
+    - qemu
+    - native
+    filter: not CONFIG_LOG_ALWAYS_RUNTIME

@@ -1,0 +1,143 @@
+---
+cases:
+  bluetooth.audio_shell.no_pac_snk:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_PAC_SNK=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_pac_src:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_PAC_SRC=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_unicast_client:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_BAP_UNICAST_CLIENT=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_unicast_server:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_BAP_UNICAST_SERVER=n
+    - CONFIG_BT_HAS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_server_ase_snk:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_ASCS_ASE_SNK_COUNT=0
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_server_ase_src:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_ASCS_ASE_SRC_COUNT=0
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_client_ase_snk:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_BAP_UNICAST_CLIENT_ASE_SNK_COUNT=0
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_client_ase_src:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_BAP_UNICAST_CLIENT_ASE_SRC_COUNT=0
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_broadcast_source:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_BAP_BROADCAST_SOURCE=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_broadcast_sink:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_BAP_BROADCAST_SINK=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_audio_tx:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_BAP_BROADCAST_SOURCE=n
+    - CONFIG_BT_BAP_UNICAST_CLIENT_ASE_SNK_COUNT=0
+    - CONFIG_BT_ASCS_ASE_SRC_COUNT=0
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_audio_rx:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_BAP_BROADCAST_SINK=n
+    - CONFIG_BT_BAP_UNICAST_CLIENT_ASE_SRC_COUNT=0
+    - CONFIG_BT_ASCS_ASE_SNK_COUNT=0
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_has:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_HAS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_has_client:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_HAS_CLIENT=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_cap_acceptor:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_CAP_ACCEPTOR=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_cap_acceptor_set_member:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_CAP_ACCEPTOR_SET_MEMBER=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.audio_shell.no_cap_initiator:
+    path: tests/bluetooth/shell
+    catalog: unknown
+    extra_configs:
+    - CONFIG_BT_CAP_INITIATOR=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix

@@ -1,0 +1,8 @@
+---
+cases:
+  libraries.spsc_pbuf_nocache:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SPSC_PBUF_CACHE_NEVER=y
+    platform_exclude: ast1030_evb

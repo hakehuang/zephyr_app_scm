@@ -1,0 +1,153 @@
+---
+cases:
+  arch.interrupt.arm.hardfault_validation:
+    path: tests/arch/arm/arm_hardfault_validation
+    catalog: arm
+    filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.interrupt.arm:
+    path: tests/arch/arm/arm_interrupt
+    catalog: &1
+    - arm
+    - fpu
+    - interrupt
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.interrupt.no_optimizations:
+    path: tests/arch/arm/arm_interrupt
+    catalog: *1
+    extra_configs:
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    - CONFIG_MAIN_STACK_SIZE=2048
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.interrupt.extra_exception_info:
+    path: tests/arch/arm/arm_interrupt
+    catalog: *1
+    extra_configs:
+    - CONFIG_EXTRA_EXCEPTION_INFO=y
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.interrupt.arm.nmi:
+    path: tests/arch/arm/arm_runtime_nmi
+    catalog:
+    - nmi
+    - interrupt
+    - arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE and
+      not CONFIG_BUILD_WITH_TFM
+    arch_allow: arm
+  arch.interrupt.x86_direct_isr:
+    path: tests/arch/x86/direct_isr
+    catalog:
+    - kernel
+    - interrupt
+    extra_configs:
+    - CONFIG_COMPILER_OPT="-mgeneral-regs-only"
+    arch_allow: x86
+    filter: not CONFIG_X86_64
+  arch.interrupt.nmi:
+    path: tests/arch/x86/nmi
+    catalog: &2
+    - interrupt
+    - nmi
+    extra_configs:
+    - CONFIG_USERSPACE=n
+    arch_allow: x86
+    filter: CONFIG_X86_64
+  arch.interrupt.nmi.kpti:
+    path: tests/arch/x86/nmi
+    catalog: *2
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    filter: CONFIG_X86_64
+  arch.interrupt.gen_isr_table.arm_baseline:
+    path: tests/kernel/gen_isr_table
+    catalog: &3
+    - kernel
+    - interrupt
+    - isr_table
+    extra_configs:
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    platform_allow: qemu_cortex_m3
+    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
+  arch.interrupt.gen_isr_table.arm_baseline.linker_generator:
+    path: tests/kernel/gen_isr_table
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
+  arch.interrupt.gen_isr_table.arm_mainline:
+    path: tests/kernel/gen_isr_table
+    catalog: *3
+    extra_configs:
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    platform_allow: qemu_cortex_m3
+    platform_exclude:
+    - stmf103_mini
+    - nucleo_f103rb
+    - olimexino_stm32
+    - stm32_min_dev_black
+    - stm32_min_dev_blue
+    - usb_kw24d512
+    - v2m_beetle
+    - cc1352r1_launchxl
+    - cc26x2r1_launchxl
+    - olimex_stm32_h103
+    - cc1352r_sensortag
+    filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+  arch.interrupt.gen_isr_table.disabled:
+    path: tests/kernel/gen_isr_table
+    catalog: *3
+    extra_configs:
+    - CONFIG_GEN_ISR_TABLES=n
+    - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  arch.interrupt.gen_isr_table.arc:
+    path: tests/kernel/gen_isr_table
+    catalog: *3
+    extra_configs:
+    - CONFIG_ARC_FIRQ_STACK=y
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    arch_allow: arc
+    filter: CONFIG_RGF_NUM_BANKS > 1
+  arch.interrupt.gen_isr_table.riscv_direct:
+    path: tests/kernel/gen_isr_table
+    catalog: *3
+    extra_configs:
+    - CONFIG_GEN_IRQ_VECTOR_TABLE=y
+    platform_exclude: m2gl025_miv
+    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
+  arch.interrupt.gen_isr_table.riscv_no_direct:
+    path: tests/kernel/gen_isr_table
+    catalog: *3
+    extra_configs:
+    - CONFIG_GEN_IRQ_VECTOR_TABLE=n
+    platform_exclude: m2gl025_miv
+    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
+  arch.interrupt:
+    path: tests/kernel/interrupt
+    catalog:
+    - kernel
+    - interrupt
+    arch_exclude: nios2
+    filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE
+  arch.interrupt.linker_generator:
+    path: tests/kernel/interrupt
+    catalog:
+    - interrupt
+    - linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3

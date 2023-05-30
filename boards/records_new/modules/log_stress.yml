@@ -1,0 +1,16 @@
+---
+cases:
+  logging.log_stress:
+    path: tests/subsys/logging/log_stress
+    catalog:
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_MODE_OVERFLOW=y
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow:
+    - qemu_x86
+    - qemu_cortex_a9
+    - qemu_x86_64
+    filter: CONFIG_QEMU_TARGET and not CONFIG_SMP

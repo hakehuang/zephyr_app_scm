@@ -3,6 +3,8 @@ settings:
   case_pipe_name: "frdm_k22f_samples2"
   version: zephyr-v3.3.0-4123-gd01780fc94
 __load__:
+- modules/net_timeout.yml
+- modules/ethernet_mgmt.yml
 - skips/frdm_k22f.yml
 - boards/frdm_k22f.yml
 cases:

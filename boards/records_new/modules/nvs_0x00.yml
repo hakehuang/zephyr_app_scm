@@ -1,0 +1,7 @@
+---
+cases:
+  filesystem.nvs_0x00:
+    path: tests/subsys/fs/nvs
+    catalog: nvs
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86

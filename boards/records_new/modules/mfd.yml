@@ -1,0 +1,9 @@
+---
+cases:
+  drivers.mfd.build:
+    path: tests/drivers/build_all/mfd
+    catalog:
+    - drivers
+    - mfd
+    platform_allow: native_posix
+    build_only: true

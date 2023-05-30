@@ -1,0 +1,11 @@
+---
+cases:
+  libraries.cbprintf_package_nano:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    platform_type:
+    - qemu
+    - native
+    min_flash: 48

@@ -1,0 +1,19 @@
+---
+cases:
+  logging.log_api_frontend_no_backends_cpp:
+    path: tests/subsys/logging/log_api
+    catalog:
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_LOG_BACKEND_NATIVE_POSIX=n
+    - CONFIG_LOG_BACKEND_XTENSA_SIM=n
+    - CONFIG_CPP=y
+    extra_args: EXTRA_CPPFLAGS=-DNO_BACKENDS=1
+    platform_type:
+    - qemu
+    - native

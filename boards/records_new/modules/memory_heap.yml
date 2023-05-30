@@ -1,0 +1,16 @@
+---
+cases:
+  kernel.memory_heap:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog:
+    - kernel
+    - memory_heap
+    extra_configs:
+    - CONFIG_IRQ_OFFLOAD=y
+  kernel.memory_heap.linker_generator:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_IRQ_OFFLOAD=y
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3

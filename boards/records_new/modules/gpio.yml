@@ -1,0 +1,71 @@
+---
+cases:
+  drivers.gpio.build:
+    path: tests/drivers/build_all/gpio
+    catalog:
+    - drivers
+    - gpio
+    min_ram: 32
+    platform_exclude: serpente
+    depends_on:
+    - gpio
+    - spi
+    - i2c
+    build_only: true
+  drivers.gpio.1pin:
+    path: tests/drivers/gpio/gpio_api_1pin
+    catalog:
+    - drivers
+    - gpio
+    depends_on: gpio
+    min_flash: 48
+    platform_exclude:
+    - mps2_an385
+    - mps2_an521
+    - neorv32
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
+  drivers.gpio.2pin:
+    path: tests/drivers/gpio/gpio_basic_api
+    catalog: &1
+    - drivers
+    - gpio
+    min_flash: 34
+    filter: dt_compat_enabled("test-gpio-basic-api")
+    depends_on: gpio
+  drivers.gpio.nrf_sense_edge:
+    path: tests/drivers/gpio/gpio_basic_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840.overlay;boards/nrf52840dk_nrf52840_sense_edge.overlay
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
+  drivers.gpio.enable_disable_interrupt:
+    path: tests/drivers/gpio/gpio_enable_disable_interrupt
+    catalog:
+    - drivers
+    - gpio
+    depends_on: gpio
+    filter: dt_compat_enabled("test-gpio-enable-disable-interrupt")
+  drivers.gpio.get_direction:
+    path: tests/drivers/gpio/gpio_get_direction
+    catalog:
+    - drivers
+    - gpio
+    depends_on: gpio
+    min_flash: 48
+    platform_exclude:
+    - mps2_an385
+    - mps2_an521
+    - neorv32
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
+  drivers.gpio.hogs:
+    path: tests/drivers/gpio/gpio_hogs
+    catalog:
+    - drivers
+    - gpio
+    depends_on: gpio
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    - frdm_k64f
+    - nrf52840dk_nrf52840
+    - nucleo_g474re

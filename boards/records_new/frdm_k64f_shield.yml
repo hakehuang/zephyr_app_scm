@@ -3,6 +3,7 @@ settings:
   case_pipe_name: "frdm_k64f_shield"
   version: zephyr-v3.3.0-4123-gd01780fc94
 __load__:
+- modules/shields.yml
 - skips/frdm_k64f.yml
 - boards/frdm_k64f.yml
 cases:

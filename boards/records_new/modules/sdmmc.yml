@@ -1,0 +1,8 @@
+---
+cases:
+  sd.sdmmc:
+    path: tests/subsys/sd/sdmmc
+    catalog: sdhc
+    filter: dt_alias_exists("sdhc0")
+    min_ram: 32
+    depends_on: sdhc

@@ -1,0 +1,10 @@
+---
+cases:
+  net.iface:
+    path: tests/net/iface
+    catalog:
+    - net
+    - iface
+    - userspace
+    min_ram: 16
+    depends_on: netif

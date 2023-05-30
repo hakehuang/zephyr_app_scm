@@ -1,0 +1,24 @@
+---
+cases:
+  drivers.disk.usdhc:
+    path: tests/drivers/disk/disk_access
+    catalog: mcux
+    extra_configs:
+    - CONFIG_DISK_DRIVER_SDMMC=y
+    filter: CONFIG_SDHC
+  drivers.disk.ram:
+    path: tests/drivers/disk/disk_access
+    catalog: disk
+    extra_configs:
+    - CONFIG_DISK_DRIVER_RAM=y
+    platform_allow: qemu_x86_64
+  drivers.disk.nvme:
+    path: tests/drivers/disk/disk_access
+    catalog: disk
+    extra_configs:
+    - CONFIG_NVME=y
+    platform_allow: qemu_x86_64
+  drivers.disk.disk_performance.sdhc:
+    path: tests/drivers/disk/disk_performance
+    catalog: sdhc
+    depends_on: sdhc

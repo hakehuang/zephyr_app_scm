@@ -1,0 +1,61 @@
+---
+cases:
+  drivers.counter.build.xlnx:
+    path: tests/drivers/build_all/counter
+    catalog:
+    - drivers
+    - counter
+    extra_configs:
+    - CONFIG_COUNTER_XLNX_AXI_TIMER=y
+    platform_allow: arty_a7_arm_designstart_m1
+    build_only: true
+  drivers.counter.basic_api:
+    path: tests/drivers/counter/counter_basic_api
+    catalog:
+    - drivers
+    - counter
+    depends_on: counter
+    min_ram: 16
+    platform_exclude: nucleo_f302r8
+  drivers.counter.basic_api.nrf_zli:
+    path: tests/drivers/counter/counter_basic_api
+    catalog:
+    - drivers
+    - counter
+    extra_configs:
+    - CONFIG_ZERO_LATENCY_IRQS=y
+    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;boards/nrf52840dk_nrf52840_zli.overlay"
+    depends_on: counter
+    platform_allow: nrf52840dk_nrf52840
+  drivers.counter.nrf_rtc:
+    path: tests/drivers/counter/counter_nrf_rtc/fixed_top
+    catalog:
+    - drivers
+    - counter
+    depends_on: counter
+    platform_allow: nrf52840dk_nrf52840
+  drivers.counter.cmos:
+    path: tests/drivers/counter/counter_seconds
+    catalog:
+    - drivers
+    - counter
+    extra_configs:
+    - CONFIG_COUNTER_CMOS=y
+    arch_allow: x86
+    filter: CONFIG_X86_PC_COMPATIBLE
+  drivers.counter.mcux.snvs.rtc:
+    path: tests/drivers/counter/counter_seconds
+    catalog:
+    - drivers
+    - counter
+    platform_allow: mimxrt1064_evk
+  drivers.counter.maxim_ds3231:
+    path: tests/drivers/counter/maxim_ds3231_api
+    catalog:
+    - drivers
+    - counter
+    depends_on:
+    - counter
+    - i2c
+    min_ram: 16
+    filter: dt_compat_enabled("maxim,ds3231")

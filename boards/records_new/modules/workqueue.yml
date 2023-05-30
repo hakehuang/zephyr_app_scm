@@ -1,0 +1,37 @@
+---
+cases:
+  kernel.workqueue.critical:
+    path: tests/kernel/workq/critical
+    catalog: &1
+    - kernel
+    - workqueue
+    platform_exclude: nsim_sem_mpu_stack_guard
+    filter: not CONFIG_WDT_SAM
+  kernel.workqueue.critical.sam:
+    path: tests/kernel/workq/critical
+    catalog: *1
+    extra_configs:
+    - CONFIG_WDT_DISABLE_AT_BOOT=y
+    filter: CONFIG_WDT_SAM
+  kernel.workqueue.critical.nsim:
+    path: tests/kernel/workq/critical
+    catalog: *1
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    platform_allow: nsim_sem_mpu_stack_guard
+  kernel.workqueue.critical.linker_generator:
+    path: tests/kernel/workq/critical
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+  kernel.workqueue:
+    path: tests/kernel/workq/work_queue
+    catalog: kernel
+    min_flash: 34
+  kernel.workqueue.linker_generator:
+    path: tests/kernel/workq/work_queue
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3

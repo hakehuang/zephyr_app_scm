@@ -1,0 +1,83 @@
+---
+cases:
+  libraries.hash_map.minimal.separate_chaining.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_SC=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.minimal.open_addressing.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_OA_LP=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.newlib.separate_chaining.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_SC=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 24
+  libraries.hash_map.newlib.open_addressing.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_OA_LP=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 24
+  libraries.hash_map.newlib.cxx_unordered_map.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_CXX=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    - CONFIG_MAIN_STACK_SIZE=2048
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 24
+  libraries.hash_map.picolibc.separate_chaining.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_SC=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.picolibc.open_addressing.djb2:
+    path: samples/basic/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    - CONFIG_SYS_HASH_MAP_CHOICE_OA_LP=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.separate_chaining.djb2:
+    path: tests/lib/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_MAP_CHOICE_SC=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.open_addressing.djb2:
+    path: tests/lib/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_MAP_CHOICE_OA_LP=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y
+    min_ram: 24
+  libraries.hash_map.cxx.djb2:
+    path: tests/lib/hash_map
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_MAP_CHOICE_CXX=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 24

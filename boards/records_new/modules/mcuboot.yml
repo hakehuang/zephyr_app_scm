@@ -1,19 +1,32 @@
 ---
 cases:
-  mcuboot.recovery.retention:
-    path: tests/boot/mcuboot_recovery_retention
-    catalog:
-    - mcuboot
-    - sysbuild
-    - recovery
-    platform_allow: nrf52840dk_nrf52840
-  mcuboot.recovery.retention.mem:
-    path: tests/boot/mcuboot_recovery_retention
-    catalog:
-    - mcuboot
-    - sysbuild
-    - recovery
-    extra_args:
-    - '''OVERLAY_CONFIG="nrf52840dk_nrf52840_mem.conf"'''
-    - '''DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840_mem.overlay"'''
-    platform_allow: nrf52840dk_nrf52840
+  boot.mcuboot:
+    path: tests/boot/test_mcuboot
+    catalog: mcuboot
+    platform_allow:
+    - frdm_k64f
+    - mimxrt1060_evk
+    - nrf52840dk_nrf52840
+  bootloader.mcuboot.build:
+    path: tests/misc/test_build
+    catalog: mcuboot
+    extra_configs:
+    - CONFIG_BOOTLOADER_MCUBOOT=y
+    build_only: true
+    platform_allow:
+    - nrf51dk_nrf51422
+    - nrf52dk_nrf52832
+  dfu.mcuboot:
+    path: tests/subsys/dfu/mcuboot
+    catalog: dfu_mcuboot
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - native_posix
+    - native_posix_64
+  dfu.mcuboot.multiimage:
+    path: tests/subsys/dfu/mcuboot_multi
+    catalog: dfu_mcuboot
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - native_posix
+    - native_posix_64

@@ -1,0 +1,8 @@
+---
+cases:
+  shell.history:
+    path: tests/subsys/shell/shell_history
+    catalog: shell
+    min_flash: 64
+    min_ram: 32
+    filter: "( CONFIG_SHELL )"

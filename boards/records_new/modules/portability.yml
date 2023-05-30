@@ -1,337 +1,53 @@
 ---
 cases:
-  portability.posix.common:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=n
-    platform_exclude:
-    - - nsim_sem_mpu_stack_guard
-      - ehl_crb
-    - qemu_leon3
-    arch_exclude: posix
-    min_ram: 64
-  portability.posix.common.newlib:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    platform_exclude:
-    - - nsim_sem_mpu_stack_guard
-      - ehl_crb
-      - lpcxpresso55s06
-    - qemu_leon3
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-    min_ram: 64
-  portability.posix.common.armclang_std_libc:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_ARMCLANG_STD_LIBC=y
-    arch_exclude: posix
-    platform_exclude: qemu_leon3
-    min_ram: 64
-  portability.posix.common.arcmwdtlib:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_ARCMWDT_LIBC=y
-    arch_exclude: posix
-    platform_exclude: qemu_leon3
-    min_ram: 64
-  portability.posix.common.tls:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=n
-    - CONFIG_THREAD_LOCAL_STORAGE=y
-    - CONFIG_MAIN_STACK_SIZE=1152
-    platform_exclude:
-    - - nsim_sem_mpu_stack_guard
-      - ehl_crb
-    - qemu_leon3
-    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: posix
-    min_ram: 64
-  portability.posix.common.tls.newlib:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_THREAD_LOCAL_STORAGE=y
-    - CONFIG_MAIN_STACK_SIZE=1152
-    platform_exclude:
-    - - nsim_sem_mpu_stack_guard
-      - ehl_crb
-      - lpcxpresso55s06
-    - qemu_leon3
-    filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
-      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: posix
-    min_ram: 64
-  portability.posix.common.nsim:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=n
-    - CONFIG_TEST_HW_STACK_PROTECTION=n
-    platform_allow: nsim_sem_mpu_stack_guard
-    arch_exclude: posix
-    platform_exclude: qemu_leon3
-    min_ram: 64
-  portability.posix.common.newlib.nsim:
-    path: tests/posix/common
-    catalog: posix
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_TEST_HW_STACK_PROTECTION=n
-    platform_allow: nsim_sem_mpu_stack_guard
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-    platform_exclude: qemu_leon3
-    min_ram: 64
-  portability.posix.common.picolibc:
-    path: tests/posix/common
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-    platform_exclude: qemu_leon3
-    min_ram: 64
-  portability.posix.eventfd:
-    path: tests/posix/eventfd
-    catalog: &1
-    - posix
-    - eventfd
+  sample.portability.cmsis_rtos_v1.philosopher:
+    path: samples/subsys/portability/cmsis_rtos_v1/philosophers
+    catalog: cmsis_rtos
+    extra_args: " DEBUG_PRINTF=1"
     min_ram: 32
-    arch_exclude: posix
-  portability.posix.eventfd.newlib:
-    path: tests/posix/eventfd
-    catalog: *1
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
+    min_flash: 34
+  sample.portability.cmsis_rtos_v1.philosopher.same_prio:
+    path: samples/subsys/portability/cmsis_rtos_v1/philosophers
+    catalog: cmsis_rtos
+    extra_args: SAME_PRIO=1 DEBUG_PRINTF=1
     min_ram: 32
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-  portability.posix.eventfd.picolibc:
-    path: tests/posix/eventfd
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-  portability.posix.eventfd_basic:
-    path: tests/posix/eventfd_basic
-    catalog: &2
-    - posix
-    - eventfd
-    extra_configs:
-    - CONFIG_POSIX_API=n
-    arch_exclude: posix
+    min_flash: 34
+  sample.portability.cmsis_rtos_v1.philosopher.semaphores:
+    path: samples/subsys/portability/cmsis_rtos_v1/philosophers
+    catalog: cmsis_rtos
+    extra_args: FORKS=SEMAPHORES DEBUG_PRINTF=1
     min_ram: 32
-  portability.posix.eventfd_basic.posix_api:
-    path: tests/posix/eventfd_basic
-    catalog: *2
-    extra_configs:
-    - CONFIG_POSIX_API=y
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.eventfd_basic.newlib:
-    path: tests/posix/eventfd_basic
-    catalog: *2
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_POSIX_API=n
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.eventfd_basic.newlib.posix_api:
-    path: tests/posix/eventfd_basic
-    catalog: *2
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_POSIX_API=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.eventfd_basic.picolibc:
-    path: tests/posix/eventfd_basic
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.eventfd_basic.picolibc.posix_api:
-    path: tests/posix/eventfd_basic
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.fs:
-    path: tests/posix/fs
-    catalog: &3
-    - posix
-    - filesystem
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=n
-    arch_exclude: &4
-    - nios2
-    - posix
-    min_ram: 128
-  portability.posix.fs.newlib:
-    path: tests/posix/fs
-    catalog: *3
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: *4
-    min_ram: 128
-  portability.posix.fs.tls:
-    path: tests/posix/fs
-    catalog: *3
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=n
-    - CONFIG_THREAD_LOCAL_STORAGE=y
-    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: *4
-    min_ram: 128
-  portability.posix.fs.tls.newlib:
-    path: tests/posix/fs
-    catalog: *3
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_THREAD_LOCAL_STORAGE=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
-      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: *4
-    min_ram: 128
-  portability.posix.fs.picolibc:
-    path: tests/posix/fs
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: *4
-    min_ram: 128
-  portability.posix.fs.tls.picolibc:
-    path: tests/posix/fs
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: *4
-    min_ram: 128
-  portability.posix.getopt:
-    path: tests/posix/getopt
-    catalog: &5
-    - posix
-    - getopt
-    min_flash: 64
-    min_ram: 32
-    arch_exclude: posix
-  portability.posix.getopt.newlib:
-    path: tests/posix/getopt
-    catalog: *5
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-  portability.posix.getopt.picolibc:
-    path: tests/posix/getopt
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-  portability.posix.getopt.logger:
-    path: tests/posix/getopt
-    catalog: *5
-    extra_configs:
-    - CONFIG_LOG=y
-    build_only: true
-    arch_exclude: posix
-  portability.posix.headers.with_posix_api:
-    path: tests/posix/headers
-    catalog: &6
-    - posix
-    - net
-    - socket
-    extra_configs:
-    - CONFIG_POSIX_API=y
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.headers.without_posix_api:
-    path: tests/posix/headers
-    catalog: *6
-    extra_configs:
-    - CONFIG_POSIX_API=n
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.headers.picolibc.with_posix_api:
-    path: tests/posix/headers
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_POSIX_API=y
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.headers.picolibc.without_posix_api:
-    path: tests/posix/headers
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_POSIX_API=n
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.headers.newlib.with_posix_api:
-    path: tests/posix/headers
-    catalog: newlib
-    extra_configs:
-    - CONFIG_POSIX_API=y
-    - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.headers.newlib.without_posix_api:
-    path: tests/posix/headers
-    catalog: *6
-    extra_configs:
-    - CONFIG_POSIX_API=n
-    - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.headers.arcmwdtlib.with_posix_api:
-    path: tests/posix/headers
-    catalog: *6
-    extra_configs:
-    - CONFIG_POSIX_API=y
-    - CONFIG_ARCMWDT_LIBC=y
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.headers.arcmwdtlib.without_posix_api:
-    path: tests/posix/headers
-    catalog: *6
-    extra_configs:
-    - CONFIG_POSIX_API=n
-    - CONFIG_ARCMWDT_LIBC=y
-    arch_exclude: posix
-    min_ram: 32
-  portability.cmsis_rtos_v1:
-    path: tests/subsys/portability/cmsis_rtos_v1
+    min_flash: 34
+  sample.portability.cmsis_rtos_v1.timer_synchronization:
+    path: samples/subsys/portability/cmsis_rtos_v1/timer_synchronization
     catalog: cmsis_rtos
     min_ram: 32
     min_flash: 34
-  portability.cmsis_rtos_v2:
-    path: tests/subsys/portability/cmsis_rtos_v2
+  sample.portability.cmsis_rtos_v2.philosopher:
+    path: samples/subsys/portability/cmsis_rtos_v2/philosophers
     catalog: cmsis_rtos
-    platform_exclude: m2gl025_miv
+    extra_args: " DEBUG_PRINTF=1"
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: &1
+    - qemu_xtensa
+    - qemu_x86_64
+  sample.portability.cmsis_rtos_v2.philosopher.same_prio:
+    path: samples/subsys/portability/cmsis_rtos_v2/philosophers
+    catalog: cmsis_rtos
+    extra_args: SAME_PRIO=1 DEBUG_PRINTF=1
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: *1
+  sample.portability.cmsis_rtos_v2.philosopher.semaphores:
+    path: samples/subsys/portability/cmsis_rtos_v2/philosophers
+    catalog: cmsis_rtos
+    extra_args: FORKS=SEMAPHORES DEBUG_PRINTF=1
+    min_ram: 32
+    min_flash: 34
+    platform_exclude: *1
+  sample.portability.cmsis_rtos_v2.timer_synchronization:
+    path: samples/subsys/portability/cmsis_rtos_v2/timer_synchronization
+    catalog: cmsis_rtos
     min_ram: 32
     min_flash: 34

@@ -1,0 +1,30 @@
+---
+cases:
+  drivers.can.api:
+    path: tests/drivers/can/api
+    catalog:
+    - drivers
+    - can
+    depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus") and not dt_compat_enabled("kvaser,pcican")
+  drivers.can.api.twai:
+    path: tests/drivers/can/api
+    catalog:
+    - drivers
+    - can
+    extra_args: DTC_OVERLAY_FILE="twai-enable.overlay"
+    filter: dt_compat_enabled("espressif,esp32-twai")
+    platform_allow: esp32c3_devkitm
+  drivers.can.shell:
+    path: tests/drivers/can/shell
+    catalog:
+    - drivers
+    - can
+    - shell
+  drivers.can.timing:
+    path: tests/drivers/can/timing
+    catalog:
+    - drivers
+    - can
+    depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")

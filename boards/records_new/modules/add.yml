@@ -1,0 +1,17 @@
+---
+cases:
+  logging.add.async:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=prj.conf
+  logging.add.sync:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args: CONF_FILE=log_sync.conf
+  logging.add.log_user:
+    path: tests/subsys/logging/log_core_additional
+    catalog: logging
+    extra_args:
+    - CONF_FILE=log_user.conf
+    - USERSPACE_TEST=1
+    filter: CONFIG_USERSPACE

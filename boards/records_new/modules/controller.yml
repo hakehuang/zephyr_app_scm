@@ -1,0 +1,198 @@
+---
+cases:
+  bluetooth.controller.ctrl_api.test:
+    path: tests/bluetooth/controller/ctrl_api
+    catalog:
+    - bluetooth
+    - bt_api
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_chmu.test:
+    path: tests/bluetooth/controller/ctrl_chmu
+    catalog:
+    - bluetooth
+    - bt_chmu
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_cis_create.test:
+    path: tests/bluetooth/controller/ctrl_cis_create
+    catalog:
+    - bluetooth
+    - bt_cis_create
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_cis_terminate.test:
+    path: tests/bluetooth/controller/ctrl_cis_terminate
+    catalog:
+    - bluetooth
+    - bt_cis_terminate
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_collision.test:
+    path: tests/bluetooth/controller/ctrl_collision
+    catalog:
+    - bluetooth
+    - bt_collision
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_conn_update.test:
+    path: tests/bluetooth/controller/ctrl_conn_update
+    catalog: &1
+    - bluetooth
+    - bt_conn_update
+    - bt_conn_param_req
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_conn_update.apm_test:
+    path: tests/bluetooth/controller/ctrl_conn_update
+    catalog: *1
+    extra_args: CONF_FILE=prj_apm.conf
+    type: unit
+  bluetooth.controller.ctrl_conn_update.no_param_req_test:
+    path: tests/bluetooth/controller/ctrl_conn_update
+    catalog: *1
+    extra_args: CONF_FILE=prj_no_param_req.conf
+    type: unit
+  bluetooth.controller.ctrl_cte_req.test:
+    path: tests/bluetooth/controller/ctrl_cte_req
+    catalog:
+    - bluetooth
+    - bt_le_cte_req
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_data_length_update.test:
+    path: tests/bluetooth/controller/ctrl_data_length_update
+    catalog: &2
+    - bluetooth
+    - bt_data_length_update
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_data_length_update.test_nocodedphy:
+    path: tests/bluetooth/controller/ctrl_data_length_update
+    catalog: *2
+    extra_args: CONF_FILE=prj_nocoded.conf
+    type: unit
+  bluetooth.controller.ctrl_data_length_update.test_nophy:
+    path: tests/bluetooth/controller/ctrl_data_length_update
+    catalog: *2
+    extra_args: CONF_FILE=prj_nophy.conf
+    type: unit
+  bluetooth.controller.ctrl_encrypt.test:
+    path: tests/bluetooth/controller/ctrl_encrypt
+    catalog:
+    - bluetooth
+    - bt_encrypt
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_feature_exchange.test:
+    path: tests/bluetooth/controller/ctrl_feature_exchange
+    catalog:
+    - bluetooth
+    - bt_feature_exchange
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_hci.test:
+    path: tests/bluetooth/controller/ctrl_hci
+    catalog:
+    - bluetooth
+    - bt_ctrl_hci
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_invalid.test:
+    path: tests/bluetooth/controller/ctrl_invalid
+    catalog:
+    - bluetooth
+    - bt_invalid
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_le_ping.test:
+    path: tests/bluetooth/controller/ctrl_le_ping
+    catalog:
+    - bluetooth
+    - bt_le_ping
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_min_used_chans.test:
+    path: tests/bluetooth/controller/ctrl_min_used_chans
+    catalog:
+    - bluetooth
+    - bt_min_used_chans
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_phy_update.test:
+    path: tests/bluetooth/controller/ctrl_phy_update
+    catalog: &3
+    - bluetooth
+    - bt_phy_update
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_phy_update.test_reduced_buf:
+    path: tests/bluetooth/controller/ctrl_phy_update
+    catalog: *3
+    extra_args: CONF_FILE=prj_rx_cnt.conf
+    type: unit
+  bluetooth.controller.ctrl_sca_update.test:
+    path: tests/bluetooth/controller/ctrl_sca_update
+    catalog:
+    - bluetooth
+    - bt_sca_update
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_terminate.test:
+    path: tests/bluetooth/controller/ctrl_terminate
+    catalog:
+    - bluetooth
+    - bt_terminate
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_0_per_conn:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: &4
+    - bluetooth
+    - bt_tx_buffer_alloc
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_1_per_conn:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: *4
+    extra_args: CONF_FILE=prj_1.conf
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_2_per_conn:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: *4
+    extra_args: CONF_FILE=prj_2.conf
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_3_per_conn:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: *4
+    extra_args: CONF_FILE=prj_3.conf
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_max_per_conn_alloc:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: *4
+    extra_args: CONF_FILE=prj_max.conf
+    type: unit
+  bluetooth.controller.ctrl_tx_buffer_alloc.test_max_common_alloc:
+    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
+    catalog: *4
+    extra_args: CONF_FILE=prj_max_common.conf
+    type: unit
+  bluetooth.controller.ctrl_unsupported.default.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: &5
+    - bluetooth
+    - bt_unsupported
+    - bt_ull_llcp
+    type: unit
+  bluetooth.controller.ctrl_unsupported.test:
+    path: tests/bluetooth/controller/ctrl_unsupported
+    catalog: *5
+    extra_args: CONF_FILE=prj_unsupported.conf
+    type: unit
+  bluetooth.controller.ctrl_version.test:
+    path: tests/bluetooth/controller/ctrl_version
+    catalog:
+    - bluetooth
+    - bt_version_exchange
+    - bt_ull_llcp
+    type: unit

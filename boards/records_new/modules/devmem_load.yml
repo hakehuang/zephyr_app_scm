@@ -1,0 +1,12 @@
+---
+cases:
+  sample.devmem_load.polled:
+    path: samples/subsys/shell/devmem_load
+    catalog: &1
+    - devmem
+    - devmem_load
+    extra_args: OVERLAY_CONFIG="prj_poll.conf"
+  sample.devmem_load.uart.interrupt:
+    path: samples/subsys/shell/devmem_load
+    catalog: *1
+    filter: CONFIG_SERIAL_SUPPORT_INTERRUPT

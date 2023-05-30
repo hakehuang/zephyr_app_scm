@@ -1,0 +1,156 @@
+---
+cases:
+  drivers.watchdog.build:
+    path: tests/drivers/build_all/watchdog
+    catalog: wdt_xilinx_axi
+    extra_args: CONFIG_WATCHDOG=y
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  drivers.watchdog:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: &1
+    - drivers
+    - watchdog
+    filter: |
+      not (CONFIG_WDT_SAM or dt_compat_enabled("st,stm32-window-watchdog")
+       or dt_compat_enabled("st,stm32-watchdog") or CONFIG_SOC_FAMILY_LPC or
+       CONFIG_SOC_SERIES_IMX_RT6XX or CONFIG_SOC_SERIES_IMX_RT5XX or
+       CONFIG_SOC_FAMILY_GD32 or SOC_SERIES_GD32VF103)
+    platform_exclude:
+    - mec15xxevb_assy6853
+    - s32z270dc2_rtu0_r52
+    - s32z270dc2_rtu1_r52
+    depends_on: watchdog
+  drivers.watchdog.stm32wwdg:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg.overlay"
+    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+    platform_allow:
+    - nucleo_f091rc
+    - nucleo_f103rb
+    - nucleo_f207zg
+    - stm32f3_disco
+    - nucleo_f429zi
+    - nucleo_f746zg
+    - nucleo_g071rb
+    - nucleo_g474re
+    - nucleo_l073rz
+    - nucleo_l152re
+    - nucleo_l4r5zi
+    - stm32l562e_dk
+    - nucleo_wb55rg
+    - nucleo_wl55jc
+    - b_u585i_iot02a
+    - nucleo_u575zi_q
+    - nucleo_c031c6
+    - stm32h573i_dk
+    depends_on: watchdog
+  drivers.watchdog.stm32wwdg_h7:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg_h7.overlay"
+    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+    platform_allow:
+    - nucleo_h753zi
+    - nucleo_h743zi
+    depends_on: watchdog
+  drivers.watchdog.stm32iwdg:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE="boards/stm32_iwdg.overlay"
+    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+    platform_allow:
+    - nucleo_f091rc
+    - nucleo_f103rb
+    - nucleo_f207zg
+    - stm32f3_disco
+    - nucleo_f429zi
+    - nucleo_f746zg
+    - nucleo_g071rb
+    - nucleo_g474re
+    - nucleo_l073rz
+    - nucleo_l152re
+    - nucleo_l4r5zi
+    - stm32l562e_dk
+    - nucleo_wb55rg
+    - nucleo_wl55jc
+    - b_u585i_iot02a
+    - nucleo_u575zi_q
+    - nucleo_h753zi
+    - nucleo_h743zi
+    - nucleo_c031c6
+    - nucleo_h753zi
+    depends_on: watchdog
+  drivers.watchdog.mec15xxevb_assy6853:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: *1
+    build_only: true
+    platform_allow: mec15xxevb_assy6853
+    depends_on: watchdog
+  drivers.watchdog.counter_watchdog:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: *1
+    extra_args:
+    - OVERLAY_CONFIG="boards/nrf52840dk_nrf52840_counter.conf"
+    - DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840_counter.overlay"
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: watchdog
+  drivers.watchdog.gd32fwdgt:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE="boards/gd32_fwdgt.overlay"
+    filter: dt_compat_enabled("gd,gd32-fwdgt")
+    platform_allow:
+    - gd32e103v_eval
+    - gd32e507v_start
+    - gd32f350r_eval
+    - gd32f403z_eval
+    - gd32f450i_eval
+    - gd32f450z_eval
+    - gd32f470i_eval
+    - gd32vf103c_starter
+    - gd32vf103v_eval
+    - longan_nano
+    depends_on: watchdog
+  drivers.watchdog.gd32wwdgt:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE="boards/gd32_wwdgt.overlay"
+    filter: dt_compat_enabled("gd,gd32-wwdgt")
+    platform_allow:
+    - gd32e103v_eval
+    - gd32e507v_start
+    - gd32f350r_eval
+    - gd32f403z_eval
+    - gd32f450i_eval
+    - gd32f450z_eval
+    - gd32f470i_eval
+    - gd32vf103c_starter
+    - gd32vf103v_eval
+    - longan_nano
+    depends_on: watchdog
+  drivers.watchdog.s32z270dc2_r52:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: *1
+    build_only: true
+    platform_allow:
+    - s32z270dc2_rtu0_r52
+    - s32z270dc2_rtu1_r52
+    depends_on: watchdog
+  drivers.watchdog.mimxrt1050_evk_ti_tps382x:
+    path: tests/drivers/watchdog/wdt_basic_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE="boards/mimxrt1050_evk_ti_tps382x.overlay"
+    filter: dt_compat_enabled("ti,tps382x")
+    platform_allow: mimxrt1050_evk
+    depends_on: watchdog
+  drivers.watchdog.reset_none:
+    path: tests/drivers/watchdog/wdt_basic_reset_none
+    catalog:
+    - drivers
+    - watchdog
+    platform_allow:
+    - s32z270dc2_rtu0_r52
+    - s32z270dc2_rtu1_r52
+    depends_on: watchdog

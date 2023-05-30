@@ -1,0 +1,14 @@
+---
+cases:
+  crypto.mbedtls:
+    path: tests/crypto/mbedtls
+    catalog:
+    - crypto
+    - mbedtls
+    - userspace
+    extra_configs:
+    - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
+    - arch:riscv64:CONFIG_ZTEST_STACK_SIZE=8192
+    platform_exclude: m2gl025_miv
+    min_flash: 65
+    min_ram: 36

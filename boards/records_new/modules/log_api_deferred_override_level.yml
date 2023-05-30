@@ -1,0 +1,29 @@
+---
+cases:
+  logging.log_api_deferred_override_level:
+    path: tests/subsys/logging/log_api
+    catalog: &1
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_cortex_a9
+    - native_posix
+    platform_type: &2
+    - qemu
+    - native
+  logging.log_api_deferred_override_level.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_LOG_OVERRIDE_LEVEL=4
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_cortex_a9
+    - native_posix
+    platform_type: *2

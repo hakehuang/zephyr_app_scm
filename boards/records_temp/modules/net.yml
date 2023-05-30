@@ -1,1477 +1,1194 @@
 ---
 cases:
-  net.ethernet.build:
-    path: tests/drivers/build_all/ethernet
+  sample.net.capture:
+    path: samples/net/capture
     catalog:
-    - drivers
-    - ethernet
-    min_flash: 42
-    min_ram: 32
-    platform_exclude:
-    - frdm_kw41z
-    - mimxrt1020_evk
-    - mimxrt1024_evk
-    - mimxrt1050_evk
-    - mimxrt1060_evk
-    - mimxrt1064_evk
-    depends_on:
-    - spi
-    - netif
-    build_only: true
-  net.eth_ivshmem_queue:
-    path: tests/drivers/ethernet/eth_ivshmem_queue
-    catalog: unknown
-    platform_allow: qemu_cortex_a53
-  net.6lo:
-    path: tests/net/6lo
+    - net
+    - capture
+    depends_on: netif
+  sample.net.cloud.aws_iot_mqtt:
+    path: samples/net/cloud/aws_iot_mqtt
+    catalog: net mqtt cloud
+    extra_args: " USE_DUMMY_CREDS=1"
+    depends_on: netif
+    platform_allow: qemu_x86 nucleo_f429zi
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.net.cloud.google_iot_mqtt:
+    path: samples/net/cloud/google_iot_mqtt
+    catalog:
+    - net
+    - mqtt
+    - cloud
+    extra_args: " USE_DUMMY_KEY=1"
+    depends_on: netif
+    platform_allow:
+    - frdm_k64f
+    - qemu_x86
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.net.cloud.mqtt_azure:
+    path: samples/net/cloud/mqtt_azure
+    catalog:
+    - net
+    - mqtt
+    - cloud
+    platform_allow:
+    - sam_e70_xplained
+    - frdm_k64f
+    - qemu_x86
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.net.cloud.tagoio_http_post:
+    path: samples/net/cloud/tagoio_http_post
     catalog: &1
     - net
-    - 6loWPAN
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    min_ram: 32
-    depends_on: netif
-  net.6lo.preempt:
-    path: tests/net/6lo
-    catalog: *1
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    min_ram: 32
-    depends_on: netif
-  net.6lo.variable_buf_size:
-    path: tests/net/6lo
-    catalog: *1
-    extra_configs:
-    - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
-    - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
-    min_ram: 32
-    depends_on: netif
-  net.build:
-    path: tests/net/all
-    catalog: &2
-    - net
-    - net-all
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    platform_allow: qemu_x86
-    build_only: true
-    min_ram: 32
-  net.build.preempt:
-    path: tests/net/all
-    catalog: *2
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    platform_allow: qemu_x86
-    build_only: true
-    min_ram: 32
-  net.arp:
-    path: tests/net/arp
-    catalog: &3
-    - net
-    - arp
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.arp.preempt:
-    path: tests/net/arp
-    catalog: *3
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.eth_bridge:
-    path: tests/net/bridge
-    catalog: &4
-    - net
-    - bridge
-    extra_configs:
-    - CONFIG_NET_IPV4=n
-    - CONFIG_NET_IPV6=n
-    platform_exclude:
-    - mg100
-    - pinnacle_100_dvk
-    min_ram: 16
-    depends_on: netif
-  net.eth_bridge.ip:
-    path: tests/net/bridge
-    catalog: *4
-    extra_configs:
-    - CONFIG_NET_IPV4=y
-    - CONFIG_NET_IPV6=y
-    min_ram: 16
-    depends_on: netif
-  net.buf:
-    path: tests/net/buf
-    catalog:
-    - net
-    - buf
-    min_ram: 16
-  net.buf_simple:
-    path: tests/net/buf_simple
-    catalog:
-    - net
-    - buf
-    type: unit
-  net.offload:
-    path: tests/net/checksum_offload
-    catalog:
-    - net
-    - checksum_offload
-    min_ram: 16
-    depends_on: netif
-  net.conn_mgr_nodad:
-    path: tests/net/conn_mgr
-    catalog: net iface
-    extra_configs:
-    - CONFIG_NET_IPV6_DAD=n
-    min_ram: 16
-    depends_on: netif
-  net.conn_mgr_dad:
-    path: tests/net/conn_mgr
-    catalog: net iface
-    extra_configs:
-    - CONFIG_NET_IPV6_DAD=y
-    min_ram: 16
-    depends_on: netif
-  net.conn_mgr_conn:
-    path: tests/net/conn_mgr_conn
-    catalog:
-    - net
-    - iface
-    min_ram: 16
-    depends_on: netif
-  net.context:
-    path: tests/net/context
-    catalog:
-    - net
-    - net_context
-    extra_configs:
-    - CONFIG_ASSERT_LEVEL=0
-    min_ram: 16
-    depends_on: netif
-  net.dhcp:
-    path: tests/net/dhcpv4
-    catalog: &5
-    - net
-    - dhcpv4
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-  net.dhcp.preempt:
-    path: tests/net/dhcpv4
-    catalog: *5
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-  net.ethernet_mgmt:
-    path: tests/net/ethernet_mgmt
-    catalog:
-    - net
-    - ethernet_mgmt
-    min_ram: 32
-    depends_on: netif
-  net.hostname:
-    path: tests/net/hostname
-    catalog: &6
-    - net
-    - hostname
-    extra_configs:
-    - CONFIG_NET_HOSTNAME_UNIQUE=n
-    min_ram: 16
-    depends_on: netif
-  net.hostname.unique:
-    path: tests/net/hostname
-    catalog: *6
-    extra_configs:
-    - CONFIG_NET_HOSTNAME_UNIQUE=y
-    min_ram: 16
-    depends_on: netif
-  net.icmpv4:
-    path: tests/net/icmpv4
-    catalog:
-    - net
-    - icmpv4
-    min_ram: 16
-    depends_on: netif
-  net.icmpv6:
-    path: tests/net/icmpv6
-    catalog:
-    - net
-    - icmpv6
-    min_ram: 16
-    depends_on: netif
-  net.ieee802154.fragment:
-    path: tests/net/ieee802154/6lo_fragment
-    catalog:
-    - net
-    - ieee802154
-    - fragment
-    platform_allow:
-    - native_posix
-    - native_posix_64
-    min_ram: 48
-  net.ieee802154.custom_l2:
-    path: tests/net/ieee802154/custom_l2
-    catalog:
-    - net
-    - ieee802154
-    - l2
-    platform_allow:
-    - native_posix
-    - native_posix_64
-    min_ram: 16
-  net.ieee802154.l2:
-    path: tests/net/ieee802154/l2
-    catalog:
-    - net
-    - ieee802154
-    - l2
-    platform_allow:
-    - native_posix
-    - native_posix_64
-    min_ram: 16
-  net.iface:
-    path: tests/net/iface
-    catalog:
-    - net
-    - iface
-    - userspace
-    min_ram: 16
-    depends_on: netif
-  net.igmp:
-    path: tests/net/igmp
-    catalog: &7
-    - net
-    - igmp
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    platform_allow: qemu_x86
-  net.igmp.preempt:
-    path: tests/net/igmp
-    catalog: *7
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    platform_allow: qemu_x86
-  net.ip-addr:
-    path: tests/net/ip-addr
-    catalog:
-    - net
-    - ip-addr
-    min_ram: 16
-    depends_on: netif
-  net.ipv4.fragment:
-    path: tests/net/ipv4_fragment
-    catalog:
-    - net
-    - ipv4
-    - fragment
-    depends_on: netif
-  net.ipv6:
-    path: tests/net/ipv6
-    catalog: &8
-    - net
-    - ipv6
-    extra_configs:
-    - CONFIG_NET_BUF_FIXED_DATA_SIZE=y
-    depends_on: netif
-  net.ipv6.variable_buf_size:
-    path: tests/net/ipv6
-    catalog: *8
-    extra_configs:
-    - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
-    - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
-    depends_on: netif
-  net.ipv6.fragment:
-    path: tests/net/ipv6_fragment
-    catalog:
-    - net
-    - ipv6
-    - fragment
-    depends_on: netif
-  net.coap.simple:
-    path: tests/net/lib/coap
-    catalog: net
-    min_ram: 16
-    depends_on: netif
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  net.dns.addremove:
-    path: tests/net/lib/dns_addremove
-    catalog: &9
+    - cloud
     - dns
-    - net
-    min_ram: 21
-    depends_on: netif
-  net.dns.addremove.no_ipv6:
-    path: tests/net/lib/dns_addremove
-    catalog: *9
-    extra_configs:
-    - CONFIG_NET_IPV6=n
-    depends_on: netif
-    min_ram: 16
-  net.dns.no_ipv4:
-    path: tests/net/lib/dns_addremove
-    catalog: *9
-    extra_configs:
-    - CONFIG_NET_IPV4=n
-    depends_on: netif
-    min_ram: 16
-  net.dns:
-    path: tests/net/lib/dns_packet
-    catalog:
-    - dns
-    - net
-    min_ram: 16
-    depends_on: netif
-  net.dns.resolve:
-    path: tests/net/lib/dns_resolve
-    catalog: &10
-    - dns
-    - net
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 21
-  net.dns.resolve.preempt:
-    path: tests/net/lib/dns_resolve
-    catalog: *10
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 21
-  net.dns.resolve.no_ipv6:
-    path: tests/net/lib/dns_resolve
-    catalog: *10
-    extra_args: CONF_FILE=prj-no-ipv6.conf
-    min_ram: 21
-    depends_on: netif
-  net.dns.sd:
-    path: tests/net/lib/dns_sd
-    catalog: &11
-    - dns
-    - net
-    min_ram: 21
-    depends_on: netif
-  net.dns.sd.no_ipv6:
-    path: tests/net/lib/dns_sd
-    catalog: *11
-    extra_args: CONF_FILE=prj-no-ipv6.conf
-    min_ram: 16
-    depends_on: netif
-  net.http:
-    path: tests/net/lib/http_header_fields
-    catalog:
     - http
-    - net
-    min_ram: 16
-    depends_on: netif
-  net.http.server.common:
-    path: tests/net/lib/http_server/common
-    catalog:
-    - net
-    - http
-    - server
-    min_ram: 16
-  net.lwm2m.block_transfer:
-    path: tests/net/lib/lwm2m/block_transfer
-    catalog: lwm2m net
-    depends_on: netif
-  net.lwm2m.content_json:
-    path: tests/net/lib/lwm2m/content_json
-    catalog:
-    - lwm2m
-    - net
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    depends_on: netif
-  net.lwm2m.content_link_format:
-    path: tests/net/lib/lwm2m/content_link_format
-    catalog:
-    - lwm2m
-    - net
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    depends_on: netif
-  net.lwm2m.content_oma_tlv:
-    path: tests/net/lib/lwm2m/content_oma_tlv
-    catalog:
-    - lwm2m
-    - net
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    depends_on: netif
-  net.lwm2m.content_plain_text:
-    path: tests/net/lib/lwm2m/content_plain_text
-    catalog:
-    - lwm2m
-    - net
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    depends_on: netif
-  net.lwm2m.content_raw_cbor:
-    path: tests/net/lib/lwm2m/content_raw_cbor
-    catalog:
-    - lwm2m
-    - net
-    platform_allow: native_posix
-    depends_on: netif
-  net.lwm2m.content_senml_cbor:
-    path: tests/net/lib/lwm2m/content_senml_cbor
-    catalog:
-    - lwm2m
-    - net
-    platform_allow: native_posix
-    depends_on: netif
-  net.lwm2m.engine:
-    path: tests/net/lib/lwm2m/engine
-    catalog:
-    - lwm2m
-    - net
-    platform_allow: native_posix
-    depends_on: netif
-  net.lwm2m.lwm2m_engine:
-    path: tests/net/lib/lwm2m/lwm2m_engine
-    catalog:
-    - lwm2m
-    - net
-    platform_allow: native_posix
-    depends_on: netif
-  net.lwm2m.lwm2m_rd_client:
-    path: tests/net/lib/lwm2m/lwm2m_rd_client
-    catalog: &12
-    - net
-    - lwm2m
-    extra_args: EXTRA_CFLAGS=""
-    depends_on: netif
-    platform_allow: &13
-    - native_posix
-    - qemu_x86
-    - qemu_x86_64
-  net.lwm2m.lwm2m_rd_client_dtls:
-    path: tests/net/lib/lwm2m/lwm2m_rd_client
-    catalog: *12
-    extra_args: EXTRA_CFLAGS=-DCONFIG_LWM2M_DTLS_SUPPORT
-    depends_on: netif
-    platform_allow: *13
-  net.lwm2m.lwm2m_registry:
-    path: tests/net/lib/lwm2m/lwm2m_registry
-    catalog:
-    - lwm2m
-    - net
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    depends_on: netif
-  net.mqtt.packet:
-    path: tests/net/lib/mqtt_packet
-    catalog:
-    - mqtt
-    - net
-    - userspace
-    min_ram: 16
-    depends_on: netif
-  net.mqtt:
-    path: tests/net/lib/mqtt_publisher
-    catalog: &14
-    - net
-    - mqtt
-    min_ram: 16
-    depends_on: netif
-  net.mqtt.tls:
-    path: tests/net/lib/mqtt_publisher
-    catalog: *14
-    extra_configs:
-    - CONFIG_NET_PKT_RX_COUNT=20
-    - CONFIG_NET_PKT_TX_COUNT=20
-    - CONFIG_NET_BUF_RX_COUNT=20
-    - CONFIG_NET_BUF_TX_COUNT=20
-    extra_args: CONF_FILE="prj_tls.conf"
-    min_ram: 16
-    depends_on: netif
-  net.mqtt.pubsub:
-    path: tests/net/lib/mqtt_pubsub
-    catalog: &15
-    - net
-    - mqtt
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.mqtt.pubsub.preempt:
-    path: tests/net/lib/mqtt_pubsub
-    catalog: *15
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.mqtt_sn.client:
-    path: tests/net/lib/mqtt_sn_client
-    catalog:
-    - mqtt_sn
-    - net
-    min_ram: 16
-    depends_on: netif
-  net.mqtt_sn.packet:
-    path: tests/net/lib/mqtt_sn_packet
-    catalog:
-    - mqtt_sn
-    - net
-    min_ram: 16
-  net.mqtt.subscriber:
-    path: tests/net/lib/mqtt_subscriber
-    catalog: &16
-    - net
-    - mqtt
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.mqtt.subscriber.preempt:
-    path: tests/net/lib/mqtt_subscriber
-    catalog: *16
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.tls_credentials:
-    path: tests/net/lib/tls_credentials
-    catalog:
-    - net
-    - tls
-    depends_on: netif
-  net.tls_credentials.trusted_tfm:
-    path: tests/net/lib/tls_credentials
-    catalog:
-    - net
-    - tls
-    - trusted
-    extra_args: OVERLAY_CONFIG=./prj_trusted_tfm.conf
-    filter: CONFIG_BUILD_WITH_TFM
-    depends_on: netif
-  net.management:
-    path: tests/net/mgmt
-    catalog: &17
-    - net
-    - mgmt
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.management.preempt:
-    path: tests/net/mgmt
-    catalog: *17
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.mld:
-    path: tests/net/mld
-    catalog: &18
-    - net
-    - mld
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-  net.mld.preempt:
-    path: tests/net/mld
-    catalog: *18
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-  net.neighbour:
-    path: tests/net/neighbor
-    catalog: &19
-    - net
-    - neighbour
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.neighbor.preempt:
-    path: tests/net/neighbor
-    catalog: *19
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 16
-  net.packet:
-    path: tests/net/net_pkt
-    catalog: net
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 20
-  net.packet.preempt:
-    path: tests/net/net_pkt
-    catalog: net
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 20
-  net.packet.large_buffer:
-    path: tests/net/net_pkt
-    catalog: net
-    extra_configs:
-    - CONFIG_NET_BUF_FIXED_DATA_SIZE=y
-    - CONFIG_NET_BUF_DATA_SIZE=512
-    depends_on: netif
-    min_ram: 20
-  net.pkt_filter:
-    path: tests/net/npf
-    catalog:
-    - net
-    - npf
-    min_ram: 16
-    depends_on: netif
-  net.offloaded_netdev:
-    path: tests/net/offloaded_netdev
-    catalog:
-    - net
-    - iface
-    - userspace
-    min_ram: 16
-    depends_on: netif
-  net.pm:
-    path: tests/net/pm
-    catalog: net
-    platform_allow:
-    - qemu_x86
-    - qemu_leon3
-    - qemu_riscv32
-    - qemu_riscv64
-    depends_on: netif
-  net.ppp:
-    path: tests/net/ppp/driver
-    catalog:
-    - net
     - ppp
-    min_ram: 21
-    depends_on: serial-net
-  net.promisc:
-    path: tests/net/promiscuous
+    - modem
+    - gsm
+    - wifi
+    platform_allow:
+    - frdm_k64f
+    - nucleo_f767zi
+    min_ram: 64
+  sample.net.cloud.tagoio_http_post.wifi:
+    path: samples/net/cloud/tagoio_http_post
+    catalog: *1
+    extra_args: OVERLAY_CONFIG="overlay-wifi.conf"
+    platform_allow: disco_l475_iot1
+    min_ram: 64
+  sample.net.cloud.tagoio_http_post.wifi.esp:
+    path: samples/net/cloud/tagoio_http_post
+    catalog: *1
+    extra_args:
+    - SHIELD=esp_8266_arduino
+    - OVERLAY_CONFIG="overlay-wifi.conf"
+    platform_allow:
+    - frdm_k64f
+    - nucleo_f767zi
+    min_ram: 64
+  sample.net.cloud.tagoio_http_post.modem:
+    path: samples/net/cloud/tagoio_http_post
+    catalog: *1
+    extra_args: OVERLAY_CONFIG="overlay-modem.conf"
+    platform_allow: sam4e_xpro
+    min_ram: 64
+  sample.net.cloud.tagoio_http_post.modem.arduino:
+    path: samples/net/cloud/tagoio_http_post
+    catalog: *1
+    extra_args:
+    - OVERLAY_CONFIG="overlay-modem.conf"
+    - DTC_OVERLAY_FILE="arduino.overlay"
+    platform_allow: frdm_k64f
+    min_ram: 64
+  sample.net.dhcpv4_client:
+    path: samples/net/dhcpv4_client
     catalog:
     - net
-    - promisc
-    min_ram: 16
+    - http
     depends_on: netif
-  net.ptp.clock:
-    path: tests/net/ptp/clock
+  sample.net.dns_resolve.mdns:
+    path: samples/net/dns_resolve
+    catalog: mdns
+    extra_configs:
+    - CONFIG_MDNS_RESOLVER=y
+    - CONFIG_LLMNR_RESOLVER=n
+    - CONFIG_NET_DHCPV4=y
+    depends_on: netif
+  sample.net.dns_resolve.llmnr:
+    path: samples/net/dns_resolve
+    catalog: llmnr
+    extra_configs:
+    - CONFIG_MDNS_RESOLVER=n
+    - CONFIG_LLMNR_RESOLVER=y
+    - CONFIG_NET_DHCPV4=y
+    depends_on: netif
+  sample.net.dsa:
+    path: samples/net/dsa
+    catalog: tests
+    build_only: true
+    platform_allow: ip_k66f
+    depends_on: netif
+  sample.net.eth_native_posix:
+    path: samples/net/eth_native_posix
+    catalog: net
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  sample.net.gptp:
+    path: samples/net/gptp
     catalog:
     - net
-    - ptp
     - gptp
-    - userspace
-    min_ram: 32
-    depends_on: netif
     platform_allow:
     - frdm_k64f
     - sam_e70_xplained
     - native_posix
-  net.route:
-    path: tests/net/route
+    - native_posix_64
+    - nucleo_f767zi
+    - nucleo_h743zi
+    - nucleo_h745zi_q_m7
+    depends_on: netif
+  sample.net.ppp.gsm.modem:
+    path: samples/net/gsm_modem
+    catalog: &2
+    - net
+    - ppp
+    - modem
+    - gsm
+    extra_configs:
+    - CONFIG_TEST_RANDOM_GENERATOR=y
+    extra_args: ' DTC_OVERLAY_FILE="boards/frdm_uart2_dts.overlay"'
+    depends_on: serial-net
+    platform_allow: frdm_k64f
+  sample.net.ppp.gsm.modem.mux:
+    path: samples/net/gsm_modem
+    catalog: *2
+    extra_configs:
+    - CONFIG_TEST_RANDOM_GENERATOR=y
+    - CONFIG_GSM_MUX=y
+    - CONFIG_UART_MUX=y
+    extra_args: ' DTC_OVERLAY_FILE="boards/frdm_uart2_dts.overlay"'
+    depends_on: serial-net
+    platform_allow: frdm_k64f
+  sample.net.ipv4_autoconf:
+    path: samples/net/ipv4_autoconf
     catalog:
     - net
-    - route
-    min_ram: 16
+    - ipv4_autoconf
     depends_on: netif
-  net.route_mcast:
-    path: tests/net/route_mcast
-    catalog:
-    - net
-    - route_mcast
-    min_ram: 21
-    depends_on: netif
-  net.shell:
-    path: tests/net/shell
-    catalog:
-    - net
-    - net-shell
-    min_ram: 20
-    depends_on: netif
-  net.socket.af_packet:
-    path: tests/net/socket/af_packet
-    catalog:
-    - net
-    - socket
-    - af_packet
-    min_ram: 21
-    depends_on: netif
-    platform_exclude:
+    platform_allow:
+    - qemu_x86
     - native_posix
     - native_posix_64
-  net.socket.af_packet.ipproto_raw:
-    path: tests/net/socket/af_packet_ipproto_raw
+  sample.net.lldp:
+    path: samples/net/lldp
     catalog:
     - net
-    - socket
-    - af_packet
-    min_ram: 21
-    depends_on: netif
-    platform_exclude:
+    - lldp
+    platform_allow:
     - native_posix
     - native_posix_64
-  net.socket.can:
-    path: tests/net/socket/can
+    depends_on: netif
+  sample.net.lwm2m_client:
+    path: samples/net/lwm2m_client
     catalog:
     - net
+    - lwm2m
+    depends_on: netif
+    platform_allow:
+    - qemu_x86
+    - frdm_k64f
+    - pinnacle_100_dvk
+    - mg100
+  sample.net.lwm2m_client.all_objects:
+    path: samples/net/lwm2m_client
+    catalog:
+    - net
+    - lwm2m
+    extra_configs:
+    - CONFIG_LWM2M_CONN_MON_OBJ_SUPPORT=y
+    - CONFIG_LWM2M_LOCATION_OBJ_SUPPORT=y
+    - CONFIG_LWM2M_IPSO_ACCELEROMETER=y
+    - CONFIG_LWM2M_IPSO_BUZZER=y
+    - CONFIG_LWM2M_IPSO_ONOFF_SWITCH=y
+    - CONFIG_LWM2M_IPSO_PUSH_BUTTON=y
+    - CONFIG_LWM2M_IPSO_GENERIC_SENSOR=y
+    - CONFIG_LWM2M_IPSO_HUMIDITY_SENSOR=y
+    - CONFIG_LWM2M_IPSO_PRESSURE_SENSOR=y
+    depends_on: netif
+    platform_allow: qemu_x86
+  sample.net.lwm2m_client.dtls:
+    path: samples/net/lwm2m_client
+    catalog:
+    - net
+    - lwm2m
+    extra_args: OVERLAY_CONFIG=overlay-dtls.conf
+    depends_on: netif
+    platform_allow:
+    - qemu_x86
+    - frdm_k64f
+    - pinnacle_100_dvk
+    - mg100
+  sample.net.lwm2m_client.bt:
+    path: samples/net/lwm2m_client
+    catalog:
+    - net
+    - lwm2m
+    extra_args: OVERLAY_CONFIG=overlay-bt.conf
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - disco_l475_iot1
+  sample.net.lwm2m_client.queue_mode:
+    path: samples/net/lwm2m_client
+    catalog:
+    - net
+    - lwm2m
+    extra_args: OVERLAY_CONFIG=overlay-queue.conf
+    depends_on: netif
+    platform_allow: qemu_x86
+  sample.net.lwm2m_client.wnc_m14a2a:
+    path: samples/net/lwm2m_client
+    catalog:
+    - net
+    - lwm2m
+    extra_args: SHIELD=wnc_m14a2a
+    platform_allow:
+    - frdm_k64f
+    - nrf52840dk_nrf52840
+  sample.net.mdns_responder:
+    path: samples/net/mdns_responder
+    catalog:
+    - net
+    - mdns
+    platform_allow:
+    - qemu_x86
+    - qemu_cortex_m3
+  sample.net.mqtt_publisher:
+    path: samples/net/mqtt_publisher
+    catalog: &3
+    - net
+    - mqtt
+    platform_allow:
+    - frdm_k64f
+    - qemu_x86
+    - pinnacle_100_dvk
+    - mg100
+  sample.net.mqtt_publisher.userspace:
+    path: samples/net/mqtt_publisher
+    catalog: *3
+    extra_args: CONFIG_USERSPACE=y
+    platform_allow:
+    - frdm_k64f
+    - qemu_x86
+  sample.net.mqtt_publisher.bt:
+    path: samples/net/mqtt_publisher
+    catalog:
+    - net
+    - mqtt
+    - bluetooth
+    platform_allow: 96b_nitrogen
+  sample.net.mqtt_publisher.sn:
+    path: samples/net/mqtt_sn_publisher
+    catalog:
+    - net
+    - mqtt
+    platform_allow:
+    - frdm_k64f
+    - qemu_x86
+    - pinnacle_100_dvk
+    - mg100
+  sample.net.openthread.coprocessor:
+    path: samples/net/openthread/coprocessor
+    catalog:
+    - net
+    - openthread
+    build_only: true
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf52833dk_nrf52833
+    - tlsr9518adk80d
+    depends_on: netif
+    min_flash: 140
+  sample.net.openthread.coprocessor.usb:
+    path: samples/net/openthread/coprocessor
+    catalog: ci_build
+    extra_args:
+    - OVERLAY_CONFIG=overlay-usb-nrf-br.conf
+    - DTC_OVERLAY_FILE="usb.overlay"
+    build_only: true
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf52833dk_nrf52833
+    depends_on: netif
+    min_flash: 140
+  sample.net.promiscuous_mode:
+    path: samples/net/promiscuous_mode
+    catalog:
+    - net
+    - promisc
+    depends_on: netif
+  sample.net.sockets.big_http_download:
+    path: samples/net/sockets/big_http_download
+    catalog: &4
+    - net
+    - socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 128
+  sample.net.sockets.big_http_download.posix:
+    path: samples/net/sockets/big_http_download
+    catalog: *4
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 128
+  sample.net.sockets.big_http_download.ci:
+    path: samples/net/sockets/big_http_download
+    catalog: *4
+    extra_args: OVERLAY_CONFIG=overlay-ci.conf
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 128
+  sample.net.sockets.can.one_socket:
+    path: samples/net/sockets/can
+    catalog: &5
+    - net
+    - socket
     - can
-  net.socket.get_addr_info:
-    path: tests/net/socket/getaddrinfo
+    extra_configs:
+    - CONFIG_NET_SOCKETS_CAN_RECEIVERS=1
+    filter: dt_chosen_enabled("zephyr,canbus") and not dt_compat_enabled("kvaser,pcican")
+    depends_on: can
+  sample.net.sockets.can.two_sockets:
+    path: samples/net/sockets/can
+    catalog: *5
+    extra_configs:
+    - CONFIG_NET_SOCKETS_CAN_RECEIVERS=2
+    filter: dt_chosen_enabled("zephyr,canbus") and not dt_compat_enabled("kvaser,pcican")
+    depends_on: can
+  sample.net.sockets.coap_client:
+    path: samples/net/sockets/coap_client
     catalog:
     - net
     - socket
-    - getaddrinfo
-    - userspace
-    min_ram: 21
-    depends_on: netif
+    platform_allow: qemu_x86
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-  net.socket.get_name_info:
-    path: tests/net/socket/getnameinfo
+  sample.net.sockets.coap_server:
+    path: samples/net/sockets/coap_server
     catalog:
     - net
     - socket
-    - userspace
-    min_ram: 21
-    depends_on: netif
+    platform_allow: qemu_x86
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-  net.socket.misc:
-    path: tests/net/socket/misc
-    catalog: &20
+  sample.net.sockets.dumb_http_server:
+    path: samples/net/sockets/dumb_http_server
+    catalog: &6
     - net
     - socket
-    - userspace
     extra_configs:
-    - CONFIG_TEST_USERSPACE=n
-    depends_on: netif
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 21
-  net.socket.misc.userspace:
-    path: tests/net/socket/misc
-    catalog: *20
+    min_ram: 32
+    min_flash: 96
+    platform_exclude: intel_adsp_cavs25
+  sample.net.sockets.dumb_http_server.posix:
+    path: samples/net/sockets/dumb_http_server
+    catalog: *6
     extra_configs:
-    - CONFIG_TEST_USERSPACE=y
-    depends_on: netif
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    min_ram: 21
-  net.socket.mgmt:
-    path: tests/net/socket/net_mgmt
-    catalog: &21
+    min_ram: 32
+    min_flash: 96
+    platform_exclude: intel_adsp_cavs25
+  sample.net.sockets.dumb_http_server.netusb:
+    path: samples/net/sockets/dumb_http_server
+    catalog: usb
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: usb_device
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 96
+    platform_exclude: intel_adsp_cavs25
+  sample.net.sockets.dumb_http_server.netusb_zeroconf:
+    path: samples/net/sockets/dumb_http_server
+    catalog: usb
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf;overlay-zeroconf.conf"
+    depends_on: usb_device
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 96
+    platform_exclude: intel_adsp_cavs25
+  sample.net.sockets.dumb_http_server_mt:
+    path: samples/net/sockets/dumb_http_server_mt
+    catalog:
     - net
     - socket
-    - net_mgmt
-    - userspace
+    - http
     extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 21
-  net.socket.mgmt.preempt:
-    path: tests/net/socket/net_mgmt
-    catalog: *21
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 21
-  net.socket.offload.dispatcher:
-    path: tests/net/socket/offload_dispatcher
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    platform_exclude: esp32s2_saola
+    min_ram: 128
+    min_flash: 128
+  sample.net.sockets.echo:
+    path: samples/net/sockets/echo
     catalog:
     - net
     - socket
     depends_on: netif
-    min_flash: 240
-  net.socket.poll:
-    path: tests/net/socket/poll
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.net.sockets.echo.offload.simplelink:
+    path: samples/net/sockets/echo
     catalog:
     - net
     - socket
-    - poll
-    min_ram: 21
+    - offload
+    - simplelink
+    platform_allow: cc3220sf_launchxl
     depends_on: netif
-    platform_exclude: mps2_an385
-  net.socket.register:
-    path: tests/net/socket/register
-    catalog: &22
-    - net
-    - socket
-    - socket.register
-    extra_configs:
-    - CONFIG_NET_SOCKETS_SOCKOPT_TLS=n
-    depends_on: netif
-  net.socket.register.tls:
-    path: tests/net/socket/register
-    catalog: *22
-    extra_configs:
-    - CONFIG_MBEDTLS=y
-    - CONFIG_MBEDTLS_BUILTIN=y
-    - CONFIG_MBEDTLS_ENABLE_HEAP=y
-    - CONFIG_MBEDTLS_HEAP_SIZE=60000
-    - CONFIG_MBEDTLS_SSL_MAX_CONTENT_LEN=2048
-    - CONFIG_NET_SOCKETS_SOCKOPT_TLS=y
-    - CONFIG_NET_SOCKETS_TLS_MAX_CONTEXTS=6
-    - CONFIG_NET_SOCKETS_ENABLE_DTLS=y
-    - CONFIG_NET_SOCKETS_DTLS_TIMEOUT=30000
-    - CONFIG_MAIN_STACK_SIZE=2048
-    depends_on: netif
-  net.socket.select:
-    path: tests/net/socket/select
-    catalog: &23
-    - net
-    - socket
-    - userspace
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 21
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    platform_exclude: mps2_an385
-  net.socket.select.preempt:
-    path: tests/net/socket/select
-    catalog: *23
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 21
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    platform_exclude: mps2_an385
-  net.socket.socketpair:
-    path: tests/net/socket/socketpair
-    catalog: &24
+  sample.net.sockets.echo_async:
+    path: samples/net/sockets/echo_async
+    catalog: &7
     - net
     - socket
-    - userspace
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_allow: qemu_x86
+  sample.net.sockets.echo_async.posix:
+    path: samples/net/sockets/echo_async
+    catalog: *7
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_allow: qemu_x86
+  sample.net.sockets.echo_async_select:
+    path: samples/net/sockets/echo_async_select
+    catalog: &8
+    - net
+    - socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    platform_allow: qemu_x86
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.net.sockets.echo_async_select.posix:
+    path: samples/net/sockets/echo_async_select
+    catalog: *8
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
+    platform_allow: qemu_x86
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.net.sockets.echo_client:
+    path: samples/net/sockets/echo_client
+    catalog: &9
+    - net
+    - socket
+    platform_allow:
+    - qemu_x86
+    - frdm_k64f
+    - sam_e70_xplained
+    - qemu_cortex_m3
+    - frdm_kw41z
     depends_on: netif
-    min_ram: 21
-  net.socket.socketpair.newlib:
-    path: tests/net/socket/socketpair
-    catalog: *24
+    min_flash: 140
+  sample.net.sockets.echo_client.802154:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
+    platform_allow: qemu_x86
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.802154.rf2xx:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: atsamr21_xpro
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.802154.rf2xx.xplained:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args:
+    - SHIELD=atmel_rf2xx_xplained
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam4s_xplained
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.802154.rf2xx.xpro:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args:
+    - SHIELD=atmel_rf2xx_xpro
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow:
+    - sam4e_xpro
+    - sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.802154.rf2xx.legacy:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args:
+    - SHIELD=atmel_rf2xx_legacy
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow:
+    - sam4e_xpro
+    - sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.802154.rf2xx.arduino:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args:
+    - SHIELD=atmel_rf2xx_arduino
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow:
+    - sam_v71_xult
+    - frdm_k64f
+    - nucleo_f767zi
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.802154.rf2xx.mikrobus:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args:
+    - SHIELD=atmel_rf2xx_mikrobus
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: lpcxpresso55s69_ns
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.bt:
+    path: samples/net/sockets/echo_client
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-bt.conf"
+    platform_allow: qemu_x86
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.mcr20a:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args:
+    - SHIELD=frdm_cr20a
+    - OVERLAY_CONFIG=overlay-802154.conf
+    platform_allow: frdm_k64f
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.nrf_802154:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.nrf_openthread:
+    path: samples/net/sockets/echo_client
+    catalog:
+    - net
+    - openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: nrf52840dk_nrf52840
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.b91_802154:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: tlsr9518adk80d
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.b91_openthread:
+    path: samples/net/sockets/echo_client
+    catalog:
+    - net
+    - openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: tlsr9518adk80d
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.kw41z_openthread:
+    path: samples/net/sockets/echo_client
+    catalog:
+    - net
+    - openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: frdm_kw41z
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_client.userspace:
+    path: samples/net/sockets/echo_client
+    catalog: *9
+    extra_args:
+    - CONFIG_USERSPACE=y
+    - OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_allow:
+    - qemu_x86
+    - qemu_x86_64
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server:
+    path: samples/net/sockets/echo_server
+    catalog: &10
+    - net
+    - socket
+    platform_allow:
+    - qemu_x86
+    - qemu_x86_64
+    - sam_e70_xplained
+    - frdm_k64f
+    - qemu_cortex_m3
+    - frdm_kw41z
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args: OVERLAY_CONFIG="overlay-qemu_802154.conf"
+    platform_allow: qemu_x86
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: atsamr21_xpro
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.xplained:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args:
+    - SHIELD=atmel_rf2xx_xplained
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: sam4s_xplained
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.xpro:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args:
+    - SHIELD=atmel_rf2xx_xpro
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow:
+    - sam4e_xpro
+    - sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.legacy:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args:
+    - SHIELD=atmel_rf2xx_legacy
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow:
+    - sam4e_xpro
+    - sam_v71_xult
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.arduino:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args:
+    - SHIELD=atmel_rf2xx_arduino
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow:
+    - sam_v71_xult
+    - frdm_k64f
+    - nucleo_f767zi
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.802154.rf2xx.mikrobus:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args:
+    - SHIELD=atmel_rf2xx_mikrobus
+    - OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: lpcxpresso55s69_ns
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.bt:
+    path: samples/net/sockets/echo_server
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-bt.conf"
+    platform_allow: qemu_x86
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.mcr20a:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args:
+    - SHIELD=frdm_cr20a
+    - OVERLAY_CONFIG=overlay-802154.conf
+    platform_allow: frdm_k64f
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.nrf_802154:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.b91_802154:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
+    platform_allow: tlsr9518adk80d
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.usbnet:
+    path: samples/net/sockets/echo_server
+    catalog:
+    - net
+    - usb
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: netif usb_device
+    min_flash: 140
+  sample.net.sockets.echo_server.usbnet_composite:
+    path: samples/net/sockets/echo_server
+    catalog:
+    - net
+    - usb
+    extra_configs:
+    - CONFIG_USB_COMPOSITE_DEVICE=y
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: netif usb_device
+    min_flash: 140
+  sample.net.sockets.echo_server.nrf_openthread:
+    path: samples/net/sockets/echo_server
+    catalog:
+    - net
+    - openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: nrf52840dk_nrf52840
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.b91_openthread:
+    path: samples/net/sockets/echo_server
+    catalog:
+    - net
+    - openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: tlsr9518adk80d
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.kw41z_openthread:
+    path: samples/net/sockets/echo_server
+    catalog:
+    - net
+    - openthread
+    extra_args: OVERLAY_CONFIG="overlay-ot.conf"
+    platform_allow: frdm_kw41z
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.e1000:
+    path: samples/net/sockets/echo_server
+    catalog: net
+    extra_args: OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_allow:
+    - qemu_x86
+    - qemu_x86_64
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.stellaris:
+    path: samples/net/sockets/echo_server
+    catalog: net
+    extra_args: OVERLAY_CONFIG="overlay-qemu_cortex_m3_eth.conf"
+    platform_allow: qemu_cortex_m3
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.smsc911x:
+    path: samples/net/sockets/echo_server
+    catalog: net
+    extra_args: OVERLAY_CONFIG="overlay-smsc911x.conf"
+    platform_allow: mps2_an385
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.echo_server.userspace:
+    path: samples/net/sockets/echo_server
+    catalog: *10
+    extra_args:
+    - CONFIG_USERSPACE=y
+    - OVERLAY_CONFIG="overlay-e1000.conf"
+    platform_allow:
+    - qemu_x86
+    - qemu_x86_64
+    depends_on: netif
+    min_flash: 140
+  sample.net.sockets.http_client:
+    path: samples/net/sockets/http_client
+    catalog:
+    - net
+    - http
+    - http_client
+    min_ram: 32
+    depends_on: netif
+  sample.net.sockets.http_get:
+    path: samples/net/sockets/http_get
+    catalog: &11
+    - net
+    - socket
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 80
+  sample.net.sockets.http_get.posix:
+    path: samples/net/sockets/http_get
+    catalog: *11
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude:
+    - cc3220sf_launchxl
+    - cc3235sf_launchxl
+    min_ram: 32
+    min_flash: 80
+  sample.net.sockets.http_get.offload.simplelink:
+    path: samples/net/sockets/http_get
+    catalog:
+    - net
+    - socket
+    - offload
+    - simplelink
+    platform_allow: cc3220sf_launchxl
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 32
+    min_flash: 80
+  sample.net.sockets.net_mgmt.kernelmode:
+    path: samples/net/sockets/net_mgmt
+    catalog:
+    - net
+    - socket
+    - mgmt
+    extra_configs:
+    - CONFIG_USERSPACE=n
+    depends_on: netif
+    min_flash: 210
+  sample.net.sockets.net_mgmt.usermode:
+    path: samples/net/sockets/net_mgmt
+    catalog: userspace
+    extra_configs:
+    - CONFIG_USERSPACE=y
+    depends_on: netif
+    min_flash: 210
+  sample.net.sockets.packet:
+    path: samples/net/sockets/packet
+    catalog:
+    - net
+    - sockets
+    - packet-socket
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  sample.net.sockets.sntp_client:
+    path: samples/net/sockets/sntp_client
+    catalog: net
+    platform_allow: qemu_x86
+  sample.net.sockets.sntp_client.posix_names:
+    path: samples/net/sockets/sntp_client
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=y
+    platform_allow: qemu_x86
+  sample.net.sockets.sntp_client.posix:
+    path: samples/net/sockets/sntp_client
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=y
+    platform_allow: qemu_x86
+  sample.net.sockets.sntp_client.native_posix:
+    path: samples/net/sockets/sntp_client
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_SOCKETS_POSIX_NAMES=n
+    - CONFIG_POSIX_API=n
+    platform_allow: native_posix
+  sample.net.sockets.socketpair:
+    path: samples/net/sockets/socketpair
+    catalog:
+    - net
+    - socket
+    - posix
+    arch_exclude: posix
+  sample.net.socket.tcp:
+    path: samples/net/sockets/tcp
+    catalog:
+    - socket
+    - tcp
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_allow: qemu_x86
+  sample.net.sockets.txtime:
+    path: samples/net/sockets/txtime
+    catalog:
+    - net
+    - socket
+    - so_txtime
+    - tsn
+    depends_on: netif
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    - qemu_x86
+    - qemu_x86_64
+  sample.net.sockets.websocket_client:
+    path: samples/net/sockets/websocket_client
+    catalog:
+    - net
+    - http
+    - http_client
+    - websocket_client
+    - websocket
+    platform_exclude: intel_adsp_cavs25
+    min_ram: 35
+    depends_on: netif
+  sample.net.stats:
+    path: samples/net/stats
+    catalog:
+    - net
+    - statistics
+    min_ram: 64
+    depends_on: netif
+  sample.net.syslog.with_timefuncs:
+    path: samples/net/syslog_net
+    catalog: &12
+    - net
+    - syslog
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     depends_on: netif
-    min_ram: 21
-  net.socket.socketpair.picolibc:
-    path: tests/net/socket/socketpair
-    catalog: *24
+  sample.net.syslog.ipv4_only:
+    path: samples/net/syslog_net
+    catalog: *12
     extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    depends_on: netif
-    min_ram: 21
-  net.socket.tcp:
-    path: tests/net/socket/tcp
-    catalog: &25
-    - net
-    - socket
-    - userspace
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 32
+    - CONFIG_NET_IPV6=n
+    - CONFIG_NET_CONFIG_NEED_IPV6=n
+    - CONFIG_NET_CONFIG_MY_IPV6_ADDR=""
+    - CONFIG_NET_CONFIG_PEER_IPV6_ADDR=""
+    - CONFIG_LOG_BACKEND_NET_SERVER="192.0.2.1:514"
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    platform_exclude: mps2_an385
-  net.socket.tcp.preempt:
-    path: tests/net/socket/tcp
-    catalog: *25
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    - CONFIG_NET_TCP_RANDOMIZED_RTO=n
     depends_on: netif
-    min_ram: 32
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    platform_exclude: mps2_an385
-  net.socket.tls:
-    path: tests/net/socket/tls
-    catalog: &26
-    - net
-    - socket
-    - tls
+  sample.net.syslog.ipv6_only:
+    path: samples/net/syslog_net
+    catalog: *12
     extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 32
-    min_flash: 260
+    - CONFIG_NET_IPV4=n
+    - CONFIG_NET_CONFIG_NEED_IPV4=n
+    - CONFIG_NET_CONFIG_MY_IPV4_ADDR=""
+    - CONFIG_NET_CONFIG_PEER_IPV4_ADDR=""
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-  net.socket.tls.preempt:
-    path: tests/net/socket/tls
-    catalog: *26
+    depends_on: netif
+  sample.net.syslog.no_autostart:
+    path: samples/net/syslog_net
+    catalog: *12
     extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    platform_exclude: mps2_an385
-    depends_on: netif
-    min_ram: 32
-    min_flash: 260
+    - CONFIG_LOG_BACKEND_NET_AUTOSTART=n
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-  net.socket.tls.ext:
-    path: tests/net/socket/tls_ext
+    depends_on: netif
+  sample.net.telnet:
+    path: samples/net/telnet
     catalog:
     - net
-    - socket
-    - tls
-    platform_allow: qemu_x86
-  net.socket.udp:
-    path: tests/net/socket/udp
-    catalog: &27
-    - net
-    - socket
-    - udp
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    - telnet
     depends_on: netif
-    min_ram: 21
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  net.socket.udp.preempt:
-    path: tests/net/socket/udp
-    catalog: *27
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 21
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  net.socket.udp.ipv6_fragment:
-    path: tests/net/socket/udp
-    catalog: *27
-    extra_configs:
-    - CONFIG_NET_IPV6_FRAGMENT=y
-    depends_on: netif
-    min_ram: 21
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-  net.socket.websocket:
-    path: tests/net/socket/websocket
+  sample.net.virtual:
+    path: samples/net/virtual
     catalog:
     - net
-    - websocket
-    min_ram: 21
-    depends_on: netif
-  net.tcp.simple:
-    path: tests/net/tcp
-    catalog: &28
-    - net
-    - tcp
-    extra_configs:
-    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=1000
-    depends_on: netif
-  net.tcp.no_recv_queue:
-    path: tests/net/tcp
-    catalog: *28
-    extra_configs:
-    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=0
-    depends_on: netif
-  net.tcp.variable_buf_size:
-    path: tests/net/tcp
-    catalog: *28
-    extra_configs:
-    - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
-    - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
-    depends_on: netif
-  net.traffic_class.1:
-    path: tests/net/traffic_class
-    catalog: &29
-    - net
-    - traffic_class
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=1
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: &30
-    - native_posix
-    - native_posix_64
-  net.traffic_class.2:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=2
-    - CONFIG_NET_TC_RX_COUNT=2
-    platform_allow: *30
-  net.traffic_class.3:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=3
-    - CONFIG_NET_TC_RX_COUNT=3
-    platform_allow: *30
-  net.traffic_class.4:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=4
-    - CONFIG_NET_TC_RX_COUNT=4
-    platform_allow: *30
-  net.traffic_class.5:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=5
-    - CONFIG_NET_TC_RX_COUNT=5
-    platform_allow: *30
-  net.traffic_class.6:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=6
-    - CONFIG_NET_TC_RX_COUNT=6
-    platform_allow: *30
-  net.traffic_class.7:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=7
-    - CONFIG_NET_TC_RX_COUNT=7
-    platform_allow: *30
-  net.traffic_class.8:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=8
-    - CONFIG_NET_TC_RX_COUNT=8
-    platform_allow: *30
-  net.traffic_class.2_no_rx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=2
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.3_no_rx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=3
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.4_no_rx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=4
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.5_no_rx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=5
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.6_no_rx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=6
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.7_no_rx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=7
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.8_no_rx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_TX_COUNT=8
-    - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.2_no_tx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=2
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.3_no_tx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=3
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.4_no_tx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=4
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.5_no_tx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.6_no_tx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=6
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.7_no_tx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=7
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.8_no_tx:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=8
-    - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *30
-  net.traffic_class.tx_2_rx_3:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=3
-    - CONFIG_NET_TC_TX_COUNT=2
-    platform_allow: *30
-  net.traffic_class.tx_3_rx_8:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=8
-    - CONFIG_NET_TC_TX_COUNT=3
-    platform_allow: *30
-  net.traffic_class.rx_4_tx_8:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=4
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *30
-  net.traffic_class.rx_5_tx_7:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *30
-  net.traffic_class.tx_6_rx_2:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=2
-    - CONFIG_NET_TC_TX_COUNT=6
-    platform_allow: *30
-  net.traffic_class.tx_7_rx_5:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *30
-  net.traffic_class.tx_8_rx_7:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_RX_COUNT=7
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *30
-  net.traffic_class.2_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=2
-    - CONFIG_NET_TC_RX_COUNT=2
-    platform_allow: *30
-  net.traffic_class.3_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=3
-    - CONFIG_NET_TC_RX_COUNT=3
-    platform_allow: *30
-  net.traffic_class.4_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=4
-    - CONFIG_NET_TC_RX_COUNT=4
-    platform_allow: *30
-  net.traffic_class.5_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=5
-    - CONFIG_NET_TC_RX_COUNT=5
-    platform_allow: *30
-  net.traffic_class.6_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=6
-    - CONFIG_NET_TC_RX_COUNT=6
-    platform_allow: *30
-  net.traffic_class.7_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=7
-    - CONFIG_NET_TC_RX_COUNT=7
-    platform_allow: *30
-  net.traffic_class.8_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_TX_COUNT=8
-    - CONFIG_NET_TC_RX_COUNT=8
-    platform_allow: *30
-  net.traffic_class.tx_2_rx_3_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=3
-    - CONFIG_NET_TC_TX_COUNT=2
-    platform_allow: *30
-  net.traffic_class.tx_3_rx_8_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=8
-    - CONFIG_NET_TC_TX_COUNT=3
-    platform_allow: *30
-  net.traffic_class.rx_4_tx_8_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=4
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *30
-  net.traffic_class.rx_5_tx_7_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *30
-  net.traffic_class.tx_6_rx_2_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=2
-    - CONFIG_NET_TC_TX_COUNT=6
-    platform_allow: *30
-  net.traffic_class.tx_7_rx_5_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *30
-  net.traffic_class.tx_8_rx_7_sr_ab:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
-    - CONFIG_NET_TC_RX_COUNT=7
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *30
-  net.traffic_class.2_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=2
-    - CONFIG_NET_TC_RX_COUNT=2
-    platform_allow: *30
-  net.traffic_class.3_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=3
-    - CONFIG_NET_TC_RX_COUNT=3
-    platform_allow: *30
-  net.traffic_class.4_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=4
-    - CONFIG_NET_TC_RX_COUNT=4
-    platform_allow: *30
-  net.traffic_class.5_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=5
-    - CONFIG_NET_TC_RX_COUNT=5
-    platform_allow: *30
-  net.traffic_class.6_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=6
-    - CONFIG_NET_TC_RX_COUNT=6
-    platform_allow: *30
-  net.traffic_class.7_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=7
-    - CONFIG_NET_TC_RX_COUNT=7
-    platform_allow: *30
-  net.traffic_class.8_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_TX_COUNT=8
-    - CONFIG_NET_TC_RX_COUNT=8
-    platform_allow: *30
-  net.traffic_class.tx_2_rx_3_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=3
-    - CONFIG_NET_TC_TX_COUNT=2
-    platform_allow: *30
-  net.traffic_class.tx_3_rx_8_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=8
-    - CONFIG_NET_TC_TX_COUNT=3
-    platform_allow: *30
-  net.traffic_class.rx_4_tx_8_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=4
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *30
-  net.traffic_class.rx_5_tx_7_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *30
-  net.traffic_class.tx_6_rx_2_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=2
-    - CONFIG_NET_TC_TX_COUNT=6
-    platform_allow: *30
-  net.traffic_class.tx_7_rx_5_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=5
-    - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *30
-  net.traffic_class.tx_8_rx_7_sr_b:
-    path: tests/net/traffic_class
-    catalog: *29
-    extra_configs:
-    - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
-    - CONFIG_NET_TC_RX_COUNT=7
-    - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *30
-  net.trickle:
-    path: tests/net/trickle
-    catalog:
-    - net
-    - trickle
-    min_ram: 12
-    depends_on: netif
-  net.timestamp:
-    path: tests/net/tx_timestamp
-    catalog:
-    - net
-    - tx_timestamp
-    - gptp
-    min_ram: 16
-    depends_on: netif
-  net.udp:
-    path: tests/net/udp
-    catalog: net
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
-    depends_on: netif
-    min_ram: 20
-  net.udp.preempt:
-    path: tests/net/udp
-    catalog: net
-    extra_configs:
-    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
-    depends_on: netif
-    min_ram: 20
-  net.util:
-    path: tests/net/utils
-    catalog:
-    - net
-    - userspace
-    min_ram: 24
-    depends_on: netif
-  net.virtual.tunnel.ipip:
-    path: tests/net/virtual
-    catalog: &31
-    - net
-    - tunnel
     - virtual
-    extra_configs:
-    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="192.0.2.2"
-    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="198.51.100.1"
-    - CONFIG_NET_TEST_TUNNEL_NAME="ipip"
+    - tunnel
     depends_on: netif
-    min_ram: 32
-    filter: CONFIG_ENTROPY_HAS_DRIVER
-  net.virtual.tunnel.ip6ip:
-    path: tests/net/virtual
-    catalog: *31
-    extra_configs:
-    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="192.0.2.2"
-    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
-    - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip"
-    depends_on: netif
-    min_ram: 32
-    filter: CONFIG_ENTROPY_HAS_DRIVER
-  net.virtual.tunnel.ipip6:
-    path: tests/net/virtual
-    catalog: *31
-    extra_configs:
-    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
-    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="198.51.100.1"
-    - CONFIG_NET_TEST_TUNNEL_NAME="ipip6"
-    depends_on: netif
-    min_ram: 32
-    filter: CONFIG_ENTROPY_HAS_DRIVER
-  net.virtual.tunnel.ip6ip6:
-    path: tests/net/virtual
-    catalog: *31
-    extra_configs:
-    - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
-    - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
-    - CONFIG_NET_TEST_TUNNEL_NAME="ip6ip6"
-    depends_on: netif
-    min_ram: 32
-    filter: CONFIG_ENTROPY_HAS_DRIVER
-  net.vlan:
-    path: tests/net/vlan
+  sample.net.vlan:
+    path: samples/net/vlan
     catalog:
     - net
     - vlan
-    min_ram: 32
     depends_on: netif
+  sample.net.wifi:
+    path: samples/net/wifi
+    catalog: &13
+    - net
+    - wifi
+    platform_allow:
+    - cc3220sf_launchxl
+    - disco_l475_iot1
+    - reel_board
+  sample.net.wifi.mikroe_wifi_bt_click:
+    path: samples/net/wifi
+    catalog: *13
+    extra_args: SHIELD=mikroe_wifi_bt_click_mikrobus
+    platform_allow: lpcxpresso55s69_cpu0
+  sample.net.wifi.esp_8266:
+    path: samples/net/wifi
+    catalog: *13
+    extra_args: SHIELD=esp_8266
+    platform_allow: sam4e_xpro
+  sample.net.wifi.esp_8266_arduino:
+    path: samples/net/wifi
+    catalog: *13
+    extra_args: SHIELD=esp_8266_arduino
+    platform_allow:
+    - frdm_k64f
+    - disco_l475_iot1
+  sample.net.wifi.inventek_eswifi_arduino_uart:
+    path: samples/net/wifi
+    catalog: *13
+    extra_args: SHIELD=inventek_eswifi_arduino_uart
+    platform_allow:
+    - frdm_k64f
+    - nucleo_f767zi
+  sample.net.wifi.inventek_eswifi_arduino_spi:
+    path: samples/net/wifi
+    catalog: *13
+    extra_args: SHIELD=inventek_eswifi_arduino_spi
+    platform_allow:
+    - frdm_k64f
+    - nucleo_f767zi
+  sample.net.wpan.serial:
+    path: samples/net/wpan_serial
+    catalog: &14
+    - usb
+    - ieee802154
+    filter: dt_chosen_enabled("zephyr,ieee802154")
+    platform_exclude: pinnacle_100_dvk
+    depends_on: usb_device
+  sample.net.wpan_serial.frdm_cr20a:
+    path: samples/net/wpan_serial
+    catalog: *14
+    extra_args: SHIELD=frdm_cr20a
+    platform_allow: frdm_k64f
+    depends_on: usb_device
+    platform_exclude: pinnacle_100_dvk
+  sample.net.wpanusb:
+    path: samples/net/wpanusb
+    catalog: &15
+    - net
+    - ieee802154
+    - usb
+    filter: dt_chosen_enabled("zephyr,ieee802154")
+    platform_exclude: pinnacle_100_dvk
+    depends_on: usb_device
+  sample.net.wpanusb_frdm_cr20a:
+    path: samples/net/wpanusb
+    catalog: *15
+    extra_args: SHIELD=frdm_cr20a
+    platform_allow: frdm_k64f
+    depends_on: usb_device
+    platform_exclude: pinnacle_100_dvk
+  sample.net.zperf:
+    path: samples/net/zperf
+    catalog: &16
+    - net
+    - zperf
+    platform_allow: qemu_x86
+    platform_exclude: &17
+    - native_posix
+    - native_posix_64
+    - sam_e70_xplained
+    min_ram: 64
+  sample.net.zperf_no_shell:
+    path: samples/net/zperf
+    catalog: *16
+    extra_configs:
+    - CONFIG_NET_SHELL=n
+    platform_allow: qemu_x86
+    platform_exclude: *17
+    min_ram: 64
+  sample.net.zperf.netusb_ecm:
+    path: samples/net/zperf
+    catalog:
+    - usb
+    - net
+    - zperf
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: usb_device
+    platform_exclude: *17
+    min_ram: 64
+  sample.net.zperf.device_next_ecm:
+    path: samples/net/zperf
+    catalog: usb net zperf
+    extra_args: OVERLAY_CONFIG="overlay-usbd_next_ecm.conf" DTC_OVERLAY_FILE="usbd_next_ecm.overlay"
+    platform_allow: nrf52840dk_nrf52840 frdm_k64f
+    depends_on: usb_device
+    platform_exclude: *17
+    min_ram: 64
+  sample.net.zperf.netusb_eem:
+    path: samples/net/zperf
+    catalog:
+    - usb
+    - net
+    - zperf
+    extra_configs:
+    - CONFIG_USB_DEVICE_NETWORK_ECM=n
+    - CONFIG_USB_DEVICE_NETWORK_EEM=y
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: usb_device
+    platform_exclude: *17
+    min_ram: 64
+  sample.net.zperf.netusb_rndis:
+    path: samples/net/zperf
+    catalog:
+    - usb
+    - net
+    - zperf
+    extra_configs:
+    - CONFIG_USB_DEVICE_NETWORK_ECM=n
+    - CONFIG_USB_DEVICE_NETWORK_RNDIS=y
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: usb_device
+    platform_exclude: *17
+    min_ram: 64
+  sample.net.zperf.shield:
+    path: samples/net/zperf
+    catalog:
+    - shield
+    - net
+    - zperf
+    extra_args: SHIELD=link_board_eth
+    platform_allow: reel_board
+    depends_on:
+    - arduino_spi
+    - arduino_gpio
+    platform_exclude: *17
+    min_ram: 64
+  sample.net.hawkbit:
+    path: samples/subsys/mgmt/hawkbit
+    catalog: net
+    depends_on: netif
+    build_only: true
+    platform_allow: frdm_k64f
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  sample.net.updatehub:
+    path: samples/subsys/mgmt/updatehub
+    catalog: &18
+    - net
+    - wifi
+    - updatehub
+    extra_configs:
+    - CONFIG_UPDATEHUB_PRODUCT_UID="e4d37cfe6ec48a2d069cc0bbb8b078677e9a0d8df3a027c4d8ea131130c4265f"
+    - CONFIG_UPDATEHUB_POLL_INTERVAL=1
+    - CONFIG_UPDATEHUB_CE=y
+    - CONFIG_UPDATEHUB_SERVER="updatehub.io"
+    depends_on: netif
+    build_only: true
+    platform_allow: frdm_k64f
+  sample.net.updatehub.userspace:
+    path: samples/subsys/mgmt/updatehub
+    catalog: *18
+    extra_configs:
+    - CONFIG_UPDATEHUB_PRODUCT_UID="e4d37cfe6ec48a2d069cc0bbb8b078677e9a0d8df3a027c4d8ea131130c4265f"
+    - CONFIG_UPDATEHUB_POLL_INTERVAL=1
+    - CONFIG_UPDATEHUB_CE=y
+    - CONFIG_UPDATEHUB_SERVER="updatehub.io"
+    - CONFIG_USERSPACE=y
+    depends_on: netif
+    build_only: true
+    platform_allow: frdm_k64f
+  sample.net.updatehub.dtls:
+    path: samples/subsys/mgmt/updatehub
+    catalog: *18
+    extra_configs:
+    - CONFIG_UPDATEHUB_PRODUCT_UID="e4d37cfe6ec48a2d069cc0bbb8b078677e9a0d8df3a027c4d8ea131130c4265f"
+    - CONFIG_UPDATEHUB_POLL_INTERVAL=1
+    - CONFIG_UPDATEHUB_CE=y
+    - CONFIG_UPDATEHUB_SERVER="updatehub.io"
+    extra_args: OVERLAY_CONFIG="overlay-dtls.conf"
+    depends_on: netif
+    build_only: true
+    platform_allow: frdm_k64f

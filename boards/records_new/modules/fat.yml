@@ -1,0 +1,37 @@
+---
+cases:
+  filesystem.fat.api:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    platform_allow: native_posix
+  filesystem.fat.api.lfn:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_args: CONF_FILE="prj_lfn.conf"
+    platform_allow: native_posix
+  filesystem.fat.api.mmc:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_args: CONF_FILE="prj_mmc.conf"
+    filter: dt_compat_enabled("zephyr,mmc-disk")
+  filesystem.fat.ram.api:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_args: CONF_FILE="prj_native_posix_ram.conf"
+    platform_allow: native_posix
+  filesystem.fat.api.reentrant:
+    path: tests/subsys/fs/fat_fs_api
+    catalog: filesystem
+    extra_configs:
+    - CONFIG_FS_FATFS_REENTRANT=y
+    - CONFIG_MULTITHREADING=y
+    platform_allow: native_posix
+  filesystem.fat.dual_drive:
+    path: tests/subsys/fs/fat_fs_dual_drive
+    catalog: filesystem
+    platform_allow:
+    - qemu_x86
+    - native_posix
+    - qemu_leon3
+    - qemu_riscv32
+    - qemu_riscv64

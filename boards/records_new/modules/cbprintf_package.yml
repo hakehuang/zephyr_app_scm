@@ -1,0 +1,20 @@
+---
+cases:
+  libraries.cbprintf_package:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    platform_type: &1
+    - qemu
+    - native
+    min_flash: 48
+  libraries.cbprintf_package.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    min_flash: 48

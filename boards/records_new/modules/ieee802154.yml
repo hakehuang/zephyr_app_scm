@@ -1,39 +1,32 @@
 ---
 cases:
-  ieee802154.build.external:
-    path: tests/drivers/build_all/ieee802154
-    catalog: &1
-    - drivers
+  net.ieee802154.fragment:
+    path: tests/net/ieee802154/6lo_fragment
+    catalog:
+    - net
     - ieee802154
-    platform_allow: native_posix
-    build_only: true
-  ieee802154.build.cc13xx_cc26xx:
-    path: tests/drivers/build_all/ieee802154
-    catalog: *1
-    platform_allow: cc1352r_sensortag
-    build_only: true
-  ieee802154.build.kw41z:
-    path: tests/drivers/build_all/ieee802154
-    catalog: *1
-    platform_allow: frdm_kw41z
-    build_only: true
-  ieee802154.build.mcr20a:
-    path: tests/drivers/build_all/ieee802154
-    catalog: *1
-    platform_allow: usb_kw24d512
-    build_only: true
-  ieee802154.build.nrf5:
-    path: tests/drivers/build_all/ieee802154
-    catalog: *1
-    platform_allow: nrf52840dk_nrf52840
-    build_only: true
-  ieee802154.build.telink_b91:
-    path: tests/drivers/build_all/ieee802154
-    catalog: *1
-    platform_allow: tlsr9518adk80d
-    build_only: true
-  ieee802154.build.upipe:
-    path: tests/drivers/build_all/ieee802154
-    catalog: *1
-    platform_allow: qemu_x86
-    build_only: true
+    - fragment
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    min_ram: 48
+  net.ieee802154.custom_l2:
+    path: tests/net/ieee802154/custom_l2
+    catalog:
+    - net
+    - ieee802154
+    - l2
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    min_ram: 16
+  net.ieee802154.l2:
+    path: tests/net/ieee802154/l2
+    catalog:
+    - net
+    - ieee802154
+    - l2
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    min_ram: 16

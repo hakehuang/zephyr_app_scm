@@ -1,0 +1,36 @@
+---
+cases:
+  logging.log_syst.mipi_syst:
+    path: tests/subsys/logging/log_syst
+    catalog:
+    - log_syst
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MIPI_SYST_ENABLE=y
+    - CONFIG_LOG_BACKEND_MOCK_OUTPUT_SYST=y
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    arch_exclude:
+    - mips
+    - nios2
+    - posix
+    - sparc
+    filter:
+    - CONFIG_FULL_LIBC_SUPPORTED
+    - not CONFIG_64BIT
+  logging.log_syst.text:
+    path: tests/subsys/logging/log_syst
+    catalog:
+    - log_syst
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MIPI_SYST_ENABLE=n
+    - CONFIG_LOG_BACKEND_MOCK_OUTPUT_SYST=n
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    arch_exclude:
+    - mips
+    - nios2
+    - posix
+    - sparc
+    filter:
+    - CONFIG_FULL_LIBC_SUPPORTED
+    - not CONFIG_64BIT

@@ -1,0 +1,10 @@
+---
+cases:
+  kernel.poll:
+    path: tests/kernel/poll
+    catalog:
+    - kernel
+    - userspace
+    platform_exclude:
+    - nrf52dk_nrf52810
+    - qemu_arc_hs6x

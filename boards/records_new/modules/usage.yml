@@ -1,0 +1,10 @@
+---
+cases:
+  kernel.usage:
+    path: tests/kernel/usage/thread_runtime_stats
+    catalog: kernel
+    arch_exclude:
+    - posix
+    - sparc
+    - mips
+    filter: not CONFIG_SMP

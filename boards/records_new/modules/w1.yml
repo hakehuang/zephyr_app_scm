@@ -1,0 +1,31 @@
+---
+cases:
+  drivers.w1.w1-serial:
+    path: tests/drivers/w1/w1_api
+    catalog: &1
+    - drivers
+    - w1
+    - userspace
+    extra_args: DTC_OVERLAY_FILE=w1_serial.overlay
+    depends_on: arduino_serial
+    platform_allow: &2
+    - nucleo_g0b1re
+    - nrf52840dk_nrf52840
+  drivers.w1.ds2482-800:
+    path: tests/drivers/w1/w1_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE=ds2482-800.overlay
+    depends_on: arduino_i2c
+    platform_allow: *2
+  drivers.w1.ds2484:
+    path: tests/drivers/w1/w1_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE=ds2484.overlay
+    depends_on: arduino_i2c
+    platform_allow: *2
+  drivers.w1.ds2485:
+    path: tests/drivers/w1/w1_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE=ds2485.overlay
+    depends_on: arduino_i2c
+    platform_allow: *2

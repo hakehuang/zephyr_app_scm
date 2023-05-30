@@ -1,0 +1,26 @@
+---
+cases:
+  net.6lo:
+    path: tests/net/6lo
+    catalog: &1
+    - net
+    - 6loWPAN
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    min_ram: 32
+    depends_on: netif
+  net.6lo.preempt:
+    path: tests/net/6lo
+    catalog: *1
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    min_ram: 32
+    depends_on: netif
+  net.6lo.variable_buf_size:
+    path: tests/net/6lo
+    catalog: *1
+    extra_configs:
+    - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
+    min_ram: 32
+    depends_on: netif

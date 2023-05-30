@@ -1,0 +1,77 @@
+---
+cases:
+  libraries.cbprintf_fp.printk:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTK=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.printf:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.printf_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONFIG_CONSOLE_HAS_DRIVER
+    arch_exclude: posix
+  libraries.cbprintf_fp.printfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.printfcb_nl:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    - CONFIG_NEWLIB_LIBC=y
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - CONFIG_CONSOLE_HAS_DRIVER
+    arch_exclude: posix
+  libraries.cbprintf_fp.fprintf:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTF=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.fprintfcb:
+    path: tests/lib/cbprintf_fp
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_APP_FORMATTER_FPRINTFCB=y
+    arch_exclude: posix
+    filter: CONFIG_CONSOLE_HAS_DRIVER
+  libraries.cbprintf_fp.printf.picolibc:
+    path: tests/lib/cbprintf_fp
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTF=y
+    - CONFIG_PICOLIBC=y
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - CONFIG_CONSOLE_HAS_DRIVER
+    arch_exclude: posix
+  libraries.cbprintf_fp.printfcb.picolibc:
+    path: tests/lib/cbprintf_fp
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_APP_FORMATTER_PRINTFCB=y
+    - CONFIG_PICOLIBC=y
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - CONFIG_CONSOLE_HAS_DRIVER
+    arch_exclude: posix

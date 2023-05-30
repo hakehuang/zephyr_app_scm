@@ -1,0 +1,10 @@
+---
+cases:
+  pm.policy.api.app:
+    path: tests/subsys/pm/policy_api
+    catalog: pm
+    extra_configs:
+    - CONFIG_PM_POLICY_CUSTOM=y
+    platform_allow:
+    - native_posix
+    - native_posix_64

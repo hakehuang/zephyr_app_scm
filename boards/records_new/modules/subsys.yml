@@ -1,0 +1,34 @@
+---
+cases:
+  sample.subsys.canbus.isotp:
+    path: samples/subsys/canbus/isotp
+    catalog:
+    - can
+    - isotp
+    extra_configs:
+    - CONFIG_SAMPLE_LOOPBACK_MODE=y
+    depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus") and not dt_compat_enabled("kvaser,pcican")
+  sample.subsys.edac:
+    path: samples/subsys/edac
+    catalog: edac
+    platform_allow: ehl_crb
+  sample.subsys.ipc.openamp_rs_table:
+    path: samples/subsys/ipc/openamp_rsc_table
+    catalog: ipm
+    build_only: true
+    platform_allow: stm32mp157c_dk2
+  sample.subsys.settings:
+    path: samples/subsys/settings
+    catalog: settings
+    platform_allow:
+    - qemu_x86
+    - native_posix
+    - native_posix_64
+  sample.subsys.task_wdt:
+    path: samples/subsys/task_wdt
+    catalog: subsys
+    depends_on: watchdog
+    platform_exclude:
+    - s32z270dc2_rtu0_r52
+    - s32z270dc2_rtu1_r52

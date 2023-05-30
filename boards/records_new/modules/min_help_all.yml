@@ -1,0 +1,9 @@
+---
+cases:
+  shell.min_help_all:
+    path: tests/subsys/shell/shell
+    catalog: shell
+    extra_args: CONF_FILE=shell_min_help_all.conf
+    min_flash: 32
+    build_only: true
+    min_ram: 32

@@ -1,0 +1,16 @@
+---
+cases:
+  net.http:
+    path: tests/net/lib/http_header_fields
+    catalog:
+    - http
+    - net
+    min_ram: 16
+    depends_on: netif
+  net.http.server.common:
+    path: tests/net/lib/http_server/common
+    catalog:
+    - net
+    - http
+    - server
+    min_ram: 16

@@ -1,0 +1,87 @@
+---
+cases:
+  testing.fail.unit.assert_after:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_ASSERT_AFTER=y
+    platform_allow: native_posix
+  testing.fail.unit.assert_teardown:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_ASSERT_TEARDOWN=y
+    platform_allow: native_posix
+  testing.fail.unit.assume_after:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_ASSUME_AFTER=y
+    platform_allow: native_posix
+  testing.fail.unit.assume_teardown:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_ASSUME_TEARDOWN=y
+    platform_allow: native_posix
+  testing.fail.unit.pass_after:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_PASS_AFTER=y
+    platform_allow: native_posix
+  testing.fail.unit.pass_teardown:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_PASS_TEARDOWN=y
+    platform_allow: native_posix
+  testing.fail.zephyr.assert_after:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_ASSERT_AFTER=y
+    platform_allow: native_posix
+  testing.fail.zephyr.assert_teardown:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_ASSERT_TEARDOWN=y
+    platform_allow: native_posix
+  testing.fail.zephyr.assume_after:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_ASSUME_AFTER=y
+    platform_allow: native_posix
+  testing.fail.zephyr.assume_teardown:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_ASSUME_TEARDOWN=y
+    platform_allow: native_posix
+  testing.fail.zephyr.pass_after:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_PASS_AFTER=y
+    platform_allow: native_posix
+  testing.fail.zephyr.pass_teardown:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_PASS_TEARDOWN=y
+    platform_allow: native_posix
+  testing.fail.unit.fail_on_bad_assumption:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_UNEXPECTED_ASSUME=y
+    type: unit
+    platform_allow: native_posix
+  testing.fail.zephyr.fail_on_bad_assumption:
+    path: tests/ztest/fail
+    catalog: ztest
+    extra_configs:
+    - CONFIG_ZTEST_FAIL_TEST_UNEXPECTED_ASSUME=y
+    platform_allow: native_posix

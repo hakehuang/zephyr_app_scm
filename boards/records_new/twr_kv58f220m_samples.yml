@@ -3,7 +3,10 @@ settings:
   case_pipe_name: "twr_kv58f220m_samples"
   version: zephyr-v3.3.0-4123-gd01780fc94
 __load__:
+- modules/tcp.yml
+- modules/offloaded_netdev.yml
 - modules/net.yml
+- modules/ethernet.yml
 - skips/twr_kv58f220m.yml
 - boards/twr_kv58f220m.yml
 cases:

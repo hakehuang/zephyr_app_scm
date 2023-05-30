@@ -1,0 +1,23 @@
+---
+cases:
+  net.eth_bridge:
+    path: tests/net/bridge
+    catalog: &1
+    - net
+    - bridge
+    extra_configs:
+    - CONFIG_NET_IPV4=n
+    - CONFIG_NET_IPV6=n
+    platform_exclude:
+    - mg100
+    - pinnacle_100_dvk
+    min_ram: 16
+    depends_on: netif
+  net.eth_bridge.ip:
+    path: tests/net/bridge
+    catalog: *1
+    extra_configs:
+    - CONFIG_NET_IPV4=y
+    - CONFIG_NET_IPV6=y
+    min_ram: 16
+    depends_on: netif

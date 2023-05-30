@@ -1,132 +1,147 @@
 ---
 cases:
-  boards.altera_max10.i2c_master:
-    path: tests/boards/altera_max10/i2c_master
-    catalog: i2c
-    platform_allow: altera_max10
-  boards.altera_max10.dma:
-    path: tests/boards/altera_max10/msgdma
-    catalog: dma
-    platform_allow: altera_max10
-  boards.altera_max10.qspi:
-    path: tests/boards/altera_max10/qspi
-    catalog:
-    - qspi
-    - flash
-    platform_allow: altera_max10
-  boards.altera_max10.sysid:
-    path: tests/boards/altera_max10/sysid
-    catalog: sysid
-    platform_allow: altera_max10
-  boards.esp32.cache_coex:
-    path: tests/boards/espressif_esp32/cache_coex
-    catalog:
-    - spiram
-    - spiflash
-    - cache
-    platform_allow: esp32
-  boards.frdm_k64f.i2c:
-    path: tests/boards/frdm_k64f/i2c
-    catalog: i2c
-    platform_allow: frdm_k64f
-  boards.intel_adsp.cache:
-    path: tests/boards/intel_adsp/cache
-    catalog: boards
-    platform_allow: intel_adsp_cavs25
-  boards.intel_adsp.hda:
-    path: tests/boards/intel_adsp/hda
-    catalog:
-    - hda
-    - dma
-    platform_allow: intel_adsp_cavs25
-  boards.intel_adsp.hda.1cpu:
-    path: tests/boards/intel_adsp/hda
-    catalog:
-    - hda
-    - dma
-    extra_configs:
-    - CONFIG_MP_MAX_NUM_CPUS=1
-    platform_allow: intel_adsp_cavs25
-  boards.intel_adsp.hda_log:
-    path: tests/boards/intel_adsp/hda_log
-    catalog: unknown
-    platform_allow: intel_adsp_cavs25
-  boards.intel_adsp.hda_log.printk:
-    path: tests/boards/intel_adsp/hda_log
-    catalog: unknown
-    extra_configs:
-    - CONFIG_LOG_PRINTK=y
-    platform_allow: intel_adsp_cavs25
-  boards.intel_adsp.hda_log.1cpu:
-    path: tests/boards/intel_adsp/hda_log
-    catalog: unknown
-    extra_configs:
-    - CONFIG_MP_MAX_NUM_CPUS=1
-    platform_allow: intel_adsp_cavs25
-  boards.intel_adsp.mm:
-    path: tests/boards/intel_adsp/mm
-    catalog: boards
-    platform_allow: intel_adsp_cavs25
-  boards.intel_adsp.smoke:
-    path: tests/boards/intel_adsp/smoke
-    catalog: unknown
-    platform_allow: intel_adsp_cavs25
-  boards.intel_adsp.ssp:
-    path: tests/boards/intel_adsp/ssp
-    catalog:
-    - dai
-    - dma
-    depends_on:
-    - dai
-    - dma
-    platform_allow: intel_adsp_cavs25
-  boards.mec15xxevb_assy6853.i2c:
-    path: tests/boards/mec15xxevb_assy6853/i2c_api
-    catalog:
-    - drivers
-    - i2c
-    depends_on: i2c
-    filter: dt_compat_enabled("nxp,pca95xx")
-    platform_allow: mec15xxevb_assy6853
-  boards.mec15xxevb_assy6853.qspi:
-    path: tests/boards/mec15xxevb_assy6853/qspi
-    catalog:
-    - drivers
-    - spi
-    - qspi
-    platform_allow: mec15xxevb_assy6853
-  boards.mec172xevb_assy6906.i2c:
-    path: tests/boards/mec172xevb_assy6906/i2c_api
-    catalog:
-    - drivers
-    - i2c
-    depends_on: i2c
-    filter: dt_compat_enabled("nxp,pca95xx")
+  sample.boards.mec172xevb_assy6906.rom_api:
+    path: samples/boards/mec172xevb_assy6906/rom_api
+    catalog: crypto
     platform_allow: mec172xevb_assy6906
-  boards.native_posix.cpu_wait:
-    path: tests/boards/native_posix/cpu_wait
-    catalog: unknown
-    platform_allow:
-    - native_posix
-    - native_posix_64
-  boards.native_posix.native_tasks:
-    path: tests/boards/native_posix/native_tasks
-    catalog: unknown
-    arch_allow: posix
-  boards.native_posix_64.native_tasks:
-    path: tests/boards/native_posix/native_tasks
-    catalog: unknown
-    arch_allow: posix
-  boards.native_posix.rtc:
-    path: tests/boards/native_posix/rtc
-    catalog: unknown
-    platform_allow:
-    - native_posix
-    - native_posix_64
+  sample.boards.mimxrt1060_evk.system_off:
+    path: samples/boards/mimxrt1060_evk/system_off
+    catalog: power
     build_only: true
-  boards.nrf52_bsim.egu:
-    path: tests/boards/nrf52_bsim/egu
-    catalog: unknown
+    platform_allow:
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+  sample.boards.mimxrt595_evk_cm33.system_off:
+    path: samples/boards/mimxrt595_evk_cm33/system_off
+    catalog: power
+    build_only: true
+    platform_allow: mimxrt595_evk_cm33
+  sample.boards.nrf.battery:
+    path: samples/boards/nrf/battery
+    catalog: battery
+    build_only: true
+    platform_allow:
+    - particle_xenon
+    - thingy52_nrf52832
+  sample.boards.nrf.clock_skew:
+    path: samples/boards/nrf/clock_skew
+    catalog: power
+    build_only: true
     platform_allow:
     - nrf52840dk_nrf52840
-    - nrf52_bsim
+    - nrf52dk_nrf52832
+    - nrf51dk_nrf51422
+  sample.boards.nrf.dynamic_pinctrl:
+    path: samples/boards/nrf/dynamic_pinctrl
+    catalog: unknown
+    build_only: true
+    platform_allow: nrf52840dk_nrf52840
+  sample.boards.nrf.802154_rpmsg:
+    path: samples/boards/nrf/ieee802154/802154_rpmsg
+    catalog: unknown
+    build_only: true
+    platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.boards.nrf.nrf53_sync_rtc:
+    path: samples/boards/nrf/nrf53_sync_rtc
+    catalog: unknown
+    platform_allow: nrf5340dk_nrf5340_cpuapp
+  sample.boards.nrf.nrf53_sync_rtc.net:
+    path: samples/boards/nrf/nrf53_sync_rtc/net
+    catalog: unknown
+    platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.boards.nrf.nrf_led_matrix:
+    path: samples/boards/nrf/nrf_led_matrix
+    catalog: unknown
+    filter: dt_compat_enabled("nordic,nrf-led-matrix")
+  sample.boards.nrf.nrfx:
+    path: samples/boards/nrf/nrfx
+    catalog: board
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf9160dk_nrf9160
+  sample.boards.nrf.nrfx_prs:
+    path: samples/boards/nrf/nrfx_prs
+    catalog: nrfx
+    platform_allow:
+    - nrf5340dk_nrf5340_cpuapp
+    - nrf9160dk_nrf9160
+  sample.boards.nrf.system_off:
+    path: samples/boards/nrf/system_off
+    catalog: power
+    build_only: true
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf52dk_nrf52832
+    - nrf51dk_nrf51422
+  sample.boards.nrf.system_off.retained:
+    path: samples/boards/nrf/system_off
+    catalog: power
+    extra_configs:
+    - CONFIG_APP_RETENTION=y
+    build_only: true
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf52dk_nrf52832
+  sample.boards.nxp_s32.netc.psi:
+    path: samples/boards/nxp_s32/netc
+    catalog: net
+    platform_allow: s32z270dc2_rtu0_r52
+    depends_on: netif
+  sample.boards.nxp_s32.netc.vsi_and_psi:
+    path: samples/boards/nxp_s32/netc
+    catalog: net
+    extra_args: DTC_OVERLAY_FILE="./vsi-and-psi.overlay"
+    platform_allow: s32z270dc2_rtu0_r52
+    depends_on: netif
+  sample.boards.stm32.backup_sram:
+    path: samples/boards/stm32/backup_sram
+    catalog: unknown
+    depends_on: backup_sram
+    build_only: true
+    filter: dt_compat_enabled("st,stm32-backup-sram")
+  sample.boards.stm32.h7_dual_core:
+    path: samples/boards/stm32/h7_dual_core
+    catalog: unknown
+    depends_on: mailbox
+    build_only: true
+    filter: dt_compat_enabled("st,stm32-hsem-mailbox")
+  sample.boards.stm32.power_mgmt.blinky:
+    path: samples/boards/stm32/power_mgmt/blinky
+    catalog:
+    - LED
+    - power
+    extra_args: CONFIG_DEBUG=y
+    filter: dt_compat_enabled("zephyr,power-state") and dt_enabled_alias_with_parent_compat("led0",
+      "gpio-leds") and dt_compat_enabled("st,stm32-lptim")
+  sample.boards.stm32.power_mgmt.serial_wakeup:
+    path: samples/boards/stm32/power_mgmt/serial_wakeup
+    catalog:
+    - UART
+    - Wake
+    - up
+    - power
+    extra_args: CONFIG_DEBUG=y
+    filter: dt_compat_enabled("zephyr,power-state")
+    platform_allow: nucleo_wb55rg
+  sample.boards.stm32.power_mgmt.standby_shutdown:
+    path: samples/boards/stm32/power_mgmt/standby_shutdown
+    catalog:
+    - LED
+    - power
+    extra_args: CONFIG_DEBUG=y
+    platform_allow:
+    - nucleo_l476rg
+    - disco_l475_iot1
+    filter: dt_compat_enabled("zephyr,power-state") and dt_enabled_alias_with_parent_compat("led0",
+      "gpio-leds") and dt_compat_enabled("st,stm32-lptim")
+  sample.boards.stm32.pm.stm32wb_ble_pm:
+    path: samples/boards/stm32/power_mgmt/stm32wb_ble
+    catalog:
+    - bluetooth
+    - pm
+    platform_allow: nucleo_wb55rg
+  sample.boards.ti.cc13x2_cc26x2.system_off:
+    path: samples/boards/ti/cc13x2_cc26x2/system_off
+    catalog: power
+    build_only: true
+    platform_allow: cc1352r1_launchxl

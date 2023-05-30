@@ -1,0 +1,9 @@
+---
+cases:
+  drivers.espi.acpi:
+    path: tests/drivers/espi
+    catalog:
+    - drivers
+    - espi
+    filter: dt_compat_enabled("zephyr,espi-emul-controller")
+    platform_allow: native_posix

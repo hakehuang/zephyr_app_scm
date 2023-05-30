@@ -1,0 +1,95 @@
+---
+cases:
+  kernel.scheduler.deadline:
+    path: tests/kernel/sched/deadline
+    catalog: kernel
+  kernel.scheduler.deadline.linker_generator:
+    path: tests/kernel/sched/deadline
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+  kernel.scheduler.metairq:
+    path: tests/kernel/sched/metairq
+    catalog: kernel
+    platform_exclude: nrf52dk_nrf52810
+  kernel.scheduler.metairq.linker_generator:
+    path: tests/kernel/sched/metairq
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+  kernel.scheduler.preempt:
+    path: tests/kernel/sched/preempt
+    catalog: kernel
+    platform_exclude: nrf52dk_nrf52810
+  kernel.scheduler.preempt.linker_generator:
+    path: tests/kernel/sched/preempt
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+    platform_exclude: nrf52dk_nrf52810
+  kernel.scheduler:
+    path: tests/kernel/sched/schedule_api
+    catalog: &1
+    - kernel
+    - threads
+    - scheduler
+    - userspace
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 34
+  kernel.scheduler.no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 34
+  kernel.scheduler.slice_perthread:
+    path: tests/kernel/sched/schedule_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    - CONFIG_TIMESLICE_PER_THREAD=y
+    filter: not CONFIG_SCHED_MULTIQ
+    min_ram: 34
+  kernel.scheduler.multiq:
+    path: tests/kernel/sched/schedule_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    extra_args: CONF_FILE=prj_multiq.conf
+    min_ram: 34
+  kernel.scheduler.multiq_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_multiq.conf
+    min_ram: 34
+  kernel.scheduler.dumb_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    extra_args: CONF_FILE=prj_dumb.conf
+    min_ram: 34
+  kernel.scheduler.dumb_no_timeslicing:
+    path: tests/kernel/sched/schedule_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_TIMESLICING=n
+    extra_args: CONF_FILE=prj_dumb.conf
+    min_ram: 34
+  kernel.scheduler.linker_generator:
+    path: tests/kernel/sched/schedule_api
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_TIMESLICING=y
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    filter: not CONFIG_SCHED_MULTIQ
+    platform_allow: qemu_cortex_m3
+    min_ram: 34

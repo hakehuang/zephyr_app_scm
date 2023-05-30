@@ -1,0 +1,9 @@
+---
+cases:
+  net.ipv4.fragment:
+    path: tests/net/ipv4_fragment
+    catalog:
+    - net
+    - ipv4
+    - fragment
+    depends_on: netif

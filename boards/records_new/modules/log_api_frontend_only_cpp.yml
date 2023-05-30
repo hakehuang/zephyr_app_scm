@@ -1,0 +1,14 @@
+---
+cases:
+  logging.log_api_frontend_only_cpp:
+    path: tests/subsys/logging/log_api
+    catalog:
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_CPP=y
+    platform_type:
+    - qemu
+    - native

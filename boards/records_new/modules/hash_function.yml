@@ -1,0 +1,14 @@
+---
+cases:
+  libraries.hash_function.identity:
+    path: tests/lib/hash_function
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_IDENTITY=y
+    platform_exclude: qemu_cortex_a53
+  libraries.hash_function.djb2:
+    path: tests/lib/hash_function
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_HASH_FUNC32_DJB2=y
+    - CONFIG_SYS_HASH_FUNC32_CHOICE_DJB2=y

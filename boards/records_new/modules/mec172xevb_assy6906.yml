@@ -1,0 +1,10 @@
+---
+cases:
+  boards.mec172xevb_assy6906.i2c:
+    path: tests/boards/mec172xevb_assy6906/i2c_api
+    catalog:
+    - drivers
+    - i2c
+    depends_on: i2c
+    filter: dt_compat_enabled("nxp,pca95xx")
+    platform_allow: mec172xevb_assy6906

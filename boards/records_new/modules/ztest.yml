@@ -1,0 +1,93 @@
+---
+cases:
+  testing.ztest.ztress:
+    path: "."
+    catalog: test_framework
+    platform_exclude: qemu_cortex_r5
+    platform_type:
+    - qemu
+  testing.ztest.automain:
+    path: tests/ztest/automain
+    catalog: test_framework
+  testing.ztest.base:
+    path: tests/ztest/base
+    catalog: test_framework
+    type: unit
+  testing.ztest.base.cpp:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_cpp.conf
+    platform_allow: native_posix
+  testing.ztest.base.verbose_0:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_0.conf
+  testing.ztest.base.verbose_0_userspace:
+    path: tests/ztest/base
+    catalog:
+    - test_framework
+    - userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    extra_args: CONF_FILE=prj_verbose_0.conf
+    filter: CONFIG_USERSPACE
+  testing.ztest.base.verbose_1:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_1.conf
+  testing.ztest.base.verbose_2:
+    path: tests/ztest/base
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_verbose_2.conf
+  testing.ztest.busy_sim:
+    path: tests/ztest/busy_sim
+    catalog: test_framework
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: counter
+  testing.ztest.busy_sim_nrf52840dk_pin:
+    path: tests/ztest/busy_sim
+    catalog: test_framework
+    extra_args: DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840_pin.overlay
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: counter
+  testing.ztest.regular_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+  testing.ztest.customized_output:
+    path: tests/ztest/custom_output
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_customized_output.conf
+  testing.ztest.error_hook:
+    path: tests/ztest/error_hook
+    catalog:
+    - test_framework
+    - userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  testing.ztest.error_hook.no_userspace:
+    path: tests/ztest/error_hook
+    catalog: test_framework
+    extra_args: CONF_FILE=prj_no_userspace.conf
+  testing.ztest.register:
+    path: tests/ztest/register
+    catalog: test_framework
+  testing.ztest.summary.shared_unit_test:
+    path: tests/ztest/summary
+    catalog: test_framework
+  testing.ztest.expect:
+    path: tests/ztest/zexpect
+    catalog: unknown
+  testing.ztest.expect_cpp:
+    path: tests/ztest/zexpect
+    catalog: unknown
+    extra_configs:
+    - CONFIG_CPLUSPLUS=y
+  testing.ztest.expect.unit:
+    path: tests/ztest/zexpect
+    catalog: unknown
+    type: unit
+  testing.ztest.ztress.ztress:
+    path: tests/ztest/ztress
+    catalog: test_framework
+    platform_exclude: qemu_cortex_r5
+    platform_type:
+    - qemu

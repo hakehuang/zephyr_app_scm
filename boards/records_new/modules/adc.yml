@@ -1,0 +1,95 @@
+---
+cases:
+  drivers.adc:
+    path: tests/drivers/adc/adc_api
+    catalog:
+    - adc
+    - drivers
+    - userspace
+    depends_on: adc
+    min_flash: 40
+  drivers.adc.emul:
+    path: tests/drivers/adc/adc_emul
+    catalog:
+    - adc
+    - drivers
+    - userspace
+    depends_on: adc
+    platform_allow: native_posix
+  drivers.adc.build:
+    path: tests/drivers/build_all/adc
+    catalog:
+    - adc_mcp302x
+    - adc_lmp90xxx
+    - adc_ads1x1x
+    - adc_ads1119
+    - adc_ads114s08
+    - adc_emul
+    extra_args: CONFIG_GPIO=y
+    platform_allow: native_posix
+    build_only: true
+  drivers.adc.cc32xx.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_cc32xx
+    platform_allow: cc3220sf_launchxl
+    build_only: true
+  drivers.adc.ite.it8xxx2.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_ite_it8xxx2
+    platform_allow: it8xxx2_evb
+    build_only: true
+  drivers.adc.mcux.adc12.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_mcux_adc12
+    platform_allow: twr_ke18f
+    build_only: true
+  drivers.adc.mcux.adc16.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_mcux_adc16
+    platform_allow: frdm_k22f
+    build_only: true
+  drivers.adc.mcux.lpadc.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_mcux_lpadc
+    platform_allow: lpcxpresso55s28
+    build_only: true
+  drivers.adc.npcx.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_npcx
+    platform_allow: npcx7m6fb_evb
+    build_only: true
+  drivers.adc.nrf.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_nrfx_adc
+    platform_allow: nrf51dk_nrf51422
+    build_only: true
+  drivers.adc.nrf.saadc.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_nrfx_saadc
+    platform_allow: nrf21540dk_nrf52840
+    build_only: true
+  drivers.adc.sam0.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_sam0
+    platform_allow: atsame54_xpro
+    build_only: true
+  drivers.adc.sam.afec.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_sam_afec
+    platform_allow: sam_e70_xplained
+    build_only: true
+  drivers.adc.stm32.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_stm32
+    platform_allow: disco_l475_iot1
+    build_only: true
+  drivers.adc.xec.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_xec
+    platform_allow: mec15xxevb_assy6853
+    build_only: true
+  drivers.adc.test.build:
+    path: tests/drivers/build_all/adc
+    catalog: adc_test
+    platform_allow: qemu_cortex_m3
+    build_only: true

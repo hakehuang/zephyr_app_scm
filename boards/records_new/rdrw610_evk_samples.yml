@@ -3,7 +3,10 @@ settings:
   case_pipe_name: "rdrw610_evk_samples"
   version: zephyr-v3.3.0-4123-gd01780fc94
 __load__:
+- modules/tcp.yml
+- modules/offloaded_netdev.yml
 - modules/net.yml
+- modules/ethernet.yml
 - skips/rdrw610_evk.yml
 - boards/rdrw610_evk.yml
 cases:

@@ -1,0 +1,101 @@
+---
+cases:
+  fpga.build:
+    path: tests/drivers/build_all/fpga
+    catalog: fpga
+    platform_allow: native_posix
+    build_only: true
+  ieee802154.build.external:
+    path: tests/drivers/build_all/ieee802154
+    catalog: &1
+    - drivers
+    - ieee802154
+    platform_allow: native_posix
+    build_only: true
+  ieee802154.build.cc13xx_cc26xx:
+    path: tests/drivers/build_all/ieee802154
+    catalog: *1
+    platform_allow: cc1352r_sensortag
+    build_only: true
+  ieee802154.build.kw41z:
+    path: tests/drivers/build_all/ieee802154
+    catalog: *1
+    platform_allow: frdm_kw41z
+    build_only: true
+  ieee802154.build.mcr20a:
+    path: tests/drivers/build_all/ieee802154
+    catalog: *1
+    platform_allow: usb_kw24d512
+    build_only: true
+  ieee802154.build.nrf5:
+    path: tests/drivers/build_all/ieee802154
+    catalog: *1
+    platform_allow: nrf52840dk_nrf52840
+    build_only: true
+  ieee802154.build.telink_b91:
+    path: tests/drivers/build_all/ieee802154
+    catalog: *1
+    platform_allow: tlsr9518adk80d
+    build_only: true
+  ieee802154.build.upipe:
+    path: tests/drivers/build_all/ieee802154
+    catalog: *1
+    platform_allow: qemu_x86
+    build_only: true
+  sensors.build.sensorhub:
+    path: tests/drivers/build_all/sensor
+    catalog: &2
+    - drivers
+    - sensors
+    extra_args: OVERLAY_CONFIG=sensors_shub.conf
+    platform_allow: native_posix
+    build_only: true
+  sensors.build.trigger.own:
+    path: tests/drivers/build_all/sensor
+    catalog: *2
+    extra_args: OVERLAY_CONFIG=sensors_trigger_own.conf
+    platform_allow: native_posix
+    build_only: true
+  sensors.build.trigger.global:
+    path: tests/drivers/build_all/sensor
+    catalog: *2
+    extra_args: OVERLAY_CONFIG=sensors_trigger_global.conf
+    platform_allow: native_posix
+    build_only: true
+  sensors.build.trigger.none:
+    path: tests/drivers/build_all/sensor
+    catalog: *2
+    extra_args: OVERLAY_CONFIG=sensors_trigger_none.conf
+    platform_allow: native_posix
+    build_only: true
+  sensors.build:
+    path: tests/drivers/build_all/sensor
+    catalog: sensors
+    platform_allow: native_posix
+    build_only: true
+  sensors.build.pm:
+    path: tests/drivers/build_all/sensor
+    catalog: *2
+    extra_configs:
+    - CONFIG_PM=y
+    - CONFIG_PM_DEVICE=y
+    platform_allow: native_posix
+    build_only: true
+  net.build:
+    path: tests/net/all
+    catalog: &3
+    - net
+    - net-all
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    platform_allow: qemu_x86
+    build_only: true
+    min_ram: 32
+  net.build.preempt:
+    path: tests/net/all
+    catalog: *3
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    platform_allow: qemu_x86
+    build_only: true
+    min_ram: 32

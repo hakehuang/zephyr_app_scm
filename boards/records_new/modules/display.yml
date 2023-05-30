@@ -1,0 +1,153 @@
+---
+cases:
+  sample.display.shield.adafruit_2_8_tft_touch_v2:
+    path: samples/drivers/display
+    catalog:
+    - display
+    - shield
+    extra_args: SHIELD=adafruit_2_8_tft_touch_v2
+    depends_on:
+    - arduino_gpio
+    - arduino_i2c
+    - arduino_spi
+    platform_exclude:
+    - reel_board
+    - reel_board_v2
+    - ubx_evkannab1_nrf52832
+    - stm32f769i_disco
+    - pan1781_evb
+    - pan1782_evb
+    - mimxrt1010_evk
+  sample.display.shield.ssd1306_128x32:
+    path: samples/drivers/display
+    catalog:
+    - display
+    - shield
+    extra_args: SHIELD=ssd1306_128x32
+    platform_allow: nrf52840dk_nrf52840
+  sample.display.shield.ssd1306_128x64:
+    path: samples/drivers/display
+    catalog:
+    - display
+    - shield
+    extra_args: SHIELD=ssd1306_128x64
+    platform_allow: nrf52840dk_nrf52840
+  sample.display.shield.waveshare_epaper_gdeh0213b1:
+    path: samples/drivers/display
+    catalog: unknown
+    extra_args: SHIELD=waveshare_epaper_gdeh0213b1
+    platform_allow: nrf52840dk_nrf52840
+  sample.display.shield.waveshare_epaper_gdew042t2:
+    path: samples/drivers/display
+    catalog: unknown
+    extra_args: SHIELD=waveshare_epaper_gdew042t2
+    platform_allow: nrf52840dk_nrf52840
+  sample.display.st7789v_tl019fqv01:
+    path: samples/drivers/display
+    catalog:
+    - display
+    - shield
+    extra_args: SHIELD=st7789v_tl019fqv01
+    platform_allow: nrf52dk_nrf52832
+  sample.display.st7789v_waveshare_240x240:
+    path: samples/drivers/display
+    catalog:
+    - display
+    - shield
+    extra_args: SHIELD=st7789v_waveshare_240x240
+    platform_allow: nrf52dk_nrf52832
+  sample.display.ls013b7dh03:
+    path: samples/drivers/display
+    catalog:
+    - display
+    - shield
+    extra_args: SHIELD=ls013b7dh03
+    platform_allow: nrf52dk_nrf52832
+  sample.display.st7735r_ada_160x128:
+    path: samples/drivers/display
+    catalog:
+    - display
+    - shield
+    extra_args: SHIELD=st7735r_ada_160x128
+    platform_allow: nrf52dk_nrf52832
+  sample.display.mcux_elcdif:
+    path: samples/drivers/display
+    catalog: display
+    platform_allow: mimxrt1050_evk
+  sample.display.mcux_dcnano_lcdif:
+    path: samples/drivers/display
+    catalog: display
+    platform_allow: mimxrt595_evk_cm33
+  sample.display.sdl:
+    path: samples/drivers/display
+    catalog: display
+    build_only: true
+    platform_allow: native_posix_64
+  sample.display.dummy:
+    path: samples/drivers/display
+    catalog: display
+    extra_configs:
+    - CONFIG_DUMMY_DISPLAY=y
+    - CONFIG_SDL_DISPLAY=n
+    - CONFIG_TEST=y
+    extra_args: DTC_OVERLAY_FILE="dummy_dc.overlay"
+    platform_allow: native_posix
+  sample.display.max7219:
+    path: samples/drivers/display
+    catalog:
+    - display
+    - shield
+    extra_args: SHIELD=max7219_8x8
+    platform_allow: nrf52840dk_nrf52840
+  sample.display.st_b_lcd40_dsi1_mb1166:
+    path: samples/drivers/display
+    catalog:
+    - display
+    - shield
+    extra_args: SHIELD=st_b_lcd40_dsi1_mb1166
+    platform_allow: stm32h747i_disco_m7
+  sample.display.ft800:
+    path: samples/drivers/misc/ft800
+    catalog:
+    - drivers
+    - display
+    extra_args: SHIELD=ftdi_vm800c
+    depends_on: spi
+    platform_allow: nrf52840dk_nrf52840
+  sample.display.cfb.ssd1306:
+    path: samples/subsys/display/cfb
+    catalog: shield
+    extra_args: SHIELD=ssd1306_128x64
+    platform_allow: frdm_k64f
+  sample.display.cfb.ssd16xx:
+    path: samples/subsys/display/cfb
+    catalog: display
+    platform_allow: reel_board
+  sample.display.cfb_custom_font.ssd16xx:
+    path: samples/subsys/display/cfb_custom_font
+    catalog: display
+    platform_allow: reel_board
+  sample.display.cfb_shell.ssd1306:
+    path: samples/subsys/display/cfb_shell
+    catalog: shield
+    extra_args: SHIELD=ssd1306_128x32
+    platform_allow: frdm_k64f
+  sample.display.cfb_shell.ssd16xx:
+    path: samples/subsys/display/cfb_shell
+    catalog: display
+    platform_allow: reel_board
+  sample.display.lvgl.gui:
+    path: samples/subsys/display/lvgl
+    catalog:
+    - samples
+    - display
+    - gui
+    filter: dt_chosen_enabled("zephyr,display")
+    min_flash: 250
+    min_ram: 32
+  drivers.display.ili9342c.build:
+    path: tests/drivers/build_all/display
+    catalog: drivers display
+    extra_args: CONF_FILE=display_ili9342c.conf
+    build_only: true
+    min_ram: 32

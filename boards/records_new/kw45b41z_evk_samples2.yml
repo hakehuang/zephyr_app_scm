@@ -3,6 +3,8 @@ settings:
   case_pipe_name: "kw45b41z_evk_samples2"
   version: zephyr-v3.3.0-4123-gd01780fc94
 __load__:
+- modules/net_timeout.yml
+- modules/ethernet_mgmt.yml
 - skips/kw45b41z_evk.yml
 - boards/kw45b41z_evk.yml
 cases:

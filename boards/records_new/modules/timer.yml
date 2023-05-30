@@ -1,0 +1,127 @@
+---
+cases:
+  drivers.timer.nrf_rtc_timer:
+    path: tests/drivers/timer/nrf_rtc_timer
+    catalog:
+    - drivers
+    - timer
+    extra_configs:
+    - CONFIG_ZERO_LATENCY_IRQS=y
+    platform_allow:
+    - nrf52dk_nrf52832
+    - nrf52840dk_nrf52840
+  drivers.timer.nrf_rtc_timer_no_zli:
+    path: tests/drivers/timer/nrf_rtc_timer
+    catalog:
+    - drivers
+    - timer
+    platform_allow:
+    - nrf52dk_nrf52832
+    - nrf52840dk_nrf52840
+    - nrf52_bsim
+  kernel.timer.cycle64:
+    path: tests/kernel/timer/cycle64
+    catalog:
+    - kernel
+    - timer
+    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
+    arch_exclude: posix
+  kernel.timer.cycle64.fast:
+    path: tests/kernel/timer/cycle64
+    catalog:
+    - kernel
+    - timer
+    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
+    arch_allow: posix
+  kernel.timer.starve:
+    path: tests/kernel/timer/starve
+    catalog:
+    - kernel
+    - timer
+  kernel.timer:
+    path: tests/kernel/timer/timer_api
+    catalog:
+    - kernel
+    - timer
+    - userspace
+  kernel.timer.tickless:
+    path: tests/kernel/timer/timer_api
+    catalog:
+    - kernel
+    - timer
+    - userspace
+    - pm
+    extra_args: CONF_FILE="prj_tickless.conf"
+    arch_exclude:
+    - nios2
+    - posix
+    platform_exclude:
+    - litex_vexriscv
+    - rv32m1_vega_zero_riscy
+    - rv32m1_vega_ri5cy
+    - nrf5340dk_nrf5340_cpunet
+  kernel.timer.no_multitheading:
+    path: tests/kernel/timer/timer_api
+    catalog:
+    - kernel
+    - timer
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    - CONFIG_TEST_USERSPACE=n
+    - CONFIG_SPIN_VALIDATE=n
+    platform_allow:
+    - qemu_cortex_m3
+    - nsim_em
+    - nsim_em7d_v22
+    - nsim_hs
+    - nsim_hs_mpuv6
+    - nsim_hs5x
+    - nsim_hs6x
+    - qemu_arc_em
+    - qemu_arc_hs
+    - qemu_arc_hs6x
+  kernel.timer.timer:
+    path: tests/kernel/timer/timer_behavior
+    catalog:
+    - kernel
+    - timer
+    min_ram: 16
+    platform_type:
+    - mcu
+    platform_exclude:
+    - hifive1
+    - tflite-micro
+    - it8xxx2_evb
+    - m2gl025_miv
+    - mpfs_icicle
+    - hifive_unleashed
+    - mps2_an385
+    - mps2_an521_ns
+  kernel.timer.error_case:
+    path: tests/kernel/timer/timer_error_case
+    catalog:
+    - kernel
+    - timer
+    - userspace
+  kernel.timer.monotonic:
+    path: tests/kernel/timer/timer_monotonic
+    catalog:
+    - kernel
+    - timer
+    platform_exclude: qemu_arc_hs
+  kernel.timer.monotonic.apic.tsc:
+    path: tests/kernel/timer/timer_monotonic
+    catalog:
+    - kernel
+    - timer
+    - apic_tsc
+    extra_configs:
+    - CONFIG_APIC_TSC_DEADLINE_TIMER=y
+    - CONFIG_HPET_TIMER=n
+    platform_allow: ehl_crb
+  kernel.timer.monotonic.linker_generator:
+    path: tests/kernel/timer/timer_monotonic
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3

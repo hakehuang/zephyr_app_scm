@@ -1,0 +1,13 @@
+---
+cases:
+  drivers.build_all.can.mcp2515:
+    path: tests/drivers/build_all/can
+    catalog:
+    - drivers
+    - can
+    extra_args: SHIELD=dfrobot_can_bus_v2_0
+    depends_on:
+    - arduino_spi
+    - arduino_gpio
+    platform_allow: frdm_k64f
+    build_only: true

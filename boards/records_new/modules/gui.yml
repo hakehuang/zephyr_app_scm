@@ -1,0 +1,63 @@
+---
+cases:
+  libraries.gui.lvgl:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.dynamic.heap.libc:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_LV_Z_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LV_Z_MEM_POOL_HEAP_LIB_C=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.dynamic.pool.sys_heap:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_Z_BUFFER_ALLOC_DYNAMIC=y
+    - CONFIG_LV_Z_MEM_POOL_SYS_HEAP=y
+    - CONFIG_LV_Z_MEM_POOL_NUMBER_BLOCKS=3
+    - CONFIG_LV_Z_MEM_POOL_MAX_SIZE=32768
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.16bit:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_COLOR_DEPTH_16=y
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.8bit:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_COLOR_DEPTH_8=y
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.mono:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_COLOR_DEPTH_1=y
+    platform_allow: native_posix_64
+  libraries.gui.lvgl.16bit.swap:
+    path: tests/lib/gui/lvgl
+    catalog:
+    - display
+    - gui
+    extra_configs:
+    - CONFIG_LV_COLOR_DEPTH_16=y
+    - CONFIG_LV_COLOR_16_SWAP=y
+    platform_allow: native_posix_64

@@ -1,0 +1,10 @@
+---
+cases:
+  printk.format_newlib:
+    path: tests/misc/print_format
+    catalog:
+    - clib
+    - newlib
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1

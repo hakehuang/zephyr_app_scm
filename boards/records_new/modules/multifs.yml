@@ -1,0 +1,11 @@
+---
+cases:
+  filesystem.multifs:
+    path: tests/subsys/fs/multi-fs
+    catalog:
+    - littlefs
+    - fatfs
+    - filesystem
+    platform_allow:
+    - native_posix
+    - qemu_x86

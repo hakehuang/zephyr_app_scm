@@ -1,0 +1,25 @@
+---
+cases:
+  crypto.tinycrypt:
+    path: tests/crypto/tinycrypt
+    catalog:
+    - tinycrypt
+    - crypto
+    - aes
+    - ccm
+    platform_exclude:
+    - qemu_arc_em
+    - qemu_arc_hs
+    - m2gl025_miv
+  crypto.tinycrypt.hmac_prng:
+    path: tests/crypto/tinycrypt_hmac_prng
+    catalog:
+    - tinycrypt
+    - crypto
+    - sha256
+    - hmac
+    - prng
+    platform_exclude:
+    - mec15xxevb_assy6853
+    - mec1501modular_assy6885
+    - m2gl025_miv

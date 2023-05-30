@@ -3,6 +3,9 @@ settings:
   case_pipe_name: "lpcxpresso54114_m0_cmsis"
   version: zephyr-v3.3.0-4123-gd01780fc94
 __load__:
+- modules/cmsis_rtos_v2.yml
+- modules/cmsis_rtos_v1.yml
+- modules/cmsis_dsp.yml
 - skips/lpcxpresso54114_m0.yml
 - boards/lpcxpresso54114_m0.yml
 cases:

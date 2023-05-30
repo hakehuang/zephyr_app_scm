@@ -1,0 +1,10 @@
+---
+cases:
+  mgmt.ec_host_cmd.simulator.core:
+    path: tests/subsys/mgmt/ec_host_cmd/simulator
+    catalog: ec_host_cmd
+    platform_allow: native_posix
+  mgmt.ec_host_cmd.uart.core:
+    path: tests/subsys/mgmt/ec_host_cmd/uart
+    catalog: ec_host_cmd
+    platform_allow: native_posix

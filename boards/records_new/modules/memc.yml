@@ -1,0 +1,30 @@
+---
+cases:
+  drivers.memc.stm32_fmc_nor_psram:
+    path: tests/drivers/memc/ram
+    catalog:
+    - drivers
+    - memc
+    depends_on: memc
+    filter: dt_compat_enabled("st,stm32-fmc-nor-psram")
+  drivers.memc.stm32_sdram:
+    path: tests/drivers/memc/ram
+    catalog:
+    - drivers
+    - memc
+    depends_on: memc
+    filter: dt_compat_enabled("st,stm32-fmc-sdram")
+  drivers.memc.smc_sram:
+    path: tests/drivers/memc/ram
+    catalog:
+    - drivers
+    - memc
+    depends_on: memc
+    filter: dt_compat_enabled("atmel,sam-smc")
+    platform_allow: sam4s_xplained
+  drivers.memc.sifive_ddr:
+    path: tests/drivers/memc/ram
+    catalog:
+    - drivers
+    - memc
+    platform_allow: hifive_unmatched

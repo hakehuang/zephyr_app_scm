@@ -1,0 +1,47 @@
+---
+cases:
+  drivers.regulator.api:
+    path: tests/drivers/regulator/api
+    catalog:
+    - drivers
+    - regulator
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  drivers.regulator.api.nothreadsaferefcnt:
+    path: tests/drivers/regulator/api
+    catalog:
+    - drivers
+    - regulator
+    extra_configs:
+    - CONFIG_REGULATOR_THREAD_SAFE_REFCNT=n
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  drivers.regulator.fixed:
+    path: tests/drivers/regulator/fixed
+    catalog:
+    - drivers
+    - regulator
+    depends_on: gpio
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf5340dk_nrf5340_cpuapp
+    - nrf9160dk_nrf9160
+  drivers.regulator.voltage.nrf52840dk_nrf52840_npm6001:
+    path: tests/drivers/regulator/voltage
+    catalog: &1
+    - drivers
+    - regulator
+    extra_args:
+    - DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840_npm6001.overlay
+    - SHIELD=npm6001_ek
+    platform_allow: nrf52840dk_nrf52840
+  drivers.regulator.voltage.mimxrt685_evk_cm33:
+    path: tests/drivers/regulator/voltage
+    catalog: *1
+    platform_allow: mimxrt685_evk_cm33
+  drivers.regulator.voltage.rpi_pico_vreg:
+    path: tests/drivers/regulator/voltage
+    catalog: *1
+    platform_allow: rpi_pico

@@ -1,0 +1,27 @@
+---
+cases:
+  storage.stream_flash:
+    path: tests/subsys/storage/stream/stream_flash
+    catalog: stream_flash
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  storage.stream_flash.dword_wbs:
+    path: tests/subsys/storage/stream/stream_flash
+    catalog: stream_flash
+    extra_args: DTC_OVERLAY_FILE=unaligned_flush.overlay
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  storage.stream_flash.no_erase:
+    path: tests/subsys/storage/stream/stream_flash
+    catalog: stream_flash
+    extra_args: OVERLAY_CONFIG=no_erase.overlay
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  storage.stream_flash.mpu_allow_flash_write:
+    path: tests/subsys/storage/stream/stream_flash
+    catalog: stream_flash
+    extra_args: OVERLAY_CONFIG=mpu_allow_flash_write.overlay
+    platform_allow: nrf52840dk_nrf52840

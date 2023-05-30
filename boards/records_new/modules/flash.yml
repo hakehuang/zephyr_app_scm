@@ -1,0 +1,120 @@
+---
+cases:
+  drivers.flash.common.nrf_qspi_nor:
+    path: tests/drivers/flash/common
+    catalog: &1
+    - drivers
+    - flash
+    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
+    platform_allow: nrf52840dk_nrf52840
+  drivers.flash.common.nrf_qspi_nor.size_in_bytes:
+    path: tests/drivers/flash/common
+    catalog: *1
+    extra_args:
+    - OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
+    - DTC_OVERLAY_FILE=boards/nrf52840_size_in_bytes.overlay
+    platform_allow: nrf52840dk_nrf52840
+  drivers.flash.common.nrf_qspi_nor_4B_addr:
+    path: tests/drivers/flash/common
+    catalog: *1
+    extra_args:
+    - OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
+    - DTC_OVERLAY_FILE=boards/nrf52840dk_mx25l51245g.overlay
+    platform_allow: nrf52840dk_nrf52840
+  drivers.flash.common.soc_flash_nrf:
+    path: tests/drivers/flash/common
+    catalog: *1
+    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_soc.conf
+    platform_allow: nrf52840dk_nrf52840
+  drivers.flash.common.default:
+    path: tests/drivers/flash/common
+    catalog: *1
+    filter: ((CONFIG_FLASH_HAS_DRIVER_ENABLED and not CONFIG_TRUSTED_EXECUTION_NONSECURE)
+      and dt_label_with_parent_compat_enabled("storage_partition", "fixed-partitions"))
+  drivers.flash.common.tfm_ns:
+    path: tests/drivers/flash/common
+    catalog: *1
+    build_only: true
+    filter: (CONFIG_FLASH_HAS_DRIVER_ENABLED and CONFIG_TRUSTED_EXECUTION_NONSECURE
+      and dt_label_with_parent_compat_enabled("slot1_ns_partition", "fixed-partitions"))
+  drivers.flash.mcux:
+    path: tests/drivers/flash/common
+    catalog: *1
+    platform_allow:
+    - mimxrt1060_evk
+    - it8xxx2_evb
+    - mimxrt685_evk_cm33
+    - mimxrt595_evk_cm33
+  drivers.flash.common.stm32:
+    path: tests/drivers/flash/common
+    catalog: *1
+    platform_allow:
+    - nucleo_f103rb
+    - nucleo_f207zg
+    - stm32f3_disco
+    - nucleo_f429zi
+    - stm32f746g_disco
+    - nucleo_g0b1re
+    - nucleo_g474re
+    - nucleo_h743zi
+    - nucleo_l152re
+    - disco_l475_iot1
+    - nucleo_wb55rg
+    - nucleo_wl55jc
+    - stm32l562e_dk
+    - stm32l562e_dk_ns
+    filter: (dt_compat_enabled("st,stm32-flash-controller") or dt_compat_enabled("st,stm32h7-flash-controller"))
+      and dt_label_with_parent_compat_enabled("storage_partition", "fixed-partitions")
+  drivers.flash.common.mx25r_high_perf:
+    path: tests/drivers/flash/common
+    catalog: *1
+    extra_args:
+    - OVERLAY_CONFIG=boards/nrf52840dk_flash_spi.conf
+    - DTC_OVERLAY_FILE=boards/nrf52840dk_mx25r_high_perf.overlay
+    platform_allow: nrf52840dk_nrf52840
+  drivers.flash.stm32.default:
+    path: tests/drivers/flash/stm32
+    catalog:
+    - drivers
+    - flash
+    platform_allow:
+    - nucleo_f429zi
+    - google_dragonclaw
+    filter: dt_compat_enabled("st,stm32-flash-controller") and dt_label_with_parent_compat_enabled("storage_partition",
+      "fixed-partitions")
+  drivers.flash.flash_simulator:
+    path: tests/drivers/flash_simulator
+    catalog: &2
+    - drivers
+    - flash
+    platform_allow:
+    - qemu_x86
+    - native_posix
+    - native_posix_64
+    - nucleo_f411re
+  drivers.flash.flash_simulator.qemu_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: *2
+    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
+    platform_allow: qemu_x86
+  drivers.flash.flash_simulator.posix_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: *2
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_allow: native_posix
+  drivers.flash.flash_simulator.posix_64_erase_value_0x00:
+    path: tests/drivers/flash_simulator
+    catalog: *2
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
+    platform_allow: native_posix_64
+  shell.flash:
+    path: tests/subsys/shell/shell_flash
+    catalog:
+    - flash
+    - shell
+    min_flash: 64
+    min_ram: 32
+    filter: "( CONFIG_FLASH_SHELL )"
+    platform_allow:
+    - qemu_x86
+    - native_posix

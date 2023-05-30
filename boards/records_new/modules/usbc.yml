@@ -1,0 +1,12 @@
+---
+cases:
+  sample.usbc.sink:
+    path: samples/subsys/usb_c/sink
+    catalog: usbc
+    depends_on: tcpc
+    platform_allow: b_g474e_dpow1
+  sample.usbc.source:
+    path: samples/subsys/usb_c/source
+    catalog: usbc
+    depends_on: tcpc
+    platform_allow: stm32g081b_eval

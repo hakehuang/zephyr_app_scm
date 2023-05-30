@@ -1,0 +1,13 @@
+---
+cases:
+  kernel.semaphore:
+    path: tests/kernel/semaphore/semaphore
+    catalog:
+    - kernel
+    - userspace
+  kernel.semaphore.usage:
+    path: tests/kernel/semaphore/sys_sem
+    catalog:
+    - kernel
+    - userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE

@@ -1,0 +1,14 @@
+---
+cases:
+  bluetooth.general:
+    path: tests/bluetooth/bluetooth
+    catalog: bluetooth
+    platform_allow:
+    - qemu_x86
+    - qemu_cortex_m3
+    - native_posix
+    - native_posix_64
+  bluetooth.general.tester:
+    path: tests/bluetooth/tester
+    catalog: bluetooth
+    platform_allow: qemu_x86

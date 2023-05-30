@@ -1,41 +1,21 @@
 ---
 cases:
-  sensors.build.sensorhub:
-    path: tests/drivers/build_all/sensor
-    catalog: &1
+  drivers.sensors.sbs_gauge:
+    path: tests/drivers/sensor/sbs_gauge
+    catalog:
     - drivers
     - sensors
-    extra_args: OVERLAY_CONFIG=sensors_shub.conf
-    platform_allow: native_posix
     build_only: true
-  sensors.build.trigger.own:
-    path: tests/drivers/build_all/sensor
-    catalog: *1
-    extra_args: OVERLAY_CONFIG=sensors_trigger_own.conf
-    platform_allow: native_posix
-    build_only: true
-  sensors.build.trigger.global:
-    path: tests/drivers/build_all/sensor
-    catalog: *1
-    extra_args: OVERLAY_CONFIG=sensors_trigger_global.conf
-    platform_allow: native_posix
-    build_only: true
-  sensors.build.trigger.none:
-    path: tests/drivers/build_all/sensor
-    catalog: *1
-    extra_args: OVERLAY_CONFIG=sensors_trigger_none.conf
-    platform_allow: native_posix
-    build_only: true
-  sensors.build:
-    path: tests/drivers/build_all/sensor
-    catalog: sensors
-    platform_allow: native_posix
-    build_only: true
-  sensors.build.pm:
-    path: tests/drivers/build_all/sensor
-    catalog: *1
+    filter: dt_compat_enabled("sbs,sbs-gauge") and not dt_compat_enabled("zephyr,i2c-emul-controller")
+  drivers.sensors.sbs_gauge.emulated:
+    path: tests/drivers/sensor/sbs_gauge
+    catalog:
+    - drivers
+    - sensors
     extra_configs:
-    - CONFIG_PM=y
-    - CONFIG_PM_DEVICE=y
-    platform_allow: native_posix
-    build_only: true
+    - CONFIG_EMUL=y
+    filter: dt_compat_enabled("sbs,sbs-gauge")
+    platform_allow:
+    - native_posix
+    - qemu_cortex_a9
+    - qemu_arc_hs

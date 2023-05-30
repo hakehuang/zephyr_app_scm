@@ -957,6 +957,21 @@ cases:
     path: samples/bluetooth/st_ble_sensor
     catalog: bluetooth
     platform_allow: nucleo_wb55rg
+  sample.bluetooth.tmap_central:
+    path: samples/bluetooth/tmap_central
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.tmap_peripheral:
+    path: samples/bluetooth/tmap_peripheral
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.tmap_peripheral.duo:
+    path: samples/bluetooth/tmap_peripheral
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_TMAP_PERIPHERAL_SET_RANK=2
+    extra_args: OVERLAY_CONFIG="duo.conf"
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.audio_unicast_client:
     path: samples/bluetooth/unicast_audio_client
     catalog: bluetooth
@@ -1269,6 +1284,10 @@ cases:
     path: samples/drivers/audio/dmic
     catalog: dmic
     filter: dt_nodelabel_enabled("dmic_dev")
+  sample.drivers.auxdisplay:
+    path: samples/drivers/auxdisplay
+    catalog: auxdisplay
+    platform_allow: nucleo_f746zg
   sample.drivers.can.babbling:
     path: samples/drivers/can/babbling
     catalog: can
@@ -3378,7 +3397,16 @@ cases:
     catalog: sensors
     platform_allow: frdm_k64f
     depends_on: i2c
-  sample.sensor.amg88xx:
+  sample.sensor.amg88xx.amg88xx_grid_eye_eval_shield:
+    path: samples/sensor/amg88xx
+    catalog: sensors
+    extra_configs:
+    - CONFIG_AMG88XX_TRIGGER_GLOBAL_THREAD=y
+    extra_args: SHIELD=amg88xx_grid_eye_eval_shield
+    build_only: true
+    depends_on: arduino_i2c arduino_gpio
+    platform_allow: pan1780_evb pan1770_evb pan1781_evb pan1782_evb
+  sample.sensor.amg88xx.amg88xx_eval_kit:
     path: samples/sensor/amg88xx
     catalog: sensors
     extra_configs:
@@ -3784,13 +3812,11 @@ cases:
     depends_on:
     - gpio
     - sm351lt
-  sample.sensor.stm32_vbat_sensor:
-    path: samples/sensor/stm32_vbat_sensor
+  sample.sensor.soc_voltage:
+    path: samples/sensor/soc_voltage
     catalog: sensors
     depends_on: adc
-    platform_allow:
-    - nucleo_g071rb
-    - nucleo_wb55rg
+    filter: dt_alias_exists("volt-sensor0")
   sample.sensor.sx9500:
     path: samples/sensor/sx9500
     catalog: sensors
@@ -4723,6 +4749,9 @@ cases:
     extra_args: CONF_FILE="prj_login.conf"
     filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
     min_ram: 40
+  sample.shell.shell_module.robot:
+    path: samples/subsys/shell/shell_module
+    catalog: unknown
   sample.subsys.task_wdt:
     path: samples/subsys/task_wdt
     catalog: subsys
@@ -4736,11 +4765,21 @@ cases:
     build_only: true
     platform_allow: native_posix
   sample.twister.pytest:
-    path: samples/subsys/testsuite/pytest
+    path: samples/subsys/testsuite/pytest/basic
     catalog:
     - testing
     - pytest
     platform_allow: native_posix
+  sample.pytest.shell:
+    path: samples/subsys/testsuite/pytest/shell
+    catalog:
+    - testing
+    - pytest
+    - shell
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
+    min_ram: 40
   sample.tracing.user:
     path: samples/subsys/tracing
     catalog: &36
@@ -5115,14 +5154,12 @@ cases:
     path: samples/subsys/zbus/hello_world
     catalog: zbus
     arch_exclude:
-    - posix
     - xtensa
     platform_exclude: qemu_leon3
   sample.zbus.hello_world_no_iterable_sections:
     path: samples/subsys/zbus/hello_world
     catalog: zbus
     arch_allow:
-    - posix
     - xtensa
   sample.zbus.remote_mock:
     path: samples/subsys/zbus/remote_mock
@@ -5145,6 +5182,11 @@ cases:
   sample.kernel.synchronization:
     path: samples/synchronization
     catalog: synchronization
+  sample.psa_crypto:
+    path: samples/tfm_integration/psa_crypto
+    catalog: introduction tfm crypto csr
+    platform_allow: mps2_an521_ns v2m_musca_s1_ns nrf5340dk_nrf5340_cpuapp_ns nrf9160dk_nrf9160_ns
+      stm32l562e_dk_ns bl5340_dvk_cpuapp_ns
   sample.tfm.protected_storage:
     path: samples/tfm_integration/psa_protected_storage
     catalog: tfm
@@ -5315,6 +5357,7 @@ cases:
     catalog: *40
     extra_configs:
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=2048
     filter:
@@ -5440,6 +5483,7 @@ cases:
     catalog: *43
     extra_configs:
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=2048
     filter:
@@ -5464,6 +5508,7 @@ cases:
     - CONFIG_FPU=y
     - CONFIG_FPU_SHARING=y
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=2048
     filter:
@@ -5858,6 +5903,12 @@ cases:
     catalog: *47
     extra_configs:
     - CONFIG_BT_BAP_UNICAST_CLIENT=y
+    type: unit
+  bluetooth.audio.ascs.test_stream_pair:
+    path: tests/bluetooth/audio/ascs
+    catalog: *47
+    extra_configs:
+    - CONFIG_BT_ASCS_MAX_ACTIVE_ASES=2
     type: unit
   bluetooth.general:
     path: tests/bluetooth/bluetooth
@@ -7831,7 +7882,7 @@ cases:
     - spiram
     - spiflash
     - cache
-    platform_allow: esp32
+    platform_allow: esp32 esp32s2_saola
   boards.frdm_k64f.i2c:
     path: tests/boards/frdm_k64f/i2c
     catalog: i2c
@@ -7957,10 +8008,18 @@ cases:
   boot.mcuboot:
     path: tests/boot/test_mcuboot
     catalog: mcuboot
+    skip: true
     platform_allow:
     - frdm_k64f
     - mimxrt1060_evk
     - nrf52840dk_nrf52840
+  boot.mcuboot.assert:
+    path: tests/boot/test_mcuboot
+    catalog: mcuboot
+    extra_configs:
+    - CONFIG_ASSERT=y
+    platform_allow:
+    - b_u585i_iot02a
   boot.uefi:
     path: tests/boot/uefi
     catalog: uefi
@@ -7986,14 +8045,44 @@ cases:
     catalog: cmake
     build_only: true
     platform_allow: native_posix
-  cmake.snippets:
+  cmake.snippets.none:
     path: tests/cmake/snippets
     catalog: snippets
-    platform_allow:
+    extra_configs:
+    - CONFIG_TEST_TYPE_NONE=y
+    platform_allow: &82
     - native_posix
     - qemu_x86
     - qemu_x86_64
     - qemu_cortex_m3
+  cmake.snippets.foo:
+    path: tests/cmake/snippets
+    catalog: snippets
+    extra_configs:
+    - CONFIG_TEST_TYPE_FOO=y
+    extra_args: SNIPPET="foo"
+    platform_allow: *82
+  cmake.snippets.bar:
+    path: tests/cmake/snippets
+    catalog: snippets
+    extra_configs:
+    - CONFIG_TEST_TYPE_BAR=y
+    extra_args: SNIPPET="bar"
+    platform_allow: *82
+  cmake.snippets.foo_bar:
+    path: tests/cmake/snippets
+    catalog: snippets
+    extra_configs:
+    - CONFIG_TEST_TYPE_FOO_BAR=y
+    extra_args: SNIPPET="foo;bar"
+    platform_allow: *82
+  cmake.snippets.bar_foo:
+    path: tests/cmake/snippets
+    catalog: snippets
+    extra_configs:
+    - CONFIG_TEST_TYPE_BAR_FOO=y
+    extra_args: SNIPPET="bar;foo"
+    platform_allow: *82
   crypto.hash:
     path: tests/crypto/crypto_hash
     catalog: crypto
@@ -8111,7 +8200,7 @@ cases:
     platform_allow: native_posix
   drivers.bbram.it8xxx2:
     path: tests/drivers/bbram
-    catalog: &82
+    catalog: &83
     - drivers
     - bbram
     filter: dt_compat_enabled("ite,it8xxx2-bbram")
@@ -8119,13 +8208,13 @@ cases:
     platform_exclude: native_posix
   drivers.bbram.npcx:
     path: tests/drivers/bbram
-    catalog: *82
+    catalog: *83
     filter: dt_compat_enabled("nuvoton,npcx-bbram")
     build_only: true
     platform_exclude: native_posix
   drivers.bbram.stm32:
     path: tests/drivers/bbram
-    catalog: *82
+    catalog: *83
     extra_args: OVERLAY_CONFIG="stm32.conf"
     filter: dt_compat_enabled("st,stm32-bbram")
     build_only: true
@@ -8338,39 +8427,39 @@ cases:
     build_only: true
   ieee802154.build.external:
     path: tests/drivers/build_all/ieee802154
-    catalog: &83
+    catalog: &84
     - drivers
     - ieee802154
     platform_allow: native_posix
     build_only: true
   ieee802154.build.cc13xx_cc26xx:
     path: tests/drivers/build_all/ieee802154
-    catalog: *83
+    catalog: *84
     platform_allow: cc1352r_sensortag
     build_only: true
   ieee802154.build.kw41z:
     path: tests/drivers/build_all/ieee802154
-    catalog: *83
+    catalog: *84
     platform_allow: frdm_kw41z
     build_only: true
   ieee802154.build.mcr20a:
     path: tests/drivers/build_all/ieee802154
-    catalog: *83
+    catalog: *84
     platform_allow: usb_kw24d512
     build_only: true
   ieee802154.build.nrf5:
     path: tests/drivers/build_all/ieee802154
-    catalog: *83
+    catalog: *84
     platform_allow: nrf52840dk_nrf52840
     build_only: true
   ieee802154.build.telink_b91:
     path: tests/drivers/build_all/ieee802154
-    catalog: *83
+    catalog: *84
     platform_allow: tlsr9518adk80d
     build_only: true
   ieee802154.build.upipe:
     path: tests/drivers/build_all/ieee802154
-    catalog: *83
+    catalog: *84
     platform_allow: qemu_x86
     build_only: true
   drivers.led.build:
@@ -8399,7 +8488,7 @@ cases:
     build_only: true
   drivers.modem.build:
     path: tests/drivers/build_all/modem
-    catalog: &84
+    catalog: &85
     - drivers
     - net
     - modem
@@ -8415,7 +8504,7 @@ cases:
     build_only: true
   drivers.modem.ublox_sara.build:
     path: tests/drivers/build_all/modem
-    catalog: *84
+    catalog: *85
     extra_args: CONF_FILE=modem_ublox_sara.conf
     platform_exclude:
     - serpente
@@ -8426,7 +8515,7 @@ cases:
     build_only: true
   drivers.modem.simcom_sim7080.build:
     path: tests/drivers/build_all/modem
-    catalog: *84
+    catalog: *85
     extra_args: CONF_FILE=modem_simcom_sim7080.conf
     platform_exclude:
     - serpente
@@ -8437,7 +8526,7 @@ cases:
     build_only: true
   drivers.modem.quectel_bg9x.build:
     path: tests/drivers/build_all/modem
-    catalog: *84
+    catalog: *85
     extra_args: CONF_FILE=modem_quectel_bg9x.conf
     platform_exclude:
     - serpente
@@ -8449,7 +8538,7 @@ cases:
     build_only: true
   drivers.modem.gsm.build:
     path: tests/drivers/build_all/modem
-    catalog: *84
+    catalog: *85
     extra_args: CONF_FILE=modem_gsm.conf
     platform_exclude:
     - serpente
@@ -8461,7 +8550,7 @@ cases:
     build_only: true
   drivers.modem.gsm_mux.build:
     path: tests/drivers/build_all/modem
-    catalog: *84
+    catalog: *85
     extra_configs:
     - CONFIG_GSM_MUX=y
     - CONFIG_UART_MUX=y
@@ -8476,7 +8565,7 @@ cases:
     build_only: true
   drivers.modem.esp_at.build:
     path: tests/drivers/build_all/modem
-    catalog: *84
+    catalog: *85
     extra_args: CONF_FILE=modem_esp_at.conf
     platform_exclude: ip_k66f
     filter: CONFIG_SERIAL
@@ -8484,7 +8573,7 @@ cases:
     build_only: true
   drivers.modem.esp_at.async.build:
     path: tests/drivers/build_all/modem
-    catalog: *84
+    catalog: *85
     extra_configs:
     - CONFIG_MODEM_IFACE_UART_ASYNC=y
     extra_args: CONF_FILE=modem_esp_at.conf
@@ -8596,6 +8685,13 @@ cases:
     catalog: pwm_test
     platform_allow: qemu_cortex_m3
     build_only: true
+  drivers.regulator.build:
+    path: tests/drivers/build_all/regulator
+    catalog:
+    - drivers
+    - regulator
+    build_only: true
+    platform_allow: native_posix
   drivers.rtc.build.pcf8523:
     path: tests/drivers/build_all/rtc
     catalog:
@@ -8610,7 +8706,7 @@ cases:
     build_only: true
   sensors.build.sensorhub:
     path: tests/drivers/build_all/sensor
-    catalog: &85
+    catalog: &86
     - drivers
     - sensors
     extra_args: OVERLAY_CONFIG=sensors_shub.conf
@@ -8618,19 +8714,19 @@ cases:
     build_only: true
   sensors.build.trigger.own:
     path: tests/drivers/build_all/sensor
-    catalog: *85
+    catalog: *86
     extra_args: OVERLAY_CONFIG=sensors_trigger_own.conf
     platform_allow: native_posix
     build_only: true
   sensors.build.trigger.global:
     path: tests/drivers/build_all/sensor
-    catalog: *85
+    catalog: *86
     extra_args: OVERLAY_CONFIG=sensors_trigger_global.conf
     platform_allow: native_posix
     build_only: true
   sensors.build.trigger.none:
     path: tests/drivers/build_all/sensor
-    catalog: *85
+    catalog: *86
     extra_args: OVERLAY_CONFIG=sensors_trigger_none.conf
     platform_allow: native_posix
     build_only: true
@@ -8641,7 +8737,7 @@ cases:
     build_only: true
   sensors.build.pm:
     path: tests/drivers/build_all/sensor
-    catalog: *85
+    catalog: *86
     extra_configs:
     - CONFIG_PM=y
     - CONFIG_PM_DEVICE=y
@@ -8649,7 +8745,7 @@ cases:
     build_only: true
   drivers.video.build:
     path: tests/drivers/build_all/video
-    catalog: &86
+    catalog: &87
     - drivers
     - video
     platform_allow: native_posix
@@ -8660,7 +8756,7 @@ cases:
     build_only: true
   drivers.video.mcux_csi.build:
     path: tests/drivers/build_all/video
-    catalog: *86
+    catalog: *87
     platform_allow: mimxrt1064_evk
     build_only: true
   drivers.watchdog.build:
@@ -8734,7 +8830,7 @@ cases:
     - nrf52840dk_nrf52840
   drivers.clock.nrf_lf_clock_start_xtal_stable:
     path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: &87
+    catalog: &88
     - drivers
     - clock
     extra_configs:
@@ -8749,7 +8845,7 @@ cases:
     - nrf5340dk_nrf5340_cpunet
   drivers.clock.nrf_lf_clock_start_xtal_available:
     path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *87
+    catalog: *88
     extra_configs:
     - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
     - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
@@ -8762,7 +8858,7 @@ cases:
     - nrf5340dk_nrf5340_cpunet
   drivers.clock.nrf_lf_clock_start_xtal_no_wait:
     path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *87
+    catalog: *88
     extra_configs:
     - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
     - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
@@ -8775,7 +8871,7 @@ cases:
     - nrf5340dk_nrf5340_cpunet
   drivers.clock.nrf_lf_clock_start_rc_stable:
     path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *87
+    catalog: *88
     extra_configs:
     - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
     - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
@@ -8787,7 +8883,7 @@ cases:
     - nrf5340dk_nrf5340_cpunet
   drivers.clock.nrf_lf_clock_start_rc_available:
     path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *87
+    catalog: *88
     extra_configs:
     - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
     - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
@@ -8799,7 +8895,7 @@ cases:
     - nrf5340dk_nrf5340_cpunet
   drivers.clock.nrf_lf_clock_start_rc_no_wait:
     path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *87
+    catalog: *88
     extra_configs:
     - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
     - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
@@ -8811,7 +8907,7 @@ cases:
     - nrf5340dk_nrf5340_cpunet
   drivers.clock.nrf_lf_clock_start_synth_stable:
     path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *87
+    catalog: *88
     extra_configs:
     - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
     - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
@@ -8823,7 +8919,7 @@ cases:
     - nrf5340dk_nrf5340_cpunet
   drivers.clock.nrf_lf_clock_start_synth_available:
     path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *87
+    catalog: *88
     extra_configs:
     - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
     - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
@@ -8835,7 +8931,7 @@ cases:
     - nrf5340dk_nrf5340_cpunet
   drivers.clock.nrf_lf_clock_start_synth_no_wait:
     path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *87
+    catalog: *88
     extra_configs:
     - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
     - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
@@ -9501,6 +9597,13 @@ cases:
     min_ram: 16
     depends_on: dma
     filter: dt_nodelabel_enabled("test_dma0")
+  drivers.dma.chan_blen_transfer.low_footprint:
+    path: tests/drivers/dma/chan_blen_transfer
+    catalog: unknown
+    min_ram: 6
+    depends_on: dma - drivers - dma
+    filter: dt_nodelabel_enabled("test_dma0")
+    platform_allow: nucleo_c031c6
   drivers.dma.chan_link_transfer:
     path: tests/drivers/dma/chan_link_transfer
     catalog:
@@ -9514,6 +9617,8 @@ cases:
     - mimxrt1064_evk
     - mimxrt1160_evk_cm7
     - mimxrt1170_evk_cm7
+    - mimxrt1024_evk
+    - lpcxpresso55s69_cpu0
   drivers.dma.loop_transfer:
     path: tests/drivers/dma/loop_transfer
     catalog:
@@ -9534,7 +9639,7 @@ cases:
     filter: dt_alias_exists("dma0")
   drivers.eeprom.api:
     path: tests/drivers/eeprom/api
-    catalog: &88
+    catalog: &89
     - drivers
     - eeprom
     platform_allow:
@@ -9546,7 +9651,7 @@ cases:
     depends_on: eeprom
   drivers.eeprom.api.build:
     path: tests/drivers/eeprom/api
-    catalog: *88
+    catalog: *89
     build_only: true
     depends_on: eeprom
   drivers.eeprom.shell:
@@ -9594,44 +9699,44 @@ cases:
     platform_allow: qemu_cortex_a53
   drivers.flash.common.nrf_qspi_nor:
     path: tests/drivers/flash/common
-    catalog: &89
+    catalog: &90
     - drivers
     - flash
     extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
     platform_allow: nrf52840dk_nrf52840
   drivers.flash.common.nrf_qspi_nor.size_in_bytes:
     path: tests/drivers/flash/common
-    catalog: *89
+    catalog: *90
     extra_args:
     - OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
     - DTC_OVERLAY_FILE=boards/nrf52840_size_in_bytes.overlay
     platform_allow: nrf52840dk_nrf52840
   drivers.flash.common.nrf_qspi_nor_4B_addr:
     path: tests/drivers/flash/common
-    catalog: *89
+    catalog: *90
     extra_args:
     - OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
     - DTC_OVERLAY_FILE=boards/nrf52840dk_mx25l51245g.overlay
     platform_allow: nrf52840dk_nrf52840
   drivers.flash.common.soc_flash_nrf:
     path: tests/drivers/flash/common
-    catalog: *89
+    catalog: *90
     extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_soc.conf
     platform_allow: nrf52840dk_nrf52840
   drivers.flash.common.default:
     path: tests/drivers/flash/common
-    catalog: *89
+    catalog: *90
     filter: ((CONFIG_FLASH_HAS_DRIVER_ENABLED and not CONFIG_TRUSTED_EXECUTION_NONSECURE)
       and dt_label_with_parent_compat_enabled("storage_partition", "fixed-partitions"))
   drivers.flash.common.tfm_ns:
     path: tests/drivers/flash/common
-    catalog: *89
+    catalog: *90
     build_only: true
     filter: (CONFIG_FLASH_HAS_DRIVER_ENABLED and CONFIG_TRUSTED_EXECUTION_NONSECURE
       and dt_label_with_parent_compat_enabled("slot1_ns_partition", "fixed-partitions"))
   drivers.flash.mcux:
     path: tests/drivers/flash/common
-    catalog: *89
+    catalog: *90
     platform_allow:
     - mimxrt1060_evk
     - it8xxx2_evb
@@ -9639,7 +9744,7 @@ cases:
     - mimxrt595_evk_cm33
   drivers.flash.common.stm32:
     path: tests/drivers/flash/common
-    catalog: *89
+    catalog: *90
     platform_allow:
     - nucleo_f103rb
     - nucleo_f207zg
@@ -9659,7 +9764,7 @@ cases:
       and dt_label_with_parent_compat_enabled("storage_partition", "fixed-partitions")
   drivers.flash.common.mx25r_high_perf:
     path: tests/drivers/flash/common
-    catalog: *89
+    catalog: *90
     extra_args:
     - OVERLAY_CONFIG=boards/nrf52840dk_flash_spi.conf
     - DTC_OVERLAY_FILE=boards/nrf52840dk_mx25r_high_perf.overlay
@@ -9676,7 +9781,7 @@ cases:
       "fixed-partitions")
   drivers.flash.flash_simulator:
     path: tests/drivers/flash_simulator
-    catalog: &90
+    catalog: &91
     - drivers
     - flash
     platform_allow:
@@ -9686,17 +9791,17 @@ cases:
     - nucleo_f411re
   drivers.flash.flash_simulator.qemu_erase_value_0x00:
     path: tests/drivers/flash_simulator
-    catalog: *90
+    catalog: *91
     extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
     platform_allow: qemu_x86
   drivers.flash.flash_simulator.posix_erase_value_0x00:
     path: tests/drivers/flash_simulator
-    catalog: *90
+    catalog: *91
     extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
     platform_allow: native_posix
   drivers.flash.flash_simulator.posix_64_erase_value_0x00:
     path: tests/drivers/flash_simulator
-    catalog: *90
+    catalog: *91
     extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
     platform_allow: native_posix_64
   drivers.max17048:
@@ -9756,7 +9861,7 @@ cases:
     filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
   drivers.gpio.2pin:
     path: tests/drivers/gpio/gpio_basic_api
-    catalog: &91
+    catalog: &92
     - drivers
     - gpio
     min_flash: 34
@@ -9764,7 +9869,7 @@ cases:
     depends_on: gpio
   drivers.gpio.nrf_sense_edge:
     path: tests/drivers/gpio/gpio_basic_api
-    catalog: *91
+    catalog: *92
     extra_args: DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840.overlay;boards/nrf52840dk_nrf52840_sense_edge.overlay
     platform_allow: nrf52840dk_nrf52840
     depends_on: gpio
@@ -9840,6 +9945,9 @@ cases:
     - userspace
     depends_on: i2s
     filter: not CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
+    platform_exclude:
+    - mimxrt595_evk_cm33
+    - mimxrt685_evk_cm33
   drivers.i2s.gpio_loopback:
     path: tests/drivers/i2s/i2s_api
     catalog:
@@ -9849,6 +9957,9 @@ cases:
     - i2s
     - gpio
     filter: CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
+    platform_exclude:
+    - mimxrt595_evk_cm33
+    - mimxrt685_evk_cm33
   drivers.i2s.speed:
     path: tests/drivers/i2s/i2s_speed
     catalog:
@@ -10044,7 +10155,7 @@ cases:
     - nrf9160dk_nrf9160
   drivers.regulator.voltage.nrf52840dk_nrf52840_npm6001:
     path: tests/drivers/regulator/voltage
-    catalog: &92
+    catalog: &93
     - drivers
     - regulator
     extra_args:
@@ -10053,11 +10164,11 @@ cases:
     platform_allow: nrf52840dk_nrf52840
   drivers.regulator.voltage.mimxrt685_evk_cm33:
     path: tests/drivers/regulator/voltage
-    catalog: *92
+    catalog: *93
     platform_allow: mimxrt685_evk_cm33
   drivers.regulator.voltage.rpi_pico_vreg:
     path: tests/drivers/regulator/voltage
-    catalog: *92
+    catalog: *93
     platform_allow: rpi_pico
   drivers.retained_mem.api.gpregret:
     path: tests/drivers/retained_mem/api
@@ -10156,7 +10267,7 @@ cases:
     catalog: smbus
     platform_allow:
     - qemu_x86_64
-    - &93
+    - &94
       - ehl_crb
       - rpl_crb
   drivers.smbus.api.access.mmio:
@@ -10165,7 +10276,7 @@ cases:
     extra_configs:
     - CONFIG_SMBUS_INTEL_PCH_ACCESS_MMIO=y
     platform_exclude: qemu_x86_64
-    platform_allow: *93
+    platform_allow: *94
   drivers.smbus.api_user:
     path: tests/drivers/smbus/smbus_api
     catalog: smbus
@@ -10173,7 +10284,7 @@ cases:
     - CONFIG_USERSPACE=y
     platform_allow:
     - qemu_x86_64
-    - *93
+    - *94
   drivers.smbus.api_stats:
     path: tests/drivers/smbus/smbus_api
     catalog: smbus
@@ -10181,7 +10292,7 @@ cases:
     - CONFIG_STATS=y
     platform_allow:
     - qemu_x86_64
-    - *93
+    - *94
   drivers.smbus.api.no_smbalert:
     path: tests/drivers/smbus/smbus_api
     catalog: smbus
@@ -10189,7 +10300,7 @@ cases:
     - CONFIG_SMBUS_INTEL_PCH_SMBALERT=n
     platform_allow:
     - qemu_x86_64
-    - *93
+    - *94
   drivers.smbus.api.no_host_notify:
     path: tests/drivers/smbus/smbus_api
     catalog: smbus
@@ -10197,7 +10308,7 @@ cases:
     - CONFIG_SMBUS_INTEL_PCH_HOST_NOTIFY=n
     platform_allow:
     - qemu_x86_64
-    - *93
+    - *94
   drivers.smbus.api.debug:
     path: tests/drivers/smbus/smbus_api
     catalog: smbus
@@ -10205,7 +10316,7 @@ cases:
     - CONFIG_SMBUS_LOG_LEVEL_DBG=y
     platform_allow:
     - qemu_x86_64
-    - *93
+    - *94
   drivers.smbus.emul:
     path: tests/drivers/smbus/smbus_emul
     catalog: smbus
@@ -10226,7 +10337,7 @@ cases:
     - gpio
   drivers.spi.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: &94
+    catalog: &95
     - drivers
     - spi
     - dma
@@ -10234,14 +10345,14 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.spi.loopback.internal:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     filter:
     - CONFIG_SPI_LOOPBACK_MODE_LOOP
     - dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
     depends_on: spi
   drivers.spi.loopback.rtio:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_configs:
     - CONFIG_SPI_RTIO=y
     platform_allow: tdk_robokit1
@@ -10249,7 +10360,7 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.spi.mcux_dspi_dma.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_args:
     - OVERLAY_CONFIG="overlay-mcux-dspi-dma.conf"
     - DTC_OVERLAY_FILE="overlay-mcux-dspi-dma.overlay"
@@ -10258,7 +10369,7 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.spi.sam_spi_dma.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_args:
     - OVERLAY_CONFIG="overlay-sam-spi-dma.conf"
     - DTC_OVERLAY_FILE="overlay-sam-spi-dma.overlay"
@@ -10270,7 +10381,7 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.spi.stm32_spi_dma.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_args: OVERLAY_CONFIG="overlay-stm32-spi-dma.conf"
     filter:
     - CONFIG_SOC_FAMILY_STM32
@@ -10288,7 +10399,7 @@ cases:
     depends_on: spi
   drivers.spi.gd32_spi_interrupt.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_args: OVERLAY_CONFIG="overlay-gd32-spi-interrupt.conf"
     platform_allow:
     - gd32f403z_eval
@@ -10305,7 +10416,7 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.spi.gd32_spi_dma.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_args: OVERLAY_CONFIG="overlay-gd32-spi-dma.conf"
     platform_allow:
     - gd32f403z_eval
@@ -10322,7 +10433,7 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.pl022_spi_interrupt.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_configs:
     - CONFIG_SPI_PL022_INTERRUPT=y
     - CONFIG_SPI_PL022_DMA=n
@@ -10331,7 +10442,7 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.pl022_spi_dma.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_configs:
     - CONFIG_SPI_PL022_INTERRUPT=n
     - CONFIG_SPI_PL022_DMA=y
@@ -10341,7 +10452,7 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.pl022_spi_dma_and_interrupt.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_configs:
     - CONFIG_SPI_PL022_INTERRUPT=y
     - CONFIG_SPI_PL022_DMA=y
@@ -10351,7 +10462,7 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.pl022_spi_dma_no_dma_props.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_configs:
     - CONFIG_SPI_PL022_INTERRUPT=n
     - CONFIG_SPI_PL022_DMA=y
@@ -10362,7 +10473,7 @@ cases:
     filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
   drivers.pl022_spi_dma_and_interrupt_no_dma_props.loopback:
     path: tests/drivers/spi/spi_loopback
-    catalog: *94
+    catalog: *95
     extra_configs:
     - CONFIG_SPI_PL022_INTERRUPT=y
     - CONFIG_SPI_PL022_DMA=y
@@ -10398,12 +10509,12 @@ cases:
     - nrf52_bsim
   drivers.uart.async_api:
     path: tests/drivers/uart/uart_async_api
-    catalog: &95
+    catalog: &96
     - drivers
     - uart
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and not CONFIG_UART_MCUX_LPUART
     depends_on: gpio
-    platform_exclude: &96
+    platform_exclude: &97
     - seeeduino_xiao
     - serpente
     - arduino_nano_33_iot
@@ -10426,32 +10537,32 @@ cases:
     - atsamd20_xpro
   drivers.uart.async_api.nrf_uart:
     path: tests/drivers/uart/uart_async_api
-    catalog: *95
+    catalog: *96
     extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;boards/nrf_uart.overlay"
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
     platform_allow: nrf52840dk_nrf52840
     depends_on: gpio
-    platform_exclude: *96
+    platform_exclude: *97
   drivers.uart.async_api.rtt:
     path: tests/drivers/uart/uart_async_api
-    catalog: *95
+    catalog: *96
     extra_configs:
     - CONFIG_USE_SEGGER_RTT=y
     - CONFIG_UART_RTT=y
     extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
-      and not CONFIG_UART_MCUX_LPUART
+      and not CONFIG_UART_MCUX_LPUART and not CONFIG_UART_MCUX_FLEXCOMM
     platform_exclude:
     - - xmc45_relax_kit
       - xmc47_relax_kit
-    - *96
+    - *97
     build_only: true
   drivers.uart.async_api.lpuart:
     path: tests/drivers/uart/uart_async_api
-    catalog: *95
+    catalog: *96
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_UART_MCUX_LPUART
     depends_on: dma
-    platform_exclude: *96
+    platform_exclude: *97
   drivers.uart.basic_api:
     path: tests/drivers/uart/uart_basic_api
     catalog:
@@ -10492,7 +10603,7 @@ cases:
     depends_on: uart_emul
   drivers.uart.uart_mix_poll:
     path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: &97
+    catalog: &98
     - drivers
     - uart
     extra_configs:
@@ -10500,22 +10611,22 @@ cases:
     - CONFIG_UART_ASYNC_API=n
     - CONFIG_UART_0_ENHANCED_POLL_OUT=n
     depends_on: gpio
-    platform_allow: &98
+    platform_allow: &99
     - nrf52840dk_nrf52840
     - nrf9160dk_nrf9160
     - nrf5340dk_nrf5340_cpuapp
   drivers.uart.uart_mix_poll_fifo:
     path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *97
+    catalog: *98
     extra_configs:
     - CONFIG_UART_INTERRUPT_DRIVEN=y
     - CONFIG_UART_0_INTERRUPT_DRIVEN=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=n
     depends_on: gpio
-    platform_allow: *98
+    platform_allow: *99
   drivers.uart.uart_mix_poll_async_api:
     path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *97
+    catalog: *98
     extra_configs:
     - CONFIG_UART_ASYNC_API=y
     - CONFIG_UART_0_INTERRUPT_DRIVEN=n
@@ -10525,10 +10636,10 @@ cases:
     - CONFIG_NRFX_TIMER2=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=n
     depends_on: gpio
-    platform_allow: *98
+    platform_allow: *99
   drivers.uart.uart_mix_poll_async_api_const:
     path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *97
+    catalog: *98
     extra_configs:
     - CONFIG_UART_ASYNC_API=y
     - CONFIG_UART_0_INTERRUPT_DRIVEN=n
@@ -10540,10 +10651,10 @@ cases:
     - CONFIG_UART_ASYNC_TX_CACHE_SIZE=2
     extra_args: TEST_CONST_BUFFER=1
     depends_on: gpio
-    platform_allow: *98
+    platform_allow: *99
   drivers.uart.uart_mix_poll_async_api_low_power:
     path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *97
+    catalog: *98
     extra_configs:
     - CONFIG_UART_ASYNC_API=y
     - CONFIG_UART_0_INTERRUPT_DRIVEN=n
@@ -10554,28 +10665,28 @@ cases:
     - CONFIG_NRFX_TIMER2=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=n
     depends_on: gpio
-    platform_allow: *98
+    platform_allow: *99
   drivers.uart.uart_mix_poll_with_ppi:
     path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *97
+    catalog: *98
     extra_configs:
     - CONFIG_UART_INTERRUPT_DRIVEN=n
     - CONFIG_UART_ASYNC_API=n
     - CONFIG_UART_0_ENHANCED_POLL_OUT=y
     depends_on: gpio
-    platform_allow: *98
+    platform_allow: *99
   drivers.uart.uart_mix_poll_fifo_with_ppi:
     path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *97
+    catalog: *98
     extra_configs:
     - CONFIG_UART_INTERRUPT_DRIVEN=y
     - CONFIG_UART_0_INTERRUPT_DRIVEN=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=y
     depends_on: gpio
-    platform_allow: *98
+    platform_allow: *99
   drivers.uart.uart_mix_poll_async_api_with_ppi:
     path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *97
+    catalog: *98
     extra_configs:
     - CONFIG_UART_ASYNC_API=y
     - CONFIG_UART_0_INTERRUPT_DRIVEN=n
@@ -10585,10 +10696,10 @@ cases:
     - CONFIG_NRFX_TIMER2=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=y
     depends_on: gpio
-    platform_allow: *98
+    platform_allow: *99
   drivers.uart.uart_mix_poll_async_api_with_ppi_low_power:
     path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *97
+    catalog: *98
     extra_configs:
     - CONFIG_UART_ASYNC_API=y
     - CONFIG_UART_0_INTERRUPT_DRIVEN=n
@@ -10599,10 +10710,10 @@ cases:
     - CONFIG_NRFX_TIMER2=y
     - CONFIG_UART_0_ENHANCED_POLL_OUT=y
     depends_on: gpio
-    platform_allow: *98
+    platform_allow: *99
   drivers.uart.pm:
     path: tests/drivers/uart/uart_pm
-    catalog: &99
+    catalog: &100
     - drivers
     - uart
     extra_configs:
@@ -10613,7 +10724,7 @@ cases:
     depends_on: gpio
   drivers.uart.pm.no_rxpin:
     path: tests/drivers/uart/uart_pm
-    catalog: *99
+    catalog: *100
     extra_configs:
     - CONFIG_UART_INTERRUPT_DRIVEN=n
     - CONFIG_UART_ASYNC_API=n
@@ -10623,7 +10734,7 @@ cases:
     depends_on: gpio
   drivers.uart.pm.enhanced_poll:
     path: tests/drivers/uart/uart_pm
-    catalog: *99
+    catalog: *100
     extra_configs:
     - CONFIG_UART_INTERRUPT_DRIVEN=n
     - CONFIG_UART_ASYNC_API=n
@@ -10632,7 +10743,7 @@ cases:
     depends_on: gpio
   drivers.uart.pm.int_driven:
     path: tests/drivers/uart/uart_pm
-    catalog: *99
+    catalog: *100
     extra_configs:
     - CONFIG_UART_INTERRUPT_DRIVEN=y
     - CONFIG_UART_0_INTERRUPT_DRIVEN=y
@@ -10642,7 +10753,7 @@ cases:
     depends_on: gpio
   drivers.uart.pm.int_driven.enhanced_poll:
     path: tests/drivers/uart/uart_pm
-    catalog: *99
+    catalog: *100
     extra_configs:
     - CONFIG_UART_INTERRUPT_DRIVEN=y
     - CONFIG_UART_0_INTERRUPT_DRIVEN=y
@@ -10652,7 +10763,7 @@ cases:
     depends_on: gpio
   drivers.uart.pm.async:
     path: tests/drivers/uart/uart_pm
-    catalog: *99
+    catalog: *100
     extra_configs:
     - CONFIG_UART_INTERRUPT_DRIVEN=n
     - CONFIG_UART_ASYNC_API=y
@@ -10665,7 +10776,7 @@ cases:
     depends_on: gpio
   drivers.uart.pm.async.enhanced_poll:
     path: tests/drivers/uart/uart_pm
-    catalog: *99
+    catalog: *100
     extra_configs:
     - CONFIG_UART_INTERRUPT_DRIVEN=n
     - CONFIG_UART_ASYNC_API=y
@@ -10696,36 +10807,36 @@ cases:
     - qemu_kvm_arm64
   drivers.w1.w1-serial:
     path: tests/drivers/w1/w1_api
-    catalog: &100
+    catalog: &101
     - drivers
     - w1
     - userspace
     extra_args: DTC_OVERLAY_FILE=w1_serial.overlay
     depends_on: arduino_serial
-    platform_allow: &101
+    platform_allow: &102
     - nucleo_g0b1re
     - nrf52840dk_nrf52840
   drivers.w1.ds2482-800:
     path: tests/drivers/w1/w1_api
-    catalog: *100
+    catalog: *101
     extra_args: DTC_OVERLAY_FILE=ds2482-800.overlay
     depends_on: arduino_i2c
-    platform_allow: *101
+    platform_allow: *102
   drivers.w1.ds2484:
     path: tests/drivers/w1/w1_api
-    catalog: *100
+    catalog: *101
     extra_args: DTC_OVERLAY_FILE=ds2484.overlay
     depends_on: arduino_i2c
-    platform_allow: *101
+    platform_allow: *102
   drivers.w1.ds2485:
     path: tests/drivers/w1/w1_api
-    catalog: *100
+    catalog: *101
     extra_args: DTC_OVERLAY_FILE=ds2485.overlay
     depends_on: arduino_i2c
-    platform_allow: *101
+    platform_allow: *102
   drivers.watchdog:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: &102
+    catalog: &103
     - drivers
     - watchdog
     filter: |
@@ -10740,7 +10851,7 @@ cases:
     depends_on: watchdog
   drivers.watchdog.stm32wwdg:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *102
+    catalog: *103
     extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg.overlay"
     filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
     platform_allow:
@@ -10765,7 +10876,7 @@ cases:
     depends_on: watchdog
   drivers.watchdog.stm32wwdg_h7:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *102
+    catalog: *103
     extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg_h7.overlay"
     filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
     platform_allow:
@@ -10774,7 +10885,7 @@ cases:
     depends_on: watchdog
   drivers.watchdog.stm32iwdg:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *102
+    catalog: *103
     extra_args: DTC_OVERLAY_FILE="boards/stm32_iwdg.overlay"
     filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
     platform_allow:
@@ -10801,13 +10912,13 @@ cases:
     depends_on: watchdog
   drivers.watchdog.mec15xxevb_assy6853:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *102
+    catalog: *103
     build_only: true
     platform_allow: mec15xxevb_assy6853
     depends_on: watchdog
   drivers.watchdog.counter_watchdog:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *102
+    catalog: *103
     extra_args:
     - OVERLAY_CONFIG="boards/nrf52840dk_nrf52840_counter.conf"
     - DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840_counter.overlay"
@@ -10815,7 +10926,7 @@ cases:
     depends_on: watchdog
   drivers.watchdog.gd32fwdgt:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *102
+    catalog: *103
     extra_args: DTC_OVERLAY_FILE="boards/gd32_fwdgt.overlay"
     filter: dt_compat_enabled("gd,gd32-fwdgt")
     platform_allow:
@@ -10832,7 +10943,7 @@ cases:
     depends_on: watchdog
   drivers.watchdog.gd32wwdgt:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *102
+    catalog: *103
     extra_args: DTC_OVERLAY_FILE="boards/gd32_wwdgt.overlay"
     filter: dt_compat_enabled("gd,gd32-wwdgt")
     platform_allow:
@@ -10849,7 +10960,7 @@ cases:
     depends_on: watchdog
   drivers.watchdog.s32z270dc2_r52:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *102
+    catalog: *103
     build_only: true
     platform_allow:
     - s32z270dc2_rtu0_r52
@@ -10857,7 +10968,7 @@ cases:
     depends_on: watchdog
   drivers.watchdog.mimxrt1050_evk_ti_tps382x:
     path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *102
+    catalog: *103
     extra_args: DTC_OVERLAY_FILE="boards/mimxrt1050_evk_ti_tps382x.overlay"
     filter: dt_compat_enabled("ti,tps382x")
     platform_allow: mimxrt1050_evk
@@ -10879,14 +10990,14 @@ cases:
     filter: CONFIG_CACHE_MANAGEMENT
   kernel.common:
     path: tests/kernel/common
-    catalog: &103
+    catalog: &104
     - base
     - kernel
     - userspace
     min_flash: 33
   kernel.common.tls:
     path: tests/kernel/common
-    catalog: *103
+    catalog: *104
     extra_configs:
     - CONFIG_THREAD_LOCAL_STORAGE=y
     filter: 'CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
@@ -10896,14 +11007,21 @@ cases:
     min_flash: 33
   kernel.common.misra:
     path: tests/kernel/common
-    catalog: *103
+    catalog: *104
     extra_configs:
     - CONFIG_MISRA_SANE=y
     filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
     min_flash: 33
+  kernel.common.minimallibc:
+    path: tests/kernel/common
+    catalog: libc
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    filter: CONFIG_MINIMAL_LIBC_SUPPORTED
+    min_flash: 33
   kernel.common.nano32:
     path: tests/kernel/common
-    catalog: *103
+    catalog: *104
     extra_configs:
     - CONFIG_CBPRINTF_NANO=y
     - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
@@ -10911,7 +11029,7 @@ cases:
     min_flash: 33
   kernel.common.nano64:
     path: tests/kernel/common
-    catalog: *103
+    catalog: *104
     extra_configs:
     - CONFIG_CBPRINTF_NANO=y
     - CONFIG_CBPRINTF_FULL_INTEGRAL=y
@@ -11026,11 +11144,11 @@ cases:
     catalog: kernel
   kernel.no-mt.cpu_exception:
     path: tests/kernel/fatal/no-multithreading
-    catalog: &104
+    catalog: &105
     - kernel
     - scheduler
     extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=0
-    platform_allow: &105
+    platform_allow: &106
     - qemu_cortex_m3
     - qemu_arc_em
     - qemu_arc_hs
@@ -11046,29 +11164,29 @@ cases:
     - nsim_hs6x
   kernel.no-mt.oops:
     path: tests/kernel/fatal/no-multithreading
-    catalog: *104
+    catalog: *105
     extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=1
-    platform_allow: *105
+    platform_allow: *106
   kernel.no-mt.panic:
     path: tests/kernel/fatal/no-multithreading
-    catalog: *104
+    catalog: *105
     extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=2
-    platform_allow: *105
+    platform_allow: *106
   kernel.no-mt.zephyr_assert:
     path: tests/kernel/fatal/no-multithreading
-    catalog: *104
+    catalog: *105
     extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=3
-    platform_allow: *105
+    platform_allow: *106
   kernel.no-mt.arbitrary_reason:
     path: tests/kernel/fatal/no-multithreading
-    catalog: *104
+    catalog: *105
     extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=4
-    platform_allow: *105
+    platform_allow: *106
   kernel.no-mt.arbitrary_reason_negative:
     path: tests/kernel/fatal/no-multithreading
-    catalog: *104
+    catalog: *105
     extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=5
-    platform_allow: *105
+    platform_allow: *106
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
     catalog: kernel
@@ -11100,7 +11218,7 @@ cases:
     platform_allow: qemu_cortex_m3
   kernel.fpu_sharing.float_disable:
     path: tests/kernel/fpu_sharing/float_disable
-    catalog: &106
+    catalog: &107
     - fpu
     - kernel
     - userspace
@@ -11112,7 +11230,7 @@ cases:
     filter: CONFIG_ARMV7_M_ARMV8_M_FP or CONFIG_ARMV7_R_FP or CONFIG_CPU_HAS_FPU
   kernel.fpu_sharing.float_disable.x86.fpu:
     path: tests/kernel/fpu_sharing/float_disable
-    catalog: *106
+    catalog: *107
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=n
     - CONFIG_X86_SSE=n
@@ -11124,7 +11242,7 @@ cases:
     - acrn_ehl_crb
   kernel.fpu_sharing.float_disable.x86.fpu.sse:
     path: tests/kernel/fpu_sharing/float_disable
-    catalog: *106
+    catalog: *107
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=n
     extra_args: CONF_FILE=prj_x86.conf
@@ -11135,7 +11253,7 @@ cases:
     - acrn_ehl_crb
   kernel.fpu_sharing.float_disable.x86.sse:
     path: tests/kernel/fpu_sharing/float_disable
-    catalog: *106
+    catalog: *107
     extra_configs:
     - CONFIG_X86_SSE_FP_MATH=y
     extra_args: CONF_FILE=prj_x86.conf
@@ -11239,7 +11357,7 @@ cases:
     arch_allow: xtensa
   arch.interrupt.gen_isr_table.arm_baseline:
     path: tests/kernel/gen_isr_table
-    catalog: &107
+    catalog: &108
     - kernel
     - interrupt
     - isr_table
@@ -11257,7 +11375,7 @@ cases:
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
   arch.interrupt.gen_isr_table.arm_mainline:
     path: tests/kernel/gen_isr_table
-    catalog: *107
+    catalog: *108
     extra_configs:
     - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
     platform_allow: qemu_cortex_m3
@@ -11276,7 +11394,7 @@ cases:
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV7_M_ARMV8_M_MAINLINE
   arch.interrupt.gen_isr_table.disabled:
     path: tests/kernel/gen_isr_table
-    catalog: *107
+    catalog: *108
     extra_configs:
     - CONFIG_GEN_ISR_TABLES=n
     - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
@@ -11284,7 +11402,7 @@ cases:
     build_only: true
   arch.interrupt.gen_isr_table.arc:
     path: tests/kernel/gen_isr_table
-    catalog: *107
+    catalog: *108
     extra_configs:
     - CONFIG_ARC_FIRQ_STACK=y
     - CONFIG_TEST_HW_STACK_PROTECTION=n
@@ -11292,18 +11410,24 @@ cases:
     filter: CONFIG_RGF_NUM_BANKS > 1
   arch.interrupt.gen_isr_table.riscv_direct:
     path: tests/kernel/gen_isr_table
-    catalog: *107
+    catalog: *108
     extra_configs:
     - CONFIG_GEN_IRQ_VECTOR_TABLE=y
+    arch_allow:
+    - riscv32
+    - riscv64
     platform_exclude: m2gl025_miv
-    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
+    filter: CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
   arch.interrupt.gen_isr_table.riscv_no_direct:
     path: tests/kernel/gen_isr_table
-    catalog: *107
+    catalog: *108
     extra_configs:
     - CONFIG_GEN_IRQ_VECTOR_TABLE=n
     platform_exclude: m2gl025_miv
-    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
+    arch_allow:
+    - riscv32
+    - riscv64
+    filter: CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
   arch.interrupt:
     path: tests/kernel/interrupt
     catalog:
@@ -11426,7 +11550,7 @@ cases:
     - demand_paging
     extra_configs:
     - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
-    filter: CONFIG_DEMAND_PAGING
+    platform_allow: qemu_x86_tiny
   kernel.demand_paging.timing_funcs:
     path: tests/kernel/mem_protect/demand_paging
     catalog:
@@ -11437,7 +11561,6 @@ cases:
     - CONFIG_DEMAND_PAGING_STATS_USING_TIMING_FUNCTIONS=y
     - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
     platform_allow: qemu_x86_tiny
-    filter: CONFIG_DEMAND_PAGING
   kernel.futex:
     path: tests/kernel/mem_protect/futex
     catalog:
@@ -11446,7 +11569,7 @@ cases:
     filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.memory_protection.mem_map:
     path: tests/kernel/mem_protect/mem_map
-    catalog: &108
+    catalog: &109
     - kernel
     - mmu
     extra_args: CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
@@ -11454,23 +11577,23 @@ cases:
     platform_exclude: qemu_x86_64
   kernel.memory_protection.mem_map.x86_64:
     path: tests/kernel/mem_protect/mem_map
-    catalog: *108
+    catalog: *109
     filter: CONFIG_MMU and CONFIG_X86_64 and not CONFIG_COVERAGE
   kernel.memory_protection.mem_map.x86_64.coverage:
     path: tests/kernel/mem_protect/mem_map
-    catalog: *108
+    catalog: *109
     extra_args: EXTRA_CFLAGS=-DSKIP_EXECUTE_TESTS
     filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
     platform_allow: qemu_x86_64
   kernel.memory_protection.mem_map.x86_64.coverage.exec:
     path: tests/kernel/mem_protect/mem_map
-    catalog: *108
+    catalog: *109
     extra_args: CONF_FILE=prj_x86_64_coverage_exec.conf
     filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
     platform_allow: qemu_x86_64
   kernel.memory_protection:
     path: tests/kernel/mem_protect/mem_protect
-    catalog: &109
+    catalog: &110
     - kernel
     - security
     - userspace
@@ -11481,13 +11604,13 @@ cases:
     platform_exclude: twr_ke18f
   kernel.memory_protection.gap_filling.arc:
     path: tests/kernel/mem_protect/mem_protect
-    catalog: *109
+    catalog: *110
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     arch_allow: arc
   kernel.memory_protection.gap_filling.arm:
     path: tests/kernel/mem_protect/mem_protect
-    catalog: *109
+    catalog: *110
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     arch_allow: arm
@@ -11546,7 +11669,7 @@ cases:
     filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.memory_protection.userspace:
     path: tests/kernel/mem_protect/userspace
-    catalog: &110
+    catalog: &111
     - kernel
     - security
     - userspace
@@ -11556,13 +11679,13 @@ cases:
     filter: CONFIG_ARCH_HAS_USERSPACE
   kernel.memory_protection.userspace.gap_filling.arc:
     path: tests/kernel/mem_protect/userspace
-    catalog: *110
+    catalog: *111
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     arch_allow: arc
   kernel.memory_protection.userspace.gap_filling.arm:
     path: tests/kernel/mem_protect/userspace
-    catalog: *110
+    catalog: *111
     extra_args: CONFIG_MPU_GAP_FILLING=y
     filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
     arch_allow: arm
@@ -11758,7 +11881,7 @@ cases:
     platform_exclude: nrf52dk_nrf52810
   kernel.scheduler:
     path: tests/kernel/sched/schedule_api
-    catalog: &111
+    catalog: &112
     - kernel
     - threads
     - scheduler
@@ -11769,14 +11892,14 @@ cases:
     min_ram: 34
   kernel.scheduler.no_timeslicing:
     path: tests/kernel/sched/schedule_api
-    catalog: *111
+    catalog: *112
     extra_configs:
     - CONFIG_TIMESLICING=n
     filter: not CONFIG_SCHED_MULTIQ
     min_ram: 34
   kernel.scheduler.slice_perthread:
     path: tests/kernel/sched/schedule_api
-    catalog: *111
+    catalog: *112
     extra_configs:
     - CONFIG_TIMESLICING=y
     - CONFIG_TIMESLICE_PER_THREAD=y
@@ -11784,28 +11907,28 @@ cases:
     min_ram: 34
   kernel.scheduler.multiq:
     path: tests/kernel/sched/schedule_api
-    catalog: *111
+    catalog: *112
     extra_configs:
     - CONFIG_TIMESLICING=y
     extra_args: CONF_FILE=prj_multiq.conf
     min_ram: 34
   kernel.scheduler.multiq_no_timeslicing:
     path: tests/kernel/sched/schedule_api
-    catalog: *111
+    catalog: *112
     extra_configs:
     - CONFIG_TIMESLICING=n
     extra_args: CONF_FILE=prj_multiq.conf
     min_ram: 34
   kernel.scheduler.dumb_timeslicing:
     path: tests/kernel/sched/schedule_api
-    catalog: *111
+    catalog: *112
     extra_configs:
     - CONFIG_TIMESLICING=y
     extra_args: CONF_FILE=prj_dumb.conf
     min_ram: 34
   kernel.scheduler.dumb_no_timeslicing:
     path: tests/kernel/sched/schedule_api
-    catalog: *111
+    catalog: *112
     extra_configs:
     - CONFIG_TIMESLICING=n
     extra_args: CONF_FILE=prj_dumb.conf
@@ -11900,18 +12023,19 @@ cases:
     - qemu_riscv64
   kernel.threads.apis:
     path: tests/kernel/threads/thread_apis
-    catalog: &112
+    catalog: &113
     - kernel
     - threads
     - userspace
     min_flash: 34
   kernel.threads.apis.pinonly:
     path: tests/kernel/threads/thread_apis
-    catalog: *112
+    catalog: *113
     extra_configs:
     - CONFIG_SCHED_CPU_MASK_PIN_ONLY=y
     min_flash: 34
-    filter: CONFIG_SMP
+    depends_on:
+    - smp
   kernel.threads.error.case:
     path: tests/kernel/threads/thread_error_case
     catalog:
@@ -12086,20 +12210,20 @@ cases:
     filter: not CONFIG_SMP
   kernel.workqueue.critical:
     path: tests/kernel/workq/critical
-    catalog: &113
+    catalog: &114
     - kernel
     - workqueue
     platform_exclude: nsim_sem_mpu_stack_guard
     filter: not CONFIG_WDT_SAM
   kernel.workqueue.critical.sam:
     path: tests/kernel/workq/critical
-    catalog: *113
+    catalog: *114
     extra_configs:
     - CONFIG_WDT_DISABLE_AT_BOOT=y
     filter: CONFIG_WDT_SAM
   kernel.workqueue.critical.nsim:
     path: tests/kernel/workq/critical
-    catalog: *113
+    catalog: *114
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard
@@ -12254,7 +12378,7 @@ cases:
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
-    platform_type: &114
+    platform_type: &115
     - qemu
     - native
     min_flash: 48
@@ -12264,7 +12388,7 @@ cases:
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_fp:
     path: tests/lib/cbprintf_package
@@ -12274,7 +12398,7 @@ cases:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_fp_align_offset:
     path: tests/lib/cbprintf_package
@@ -12285,7 +12409,7 @@ cases:
     - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_long_double:
     path: tests/lib/cbprintf_package
@@ -12297,7 +12421,7 @@ cases:
     - CONFIG_FPU=y
     - CONFIG_MINIMAL_LIBC=y
     filter: CONFIG_CPU_HAS_FPU
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_long_double_align_offset:
     path: tests/lib/cbprintf_package
@@ -12310,14 +12434,14 @@ cases:
     - CONFIG_FPU=y
     - CONFIG_MINIMAL_LIBC=y
     filter: CONFIG_CPU_HAS_FPU
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_nano:
     path: tests/lib/cbprintf_package
     catalog: cbprintf
     extra_configs:
     - CONFIG_CBPRINTF_NANO=y
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_cpp:
     path: tests/lib/cbprintf_package
@@ -12325,7 +12449,7 @@ cases:
     extra_configs:
     - CONFIG_CPP=y
     - CONFIG_CBPRINTF_COMPLETE=y
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_no_generic_cpp:
     path: tests/lib/cbprintf_package
@@ -12334,7 +12458,7 @@ cases:
     - CONFIG_CPP=y
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_fp_cpp:
     path: tests/lib/cbprintf_package
@@ -12345,7 +12469,7 @@ cases:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_fp_align_offset_cpp:
     path: tests/lib/cbprintf_package
@@ -12357,7 +12481,7 @@ cases:
     - CONFIG_COMPILER_OPT="-DCBPRINTF_PACKAGE_ALIGN_OFFSET=1"
     - CONFIG_FPU=y
     filter: CONFIG_CPU_HAS_FPU
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_long_double_cpp:
     path: tests/lib/cbprintf_package
@@ -12370,7 +12494,7 @@ cases:
     - CONFIG_FPU=y
     - CONFIG_MINIMAL_LIBC=y
     filter: CONFIG_CPU_HAS_FPU
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_long_double_align_offset_cpp:
     path: tests/lib/cbprintf_package
@@ -12384,7 +12508,7 @@ cases:
     - CONFIG_FPU=y
     - CONFIG_MINIMAL_LIBC=y
     filter: CONFIG_CPU_HAS_FPU
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_nano_cpp:
     path: tests/lib/cbprintf_package
@@ -12392,7 +12516,7 @@ cases:
     extra_configs:
     - CONFIG_CPP=y
     - CONFIG_CBPRINTF_NANO=y
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package.picolibc:
     path: tests/lib/cbprintf_package
@@ -12401,7 +12525,7 @@ cases:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_no_generic.picolibc:
     path: tests/lib/cbprintf_package
@@ -12411,7 +12535,7 @@ cases:
     - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_fp.picolibc:
     path: tests/lib/cbprintf_package
@@ -12422,7 +12546,7 @@ cases:
     - CONFIG_FPU=y
     - CONFIG_PICOLIBC=y
     filter: CONFIG_CPU_HAS_FPU and CONFIG_PICOLIBC_SUPPORTED
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_cpp.picolibc:
     path: tests/lib/cbprintf_package
@@ -12432,7 +12556,7 @@ cases:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_no_generic_cpp.picolibc:
     path: tests/lib/cbprintf_package
@@ -12443,7 +12567,7 @@ cases:
     - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cbprintf_package_fp_cpp.picolibc:
     path: tests/lib/cbprintf_package
@@ -12455,7 +12579,7 @@ cases:
     - CONFIG_FPU=y
     - CONFIG_PICOLIBC=y
     filter: CONFIG_CPU_HAS_FPU and CONFIG_PICOLIBC_SUPPORTED
-    platform_type: *114
+    platform_type: *115
     min_flash: 48
   libraries.cmsis_dsp.bayes:
     path: tests/lib/cmsis_dsp/bayes
@@ -13715,21 +13839,22 @@ cases:
     catalog: p4wq
   libraries.ring_buffer:
     path: tests/lib/ringbuffer
-    catalog: &115
+    catalog: &116
     - ring_buffer
     - circular_buffer
   libraries.ring_buffer_concurrent:
     path: tests/lib/ringbuffer
-    catalog: *115
+    catalog: *116
     extra_configs:
     - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
     platform_allow: qemu_x86
   libraries.smf.flat:
     path: tests/lib/smf
-    catalog: smf
+    catalog: &117
+    - smf
   libraries.smf.hierarchical:
     path: tests/lib/smf
-    catalog: smf
+    catalog: *117
     extra_configs:
     - CONFIG_SMF_ANCESTOR_SUPPORT=y
   libraries.libc.sprintf:
@@ -13755,6 +13880,16 @@ cases:
     catalog:
     - libc
     - picolibc
+    extra_args: CONF_FILE=prj_picolibc_new.conf
+    filter: CONFIG_PICOLIBC_SUPPORTED
+  libraries.libc.picolibc.sprintf_inexact:
+    path: tests/lib/sprintf
+    catalog:
+    - libc
+    - picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC_USE_MODULE=y
+    - CONFIG_PICOLIBC_IO_FLOAT_EXACT=n
     extra_args: CONF_FILE=prj_picolibc_new.conf
     filter: CONFIG_PICOLIBC_SUPPORTED
   libraries.spsc_pbuf:
@@ -13790,12 +13925,12 @@ cases:
     catalog: sys_util
   thrift.ThriftTest.newlib.binaryProtocol:
     path: tests/lib/thrift/ThriftTest
-    catalog: &116
+    catalog: &118
     - thrift
     - cpp
     - newlib
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    platform_allow: &117
+    platform_allow: &119
     - mps2_an385
     - qemu_cortex_a53
     - qemu_riscv32
@@ -13803,21 +13938,26 @@ cases:
     - qemu_x86_64
   thrift.ThriftTest.newlib.compactProtocol:
     path: tests/lib/thrift/ThriftTest
-    catalog: *116
+    catalog: *118
     extra_configs:
     - CONFIG_THRIFT_COMPACT_PROTOCOL=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    platform_allow: *117
+    platform_allow: *119
   thrift.ThriftTest.newlib.tlsTransport:
     path: tests/lib/thrift/ThriftTest
-    catalog: *116
+    catalog: *118
     extra_args: OVERLAY_CONFIG="overlay-tls.conf"
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    platform_allow: *117
+    platform_allow: *119
   libraries.libc.time:
     path: tests/lib/time
     catalog: libc
     filter: not CONFIG_ARCH_POSIX or CONFIG_NATIVE_POSIX_SLOWDOWN_TO_REAL_TIME
+  misc.check_init_priorities:
+    path: tests/misc/check_init_priorities
+    catalog: unknown
+    build_only: true
+    platform_allow: native_posix native_posix_64
   misc.iterable_sections:
     path: tests/misc/iterable_sections
     catalog: iterable_sections
@@ -13872,7 +14012,7 @@ cases:
     build_only: true
   net.6lo:
     path: tests/net/6lo
-    catalog: &118
+    catalog: &120
     - net
     - 6loWPAN
     extra_configs:
@@ -13881,14 +14021,14 @@ cases:
     depends_on: netif
   net.6lo.preempt:
     path: tests/net/6lo
-    catalog: *118
+    catalog: *120
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     min_ram: 32
     depends_on: netif
   net.6lo.variable_buf_size:
     path: tests/net/6lo
-    catalog: *118
+    catalog: *120
     extra_configs:
     - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
     - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
@@ -13896,7 +14036,7 @@ cases:
     depends_on: netif
   net.build:
     path: tests/net/all
-    catalog: &119
+    catalog: &121
     - net
     - net-all
     extra_configs:
@@ -13906,7 +14046,7 @@ cases:
     min_ram: 32
   net.build.preempt:
     path: tests/net/all
-    catalog: *119
+    catalog: *121
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     platform_allow: qemu_x86
@@ -13914,7 +14054,7 @@ cases:
     min_ram: 32
   net.arp:
     path: tests/net/arp
-    catalog: &120
+    catalog: &122
     - net
     - arp
     extra_configs:
@@ -13923,14 +14063,14 @@ cases:
     min_ram: 16
   net.arp.preempt:
     path: tests/net/arp
-    catalog: *120
+    catalog: *122
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
     min_ram: 16
   net.eth_bridge:
     path: tests/net/bridge
-    catalog: &121
+    catalog: &123
     - net
     - bridge
     extra_configs:
@@ -13943,7 +14083,7 @@ cases:
     depends_on: netif
   net.eth_bridge.ip:
     path: tests/net/bridge
-    catalog: *121
+    catalog: *123
     extra_configs:
     - CONFIG_NET_IPV4=y
     - CONFIG_NET_IPV6=y
@@ -14000,7 +14140,7 @@ cases:
     depends_on: netif
   net.dhcp:
     path: tests/net/dhcpv4
-    catalog: &122
+    catalog: &124
     - net
     - dhcpv4
     extra_configs:
@@ -14008,9 +14148,15 @@ cases:
     depends_on: netif
   net.dhcp.preempt:
     path: tests/net/dhcpv4
-    catalog: *122
+    catalog: *124
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+  net.dhcp.optioncbs:
+    path: tests/net/dhcpv4
+    catalog: *124
+    extra_configs:
+    - CONFIG_NET_DHCPV4_OPTION_CALLBACKS=y
     depends_on: netif
   net.ethernet_mgmt:
     path: tests/net/ethernet_mgmt
@@ -14021,7 +14167,7 @@ cases:
     depends_on: netif
   net.hostname:
     path: tests/net/hostname
-    catalog: &123
+    catalog: &125
     - net
     - hostname
     extra_configs:
@@ -14030,7 +14176,7 @@ cases:
     depends_on: netif
   net.hostname.unique:
     path: tests/net/hostname
-    catalog: *123
+    catalog: *125
     extra_configs:
     - CONFIG_NET_HOSTNAME_UNIQUE=y
     min_ram: 16
@@ -14071,13 +14217,22 @@ cases:
     min_ram: 16
   net.ieee802154.l2:
     path: tests/net/ieee802154/l2
-    catalog:
+    catalog: &126
     - net
     - ieee802154
     - l2
-    platform_allow:
+    extra_configs:
+    - CONFIG_NET_SOCKETS=n
+    platform_allow: &127
     - native_posix
     - native_posix_64
+    min_ram: 16
+  net.ieee802154.l2.sockets:
+    path: tests/net/ieee802154/l2
+    catalog: *126
+    extra_configs:
+    - CONFIG_NET_SOCKETS=y
+    platform_allow: *127
     min_ram: 16
   net.iface:
     path: tests/net/iface
@@ -14089,7 +14244,7 @@ cases:
     depends_on: netif
   net.igmp:
     path: tests/net/igmp
-    catalog: &124
+    catalog: &128
     - net
     - igmp
     extra_configs:
@@ -14098,7 +14253,7 @@ cases:
     platform_allow: qemu_x86
   net.igmp.preempt:
     path: tests/net/igmp
-    catalog: *124
+    catalog: *128
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
@@ -14119,7 +14274,7 @@ cases:
     depends_on: netif
   net.ipv6:
     path: tests/net/ipv6
-    catalog: &125
+    catalog: &129
     - net
     - ipv6
     extra_configs:
@@ -14127,7 +14282,7 @@ cases:
     depends_on: netif
   net.ipv6.variable_buf_size:
     path: tests/net/ipv6
-    catalog: *125
+    catalog: *129
     extra_configs:
     - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
     - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
@@ -14145,23 +14300,28 @@ cases:
     min_ram: 16
     depends_on: netif
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.coap.client:
+    path: tests/net/lib/coap_client
+    catalog: coap net
+    platform_allow: native_posix
+    depends_on: netif
   net.dns.addremove:
     path: tests/net/lib/dns_addremove
-    catalog: &126
+    catalog: &130
     - dns
     - net
     min_ram: 21
     depends_on: netif
   net.dns.addremove.no_ipv6:
     path: tests/net/lib/dns_addremove
-    catalog: *126
+    catalog: *130
     extra_configs:
     - CONFIG_NET_IPV6=n
     depends_on: netif
     min_ram: 16
   net.dns.no_ipv4:
     path: tests/net/lib/dns_addremove
-    catalog: *126
+    catalog: *130
     extra_configs:
     - CONFIG_NET_IPV4=n
     depends_on: netif
@@ -14175,7 +14335,7 @@ cases:
     depends_on: netif
   net.dns.resolve:
     path: tests/net/lib/dns_resolve
-    catalog: &127
+    catalog: &131
     - dns
     - net
     extra_configs:
@@ -14184,27 +14344,27 @@ cases:
     min_ram: 21
   net.dns.resolve.preempt:
     path: tests/net/lib/dns_resolve
-    catalog: *127
+    catalog: *131
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
     min_ram: 21
   net.dns.resolve.no_ipv6:
     path: tests/net/lib/dns_resolve
-    catalog: *127
+    catalog: *131
     extra_args: CONF_FILE=prj-no-ipv6.conf
     min_ram: 21
     depends_on: netif
   net.dns.sd:
     path: tests/net/lib/dns_sd
-    catalog: &128
+    catalog: &132
     - dns
     - net
     min_ram: 21
     depends_on: netif
   net.dns.sd.no_ipv6:
     path: tests/net/lib/dns_sd
-    catalog: *128
+    catalog: *132
     extra_args: CONF_FILE=prj-no-ipv6.conf
     min_ram: 16
     depends_on: netif
@@ -14284,21 +14444,21 @@ cases:
     depends_on: netif
   net.lwm2m.lwm2m_rd_client:
     path: tests/net/lib/lwm2m/lwm2m_rd_client
-    catalog: &129
+    catalog: &133
     - net
     - lwm2m
     extra_args: EXTRA_CFLAGS=""
     depends_on: netif
-    platform_allow: &130
+    platform_allow: &134
     - native_posix
     - qemu_x86
     - qemu_x86_64
   net.lwm2m.lwm2m_rd_client_dtls:
     path: tests/net/lib/lwm2m/lwm2m_rd_client
-    catalog: *129
+    catalog: *133
     extra_args: EXTRA_CFLAGS=-DCONFIG_LWM2M_DTLS_SUPPORT
     depends_on: netif
-    platform_allow: *130
+    platform_allow: *134
   net.lwm2m.lwm2m_registry:
     path: tests/net/lib/lwm2m/lwm2m_registry
     catalog:
@@ -14316,14 +14476,14 @@ cases:
     depends_on: netif
   net.mqtt:
     path: tests/net/lib/mqtt_publisher
-    catalog: &131
+    catalog: &135
     - net
     - mqtt
     min_ram: 16
     depends_on: netif
   net.mqtt.tls:
     path: tests/net/lib/mqtt_publisher
-    catalog: *131
+    catalog: *135
     extra_configs:
     - CONFIG_NET_PKT_RX_COUNT=20
     - CONFIG_NET_PKT_TX_COUNT=20
@@ -14334,7 +14494,7 @@ cases:
     depends_on: netif
   net.mqtt.pubsub:
     path: tests/net/lib/mqtt_pubsub
-    catalog: &132
+    catalog: &136
     - net
     - mqtt
     extra_configs:
@@ -14343,7 +14503,7 @@ cases:
     min_ram: 16
   net.mqtt.pubsub.preempt:
     path: tests/net/lib/mqtt_pubsub
-    catalog: *132
+    catalog: *136
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
@@ -14363,7 +14523,7 @@ cases:
     min_ram: 16
   net.mqtt.subscriber:
     path: tests/net/lib/mqtt_subscriber
-    catalog: &133
+    catalog: &137
     - net
     - mqtt
     extra_configs:
@@ -14372,7 +14532,7 @@ cases:
     min_ram: 16
   net.mqtt.subscriber.preempt:
     path: tests/net/lib/mqtt_subscriber
-    catalog: *133
+    catalog: *137
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
@@ -14394,7 +14554,7 @@ cases:
     depends_on: netif
   net.management:
     path: tests/net/mgmt
-    catalog: &134
+    catalog: &138
     - net
     - mgmt
     extra_configs:
@@ -14403,14 +14563,14 @@ cases:
     min_ram: 16
   net.management.preempt:
     path: tests/net/mgmt
-    catalog: *134
+    catalog: *138
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
     min_ram: 16
   net.mld:
     path: tests/net/mld
-    catalog: &135
+    catalog: &139
     - net
     - mld
     extra_configs:
@@ -14418,13 +14578,13 @@ cases:
     depends_on: netif
   net.mld.preempt:
     path: tests/net/mld
-    catalog: *135
+    catalog: *139
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
   net.neighbour:
     path: tests/net/neighbor
-    catalog: &136
+    catalog: &140
     - net
     - neighbour
     extra_configs:
@@ -14433,7 +14593,7 @@ cases:
     min_ram: 16
   net.neighbor.preempt:
     path: tests/net/neighbor
-    catalog: *136
+    catalog: *140
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
@@ -14580,7 +14740,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   net.socket.misc:
     path: tests/net/socket/misc
-    catalog: &137
+    catalog: &141
     - net
     - socket
     - userspace
@@ -14591,7 +14751,7 @@ cases:
     min_ram: 21
   net.socket.misc.userspace:
     path: tests/net/socket/misc
-    catalog: *137
+    catalog: *141
     extra_configs:
     - CONFIG_TEST_USERSPACE=y
     depends_on: netif
@@ -14599,7 +14759,7 @@ cases:
     min_ram: 21
   net.socket.mgmt:
     path: tests/net/socket/net_mgmt
-    catalog: &138
+    catalog: &142
     - net
     - socket
     - net_mgmt
@@ -14610,7 +14770,7 @@ cases:
     min_ram: 21
   net.socket.mgmt.preempt:
     path: tests/net/socket/net_mgmt
-    catalog: *138
+    catalog: *142
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
@@ -14633,7 +14793,7 @@ cases:
     platform_exclude: mps2_an385
   net.socket.register:
     path: tests/net/socket/register
-    catalog: &139
+    catalog: &143
     - net
     - socket
     - socket.register
@@ -14642,7 +14802,7 @@ cases:
     depends_on: netif
   net.socket.register.tls:
     path: tests/net/socket/register
-    catalog: *139
+    catalog: *143
     extra_configs:
     - CONFIG_MBEDTLS=y
     - CONFIG_MBEDTLS_BUILTIN=y
@@ -14657,7 +14817,7 @@ cases:
     depends_on: netif
   net.socket.select:
     path: tests/net/socket/select
-    catalog: &140
+    catalog: &144
     - net
     - socket
     - userspace
@@ -14669,7 +14829,7 @@ cases:
     platform_exclude: mps2_an385
   net.socket.select.preempt:
     path: tests/net/socket/select
-    catalog: *140
+    catalog: *144
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
@@ -14678,7 +14838,7 @@ cases:
     platform_exclude: mps2_an385
   net.socket.socketpair:
     path: tests/net/socket/socketpair
-    catalog: &141
+    catalog: &145
     - net
     - socket
     - userspace
@@ -14686,7 +14846,7 @@ cases:
     min_ram: 21
   net.socket.socketpair.newlib:
     path: tests/net/socket/socketpair
-    catalog: *141
+    catalog: *145
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
@@ -14694,7 +14854,7 @@ cases:
     min_ram: 21
   net.socket.socketpair.picolibc:
     path: tests/net/socket/socketpair
-    catalog: *141
+    catalog: *145
     extra_configs:
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
@@ -14702,7 +14862,7 @@ cases:
     min_ram: 21
   net.socket.tcp:
     path: tests/net/socket/tcp
-    catalog: &142
+    catalog: &146
     - net
     - socket
     - userspace
@@ -14714,7 +14874,7 @@ cases:
     platform_exclude: mps2_an385
   net.socket.tcp.preempt:
     path: tests/net/socket/tcp
-    catalog: *142
+    catalog: *146
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     - CONFIG_NET_TCP_RANDOMIZED_RTO=n
@@ -14724,7 +14884,7 @@ cases:
     platform_exclude: mps2_an385
   net.socket.tls:
     path: tests/net/socket/tls
-    catalog: &143
+    catalog: &147
     - net
     - socket
     - tls
@@ -14736,7 +14896,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   net.socket.tls.preempt:
     path: tests/net/socket/tls
-    catalog: *143
+    catalog: *147
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     platform_exclude: mps2_an385
@@ -14753,7 +14913,7 @@ cases:
     platform_allow: qemu_x86
   net.socket.udp:
     path: tests/net/socket/udp
-    catalog: &144
+    catalog: &148
     - net
     - socket
     - udp
@@ -14764,7 +14924,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   net.socket.udp.preempt:
     path: tests/net/socket/udp
-    catalog: *144
+    catalog: *148
     extra_configs:
     - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
     depends_on: netif
@@ -14772,7 +14932,7 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   net.socket.udp.ipv6_fragment:
     path: tests/net/socket/udp
-    catalog: *144
+    catalog: *148
     extra_configs:
     - CONFIG_NET_IPV6_FRAGMENT=y
     depends_on: netif
@@ -14787,7 +14947,7 @@ cases:
     depends_on: netif
   net.tcp.simple:
     path: tests/net/tcp
-    catalog: &145
+    catalog: &149
     - net
     - tcp
     extra_configs:
@@ -14795,448 +14955,448 @@ cases:
     depends_on: netif
   net.tcp.no_recv_queue:
     path: tests/net/tcp
-    catalog: *145
+    catalog: *149
     extra_configs:
     - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=0
     depends_on: netif
   net.tcp.variable_buf_size:
     path: tests/net/tcp
-    catalog: *145
+    catalog: *149
     extra_configs:
     - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
     - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
     depends_on: netif
   net.traffic_class.1:
     path: tests/net/traffic_class
-    catalog: &146
+    catalog: &150
     - net
     - traffic_class
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=1
     - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: &147
+    platform_allow: &151
     - native_posix
     - native_posix_64
   net.traffic_class.2:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=2
     - CONFIG_NET_TC_RX_COUNT=2
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.3:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=3
     - CONFIG_NET_TC_RX_COUNT=3
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.4:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=4
     - CONFIG_NET_TC_RX_COUNT=4
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.5:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=5
     - CONFIG_NET_TC_RX_COUNT=5
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.6:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=6
     - CONFIG_NET_TC_RX_COUNT=6
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.7:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=7
     - CONFIG_NET_TC_RX_COUNT=7
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.8:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=8
     - CONFIG_NET_TC_RX_COUNT=8
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.2_no_rx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=2
     - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.3_no_rx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=3
     - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.4_no_rx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=4
     - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.5_no_rx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=5
     - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.6_no_rx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=6
     - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.7_no_rx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=7
     - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.8_no_rx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_TX_COUNT=8
     - CONFIG_NET_TC_RX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.2_no_tx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=2
     - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.3_no_tx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=3
     - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.4_no_tx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=4
     - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.5_no_tx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.6_no_tx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=6
     - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.7_no_tx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=7
     - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.8_no_tx:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=8
     - CONFIG_NET_TC_TX_COUNT=1
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_2_rx_3:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=3
     - CONFIG_NET_TC_TX_COUNT=2
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_3_rx_8:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=8
     - CONFIG_NET_TC_TX_COUNT=3
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.rx_4_tx_8:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=4
     - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.rx_5_tx_7:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_6_rx_2:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=2
     - CONFIG_NET_TC_TX_COUNT=6
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_7_rx_5:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_8_rx_7:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_RX_COUNT=7
     - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.2_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=2
     - CONFIG_NET_TC_RX_COUNT=2
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.3_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=3
     - CONFIG_NET_TC_RX_COUNT=3
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.4_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=4
     - CONFIG_NET_TC_RX_COUNT=4
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.5_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=5
     - CONFIG_NET_TC_RX_COUNT=5
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.6_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=6
     - CONFIG_NET_TC_RX_COUNT=6
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.7_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=7
     - CONFIG_NET_TC_RX_COUNT=7
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.8_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_TX_COUNT=8
     - CONFIG_NET_TC_RX_COUNT=8
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_2_rx_3_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=3
     - CONFIG_NET_TC_TX_COUNT=2
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_3_rx_8_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=8
     - CONFIG_NET_TC_TX_COUNT=3
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.rx_4_tx_8_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=4
     - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.rx_5_tx_7_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_6_rx_2_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=2
     - CONFIG_NET_TC_TX_COUNT=6
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_7_rx_5_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_8_rx_7_sr_ab:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_A_AND_B=y
     - CONFIG_NET_TC_RX_COUNT=7
     - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.2_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=2
     - CONFIG_NET_TC_RX_COUNT=2
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.3_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=3
     - CONFIG_NET_TC_RX_COUNT=3
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.4_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=4
     - CONFIG_NET_TC_RX_COUNT=4
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.5_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=5
     - CONFIG_NET_TC_RX_COUNT=5
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.6_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=6
     - CONFIG_NET_TC_RX_COUNT=6
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.7_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=7
     - CONFIG_NET_TC_RX_COUNT=7
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.8_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_TX_COUNT=8
     - CONFIG_NET_TC_RX_COUNT=8
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_2_rx_3_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=3
     - CONFIG_NET_TC_TX_COUNT=2
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_3_rx_8_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=8
     - CONFIG_NET_TC_TX_COUNT=3
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.rx_4_tx_8_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=4
     - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.rx_5_tx_7_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_6_rx_2_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=2
     - CONFIG_NET_TC_TX_COUNT=6
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_7_rx_5_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=5
     - CONFIG_NET_TC_TX_COUNT=7
-    platform_allow: *147
+    platform_allow: *151
   net.traffic_class.tx_8_rx_7_sr_b:
     path: tests/net/traffic_class
-    catalog: *146
+    catalog: *150
     extra_configs:
     - CONFIG_NET_TC_MAPPING_SR_CLASS_B_ONLY=y
     - CONFIG_NET_TC_RX_COUNT=7
     - CONFIG_NET_TC_TX_COUNT=8
-    platform_allow: *147
+    platform_allow: *151
   net.trickle:
     path: tests/net/trickle
     catalog:
@@ -15275,7 +15435,7 @@ cases:
     depends_on: netif
   net.virtual.tunnel.ipip:
     path: tests/net/virtual
-    catalog: &148
+    catalog: &152
     - net
     - tunnel
     - virtual
@@ -15288,7 +15448,7 @@ cases:
     filter: CONFIG_ENTROPY_HAS_DRIVER
   net.virtual.tunnel.ip6ip:
     path: tests/net/virtual
-    catalog: *148
+    catalog: *152
     extra_configs:
     - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="192.0.2.2"
     - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
@@ -15298,7 +15458,7 @@ cases:
     filter: CONFIG_ENTROPY_HAS_DRIVER
   net.virtual.tunnel.ipip6:
     path: tests/net/virtual
-    catalog: *148
+    catalog: *152
     extra_configs:
     - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
     - CONFIG_NET_TEST_TUNNEL_MY_ADDR="198.51.100.1"
@@ -15308,7 +15468,7 @@ cases:
     filter: CONFIG_ENTROPY_HAS_DRIVER
   net.virtual.tunnel.ip6ip6:
     path: tests/net/virtual
-    catalog: *148
+    catalog: *152
     extra_configs:
     - CONFIG_NET_TEST_TUNNEL_PEER_ADDR="2001:db8::2"
     - CONFIG_NET_TEST_TUNNEL_MY_ADDR="2001:db8:200::1"
@@ -15425,14 +15585,14 @@ cases:
     min_ram: 64
   portability.posix.eventfd:
     path: tests/posix/eventfd
-    catalog: &149
+    catalog: &153
     - posix
     - eventfd
     min_ram: 32
     arch_exclude: posix
   portability.posix.eventfd.newlib:
     path: tests/posix/eventfd
-    catalog: *149
+    catalog: *153
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     min_ram: 32
@@ -15447,7 +15607,7 @@ cases:
     arch_exclude: posix
   portability.posix.eventfd_basic:
     path: tests/posix/eventfd_basic
-    catalog: &150
+    catalog: &154
     - posix
     - eventfd
     extra_configs:
@@ -15456,14 +15616,14 @@ cases:
     min_ram: 32
   portability.posix.eventfd_basic.posix_api:
     path: tests/posix/eventfd_basic
-    catalog: *150
+    catalog: *154
     extra_configs:
     - CONFIG_POSIX_API=y
     arch_exclude: posix
     min_ram: 32
   portability.posix.eventfd_basic.newlib:
     path: tests/posix/eventfd_basic
-    catalog: *150
+    catalog: *154
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_POSIX_API=n
@@ -15472,7 +15632,7 @@ cases:
     min_ram: 32
   portability.posix.eventfd_basic.newlib.posix_api:
     path: tests/posix/eventfd_basic
-    catalog: *150
+    catalog: *154
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_POSIX_API=y
@@ -15497,41 +15657,41 @@ cases:
     min_ram: 32
   portability.posix.fs:
     path: tests/posix/fs
-    catalog: &151
+    catalog: &155
     - posix
     - filesystem
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
-    arch_exclude: &152
+    arch_exclude: &156
     - nios2
     - posix
     min_ram: 128
   portability.posix.fs.newlib:
     path: tests/posix/fs
-    catalog: *151
+    catalog: *155
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: *152
+    arch_exclude: *156
     min_ram: 128
   portability.posix.fs.tls:
     path: tests/posix/fs
-    catalog: *151
+    catalog: *155
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
     - CONFIG_THREAD_LOCAL_STORAGE=y
     filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: *152
+    arch_exclude: *156
     min_ram: 128
   portability.posix.fs.tls.newlib:
     path: tests/posix/fs
-    catalog: *151
+    catalog: *155
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_THREAD_LOCAL_STORAGE=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
       CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: *152
+    arch_exclude: *156
     min_ram: 128
   portability.posix.fs.picolibc:
     path: tests/posix/fs
@@ -15539,7 +15699,7 @@ cases:
     extra_configs:
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: *152
+    arch_exclude: *156
     min_ram: 128
   portability.posix.fs.tls.picolibc:
     path: tests/posix/fs
@@ -15547,11 +15707,11 @@ cases:
     extra_configs:
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: *152
+    arch_exclude: *156
     min_ram: 128
   portability.posix.getopt:
     path: tests/posix/getopt
-    catalog: &153
+    catalog: &157
     - posix
     - getopt
     min_flash: 64
@@ -15559,7 +15719,7 @@ cases:
     arch_exclude: posix
   portability.posix.getopt.newlib:
     path: tests/posix/getopt
-    catalog: *153
+    catalog: *157
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
@@ -15573,14 +15733,14 @@ cases:
     arch_exclude: posix
   portability.posix.getopt.logger:
     path: tests/posix/getopt
-    catalog: *153
+    catalog: *157
     extra_configs:
     - CONFIG_LOG=y
     build_only: true
     arch_exclude: posix
   portability.posix.headers.with_posix_api:
     path: tests/posix/headers
-    catalog: &154
+    catalog: &158
     - posix
     - net
     - socket
@@ -15590,7 +15750,7 @@ cases:
     min_ram: 32
   portability.posix.headers.without_posix_api:
     path: tests/posix/headers
-    catalog: *154
+    catalog: *158
     extra_configs:
     - CONFIG_POSIX_API=n
     arch_exclude: posix
@@ -15624,7 +15784,7 @@ cases:
     min_ram: 32
   portability.posix.headers.newlib.without_posix_api:
     path: tests/posix/headers
-    catalog: *154
+    catalog: *158
     extra_configs:
     - CONFIG_POSIX_API=n
     - CONFIG_NEWLIB_LIBC=y
@@ -15633,7 +15793,7 @@ cases:
     min_ram: 32
   portability.posix.headers.arcmwdtlib.with_posix_api:
     path: tests/posix/headers
-    catalog: *154
+    catalog: *158
     extra_configs:
     - CONFIG_POSIX_API=y
     - CONFIG_ARCMWDT_LIBC=y
@@ -15641,7 +15801,7 @@ cases:
     min_ram: 32
   portability.posix.headers.arcmwdtlib.without_posix_api:
     path: tests/posix/headers
-    catalog: *154
+    catalog: *158
     extra_configs:
     - CONFIG_POSIX_API=n
     - CONFIG_ARCMWDT_LIBC=y
@@ -15739,7 +15899,7 @@ cases:
     platform_allow: nsim_em11d
   edac.ibecc.production:
     path: tests/subsys/edac/ibecc
-    catalog: &155
+    catalog: &159
     - edac
     - ibecc
     extra_configs:
@@ -15749,14 +15909,14 @@ cases:
     platform_allow: ehl_crb
   edac.ibecc.injection:
     path: tests/subsys/edac/ibecc
-    catalog: *155
+    catalog: *159
     extra_configs:
     - CONFIG_EDAC_ERROR_INJECT=y
     arch_allow: x86
     platform_allow: ehl_crb
   edac.ibecc.injection.user:
     path: tests/subsys/edac/ibecc
-    catalog: *155
+    catalog: *159
     extra_configs:
     - CONFIG_EDAC_ERROR_INJECT=y
     - CONFIG_TEST_USERSPACE=y
@@ -15764,7 +15924,7 @@ cases:
     platform_allow: ehl_crb
   edac.ibecc.coverage:
     path: tests/subsys/edac/ibecc_cov
-    catalog: &156
+    catalog: &160
     - ibecc
     - ibecc_cov
     extra_args: EXTRA_CFLAGS=-DEMULATE_SKU=0
@@ -15772,13 +15932,13 @@ cases:
     platform_allow: ehl_crb
   edac.ibecc.coverage_sku:
     path: tests/subsys/edac/ibecc_cov
-    catalog: *156
+    catalog: *160
     extra_args: EXTRA_CFLAGS=-DEMULATE_SKU=0x45148086
     arch_allow: x86
     platform_allow: ehl_crb
   edac.ibecc.coverage_sku_en:
     path: tests/subsys/edac/ibecc_cov
-    catalog: *156
+    catalog: *160
     extra_args:
     - EXTRA_CPPFLAGS=-DEMULATE_SKU=0x45148086
     - EXTRA_CFLAGS=-DIBECC_ENABLED=1
@@ -15848,7 +16008,7 @@ cases:
   filesystem.littlefs.default:
     path: tests/subsys/fs/littlefs
     catalog: filesystem
-    platform_allow: &157
+    platform_allow: &161
     - nrf52840dk_nrf52840
     - native_posix
     - native_posix_64
@@ -15859,10 +16019,10 @@ cases:
     extra_configs:
     - CONFIG_APP_TEST_CUSTOM=y
     - CONFIG_FS_LITTLEFS_FC_HEAP_SIZE=16384
-    platform_allow: *157
+    platform_allow: *161
   filesystem.multifs:
     path: tests/subsys/fs/multi-fs
-    catalog: &158
+    catalog: &162
     - littlefs
     - fatfs
     - filesystem
@@ -15871,7 +16031,7 @@ cases:
     - qemu_x86
   filesystem.fs_shell:
     path: tests/subsys/fs/multi-fs
-    catalog: *158
+    catalog: *162
     extra_args: CONF_FILE="prj_fs_shell.conf"
     platform_allow:
     - native_posix
@@ -15925,64 +16085,64 @@ cases:
     - TOOLCHAIN_HAS_NEWLIB == 1
   logging.log_api_deferred_overflow_rt_filter:
     path: tests/subsys/logging/log_api
-    catalog: &159
+    catalog: &163
     - log_api
     - logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
-    platform_type: &160
+    platform_type: &164
     - qemu
     - native
   logging.log_api_deferred_overflow:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_no_overflow:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_static_filter:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_printk:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_LOG_PROCESS_THREAD=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_func_prefix:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_64b_timestamp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_override_level:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_OVERRIDE_LEVEL=4
@@ -15990,66 +16150,66 @@ cases:
     - qemu_cortex_m3
     - qemu_cortex_a9
     - native_posix
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_printk:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_PRINTK=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_rt_filter:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_static_filter:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_64b_timestamp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_dbg:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_MODE_DEFERRED=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_immediate:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_MODE_IMMEDIATE=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_immediate_override_level:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_MODE_IMMEDIATE=y
@@ -16058,10 +16218,10 @@ cases:
     - qemu_cortex_m3
     - qemu_cortex_a9
     - native_posix
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_override_level_rt_filtering:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
@@ -16070,17 +16230,17 @@ cases:
     - qemu_cortex_m3
     - qemu_cortex_a9
     - native_posix
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_only:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_FRONTEND_ONLY=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_no_backends:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_FRONTEND_ONLY=y
@@ -16089,142 +16249,142 @@ cases:
     - CONFIG_LOG_BACKEND_NATIVE_POSIX=n
     - CONFIG_LOG_BACKEND_XTENSA_SIM=n
     extra_args: EXTRA_CPPFLAGS=-DNO_BACKENDS=1
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_overflow_rt_filter_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_overflow_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_no_overflow_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_static_filter_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_printk_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_LOG_PROCESS_THREAD=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_func_prefix_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_64b_timestamp_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_printk_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_rt_filter_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_static_filter_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_64b_timestamp_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_dbg_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_immediate_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_only_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_FRONTEND_ONLY=y
     - CONFIG_CPP=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_frontend_no_backends_cpp:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_FRONTEND=y
     - CONFIG_LOG_FRONTEND_ONLY=y
@@ -16234,70 +16394,70 @@ cases:
     - CONFIG_LOG_BACKEND_XTENSA_SIM=n
     - CONFIG_CPP=y
     extra_args: EXTRA_CPPFLAGS=-DNO_BACKENDS=1
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_overflow_rt_filter.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_overflow.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_no_overflow.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_static_filter.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_printk.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_LOG_PROCESS_THREAD=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_func_prefix.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_64b_timestamp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_override_level.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_OVERRIDE_LEVEL=4
@@ -16306,10 +16466,10 @@ cases:
     - qemu_cortex_m3
     - qemu_cortex_a9
     - native_posix
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_override_level_rt_filtering.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
@@ -16319,86 +16479,86 @@ cases:
     - qemu_cortex_m3
     - qemu_cortex_a9
     - native_posix
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_printk.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_rt_filter.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_static_filter.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_64b_timestamp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_overflow_rt_filter_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_overflow_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_no_overflow_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_static_filter_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_printk_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
@@ -16406,73 +16566,73 @@ cases:
     - CONFIG_LOG_PROCESS_THREAD=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_func_prefix_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_LOG_FUNC_NAME_PREFIX_DBG=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_deferred_64b_timestamp_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_printk_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_PRINTK=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_rt_filter_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_RUNTIME_FILTERING=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_static_filter_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_SAMPLE_MODULE_LOG_LEVEL_DBG=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_api_immediate_64b_timestamp_cpp.tagged_args:
     path: tests/subsys/logging/log_api
-    catalog: *159
+    catalog: *163
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
-    platform_type: *160
+    platform_type: *164
   logging.log_backend_fs.automounted:
     path: tests/subsys/logging/log_backend_fs
-    catalog: &161
+    catalog: &165
     - logging
     - backend
     - filesystem
@@ -16483,17 +16643,17 @@ cases:
     - nrf52840dk_nrf52840
   logging.log_backend_fs.manualmounted.native_posix:
     path: tests/subsys/logging/log_backend_fs
-    catalog: *161
+    catalog: *165
     extra_args: DTC_OVERLAY_FILE="./boards/native_posix.overlay;./boards/automount.overlay"
     platform_allow: native_posix
   logging.log_backend_fs.manualmounted.native_posix_64:
     path: tests/subsys/logging/log_backend_fs
-    catalog: *161
+    catalog: *165
     extra_args: DTC_OVERLAY_FILE="./boards/native_posix_64.overlay;./boards/automount.overlay"
     platform_allow: native_posix_64
   logging.log_backend_fs.manualmounted.nrf5840dk:
     path: tests/subsys/logging/log_backend_fs
-    catalog: *161
+    catalog: *165
     extra_args: DTC_OVERLAY_FILE="./boards/nrf52840dk_nrf52840.overlay;./boards/automount.overlay"
     platform_allow: nrf52840dk_nrf52840
   logging.log_backend_initialization:
@@ -16585,46 +16745,46 @@ cases:
     filter: not CONFIG_LOG_MODE_IMMEDIATE
   logging.log_msg:
     path: tests/subsys/logging/log_msg
-    catalog: &162
+    catalog: &166
     - log_api
     - logging
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
-    platform_type: &163
+    platform_type: &167
     - qemu
     - native
     filter: not CONFIG_LOG_ALWAYS_RUNTIME
   logging.log_msg_no_overflow:
     path: tests/subsys/logging/log_msg
-    catalog: *162
+    catalog: *166
     extra_configs:
     - CONFIG_LOG_MODE_OVERFLOW=n
-    platform_type: *163
+    platform_type: *167
     filter: not CONFIG_LOG_ALWAYS_RUNTIME
   logging.log_msg_64b_timestamp:
     path: tests/subsys/logging/log_msg
-    catalog: *162
+    catalog: *166
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
-    platform_type: *163
+    platform_type: *167
     filter: not CONFIG_LOG_ALWAYS_RUNTIME
   logging.log_msg_fp:
     path: tests/subsys/logging/log_msg
-    catalog: *162
+    catalog: *166
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_CBPRINTF_FP_SUPPORT=y
-    platform_type: *163
+    platform_type: *167
     filter: not CONFIG_LOG_ALWAYS_RUNTIME
   logging.log_msg_fp_64b_timestamp:
     path: tests/subsys/logging/log_msg
-    catalog: *162
+    catalog: *166
     extra_configs:
     - CONFIG_CBPRINTF_COMPLETE=y
     - CONFIG_CBPRINTF_FP_SUPPORT=y
     - CONFIG_LOG_TIMESTAMP_64BIT=y
-    platform_type: *163
+    platform_type: *167
     filter: not CONFIG_LOG_ALWAYS_RUNTIME
   logging.log_output:
     path: tests/subsys/logging/log_output
@@ -16642,80 +16802,84 @@ cases:
     - CONFIG_LOG_TIMESTAMP_64BIT=y
   logging.log_stack_deferred:
     path: tests/subsys/logging/log_stack
-    catalog: &164
+    catalog: &168
     - log_api
     - logging
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
-    platform_type: &165
+    platform_type: &169
     - qemu
     skip: true
   logging.log_stack_deferred_no_opt:
     path: tests/subsys/logging/log_stack
-    catalog: *164
+    catalog: *168
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_IDLE_STACK_SIZE=2048
     filter: not CONFIG_MIPS
-    platform_type: *165
+    platform_type: *169
     skip: true
   logging.log_stack_immediate:
     path: tests/subsys/logging/log_stack
-    catalog: *164
+    catalog: *168
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
-    platform_type: *165
+    platform_type: *169
     skip: true
   logging.log_stack_immediate_no_opt:
     path: tests/subsys/logging/log_stack
-    catalog: *164
+    catalog: *168
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_IDLE_STACK_SIZE=2048
     filter: not CONFIG_MIPS
-    platform_type: *165
+    platform_type: *169
     skip: true
   logging.log_stack_deferred_cpp:
     path: tests/subsys/logging/log_stack
-    catalog: *164
+    catalog: *168
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_CPP=y
-    platform_type: *165
+    platform_type: *169
     skip: true
   logging.log_stack_deferred_cpp_no_opt:
     path: tests/subsys/logging/log_stack
-    catalog: *164
+    catalog: *168
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_CPP=y
     filter: not CONFIG_MIPS
-    platform_type: *165
+    platform_type: *169
     skip: true
   logging.log_stack_immediate_cpp:
     path: tests/subsys/logging/log_stack
-    catalog: *164
+    catalog: *168
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_CPP=y
-    platform_type: *165
+    platform_type: *169
     skip: true
   logging.log_stack_immediate_cpp_no_opt:
     path: tests/subsys/logging/log_stack
-    catalog: *164
+    catalog: *168
     extra_configs:
     - CONFIG_LOG_MODE_IMMEDIATE=y
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_CPP=y
     filter: not CONFIG_MIPS
-    platform_type: *165
+    platform_type: *169
     skip: true
   logging.log_stress_light:
     path: tests/subsys/logging/log_stress
-    catalog: &166
+    catalog: &170
     - log_api
     - logging
     extra_configs:
@@ -16724,14 +16888,14 @@ cases:
     filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
   logging.log_stress_light_no_overflow:
     path: tests/subsys/logging/log_stress
-    catalog: *166
+    catalog: *170
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
     filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
   logging.log_stress:
     path: tests/subsys/logging/log_stress
-    catalog: *166
+    catalog: *170
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=y
@@ -16743,7 +16907,7 @@ cases:
     filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
   logging.log_stress_no_overflow:
     path: tests/subsys/logging/log_stress
-    catalog: *166
+    catalog: *170
     extra_configs:
     - CONFIG_LOG_MODE_DEFERRED=y
     - CONFIG_LOG_MODE_OVERFLOW=n
@@ -16755,7 +16919,7 @@ cases:
     filter: CONFIG_QEMU_TARGET and not CONFIG_SMP
   logging.log_switch_format.deferred:
     path: tests/subsys/logging/log_switch_format
-    catalog: &167
+    catalog: &171
     - logging
     - mipi-sys-t
     extra_configs:
@@ -16764,31 +16928,31 @@ cases:
     filter:
     - CONFIG_FULL_LIBC_SUPPORTED
     - not CONFIG_64BIT
-    arch_exclude: &168
+    arch_exclude: &172
     - mips
     - nios2
     - posix
     - sparc
   logging.log_switch_format.immediate:
     path: tests/subsys/logging/log_switch_format
-    catalog: *167
+    catalog: *171
     extra_configs:
     - CONFIG_REQUIRES_FULL_LIBC=y
     extra_args: OVERLAY_CONFIG=overlay_immediate.conf
     filter:
     - CONFIG_FULL_LIBC_SUPPORTED
     - not CONFIG_64BIT
-    arch_exclude: *168
+    arch_exclude: *172
   logging.log_switch_format.custom_output:
     path: tests/subsys/logging/log_switch_format
-    catalog: *167
+    catalog: *171
     extra_configs:
     - CONFIG_REQUIRES_FULL_LIBC=y
     extra_args: OVERLAY_CONFIG=overlay_custom_output.conf
     filter:
     - CONFIG_FULL_LIBC_SUPPORTED
     - not CONFIG_64BIT
-    arch_exclude: *168
+    arch_exclude: *172
   logging.log_syst.mipi_syst:
     path: tests/subsys/logging/log_syst
     catalog:
@@ -16863,7 +17027,7 @@ cases:
     - qemu_riscv64
   mgmt.mcumgr.fs.mgmt.hash.supported.crc32:
     path: tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported
-    catalog: &169
+    catalog: &173
     - mgmt
     - mcumgr
     - fs_mgmt_hash_supported
@@ -16878,7 +17042,7 @@ cases:
     - esp32_net
   mgmt.mcumgr.fs.mgmt.hash.supported.sha256:
     path: tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported
-    catalog: *169
+    catalog: *173
     extra_args: 'OVERLAY_CONFIG="configuration/sha256.conf"
 
       '
@@ -16890,7 +17054,7 @@ cases:
     - esp32_net
   mgmt.mcumgr.fs.mgmt.hash.supported.all:
     path: tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported
-    catalog: *169
+    catalog: *173
     extra_args: 'OVERLAY_CONFIG="configuration/all.conf"
 
       '
@@ -17015,6 +17179,28 @@ cases:
     - mgmt
     - mcumgr
     platform_allow: native_posix
+  smp.version:
+    path: tests/subsys/mgmt/mcumgr/smp_version
+    catalog: smp_version
+    arch_exclude:
+    - nios2
+    - sparc
+    - mips
+    - posix
+    platform_exclude:
+    - qemu_kvm_arm64
+  smp.version_no_legacy:
+    path: tests/subsys/mgmt/mcumgr/smp_version
+    catalog: smp_version
+    extra_configs:
+    - CONFIG_MCUMGR_SMP_SUPPORT_ORIGINAL_PROTOCOL=n
+    arch_exclude:
+    - nios2
+    - sparc
+    - mips
+    - posix
+    platform_exclude:
+    - qemu_kvm_arm64
   mgmt.mcumgr.zcbor.bulk:
     path: tests/subsys/mgmt/mcumgr/zcbor_bulk
     catalog:
@@ -17051,14 +17237,18 @@ cases:
     path: tests/subsys/pm/device_wakeup_api
     catalog: pm
     platform_allow: native_posix
+  pm.policy.api.default:
+    path: tests/subsys/pm/policy_api
+    catalog: pm
+    platform_allow: &174
+    - native_posix
+    - native_posix_64
   pm.policy.api.app:
     path: tests/subsys/pm/policy_api
     catalog: pm
     extra_configs:
     - CONFIG_PM_POLICY_CUSTOM=y
-    platform_allow:
-    - native_posix
-    - native_posix_64
+    platform_allow: *174
   pm.power_domain:
     path: tests/subsys/pm/power_domain
     catalog: pm
@@ -18012,9 +18202,6 @@ cases:
     path: tests/unit/winstream
     catalog: winstream
     type: unit
-  testing.ztest.automain:
-    path: tests/ztest/automain
-    catalog: test_framework
   testing.ztest.base:
     path: tests/ztest/base
     catalog: test_framework
@@ -18056,13 +18243,6 @@ cases:
     extra_args: DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840_pin.overlay
     platform_allow: nrf52840dk_nrf52840
     depends_on: counter
-  testing.ztest.regular_output:
-    path: tests/ztest/custom_output
-    catalog: test_framework
-  testing.ztest.customized_output:
-    path: tests/ztest/custom_output
-    catalog: test_framework
-    extra_args: CONF_FILE=prj_customized_output.conf
   testing.ztest.error_hook:
     path: tests/ztest/error_hook
     catalog:
@@ -18158,9 +18338,6 @@ cases:
     extra_configs:
     - CONFIG_ZTEST_FAIL_TEST_UNEXPECTED_ASSUME=y
     platform_allow: native_posix
-  testing.ztest.register:
-    path: tests/ztest/register
-    catalog: test_framework
   testing.ztest.summary.shared_unit_test:
     path: tests/ztest/summary
     catalog: test_framework

@@ -1,0 +1,17 @@
+---
+cases:
+  boards.mec15xxevb_assy6853.i2c:
+    path: tests/boards/mec15xxevb_assy6853/i2c_api
+    catalog:
+    - drivers
+    - i2c
+    depends_on: i2c
+    filter: dt_compat_enabled("nxp,pca95xx")
+    platform_allow: mec15xxevb_assy6853
+  boards.mec15xxevb_assy6853.qspi:
+    path: tests/boards/mec15xxevb_assy6853/qspi
+    catalog:
+    - drivers
+    - spi
+    - qspi
+    platform_allow: mec15xxevb_assy6853

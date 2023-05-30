@@ -1,0 +1,27 @@
+---
+cases:
+  libraries.cbprintf_package_fp_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    filter: CONFIG_CPU_HAS_FPU
+    platform_type: &1
+    - qemu
+    - native
+    min_flash: 48
+  libraries.cbprintf_package_fp_cpp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_FP_SUPPORT=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_FPU=y
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_CPU_HAS_FPU and CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    min_flash: 48

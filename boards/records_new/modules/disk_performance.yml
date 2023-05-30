@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.disk_performance.disk.nvme:
+    path: tests/drivers/disk/disk_performance
+    catalog: disk
+    extra_configs:
+    - CONFIG_NVME=y
+    platform_allow: qemu_x86_64

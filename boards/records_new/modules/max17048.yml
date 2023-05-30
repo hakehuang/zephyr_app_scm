@@ -1,0 +1,7 @@
+---
+cases:
+  drivers.max17048:
+    path: tests/drivers/fuel_gauge/max17048
+    catalog: unknown
+    filter: dt_compat_enabled("maxim,max17048")
+    platform_allow: native_posix

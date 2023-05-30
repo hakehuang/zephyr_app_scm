@@ -1,0 +1,10 @@
+---
+cases:
+  bluetooth.bt_crypto:
+    path: tests/bluetooth/bt_crypto
+    catalog: bluetooth
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    - qemu_x86
+    - qemu_cortex_m3

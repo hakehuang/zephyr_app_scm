@@ -1,0 +1,12 @@
+---
+cases:
+  logging.log_benchmark_user:
+    path: tests/subsys/logging/log_benchmark
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_TEST_USERSPACE=y
+    platform_allow:
+    - qemu_x86
+    - native_posix

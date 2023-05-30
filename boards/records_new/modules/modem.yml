@@ -1,0 +1,96 @@
+---
+cases:
+  drivers.modem.build:
+    path: tests/drivers/build_all/modem
+    catalog: &1
+    - drivers
+    - net
+    - modem
+    extra_args: CONF_FILE=modem.conf
+    platform_exclude:
+    - serpente
+    - particle_boron
+    - rak5010_nrf52840
+    - litex_vexriscv
+    - ip_k66f
+    min_ram: 68
+    min_flash: 115
+    build_only: true
+  drivers.modem.ublox_sara.build:
+    path: tests/drivers/build_all/modem
+    catalog: *1
+    extra_args: CONF_FILE=modem_ublox_sara.conf
+    platform_exclude:
+    - serpente
+    - pinnacle_100_dvk
+    - litex_vexriscv
+    - ip_k66f
+    - mg100
+    build_only: true
+  drivers.modem.simcom_sim7080.build:
+    path: tests/drivers/build_all/modem
+    catalog: *1
+    extra_args: CONF_FILE=modem_simcom_sim7080.conf
+    platform_exclude:
+    - serpente
+    - pinnacle_100_dvk
+    - litex_vexriscv
+    - ip_k66f
+    - mg100
+    build_only: true
+  drivers.modem.quectel_bg9x.build:
+    path: tests/drivers/build_all/modem
+    catalog: *1
+    extra_args: CONF_FILE=modem_quectel_bg9x.conf
+    platform_exclude:
+    - serpente
+    - pinnacle_100_dvk
+    - litex_vexriscv
+    - ip_k66f
+    - mg100
+    min_ram: 36
+    build_only: true
+  drivers.modem.gsm.build:
+    path: tests/drivers/build_all/modem
+    catalog: *1
+    extra_args: CONF_FILE=modem_gsm.conf
+    platform_exclude:
+    - serpente
+    - particle_boron
+    - rak5010_nrf52840
+    - litex_vexriscv
+    - ip_k66f
+    min_ram: 36
+    build_only: true
+  drivers.modem.gsm_mux.build:
+    path: tests/drivers/build_all/modem
+    catalog: *1
+    extra_configs:
+    - CONFIG_GSM_MUX=y
+    - CONFIG_UART_MUX=y
+    extra_args: CONF_FILE=modem_gsm.conf
+    platform_exclude:
+    - serpente
+    - particle_boron
+    - rak5010_nrf52840
+    - litex_vexriscv
+    - ip_k66f
+    min_ram: 36
+    build_only: true
+  drivers.modem.esp_at.build:
+    path: tests/drivers/build_all/modem
+    catalog: *1
+    extra_args: CONF_FILE=modem_esp_at.conf
+    platform_exclude: ip_k66f
+    filter: CONFIG_SERIAL
+    min_ram: 36
+    build_only: true
+  drivers.modem.esp_at.async.build:
+    path: tests/drivers/build_all/modem
+    catalog: *1
+    extra_configs:
+    - CONFIG_MODEM_IFACE_UART_ASYNC=y
+    extra_args: CONF_FILE=modem_esp_at.conf
+    filter: CONFIG_SERIAL and CONFIG_QEMU_TARGET
+    min_ram: 36
+    build_only: true

@@ -1,0 +1,9 @@
+---
+cases:
+  filesystem.nvs_cache:
+    path: tests/subsys/fs/nvs
+    catalog: nvs
+    extra_args:
+    - CONFIG_NVS_LOOKUP_CACHE=y
+    - CONFIG_NVS_LOOKUP_CACHE_SIZE=64
+    platform_allow: native_posix

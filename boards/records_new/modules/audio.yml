@@ -1,0 +1,26 @@
+---
+cases:
+  bluetooth.audio.ascs.test_default:
+    path: tests/bluetooth/audio/ascs
+    catalog: &1
+    - bluetooth
+    - bluetooth_audio
+    type: unit
+  bluetooth.audio.ascs.test_snk_only:
+    path: tests/bluetooth/audio/ascs
+    catalog: *1
+    extra_configs:
+    - CONFIG_BT_ASCS_ASE_SRC_COUNT=0
+    type: unit
+  bluetooth.audio.ascs.test_src_only:
+    path: tests/bluetooth/audio/ascs
+    catalog: *1
+    extra_configs:
+    - CONFIG_BT_ASCS_ASE_SNK_COUNT=0
+    type: unit
+  bluetooth.audio.ascs.test_unicast_client_enabled:
+    path: tests/bluetooth/audio/ascs
+    catalog: *1
+    extra_configs:
+    - CONFIG_BT_BAP_UNICAST_CLIENT=y
+    type: unit

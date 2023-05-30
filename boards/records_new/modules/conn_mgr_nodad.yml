@@ -1,0 +1,9 @@
+---
+cases:
+  net.conn_mgr_nodad:
+    path: tests/net/conn_mgr
+    catalog: net iface
+    extra_configs:
+    - CONFIG_NET_IPV6_DAD=n
+    min_ram: 16
+    depends_on: netif

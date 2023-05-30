@@ -1,0 +1,9 @@
+---
+cases:
+  net.conn_mgr_conn:
+    path: tests/net/conn_mgr_conn
+    catalog:
+    - net
+    - iface
+    min_ram: 16
+    depends_on: netif

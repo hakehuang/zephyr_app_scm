@@ -1,0 +1,8 @@
+---
+cases:
+  libraries.spsc_pbuf_stress:
+    path: tests/lib/spsc_pbuf
+    catalog: unknown
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow: qemu_x86

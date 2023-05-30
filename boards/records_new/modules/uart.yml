@@ -1,0 +1,275 @@
+---
+cases:
+  drivers.uart.async_api:
+    path: tests/drivers/uart/uart_async_api
+    catalog: &1
+    - drivers
+    - uart
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and not CONFIG_UART_MCUX_LPUART
+    depends_on: gpio
+    platform_exclude: &2
+    - seeeduino_xiao
+    - serpente
+    - arduino_nano_33_iot
+    - atsamr21_xpro
+    - adafruit_itsybitsy_m4_express
+    - atsame54_xpro
+    - atsamc21n_xpro
+    - adafruit_trinket_m0
+    - arduino_nano_33_iot
+    - arduino_zero
+    - atsamd21_xpro
+    - adafruit_feather_m0_basic_proto
+    - adafruit_feather_m0_lora
+    - arduino_mkrzero
+    - atsaml21_xpro
+    - atsamr34_xpro
+    - stamp_c3
+    - wio_terminal
+    - xiao_esp32c3
+    - atsamd20_xpro
+  drivers.uart.async_api.nrf_uart:
+    path: tests/drivers/uart/uart_async_api
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;boards/nrf_uart.overlay"
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
+    platform_exclude: *2
+  drivers.uart.async_api.rtt:
+    path: tests/drivers/uart/uart_async_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_USE_SEGGER_RTT=y
+    - CONFIG_UART_RTT=y
+    extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
+      and not CONFIG_UART_MCUX_LPUART
+    platform_exclude:
+    - - xmc45_relax_kit
+      - xmc47_relax_kit
+    - *2
+    build_only: true
+  drivers.uart.async_api.lpuart:
+    path: tests/drivers/uart/uart_async_api
+    catalog: *1
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_UART_MCUX_LPUART
+    depends_on: dma
+    platform_exclude: *2
+  drivers.uart.basic_api:
+    path: tests/drivers/uart/uart_basic_api
+    catalog:
+    - drivers
+    - uart
+    filter: CONFIG_UART_CONSOLE
+  drivers.uart.basic_api.poll:
+    path: tests/drivers/uart/uart_basic_api
+    catalog:
+    - drivers
+    - uart
+    extra_args: CONF_FILE=prj_poll.conf
+    filter: CONFIG_UART_CONSOLE
+  drivers.uart.basic_api.shell:
+    path: tests/drivers/uart/uart_basic_api
+    catalog:
+    - drivers
+    - uart
+    extra_args: CONF_FILE=prj_shell.conf
+    min_flash: 64
+    filter: CONFIG_UART_CONSOLE
+  drivers.uart.basic_api.cdc_acm:
+    path: tests/drivers/uart/uart_basic_api
+    catalog:
+    - drivers
+    - usb
+    extra_args:
+    - OVERLAY_CONFIG="overlay-usb.conf"
+    - DTC_OVERLAY_FILE="usb.overlay"
+    filter: CONFIG_UART_CONSOLE
+    depends_on: usb_device
+  drivers.uart.uart_mix_poll:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: &3
+    - drivers
+    - uart
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    depends_on: gpio
+    platform_allow: &4
+    - nrf52840dk_nrf52840
+    - nrf9160dk_nrf9160
+    - nrf5340dk_nrf5340_cpuapp
+  drivers.uart.uart_mix_poll_fifo:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: *3
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    depends_on: gpio
+    platform_allow: *4
+  drivers.uart.uart_mix_poll_async_api:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: *3
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    depends_on: gpio
+    platform_allow: *4
+  drivers.uart.uart_mix_poll_async_api_const:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: *3
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    - CONFIG_UART_ASYNC_TX_CACHE_SIZE=2
+    extra_args: TEST_CONST_BUFFER=1
+    depends_on: gpio
+    platform_allow: *4
+  drivers.uart.uart_mix_poll_async_api_low_power:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: *3
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    depends_on: gpio
+    platform_allow: *4
+  drivers.uart.uart_mix_poll_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: *3
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    depends_on: gpio
+    platform_allow: *4
+  drivers.uart.uart_mix_poll_fifo_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: *3
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    depends_on: gpio
+    platform_allow: *4
+  drivers.uart.uart_mix_poll_async_api_with_ppi:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: *3
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    depends_on: gpio
+    platform_allow: *4
+  drivers.uart.uart_mix_poll_async_api_with_ppi_low_power:
+    path: tests/drivers/uart/uart_mix_fifo_poll
+    catalog: *3
+    extra_configs:
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    depends_on: gpio
+    platform_allow: *4
+  drivers.uart.pm:
+    path: tests/drivers/uart/uart_pm
+    catalog: &5
+    - drivers
+    - uart
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
+  drivers.uart.pm.no_rxpin:
+    path: tests/drivers/uart/uart_pm
+    catalog: *5
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;nrf_rx_disable.overlay"
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
+  drivers.uart.pm.enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: *5
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
+  drivers.uart.pm.int_driven:
+    path: tests/drivers/uart/uart_pm
+    catalog: *5
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
+  drivers.uart.pm.int_driven.enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: *5
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
+  drivers.uart.pm.async:
+    path: tests/drivers/uart/uart_pm
+    catalog: *5
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
+  drivers.uart.pm.async.enhanced_poll:
+    path: tests/drivers/uart/uart_pm
+    catalog: *5
+    extra_configs:
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_0_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC=y
+    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
+    - CONFIG_NRFX_TIMER2=y
+    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio

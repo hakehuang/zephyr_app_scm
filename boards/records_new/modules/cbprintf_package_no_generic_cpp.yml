@@ -1,0 +1,24 @@
+---
+cases:
+  libraries.cbprintf_package_no_generic_cpp:
+    path: tests/lib/cbprintf_package
+    catalog: cbprintf
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    platform_type: &1
+    - qemu
+    - native
+    min_flash: 48
+  libraries.cbprintf_package_no_generic_cpp.picolibc:
+    path: tests/lib/cbprintf_package
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_CBPRINTF_COMPLETE=y
+    - CONFIG_COMPILER_OPT="-DZ_C_GENERIC=0"
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_type: *1
+    min_flash: 48

@@ -1,0 +1,9 @@
+---
+cases:
+  drivers.led_api.i2c:
+    path: tests/drivers/led/led_api
+    catalog:
+    - drivers
+    - led
+    depends_on: led
+    filter: dt_alias_exists("led-controller-0")

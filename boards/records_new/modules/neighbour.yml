@@ -1,0 +1,11 @@
+---
+cases:
+  net.neighbour:
+    path: tests/net/neighbor
+    catalog:
+    - net
+    - neighbour
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 16

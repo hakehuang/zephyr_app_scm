@@ -1,0 +1,18 @@
+---
+cases:
+  kernel.mutex:
+    path: tests/kernel/mutex/mutex_api
+    catalog:
+    - kernel
+    - userspace
+  system.mutex:
+    path: tests/kernel/mutex/sys_mutex
+    catalog:
+    - kernel
+    - userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  system.mutex.nouser:
+    path: tests/kernel/mutex/sys_mutex
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n

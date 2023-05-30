@@ -1,0 +1,82 @@
+---
+cases:
+  sample.zbus.benchmark_async:
+    path: samples/subsys/zbus/benchmark
+    catalog: zbus
+    extra_configs:
+    - CONFIG_BM_ONE_TO=8
+    - CONFIG_BM_MESSAGE_SIZE=256
+    - CONFIG_BM_ASYNC=y
+    - arch:nios2:CONFIG_SYS_CLOCK_TICKS_PER_SEC=1000
+    - CONFIG_IDLE_STACK_SIZE=1024
+    min_ram: 16
+    filter: CONFIG_SYS_CLOCK_EXISTS
+    platform_exclude: nrf52_bsim
+  sample.zbus.benchmark_sync:
+    path: samples/subsys/zbus/benchmark
+    catalog: zbus
+    extra_configs:
+    - CONFIG_BM_ONE_TO=8
+    - CONFIG_BM_MESSAGE_SIZE=256
+    - CONFIG_BM_ASYNC=n
+    - arch:nios2:CONFIG_SYS_CLOCK_TICKS_PER_SEC=1000
+    - CONFIG_IDLE_STACK_SIZE=1024
+    min_ram: 16
+    filter: CONFIG_SYS_CLOCK_EXISTS
+    platform_exclude: nrf52_bsim
+  sample.zbus.dyn_channel:
+    path: samples/subsys/zbus/dyn_channel
+    catalog: zbus
+  sample.zbus.hello_world:
+    path: samples/subsys/zbus/hello_world
+    catalog: zbus
+    arch_exclude:
+    - posix
+    - xtensa
+    platform_exclude: qemu_leon3
+  sample.zbus.hello_world_no_iterable_sections:
+    path: samples/subsys/zbus/hello_world
+    catalog: zbus
+    arch_allow:
+    - posix
+    - xtensa
+  sample.zbus.remote_mock:
+    path: samples/subsys/zbus/remote_mock
+    catalog: zbus
+    build_only: true
+    platform_allow:
+    - native_posix
+    - hifive1_revb
+  sample.zbus.runtime_os_registration:
+    path: samples/subsys/zbus/runtime_obs_registration
+    catalog: zbus
+    min_ram: 16
+  sample.zbus.uart_bridge_build:
+    path: samples/subsys/zbus/uart_bridge
+    catalog: zbus
+    filter: dt_nodelabel_enabled("uart1")
+  sample.zbus.work_queue:
+    path: samples/subsys/zbus/work_queue
+    catalog: zbus
+  message_bus.zbus.dyn_channel.static_and_dynamic_channels:
+    path: tests/subsys/zbus/dyn_channel
+    catalog: zbus
+    platform_exclude: fvp_base_revc_2xaemv8a_smp_ns
+  message_bus.zbus.module_interaction_no_error:
+    path: tests/subsys/zbus/integration
+    catalog: zbus
+    platform_exclude:
+    - qemu_cortex_a9
+    - hifive_unleashed
+    - fvp_base_revc_2xaemv8a_smp_ns
+  message_bus.zbus.runtime_obs_reg.add_and_remove_observers:
+    path: tests/subsys/zbus/runtime_observers_registration
+    catalog: zbus
+  message_bus.zbus.hard_and_readonly_channels:
+    path: tests/subsys/zbus/unittests
+    catalog: zbus
+    platform_exclude: fvp_base_revc_2xaemv8a_smp_ns
+  message_bus.zbus.user_data.channel_user_data:
+    path: tests/subsys/zbus/user_data
+    catalog: zbus
+    platform_exclude: fvp_base_revc_2xaemv8a_smp_ns

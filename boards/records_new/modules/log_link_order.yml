@@ -1,0 +1,8 @@
+---
+cases:
+  logging.log_link_order:
+    path: tests/subsys/logging/log_link_order
+    catalog:
+    - log_links
+    - logging
+    filter: not CONFIG_LOG_MODE_IMMEDIATE

@@ -1,0 +1,37 @@
+---
+cases:
+  sample.video.capture:
+    path: samples/subsys/video/capture
+    catalog: video
+    build_only: true
+    platform_allow:
+    - mimxrt1064_evk
+    - mm_swiftio
+    depends_on: video
+  sample.video.tcpserversink:
+    path: samples/subsys/video/tcpserversink
+    catalog:
+    - video
+    - net
+    - socket
+    build_only: true
+    platform_allow: mimxrt1064_evk
+    depends_on:
+    - video
+    - netif
+  drivers.video.build:
+    path: tests/drivers/build_all/video
+    catalog: &1
+    - drivers
+    - video
+    platform_allow: native_posix
+    min_ram: 32
+    depends_on:
+    - gpio
+    - i2c
+    build_only: true
+  drivers.video.mcux_csi.build:
+    path: tests/drivers/build_all/video
+    catalog: *1
+    platform_allow: mimxrt1064_evk
+    build_only: true

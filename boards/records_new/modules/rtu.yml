@@ -1,0 +1,11 @@
+---
+cases:
+  modbus.rtu:
+    path: tests/subsys/modbus
+    catalog: modbus
+    platform_allow: frdm_k64f
+  modbus.rtu.build_only:
+    path: tests/subsys/modbus
+    catalog: modbus
+    build_only: true
+    filter: CONFIG_UART_CONSOLE and CONFIG_UART_INTERRUPT_DRIVEN

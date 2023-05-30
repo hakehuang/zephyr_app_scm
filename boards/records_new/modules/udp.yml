@@ -1,0 +1,16 @@
+---
+cases:
+  net.udp:
+    path: tests/net/udp
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 20
+  net.udp.preempt:
+    path: tests/net/udp
+    catalog: net
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 20

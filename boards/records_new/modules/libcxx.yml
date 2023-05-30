@@ -1,0 +1,43 @@
+---
+cases:
+  cpp.libcxx.glibcxx.newlib:
+    path: tests/lib/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_GLIBCXX_LIBCPP=y
+    - CONFIG_CPP_EXCEPTIONS=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_flash: 54
+    min_ram: 24
+  cpp.libcxx.glibcxx.newlib_nano:
+    path: tests/lib/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    - CONFIG_GLIBCXX_LIBCPP=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_flash: 54
+  cpp.libcxx.glibcxx.picolibc:
+    path: tests/lib/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    - CONFIG_GLIBCXX_LIBCPP=y
+    - CONFIG_CPP_EXCEPTIONS=y
+    filter: TOOLCHAIN_HAS_PICOLIBC == 1
+  cpp.libcxx.arcmwdtlib:
+    path: tests/lib/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_ARCMWDT_LIBC=y
+    - CONFIG_ARCMWDT_LIBCPP=y
+    min_flash: 54
+  cpp.libcxx.host:
+    path: tests/lib/cpp/libcxx
+    catalog: cpp
+    extra_configs:
+    - CONFIG_EXTERNAL_LIBCPP=y
+    - CONFIG_CPP_EXCEPTIONS=y
+    arch_allow: posix

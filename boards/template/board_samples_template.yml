@@ -1,9 +1,12 @@
 ---
 settings:
   case_pipe_name: "${@board}_samples"
-  version: zephyr-v3.3.0-4123-gd01780fc94
+  version: v3.4.0-rc1-24-g5f5b34793d
 __load__:
+- modules/tcp.yml
+- modules/offloaded_netdev.yml
 - modules/net.yml
+- modules/ethernet.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

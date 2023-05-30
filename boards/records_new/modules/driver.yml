@@ -1,0 +1,18 @@
+---
+cases:
+  sample.driver.clock_control_litex:
+    path: samples/drivers/clock_control_litex
+    catalog:
+    - clock
+    - litex
+    - vexriscv
+    - mmcm
+    platform_allow: litex_vexriscv
+  sample.driver.lora.receive:
+    path: samples/drivers/lora/receive
+    catalog: lora
+    depends_on: lora
+  sample.driver.lora.send:
+    path: samples/drivers/lora/send
+    catalog: lora
+    depends_on: lora

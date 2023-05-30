@@ -1,0 +1,37 @@
+---
+cases:
+  sample.ipm.ipm_esp32:
+    path: samples/drivers/ipm/ipm_esp32
+    catalog:
+    - samples
+    - ipm
+    platform_allow: esp32
+  sample.ipm.ipm_imx:
+    path: samples/drivers/ipm/ipm_imx
+    catalog:
+    - samples
+    - ipm
+    build_only: true
+    filter: CONFIG_SOC_FAMILY_IMX
+    platform_allow:
+    - udoo_neo_full_m4
+    - colibri_imx7d_m4
+    - warp7_m4
+  sample.ipm.ipm_mcux:
+    path: samples/drivers/ipm/ipm_mcux
+    catalog: ipm
+    platform_allow:
+    - lpcxpresso54114_m4
+    - lpcxpresso55s69_cpu0
+  sample.ipm.ipm_mcux.remote:
+    path: samples/drivers/ipm/ipm_mcux/remote
+    catalog: ipm
+    platform_allow:
+    - lpcxpresso54114_m0
+    - lpcxpresso55s69_cpu1
+  sample.ipm.ipm_mhu_dual_core:
+    path: samples/drivers/ipm/ipm_mhu_dual_core
+    catalog: ipm
+    platform_allow:
+    - v2m_musca_b1
+    - v2m_musca_b1_ns

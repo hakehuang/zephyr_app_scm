@@ -1,0 +1,11 @@
+---
+cases:
+  sample.nvs.basic:
+    path: samples/subsys/nvs
+    catalog: settings
+    depends_on: nvs
+    platform_exclude: qemu_x86
+  filesystem.nvs:
+    path: tests/subsys/fs/nvs
+    catalog: nvs
+    platform_allow: qemu_x86

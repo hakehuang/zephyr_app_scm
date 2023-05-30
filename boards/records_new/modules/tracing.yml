@@ -1,14 +1,65 @@
 ---
 cases:
-  tracing.transport.uart.async.test:
-    path: tests/subsys/tracing/tracing_api
-    catalog: tracing_testing
-    extra_args: 'CONF_FILE="prj.conf" '
-    platform_allow: qemu_x86
-  tracing.transport.uart.sync.test:
-    path: tests/subsys/tracing/tracing_api
-    catalog: unknown
-    extra_configs:
-    - CONFIG_TRACING_SYNC=y
-    extra_args: 'CONF_FILE="prj.conf" '
-    platform_allow: qemu_x86
+  sample.tracing.user:
+    path: samples/subsys/tracing
+    catalog: &1
+    - tracing
+    - debug
+    extra_args: CONF_FILE="prj_user.conf"
+  sample.tracing.format.sysview:
+    path: samples/subsys/tracing
+    catalog: *1
+    extra_args: CONF_FILE="prj_sysview.conf"
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - mimxrt1050_evk
+    - mimxrt1064_evk
+  sample.tracing.osawareness.openocd:
+    path: samples/subsys/tracing
+    catalog: *1
+    arch_exclude:
+    - posix
+    - xtensa
+    platform_exclude: qemu_x86_64
+  sample.tracing.transport.uart:
+    path: samples/subsys/tracing
+    catalog: *1
+    extra_args: CONF_FILE="prj_uart.conf"
+    platform_allow:
+    - qemu_x86
+    - qemu_x86_64
+    filter: dt_chosen_enabled("zephyr,tracing-uart")
+  sample.tracing.transport.usb:
+    path: samples/subsys/tracing
+    catalog: *1
+    extra_args: CONF_FILE="prj_usb.conf"
+    platform_allow: sam_e70_xplained
+    depends_on: usb_device
+  sample.tracing.transport.uart.ctf:
+    path: samples/subsys/tracing
+    catalog: *1
+    extra_args: CONF_FILE="prj_uart_ctf.conf"
+    platform_allow:
+    - qemu_x86
+    - qemu_x86_64
+    filter: dt_chosen_enabled("zephyr,tracing-uart")
+  sample.tracing.transport.usb.ctf:
+    path: samples/subsys/tracing
+    catalog: *1
+    extra_args: CONF_FILE="prj_usb_ctf.conf"
+    platform_allow: sam_e70_xplained
+    depends_on: usb_device
+  sample.tracing.transport.native_posix:
+    path: samples/subsys/tracing
+    catalog: *1
+    platform_allow: native_posix
+  sample.tracing.transport.native_posix.ctf:
+    path: samples/subsys/tracing
+    catalog: *1
+    extra_args: CONF_FILE="prj_native_posix_ctf.conf"
+    platform_allow: native_posix
+  sample.tracing.percepio:
+    path: samples/subsys/tracing
+    catalog: *1
+    extra_args: CONF_FILE="prj_percepio.conf"
+    platform_allow: frdm_k64f

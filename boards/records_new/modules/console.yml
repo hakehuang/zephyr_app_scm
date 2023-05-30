@@ -1,0 +1,35 @@
+---
+cases:
+  sample.console.echo:
+    path: samples/subsys/console/echo
+    catalog: console
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+  sample.console.getchar:
+    path: samples/subsys/console/getchar
+    catalog: console
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+  sample.console.getline:
+    path: samples/subsys/console/getline
+    catalog: console
+    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_INTERRUPT
+  drivers.console.uart:
+    path: tests/drivers/console
+    catalog:
+    - drivers
+    - console
+    - uart
+    filter: CONFIG_UART_CONSOLE
+  drivers.console.semihost:
+    path: tests/drivers/console
+    catalog:
+    - drivers
+    - console
+    - semihost
+    extra_args: CONF_FILE=prj_semihost.conf
+    arch_allow:
+    - arm
+    - arm64
+    - riscv32
+    - riscv64
+    platform_type:
+    - qemu

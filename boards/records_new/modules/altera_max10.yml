@@ -1,0 +1,20 @@
+---
+cases:
+  boards.altera_max10.i2c_master:
+    path: tests/boards/altera_max10/i2c_master
+    catalog: i2c
+    platform_allow: altera_max10
+  boards.altera_max10.dma:
+    path: tests/boards/altera_max10/msgdma
+    catalog: dma
+    platform_allow: altera_max10
+  boards.altera_max10.qspi:
+    path: tests/boards/altera_max10/qspi
+    catalog:
+    - qspi
+    - flash
+    platform_allow: altera_max10
+  boards.altera_max10.sysid:
+    path: tests/boards/altera_max10/sysid
+    catalog: sysid
+    platform_allow: altera_max10

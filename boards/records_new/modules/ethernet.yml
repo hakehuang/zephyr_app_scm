@@ -1,0 +1,20 @@
+---
+cases:
+  net.ethernet.build:
+    path: tests/drivers/build_all/ethernet
+    catalog:
+    - drivers
+    - ethernet
+    min_flash: 42
+    min_ram: 32
+    platform_exclude:
+    - frdm_kw41z
+    - mimxrt1020_evk
+    - mimxrt1024_evk
+    - mimxrt1050_evk
+    - mimxrt1060_evk
+    - mimxrt1064_evk
+    depends_on:
+    - spi
+    - netif
+    build_only: true

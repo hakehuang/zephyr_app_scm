@@ -1,27 +1,190 @@
 ---
 cases:
-  usb.bos:
-    path: tests/subsys/usb/bos
-    catalog:
-    - usb
-    - bos
-    depends_on: usb_device
-  usb.desc_sections:
-    path: tests/subsys/usb/desc_sections
-    catalog:
-    - usb
-    - desc_sections
-    depends_on: usb_device
-  usb.device:
-    path: tests/subsys/usb/device
+  sample.usb.audio.headphones_microphone:
+    path: samples/subsys/usb/audio/headphones_microphone
     catalog: usb
     depends_on: usb_device
-  usb.osdesc:
-    path: tests/subsys/usb/os_desc
-    catalog:
-    - usb
-    - osdesc
+    arch_exclude: posix
+  sample.usb.audio.headset:
+    path: samples/subsys/usb/audio/headset
+    catalog: usb
+    depends_on: usb_device
+    arch_exclude: posix
+  sample.usb.cdc-acm:
+    path: samples/subsys/usb/cdc_acm
+    catalog: usb
+    depends_on: usb_device
+    arch_exclude: posix
+  sample.usb.cdc-acm.comp:
+    path: samples/subsys/usb/cdc_acm
+    catalog: usb
+    extra_args: OVERLAY_CONFIG=overlay-composite-cdc-msc.conf
+    depends_on: usb_device
+    arch_exclude: posix
+  sample.usb.cdc-acm.buildonly:
+    path: samples/subsys/usb/cdc_acm
+    catalog: usb
+    depends_on: usb_device
+    arch_allow: posix
+    build_only: true
+  sample.usb.cdc-acm-composite:
+    path: samples/subsys/usb/cdc_acm_composite
+    catalog: usb
+    depends_on: usb_device
+    arch_exclude: posix
+  sample.usb.console:
+    path: samples/subsys/usb/console
+    catalog: usb
+    depends_on:
+    - usb_device
+    - usb_cdc
+    platform_exclude:
+    - native_posix
+    - native_posix_64
+  sample.usb.dfu:
+    path: samples/subsys/usb/dfu
+    catalog: usb
+    build_only: true
+    arch_exclude: posix
+    platform_exclude: &1
+    - mimxrt1010_evk
+    - mimxrt1050_evk_qspi
+    - mimxrt1020_evk
+    - mimxrt1015_evk
+    - mimxrt1060_evk
+    - sam4l_ek
+    - mimxrt1050_evk
+    - mimxrt1060_evk_hyperflash
+    - nucleo_f207zg
+    - teensy40
+    - teensy41
+    - b_u585i_iot02a
+    - frdm_kl25z
+    - lpcxpresso55s69_cpu0
+    - stm32l562e_dk_ns
+    depends_on: usb_device
+    filter: dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")
+      and dt_label_with_parent_compat_enabled("slot1_partition", "fixed-partitions")
+      and dt_chosen_enabled("zephyr,flash-controller") and CONFIG_FLASH_HAS_DRIVER_ENABLED
+  sample.usb.dfu.permanent.download:
+    path: samples/subsys/usb/dfu
+    catalog: usb
+    extra_args: OVERLAY_CONFIG=overlay-permanent-download.conf
+    build_only: true
+    arch_exclude: posix
+    platform_exclude: *1
+    depends_on: usb_device
+    filter: dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")
+      and dt_label_with_parent_compat_enabled("slot1_partition", "fixed-partitions")
+      and dt_chosen_enabled("zephyr,flash-controller") and CONFIG_FLASH_HAS_DRIVER_ENABLED
+  sample.usb.hid:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    depends_on: usb_device
+    arch_exclude: posix
+  sample.usb.hid_composite:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    extra_configs:
+    - CONFIG_USB_COMPOSITE_DEVICE=y
+    depends_on: usb_device
+    arch_exclude: posix
+  sample.usb.hid.buildonly:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    depends_on: usb_device
     platform_allow:
     - native_posix
     - native_posix_64
-    - frdm_k64f
+    build_only: true
+  sample.usb.hid-cdc:
+    path: samples/subsys/usb/hid-cdc
+    catalog: usb
+    depends_on: usb_device
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf52840dongle_nrf52840
+  sample.usb.hid-mouse:
+    path: samples/subsys/usb/hid-mouse
+    catalog: usb
+    depends_on:
+    - usb_device
+    - gpio
+    filter: dt_alias_exists("sw0") and dt_alias_exists("led0")
+  sample.usb.mass_ram_none:
+    path: samples/subsys/usb/mass
+    catalog:
+    - msd
+    - usb
+    extra_configs:
+    - CONFIG_LOG_DEFAULT_LEVEL=3
+    min_ram: 64
+    depends_on: usb_device
+    arch_exclude: posix
+  sample.usb.mass_ram_fat:
+    path: samples/subsys/usb/mass
+    catalog:
+    - msd
+    - usb
+    extra_configs:
+    - CONFIG_LOG_DEFAULT_LEVEL=3
+    - CONFIG_APP_MSC_STORAGE_RAM=y
+    min_ram: 128
+    depends_on: usb_device
+    arch_exclude: posix
+  sample.usb.mass_flash_fatfs:
+    path: samples/subsys/usb/mass
+    catalog:
+    - msd
+    - usb
+    extra_configs:
+    - CONFIG_LOG_DEFAULT_LEVEL=3
+    - CONFIG_APP_MSC_STORAGE_FLASH_FATFS=y
+    min_ram: 32
+    depends_on: usb_device
+    filter: dt_compat_enabled("nordic,qspi-nor")
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf5340dk_nrf5340_cpuapp
+    - adafruit_feather_nrf52840
+  sample.usb.mass_sdhc_fatfs:
+    path: samples/subsys/usb/mass
+    catalog:
+    - msd
+    - usb
+    extra_configs:
+    - CONFIG_LOG_DEFAULT_LEVEL=3
+    - CONFIG_APP_MSC_STORAGE_SDCARD=y
+    min_ram: 32
+    depends_on:
+    - usb_device
+    - sdhc
+  sample.usb.mass_flash_littlefs:
+    path: samples/subsys/usb/mass
+    catalog:
+    - msd
+    - usb
+    extra_configs:
+    - CONFIG_LOG_DEFAULT_LEVEL=3
+    - CONFIG_APP_MSC_STORAGE_FLASH_LITTLEFS=y
+    min_ram: 32
+    depends_on: usb_device
+    filter: dt_compat_enabled("nordic,qspi-nor")
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf5340dk_nrf5340_cpuapp
+    - adafruit_feather_nrf52840
+  sample.usb.loopback:
+    path: samples/subsys/usb/testusb
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude:
+    - native_posix
+    - native_posix_64
+  sample.usb.webusb:
+    path: samples/subsys/usb/webusb
+    catalog: usb
+    depends_on: usb_device
+    platform_exclude:
+    - native_posix
+    - native_posix_64

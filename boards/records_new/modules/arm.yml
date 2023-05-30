@@ -1,0 +1,157 @@
+---
+cases:
+  arch.arm.irq_advanced_features:
+    path: tests/arch/arm/arm_irq_advanced_features
+    catalog: &1
+    - arm
+    - interrupt
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.irq_advanced_features.secure_fw:
+    path: tests/arch/arm/arm_irq_advanced_features
+    catalog: *1
+    filter:
+    - CONFIG_TRUSTED_EXECUTION_SECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.irq_vector_table:
+    path: tests/arch/arm/arm_irq_vector_table
+    catalog:
+    - arm
+    - interrupt
+    - vector_table
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.irq_zero_latency_levels:
+    path: tests/arch/arm/arm_irq_zero_latency_levels
+    catalog: &2
+    - arm
+    - interrupt
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - "(CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE) and not
+      CONFIG_SOC_FAMILY_NRF"
+    arch_allow: arm
+  arch.arm.irq_zero_latency_levels.secure_fw:
+    path: tests/arch/arm/arm_irq_zero_latency_levels
+    catalog: *2
+    filter:
+    - CONFIG_TRUSTED_EXECUTION_SECURE
+    - "(CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE) and not
+      CONFIG_SOC_FAMILY_NRF"
+    arch_allow: arm
+  arch.arm.mem_protect.syscalls:
+    path: tests/arch/arm/arm_mem_protect
+    catalog:
+    - arm
+    - userspace
+    arch_allow: arm
+    filter: CONFIG_CPU_AARCH32_CORTEX_R and CONFIG_ARCH_HAS_USERSPACE
+  arch.arm.no_multithreading:
+    path: tests/arch/arm/arm_no_multithreading
+    catalog: arm
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    platform_allow:
+    - qemu_cortex_m0
+    - qemu_cortex_m3
+    - mps2_an385
+    - mps2_an521
+    - mps3_an547
+    - nrf52840dk_nrf52840
+    - nrf9160dk_nrf9160
+    - nrf51dk_nrf51422
+    arch_allow: arm
+  arch.arm.ramfunc:
+    path: tests/arch/arm/arm_ramfunc
+    catalog:
+    - arm
+    - userspace
+    extra_configs:
+    - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
+    filter: CONFIG_ARCH_HAS_RAMFUNC_SUPPORT
+    arch_allow: arm
+  arch.arm.sw_vector_relay:
+    path: tests/arch/arm/arm_sw_vector_relay
+    catalog: arm
+    filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: &3
+    - arm
+    - fpu
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common.no_optimizations:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: *3
+    extra_configs:
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    - CONFIG_MAIN_STACK_SIZE=2048
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    min_flash: 192
+    arch_allow: arm
+  arch.arm.swap.common.fpu_sharing:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: *3
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_FPU_SHARING=y
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    arch_allow: arm
+  arch.arm.swap.common.fpu_sharing.no_optimizations:
+    path: tests/arch/arm/arm_thread_swap
+    catalog: *3
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_FPU_SHARING=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=512
+    - CONFIG_MAIN_STACK_SIZE=2048
+    filter:
+    - not CONFIG_TRUSTED_EXECUTION_NONSECURE and CONFIG_ARMV7_M_ARMV8_M_FP
+    - CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
+    min_flash: 192
+    arch_allow: arm
+  arch.arm.swap.tz:
+    path: tests/arch/arm/arm_thread_swap_tz
+    catalog: &4
+    - arm
+    - fpu
+    - tfm
+    platform_exclude:
+    - mps3_an547_ns
+    - nucleo_l552ze_q_ns
+    filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
+    arch_allow: arm
+  arch.arm.swap.tz_off:
+    path: tests/arch/arm/arm_thread_swap_tz
+    catalog: *4
+    extra_configs:
+    - CONFIG_ARM_NONSECURE_PREEMPTIBLE_SECURE_CALLS=n
+    platform_exclude:
+    - mps3_an547_ns
+    - nucleo_l552ze_q_ns
+    filter: (CONFIG_TFM_BOARD != "") and CONFIG_ARM_NONSECURE_FIRMWARE
+    arch_allow: arm
+  arch.arm.tz_wrap_func:
+    path: tests/arch/arm/arm_tz_wrap_func
+    catalog:
+    - arm
+    - tz_ns
+    - tz_wrap_func
+    arch_allow: arm
+    filter: CONFIG_CPU_CORTEX_M

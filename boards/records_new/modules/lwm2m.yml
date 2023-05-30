@@ -1,0 +1,86 @@
+---
+cases:
+  net.lwm2m.block_transfer:
+    path: tests/net/lib/lwm2m/block_transfer
+    catalog: lwm2m net
+    depends_on: netif
+  net.lwm2m.content_json:
+    path: tests/net/lib/lwm2m/content_json
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+  net.lwm2m.content_link_format:
+    path: tests/net/lib/lwm2m/content_link_format
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+  net.lwm2m.content_oma_tlv:
+    path: tests/net/lib/lwm2m/content_oma_tlv
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+  net.lwm2m.content_plain_text:
+    path: tests/net/lib/lwm2m/content_plain_text
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+  net.lwm2m.content_raw_cbor:
+    path: tests/net/lib/lwm2m/content_raw_cbor
+    catalog:
+    - lwm2m
+    - net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.content_senml_cbor:
+    path: tests/net/lib/lwm2m/content_senml_cbor
+    catalog:
+    - lwm2m
+    - net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.engine:
+    path: tests/net/lib/lwm2m/engine
+    catalog:
+    - lwm2m
+    - net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.lwm2m_engine:
+    path: tests/net/lib/lwm2m/lwm2m_engine
+    catalog:
+    - lwm2m
+    - net
+    platform_allow: native_posix
+    depends_on: netif
+  net.lwm2m.lwm2m_rd_client:
+    path: tests/net/lib/lwm2m/lwm2m_rd_client
+    catalog: &1
+    - net
+    - lwm2m
+    extra_args: EXTRA_CFLAGS=""
+    depends_on: netif
+    platform_allow: &2
+    - native_posix
+    - qemu_x86
+    - qemu_x86_64
+  net.lwm2m.lwm2m_rd_client_dtls:
+    path: tests/net/lib/lwm2m/lwm2m_rd_client
+    catalog: *1
+    extra_args: EXTRA_CFLAGS=-DCONFIG_LWM2M_DTLS_SUPPORT
+    depends_on: netif
+    platform_allow: *2
+  net.lwm2m.lwm2m_registry:
+    path: tests/net/lib/lwm2m/lwm2m_registry
+    catalog:
+    - lwm2m
+    - net
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif

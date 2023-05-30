@@ -1,0 +1,39 @@
+---
+cases:
+  sample.usb_device_next.cdc-acm:
+    path: samples/subsys/usb/cdc_acm
+    catalog: usb
+    extra_args: CONF_FILE="usbd_next_prj.conf"
+    depends_on: usb_device
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - frdm_k64f
+  sample.usb_device_next.mass_ram_none:
+    path: samples/subsys/usb/mass
+    catalog:
+    - msd
+    - usb
+    extra_configs:
+    - CONFIG_LOG_DEFAULT_LEVEL=3
+    extra_args: CONF_FILE="usbd_next_prj.conf"
+    min_ram: 64
+    depends_on: usb_device
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - frdm_k64f
+  sample.usb_device_next.mass_flash_fatfs:
+    path: samples/subsys/usb/mass
+    catalog:
+    - msd
+    - usb
+    extra_configs:
+    - CONFIG_LOG_DEFAULT_LEVEL=3
+    - CONFIG_APP_MSC_STORAGE_FLASH_FATFS=y
+    extra_args: CONF_FILE="usbd_next_prj.conf"
+    min_ram: 32
+    depends_on: usb_device
+    filter: dt_compat_enabled("nordic,qspi-nor")
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf5340dk_nrf5340_cpuapp
+    - adafruit_feather_nrf52840

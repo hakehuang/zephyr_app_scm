@@ -1,0 +1,10 @@
+---
+cases:
+  drivers.udc:
+    path: tests/drivers/udc
+    catalog:
+    - usb
+    - drivers
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - native_posix_64

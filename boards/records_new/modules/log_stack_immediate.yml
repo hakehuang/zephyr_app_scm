@@ -1,0 +1,12 @@
+---
+cases:
+  logging.log_stack_immediate:
+    path: tests/subsys/logging/log_stack
+    catalog:
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    platform_type:
+    - qemu
+    skip: true

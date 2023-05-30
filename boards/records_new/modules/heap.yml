@@ -1,0 +1,11 @@
+---
+cases:
+  libraries.heap:
+    path: tests/lib/heap
+    catalog: heap
+    platform_exclude:
+    - m2gl025_miv
+    - qemu_xtensa
+    - esp32s2_saola
+    - esp32s3_devkitm
+    filter: not CONFIG_SOC_NSIM

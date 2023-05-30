@@ -1,11 +1,33 @@
 ---
 settings:
   case_pipe_name: "${@board}_5"
-  version: zephyr-v3.3.0-4123-gd01780fc94
+  version: v3.4.0-rc1-24-g5f5b34793d
 __load__:
-- modules/zdsp.yml
+- modules/ztest.yml
+- modules/zbus.yml
+- modules/x86.yml
+- modules/workqueue.yml
+- modules/work.yml
+- modules/winstream.yml
+- modules/watchdog.yml
+- modules/w1.yml
+- modules/vlan.yml
 - modules/virtualization.yml
-- modules/utilities.yml
+- modules/virtual.yml
+- modules/video.yml
+- modules/version_no_legacy.yml
+- modules/version.yml
+- modules/uuid.yml
+- modules/util.yml
+- modules/userspace.yml
+- modules/user_defined.yml
+- modules/usage.yml
+- modules/uefi.yml
+- modules/udp.yml
+- modules/udc.yml
+- modules/uart_emul.yml
+- modules/uart.yml
+- modules/6lo.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

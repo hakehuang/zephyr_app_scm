@@ -1,0 +1,22 @@
+---
+cases:
+  kernel.lifo:
+    path: tests/kernel/lifo/lifo_api
+    catalog: kernel
+  kernel.lifo.linker_generator:
+    path: tests/kernel/lifo/lifo_api
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+  kernel.lifo.usage:
+    path: tests/kernel/lifo/lifo_usage
+    catalog: kernel
+    platform_exclude: m2gl025_miv
+    min_ram: 20
+  kernel.lifo.usage.linker_generator:
+    path: tests/kernel/lifo/lifo_usage
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3

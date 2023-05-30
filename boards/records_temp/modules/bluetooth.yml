@@ -1,1999 +1,721 @@
 ---
 cases:
-  bluetooth.addr:
-    path: tests/bluetooth/addr
-    catalog:
-    - bluetooth
-    - addr
-    platform_allow:
-    - native_posix
-    - native_posix_64
-    - qemu_x86
-    - qemu_cortex_m3
-  bluetooth.adv:
-    path: tests/bluetooth/adv
+  sample.bluetooth.beacon:
+    path: samples/bluetooth/beacon
     catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52dk_nrf52832
+  sample.bluetooth.beacon-coex:
+    path: samples/bluetooth/beacon
+    catalog: bluetooth
+    extra_args: CONF_FILE="prj-coex.conf"
+    platform_allow: nrf52840dk_nrf52840
+  sample.bluetooth.broadcast_audio_sink:
+    path: samples/bluetooth/broadcast_audio_sink
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.broadcast_audio_sink.bt_ll_sw_split:
+    path: samples/bluetooth/broadcast_audio_sink
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG=overlay-bt_ll_sw_split.conf
     platform_allow:
     - nrf52_bsim
-    - nrf51dk_nrf51422
-    - nrf52840dk_nrf52840
-  bluetooth.at:
-    path: tests/bluetooth/at
+    - nrf52833dk_nrf52820
+    - nrf52833dk_nrf52833
+  sample.bluetooth.broadcast_audio_source:
+    path: samples/bluetooth/broadcast_audio_source
     catalog: bluetooth
-    build_only: true
-    min_ram: 16
-    platform_allow:
-    - qemu_x86
-    - qemu_cortex_m3
-  bluetooth.audio.ascs.test_default:
-    path: tests/bluetooth/audio/ascs
-    catalog: &1
-    - bluetooth
-    - bluetooth_audio
-    type: unit
-  bluetooth.audio.ascs.test_snk_only:
-    path: tests/bluetooth/audio/ascs
-    catalog: *1
-    extra_configs:
-    - CONFIG_BT_ASCS_ASE_SRC_COUNT=0
-    type: unit
-  bluetooth.audio.ascs.test_src_only:
-    path: tests/bluetooth/audio/ascs
-    catalog: *1
-    extra_configs:
-    - CONFIG_BT_ASCS_ASE_SNK_COUNT=0
-    type: unit
-  bluetooth.audio.ascs.test_unicast_client_enabled:
-    path: tests/bluetooth/audio/ascs
-    catalog: *1
-    extra_configs:
-    - CONFIG_BT_BAP_UNICAST_CLIENT=y
-    type: unit
-  bluetooth.general:
-    path: tests/bluetooth/bluetooth
-    catalog: bluetooth
-    platform_allow:
-    - qemu_x86
-    - qemu_cortex_m3
-    - native_posix
-    - native_posix_64
-  bluetooth.bt_crypto:
-    path: tests/bluetooth/bt_crypto
-    catalog: bluetooth
-    platform_allow:
-    - native_posix
-    - native_posix_64
-    - qemu_x86
-    - qemu_cortex_m3
-  bluetooth.bt_crypto_ccm:
-    path: tests/bluetooth/bt_crypto_ccm
-    catalog: bluetooth
-    platform_allow:
-    - native_posix
-    - native_posix_64
-  bluetooth.controller.ctrl_api.test:
-    path: tests/bluetooth/controller/ctrl_api
-    catalog:
-    - bluetooth
-    - bt_api
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_chmu.test:
-    path: tests/bluetooth/controller/ctrl_chmu
-    catalog:
-    - bluetooth
-    - bt_chmu
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_cis_create.test:
-    path: tests/bluetooth/controller/ctrl_cis_create
-    catalog:
-    - bluetooth
-    - bt_cis_create
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_cis_terminate.test:
-    path: tests/bluetooth/controller/ctrl_cis_terminate
-    catalog:
-    - bluetooth
-    - bt_cis_terminate
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_collision.test:
-    path: tests/bluetooth/controller/ctrl_collision
-    catalog:
-    - bluetooth
-    - bt_collision
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_conn_update.test:
-    path: tests/bluetooth/controller/ctrl_conn_update
-    catalog: &2
-    - bluetooth
-    - bt_conn_update
-    - bt_conn_param_req
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_conn_update.apm_test:
-    path: tests/bluetooth/controller/ctrl_conn_update
-    catalog: *2
-    extra_args: CONF_FILE=prj_apm.conf
-    type: unit
-  bluetooth.controller.ctrl_conn_update.no_param_req_test:
-    path: tests/bluetooth/controller/ctrl_conn_update
-    catalog: *2
-    extra_args: CONF_FILE=prj_no_param_req.conf
-    type: unit
-  bluetooth.controller.ctrl_cte_req.test:
-    path: tests/bluetooth/controller/ctrl_cte_req
-    catalog:
-    - bluetooth
-    - bt_le_cte_req
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_data_length_update.test:
-    path: tests/bluetooth/controller/ctrl_data_length_update
-    catalog: &3
-    - bluetooth
-    - bt_data_length_update
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_data_length_update.test_nocodedphy:
-    path: tests/bluetooth/controller/ctrl_data_length_update
-    catalog: *3
-    extra_args: CONF_FILE=prj_nocoded.conf
-    type: unit
-  bluetooth.controller.ctrl_data_length_update.test_nophy:
-    path: tests/bluetooth/controller/ctrl_data_length_update
-    catalog: *3
-    extra_args: CONF_FILE=prj_nophy.conf
-    type: unit
-  bluetooth.controller.ctrl_encrypt.test:
-    path: tests/bluetooth/controller/ctrl_encrypt
-    catalog:
-    - bluetooth
-    - bt_encrypt
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_feature_exchange.test:
-    path: tests/bluetooth/controller/ctrl_feature_exchange
-    catalog:
-    - bluetooth
-    - bt_feature_exchange
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_hci.test:
-    path: tests/bluetooth/controller/ctrl_hci
-    catalog:
-    - bluetooth
-    - bt_ctrl_hci
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_invalid.test:
-    path: tests/bluetooth/controller/ctrl_invalid
-    catalog:
-    - bluetooth
-    - bt_invalid
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_le_ping.test:
-    path: tests/bluetooth/controller/ctrl_le_ping
-    catalog:
-    - bluetooth
-    - bt_le_ping
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_min_used_chans.test:
-    path: tests/bluetooth/controller/ctrl_min_used_chans
-    catalog:
-    - bluetooth
-    - bt_min_used_chans
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_phy_update.test:
-    path: tests/bluetooth/controller/ctrl_phy_update
-    catalog: &4
-    - bluetooth
-    - bt_phy_update
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_phy_update.test_reduced_buf:
-    path: tests/bluetooth/controller/ctrl_phy_update
-    catalog: *4
-    extra_args: CONF_FILE=prj_rx_cnt.conf
-    type: unit
-  bluetooth.controller.ctrl_sca_update.test:
-    path: tests/bluetooth/controller/ctrl_sca_update
-    catalog:
-    - bluetooth
-    - bt_sca_update
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_terminate.test:
-    path: tests/bluetooth/controller/ctrl_terminate
-    catalog:
-    - bluetooth
-    - bt_terminate
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_tx_buffer_alloc.test_0_per_conn:
-    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
-    catalog: &5
-    - bluetooth
-    - bt_tx_buffer_alloc
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_tx_buffer_alloc.test_1_per_conn:
-    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
-    catalog: *5
-    extra_args: CONF_FILE=prj_1.conf
-    type: unit
-  bluetooth.controller.ctrl_tx_buffer_alloc.test_2_per_conn:
-    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
-    catalog: *5
-    extra_args: CONF_FILE=prj_2.conf
-    type: unit
-  bluetooth.controller.ctrl_tx_buffer_alloc.test_3_per_conn:
-    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
-    catalog: *5
-    extra_args: CONF_FILE=prj_3.conf
-    type: unit
-  bluetooth.controller.ctrl_tx_buffer_alloc.test_max_per_conn_alloc:
-    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
-    catalog: *5
-    extra_args: CONF_FILE=prj_max.conf
-    type: unit
-  bluetooth.controller.ctrl_tx_buffer_alloc.test_max_common_alloc:
-    path: tests/bluetooth/controller/ctrl_tx_buffer_alloc
-    catalog: *5
-    extra_args: CONF_FILE=prj_max_common.conf
-    type: unit
-  bluetooth.ctrl_tx_queue.test:
-    path: tests/bluetooth/controller/ctrl_tx_queue
-    catalog:
-    - bluetooth
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_unsupported.default.test:
-    path: tests/bluetooth/controller/ctrl_unsupported
-    catalog: &6
-    - bluetooth
-    - bt_unsupported
-    - bt_ull_llcp
-    type: unit
-  bluetooth.controller.ctrl_unsupported.test:
-    path: tests/bluetooth/controller/ctrl_unsupported
-    catalog: *6
-    extra_args: CONF_FILE=prj_unsupported.conf
-    type: unit
-  bluetooth.controller.ctrl_version.test:
-    path: tests/bluetooth/controller/ctrl_version
-    catalog:
-    - bluetooth
-    - bt_version_exchange
-    - bt_ull_llcp
-    type: unit
-  bluetooth.isoal.test:
-    path: tests/bluetooth/ctrl_isoal
-    catalog: bluetooth
-    platform_allow: native_posix
-  bluetooth.ctrl_sw_privacy.test:
-    path: tests/bluetooth/ctrl_sw_privacy
-    catalog: bluetooth
-    platform_allow: nrf52_bsim
-    build_only: true
-  bluetooth.privacy.test:
-    path: tests/bluetooth/ctrl_sw_privacy_unit
-    catalog: bluetooth
-    platform_allow: native_posix
-  bluetooth.ctrl_user_ext.test:
-    path: tests/bluetooth/ctrl_user_ext
-    catalog: bluetooth
-    platform_allow: nrf52_bsim
-    build_only: true
-  bluetooth.df.conection_cte_req:
-    path: tests/bluetooth/df/connection_cte_req
-    catalog: bluetooth
-    platform_allow: nrf52_bsim
-  bluetooth.df.conection_cte_tx_params:
-    path: tests/bluetooth/df/connection_cte_tx_params
-    catalog: bluetooth
-    platform_allow: nrf52_bsim
-  bluetooth.df.connectionless_cte_chains:
-    path: tests/bluetooth/df/connectionless_cte_chains
-    catalog: bluetooth
-    platform_allow: nrf52_bsim
-  bluetooth.df.connectionless_cte_rx:
-    path: tests/bluetooth/df/connectionless_cte_rx
-    catalog: bluetooth
-    platform_allow: nrf52_bsim
-  bluetooth.df.connectionless_cte_tx:
-    path: tests/bluetooth/df/connectionless_cte_tx
-    catalog: bluetooth
-    platform_allow: nrf52_bsim
-  bluetooth.gatt:
-    path: tests/bluetooth/gatt
-    catalog:
-    - bluetooth
-    - gatt
-    platform_allow:
-    - native_posix
-    - native_posix_64
-    - qemu_x86
-    - qemu_cortex_m3
-  bluetooth.hci_codecs_info:
-    path: tests/bluetooth/hci_codecs_info
-    catalog: bluetooth
-    platform_allow: nrf52_bsim
-  bluetooth.hci_prop_evt:
-    path: tests/bluetooth/hci_prop_evt
-    catalog:
-    - bluetooth
-    - hci
-    - prop
-    - event
-    platform_allow:
-    - qemu_x86
-    - qemu_cortex_m3
-    - native_posix
-    - native_posix_64
-  bluetooth.host.bt_keys_update_usage.default:
-    path: tests/bluetooth/host
-    catalog: &7
-    - bluetooth
-    - host
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
-    type: unit
-  bluetooth.host.bt_keys_update_usage.save_aging_counter:
-    path: tests/bluetooth/host
-    catalog: *7
-    extra_configs:
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
-    - CONFIG_BT_KEYS_SAVE_AGING_COUNTER_ON_PAIRING=y
-    type: unit
-  bluetooth.host.bt_buf_get_type.default:
-    path: tests/bluetooth/host/buf
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_buf_get_cmd_complete.default:
-    path: tests/bluetooth/host/buf/bt_buf_get_cmd_complete
-    catalog: &8
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_buf_get_cmd_complete.hci_acl_flow_control:
-    path: tests/bluetooth/host/buf/bt_buf_get_cmd_complete
-    catalog: *8
-    extra_configs:
-    - CONFIG_BT_CENTRAL=y
-    - CONFIG_BT_HCI_ACL_FLOW_CONTROL=y
-    type: unit
-  bluetooth.host.bt_buf_get_cmd_complete.iso_unicast:
-    path: tests/bluetooth/host/buf/bt_buf_get_cmd_complete
-    catalog: *8
-    extra_configs:
-    - CONFIG_BT_ISO_CENTRAL=y
-    type: unit
-  bluetooth.host.bt_buf_get_cmd_complete.iso_sync_receiver:
-    path: tests/bluetooth/host/buf/bt_buf_get_cmd_complete
-    catalog: *8
-    extra_configs:
-    - CONFIG_BT_ISO_SYNC_RECEIVER=y
-    type: unit
-  bluetooth.host.bt_buf_get_evt.default:
-    path: tests/bluetooth/host/buf/bt_buf_get_evt
-    catalog: &9
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_buf_get_evt.hci_acl_flow_control:
-    path: tests/bluetooth/host/buf/bt_buf_get_evt
-    catalog: *9
-    extra_configs:
-    - CONFIG_BT_CENTRAL=y
-    - CONFIG_BT_HCI_ACL_FLOW_CONTROL=y
-    type: unit
-  bluetooth.host.bt_buf_get_evt.iso_unicast:
-    path: tests/bluetooth/host/buf/bt_buf_get_evt
-    catalog: *9
-    extra_configs:
-    - CONFIG_BT_ISO_CENTRAL=y
-    type: unit
-  bluetooth.host.bt_buf_get_evt.iso_sync_receiver:
-    path: tests/bluetooth/host/buf/bt_buf_get_evt
-    catalog: *9
-    extra_configs:
-    - CONFIG_BT_ISO_SYNC_RECEIVER=y
-    type: unit
-  bluetooth.host.bt_buf_get_rx.default:
-    path: tests/bluetooth/host/buf/bt_buf_get_rx
-    catalog: &10
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_buf_get_rx.hci_acl_flow_control:
-    path: tests/bluetooth/host/buf/bt_buf_get_rx
-    catalog: *10
-    extra_configs:
-    - CONFIG_BT_CENTRAL=y
-    - CONFIG_BT_HCI_ACL_FLOW_CONTROL=y
-    type: unit
-  bluetooth.host.bt_buf_get_rx.iso_unicast:
-    path: tests/bluetooth/host/buf/bt_buf_get_rx
-    catalog: *10
-    extra_configs:
-    - CONFIG_BT_ISO_CENTRAL=y
-    type: unit
-  bluetooth.host.bt_buf_get_rx.iso_sync_receiver:
-    path: tests/bluetooth/host/buf/bt_buf_get_rx
-    catalog: *10
-    extra_configs:
-    - CONFIG_BT_ISO_SYNC_RECEIVER=y
-    type: unit
-  bluetooth.host.bt_buf_get_type.default.bt_buf_get_type:
-    path: tests/bluetooth/host/buf/bt_buf_get_type
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.prng_init.default:
-    path: tests/bluetooth/host/crypto
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_encrypt_be.default:
-    path: tests/bluetooth/host/crypto/bt_encrypt_be
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_encrypt_le.default:
-    path: tests/bluetooth/host/crypto/bt_encrypt_le
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_rand.default:
-    path: tests/bluetooth/host/crypto/bt_rand
-    catalog: &11
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_rand.host_crypto_prng_disabled:
-    path: tests/bluetooth/host/crypto/bt_rand
-    catalog: *11
-    extra_configs:
-    - CONFIG_BT_HOST_CRYPTO_PRNG=n
-    type: unit
-  bluetooth.host.prng_init.default.prng_init:
-    path: tests/bluetooth/host/crypto/prng_init
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_data_parse:
-    path: tests/bluetooth/host/data/bt_data_parse
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_pub_key_is_debug.default:
-    path: tests/bluetooth/host/ecc
-    catalog:
-    - test_framework
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_dh_key_gen.default:
-    path: tests/bluetooth/host/ecc/bt_dh_key_gen
-    catalog: &12
-    - test_framework
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_dh_key_gen.bt_use_debug_keys_enabled:
-    path: tests/bluetooth/host/ecc/bt_dh_key_gen
-    catalog: *12
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_USE_DEBUG_KEYS=y
-    type: unit
-  bluetooth.host.bt_pub_key_gen.default:
-    path: tests/bluetooth/host/ecc/bt_pub_key_gen
-    catalog: &13
-    - test_framework
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_pub_key_gen.bt_use_debug_keys_enabled:
-    path: tests/bluetooth/host/ecc/bt_pub_key_gen
-    catalog: *13
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_USE_DEBUG_KEYS=y
-    type: unit
-  bluetooth.host.bt_pub_key_get.default:
-    path: tests/bluetooth/host/ecc/bt_pub_key_get
-    catalog: &14
-    - test_framework
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_pub_key_get.bt_use_debug_keys_enabled:
-    path: tests/bluetooth/host/ecc/bt_pub_key_get
-    catalog: *14
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_USE_DEBUG_KEYS=y
-    type: unit
-  bluetooth.host.bt_pub_key_is_debug.default.bt_pub_key_is_debug:
-    path: tests/bluetooth/host/ecc/bt_pub_key_is_debug
-    catalog:
-    - test_framework
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_br_oob_get_local.default:
-    path: tests/bluetooth/host/id/bt_br_oob_get_local
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_add.default:
-    path: tests/bluetooth/host/id/bt_id_add
-    catalog: &15
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_add.broadcaster_ext_adv_enabled:
-    path: tests/bluetooth/host/id/bt_id_add
-    catalog: *15
-    extra_configs:
-    - CONFIG_BT_EXT_ADV=y
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_id_add.broadcaster_no_ext_adv:
-    path: tests/bluetooth/host/id/bt_id_add
-    catalog: *15
-    extra_configs:
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_id_add.observer_ext_adv:
-    path: tests/bluetooth/host/id/bt_id_add
-    catalog: *15
-    extra_configs:
-    - CONFIG_BT_EXT_ADV=y
-    - CONFIG_BT_OBSERVER=y
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_id_adv_random_addr_check.default:
-    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
-    catalog: &16
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_adv_random_addr_check.observer_enabled:
-    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
-    catalog: *16
-    extra_configs:
-    - CONFIG_BT_CENTRAL=y
-    - CONFIG_BT_OBSERVER=y
-    type: unit
-  bluetooth.host.bt_id_adv_random_addr_check.observer_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
-    catalog: *16
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    - CONFIG_BT_CENTRAL=y
-    - CONFIG_BT_OBSERVER=y
-    type: unit
-  bluetooth.host.bt_id_adv_random_addr_check.observer_scan_with_identity_enabled:
-    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
-    catalog: *16
-    extra_configs:
-    - CONFIG_BT_SCAN_WITH_IDENTITY=y
-    - CONFIG_BT_CENTRAL=y
-    - CONFIG_BT_OBSERVER=y
-    type: unit
-  bluetooth.host.bt_id_adv_random_addr_check.bt_ext_adv_enabled:
-    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
-    catalog: *16
-    extra_configs:
-    - CONFIG_BT_EXT_ADV=y
-    type: unit
-  bluetooth.host.bt_id_create.default:
-    path: tests/bluetooth/host/id/bt_id_create
-    catalog: &17
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_create.bt_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_create
-    catalog: *17
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_id_del.default:
-    path: tests/bluetooth/host/id/bt_id_del
-    catalog: &18
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_del.broadcaster_ext_adv_enabled:
-    path: tests/bluetooth/host/id/bt_id_del
-    catalog: *18
-    extra_configs:
-    - CONFIG_BT_EXT_ADV=y
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_id_del.broadcaster_no_ext_adv:
-    path: tests/bluetooth/host/id/bt_id_del
-    catalog: *18
-    extra_configs:
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_id_del.broadcaster_no_ext_adv_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_del
-    catalog: *18
-    extra_configs:
-    - CONFIG_BT_CENTRAL=y
-    - CONFIG_BT_PRIVACY=y
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_id_del.observer_ext_adv:
-    path: tests/bluetooth/host/id/bt_id_del
-    catalog: *18
-    extra_configs:
-    - CONFIG_BT_EXT_ADV=y
-    - CONFIG_BT_OBSERVER=y
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_id_delete.default:
-    path: tests/bluetooth/host/id/bt_id_delete
-    catalog: &19
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_delete.default_bt_settings_enabled:
-    path: tests/bluetooth/host/id/bt_id_delete
-    catalog: *19
-    extra_configs:
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    type: unit
-  bluetooth.host.bt_id_delete.privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_delete
-    catalog: *19
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_id_delete.privacy_bt_settings_enabled:
-    path: tests/bluetooth/host/id/bt_id_delete
-    catalog: *19
-    extra_configs:
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_id_get.default:
-    path: tests/bluetooth/host/id/bt_id_get
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_init.default:
-    path: tests/bluetooth/host/id/bt_id_init
-    catalog: &20
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_init.default_bt_settings_enabled:
-    path: tests/bluetooth/host/id/bt_id_init
-    catalog: *20
-    extra_configs:
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    type: unit
-  bluetooth.host.bt_id_init.bt_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_init
-    catalog: *20
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_id_read_public_addr.default:
-    path: tests/bluetooth/host/id/bt_id_read_public_addr
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_reset.default:
-    path: tests/bluetooth/host/id/bt_id_reset
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_scan_random_addr_check.default:
-    path: tests/bluetooth/host/id/bt_id_scan_random_addr_check
-    catalog: &21
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_scan_random_addr_check.broadcaster_enabled:
-    path: tests/bluetooth/host/id/bt_id_scan_random_addr_check
-    catalog: *21
-    extra_configs:
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_id_scan_random_addr_check.broadcaster_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_scan_random_addr_check
-    catalog: *21
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_id_scan_random_addr_check.bt_ext_adv_enabled:
-    path: tests/bluetooth/host/id/bt_id_scan_random_addr_check
-    catalog: *21
-    extra_configs:
-    - CONFIG_BT_EXT_ADV=y
-    type: unit
-  bluetooth.host.bt_id_set_adv_own_addr.default:
-    path: tests/bluetooth/host/id/bt_id_set_adv_own_addr
-    catalog: &22
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_set_adv_own_addr.default_ext_adv_enabled:
-    path: tests/bluetooth/host/id/bt_id_set_adv_own_addr
-    catalog: *22
-    extra_configs:
-    - CONFIG_BT_EXT_ADV=y
-    type: unit
-  bluetooth.host.bt_id_set_adv_own_addr.privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_set_adv_own_addr
-    catalog: *22
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_id_set_adv_private_addr.default:
-    path: tests/bluetooth/host/id/bt_id_set_adv_private_addr
-    catalog: &23
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_set_adv_private_addr.bt_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_set_adv_private_addr
-    catalog: *23
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_id_set_adv_private_addr.bt_privacy_ext_adv_enabled:
-    path: tests/bluetooth/host/id/bt_id_set_adv_private_addr
-    catalog: *23
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    - CONFIG_BT_EXT_ADV=y
-    type: unit
-  bluetooth.host.bt_id_set_adv_random_addr.default:
-    path: tests/bluetooth/host/id/bt_id_set_adv_random_addr
-    catalog: &24
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_set_adv_random_addr.bt_ext_adv_enabled:
-    path: tests/bluetooth/host/id/bt_id_set_adv_random_addr
-    catalog: *24
-    extra_configs:
-    - CONFIG_BT_EXT_ADV=y
-    type: unit
-  bluetooth.host.bt_id_set_create_conn_own_addr.default:
-    path: tests/bluetooth/host/id/bt_id_set_create_conn_own_addr
-    catalog: &25
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_set_create_conn_own_addr.privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_set_create_conn_own_addr
-    catalog: *25
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_id_set_private_addr.default:
-    path: tests/bluetooth/host/id/bt_id_set_private_addr
-    catalog: &26
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_set_private_addr.bt_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_set_private_addr
-    catalog: *26
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_id_set_scan_own_addr.default:
-    path: tests/bluetooth/host/id/bt_id_set_scan_own_addr
-    catalog: &27
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_id_set_scan_own_addr.privacy_enabled:
-    path: tests/bluetooth/host/id/bt_id_set_scan_own_addr
-    catalog: *27
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_id_set_scan_own_addr.default_scan_with_identity:
-    path: tests/bluetooth/host/id/bt_id_set_scan_own_addr
-    catalog: *27
-    extra_configs:
-    - CONFIG_BT_SCAN_WITH_IDENTITY=y
-    type: unit
-  bluetooth.host.bt_id_set_scan_own_addr.privacy_scan_with_identity_enabled:
-    path: tests/bluetooth/host/id/bt_id_set_scan_own_addr
-    catalog: *27
-    extra_configs:
-    - CONFIG_BT_SCAN_WITH_IDENTITY=y
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_le_ext_adv_oob_get_local.default:
-    path: tests/bluetooth/host/id/bt_le_ext_adv_oob_get_local
-    catalog: &28
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_le_ext_adv_oob_get_local.bt_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_le_ext_adv_oob_get_local
-    catalog: *28
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_le_oob_get_local.default:
-    path: tests/bluetooth/host/id/bt_le_oob_get_local
-    catalog: &29
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_le_oob_get_local.bt_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_le_oob_get_local
-    catalog: *29
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_le_oob_get_local.bt_broadcaster_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_le_oob_get_local
-    catalog: *29
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    - CONFIG_BT_BROADCASTER=y
-    type: unit
-  bluetooth.host.bt_le_oob_get_sc_data.default:
-    path: tests/bluetooth/host/id/bt_le_oob_get_sc_data
-    catalog:
-    - bluetooth
-    - host
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    type: unit
-  bluetooth.host.bt_le_oob_set_legacy_tk.default:
-    path: tests/bluetooth/host/id/bt_le_oob_set_legacy_tk
-    catalog:
-    - bluetooth
-    - host
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    type: unit
-  bluetooth.host.bt_le_oob_set_sc_data.default:
-    path: tests/bluetooth/host/id/bt_le_oob_set_sc_data
-    catalog:
-    - bluetooth
-    - host
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    type: unit
-  bluetooth.host.bt_lookup_id_addr.default:
-    path: tests/bluetooth/host/id/bt_lookup_id_addr
-    catalog: &30
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_lookup_id_addr.bt_smp_enabled:
-    path: tests/bluetooth/host/id/bt_lookup_id_addr
-    catalog: *30
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    type: unit
-  bluetooth.host.bt_setup_public_id_addr.default:
-    path: tests/bluetooth/host/id/bt_setup_public_id_addr
-    catalog: &31
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_setup_public_id_addr.default_bt_settings_enabled:
-    path: tests/bluetooth/host/id/bt_setup_public_id_addr
-    catalog: *31
-    extra_configs:
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    type: unit
-  bluetooth.host.bt_setup_public_id_addr.bt_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_setup_public_id_addr
-    catalog: *31
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_setup_public_id_addr.bt_privacy_settings_enabled:
-    path: tests/bluetooth/host/id/bt_setup_public_id_addr
-    catalog: *31
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    type: unit
-  bluetooth.host.bt_random_idcreate.default:
-    path: tests/bluetooth/host/id/bt_setup_random_id_addr
-    catalog: &32
-    - bluetooth
-    - host
-    extra_configs:
-    - CONFIG_BT_ID_MAX=1
-    type: unit
-  bluetooth.host.bt_random_idcreate.multiple_identities:
-    path: tests/bluetooth/host/id/bt_setup_random_id_addr
-    catalog: *32
-    extra_configs:
-    - CONFIG_BT_ID_MAX=4
-    type: unit
-  bluetooth.host.bt_random_idcreate.hci_vs_ext_detect:
-    path: tests/bluetooth/host/id/bt_setup_random_id_addr
-    catalog: *32
-    extra_configs:
-    - CONFIG_BT_ID_MAX=1
-    - CONFIG_BT_HCI_VS_EXT_DETECT=y
-    type: unit
-  bluetooth.host.bt_random_idcreate.multiple_identities_hci_vs_ext_detect:
-    path: tests/bluetooth/host/id/bt_setup_random_id_addr
-    catalog: *32
-    extra_configs:
-    - CONFIG_BT_ID_MAX=4
-    - CONFIG_BT_HCI_VS_EXT_DETECT=y
-    type: unit
-  bluetooth.host.bt_random_idcreate.multiple_identities_hci_vs_ext_detect_privacy_enabled:
-    path: tests/bluetooth/host/id/bt_setup_random_id_addr
-    catalog: *32
-    extra_configs:
-    - CONFIG_BT_ID_MAX=4
-    - CONFIG_BT_HCI_VS_EXT_DETECT=y
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    type: unit
-  bluetooth.host.bt_random_idcreate.multiple_identities_hci_vs_ext_detect_privacy_settings_enabled:
-    path: tests/bluetooth/host/id/bt_setup_random_id_addr
-    catalog: *32
-    extra_configs:
-    - CONFIG_BT_ID_MAX=4
-    - CONFIG_BT_HCI_VS_EXT_DETECT=y
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_PRIVACY=y
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    type: unit
-  bluetooth.host.bt_keys_add_type.default:
-    path: tests/bluetooth/host/keys/bt_keys_add_type
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_keys_clear.default:
-    path: tests/bluetooth/host/keys/bt_keys_clear
-    catalog: &33
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_keys_clear.settings_enabled:
-    path: tests/bluetooth/host/keys/bt_keys_clear
-    catalog: *33
-    extra_configs:
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    type: unit
-  bluetooth.host.bt_keys_find.default:
-    path: tests/bluetooth/host/keys/bt_keys_find
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_keys_find_addr.default:
-    path: tests/bluetooth/host/keys/bt_keys_find_addr
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_keys_find_irk.default:
-    path: tests/bluetooth/host/keys/bt_keys_find_irk
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_keys_foreach_bond.default:
-    path: tests/bluetooth/host/keys/bt_keys_foreach_bond
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_keys_foreach_type.default:
-    path: tests/bluetooth/host/keys/bt_keys_foreach_type
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_keys_get_addr.default:
-    path: tests/bluetooth/host/keys/bt_keys_get_addr
-    catalog: &34
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_keys_get_addr.keys_overwrite_oldest:
-    path: tests/bluetooth/host/keys/bt_keys_get_addr
-    catalog: *34
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
-    type: unit
-  bluetooth.host.bt_keys_get_type.default:
-    path: tests/bluetooth/host/keys/bt_keys_get_type
-    catalog:
-    - bluetooth
-    - host
-    type: unit
-  bluetooth.host.bt_keys_store.default:
-    path: tests/bluetooth/host/keys/bt_keys_store
-    catalog:
-    - bluetooth
-    - host
-    extra_configs:
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    type: unit
-  bluetooth.host.bt_keys_update_usage.default.bt_keys_update_usage:
-    path: tests/bluetooth/host/keys/bt_keys_update_usage
-    catalog: &35
-    - bluetooth
-    - host
-    extra_configs:
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
-    type: unit
-  bluetooth.host.bt_keys_update_usage.save_aging_counter.bt_keys_update_usage:
-    path: tests/bluetooth/host/keys/bt_keys_update_usage
-    catalog: *35
-    extra_configs:
-    - CONFIG_SETTINGS=y
-    - CONFIG_BT_SETTINGS=y
-    - CONFIG_BT_SMP=y
-    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
-    - CONFIG_BT_KEYS_SAVE_AGING_COUNTER_ON_PAIRING=y
-    type: unit
-  bluetooth.host_long_adv_recv:
-    path: tests/bluetooth/host_long_adv_recv
-    catalog:
-    - bluetooth
-    - host
-    platform_allow:
-    - native_posix
-    - native_posix_64
-  bluetooth.init.test:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_0:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_0.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_1:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_1.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_10:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_10.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_11:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_11.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_12:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_12.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_13:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_13.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_14:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_14.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_15:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_15.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_16:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_16.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_17:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_17.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_18:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_18.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_19:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_19.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_2:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_2.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_20:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_20.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_21:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_21.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_22:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_22.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_3:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_3.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_4:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_4.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_5:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_5.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_6:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_6.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_7:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_7.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_8:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_8.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_9:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_9.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_ctlr:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    - rv32m1_vega_ri5cy
-    build_only: true
-  bluetooth.init.test_ctlr_4_0:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_4_0.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_4_0_dbg:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_4_0_dbg.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_tiny:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_tiny.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_dbg:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args:
-    - CONF_FILE=prj_ctlr_dbg.conf
-    - DTC_OVERLAY_FILE=pa_lna.overlay
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    build_only: true
-  bluetooth.init.test_ctlr_broadcaster:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_broadcaster.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    - rv32m1_vega_ri5cy
-    build_only: true
-  bluetooth.init.test_ctlr_peripheral:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_peripheral.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    - rv32m1_vega_ri5cy
-    build_only: true
-  bluetooth.init.test_ctlr_peripheral_priv:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_peripheral_priv.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    - rv32m1_vega_ri5cy
-    build_only: true
-  bluetooth.init.test_ctlr_observer:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_observer.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    - rv32m1_vega_ri5cy
-    build_only: true
-  bluetooth.init.test_ctlr_central:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_central.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    - rv32m1_vega_ri5cy
-    build_only: true
-  bluetooth.init.test_ctlr_central_priv:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_central_priv.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    - rv32m1_vega_ri5cy
-    build_only: true
-  bluetooth.init.test_ctlr_broadcaster_ext:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_broadcaster_ext.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_peripheral_ext:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_peripheral_ext.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_peripheral_ext_priv:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_peripheral_ext_priv.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_oberver_ext:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_observer_ext.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_central_ext:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_central_ext.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_central_ext_priv:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_central_ext_priv.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_per_adv:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_per_adv.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_per_adv_no_adi:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_per_adv_no_adi.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_per_sync:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_per_sync.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_per_sync_no_adi:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_per_sync_no_adi.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_per_sync_no_filter:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_per_sync_no_filter.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_peripheral_iso:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_peripheral_iso.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_ctlr_central_iso:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_ctlr_central_iso.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - nrf51dk_nrf51422
-    build_only: true
-  bluetooth.init.test_h5:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_h5.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_h5_dbg:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_h5_dbg.conf
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  bluetooth.init.test_llcp:
-    path: tests/bluetooth/init
-    catalog: bluetooth
-    extra_args: CONF_FILE=prj_llcp.conf
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf52dk_nrf52832
-    - rv32m1_vega_ri5cy
-    build_only: true
-  bluetooth.l2cap:
-    path: tests/bluetooth/l2cap
-    catalog:
-    - bluetooth
-    - l2cap
-    platform_allow:
-    - native_posix
-    - native_posix_64
-    - qemu_x86
-    - qemu_cortex_m3
-  bluetooth.ll_settings:
-    path: tests/bluetooth/ll_settings
-    catalog: bluetooth
-    platform_allow: nrf52_bsim
-  bluetooth.mesh.main:
-    path: tests/bluetooth/mesh/basic
-    catalog:
-    - bluetooth
-    - mesh
-    build_only: true
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-  bluetooth.mesh.dbg:
-    path: tests/bluetooth/mesh/basic
-    catalog:
-    - bluetooth
-    - mesh
-    extra_args: CONF_FILE=dbg.conf
-    build_only: true
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-  bluetooth.mesh.friend:
-    path: tests/bluetooth/mesh/basic
-    catalog:
-    - bluetooth
-    - mesh
-    extra_args: CONF_FILE=friend.conf
-    build_only: true
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-  bluetooth.mesh.gatt:
-    path: tests/bluetooth/mesh/basic
-    catalog:
-    - bluetooth
-    - mesh
-    extra_args: CONF_FILE=gatt.conf
-    build_only: true
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-  bluetooth.mesh.lpn:
-    path: tests/bluetooth/mesh/basic
-    catalog:
-    - bluetooth
-    - mesh
-    extra_args: CONF_FILE=lpn.conf
-    build_only: true
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-  bluetooth.mesh.pb_gatt:
-    path: tests/bluetooth/mesh/basic
-    catalog:
-    - bluetooth
-    - mesh
-    extra_args: CONF_FILE=pb_gatt.conf
-    build_only: true
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-  bluetooth.mesh.proxy:
-    path: tests/bluetooth/mesh/basic
-    catalog:
-    - bluetooth
-    - mesh
-    extra_args: CONF_FILE=proxy.conf
-    build_only: true
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-  bluetooth.mesh.ext_adv:
-    path: tests/bluetooth/mesh/basic
-    catalog:
-    - bluetooth
-    - mesh
-    extra_args: CONF_FILE=ext_adv.conf
-    build_only: true
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-  bluetooth.mesh.multi_ext_adv:
-    path: tests/bluetooth/mesh/basic
-    catalog:
-    - bluetooth
-    - mesh
-    extra_args: CONF_FILE=multi_ext_adv.conf
-    build_only: true
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-  bluetooth.mesh.blob_io_flash:
-    path: tests/bluetooth/mesh/blob_io_flash
-    catalog:
-    - bluetooth
-    - mesh
-    platform_allow: native_posix
-  bluetooth.mesh.rpl:
-    path: tests/bluetooth/mesh/rpl
-    catalog:
-    - bluetooth
-    - mesh
-    platform_allow: native_posix
-  bluetooth.mesh.mesh_shell:
-    path: tests/bluetooth/mesh_shell
-    catalog: bluetooth
-    platform_allow:
-    - qemu_x86
-    - nrf52840dk_nrf52840
-    platform_exclude: nrf52dk_nrf52810
-  bluetooth.shell.main:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
-    platform_allow:
-    - qemu_x86
-    - native_posix
-    - native_posix_64
-    - nrf52840dk_nrf52840
-    platform_exclude: nrf52dk_nrf52810
-    min_flash: 145
-  bluetooth.shell.cdc_acm:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_args:
-    - OVERLAY_CONFIG=cdc_acm.conf
-    - DTC_OVERLAY_FILE="usb.overlay"
-    depends_on: usb_device
-    platform_allow:
-    - native_posix
-    - native_posix_64
-    - nrf52840dk_nrf52840
-    platform_exclude: nrf52dk_nrf52810
-    min_flash: 350
-  bluetooth.shell.shell_br:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
-    extra_args: CONF_FILE="prj_br.conf"
     platform_allow:
     - qemu_cortex_m3
     - qemu_x86
-    - native_posix
-    - native_posix_64
-    platform_exclude: nrf52dk_nrf52810
-  bluetooth.shell.no_privacy:
-    path: tests/bluetooth/shell
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.broadcast_audio_source.bt_ll_sw_split:
+    path: samples/bluetooth/broadcast_audio_source
     catalog: bluetooth
-    extra_args: CONFIG_BT_PRIVACY=n
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.log_defaults:
-    path: tests/bluetooth/shell
+    extra_args: OVERLAY_CONFIG=overlay-bt_ll_sw_split.conf
+    platform_allow:
+    - nrf52_bsim
+    - nrf52833dk_nrf52820
+    - nrf52833dk_nrf52833
+  sample.bluetooth.broadcaster:
+    path: samples/bluetooth/broadcaster
     catalog: bluetooth
-    extra_args: CONF_FILE="log.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio:
-    path: tests/bluetooth/shell
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf51dk_nrf51422
+    - nrf52dk_nrf52832
+  sample.bluetooth.multiple_broadcast:
+    path: samples/bluetooth/broadcaster_multiple
     catalog: bluetooth
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_vcs:
-    path: tests/bluetooth/shell
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf51dk_nrf51422
+    - nrf52_bsim
+    - nrf52dk_nrf52832
+  sample.bluetooth.central:
+    path: samples/bluetooth/central
     catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_VCP_VOL_REND=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_vocs:
-    path: tests/bluetooth/shell
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.central_gatt_write:
+    path: samples/bluetooth/central_gatt_write
     catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_VOCS_MAX_INSTANCE_COUNT=0
-    - CONFIG_BT_VCP_VOL_REND_VOCS_INSTANCE_COUNT=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_aics:
-    path: tests/bluetooth/shell
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+  sample.bluetooth.central_hr:
+    path: samples/bluetooth/central_hr
     catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_AICS_MAX_INSTANCE_COUNT=0
-    - CONFIG_BT_VCP_VOL_REND_AICS_INSTANCE_COUNT=0
-    - CONFIG_BT_MICP_MIC_DEV_AICS_INSTANCE_COUNT=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_aics_vocs:
-    path: tests/bluetooth/shell
+    arch_allow: x86
+  sample.bluetooth.central_ht:
+    path: samples/bluetooth/central_ht
     catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_VOCS_MAX_INSTANCE_COUNT=0
-    - CONFIG_BT_VCP_VOL_REND_VOCS_INSTANCE_COUNT=0
-    - CONFIG_BT_AICS_MAX_INSTANCE_COUNT=0
-    - CONFIG_BT_VCP_VOL_REND_AICS_INSTANCE_COUNT=0
-    - CONFIG_BT_MICP_MIC_DEV_AICS_INSTANCE_COUNT=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_vcp_vol_ctlr:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_VCP_VOL_CTLR=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_vcs_vcp_vol_ctlr:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_VCP_VOL_REND=n
-    - CONFIG_BT_VCP_VOL_CTLR=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.vcp_vol_ctlr_no_aics_client:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_VCP_VOL_CTLR_MAX_AICS_INST=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.vcp_vol_ctlr_no_vocs_client:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_VCP_VOL_CTLR_MAX_VOCS_INST=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_micp_mic_dev:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_MICP_MIC_DEV=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_micp_mic_ctlr:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_MICP_MIC_CTLR=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_micp_mic_dev_micp_mic_ctlr:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_MICP_MIC_DEV=n
-    - CONFIG_BT_MICP_MIC_CTLR=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.micp_mic_ctlr_no_aics_client:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_MICP_MIC_CTLR_MAX_AICS_INST=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_mcs:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_MCS=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_mcc:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_MCC=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_ots:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_OTS=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_mcc_ots:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_MCC_OTS=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_otsc:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_OTS=n
-    - CONFIG_BT_MCC_OTS=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_pac_snk:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_PAC_SNK=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_pac_src:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_PAC_SRC=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_unicast_client:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_BAP_UNICAST_CLIENT=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_unicast_server:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_BAP_UNICAST_SERVER=n
-    - CONFIG_BT_HAS=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_server_ase_snk:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_ASCS_ASE_SNK_COUNT=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_server_ase_src:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_ASCS_ASE_SRC_COUNT=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_client_ase_snk:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_BAP_UNICAST_CLIENT_ASE_SNK_COUNT=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_client_ase_src:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_BAP_UNICAST_CLIENT_ASE_SRC_COUNT=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_broadcast_source:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_BAP_BROADCAST_SOURCE=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_broadcast_sink:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_BAP_BROADCAST_SINK=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_audio_tx:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_BAP_BROADCAST_SOURCE=n
-    - CONFIG_BT_BAP_UNICAST_CLIENT_ASE_SNK_COUNT=0
-    - CONFIG_BT_ASCS_ASE_SRC_COUNT=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_audio_rx:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_BAP_BROADCAST_SINK=n
-    - CONFIG_BT_BAP_UNICAST_CLIENT_ASE_SRC_COUNT=0
-    - CONFIG_BT_ASCS_ASE_SNK_COUNT=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_has:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_HAS=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_has_client:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_HAS_CLIENT=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_tbs:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_TBS=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.no_tbs_client:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_TBS_CLIENT=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.shell.audio.gtbs_only_client:
-    path: tests/bluetooth/shell
-    catalog: bluetooth
-    extra_configs:
-    - CONFIG_BT_TBS_CLIENT_MAX_TBS_INSTANCES=0
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_cap_acceptor:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_CAP_ACCEPTOR=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_cap_acceptor_set_member:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_CAP_ACCEPTOR_SET_MEMBER=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.audio_shell.no_cap_initiator:
-    path: tests/bluetooth/shell
-    catalog: unknown
-    extra_configs:
-    - CONFIG_BT_CAP_INITIATOR=n
-    extra_args: CONF_FILE="audio.conf"
-    build_only: true
-    platform_allow: native_posix
-  bluetooth.general.tester:
-    path: tests/bluetooth/tester
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf51dk_nrf51422
+    - nrf52dk_nrf52832
+  sample.bluetooth.central_iso:
+    path: samples/bluetooth/central_iso
     catalog: bluetooth
     platform_allow: qemu_x86
-  bluetooth.uuid:
-    path: tests/bluetooth/uuid
+  sample.bluetooth.central.multilink:
+    path: samples/bluetooth/central_multilink
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.central_otc:
+    path: samples/bluetooth/central_otc
+    catalog: bluetooth
+    platform_allow:
+    - nrf21540dk_nrf52840
+    - nrf52840dk_nrf52840
+    - nrf52833dk_nrf52833
+  sample.bluetooth.central_past:
+    path: samples/bluetooth/central_past
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.direct_adv:
+    path: samples/bluetooth/direct_adv
+    catalog: bluetooth
+    platform_allow: qemu_x86
+  sample.bluetooth.direction_finding.central:
+    path: samples/bluetooth/direction_finding_central
+    catalog: bluetooth
+    platform_allow:
+    - nrf52833dk_nrf52833
+    - nrf52833dk_nrf52820
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding.central.aod:
+    path: samples/bluetooth/direction_finding_central
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-aod.conf"
+    platform_allow:
+    - nrf52833dk_nrf52833
+    - nrf52833dk_nrf52820
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding_connectionless_rx:
+    path: samples/bluetooth/direction_finding_connectionless_rx
+    catalog: bluetooth
+    platform_allow:
+    - nrf52833dk_nrf52833
+    - nrf52833dk_nrf52820
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding_connectionless_rx.aod:
+    path: samples/bluetooth/direction_finding_connectionless_rx
+    catalog: unknown
+    extra_args: OVERLAY_CONFIG="overlay-aod.conf"
+    platform_allow:
+    - nrf52833dk_nrf52833
+    - nrf52833dk_nrf52820
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding_connectionless:
+    path: samples/bluetooth/direction_finding_connectionless_tx
+    catalog: bluetooth
+    platform_allow:
+    - nrf52833dk_nrf52833
+    - nrf52833dk_nrf52820
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding_connectionless.aoa:
+    path: samples/bluetooth/direction_finding_connectionless_tx
+    catalog: unknown
+    extra_args: OVERLAY_CONFIG="overlay-aoa.conf"
+    platform_allow:
+    - nrf52833dk_nrf52833
+    - nrf52833dk_nrf52820
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding.peripheral:
+    path: samples/bluetooth/direction_finding_peripheral
+    catalog: bluetooth
+    platform_allow:
+    - nrf52833dk_nrf52833
+    - nrf52833dk_nrf52820
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.direction_finding.peripheral.aod:
+    path: samples/bluetooth/direction_finding_peripheral
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="overlay-aoa.conf"
+    platform_allow:
+    - nrf52833dk_nrf52833
+    - nrf52833dk_nrf52820
+    - nrf5340dk_nrf5340_cpuapp
+  sample.bluetooth.eddystone:
+    path: samples/bluetooth/eddystone
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.central_ead:
+    path: samples/bluetooth/encrypted_advertising/central
+    catalog: bluetooth
+    platform_allow: nrf52840dk_nrf52840
+  sample.bluetooth.peripheral_ead:
+    path: samples/bluetooth/encrypted_advertising/peripheral
+    catalog: bluetooth
+    platform_allow: nrf52840dk_nrf52840
+  sample.bluetooth.handsfree:
+    path: samples/bluetooth/handsfree
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.hap_ha.monaural:
+    path: samples/bluetooth/hap_ha
+    catalog: bluetooth
+    platform_allow: native_posix
+    build_only: true
+  sample.bluetooth.hap_ha.banded:
+    path: samples/bluetooth/hap_ha
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG="banded.conf"
+    platform_allow: native_posix
+    build_only: true
+  sample.bluetooth.hap_ha.binaural:
+    path: samples/bluetooth/hap_ha
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_HAP_HA_SET_RANK=2
+    extra_args: OVERLAY_CONFIG="binaural.conf"
+    platform_allow: native_posix
+    build_only: true
+  sample.bluetooth.hci_pwr_ctrl:
+    path: samples/bluetooth/hci_pwr_ctrl
+    catalog: bluetooth
+    platform_allow:
+    - bbc_microbit
+    - nrf51dk_nrf51422
+    - nrf52dk_nrf52832
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.hci_rpmsg:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    platform_allow:
+    - nrf5340dk_nrf5340_cpunet
+    - nrf5340_audio_dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.iso_broadcast.bt_ll_sw_split:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args: CONF_FILE="nrf5340_cpunet_iso_broadcast-bt_ll_sw_split.conf"
+    platform_allow:
+    - nrf5340dk_nrf5340_cpunet
+    - nrf5340_audio_dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.iso_receive.bt_ll_sw_split:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args: CONF_FILE="nrf5340_cpunet_iso_receive-bt_ll_sw_split.conf"
+    platform_allow:
+    - nrf5340dk_nrf5340_cpunet
+    - nrf5340_audio_dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.bis.bt_ll_sw_split:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args: CONF_FILE="nrf5340_cpunet_bis-bt_ll_sw_split.conf"
+    platform_allow:
+    - nrf5340dk_nrf5340_cpunet
+    - nrf5340_audio_dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.iso_central.bt_ll_sw_split:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args: CONF_FILE="nrf5340_cpunet_iso_central-bt_ll_sw_split.conf"
+    platform_allow:
+    - nrf5340dk_nrf5340_cpunet
+    - nrf5340_audio_dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.iso_peripheral.bt_ll_sw_split:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args: CONF_FILE="nrf5340_cpunet_iso_peripheral-bt_ll_sw_split.conf"
+    platform_allow:
+    - nrf5340dk_nrf5340_cpunet
+    - nrf5340_audio_dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.cis.bt_ll_sw_split:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args: CONF_FILE="nrf5340_cpunet_cis-bt_ll_sw_split.conf"
+    platform_allow:
+    - nrf5340dk_nrf5340_cpunet
+    - nrf5340_audio_dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.iso.bt_ll_sw_split:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args: CONF_FILE="nrf5340_cpunet_iso-bt_ll_sw_split.conf"
+    platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.bluetooth.hci_rpmsg.df.bt_ll_sw_split:
+    path: samples/bluetooth/hci_rpmsg
+    catalog: bluetooth
+    extra_args:
+    - CONF_FILE="nrf5340_cpunet_df-bt_ll_sw_split.conf"
+    - DTC_OVERLAY_FILE="nrf5340_cpunet_df-bt_ll_sw_split.overlay"
+    platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.bluetooth.hci_spi:
+    path: samples/bluetooth/hci_spi
     catalog:
     - bluetooth
-    - uuid
+    - spi
     platform_allow:
-    - native_posix
-    - native_posix_64
+    - 96b_carbon_nrf51
+    - nrf51dk_nrf51422
+  sample.bluetooth.hci_uart.arm:
+    path: samples/bluetooth/hci_uart
+    catalog:
+    - uart
+    - bluetooth
+    platform_allow:
+    - 96b_nitrogen
+    - nrf51dk_nrf51422
+    - nrf52dk_nrf52832
+    - bbc_microbit
+  sample.bluetooth.hci_uart.nrf5:
+    path: samples/bluetooth/hci_uart
+    catalog:
+    - uart
+    - bluetooth
+    platform_allow:
+    - 96b_nitrogen
+    - nrf51dk_nrf51422
+    - nrf52dk_nrf52832
+  sample.bluetooth.hci_uart.nrf52833.df:
+    path: samples/bluetooth/hci_uart
+    catalog:
+    - uart
+    - bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR_DF=y
+    extra_args: DTC_OVERLAY_FILE=./boards/nrf52833dk_nrf52833_df.overlay
+    platform_allow: nrf52833dk_nrf52833
+  sample.bluetooth.hci_uart.nrf5340_netcore.df:
+    path: samples/bluetooth/hci_uart
+    catalog:
+    - uart
+    - bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR_DF=y
+    extra_args: DTC_OVERLAY_FILE=./boards/nrf5340dk_nrf5340_cpunet_df.overlay
+    platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.bluetooth.hci_uart.nrf52833.df.iq_report:
+    path: samples/bluetooth/hci_uart
+    catalog:
+    - uart
+    - bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR_DF=y
+    - CONFIG_BT_CTLR_DTM_HCI_DF_IQ_REPORT=y
+    extra_args: DTC_OVERLAY_FILE=./boards/nrf52833dk_nrf52833_df.overlay
+    platform_allow: nrf52833dk_nrf52833
+  sample.bluetooth.hci_uart.nrf5340_netcore.df.iq_report:
+    path: samples/bluetooth/hci_uart
+    catalog:
+    - uart
+    - bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR_DF=y
+    - CONFIG_BT_CTLR_DTM_HCI_DF_IQ_REPORT=y
+    extra_args: DTC_OVERLAY_FILE=./boards/nrf5340dk_nrf5340_cpunet_df.overlay
+    platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.bluetooth.hci_uart.nrf52833.all:
+    path: samples/bluetooth/hci_uart
+    catalog:
+    - uart
+    - bluetooth
+    extra_args:
+    - OVERLAY_CONFIG=overlay-all-bt_ll_sw_split.conf
+    - DTC_OVERLAY_FILE=./boards/nrf52833dk_nrf52833_df.overlay
+    platform_allow: nrf52833dk_nrf52833
+  sample.bluetooth.hci_usb:
+    path: samples/bluetooth/hci_usb
+    catalog:
+    - usb
+    - bluetooth
+    depends_on:
+    - usb_device
+    - ble
+    platform_exclude: 96b_carbon
+  sample.bluetooth.hci_usb.device_next:
+    path: samples/bluetooth/hci_usb
+    catalog:
+    - usb
+    - bluetooth
+    extra_args: CONF_FILE="usbd_next_prj.conf"
+    depends_on:
+    - usb_device
+    - ble
+    platform_allow: nrf52840dk_nrf52840
+  sample.bluetooth.hci_usb_h4:
+    path: samples/bluetooth/hci_usb_h4
+    catalog:
+    - usb
+    - bluetooth
+    depends_on:
+    - usb_device
+    - ble
+    platform_exclude: 96b_carbon
+  sample.bluetooth.ibeacon:
+    path: samples/bluetooth/ibeacon
+    catalog: bluetooth
+    platform_allow:
+    - bbc_microbit
+    - qemu_x86
+  sample.bluetooth.ipsp:
+    path: samples/bluetooth/ipsp
+    catalog:
+    - bluetooth
+    - net
+    platform_allow:
     - qemu_x86
     - qemu_cortex_m3
+  sample.bluetooth.ipsp.zep1656:
+    path: samples/bluetooth/ipsp
+    catalog:
+    - bluetooth
+    - net
+    extra_args: CONF_FILE="prj_zep1656.conf"
+    platform_allow:
+    - qemu_x86
+    - qemu_cortex_m3
+  sample.bluetooth.iso_broadcast:
+    path: samples/bluetooth/iso_broadcast
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
+  sample.bluetooth.iso_broadcast.bt_ll_sw_split:
+    path: samples/bluetooth/iso_broadcast
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG=overlay-bt_ll_sw_split.conf
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
+  sample.bluetooth.iso_broadcast_benchmark:
+    path: samples/bluetooth/iso_broadcast_benchmark
+    catalog: bluetooth
+    build_only: true
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nrf5340dk_nrf5340_cpuapp
+    - nrf5340_audio_dk_nrf5340_cpuapp
+  sample.bluetooth.iso_connected_benchmark:
+    path: samples/bluetooth/iso_connected_benchmark
+    catalog: bluetooth
+    build_only: true
+    platform_allow:
+    - nrf5340dk_nrf5340_cpuapp
+    - nrf5340_audio_dk_nrf5340_cpuapp
+  sample.bluetooth.iso_receive:
+    path: samples/bluetooth/iso_receive
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
+  sample.bluetooth.iso_receive.bt_ll_sw_split:
+    path: samples/bluetooth/iso_receive
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG=overlay-bt_ll_sw_split.conf
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
+  sample.bluetooth.mesh:
+    path: samples/bluetooth/mesh
+    catalog: bluetooth
+    platform_allow:
+    - bbc_microbit
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.mesh_demo:
+    path: samples/bluetooth/mesh_demo
+    catalog: bluetooth
+    platform_allow:
+    - bbc_microbit
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.mesh_provisioner:
+    path: samples/bluetooth/mesh_provisioner
+    catalog: bluetooth
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.central_mtu_update:
+    path: samples/bluetooth/mtu_update/central
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+  sample.bluetooth.peripheral_mtu_update:
+    path: samples/bluetooth/mtu_update/peripheral
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+  sample.bluetooth.observer:
+    path: samples/bluetooth/observer
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.observer.extended:
+    path: samples/bluetooth/observer
+    catalog: bluetooth
+    extra_args: CONF_FILE="prj_extended.conf"
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.periodic_adv:
+    path: samples/bluetooth/periodic_adv
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
+  sample.bluetooth.periodic_adv_conn:
+    path: samples/bluetooth/periodic_adv_conn
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR=n
+    - CONFIG_BT_NO_DRIVER=y
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.periodic_adv_rsp:
+    path: samples/bluetooth/periodic_adv_rsp
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR=n
+    - CONFIG_BT_NO_DRIVER=y
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.periodic_sync:
+    path: samples/bluetooth/periodic_sync
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
+  sample.bluetooth.periodic_sync_conn:
+    path: samples/bluetooth/periodic_sync_conn
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR=n
+    - CONFIG_BT_NO_DRIVER=y
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.periodic_sync_rsp:
+    path: samples/bluetooth/periodic_sync_rsp
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_CTLR=n
+    - CONFIG_BT_NO_DRIVER=y
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.peripheral:
+    path: samples/bluetooth/peripheral
+    catalog: bluetooth
+    platform_allow:
+    - qemu_x86
+    - nucleo_wb55rg
+  sample.bluetooth.peripheral.x_nucleo_idb05a1_shield:
+    path: samples/bluetooth/peripheral
+    catalog: unknown
+    extra_args: SHIELD=x_nucleo_idb05a1
+    platform_allow: nucleo_l4r5zi
+    depends_on:
+    - arduino_spi
+    - arduino_gpio
+  sample.bluetooth.peripheral_accept_list:
+    path: samples/bluetooth/peripheral_accept_list
+    catalog: bluetooth
+    platform_allow: qemu_x86
+  sample.bluetooth.peripheral_csc:
+    path: samples/bluetooth/peripheral_csc
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.peripheral_dis:
+    path: samples/bluetooth/peripheral_dis
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.peripheral_esp:
+    path: samples/bluetooth/peripheral_esp
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.peripheral_gatt_write:
+    path: samples/bluetooth/peripheral_gatt_write
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+  sample.bluetooth.peripheral_hids:
+    path: samples/bluetooth/peripheral_hids
+    catalog: bluetooth
+    platform_allow: qemu_x86
+  sample.bluetooth.peripheral_hids.no_authentication:
+    path: samples/bluetooth/peripheral_hids
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_SAMPLE_BT_USE_AUTHENTICATION=n
+    platform_allow: qemu_x86
+  sample.bluetooth.peripheral_hr:
+    path: samples/bluetooth/peripheral_hr
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.peripheral_hr_rv32m1_vega_ri5cy:
+    path: samples/bluetooth/peripheral_hr
+    catalog: bluetooth
+    platform_allow: rv32m1_vega_ri5cy
+    build_only: true
+  sample.bluetooth.peripheral_hr.frdm_kw41z_shield:
+    path: samples/bluetooth/peripheral_hr
+    catalog: bluetooth
+    extra_args: SHIELD=frdm_kw41z
+    depends_on: arduino_serial
+  sample.bluetooth.peripheral_ht:
+    path: samples/bluetooth/peripheral_ht
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf51dk_nrf51422
+    - nrf52dk_nrf52832
+  sample.bluetooth.peripheral_ht.frdm_kw41z_shield:
+    path: samples/bluetooth/peripheral_ht
+    catalog: bluetooth
+    extra_args: SHIELD=frdm_kw41z
+    platform_allow:
+    - mimxrt1020_evk
+    - mimxrt1050_evk
+    - mimxrt1060_evk
+    - frdm_k64f
+  sample.bluetooth.peripheral_identity:
+    path: samples/bluetooth/peripheral_identity
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  sample.bluetooth.peripheral_iso:
+    path: samples/bluetooth/peripheral_iso
+    catalog: bluetooth
+    platform_allow: qemu_x86
+  sample.bluetooth.peripheral_ots:
+    path: samples/bluetooth/peripheral_ots
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.peripheral_past:
+    path: samples/bluetooth/peripheral_past
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.peripheral_sc_only:
+    path: samples/bluetooth/peripheral_sc_only
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.scan_adv:
+    path: samples/bluetooth/scan_adv
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.st_ble_sensor:
+    path: samples/bluetooth/st_ble_sensor
+    catalog: bluetooth
+    platform_allow: nucleo_wb55rg
+  sample.bluetooth.tmap_central:
+    path: samples/bluetooth/tmap_central
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.tmap_peripheral:
+    path: samples/bluetooth/tmap_peripheral
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.tmap_peripheral.duo:
+    path: samples/bluetooth/tmap_peripheral
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_TMAP_PERIPHERAL_SET_RANK=2
+    extra_args: OVERLAY_CONFIG="duo.conf"
+    platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.audio_unicast_client:
+    path: samples/bluetooth/unicast_audio_client
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.audio_unicast_server:
+    path: samples/bluetooth/unicast_audio_server
+    catalog: bluetooth
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+  sample.bluetooth.mesh.onoff:
+    path: samples/boards/nrf/mesh/onoff-app
+    catalog: bluetooth
+    platform_allow: nrf52840dk_nrf52840
+  sample.bluetooth.mesh.onoff_level_lighting_vnd:
+    path: samples/boards/nrf/mesh/onoff_level_lighting_vnd_app
+    catalog: bluetooth
+    platform_allow: nrf52840dk_nrf52840

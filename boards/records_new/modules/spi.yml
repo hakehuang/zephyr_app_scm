@@ -1,0 +1,107 @@
+---
+cases:
+  drivers.spi.dt_spec:
+    path: tests/drivers/spi/dt_spec
+    catalog:
+    - drivers
+    - spi
+    - devicetree
+    depends_on:
+    - spi
+    - gpio
+  drivers.spi.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: &1
+    - drivers
+    - spi
+    - dma
+    depends_on: spi
+    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
+  drivers.spi.loopback.internal:
+    path: tests/drivers/spi/spi_loopback
+    catalog: *1
+    filter:
+    - CONFIG_SPI_LOOPBACK_MODE_LOOP
+    - dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
+    depends_on: spi
+  drivers.spi.loopback.rtio:
+    path: tests/drivers/spi/spi_loopback
+    catalog: *1
+    extra_configs:
+    - CONFIG_SPI_RTIO=y
+    platform_allow: tdk_robokit1
+    depends_on: spi
+    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
+  drivers.spi.mcux_dspi_dma.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: *1
+    extra_args:
+    - OVERLAY_CONFIG="overlay-mcux-dspi-dma.conf"
+    - DTC_OVERLAY_FILE="overlay-mcux-dspi-dma.overlay"
+    platform_allow: frdm_k64f
+    depends_on: spi
+    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
+  drivers.spi.sam_spi_dma.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: *1
+    extra_args:
+    - OVERLAY_CONFIG="overlay-sam-spi-dma.conf"
+    - DTC_OVERLAY_FILE="overlay-sam-spi-dma.overlay"
+    platform_allow:
+    - sam_e70_xplained
+    - sam_v71_xult
+    - tdk_robokit1
+    depends_on: spi
+    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
+  drivers.spi.stm32_spi_dma.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: *1
+    extra_args: OVERLAY_CONFIG="overlay-stm32-spi-dma.conf"
+    filter:
+    - CONFIG_SOC_FAMILY_STM32
+    - dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
+    platform_allow:
+    - nucleo_g474re
+    - nucleo_f207zg
+    - nucleo_f429zi
+    - nucleo_f746zg
+    - nucleo_wb55rg
+    - nucleo_l152re
+    - nucleo_wl55jc
+    - nucleo_h743zi
+    - stm32h573i_dk
+    depends_on: spi
+  drivers.spi.gd32_spi_interrupt.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: *1
+    extra_args: OVERLAY_CONFIG="overlay-gd32-spi-interrupt.conf"
+    platform_allow:
+    - gd32f403z_eval
+    - gd32f407v_start
+    - gd32f450i_eval
+    - gd32f450v_start
+    - gd32f450z_eval
+    - gd32f470i_eval
+    - gd32vf103c_starter
+    - gd32vf103v_eval
+    - longan_nano
+    - longan_nano_lite
+    depends_on: spi
+    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
+  drivers.spi.gd32_spi_dma.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog: *1
+    extra_args: OVERLAY_CONFIG="overlay-gd32-spi-dma.conf"
+    platform_allow:
+    - gd32f403z_eval
+    - gd32f407v_start
+    - gd32f450i_eval
+    - gd32f450v_start
+    - gd32f450z_eval
+    - gd32f470i_eval
+    - gd32vf103c_starter
+    - gd32vf103v_eval
+    - longan_nano
+    - longan_nano_lite
+    depends_on: spi
+    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")

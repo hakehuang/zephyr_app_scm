@@ -1,0 +1,14 @@
+---
+cases:
+  drivers.pl022_spi_interrupt.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog:
+    - drivers
+    - spi
+    - dma
+    extra_configs:
+    - CONFIG_SPI_PL022_INTERRUPT=y
+    - CONFIG_SPI_PL022_DMA=n
+    platform_allow: rpi_pico
+    depends_on: spi
+    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")

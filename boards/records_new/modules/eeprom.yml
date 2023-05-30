@@ -1,0 +1,37 @@
+---
+cases:
+  drivers.eeprom.build:
+    path: tests/drivers/build_all/eeprom
+    catalog:
+    - drivers
+    - eeprom
+    min_ram: 32
+    platform_exclude: serpente
+    depends_on:
+    - gpio
+    - i2c
+    - spi
+    build_only: true
+  drivers.eeprom.api:
+    path: tests/drivers/eeprom/api
+    catalog: &1
+    - drivers
+    - eeprom
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    - qemu_x86
+    - nucleo_l152re
+    - nucleo_l073rz
+    depends_on: eeprom
+  drivers.eeprom.api.build:
+    path: tests/drivers/eeprom/api
+    catalog: *1
+    build_only: true
+    depends_on: eeprom
+  drivers.eeprom.shell:
+    path: tests/drivers/eeprom/shell
+    catalog:
+    - drivers
+    - eeprom
+    - shell

@@ -1,0 +1,14 @@
+---
+cases:
+  drivers.mm.sys_mm_drv_api:
+    path: tests/drivers/mm/sys_mm_drv_api
+    catalog:
+    - drivers
+    - mm
+    filter: dt_compat_enabled("intel,adsp-mtl-tlb") or dt_compat_enabled("intel,adsp-tlb")
+  drivers.mm.sys_mm_drv_bank:
+    path: tests/drivers/mm/sys_mm_drv_bank
+    catalog:
+    - drivers
+    - mm
+    filter: dt_compat_enabled("intel,adsp-mtl-tlb") or dt_compat_enabled("intel,adsp-tlb")

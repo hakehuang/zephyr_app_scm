@@ -1,0 +1,146 @@
+---
+cases:
+  arch.common.semihost:
+    path: tests/arch/common/semihost
+    catalog: unknown
+    arch_allow:
+    - arm
+    - arm64
+    - riscv32
+    - riscv64
+    platform_type:
+    - qemu
+  arch.common.timing:
+    path: tests/arch/common/timing
+    catalog:
+    - timing
+    - arch
+    filter: CONFIG_ARCH_HAS_TIMING_FUNCTIONS
+    platform_type:
+    - mcu
+    - native
+  kernel.common:
+    path: tests/kernel/common
+    catalog: &1
+    - base
+    - kernel
+    - userspace
+    min_flash: 33
+  kernel.common.tls:
+    path: tests/kernel/common
+    catalog: *1
+    extra_configs:
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    filter: 'CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+      and not (CONFIG_TOOLCHAIN_ARCMWDT_SUPPORTS_THREAD_LOCAL_STORAGE and CONFIG_USERSPACE)
+
+      '
+    min_flash: 33
+  kernel.common.misra:
+    path: tests/kernel/common
+    catalog: *1
+    extra_configs:
+    - CONFIG_MISRA_SANE=y
+    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
+    min_flash: 33
+  kernel.common.nano32:
+    path: tests/kernel/common
+    catalog: *1
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
+    filter: not CONFIG_KERNEL_COHERENCE
+    min_flash: 33
+  kernel.common.nano64:
+    path: tests/kernel/common
+    catalog: *1
+    extra_configs:
+    - CONFIG_CBPRINTF_NANO=y
+    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
+    filter: not CONFIG_KERNEL_COHERENCE
+    min_flash: 33
+  kernel.common.picolibc:
+    path: tests/kernel/common
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    min_flash: 33
+  kernel.common.sleep:
+    path: tests/kernel/early_sleep
+    catalog:
+    - kernel
+    - sleep
+  kernel.common.sleep.linker_generator:
+    path: tests/kernel/early_sleep
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3
+  kernel.common.stack_protection:
+    path: tests/kernel/fatal/exception
+    catalog:
+    - kernel
+    - userspace
+    extra_args: CONF_FILE=prj.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+  kernel.common.stack_protection_no_userspace:
+    path: tests/kernel/fatal/exception
+    catalog:
+    - kernel
+    - memory_protection
+    extra_args: CONF_FILE=protection_no_userspace.conf
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
+    arch_allow: arm
+  kernel.common.stack_protection_arm_fpu_sharing:
+    path: tests/kernel/fatal/exception
+    catalog:
+    - fpu
+    - kernel
+    - userspace
+    extra_args: CONF_FILE=prj_arm_fpu_sharing.conf
+    platform_exclude: twr_ke18f
+    filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
+  kernel.common.stack_protection_armv8m_mpu_stack_guard:
+    path: tests/kernel/fatal/exception
+    catalog:
+    - kernel
+    - userspace
+    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
+    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
+    arch_allow: arm
+  kernel.common.stack_sentinel:
+    path: tests/kernel/fatal/exception
+    catalog: kernel
+    extra_args: CONF_FILE=sentinel.conf
+    platform_exclude: qemu_cortex_a9
+  kernel.common.profiling:
+    path: tests/kernel/profiling/profiling_api
+    catalog:
+    - kernel
+    - pm
+    arch_exclude: nios2
+    platform_exclude:
+    - em_starterkit
+    - litex_vexriscv
+    - rv32m1_vega_zero_riscy
+    - rv32m1_vega_ri5cy
+    - nrf5340dk_nrf5340_cpunet
+  kernel.common.timing:
+    path: tests/kernel/sleep
+    catalog:
+    - kernel
+    - sleep
+  arch.common.xip:
+    path: tests/kernel/xip
+    catalog:
+    - kernel
+    - xip
+    filter: CONFIG_XIP
+  arch.common.xip.linker_generator:
+    path: tests/kernel/xip
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3

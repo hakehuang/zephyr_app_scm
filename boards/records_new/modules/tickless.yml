@@ -1,0 +1,14 @@
+---
+cases:
+  kernel.tickless.concept:
+    path: tests/kernel/tickless/tickless_concept
+    catalog:
+    - kernel
+    - pm
+    arch_exclude: nios2
+    platform_exclude:
+    - litex_vexriscv
+    - rv32m1_vega_zero_riscy
+    - rv32m1_vega_ri5cy
+    - nrf5340dk_nrf5340_cpunet
+    - nucleo_l073rz

@@ -1,0 +1,255 @@
+---
+cases:
+  net.socket.af_packet:
+    path: tests/net/socket/af_packet
+    catalog:
+    - net
+    - socket
+    - af_packet
+    min_ram: 21
+    depends_on: netif
+    platform_exclude:
+    - native_posix
+    - native_posix_64
+  net.socket.af_packet.ipproto_raw:
+    path: tests/net/socket/af_packet_ipproto_raw
+    catalog:
+    - net
+    - socket
+    - af_packet
+    min_ram: 21
+    depends_on: netif
+    platform_exclude:
+    - native_posix
+    - native_posix_64
+  net.socket.can:
+    path: tests/net/socket/can
+    catalog:
+    - net
+    - can
+  net.socket.get_addr_info:
+    path: tests/net/socket/getaddrinfo
+    catalog:
+    - net
+    - socket
+    - getaddrinfo
+    - userspace
+    min_ram: 21
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.get_name_info:
+    path: tests/net/socket/getnameinfo
+    catalog:
+    - net
+    - socket
+    - userspace
+    min_ram: 21
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.misc:
+    path: tests/net/socket/misc
+    catalog: &1
+    - net
+    - socket
+    - userspace
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 21
+  net.socket.misc.userspace:
+    path: tests/net/socket/misc
+    catalog: *1
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    depends_on: netif
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    min_ram: 21
+  net.socket.mgmt:
+    path: tests/net/socket/net_mgmt
+    catalog: &2
+    - net
+    - socket
+    - net_mgmt
+    - userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.socket.mgmt.preempt:
+    path: tests/net/socket/net_mgmt
+    catalog: *2
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+  net.socket.offload.dispatcher:
+    path: tests/net/socket/offload_dispatcher
+    catalog:
+    - net
+    - socket
+    depends_on: netif
+    min_flash: 240
+  net.socket.poll:
+    path: tests/net/socket/poll
+    catalog:
+    - net
+    - socket
+    - poll
+    min_ram: 21
+    depends_on: netif
+    platform_exclude: mps2_an385
+  net.socket.register:
+    path: tests/net/socket/register
+    catalog: &3
+    - net
+    - socket
+    - socket.register
+    extra_configs:
+    - CONFIG_NET_SOCKETS_SOCKOPT_TLS=n
+    depends_on: netif
+  net.socket.register.tls:
+    path: tests/net/socket/register
+    catalog: *3
+    extra_configs:
+    - CONFIG_MBEDTLS=y
+    - CONFIG_MBEDTLS_BUILTIN=y
+    - CONFIG_MBEDTLS_ENABLE_HEAP=y
+    - CONFIG_MBEDTLS_HEAP_SIZE=60000
+    - CONFIG_MBEDTLS_SSL_MAX_CONTENT_LEN=2048
+    - CONFIG_NET_SOCKETS_SOCKOPT_TLS=y
+    - CONFIG_NET_SOCKETS_TLS_MAX_CONTEXTS=6
+    - CONFIG_NET_SOCKETS_ENABLE_DTLS=y
+    - CONFIG_NET_SOCKETS_DTLS_TIMEOUT=30000
+    - CONFIG_MAIN_STACK_SIZE=2048
+    depends_on: netif
+  net.socket.select:
+    path: tests/net/socket/select
+    catalog: &4
+    - net
+    - socket
+    - userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: mps2_an385
+  net.socket.select.preempt:
+    path: tests/net/socket/select
+    catalog: *4
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: mps2_an385
+  net.socket.socketpair:
+    path: tests/net/socket/socketpair
+    catalog: &5
+    - net
+    - socket
+    - userspace
+    depends_on: netif
+    min_ram: 21
+  net.socket.socketpair.newlib:
+    path: tests/net/socket/socketpair
+    catalog: *5
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    depends_on: netif
+    min_ram: 21
+  net.socket.socketpair.picolibc:
+    path: tests/net/socket/socketpair
+    catalog: *5
+    extra_configs:
+    - CONFIG_PICOLIBC=y
+    filter: CONFIG_PICOLIBC_SUPPORTED
+    depends_on: netif
+    min_ram: 21
+  net.socket.tcp:
+    path: tests/net/socket/tcp
+    catalog: &6
+    - net
+    - socket
+    - userspace
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: mps2_an385
+  net.socket.tcp.preempt:
+    path: tests/net/socket/tcp
+    catalog: *6
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    - CONFIG_NET_TCP_RANDOMIZED_RTO=n
+    depends_on: netif
+    min_ram: 32
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: mps2_an385
+  net.socket.tls:
+    path: tests/net/socket/tls
+    catalog: &7
+    - net
+    - socket
+    - tls
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 32
+    min_flash: 260
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tls.preempt:
+    path: tests/net/socket/tls
+    catalog: *7
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    platform_exclude: mps2_an385
+    depends_on: netif
+    min_ram: 32
+    min_flash: 260
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.tls.ext:
+    path: tests/net/socket/tls_ext
+    catalog:
+    - net
+    - socket
+    - tls
+    platform_allow: qemu_x86
+  net.socket.udp:
+    path: tests/net/socket/udp
+    catalog: &8
+    - net
+    - socket
+    - udp
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_COOPERATIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.udp.preempt:
+    path: tests/net/socket/udp
+    catalog: *8
+    extra_configs:
+    - CONFIG_NET_TC_THREAD_PREEMPTIVE=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.udp.ipv6_fragment:
+    path: tests/net/socket/udp
+    catalog: *8
+    extra_configs:
+    - CONFIG_NET_IPV6_FRAGMENT=y
+    depends_on: netif
+    min_ram: 21
+    filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.socket.websocket:
+    path: tests/net/socket/websocket
+    catalog:
+    - net
+    - websocket
+    min_ram: 21
+    depends_on: netif

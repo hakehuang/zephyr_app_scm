@@ -1,65 +1,20 @@
 ---
 cases:
-  mgmt.ec_host_cmd.simulator.core:
-    path: tests/subsys/mgmt/ec_host_cmd/simulator
-    catalog: ec_host_cmd
-    platform_allow: native_posix
-  mgmt.ec_host_cmd.uart.core:
-    path: tests/subsys/mgmt/ec_host_cmd/uart
-    catalog: ec_host_cmd
-    platform_allow: native_posix
-  mgmt.mcumgr.all.options:
-    path: tests/subsys/mgmt/mcumgr/all_options
-    catalog:
-    - mgmt
-    - mcumgr
-    - all_options
-    platform_allow: nrf52840dk_nrf52840
-  mgmt.mcumgr.fs.mgmt.hash.supported.crc32:
-    path: tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported
-    catalog: &1
-    - mgmt
-    - mcumgr
-    - fs_mgmt_hash_supported
-    extra_args: 'OVERLAY_CONFIG="configuration/crc32.conf"
-
-      '
-    platform_exclude:
-    - nucleo_h745zi_q_m4
-    - arduino_portenta_h7_m4
-    - stm32h747i_disco_m4
-    - arduino_giga_r1_m4
-    - esp32_net
-  mgmt.mcumgr.fs.mgmt.hash.supported.sha256:
-    path: tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported
-    catalog: *1
-    extra_args: 'OVERLAY_CONFIG="configuration/sha256.conf"
-
-      '
-    platform_exclude:
-    - nucleo_h745zi_q_m4
-    - arduino_portenta_h7_m4
-    - stm32h747i_disco_m4
-    - arduino_giga_r1_m4
-    - esp32_net
-  mgmt.mcumgr.fs.mgmt.hash.supported.all:
-    path: tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported
-    catalog: *1
-    extra_args: 'OVERLAY_CONFIG="configuration/all.conf"
-
-      '
-    platform_exclude:
-    - nucleo_h745zi_q_m4
-    - arduino_portenta_h7_m4
-    - stm32h747i_disco_m4
-    - arduino_giga_r1_m4
-    - esp32_net
-  mgmt.mcumgr.os.echo:
-    path: tests/subsys/mgmt/mcumgr/os_mgmt_echo
-    catalog:
-    - os_mgmt_echo
-    - mcumgr
-    - mgmt
+  sample.mgmt.osdp.control_panel:
+    path: samples/subsys/mgmt/osdp/control_panel
+    catalog: osdp
+    depends_on: gpio
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds") and dt_chosen_enabled("zephyr,osdp-uart")
+      and CONFIG_SERIAL
+  sample.mgmt.osdp.peripheral_device:
+    path: samples/subsys/mgmt/osdp/peripheral_device
+    catalog: osdp
+    depends_on: gpio
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds") and dt_chosen_enabled("zephyr,osdp-uart")
+      and CONFIG_SERIAL
+  os.mgmt.info:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: os_mgmt_info
     arch_exclude:
     - arm64
     - nios2
@@ -67,20 +22,88 @@ cases:
     - arc
     - xtensa
     - mips
-  mgmt.mcumgr.smp.reassembly:
-    path: tests/subsys/mgmt/mcumgr/smp_reassembly
-    catalog:
-    - smp_reassembly
-    - mgmt
-    - mcumgr
-    platform_allow: native_posix
-  mgmt.mcumgr.zcbor.bulk:
-    path: tests/subsys/mgmt/mcumgr/zcbor_bulk
-    catalog:
-    - zcbor_bulk
-    - mgmt
-    - mcumgr
-    platform_allow:
-    - native_posix
-    - qemu_cortex_m0
+    - posix
+  os.mgmt.info_no_hooks:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: os_mgmt_info
+    extra_configs:
+    - CONFIG_MCUMGR_GRP_OS_INFO_CUSTOM_HOOKS=n
+    - CONFIG_MCUMGR_MGMT_NOTIFICATION_HOOKS=n
+    arch_exclude:
+    - arm64
+    - nios2
+    - sparc
+    - arc
+    - xtensa
+    - mips
+    - posix
+  os.mgmt.info_bt:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: os_mgmt_info
+    extra_configs:
+    - CONFIG_BT=y
+    - CONFIG_BT_DEVICE_NAME="a_bt_name"
+    depends_on: ble
+    arch_exclude:
+    - arm64
+    - nios2
+    - sparc
+    - arc
+    - xtensa
+    - mips
+    - posix
+  os.mgmt.info_net:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: os_mgmt_info
+    extra_configs:
+    - CONFIG_NETWORKING=y
+    - CONFIG_NET_HOSTNAME_ENABLE=y
+    - CONFIG_NET_HOSTNAME="test_net_name"
+    - CONFIG_TEST_RANDOM_GENERATOR=y
+    depends_on: netif
+    arch_exclude:
+    - arm64
+    - nios2
+    - sparc
+    - arc
+    - xtensa
+    - mips
+    - posix
+    platform_exclude:
+    - qemu_cortex_a9
+    - qemu_x86
+    - qemu_riscv64_smp
+    - qemu_riscv64
+    - qemu_riscv32e
+    - qemu_riscv32
+    - qemu_riscv32_smp
     - qemu_cortex_m3
+    - mps2_an385
+  os.mgmt.info_build_date:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: os_mgmt_info
+    extra_configs:
+    - CONFIG_BUILD_DATE_TIME_TEST=y
+    arch_exclude:
+    - arm64
+    - nios2
+    - sparc
+    - arc
+    - xtensa
+    - mips
+    - posix
+  os.mgmt.info_limited_size:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: os_mgmt_info
+    extra_configs:
+    - CONFIG_LIMITED_TEST=y
+    - CONFIG_MCUMGR_TRANSPORT_DUMMY_RX_BUF_SIZE=64
+    - CONFIG_MCUMGR_GRP_OS_INFO_MAX_RESPONSE_SIZE=32
+    arch_exclude:
+    - arm64
+    - nios2
+    - sparc
+    - arc
+    - xtensa
+    - mips
+    - posix

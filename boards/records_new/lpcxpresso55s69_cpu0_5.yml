@@ -3,9 +3,29 @@ settings:
   case_pipe_name: "lpcxpresso55s69_cpu0_5"
   version: zephyr-v3.3.0-4123-gd01780fc94
 __load__:
-- modules/zdsp.yml
+- modules/ztest.yml
+- modules/zbus.yml
+- modules/x86.yml
+- modules/workqueue.yml
+- modules/work.yml
+- modules/winstream.yml
+- modules/watchdog.yml
+- modules/w1.yml
+- modules/vlan.yml
 - modules/virtualization.yml
-- modules/utilities.yml
+- modules/virtual.yml
+- modules/video.yml
+- modules/uuid.yml
+- modules/util.yml
+- modules/userspace.yml
+- modules/user_defined.yml
+- modules/usage.yml
+- modules/uefi.yml
+- modules/udp.yml
+- modules/udc.yml
+- modules/uart_emul.yml
+- modules/uart.yml
+- modules/6lo.yml
 - skips/lpcxpresso55s69_cpu0.yml
 - boards/lpcxpresso55s69_cpu0.yml
 cases:

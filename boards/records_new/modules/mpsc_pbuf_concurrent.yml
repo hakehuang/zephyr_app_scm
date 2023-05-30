@@ -1,0 +1,11 @@
+---
+cases:
+  libraries.mpsc_pbuf_concurrent:
+    path: tests/lib/mpsc_pbuf
+    catalog: mpsc_pbuf
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=100000
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - qemu_x86_64

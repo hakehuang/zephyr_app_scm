@@ -1,20 +1,22 @@
 ---
 cases:
-  input.api.thread:
-    path: tests/subsys/input/api
+  sample.input.input_dump:
+    path: samples/subsys/input/input_dump
     catalog: input
-    extra_configs:
-    - CONFIG_INPUT_MODE_THREAD=y
-    - CONFIG_INPUT_THREAD_STACK_SIZE=1024
-  input.api.synchronous:
-    path: tests/subsys/input/api
-    catalog: input
-    extra_configs:
-    - CONFIG_INPUT_MODE_SYNCHRONOUS=y
-  input.input_longpress:
-    path: tests/subsys/input/input_longpress
+    build_only: true
+  drivers.input.gpio_keys:
+    path: tests/drivers/input/gpio_keys
     catalog:
     - drivers
+    - input
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  drivers.input.kscan_input:
+    path: tests/drivers/kscan/kscan_input
+    catalog:
+    - drivers
+    - kscan
     - input
     platform_allow:
     - native_posix

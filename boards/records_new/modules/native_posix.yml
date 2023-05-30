@@ -1,0 +1,24 @@
+---
+cases:
+  boards.native_posix.cpu_wait:
+    path: tests/boards/native_posix/cpu_wait
+    catalog: unknown
+    platform_allow:
+    - native_posix
+    - native_posix_64
+  boards.native_posix.native_tasks:
+    path: tests/boards/native_posix/native_tasks
+    catalog: unknown
+    arch_allow: posix
+  boards.native_posix.rtc:
+    path: tests/boards/native_posix/rtc
+    catalog: unknown
+    platform_allow:
+    - native_posix
+    - native_posix_64
+    build_only: true
+  filesystem.native_posix.fcb_0x00:
+    path: tests/subsys/fs/fcb
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
+    platform_allow: native_posix

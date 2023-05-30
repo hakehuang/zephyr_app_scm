@@ -1,0 +1,7 @@
+---
+cases:
+  dsp_sharing.test_load_store:
+    path: tests/arch/arc/arc_dsp_sharing
+    catalog: unknown
+    filter: CONFIG_ISA_ARCV2 and CONFIG_ARC_HAS_DSP
+    platform_allow: nsim_em11d

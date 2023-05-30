@@ -1,0 +1,23 @@
+---
+cases:
+  net.tcp.simple:
+    path: tests/net/tcp
+    catalog: &1
+    - net
+    - tcp
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=1000
+    depends_on: netif
+  net.tcp.no_recv_queue:
+    path: tests/net/tcp
+    catalog: *1
+    extra_configs:
+    - CONFIG_NET_TCP_RECV_QUEUE_TIMEOUT=0
+    depends_on: netif
+  net.tcp.variable_buf_size:
+    path: tests/net/tcp
+    catalog: *1
+    extra_configs:
+    - CONFIG_NET_BUF_VARIABLE_DATA_SIZE=y
+    - CONFIG_NET_BUF_DATA_POOL_SIZE=4096
+    depends_on: netif

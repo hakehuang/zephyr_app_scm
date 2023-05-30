@@ -1,0 +1,17 @@
+---
+cases:
+  kernel.events:
+    path: tests/kernel/events/event_api
+    catalog: kernel
+  kernel.events.linker_generator:
+    path: tests/kernel/events/event_api
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_x86
+  kernel.events.usage:
+    path: tests/kernel/events/sys_event
+    catalog:
+    - kernel
+    - userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE

@@ -1,2642 +1,548 @@
 ---
 cases:
-  drivers.rand32.random_psa_crypto:
-    path: tests/crypto/rand32
-    catalog:
-    - crypto
-    - entropy
-    - random
-    - security
-    - psa-crypto
-    extra_args:
-    - DTC_OVERLAY_FILE=./entropy_psa_crypto.overlay
-    - CONF_FILE=prj_hw_random_psa_crypto.conf
-    filter: CONFIG_BUILD_WITH_TFM
-  drivers.adc:
-    path: tests/drivers/adc/adc_api
-    catalog:
-    - adc
-    - drivers
-    - userspace
-    depends_on: adc
-    min_flash: 40
-  drivers.adc-dma:
-    path: tests/drivers/adc/adc_dma
-    catalog:
-    - adc
-    - dma
-    - trigger
-    depends_on:
-    - adc
-    - dma
-    platform_allow:
-    - frdm_k82f
-    - frdm_k64f
-    - nucleo_h743zi
-  drivers.adc.emul:
-    path: tests/drivers/adc/adc_emul
-    catalog:
-    - adc
-    - drivers
-    - userspace
-    depends_on: adc
-    platform_allow: native_posix
-  drivers.bbram.it8xxx2:
-    path: tests/drivers/bbram
-    catalog: &1
-    - drivers
-    - bbram
-    filter: dt_compat_enabled("ite,it8xxx2-bbram")
-    build_only: true
-    platform_exclude: native_posix
-  drivers.bbram.npcx:
-    path: tests/drivers/bbram
-    catalog: *1
-    filter: dt_compat_enabled("nuvoton,npcx-bbram")
-    build_only: true
-    platform_exclude: native_posix
-  drivers.bbram.stm32:
-    path: tests/drivers/bbram
-    catalog: *1
-    extra_args: OVERLAY_CONFIG="stm32.conf"
-    filter: dt_compat_enabled("st,stm32-bbram")
-    build_only: true
-    platform_exclude: native_posix
-  drivers.bbram.emul:
-    path: tests/drivers/bbram/emul
-    catalog:
-    - drivers
-    - bbram
-    platform_allow: native_posix
-  drivers.bc12:
-    path: tests/drivers/bc12
-    catalog:
-    - drivers
-    - bc12
-    platform_allow: native_posix
-  drivers.adc.build:
-    path: tests/drivers/build_all/adc
-    catalog:
-    - adc_mcp302x
-    - adc_lmp90xxx
-    - adc_ads1x1x
-    - adc_ads1119
-    - adc_ads114s08
-    - adc_emul
-    extra_args: CONFIG_GPIO=y
-    platform_allow: native_posix
-    build_only: true
-  drivers.adc.cc32xx.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_cc32xx
-    platform_allow: cc3220sf_launchxl
-    build_only: true
-  drivers.adc.ite.it8xxx2.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_ite_it8xxx2
-    platform_allow: it8xxx2_evb
-    build_only: true
-  drivers.adc.mcux.adc12.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_mcux_adc12
-    platform_allow: twr_ke18f
-    build_only: true
-  drivers.adc.mcux.adc16.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_mcux_adc16
-    platform_allow: frdm_k22f
-    build_only: true
-  drivers.adc.mcux.lpadc.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_mcux_lpadc
-    platform_allow: lpcxpresso55s28
-    build_only: true
-  drivers.adc.npcx.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_npcx
-    platform_allow: npcx7m6fb_evb
-    build_only: true
-  drivers.adc.nrf.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_nrfx_adc
-    platform_allow: nrf51dk_nrf51422
-    build_only: true
-  drivers.adc.nrf.saadc.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_nrfx_saadc
-    platform_allow: nrf21540dk_nrf52840
-    build_only: true
-  drivers.adc.sam0.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_sam0
-    platform_allow: atsame54_xpro
-    build_only: true
-  drivers.adc.sam.afec.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_sam_afec
-    platform_allow: sam_e70_xplained
-    build_only: true
-  drivers.adc.stm32.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_stm32
-    platform_allow: disco_l475_iot1
-    build_only: true
-  drivers.adc.xec.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_xec
-    platform_allow: mec15xxevb_assy6853
-    build_only: true
-  drivers.adc.test.build:
-    path: tests/drivers/build_all/adc
-    catalog: adc_test
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  drivers.build_all.can.mcp2515:
-    path: tests/drivers/build_all/can
-    catalog:
-    - drivers
-    - can
-    extra_args: SHIELD=dfrobot_can_bus_v2_0
-    depends_on:
-    - arduino_spi
-    - arduino_gpio
-    platform_allow: frdm_k64f
-    build_only: true
-  drivers.counter.build.xlnx:
-    path: tests/drivers/build_all/counter
-    catalog:
-    - drivers
-    - counter
-    extra_configs:
-    - CONFIG_COUNTER_XLNX_AXI_TIMER=y
-    platform_allow: arty_a7_arm_designstart_m1
-    build_only: true
-  drivers.dac.build:
-    path: tests/drivers/build_all/dac
-    catalog:
-    - dac_dacx0508
-    - dac_dacx3608
-    - dac_mcp4725
-    - dac_mcp4728
-    - dac_ltc1660
-    - dac_ltc1665
-    extra_args: CONFIG_GPIO=y
-    platform_allow: native_posix
-    build_only: true
-  drivers.dac.mcux.build:
-    path: tests/drivers/build_all/dac
-    catalog: dac_mcux
-    platform_allow: frdm_k22f
-    build_only: true
-  drivers.dac.mcux32.build:
-    path: tests/drivers/build_all/dac
-    catalog: dac_mcux32
-    platform_allow: twr_ke18f
-    build_only: true
-  drivers.dac.sam0.build:
-    path: tests/drivers/build_all/dac
-    catalog: dac_sam0
-    platform_allow: atsamd21_xpro
-    build_only: true
-  drivers.dac.stm32.build:
-    path: tests/drivers/build_all/dac
-    catalog: dac_stm32
-    platform_allow: nucleo_f091rc
-    build_only: true
-  drivers.display.ili9342c.build:
-    path: tests/drivers/build_all/display
-    catalog: drivers display
-    extra_args: CONF_FILE=display_ili9342c.conf
-    build_only: true
-    min_ram: 32
-  drivers.eeprom.build:
-    path: tests/drivers/build_all/eeprom
-    catalog:
-    - drivers
-    - eeprom
-    min_ram: 32
-    platform_exclude: serpente
-    depends_on:
-    - gpio
-    - i2c
-    - spi
-    build_only: true
-  drivers.gpio.build:
-    path: tests/drivers/build_all/gpio
-    catalog:
-    - drivers
-    - gpio
-    min_ram: 32
-    platform_exclude: serpente
-    depends_on:
-    - gpio
-    - spi
-    - i2c
-    build_only: true
-  drivers.i2c.build:
-    path: tests/drivers/build_all/i2c
-    catalog: i2c_xilinx_axi
-    extra_args: CONFIG_I2C=y
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  drivers.i3c.build:
-    path: tests/drivers/build_all/i3c
-    catalog: i3c_cdns
-    extra_args: CONFIG_I3C=y
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  drivers.led.build:
-    path: tests/drivers/build_all/led
-    catalog:
-    - drivers
-    - led
-    build_only: true
-    min_ram: 32
-  drivers.led_strip.build:
-    path: tests/drivers/build_all/led_strip
-    catalog:
-    - drivers
-    - led_strip
-    build_only: true
-    min_ram: 32
-    depends_on:
-    - gpio
-    - spi
-  drivers.mfd.build:
-    path: tests/drivers/build_all/mfd
-    catalog:
-    - drivers
-    - mfd
-    platform_allow: native_posix
-    build_only: true
-  drivers.modem.build:
-    path: tests/drivers/build_all/modem
-    catalog: &2
-    - drivers
-    - net
-    - modem
-    extra_args: CONF_FILE=modem.conf
-    platform_exclude:
-    - serpente
-    - particle_boron
-    - rak5010_nrf52840
-    - litex_vexriscv
-    - ip_k66f
-    min_ram: 68
-    min_flash: 115
-    build_only: true
-  drivers.modem.ublox_sara.build:
-    path: tests/drivers/build_all/modem
-    catalog: *2
-    extra_args: CONF_FILE=modem_ublox_sara.conf
-    platform_exclude:
-    - serpente
-    - pinnacle_100_dvk
-    - litex_vexriscv
-    - ip_k66f
-    - mg100
-    build_only: true
-  drivers.modem.simcom_sim7080.build:
-    path: tests/drivers/build_all/modem
-    catalog: *2
-    extra_args: CONF_FILE=modem_simcom_sim7080.conf
-    platform_exclude:
-    - serpente
-    - pinnacle_100_dvk
-    - litex_vexriscv
-    - ip_k66f
-    - mg100
-    build_only: true
-  drivers.modem.quectel_bg9x.build:
-    path: tests/drivers/build_all/modem
-    catalog: *2
-    extra_args: CONF_FILE=modem_quectel_bg9x.conf
-    platform_exclude:
-    - serpente
-    - pinnacle_100_dvk
-    - litex_vexriscv
-    - ip_k66f
-    - mg100
-    min_ram: 36
-    build_only: true
-  drivers.modem.gsm.build:
-    path: tests/drivers/build_all/modem
-    catalog: *2
-    extra_args: CONF_FILE=modem_gsm.conf
-    platform_exclude:
-    - serpente
-    - particle_boron
-    - rak5010_nrf52840
-    - litex_vexriscv
-    - ip_k66f
-    min_ram: 36
-    build_only: true
-  drivers.modem.gsm_mux.build:
-    path: tests/drivers/build_all/modem
-    catalog: *2
-    extra_configs:
-    - CONFIG_GSM_MUX=y
-    - CONFIG_UART_MUX=y
-    extra_args: CONF_FILE=modem_gsm.conf
-    platform_exclude:
-    - serpente
-    - particle_boron
-    - rak5010_nrf52840
-    - litex_vexriscv
-    - ip_k66f
-    min_ram: 36
-    build_only: true
-  drivers.modem.esp_at.build:
-    path: tests/drivers/build_all/modem
-    catalog: *2
-    extra_args: CONF_FILE=modem_esp_at.conf
-    platform_exclude: ip_k66f
-    filter: CONFIG_SERIAL
-    min_ram: 36
-    build_only: true
-  drivers.modem.esp_at.async.build:
-    path: tests/drivers/build_all/modem
-    catalog: *2
-    extra_configs:
-    - CONFIG_MODEM_IFACE_UART_ASYNC=y
-    extra_args: CONF_FILE=modem_esp_at.conf
-    filter: CONFIG_SERIAL and CONFIG_QEMU_TARGET
-    min_ram: 36
-    build_only: true
-  drivers.pwm.gecko.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_gecko
-    platform_allow: efr32_radio_brd4250b
-    build_only: true
-  drivers.pwm.imx.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_imx
-    platform_allow: colibri_imx7d_m4
-    build_only: true
-  drivers.pwm.litex.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_litex
+  sample.drivers.out_of_tree:
+    path: samples/application_development/out_of_tree_driver
+    catalog: out_of_tree
+  sample.drivers.i2s.litex:
+    path: samples/boards/litex/i2s
+    catalog: introduction
     platform_allow: litex_vexriscv
-    build_only: true
-  drivers.pwm.mcux.ftm.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_mcux_ftm
-    platform_allow: frdm_k22f
-    build_only: true
-  drivers.pwm.mcux.pwt.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_mcux_pwt
-    extra_configs:
-    - CONFIG_PWM_CAPTURE=y
-    platform_allow: twr_ke18f
-    build_only: true
-  drivers.pwm.mcux.tpm.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_mcux_tpm
-    platform_allow: frdm_kw41z
-    build_only: true
-  drivers.pwm.mcux.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_mcux
-    platform_allow: mimxrt1064_evk
-    build_only: true
-  drivers.pwm.mcux.sctimer.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_mcux_sctimer
-    platform_allow: mimxrt685_evk_cm33
-    build_only: true
-  drivers.pwm.rv32m1.tpm.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_rv32m1_tpm
-    platform_allow: rv32m1_vega_ri5cy
-    build_only: true
-  drivers.pwm.sifive.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_sifive
-    platform_allow: hifive1_revb
-    build_only: true
-  drivers.pwm.npcx.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_npcx
-    platform_allow: npcx7m6fb_evb
-    build_only: true
-  drivers.pwm.nrf.sw.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_nrf5_sw
-    platform_allow: nrf51dk_nrf51422
-    build_only: true
-  drivers.pwm.nrf.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_nrfx
-    platform_allow: nrf52840dk_nrf52840
-    build_only: true
-  drivers.pwm.pca9685.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_pca9685
-    extra_args: SHIELD=adafruit_pca9685
-    platform_allow: nrf52840dk_nrf52840
-    build_only: true
-  drivers.pwm.sam0.tcc.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_sam0_tcc
-    platform_allow: atsame54_xpro
-    build_only: true
-  drivers.pwm.build.sam:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_sam
+  sample.drivers.adc:
+    path: samples/drivers/adc
+    catalog: ADC
+    depends_on: adc
     platform_allow:
-    - sam_e70_xplained
-    - sam_v71b_xult
-    build_only: true
-  drivers.pwm.stm32.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_stm32
-    platform_allow: disco_l475_iot1
-    build_only: true
-  drivers.pwm.xec.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_xec
-    platform_allow: mec15xxevb_assy6853
-    build_only: true
-  drivers.pwm.build.xlnx:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_xlnx_axi_timer
-    platform_allow: arty_a7_arm_designstart_m1
-    build_only: true
-  drivers.pwm.build.test:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_test
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  drivers.rtc.build.pcf8523:
-    path: tests/drivers/build_all/rtc
-    catalog:
-    - drivers
-    - rtc
-    extra_args: SHIELD=adafruit_data_logger
-    depends_on:
-    - arduino_spi
-    - arduino_i2c
-    - arduino_gpio
-    platform_allow: frdm_k64f
-    build_only: true
-  drivers.video.build:
-    path: tests/drivers/build_all/video
-    catalog: &3
-    - drivers
-    - video
-    platform_allow: native_posix
-    min_ram: 32
-    depends_on:
-    - gpio
-    - i2c
-    build_only: true
-  drivers.video.mcux_csi.build:
-    path: tests/drivers/build_all/video
-    catalog: *3
-    platform_allow: mimxrt1064_evk
-    build_only: true
-  drivers.watchdog.build:
-    path: tests/drivers/build_all/watchdog
-    catalog: wdt_xilinx_axi
-    extra_args: CONFIG_WATCHDOG=y
-    platform_allow: qemu_cortex_m3
-    build_only: true
-  drivers.can.api:
-    path: tests/drivers/can/api
-    catalog:
-    - drivers
-    - can
-    depends_on: can
-    filter: dt_chosen_enabled("zephyr,canbus") and not dt_compat_enabled("kvaser,pcican")
-  drivers.can.api.twai:
-    path: tests/drivers/can/api
-    catalog:
-    - drivers
-    - can
-    extra_args: DTC_OVERLAY_FILE="twai-enable.overlay"
-    filter: dt_compat_enabled("espressif,esp32-twai")
-    platform_allow: esp32c3_devkitm
-  drivers.can.shell:
-    path: tests/drivers/can/shell
-    catalog:
-    - drivers
-    - can
-    - shell
-  drivers.can.timing:
-    path: tests/drivers/can/timing
-    catalog:
-    - drivers
-    - can
+    - nucleo_l073rz
+    - disco_l475_iot1
+    - cc3220sf_launchxl
+    - cc3235sf_launchxl
+    - stm32l496g_disco
+    - stm32h735g_disco
+    - nrf51dk_nrf51422
+    - nrf52840dk_nrf52840
+    - mec172xevb_assy6906
+    - gd32f350r_eval
+    - gd32f450i_eval
+    - gd32vf103v_eval
+    - gd32f403z_eval
+    - esp32
+    - esp32s2_saola
+    - esp32c3_devkitm
+    - gd32l233r_eval
+    - lpcxpresso55s36
+  sample.drivers.audio.dmic:
+    path: samples/drivers/audio/dmic
+    catalog: dmic
+    filter: dt_nodelabel_enabled("dmic_dev")
+  sample.drivers.can.babbling:
+    path: samples/drivers/can/babbling
+    catalog: can
     depends_on: can
     filter: dt_chosen_enabled("zephyr,canbus")
-  drivers.clock.adsp_clock_control:
-    path: tests/drivers/clock_control/adsp_clock
-    catalog:
-    - drivers
-    - clock
-    platform_allow: intel_adsp_cavs25
-  drivers.clock.clock_control_nrf5:
-    path: tests/drivers/clock_control/clock_control_api
-    catalog:
-    - drivers
-    - cloc
+  sample.drivers.can.counter:
+    path: samples/drivers/can/counter
+    catalog: can
+    depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus") and not dt_compat_enabled("kvaser,pcican")
+  sample.drivers.clock_control_xec:
+    path: samples/drivers/clock_control_xec
+    catalog: clock_control
+    build_only: true
     platform_allow:
+    - mec172xevb_assy6906
+    - mec15xxevb_assy6853
+    - mec1501modular_assy6885
+  sample.drivers.counter.alarm:
+    path: samples/drivers/counter/alarm
+    catalog:
+    - drivers
+    - counter
+    platform_allow:
+    - nucleo_f746zg
     - nrf51dk_nrf51422
     - nrf52dk_nrf52832
     - nrf52840dk_nrf52840
     - nrf9160dk_nrf9160
-  drivers.clock.clock_control_nrf5_lfclk_rc:
-    path: tests/drivers/clock_control/clock_control_api
-    catalog:
-    - drivers
-    - clock
-    extra_args: CONF_FILE="nrf_lfclk_rc.conf"
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-  drivers.clock.nrf5_clock_calibration:
-    path: tests/drivers/clock_control/nrf_clock_calibration
-    catalog:
-    - drivers
-    - clock
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-  drivers.clock.nrf_lf_clock_start_xtal_stable:
-    path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: &4
-    - drivers
-    - clock
-    extra_configs:
-    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
-    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf9160dk_nrf9160
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf5340dk_nrf5340_cpunet
-  drivers.clock.nrf_lf_clock_start_xtal_available:
-    path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *4
-    extra_configs:
-    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
-    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf9160dk_nrf9160
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf5340dk_nrf5340_cpunet
-  drivers.clock.nrf_lf_clock_start_xtal_no_wait:
-    path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *4
-    extra_configs:
-    - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
-    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_XTAL=y
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf9160dk_nrf9160
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf5340dk_nrf5340_cpunet
-  drivers.clock.nrf_lf_clock_start_rc_stable:
-    path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *4
-    extra_configs:
-    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
-    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf5340dk_nrf5340_cpunet
-  drivers.clock.nrf_lf_clock_start_rc_available:
-    path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *4
-    extra_configs:
-    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
-    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf5340dk_nrf5340_cpunet
-  drivers.clock.nrf_lf_clock_start_rc_no_wait:
-    path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *4
-    extra_configs:
-    - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
-    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf5340dk_nrf5340_cpunet
-  drivers.clock.nrf_lf_clock_start_synth_stable:
-    path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *4
-    extra_configs:
-    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_STABILITY=y
-    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf5340dk_nrf5340_cpunet
-  drivers.clock.nrf_lf_clock_start_synth_available:
-    path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *4
-    extra_configs:
-    - CONFIG_SYSTEM_CLOCK_WAIT_FOR_AVAILABILITY=y
-    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf5340dk_nrf5340_cpunet
-  drivers.clock.nrf_lf_clock_start_synth_no_wait:
-    path: tests/drivers/clock_control/nrf_lf_clock_start
-    catalog: *4
-    extra_configs:
-    - CONFIG_SYSTEM_CLOCK_NO_WAIT=y
-    - CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf5340dk_nrf5340_cpunet
-  drivers.clock.nrf_onoff_and_bt:
-    path: tests/drivers/clock_control/nrf_onoff_and_bt
-    catalog:
-    - drivers
-    - clock
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-  drivers.clock.clock_control_onoff:
-    path: tests/drivers/clock_control/onoff
-    catalog:
-    - drivers
-    - clock
-    platform_allow:
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf9160dk_nrf9160
-  drivers.stm32_clock_configuration.common_core.l4_l5.sysclksrc_pll_48_msi_4:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/clear_msi.overlay;boards/pll_48_msi_4.overlay"
-    platform_allow:
-    - disco_l475_iot1
-    - nucleo_l4r5zi
-    - stm32l562e_dk
-  drivers.stm32_clock_configuration.common_core.l4_l5.sysclksrc_pll_64_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/clear_msi.overlay;boards/pll_64_hsi_16.overlay"
-    platform_allow:
-    - disco_l475_iot1
-    - nucleo_l4r5zi
-    - stm32l562e_dk
-  drivers.stm32_clock_configuration.common_core.sysclksrc_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/clear_msi.overlay;boards/hsi_16.overlay"
-    platform_allow:
-    - disco_l475_iot1
-    - nucleo_l4r5zi
-    - stm32l562e_dk
-    - nucleo_wb55rg
-    - nucleo_wl55jc
-  drivers.stm32_clock_configuration.common_core.sysclksrc_msi_48:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/clear_msi.overlay;boards/msi_range11.overlay"
-    platform_allow:
-    - disco_l475_iot1
-    - nucleo_l4r5zi
-    - stm32l562e_dk
-    - nucleo_wl55jc
-    - nucleo_wb55rg
-  drivers.stm32_clock_configuration.common_core.l4_l5.sysclksrc_hse_8.fixup:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/clear_msi.overlay;boards/hse_8.overlay"
-    platform_allow:
-    - disco_l475_iot1
-    - nucleo_l4r5zi
-    - stm32l562e_dk
-  drivers.stm32_clock_configuration.common_core.l4_l5.sysclksrc_pll_64_hse_8.fixup:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/clear_msi.overlay;boards/pll_64_hse_8.overlay"
-    platform_allow:
-    - disco_l475_iot1
-    - nucleo_l4r5zi
-    - stm32l562e_dk
-  drivers.stm32_clock_configuration.common_core.g0.sysclksrc_pll_64_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_64_hse_8.overlay"
-    platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_core.g0.sysclksrc_hsi_g0_16_div_2:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_g0_16_div_2.overlay"
-    platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_core.g0.sysclksrc_hsi_g0_16_div_4:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_g0_16_div_4.overlay"
-    platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_core.g4.sysclksrc_pll_64_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_64_hsi_16.overlay"
-    platform_allow: nucleo_g474re
-  drivers.stm32_clock_configuration.common_core.g0.sysclksrc_pll_g0_64_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_g0_64_hsi_16.overlay"
-    platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_core.g4.sysclksrc_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_16.overlay"
-    platform_allow: nucleo_g474re
-  drivers.stm32_clock_configuration.common_core.g0.sysclksrc_hsi_g0_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_g0_16.overlay"
-    platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_core.g4.sysclksrc_hse_24:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hse_24.overlay"
-    platform_allow: nucleo_g474re
-  drivers.stm32_clock_configuration.common_core.l0_l1.sysclksrc_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/clear_msi.overlay;boards/hse_8.overlay"
-    platform_allow:
-    - nucleo_l152re
-    - nucleo_l073rz
-  drivers.stm32_clock_configuration.common_core.l0_l1.sysclksrc_pll_32_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_32_hse_8.overlay"
-    platform_allow:
-    - nucleo_l152re
-    - nucleo_l073rz
-  drivers.stm32_clock_configuration.common_core.l0_l1.sysclksrc_pll_32_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_32_hsi_16.overlay"
-    platform_allow:
-    - nucleo_l152re
-    - nucleo_l073rz
-  drivers.stm32_clock_configuration.common_core.l0_l1.sysclksrc_msi_range6:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/msi_range6.overlay"
-    platform_allow:
-    - nucleo_l152re
-    - nucleo_l073rz
-  drivers.stm32_clock_configuration.common_core.wl.sysclksrc_pll_48_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_48_hsi_16.overlay"
-    platform_allow: nucleo_wl55jc
-  drivers.stm32_clock_configuration.common_core.wl.sysclksrc_pll_48_hse_32:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/wl_pll_48_hse_32.overlay"
-    platform_allow: nucleo_wl55jc
-  drivers.stm32_clock_configuration.common_core.wl.sysclksrc_hse_32:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/wl_32_hse.overlay"
-    platform_allow: nucleo_wl55jc
-  drivers.stm32_clock_configuration.common_core.wb.sysclksrc_hse_32:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hse_32.overlay"
-    platform_allow: nucleo_wb55rg
-  drivers.stm32_clock_configuration.common_core.wb.sysclksrc_pll_48_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/wb_pll_48_hsi_16.overlay"
-    platform_allow: nucleo_wb55rg
-  drivers.stm32_clock_configuration.common_core.wb.sysclksrc_pll_64_hse_32:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/wb_pll_64_hse_32.overlay"
-    platform_allow: nucleo_wb55rg
-  drivers.stm32_clock_configuration.common_core.wb.sysclksrc_pll_48_msi_4:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/wb_pll_48_msi_4.overlay"
-    platform_allow: nucleo_wb55rg
-  drivers.stm32_clock_configuration.common_core.f0_f3.sysclksrc_hsi_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f0_f1_f3_clocks.overlay;boards/hsi_8.overlay"
-    platform_allow:
-    - nucleo_f091rc
-    - stm32f3_disco
-  drivers.stm32_clock_configuration.common_core.f0_f3.sysclksrc_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f0_f1_f3_clocks.overlay;boards/hse_8_bypass.overlay"
-    platform_allow:
-    - nucleo_f091rc
-    - stm32f3_disco
-  drivers.stm32_clock_configuration.common_core.f0_f3.sysclksrc_pll_32_hsi_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f0_f1_f3_clocks.overlay;boards/f0_f3_pll_32_hsi_8.overlay"
-    platform_allow:
-    - nucleo_f091rc
-    - stm32f3_disco
-  drivers.stm32_clock_configuration.common_core.f0_f3.sysclksrc_pll_32_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f0_f1_f3_clocks.overlay;boards/f0_f3_pll_32_hse_8.overlay"
-    platform_allow:
-    - nucleo_f091rc
-    - stm32f3_disco
-  drivers.stm32_clock_configuration.common_core.f1.sysclksrc_hsi_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f0_f1_f3_clocks.overlay;boards/hsi_8.overlay"
-    platform_allow: nucleo_f103rb
-  drivers.stm32_clock_configuration.common_core.f1.sysclksrc_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f0_f1_f3_clocks.overlay;boards/hse_8.overlay"
-    platform_allow: nucleo_f103rb
-  drivers.stm32_clock_configuration.common_core.f1.sysclksrc_pll_64_hsi_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f0_f1_f3_clocks.overlay;boards/f1_pll_64_hsi_8.overlay"
-    platform_allow: nucleo_f103rb
-  drivers.stm32_clock_configuration.common_core.f1.sysclksrc_pll_64_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f0_f1_f3_clocks.overlay;boards/f1_pll_64_hse_8.overlay"
-    platform_allow: nucleo_f103rb
-  drivers.stm32_clock_configuration.common_core.f2_f4_f7.sysclksrc_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f2_f4_f7_clocks.overlay;boards/hsi_16.overlay"
-    platform_allow:
-    - nucleo_f207zg
-    - nucleo_f429zi
-    - nucleo_f446re
-    - nucleo_f746zg
-  drivers.stm32_clock_configuration.common_core.f2_f4_f7.sysclksrc_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f2_f4_f7_clocks.overlay;boards/hse_8.overlay"
-    platform_allow:
-    - nucleo_f207zg
-    - nucleo_f429zi
-    - nucleo_f446re
-    - nucleo_f746zg
-  drivers.stm32_clock_configuration.common_core.f2_f4_f7.sysclksrc_pll_64_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f2_f4_f7_clocks.overlay;boards/f2_f4_f7_pll_64_hsi_16.overlay"
-    platform_allow:
-    - nucleo_f207zg
-    - nucleo_f429zi
-    - nucleo_f446re
-    - nucleo_f746zg
-  drivers.stm32_clock_configuration.common_core.f2_f4_f7.sysclksrc_pll_64_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f2_f4_f7_clocks.overlay;boards/f2_f4_f7_pll_64_hse_8.overlay"
-    platform_allow:
-    - nucleo_f207zg
-    - nucleo_f429zi
-    - nucleo_f446re
-    - nucleo_f746zg
-  drivers.stm32_clock_configuration.common_core.f2_f4_f7.sysclksrc_pll_100_hsi_16_ahb2:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_core
-    catalog: clock-control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_f2_f4_f7_clocks.overlay;boards/f2_f4_f7_pll_100_hsi_16_ahb_2.overlay"
-    platform_allow:
-    - nucleo_f207zg
-    - nucleo_f429zi
-    - nucleo_f446re
-    - nucleo_f746zg
-  drivers.stm32_clock_configuration.common_device.wb.i2c1_hsi_lptim1_lse:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/wb_i2c1_hsi_lptim1_lse.overlay"
-    platform_allow: nucleo_wb55rg
-  drivers.stm32_clock_configuration.common_device.wb.i2c1_sysclk_lptim1_lsi:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/wb_i2c1_sysclk_lptim1_lsi.overlay"
-    platform_allow: nucleo_wb55rg
-  drivers.stm32_clock_configuration.common_device.g0.i2c1_sysclk_lptim1_lsi:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/g0_i2c1_sysclk_lptim1_lsi.overlay"
-    platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_device.g0.i2c1_hsi_lptim1_lse_adc1_pllp:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/g0_i2c1_hsi_lptim1_lse_adc1_pllp.overlay"
-    platform_allow: nucleo_g071rb
-  drivers.stm32_clock_configuration.common_device.wl.i2c1_hsi_lptim1_lse_adc1_pllp:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/wl_i2c1_hsi_lptim1_lse_adc1_pllp.overlay"
-    platform_allow: nucleo_wl55jc
-  drivers.stm32_clock_configuration.common_device.wl.i2c1_sysclk_lptim1_lsi:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/wl_i2c1_sysclk_lptim1_lsi.overlay"
-    platform_allow: nucleo_wl55jc
-  drivers.stm32_clock_configuration.common_device.l4.i2c1_sysclk_lptim1_lsi:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/l4_i2c1_sysclk_lptim1_lsi.overlay"
-    platform_allow: disco_l475_iot1
-  drivers.stm32_clock_configuration.common_device.l4.i2c1_hsi_lptim1_lse:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/l4_i2c1_hsi_lptim1_lse.overlay"
-    platform_allow: disco_l475_iot1
-  drivers.stm32_clock_configuration.common_device.g4.i2c1_hsi_adc1_pllp:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/g4_i2c1_hsi_adc1_pllp.overlay"
-    platform_allow: nucleo_g474re
-  drivers.stm32_clock_configuration.common_device.f0.i2c1_hsi:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/f0_i2c1_hsi.overlay"
-    platform_allow: nucleo_f091rc
-  drivers.stm32_clock_configuration.common_device.f3.i2c1_hsi:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32_common_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/f3_i2c1_hsi.overlay"
-    platform_allow: stm32f3_disco
-  drivers.stm32_clock_configuration.h5.sysclksrc_pll_csi_100:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h5_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_csi_100.overlay"
-    platform_allow: stm32h573i_dk
-  drivers.stm32_clock_configuration.h5.sysclksrc_pll_csi_240:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h5_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_csi_240.overlay"
-    platform_allow: stm32h573i_dk
-  drivers.stm32_clock_configuration.h5.sysclksrc_pll_hsi_240:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h5_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hsi_240.overlay"
-    platform_allow: stm32h573i_dk
-  drivers.stm32_clock_configuration.h5.sysclksrc_pll_hse25_100:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h5_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse25_100.overlay"
-    platform_allow: stm32h573i_dk
-  drivers.stm32_clock_configuration.h5.sysclksrc_pll_hse25_240:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h5_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse25_240.overlay"
-    platform_allow: stm32h573i_dk
-  drivers.stm32_clock_configuration.h5.sysclksrc_csi4:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h5_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/csi4.overlay"
-    platform_allow: stm32h573i_dk
-  drivers.stm32_clock_configuration.h5.sysclksrc_hse_25:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h5_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hse25.overlay"
-    platform_allow: stm32h573i_dk
-  drivers.stm32_clock_configuration.h5.pll_csi_ahb_2_100:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h5_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_csi_ahb_2_100.overlay"
-    platform_allow: stm32h573i_dk
-  drivers.stm32_clock_configuration.h5.pll_hse25_ahb_2_100:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h5_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse25_ahb_2_100.overlay"
-    platform_allow: stm32h573i_dk
-  drivers.stm32_clock_configuration.h7_core.sysclksrc_pll_hse_96:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse_96.overlay"
-    platform_allow: nucleo_h743zi
-  drivers.stm32_clock_configuration.h7_core.sysclksrc_pll_hsi_96:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hsi_96.overlay"
-    platform_allow: nucleo_h743zi
-  drivers.stm32_clock_configuration.h7_core.sysclksrc_hsi_64:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_64.overlay"
-    platform_allow: nucleo_h743zi
-  drivers.stm32_clock_configuration.h7_core.sysclksrc_csi_4:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/csi_4.overlay"
-    platform_allow: nucleo_h743zi
-  drivers.stm32_clock_configuration.h7_core.sysclksrc_hse_8:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hse_8.overlay"
-    platform_allow: nucleo_h743zi
-  drivers.stm32_clock_configuration.h7_core.sysclksrc_pll_csi_96:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_csi_96.overlay"
-    platform_allow: nucleo_h743zi
-  drivers.stm32_clock_configuration.h7_core.sysclksrc_pll_hse_550:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_core
-    catalog: clock_control
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse_550.overlay"
-    platform_allow:
-    - nucleo_h723zg
+    - atsamd20_xpro
+    - bl5340_dvk_cpuapp
+    - gd32e103v_eval
+    - gd32e507z_eval
+    - gd32f403z_eval
+    - gd32f450i_eval
+    - gd32f450z_eval
+    - gd32e507v_start
+    - gd32f407v_start
+    - gd32f450v_start
+    - gd32f470i_eval
     - stm32h735g_disco
-  drivers.stm32_clock_configuration.h7_dev.spi1_pllq_1_d1ppre_1:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_pllq_1_d1ppre_1.overlay"
-    platform_allow: nucleo_h723zg
-  drivers.stm32_clock_configuration.h7_dev.spi1_pllq_2_d1ppre_4:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_pllq_2_d1ppre_4.overlay"
-    platform_allow: nucleo_h723zg
-  drivers.stm32_clock_configuration.h7_dev.spi1_pll2p_1:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_pll2p_1.overlay"
-    platform_allow: nucleo_h723zg
-  drivers.stm32_clock_configuration.h7_dev.spi1_pll3p_1_d1ppre_4:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_pll3p_1_d1ppre_4.overlay"
-    platform_allow: nucleo_h723zg
-  drivers.stm32_clock_configuration.h7_dev.spi1_per_ck_d1ppre_1:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_per_ck_d1ppre_1.overlay"
-    platform_allow: nucleo_h723zg
-  drivers.stm32_clock_configuration.h7_dev.spi1_per_ck_hsi:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_per_ck_hsi.overlay"
-    platform_allow: nucleo_h723zg
-  drivers.stm32_clock_configuration.h7_dev.spi1_per_ck_hse:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32h7_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_per_ck_hse.overlay"
-    platform_allow: nucleo_h723zg
-  drivers.stm32_clock_configuration.u5.sysclksrc_pll_msis_160:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_msis_160.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.u5.pll_msis_ahb_2_40:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_msis_ahb_2_40.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.u5.sysclksrc_pll_hsi_160:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hsi_160.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.u5.sysclksrc_pll_hsi_40:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hsi_40.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.u5.sysclksrc_msis_48:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/msis_48.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.u5.sysclksrc_msis_24:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/msis_24.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.u5.sysclksrc_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_16.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.u5.sysclksrc_hse_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hse_16.overlay"
-    build_only: true
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.u5.sysclksrc_pll_hse_160:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_core
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse_160.overlay"
-    build_only: true
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.dev_u5.spi1_pclk2:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_pclk2.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.dev_u5.spi1_hsi_16:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_hsi_16.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.dev_u5.spi1_msik:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_msik.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.stm32_clock_configuration.dev_u5.spi1_sysclk:
-    path: tests/drivers/clock_control/stm32_clock_configuration/stm32u5_devices
-    catalog: unknown
-    extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_sysclk.overlay"
-    platform_allow: b_u585i_iot02a
-  drivers.console.uart:
-    path: tests/drivers/console
-    catalog:
-    - drivers
-    - console
-    - uart
-    filter: CONFIG_UART_CONSOLE
-  drivers.console.semihost:
-    path: tests/drivers/console
-    catalog:
-    - drivers
-    - console
-    - semihost
-    extra_args: CONF_FILE=prj_semihost.conf
-    arch_allow:
-    - arm
-    - arm64
-    - riscv32
-    - riscv64
-    platform_type:
-    - qemu
-  drivers.coredump.api.qemu_riscv32:
-    path: tests/drivers/coredump/coredump_api
-    catalog: coredump
-    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_allow: qemu_riscv32
-  drivers.coredump.api:
-    path: tests/drivers/coredump/coredump_api
-    catalog: coredump
-    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
-    platform_exclude: qemu_riscv32
-  drivers.counter.basic_api:
-    path: tests/drivers/counter/counter_basic_api
-    catalog:
-    - drivers
-    - counter
+    - stm32h573i_dk
     depends_on: counter
-    min_ram: 16
-    platform_exclude: nucleo_f302r8
-  drivers.counter.basic_api.nrf_zli:
-    path: tests/drivers/counter/counter_basic_api
-    catalog:
-    - drivers
-    - counter
-    extra_configs:
-    - CONFIG_ZERO_LATENCY_IRQS=y
-    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;boards/nrf52840dk_nrf52840_zli.overlay"
-    depends_on: counter
-    platform_allow: nrf52840dk_nrf52840
-  drivers.counter.nrf_rtc:
-    path: tests/drivers/counter/counter_nrf_rtc/fixed_top
-    catalog:
-    - drivers
-    - counter
-    depends_on: counter
-    platform_allow: nrf52840dk_nrf52840
-  drivers.counter.cmos:
-    path: tests/drivers/counter/counter_seconds
-    catalog:
-    - drivers
-    - counter
-    extra_configs:
-    - CONFIG_COUNTER_CMOS=y
-    arch_allow: x86
-    filter: CONFIG_X86_PC_COMPATIBLE
-  drivers.counter.mcux.snvs.rtc:
-    path: tests/drivers/counter/counter_seconds
-    catalog:
-    - drivers
-    - counter
-    platform_allow: mimxrt1064_evk
-  drivers.counter.maxim_ds3231:
-    path: tests/drivers/counter/maxim_ds3231_api
-    catalog:
-    - drivers
-    - counter
-    depends_on:
-    - counter
-    - i2c
-    min_ram: 16
-    filter: dt_compat_enabled("maxim,ds3231")
-  drivers.dac.api:
-    path: tests/drivers/dac/dac_api
-    catalog:
-    - dac
-    - drivers
-    - userspace
-    depends_on: dac
-  drivers.dac.loopback:
-    path: tests/drivers/dac/dac_loopback
-    catalog:
-    - dac
-    - drivers
-    depends_on:
-    - dac
-    - adc
+  sample.drivers.crypto.mbedtls:
+    path: samples/drivers/crypto
+    catalog: crypto
+    extra_args: CONF_FILE=prj_mtls_shim.conf
+    min_flash: 34
+    min_ram: 20
+    arch_exclude: xtensa
+  sample.drivers.crypto.mbedtls.micro:
+    path: samples/drivers/crypto
+    catalog: crypto
+    min_ram: 20
+    arch_exclude: xtensa
+  sample.drivers.crypto.stm32:
+    path: samples/drivers/crypto
+    catalog: crypto
+    extra_args: CONF_FILE=prj_stm32.conf
+    filter: dt_compat_enabled("st,stm32-aes") or dt_compat_enabled("st,stm32-cryp")
+    min_ram: 20
+    arch_exclude: xtensa
+  sample.drivers.dac:
+    path: samples/drivers/dac
+    catalog: DAC
     platform_allow:
-    - frdm_k22f
-    - frdm_k64f
-    - nucleo_f207zg
-    - nucleo_l073rz
-    - nucleo_l152re
-    - twr_ke18f
+    - arduino_zero
+    - b_u585i_iot02a
     - bl652_dvk
     - bl653_dvk
     - bl654_dvk
     - bl5340_dvk_cpuapp
-    - stm32f3_disco
-    - stm32l562e_dk
-    - nucleo_l552ze_q
+    - disco_l475_iot1
+    - esp32
+    - esp32s2_saola
+    - frdm_k22f
+    - frdm_k64f
+    - gd32a503v_eval
+    - gd32e103v_eval
+    - gd32f450i_eval
+    - longan_nano_lite
+    - longan_nano
+    - nucleo_f091rc
+    - nucleo_f207zg
     - nucleo_f429zi
     - nucleo_f746zg
+    - nucleo_f767zi
     - nucleo_g071rb
+    - nucleo_g431rb
+    - nucleo_g474re
+    - nucleo_h743zi
+    - nucleo_l073rz
+    - nucleo_l152re
+    - nucleo_l552ze_q
+    - nucleo_u575zi_q
     - nucleo_wl55jc
-  drivers.disk.usdhc:
-    path: tests/drivers/disk/disk_access
-    catalog: mcux
-    extra_configs:
-    - CONFIG_DISK_DRIVER_SDMMC=y
-    filter: CONFIG_SDHC
-  drivers.disk.ram:
-    path: tests/drivers/disk/disk_access
-    catalog: disk
-    extra_configs:
-    - CONFIG_DISK_DRIVER_RAM=y
-    platform_allow: qemu_x86_64
-  drivers.disk.nvme:
-    path: tests/drivers/disk/disk_access
-    catalog: disk
-    extra_configs:
-    - CONFIG_NVME=y
-    platform_allow: qemu_x86_64
-  drivers.disk.disk_performance.sdhc:
-    path: tests/drivers/disk/disk_performance
-    catalog: sdhc
-    depends_on: sdhc
-  drivers.disk_performance.disk.nvme:
-    path: tests/drivers/disk/disk_performance
-    catalog: disk
-    extra_configs:
-    - CONFIG_NVME=y
-    platform_allow: qemu_x86_64
-  drivers.dma.chan_blen_transfer:
-    path: tests/drivers/dma/chan_blen_transfer
-    catalog:
-    - drivers
-    - dma
-    min_ram: 16
-    depends_on: dma
-    filter: dt_nodelabel_enabled("test_dma0")
-  drivers.dma.chan_link_transfer:
-    path: tests/drivers/dma/chan_link_transfer
-    catalog:
-    - drivers
-    - dma
-    min_ram: 16
-    depends_on: dma
+    - sam_e70_xplained
+    - sam_e70b_xplained
+    - sam_v71_xult
+    - sam_v71b_xult
+    - stm32f3_disco
+    - stm32l562e_dk
+    - twr_ke18f
+    depends_on: dac
+  sample.drivers.eeprom:
+    path: samples/drivers/eeprom
+    catalog: eeprom
     platform_allow:
-    - frdm_k64f
-    - mimxrt1060_evk
-    - mimxrt1064_evk
-    - mimxrt1160_evk_cm7
-    - mimxrt1170_evk_cm7
-  drivers.dma.loop_transfer:
-    path: tests/drivers/dma/loop_transfer
-    catalog:
-    - drivers
-    - dma
-    depends_on: dma
-    filter: dt_nodelabel_enabled("test_dma0")
-  drivers.dma.scatter_gather:
-    path: tests/drivers/dma/scatter_gather
-    catalog:
-    - drivers
-    - dma
-    depends_on: dma
-    platform_allow:
-    - intel_adsp_cavs25
-    - frdm_k64f
-    - mimxrt1060_evk
-    filter: dt_alias_exists("dma0")
-  drivers.eeprom.api:
-    path: tests/drivers/eeprom/api
-    catalog: &5
-    - drivers
-    - eeprom
-    platform_allow:
+    - gd32f450i_eval
     - native_posix
     - native_posix_64
-    - qemu_x86
-    - nucleo_l152re
-    - nucleo_l073rz
-    depends_on: eeprom
-  drivers.eeprom.api.build:
-    path: tests/drivers/eeprom/api
-    catalog: *5
-    build_only: true
-    depends_on: eeprom
-  drivers.eeprom.shell:
-    path: tests/drivers/eeprom/shell
+  sample.drivers.eeprom.shield.x_nucleo_eeprma2:
+    path: samples/drivers/eeprom
     catalog:
-    - drivers
     - eeprom
-    - shell
-  drivers.entropy:
-    path: tests/drivers/entropy/api
-    catalog:
-    - drivers
-    - entropy
-    filter: CONFIG_ENTROPY_HAS_DRIVER
-  drivers.entropy.bt_hci:
-    path: tests/drivers/entropy/api
-    catalog:
-    - driver
-    - entropy
-    - bluetooth
-    extra_args:
-    - DTC_OVERLAY_FILE=./entropy_bt_hci.overlay
-    - OVERLAY_CONFIG=./entropy_bt_hci.conf
-    platform_allow: nrf52_bsim
-  drivers.entropy.psa_crypto:
-    path: tests/drivers/entropy/api
-    catalog:
-    - driver
-    - entropy
-    - psa-crypto
-    extra_args:
-    - DTC_OVERLAY_FILE=./entropy_psa_crypto.overlay
-    - OVERLAY_CONFIG=./entropy_psa_crypto.conf
-    filter: CONFIG_BUILD_WITH_TFM
-  drivers.espi.acpi:
-    path: tests/drivers/espi
+    - shield
+    extra_args: SHIELD=x_nucleo_eeprma2
+    depends_on:
+    - arduino_gpio
+    - arduino_i2c
+    - arduino_spi
+    platform_exclude:
+    - ubx_evkannab1_nrf52832
+    - sam_v71_xult
+    - sam_v71b_xult
+    - pan1781_evb
+    - pan1782_evb
+    - pan1770_evb
+    - pan1780_evb
+    - mimxrt1010_evk
+  sample.drivers.espi:
+    path: samples/drivers/espi
     catalog:
     - drivers
     - espi
-    filter: dt_compat_enabled("zephyr,espi-emul-controller")
-    platform_allow: native_posix
-  drivers.flash.common.nrf_qspi_nor:
-    path: tests/drivers/flash/common
-    catalog: &6
-    - drivers
-    - flash
-    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
-    platform_allow: nrf52840dk_nrf52840
-  drivers.flash.common.nrf_qspi_nor.size_in_bytes:
-    path: tests/drivers/flash/common
-    catalog: *6
-    extra_args:
-    - OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
-    - DTC_OVERLAY_FILE=boards/nrf52840_size_in_bytes.overlay
-    platform_allow: nrf52840dk_nrf52840
-  drivers.flash.common.nrf_qspi_nor_4B_addr:
-    path: tests/drivers/flash/common
-    catalog: *6
-    extra_args:
-    - OVERLAY_CONFIG=boards/nrf52840_flash_qspi.conf
-    - DTC_OVERLAY_FILE=boards/nrf52840dk_mx25l51245g.overlay
-    platform_allow: nrf52840dk_nrf52840
-  drivers.flash.common.soc_flash_nrf:
-    path: tests/drivers/flash/common
-    catalog: *6
-    extra_args: OVERLAY_CONFIG=boards/nrf52840_flash_soc.conf
-    platform_allow: nrf52840dk_nrf52840
-  drivers.flash.common.default:
-    path: tests/drivers/flash/common
-    catalog: *6
-    filter: ((CONFIG_FLASH_HAS_DRIVER_ENABLED and not CONFIG_TRUSTED_EXECUTION_NONSECURE)
-      and dt_label_with_parent_compat_enabled("storage_partition", "fixed-partitions"))
-  drivers.flash.common.tfm_ns:
-    path: tests/drivers/flash/common
-    catalog: *6
-    build_only: true
-    filter: (CONFIG_FLASH_HAS_DRIVER_ENABLED and CONFIG_TRUSTED_EXECUTION_NONSECURE
-      and dt_label_with_parent_compat_enabled("slot1_ns_partition", "fixed-partitions"))
-  drivers.flash.mcux:
-    path: tests/drivers/flash/common
-    catalog: *6
-    platform_allow:
-    - mimxrt1060_evk
-    - it8xxx2_evb
-    - mimxrt685_evk_cm33
-    - mimxrt595_evk_cm33
-  drivers.flash.common.stm32:
-    path: tests/drivers/flash/common
-    catalog: *6
-    platform_allow:
-    - nucleo_f103rb
-    - nucleo_f207zg
-    - stm32f3_disco
-    - nucleo_f429zi
-    - stm32f746g_disco
-    - nucleo_g0b1re
-    - nucleo_g474re
-    - nucleo_h743zi
-    - nucleo_l152re
-    - disco_l475_iot1
-    - nucleo_wb55rg
-    - nucleo_wl55jc
-    - stm32l562e_dk
-    - stm32l562e_dk_ns
-    filter: (dt_compat_enabled("st,stm32-flash-controller") or dt_compat_enabled("st,stm32h7-flash-controller"))
-      and dt_label_with_parent_compat_enabled("storage_partition", "fixed-partitions")
-  drivers.flash.common.mx25r_high_perf:
-    path: tests/drivers/flash/common
-    catalog: *6
-    extra_args:
-    - OVERLAY_CONFIG=boards/nrf52840dk_flash_spi.conf
-    - DTC_OVERLAY_FILE=boards/nrf52840dk_mx25r_high_perf.overlay
-    platform_allow: nrf52840dk_nrf52840
-  drivers.flash.stm32.default:
-    path: tests/drivers/flash/stm32
-    catalog:
-    - drivers
-    - flash
-    platform_allow:
-    - nucleo_f429zi
-    - google_dragonclaw
-    filter: dt_compat_enabled("st,stm32-flash-controller") and dt_label_with_parent_compat_enabled("storage_partition",
-      "fixed-partitions")
-  drivers.flash.flash_simulator:
-    path: tests/drivers/flash_simulator
-    catalog: &7
-    - drivers
-    - flash
-    platform_allow:
-    - qemu_x86
-    - native_posix
-    - native_posix_64
-    - nucleo_f411re
-  drivers.flash.flash_simulator.qemu_erase_value_0x00:
-    path: tests/drivers/flash_simulator
-    catalog: *7
-    extra_args: DTC_OVERLAY_FILE=boards/qemu_x86_ev_0x00.overlay
-    platform_allow: qemu_x86
-  drivers.flash.flash_simulator.posix_erase_value_0x00:
-    path: tests/drivers/flash_simulator
-    catalog: *7
-    extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
-    platform_allow: native_posix
-  drivers.flash.flash_simulator.posix_64_erase_value_0x00:
-    path: tests/drivers/flash_simulator
-    catalog: *7
-    extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
-    platform_allow: native_posix_64
-  drivers.max17048:
-    path: tests/drivers/fuel_gauge/max17048
-    catalog: unknown
-    filter: dt_compat_enabled("maxim,max17048")
-    platform_allow: native_posix
-  drivers.sbs_gauge_new_api.emulated:
-    path: tests/drivers/fuel_gauge/sbs_gauge
-    catalog:
-    - drivers
-    - fuel_gauge
-    extra_args:
-    - CONF_FILE="prj.conf;boards/emulated_board.conf"
-    - DTC_OVERLAY_FILE="boards/emulated_board.overlay"
-    filter: 'dt_compat_enabled("sbs,sbs-gauge-new-api") and (CONFIG_QEMU_TARGET or
-      CONFIG_BOARD_NATIVE_POSIX)
-
-      '
-    platform_exclude:
-    - hifive_unmatched
-    - qemu_cortex_a53
-    - qemu_cortex_a53_smp
-    - qemu_kvm_arm64
-    - xenvm
-    - xenvm_gicv3
-  drivers.sbs_gauge_new_api.emulated_64_bit_i2c_addr:
-    path: tests/drivers/fuel_gauge/sbs_gauge
-    catalog:
-    - drivers
-    - fuel_gauge
-    extra_args:
-    - CONF_FILE="prj.conf;boards/qemu_cortex_a53.conf"
-    - DTC_OVERLAY_FILE="boards/qemu_cortex_a53.overlay"
-    filter: 'dt_compat_enabled("sbs,sbs-gauge-new-api") and (CONFIG_QEMU_TARGET or
-      CONFIG_BOARD_NATIVE_POSIX)
-
-      '
-    platform_allow:
-    - hifive_unmatched
-    - qemu_cortex_a53
-    - qemu_cortex_a53_smp
-    - qemu_kvm_arm64
-    - xenvm
-    - xenvm_gicv3
-  drivers.gpio.1pin:
-    path: tests/drivers/gpio/gpio_api_1pin
-    catalog:
-    - drivers
-    - gpio
-    depends_on: gpio
-    min_flash: 48
-    platform_exclude:
-    - mps2_an385
-    - mps2_an521
-    - neorv32
-    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
-  drivers.gpio.2pin:
-    path: tests/drivers/gpio/gpio_basic_api
-    catalog: &8
-    - drivers
-    - gpio
-    min_flash: 34
-    filter: dt_compat_enabled("test-gpio-basic-api")
-    depends_on: gpio
-  drivers.gpio.nrf_sense_edge:
-    path: tests/drivers/gpio/gpio_basic_api
-    catalog: *8
-    extra_args: DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840.overlay;boards/nrf52840dk_nrf52840_sense_edge.overlay
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: gpio
-  drivers.gpio.enable_disable_interrupt:
-    path: tests/drivers/gpio/gpio_enable_disable_interrupt
-    catalog:
-    - drivers
-    - gpio
-    depends_on: gpio
-    filter: dt_compat_enabled("test-gpio-enable-disable-interrupt")
-  drivers.gpio.get_direction:
-    path: tests/drivers/gpio/gpio_get_direction
-    catalog:
-    - drivers
-    - gpio
-    depends_on: gpio
-    min_flash: 48
-    platform_exclude:
-    - mps2_an385
-    - mps2_an521
-    - neorv32
-    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
-  drivers.gpio.hogs:
-    path: tests/drivers/gpio/gpio_hogs
-    catalog:
-    - drivers
-    - gpio
-    depends_on: gpio
-    platform_allow:
-    - native_posix
-    - native_posix_64
-    - frdm_k64f
-    - nrf52840dk_nrf52840
-    - nucleo_g474re
-  drivers.hwinfo.api:
-    path: tests/drivers/hwinfo/api
-    catalog:
-    - drivers
-    - hwinfo
-  drivers.i2c.api:
-    path: tests/drivers/i2c/i2c_api
-    catalog:
-    - drivers
-    - i2c
-    depends_on: i2c
-    filter: dt_alias_exists("gy271")
-  drivers.i2c.target_api.dual_role:
-    path: tests/drivers/i2c/i2c_target_api
-    catalog:
-    - drivers
-    - i2c
-    extra_configs:
-    - CONFIG_APP_DUAL_ROLE_I2C=y
-    platform_allow:
-    - nucleo_f091rc
-    - stm32f072b_disco
-    - nucleo_g071rb
-    - rpi_pico
-    depends_on: i2c
-  drivers.i2c.tca954x:
-    path: tests/drivers/i2c/i2c_tca954x
-    catalog:
-    - testing
-    - drivers
-    build_only: true
-    depends_on: i2c
-    filter: dt_compat_enabled("ti,tca9546a")
-    platform_allow: nrf52840dk_nrf52840
-  drivers.i2s:
-    path: tests/drivers/i2s/i2s_api
-    catalog:
-    - drivers
-    - userspace
-    depends_on: i2s
-    filter: not CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
-  drivers.i2s.gpio_loopback:
-    path: tests/drivers/i2s/i2s_api
-    catalog:
-    - drivers
-    - userspace
-    depends_on:
-    - i2s
-    - gpio
-    filter: CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
-  drivers.i2s.speed:
-    path: tests/drivers/i2s/i2s_speed
-    catalog:
-    - drivers
-    - i2s
-    depends_on: i2s
-    filter: not CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
-  drivers.i2s.speed.gpio_loopback:
-    path: tests/drivers/i2s/i2s_speed
-    catalog:
-    - drivers
-    - i2s
-    depends_on:
-    - i2s
-    - gpio
-    filter: CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
-  drivers.input.gpio_keys:
-    path: tests/drivers/input/gpio_keys
-    catalog:
-    - drivers
-    - input
-    platform_allow:
-    - native_posix
-    - native_posix_64
-  drivers.ipc.mailbox:
-    path: tests/drivers/ipm
-    catalog:
-    - drivers
-    - ipc
-    arch_exclude:
-    - posix
-    - xtensa
-  drivers.kscan:
-    path: tests/drivers/kscan/kscan_api
-    catalog:
-    - drivers
-    - kscan
-    - userspace
-    depends_on: kscan
-    platform_exclude: mec15xxevb_assy6853
-  drivers.kscan.mec15xxevb_assy6853:
-    path: tests/drivers/kscan/kscan_api
-    catalog:
-    - drivers
-    - kscan
-    extra_args: CONF_FILE="mec15xxevb_assy6853.conf"
-    depends_on: kscan
-    platform_allow: mec15xxevb_assy6853
-  drivers.input.kscan_input:
-    path: tests/drivers/kscan/kscan_input
-    catalog:
-    - drivers
-    - kscan
-    - input
-    platform_allow:
-    - native_posix
-    - native_posix_64
-  drivers.led_api.i2c:
-    path: tests/drivers/led/led_api
-    catalog:
-    - drivers
-    - led
-    depends_on: led
-    filter: dt_alias_exists("led-controller-0")
-  drivers.memc.stm32_fmc_nor_psram:
-    path: tests/drivers/memc/ram
-    catalog:
-    - drivers
-    - memc
-    depends_on: memc
-    filter: dt_compat_enabled("st,stm32-fmc-nor-psram")
-  drivers.memc.stm32_sdram:
-    path: tests/drivers/memc/ram
-    catalog:
-    - drivers
-    - memc
-    depends_on: memc
-    filter: dt_compat_enabled("st,stm32-fmc-sdram")
-  drivers.memc.smc_sram:
-    path: tests/drivers/memc/ram
-    catalog:
-    - drivers
-    - memc
-    depends_on: memc
-    filter: dt_compat_enabled("atmel,sam-smc")
-    platform_allow: sam4s_xplained
-  drivers.memc.sifive_ddr:
-    path: tests/drivers/memc/ram
-    catalog:
-    - drivers
-    - memc
-    platform_allow: hifive_unmatched
-  drivers.mipi_dsi.api:
-    path: tests/drivers/mipi_dsi/api
-    catalog:
-    - drivers
-    - mipi_dsi
-    depends_on: mipi_dsi
-    filter: dt_alias_exists("mipi-dsi")
-  drivers.mm.sys_mm_drv_api:
-    path: tests/drivers/mm/sys_mm_drv_api
-    catalog:
-    - drivers
-    - mm
-    filter: dt_compat_enabled("intel,adsp-mtl-tlb") or dt_compat_enabled("intel,adsp-tlb")
-  drivers.mm.sys_mm_drv_bank:
-    path: tests/drivers/mm/sys_mm_drv_bank
-    catalog:
-    - drivers
-    - mm
-    filter: dt_compat_enabled("intel,adsp-mtl-tlb") or dt_compat_enabled("intel,adsp-tlb")
-  drivers.pinctrl.api:
-    path: tests/drivers/pinctrl/api
-    catalog:
-    - drivers
-    - pinctrl
-    platform_allow:
-    - native_posix
-    - native_posix_64
-  drivers.pinctrl.api_reg:
-    path: tests/drivers/pinctrl/api
-    catalog:
-    - drivers
-    - pinctrl
-    extra_args: CONF_FILE="prj.conf;reg.conf"
-    platform_allow:
-    - native_posix
-    - native_posix_64
-  drivers.pinctrl.gd32_af:
-    path: tests/drivers/pinctrl/gd32
-    catalog:
-    - drivers
-    - pinctrl
-    platform_allow: gd32f450i_eval
-  drivers.pinctrl.gd32_afio:
-    path: tests/drivers/pinctrl/gd32
-    catalog:
-    - drivers
-    - pinctrl
-    platform_allow: gd32f403z_eval
-  drivers.pinctrl.nrf:
-    path: tests/drivers/pinctrl/nrf
-    catalog:
-    - drivers
-    - pinctrl
-    depends_on:
-    - pinctrl
-    - nrf
-  drivers.pwm:
-    path: tests/drivers/pwm/pwm_api
-    catalog:
-    - drivers
-    - pwm
-    - userspace
-    filter: dt_alias_exists("pwm-0") or dt_alias_exists("pwm-1") or dt_alias_exists("pwm-2")
-      or dt_alias_exists("pwm-3") or dt_compat_enabled("st,stm32-pwm")
-    depends_on: pwm
-  drivers.pwm.loopback:
-    path: tests/drivers/pwm/pwm_loopback
-    catalog:
-    - pwm
-    - drivers
-    - userspace
-    depends_on: pwm
-    filter: dt_compat_enabled("test-pwm-loopback")
-  drivers.regulator.api:
-    path: tests/drivers/regulator/api
-    catalog:
-    - drivers
-    - regulator
-    platform_allow:
-    - native_posix
-    - native_posix_64
-  drivers.regulator.api.nothreadsaferefcnt:
-    path: tests/drivers/regulator/api
-    catalog:
-    - drivers
-    - regulator
-    extra_configs:
-    - CONFIG_REGULATOR_THREAD_SAFE_REFCNT=n
-    platform_allow:
-    - native_posix
-    - native_posix_64
-  drivers.regulator.fixed:
-    path: tests/drivers/regulator/fixed
-    catalog:
-    - drivers
-    - regulator
-    depends_on: gpio
-    platform_allow:
-    - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp
-    - nrf9160dk_nrf9160
-  drivers.regulator.voltage.nrf52840dk_nrf52840_npm6001:
-    path: tests/drivers/regulator/voltage
-    catalog: &9
-    - drivers
-    - regulator
-    extra_args:
-    - DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840_npm6001.overlay
-    - SHIELD=npm6001_ek
-    platform_allow: nrf52840dk_nrf52840
-  drivers.regulator.voltage.mimxrt685_evk_cm33:
-    path: tests/drivers/regulator/voltage
-    catalog: *9
-    platform_allow: mimxrt685_evk_cm33
-  drivers.regulator.voltage.rpi_pico_vreg:
-    path: tests/drivers/regulator/voltage
-    catalog: *9
-    platform_allow: rpi_pico
-  drivers.retained_mem.api.gpregret:
-    path: tests/drivers/retained_mem/api
-    catalog:
-    - drivers
-    - retained_mem
-    platform_allow: nrf52840dk_nrf52840
-  drivers.retained_mem.api.ram:
-    path: tests/drivers/retained_mem/api
-    catalog:
-    - drivers
-    - retained_mem
-    platform_allow: qemu_cortex_m3
-  drivers.retained_mem.api.ram.nrf52840dk_nrf52840:
-    path: tests/drivers/retained_mem/api
-    catalog:
-    - drivers
-    - retained_mem
-    extra_args:
-    - DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840_ram.overlay"
-    - OVERLAY_CONFIG="boards/nrf52840dk_nrf52840_ram.conf"
-    platform_allow: nrf52840dk_nrf52840
-  drivers.rtc.rtc_api:
-    path: tests/drivers/rtc/rtc_api
-    catalog:
-    - drivers
-    - rtc
-    - api
-    filter: dt_alias_exists("rtc")
-    depends_on: rtc
-  drivers.rtc.rtc_api_helpers:
-    path: tests/drivers/rtc/rtc_api_helpers
-    catalog:
-    - drivers
-    - rtc
-    - api
-    - helpers
-  drivers.sdhc.sdhc_api:
-    path: tests/drivers/sdhc
-    catalog: sdhc
-    filter: dt_alias_exists("sdhc0")
-    depends_on: sdhc
-  drivers.sensor.accel:
-    path: tests/drivers/sensor/accel
-    catalog:
-    - drivers
-    - sensor
-    - subsys
-    platform_allow: native_posix
-  drivers.sensor.akm09918c:
-    path: tests/drivers/sensor/akm09918c
-    catalog:
-    - drivers
-    - sensor
-    - subsys
-    platform_allow: native_posix
-  drivers.sensor.generic:
-    path: tests/drivers/sensor/generic
-    catalog:
-    - drivers
-    - sensor
-  drivers.sensor.generic.fpu:
-    path: tests/drivers/sensor/generic
-    catalog:
-    - drivers
-    - sensor
-    extra_args: CONF_FILE=prj_fpu.conf
-  drivers.sensor.icm42688:
-    path: tests/drivers/sensor/icm42688
-    catalog:
-    - drivers
-    - sensor
-    - subsys
-    platform_allow: native_posix
-  drivers.sensors.sbs_gauge:
-    path: tests/drivers/sensor/sbs_gauge
-    catalog:
-    - drivers
-    - sensors
-    build_only: true
-    filter: dt_compat_enabled("sbs,sbs-gauge") and not dt_compat_enabled("zephyr,i2c-emul-controller")
-  drivers.sensors.sbs_gauge.emulated:
-    path: tests/drivers/sensor/sbs_gauge
-    catalog:
-    - drivers
-    - sensors
-    extra_configs:
-    - CONFIG_EMUL=y
-    filter: dt_compat_enabled("sbs,sbs-gauge")
-    platform_allow:
-    - native_posix
-    - qemu_cortex_a9
-    - qemu_arc_hs
-  drivers.smbus.api:
-    path: tests/drivers/smbus/smbus_api
-    catalog: smbus
-    platform_allow:
-    - qemu_x86_64
-    - &10
-      - ehl_crb
-      - rpl_crb
-  drivers.smbus.api.access.mmio:
-    path: tests/drivers/smbus/smbus_api
-    catalog: smbus
-    extra_configs:
-    - CONFIG_SMBUS_INTEL_PCH_ACCESS_MMIO=y
-    platform_exclude: qemu_x86_64
-    platform_allow: *10
-  drivers.smbus.api_user:
-    path: tests/drivers/smbus/smbus_api
-    catalog: smbus
-    extra_configs:
-    - CONFIG_USERSPACE=y
-    platform_allow:
-    - qemu_x86_64
-    - *10
-  drivers.smbus.api_stats:
-    path: tests/drivers/smbus/smbus_api
-    catalog: smbus
-    extra_configs:
-    - CONFIG_STATS=y
-    platform_allow:
-    - qemu_x86_64
-    - *10
-  drivers.smbus.api.no_smbalert:
-    path: tests/drivers/smbus/smbus_api
-    catalog: smbus
-    extra_configs:
-    - CONFIG_SMBUS_INTEL_PCH_SMBALERT=n
-    platform_allow:
-    - qemu_x86_64
-    - *10
-  drivers.smbus.api.no_host_notify:
-    path: tests/drivers/smbus/smbus_api
-    catalog: smbus
-    extra_configs:
-    - CONFIG_SMBUS_INTEL_PCH_HOST_NOTIFY=n
-    platform_allow:
-    - qemu_x86_64
-    - *10
-  drivers.smbus.api.debug:
-    path: tests/drivers/smbus/smbus_api
-    catalog: smbus
-    extra_configs:
-    - CONFIG_SMBUS_LOG_LEVEL_DBG=y
-    platform_allow:
-    - qemu_x86_64
-    - *10
-  drivers.smbus.emul:
-    path: tests/drivers/smbus/smbus_emul
-    catalog: smbus
-    platform_allow: native_posix
-  drivers.smbus.emul.peripheral.interrupt:
-    path: tests/drivers/smbus/smbus_emul
-    catalog: smbus
-    extra_args: EXTRA_CFLAGS=-DPERIPHERAL_INT=1
-    platform_allow: native_posix
-  drivers.spi.dt_spec:
-    path: tests/drivers/spi/dt_spec
-    catalog:
-    - drivers
-    - spi
-    - devicetree
-    depends_on:
-    - spi
-    - gpio
-  drivers.spi.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: &11
-    - drivers
-    - spi
-    - dma
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.spi.loopback.internal:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    filter:
-    - CONFIG_SPI_LOOPBACK_MODE_LOOP
-    - dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-    depends_on: spi
-  drivers.spi.loopback.rtio:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_configs:
-    - CONFIG_SPI_RTIO=y
-    platform_allow: tdk_robokit1
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.spi.mcux_dspi_dma.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_args:
-    - OVERLAY_CONFIG="overlay-mcux-dspi-dma.conf"
-    - DTC_OVERLAY_FILE="overlay-mcux-dspi-dma.overlay"
-    platform_allow: frdm_k64f
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.spi.sam_spi_dma.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_args:
-    - OVERLAY_CONFIG="overlay-sam-spi-dma.conf"
-    - DTC_OVERLAY_FILE="overlay-sam-spi-dma.overlay"
-    platform_allow:
-    - sam_e70_xplained
-    - sam_v71_xult
-    - tdk_robokit1
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.spi.stm32_spi_dma.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_args: OVERLAY_CONFIG="overlay-stm32-spi-dma.conf"
-    filter:
-    - CONFIG_SOC_FAMILY_STM32
-    - dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-    platform_allow:
-    - nucleo_g474re
-    - nucleo_f207zg
-    - nucleo_f429zi
-    - nucleo_f746zg
-    - nucleo_wb55rg
-    - nucleo_l152re
-    - nucleo_wl55jc
-    - nucleo_h743zi
-    - stm32h573i_dk
-    depends_on: spi
-  drivers.spi.gd32_spi_interrupt.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_args: OVERLAY_CONFIG="overlay-gd32-spi-interrupt.conf"
-    platform_allow:
-    - gd32f403z_eval
-    - gd32f407v_start
-    - gd32f450i_eval
-    - gd32f450v_start
-    - gd32f450z_eval
-    - gd32f470i_eval
-    - gd32vf103c_starter
-    - gd32vf103v_eval
-    - longan_nano
-    - longan_nano_lite
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.spi.gd32_spi_dma.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_args: OVERLAY_CONFIG="overlay-gd32-spi-dma.conf"
-    platform_allow:
-    - gd32f403z_eval
-    - gd32f407v_start
-    - gd32f450i_eval
-    - gd32f450v_start
-    - gd32f450z_eval
-    - gd32f470i_eval
-    - gd32vf103c_starter
-    - gd32vf103v_eval
-    - longan_nano
-    - longan_nano_lite
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.pl022_spi_interrupt.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_configs:
-    - CONFIG_SPI_PL022_INTERRUPT=y
-    - CONFIG_SPI_PL022_DMA=n
-    platform_allow: rpi_pico
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.pl022_spi_dma.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_configs:
-    - CONFIG_SPI_PL022_INTERRUPT=n
-    - CONFIG_SPI_PL022_DMA=y
-    - CONFIG_DMA=y
-    platform_allow: rpi_pico
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.pl022_spi_dma_and_interrupt.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_configs:
-    - CONFIG_SPI_PL022_INTERRUPT=y
-    - CONFIG_SPI_PL022_DMA=y
-    - CONFIG_DMA=y
-    platform_allow: rpi_pico
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.pl022_spi_dma_no_dma_props.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_configs:
-    - CONFIG_SPI_PL022_INTERRUPT=n
-    - CONFIG_SPI_PL022_DMA=y
-    - CONFIG_DMA=y
-    extra_args: DTC_OVERLAY_FILE="boards/rpi_pico_delete_dma_props.overlay"
-    platform_allow: rpi_pico
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.pl022_spi_dma_and_interrupt_no_dma_props.loopback:
-    path: tests/drivers/spi/spi_loopback
-    catalog: *11
-    extra_configs:
-    - CONFIG_SPI_PL022_INTERRUPT=y
-    - CONFIG_SPI_PL022_DMA=y
-    - CONFIG_DMA=y
-    extra_args: DTC_OVERLAY_FILE="boards/rpi_pico_delete_dma_props.overlay"
-    platform_allow: rpi_pico
-    depends_on: spi
-    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")
-  drivers.syscon:
-    path: tests/drivers/syscon
-    catalog:
-    - drivers
-    - syscon
+    filter: dt_compat_enabled("microchip,mec15xx-board-power")
+    depends_on: espi
+  sample.drivers.ethernet.eth_ivshmem:
+    path: samples/drivers/ethernet/eth_ivshmem
+    catalog: drivers ethernet
     platform_allow: qemu_cortex_a53
-  drivers.timer.nrf_rtc_timer:
-    path: tests/drivers/timer/nrf_rtc_timer
-    catalog:
-    - drivers
-    - timer
-    extra_configs:
-    - CONFIG_ZERO_LATENCY_IRQS=y
-    platform_allow:
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-  drivers.timer.nrf_rtc_timer_no_zli:
-    path: tests/drivers/timer/nrf_rtc_timer
-    catalog:
-    - drivers
-    - timer
-    platform_allow:
-    - nrf52dk_nrf52832
-    - nrf52840dk_nrf52840
-    - nrf52_bsim
-  drivers.uart.async_api:
-    path: tests/drivers/uart/uart_async_api
-    catalog: &12
-    - drivers
-    - uart
-    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and not CONFIG_UART_MCUX_LPUART
-    depends_on: gpio
-    platform_exclude: &13
-    - seeeduino_xiao
-    - serpente
-    - arduino_nano_33_iot
-    - atsamr21_xpro
-    - adafruit_itsybitsy_m4_express
-    - atsame54_xpro
-    - atsamc21n_xpro
-    - adafruit_trinket_m0
-    - arduino_nano_33_iot
-    - arduino_zero
-    - atsamd21_xpro
-    - adafruit_feather_m0_basic_proto
-    - adafruit_feather_m0_lora
-    - arduino_mkrzero
-    - atsaml21_xpro
-    - atsamr34_xpro
-    - stamp_c3
-    - wio_terminal
-    - xiao_esp32c3
-    - atsamd20_xpro
-  drivers.uart.async_api.nrf_uart:
-    path: tests/drivers/uart/uart_async_api
-    catalog: *12
-    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;boards/nrf_uart.overlay"
-    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: gpio
-    platform_exclude: *13
-  drivers.uart.async_api.rtt:
-    path: tests/drivers/uart/uart_async_api
-    catalog: *12
-    extra_configs:
-    - CONFIG_USE_SEGGER_RTT=y
-    - CONFIG_UART_RTT=y
-    extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
-    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
-      and not CONFIG_UART_MCUX_LPUART
-    platform_exclude:
-    - - xmc45_relax_kit
-      - xmc47_relax_kit
-    - *13
     build_only: true
-  drivers.uart.async_api.lpuart:
-    path: tests/drivers/uart/uart_async_api
-    catalog: *12
-    filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_UART_MCUX_LPUART
-    depends_on: dma
-    platform_exclude: *13
-  drivers.uart.basic_api:
-    path: tests/drivers/uart/uart_basic_api
+  sample.drivers.flash.shell:
+    path: samples/drivers/flash_shell
     catalog:
-    - drivers
-    - uart
-    filter: CONFIG_UART_CONSOLE
-  drivers.uart.basic_api.poll:
-    path: tests/drivers/uart/uart_basic_api
-    catalog:
-    - drivers
-    - uart
-    extra_args: CONF_FILE=prj_poll.conf
-    filter: CONFIG_UART_CONSOLE
-  drivers.uart.basic_api.shell:
-    path: tests/drivers/uart/uart_basic_api
-    catalog:
-    - drivers
-    - uart
-    extra_args: CONF_FILE=prj_shell.conf
-    min_flash: 64
-    filter: CONFIG_UART_CONSOLE
-  drivers.uart.basic_api.cdc_acm:
-    path: tests/drivers/uart/uart_basic_api
-    catalog:
-    - drivers
-    - usb
+    - flash
+    - shell
+    filter: CONFIG_FLASH_HAS_DRIVER_ENABLED
+    platform_exclude:
+    - nucleo_h745zi_q_m4
+    - stm32h747i_disco_m4
+    - gd32f350r_eval
+    - arduino_portenta_h7_m4
+    - arduino_giga_r1_m4
+    min_ram: 12
+  sample.drivers.fpga_controller:
+    path: samples/drivers/fpga/fpga_controller
+    catalog: FPGA
+    platform_allow: quick_feather
+    build_only: true
+  sample.drivers.fpga_controller.shell:
+    path: samples/drivers/fpga/fpga_controller
+    catalog: FPGA
+    extra_args: CONF_FILE="prj_shell.conf"
+    platform_allow: quick_feather
+    build_only: true
+  sample.drivers.ht16k33:
+    path: samples/drivers/ht16k33
+    catalog: LED
+    platform_allow: nrf52840dk_nrf52840
+  sample.drivers.i2s.echo:
+    path: samples/drivers/i2s/echo
+    catalog: i2s
+    filter: dt_nodelabel_enabled("i2s_rxtx") or (dt_nodelabel_enabled("i2s_rx") and
+      dt_nodelabel_enabled("i2s_tx"))
+    platform_exclude: litex_vexriscv
+  sample.drivers.jesd216:
+    path: samples/drivers/jesd216
+    catalog: &1
+    - spi
+    - flash
+    platform_exclude:
+    - hifive1
+    - hifive_unleashed
+    - hifive_unmatched
+    - mimxrt1170_evk_cm7
+    - mimxrt1170_evk_cm4
+    filter: dt_compat_enabled("jedec,spi-nor")
+    depends_on: spi
+  sample.drivers.jesd216.nrf52840dk_spi:
+    path: samples/drivers/jesd216
+    catalog: *1
     extra_args:
-    - OVERLAY_CONFIG="overlay-usb.conf"
-    - DTC_OVERLAY_FILE="usb.overlay"
-    filter: CONFIG_UART_CONSOLE
-    depends_on: usb_device
-  drivers.uart_emul.polling:
-    path: tests/drivers/uart/uart_emul
+    - DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840_spi.overlay
+    - OVERLAY_CONFIG=boards/nrf52840dk_nrf52840_spi.conf
+    platform_allow: nrf52840dk_nrf52840
+  sample.drivers.kscan:
+    path: samples/drivers/kscan
     catalog:
     - drivers
-    - uart
-    platform_allow: qemu_x86
-    depends_on: uart_emul
-  drivers.uart.uart_mix_poll:
-    path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: &14
-    - drivers
-    - uart
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_ASYNC_API=n
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
-    depends_on: gpio
-    platform_allow: &15
-    - nrf52840dk_nrf52840
-    - nrf9160dk_nrf9160
-    - nrf5340dk_nrf5340_cpuapp
-  drivers.uart.uart_mix_poll_fifo:
-    path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *14
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=y
-    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
-    depends_on: gpio
-    platform_allow: *15
-  drivers.uart.uart_mix_poll_async_api:
-    path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *14
-    extra_configs:
-    - CONFIG_UART_ASYNC_API=y
-    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_0_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
-    - CONFIG_NRFX_TIMER2=y
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
-    depends_on: gpio
-    platform_allow: *15
-  drivers.uart.uart_mix_poll_async_api_const:
-    path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *14
-    extra_configs:
-    - CONFIG_UART_ASYNC_API=y
-    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_0_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
-    - CONFIG_NRFX_TIMER2=y
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
-    - CONFIG_UART_ASYNC_TX_CACHE_SIZE=2
-    extra_args: TEST_CONST_BUFFER=1
-    depends_on: gpio
-    platform_allow: *15
-  drivers.uart.uart_mix_poll_async_api_low_power:
-    path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *14
-    extra_configs:
-    - CONFIG_UART_ASYNC_API=y
-    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_0_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC=y
-    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
-    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
-    - CONFIG_NRFX_TIMER2=y
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
-    depends_on: gpio
-    platform_allow: *15
-  drivers.uart.uart_mix_poll_with_ppi:
-    path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *14
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_ASYNC_API=n
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
-    depends_on: gpio
-    platform_allow: *15
-  drivers.uart.uart_mix_poll_fifo_with_ppi:
-    path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *14
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=y
-    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
-    depends_on: gpio
-    platform_allow: *15
-  drivers.uart.uart_mix_poll_async_api_with_ppi:
-    path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *14
-    extra_configs:
-    - CONFIG_UART_ASYNC_API=y
-    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_0_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
-    - CONFIG_NRFX_TIMER2=y
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
-    depends_on: gpio
-    platform_allow: *15
-  drivers.uart.uart_mix_poll_async_api_with_ppi_low_power:
-    path: tests/drivers/uart/uart_mix_fifo_poll
-    catalog: *14
-    extra_configs:
-    - CONFIG_UART_ASYNC_API=y
-    - CONFIG_UART_0_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_0_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC=y
-    - CONFIG_UART_0_NRF_ASYNC_LOW_POWER=y
-    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
-    - CONFIG_NRFX_TIMER2=y
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
-    depends_on: gpio
-    platform_allow: *15
-  drivers.uart.pm:
-    path: tests/drivers/uart/uart_pm
-    catalog: &16
-    - drivers
-    - uart
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_ASYNC_API=n
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: gpio
-  drivers.uart.pm.no_rxpin:
-    path: tests/drivers/uart/uart_pm
-    catalog: *16
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_ASYNC_API=n
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
-    extra_args: DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840.overlay;nrf_rx_disable.overlay"
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: gpio
-  drivers.uart.pm.enhanced_poll:
-    path: tests/drivers/uart/uart_pm
-    catalog: *16
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_ASYNC_API=n
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: gpio
-  drivers.uart.pm.int_driven:
-    path: tests/drivers/uart/uart_pm
-    catalog: *16
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=y
-    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
-    - CONFIG_UART_ASYNC_API=n
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: gpio
-  drivers.uart.pm.int_driven.enhanced_poll:
-    path: tests/drivers/uart/uart_pm
-    catalog: *16
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=y
-    - CONFIG_UART_0_INTERRUPT_DRIVEN=y
-    - CONFIG_UART_ASYNC_API=n
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: gpio
-  drivers.uart.pm.async:
-    path: tests/drivers/uart/uart_pm
-    catalog: *16
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_ASYNC_API=y
-    - CONFIG_UART_0_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
-    - CONFIG_NRFX_TIMER2=y
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=n
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: gpio
-  drivers.uart.pm.async.enhanced_poll:
-    path: tests/drivers/uart/uart_pm
-    catalog: *16
-    extra_configs:
-    - CONFIG_UART_INTERRUPT_DRIVEN=n
-    - CONFIG_UART_ASYNC_API=y
-    - CONFIG_UART_0_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC=y
-    - CONFIG_UART_0_NRF_HW_ASYNC_TIMER=2
-    - CONFIG_NRFX_TIMER2=y
-    - CONFIG_UART_0_ENHANCED_POLL_OUT=y
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: gpio
-  drivers.udc:
-    path: tests/drivers/udc
+    - kscan
+    depends_on: kscan
+  sample.drivers.kscan_touch:
+    path: samples/drivers/kscan_touch
     catalog:
-    - usb
     - drivers
+    - kscan_touch
+    depends_on: kscan:touch
+  sample.drivers.lcd.hd44780:
+    path: samples/drivers/lcd_hd44780
+    catalog: display
+    platform_allow: arduino_due
+    depends_on: gpio
+  sample.drivers.led.apa102:
+    path: samples/drivers/led_apa102
+    catalog: LED
+    platform_allow: nucleo_l432kc
+    depends_on: spi
+  sample.drivers.led.apa102c_bitbang:
+    path: samples/drivers/led_apa102c_bitbang
+    catalog: LED
+    filter: dt_alias_exists("gpio-0")
+    depends_on: gpio
+  sample.drivers.led.lp3943:
+    path: samples/drivers/led_lp3943
+    catalog: LED
     platform_allow:
-    - nrf52840dk_nrf52840
-    - native_posix_64
-  drivers.w1.w1-serial:
-    path: tests/drivers/w1/w1_api
-    catalog: &17
+    - 96b_neonkey
+    - 96b_argonkey
+  sample.drivers.led.lp503x:
+    path: samples/drivers/led_lp503x
+    catalog: LED
+    filter: dt_compat_enabled("ti,lp503x")
+    depends_on: i2c
+  sample.drivers.led.lp5562:
+    path: samples/drivers/led_lp5562
+    catalog: led
+    platform_allow: nrf52840dk_nrf52840
+  sample.drivers.led.lpd8806:
+    path: samples/drivers/led_lpd8806
+    catalog: LED
+    platform_allow: 96b_carbon
+  sample.drivers.led.pca9633:
+    path: samples/drivers/led_pca9633
+    catalog: LED
+    depends_on: arduino_i2c
+    build_only: true
+  sample.drivers.led.led_pwm:
+    path: samples/drivers/led_pwm
+    catalog: LED
+    filter: dt_compat_enabled("pwm-leds")
+    depends_on: pwm
+    platform_exclude: reel_board
+  sample.drivers.led.sx1509b_intensity:
+    path: samples/drivers/led_sx1509b_intensity
+    catalog: LED
+    platform_allow: thingy52_nrf52832
+    depends_on: i2c
+  sample.drivers.led.ws2812:
+    path: samples/drivers/led_ws2812
+    catalog: LED
+    filter: dt_compat_enabled("worldsemi,ws2812-spi")
+  sample.drivers.led.led_xec:
+    path: samples/drivers/led_xec
+    catalog: LED
+    build_only: true
+    platform_allow:
+    - mec172xevb_assy6906
+    - mec15xxevb_assy6853
+  sample.drivers.mbox:
+    path: samples/drivers/mbox
+    catalog: mbox
+    platform_allow: nrf5340dk_nrf5340_cpuapp
+  sample.drivers.mbox_remote:
+    path: samples/drivers/mbox/remote
+    catalog: mbox
+    platform_allow: nrf5340dk_nrf5340_cpunet
+  sample.drivers.memc:
+    path: samples/drivers/memc
+    catalog: memc
+    filter: dt_alias_exists("sram-ext")
+  sample.drivers.misc.grove_display:
+    path: samples/drivers/misc/grove_display
+    catalog:
     - drivers
-    - w1
-    - userspace
-    extra_args: DTC_OVERLAY_FILE=w1_serial.overlay
-    depends_on: arduino_serial
-    platform_allow: &18
-    - nucleo_g0b1re
-    - nrf52840dk_nrf52840
-  drivers.w1.ds2482-800:
-    path: tests/drivers/w1/w1_api
-    catalog: *17
+    - display
+    depends_on: i2c
+    filter: dt_compat_enabled("seeed,grove-lcd-rgb")
+  sample.drivers.peci:
+    path: samples/drivers/peci
+    catalog:
+    - drivers
+    - peci
+    platform_exclude: mec15xxevb_assy6853
+    filter: dt_alias_exists("peci-0")
+  sample.drivers.espi.ps2:
+    path: samples/drivers/ps2
+    catalog:
+    - drivers
+    - ps2
+    filter: dt_compat_enabled("microchip,xec-ps2")
+  sample.drivers.smbus.shell:
+    path: samples/drivers/smbus
+    catalog: smbus
+    platform_allow:
+    - qemu_x86_64
+    - ehl_crb
+    - rpl_crb
+  sample.drivers.flash.soc_flash_nrf:
+    path: samples/drivers/soc_flash_nrf
+    catalog:
+    - flash
+    - nrf52
+    - nrf9160
+    platform_allow:
+    - nrf52dk_nrf52832
+    - nrf9160dk_nrf9160
+    - nrf9160dk_nrf9160_ns
+  sample.drivers.spi.bitbang:
+    path: samples/drivers/spi_bitbang
+    catalog:
+    - drivers
+    - spi
+    - gpio
+    platform_allow: nrf52840dk_nrf52840
+    depends_on: gpio
+  sample.drivers.spi.flash:
+    path: samples/drivers/spi_flash
+    catalog:
+    - spi
+    - flash
+    filter: dt_compat_enabled("jedec,spi-nor") or dt_compat_enabled("st,stm32-qspi-nor")
+      or dt_compat_enabled("st,stm32-ospi-nor")
+    platform_exclude: hifive_unmatched
+    depends_on: spi
+  sample.drivers.spi.flash_dpd:
+    path: samples/drivers/spi_flash
+    catalog:
+    - spi
+    - flash
+    extra_configs:
+    - CONFIG_SPI_NOR_IDLE_IN_DPD=y
+    filter: dt_compat_enabled("jedec,spi-nor")
+    platform_exclude: hifive_unmatched
+    build_only: true
+    depends_on: spi
+  sample.drivers.spi.flash.at45.build:
+    path: samples/drivers/spi_flash_at45
+    catalog:
+    - spi
+    - flash
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
+  sample.drivers.spi.flash.at45.build.page_layout:
+    path: samples/drivers/spi_flash_at45
+    catalog:
+    - spi
+    - flash
+    extra_args: OVERLAY_CONFIG="overlay-page_layout.conf"
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
+  sample.drivers.spi.flash.at45.build.pm:
+    path: samples/drivers/spi_flash_at45
+    catalog:
+    - spi
+    - flash
+    extra_args: OVERLAY_CONFIG="overlay-pm.conf"
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
+  sample.drivers.spi.flash.at45.build.page_layout_pm:
+    path: samples/drivers/spi_flash_at45
+    catalog:
+    - spi
+    - flash
+    extra_args: OVERLAY_CONFIG="overlay-page_layout.conf;overlay-pm.conf"
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+    build_only: true
+  sample.drivers.spi.flash.at45:
+    path: samples/drivers/spi_flash_at45
+    catalog:
+    - spi
+    - flash
+    extra_args: OVERLAY_CONFIG="overlay-page_layout.conf;overlay-pm.conf"
+    depends_on: spi
+    filter: dt_compat_enabled("atmel,at45")
+  sample.drivers.spi.fujitsu_fram:
+    path: samples/drivers/spi_fujitsu_fram
+    catalog:
+    - drivers
+    - fram
+    depends_on:
+    - gpio
+    - spi
+    filter: dt_alias_exists("spi-1")
+  sample.drivers.uart:
+    path: samples/drivers/uart/echo_bot
+    catalog:
+    - serial
+    - uart
+    filter: CONFIG_SERIAL and CONFIG_UART_INTERRUPT_DRIVEN and dt_chosen_enabled("zephyr,shell-uart")
+  sample.drivers.uart.stm32.single_wire:
+    path: samples/drivers/uart/stm32/single_wire
+    catalog:
+    - drivers
+    - uart
+    platform_allow: stm32f3_disco
+  sample.drivers.w1.scanner.ds2482-800:
+    path: samples/drivers/w1/scanner
+    catalog: unknown
     extra_args: DTC_OVERLAY_FILE=ds2482-800.overlay
     depends_on: arduino_i2c
-    platform_allow: *18
-  drivers.w1.ds2484:
-    path: tests/drivers/w1/w1_api
-    catalog: *17
+    platform_allow: nrf52840dk_nrf52840
+  sample.drivers.w1.scanner.ds2484:
+    path: samples/drivers/w1/scanner
+    catalog: unknown
     extra_args: DTC_OVERLAY_FILE=ds2484.overlay
     depends_on: arduino_i2c
-    platform_allow: *18
-  drivers.w1.ds2485:
-    path: tests/drivers/w1/w1_api
-    catalog: *17
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nucleo_g0b1re
+  samples.drivers.w1.scanner.ds2485:
+    path: samples/drivers/w1/scanner
+    catalog: unknown
     extra_args: DTC_OVERLAY_FILE=ds2485.overlay
     depends_on: arduino_i2c
-    platform_allow: *18
-  drivers.watchdog:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: &19
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nucleo_g0b1re
+  samples.drivers.w1.scanner.w1_serial:
+    path: samples/drivers/w1/scanner
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE=w1_serial.overlay
+    depends_on: arduino_serial
+    platform_allow:
+    - nrf52840dk_nrf52840
+    - nucleo_g0b1re
+  sample.drivers.watchdog:
+    path: samples/drivers/watchdog
+    catalog: &2
     - drivers
     - watchdog
-    filter: |
-      not (CONFIG_WDT_SAM or dt_compat_enabled("st,stm32-window-watchdog")
-       or dt_compat_enabled("st,stm32-watchdog") or CONFIG_SOC_FAMILY_LPC or
-       CONFIG_SOC_SERIES_IMX_RT6XX or CONFIG_SOC_SERIES_IMX_RT5XX or
-       CONFIG_SOC_FAMILY_GD32 or SOC_SERIES_GD32VF103)
+    filter: not (CONFIG_SOC_FAMILY_STM32 or CONFIG_SOC_FAMILY_GD32 or SOC_SERIES_GD32VF103)
     platform_exclude:
-    - mec15xxevb_assy6853
     - s32z270dc2_rtu0_r52
     - s32z270dc2_rtu1_r52
     depends_on: watchdog
-  drivers.watchdog.stm32wwdg:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *19
-    extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg.overlay"
-    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+  sample.drivers.watchdog.stm32_wwdg:
+    path: samples/drivers/watchdog
+    catalog: *2
+    extra_args: DTC_OVERLAY_FILE=boards/stm32_wwdg.overlay
+    filter: dt_compat_enabled("st,stm32-window-watchdog")
     platform_allow:
+    - b_u585i_iot02a
     - nucleo_f091rc
     - nucleo_f103rb
     - nucleo_f207zg
-    - stm32f3_disco
     - nucleo_f429zi
     - nucleo_f746zg
     - nucleo_g071rb
     - nucleo_g474re
     - nucleo_l073rz
     - nucleo_l152re
-    - nucleo_l4r5zi
-    - stm32l562e_dk
     - nucleo_wb55rg
     - nucleo_wl55jc
-    - b_u585i_iot02a
-    - nucleo_u575zi_q
-    - nucleo_c031c6
+    - stm32f3_disco
+    - stm32l562e_dk
+    - disco_l475_iot1
     - stm32h573i_dk
     depends_on: watchdog
-  drivers.watchdog.stm32wwdg_h7:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *19
-    extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg_h7.overlay"
-    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
-    platform_allow:
-    - nucleo_h753zi
-    - nucleo_h743zi
+  sample.drivers.watchdog.stm32h7_wwdg:
+    path: samples/drivers/watchdog
+    catalog: *2
+    extra_args: DTC_OVERLAY_FILE=boards/stm32h7_wwdg.overlay
+    filter: dt_compat_enabled("st,stm32-window-watchdog")
+    platform_allow: nucleo_h743zi
     depends_on: watchdog
-  drivers.watchdog.stm32iwdg:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *19
-    extra_args: DTC_OVERLAY_FILE="boards/stm32_iwdg.overlay"
-    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+  sample.drivers.watchdog.stm32_iwdg:
+    path: samples/drivers/watchdog
+    catalog: *2
+    extra_args: DTC_OVERLAY_FILE=boards/stm32_iwdg.overlay
+    filter: dt_compat_enabled("st,stm32-watchdog")
     platform_allow:
+    - b_u585i_iot02a
     - nucleo_f091rc
     - nucleo_f103rb
     - nucleo_f207zg
-    - stm32f3_disco
     - nucleo_f429zi
     - nucleo_f746zg
     - nucleo_g071rb
     - nucleo_g474re
+    - nucleo_h743zi
     - nucleo_l073rz
     - nucleo_l152re
-    - nucleo_l4r5zi
-    - stm32l562e_dk
     - nucleo_wb55rg
     - nucleo_wl55jc
-    - b_u585i_iot02a
-    - nucleo_u575zi_q
-    - nucleo_h753zi
-    - nucleo_h743zi
-    - nucleo_c031c6
-    - nucleo_h753zi
+    - stm32f3_disco
+    - stm32l562e_dk
+    - disco_l475_iot1
+    - stm32h573i_dk
     depends_on: watchdog
-  drivers.watchdog.mec15xxevb_assy6853:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *19
-    build_only: true
-    platform_allow: mec15xxevb_assy6853
-    depends_on: watchdog
-  drivers.watchdog.counter_watchdog:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *19
-    extra_args:
-    - OVERLAY_CONFIG="boards/nrf52840dk_nrf52840_counter.conf"
-    - DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840_counter.overlay"
-    platform_allow: nrf52840dk_nrf52840
-    depends_on: watchdog
-  drivers.watchdog.gd32fwdgt:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *19
-    extra_args: DTC_OVERLAY_FILE="boards/gd32_fwdgt.overlay"
-    filter: dt_compat_enabled("gd,gd32-fwdgt")
+  sample.drivers.watchdog.gd32_fwdgt:
+    path: samples/drivers/watchdog
+    catalog: *2
+    extra_args: DTC_OVERLAY_FILE=boards/gd32_fwdgt.overlay
+    filter: dt_has_compat("gd,gd32-fwdgt")
     platform_allow:
     - gd32e103v_eval
     - gd32e507v_start
@@ -2649,11 +555,11 @@ cases:
     - gd32vf103v_eval
     - longan_nano
     depends_on: watchdog
-  drivers.watchdog.gd32wwdgt:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *19
-    extra_args: DTC_OVERLAY_FILE="boards/gd32_wwdgt.overlay"
-    filter: dt_compat_enabled("gd,gd32-wwdgt")
+  sample.drivers.watchdog.gd32_wwdgt:
+    path: samples/drivers/watchdog
+    catalog: *2
+    extra_args: DTC_OVERLAY_FILE=boards/gd32_wwdgt.overlay
+    filter: dt_has_compat("gd,gd32-wwdgt")
     platform_allow:
     - gd32e103v_eval
     - gd32e507v_start
@@ -2666,27 +572,21 @@ cases:
     - gd32vf103v_eval
     - longan_nano
     depends_on: watchdog
-  drivers.watchdog.s32z270dc2_r52:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *19
+  sample.drivers.watchdog.s32z270dc2_r52:
+    path: samples/drivers/watchdog
+    catalog: *2
     build_only: true
     platform_allow:
     - s32z270dc2_rtu0_r52
     - s32z270dc2_rtu1_r52
     depends_on: watchdog
-  drivers.watchdog.mimxrt1050_evk_ti_tps382x:
-    path: tests/drivers/watchdog/wdt_basic_api
-    catalog: *19
-    extra_args: DTC_OVERLAY_FILE="boards/mimxrt1050_evk_ti_tps382x.overlay"
-    filter: dt_compat_enabled("ti,tps382x")
-    platform_allow: mimxrt1050_evk
-    depends_on: watchdog
-  drivers.watchdog.reset_none:
-    path: tests/drivers/watchdog/wdt_basic_reset_none
-    catalog:
-    - drivers
-    - watchdog
-    platform_allow:
-    - s32z270dc2_rtu0_r52
-    - s32z270dc2_rtu1_r52
-    depends_on: watchdog
+  sample.drivers.tflm_ethosu:
+    path: samples/modules/tflite-micro/tflm_ethosu
+    catalog: NPU
+    filter: dt_compat_enabled("arm,ethos-u")
+    build_only: true
+  sample.drivers.ina219:
+    path: samples/sensor/ina219
+    catalog: sensors
+    build_only: true
+    platform_allow: blackpill_f411ce

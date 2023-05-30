@@ -1,0 +1,128 @@
+---
+cases:
+  kernel.memory_protection.mem_map:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: &1
+    - kernel
+    - mmu
+    extra_args: CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
+    filter: CONFIG_MMU and not CONFIG_X86_64
+    platform_exclude: qemu_x86_64
+  kernel.memory_protection.mem_map.x86_64:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: *1
+    filter: CONFIG_MMU and CONFIG_X86_64 and not CONFIG_COVERAGE
+  kernel.memory_protection.mem_map.x86_64.coverage:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: *1
+    extra_args: EXTRA_CFLAGS=-DSKIP_EXECUTE_TESTS
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
+    platform_allow: qemu_x86_64
+  kernel.memory_protection.mem_map.x86_64.coverage.exec:
+    path: tests/kernel/mem_protect/mem_map
+    catalog: *1
+    extra_args: CONF_FILE=prj_x86_64_coverage_exec.conf
+    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
+    platform_allow: qemu_x86_64
+  kernel.memory_protection:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: &2
+    - kernel
+    - security
+    - userspace
+    extra_args:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    - CONFIG_MINIMAL_LIBC=y
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    platform_exclude: twr_ke18f
+  kernel.memory_protection.gap_filling.arc:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: *2
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arc
+  kernel.memory_protection.gap_filling.arm:
+    path: tests/kernel/mem_protect/mem_protect
+    catalog: *2
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arm
+    platform_allow:
+    - efr32_radio_brd4180a
+    - mps2_an521
+    - nrf9160dk_nrf9160
+  kernel.memory_protection.obj_validation:
+    path: tests/kernel/mem_protect/obj_validation
+    catalog:
+    - kernel
+    - security
+    - userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.memory_protection.protection:
+    path: tests/kernel/mem_protect/protection
+    catalog:
+    - kernel
+    - security
+    platform_exclude: twr_ke18f
+    filter: CONFIG_SRAM_REGION_PERMISSIONS
+  kernel.memory_protection.stack_random:
+    path: tests/kernel/mem_protect/stack_random
+    catalog:
+    - kernel
+    - memory_protection
+    arch_exclude: posix
+  kernel.memory_protection.stackprot:
+    path: tests/kernel/mem_protect/stackprot
+    catalog:
+    - kernel
+    - userspace
+    arch_exclude:
+    - nios2
+    - xtensa
+    - posix
+    - sparc
+  kernel.memory_protection.sys_sem:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog:
+    - kernel
+    - userspace
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.memory_protection.sys_sem.nouser:
+    path: tests/kernel/mem_protect/sys_sem
+    catalog: kernel
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=n
+  kernel.memory_protection.syscalls:
+    path: tests/kernel/mem_protect/syscalls
+    catalog:
+    - kernel
+    - security
+    - userspace
+    platform_exclude: qemu_arc_em
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.memory_protection.userspace:
+    path: tests/kernel/mem_protect/userspace
+    catalog: &3
+    - kernel
+    - security
+    - userspace
+    extra_configs:
+    - CONFIG_TEST_HW_STACK_PROTECTION=n
+    - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.memory_protection.userspace.gap_filling.arc:
+    path: tests/kernel/mem_protect/userspace
+    catalog: *3
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arc
+  kernel.memory_protection.userspace.gap_filling.arm:
+    path: tests/kernel/mem_protect/userspace
+    catalog: *3
+    extra_args: CONFIG_MPU_GAP_FILLING=y
+    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+    arch_allow: arm
+    platform_allow:
+    - efr32_radio_brd4180a
+    - mps2_an521
+    - nrf9160dk_nrf9160

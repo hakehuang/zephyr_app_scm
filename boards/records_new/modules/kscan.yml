@@ -1,0 +1,18 @@
+---
+cases:
+  drivers.kscan:
+    path: tests/drivers/kscan/kscan_api
+    catalog:
+    - drivers
+    - kscan
+    - userspace
+    depends_on: kscan
+    platform_exclude: mec15xxevb_assy6853
+  drivers.kscan.mec15xxevb_assy6853:
+    path: tests/drivers/kscan/kscan_api
+    catalog:
+    - drivers
+    - kscan
+    extra_args: CONF_FILE="mec15xxevb_assy6853.conf"
+    depends_on: kscan
+    platform_allow: mec15xxevb_assy6853

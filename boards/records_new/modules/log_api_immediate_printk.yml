@@ -1,0 +1,21 @@
+---
+cases:
+  logging.log_api_immediate_printk:
+    path: tests/subsys/logging/log_api
+    catalog: &1
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_PRINTK=y
+    platform_type: &2
+    - qemu
+    - native
+  logging.log_api_immediate_printk.tagged_args:
+    path: tests/subsys/logging/log_api
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MODE_IMMEDIATE=y
+    - CONFIG_LOG_PRINTK=y
+    - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
+    platform_type: *2

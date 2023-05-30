@@ -1,0 +1,11 @@
+---
+cases:
+  kernel.message_queue_usage:
+    path: tests/kernel/msgq/msgq_usage
+    catalog: kernel
+  kernel.message_queue_usage.linker_generator:
+    path: tests/kernel/msgq/msgq_usage
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_cortex_m3

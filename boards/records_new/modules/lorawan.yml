@@ -1,0 +1,75 @@
+---
+cases:
+  sample.lorawan.class_a.as923:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_AS923=y
+    depends_on: lora
+  sample.lorawan.class_a.au915:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_AU915=y
+    depends_on: lora
+  sample.lorawan.class_a.cn470:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_CN470=y
+    depends_on: lora
+  sample.lorawan.class_a.cn779:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_CN779=y
+    depends_on: lora
+  sample.lorawan.class_a.eu433:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_EU433=y
+    depends_on: lora
+  sample.lorawan.class_a.eu868:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_EU868=y
+    depends_on: lora
+  sample.lorawan.class_a.kr920:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_KR920=y
+    depends_on: lora
+  sample.lorawan.class_a.in865:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_IN865=y
+    depends_on: lora
+  sample.lorawan.class_a.us915:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_US915=y
+    depends_on: lora
+  sample.lorawan.class_a.ru864:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_RU864=y
+    depends_on: lora
+  sample.lorawan.class_a.multiregion:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_configs:
+    - CONFIG_LORAMAC_REGION_EU868=y
+    - CONFIG_LORAMAC_REGION_US915=y
+    depends_on: lora
+  sample.lorawan.class_a.clock_sync:
+    path: samples/subsys/lorawan/class_a
+    catalog: lorawan
+    extra_args: OVERLAY_CONFIG="overlay-clock-sync.conf"
+    filter: CONFIG_ENTROPY_HAS_DRIVER
+    depends_on: lora

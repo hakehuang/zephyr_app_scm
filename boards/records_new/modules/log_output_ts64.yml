@@ -1,0 +1,9 @@
+---
+cases:
+  logging.log_output_ts64:
+    path: tests/subsys/logging/log_output
+    catalog:
+    - log_output
+    - logging
+    extra_configs:
+    - CONFIG_LOG_TIMESTAMP_64BIT=y

@@ -1,0 +1,29 @@
+---
+cases:
+  drivers.rtc.build.pcf8523:
+    path: tests/drivers/build_all/rtc
+    catalog:
+    - drivers
+    - rtc
+    extra_args: SHIELD=adafruit_data_logger
+    depends_on:
+    - arduino_spi
+    - arduino_i2c
+    - arduino_gpio
+    platform_allow: frdm_k64f
+    build_only: true
+  drivers.rtc.rtc_api:
+    path: tests/drivers/rtc/rtc_api
+    catalog:
+    - drivers
+    - rtc
+    - api
+    filter: dt_alias_exists("rtc")
+    depends_on: rtc
+  drivers.rtc.rtc_api_helpers:
+    path: tests/drivers/rtc/rtc_api_helpers
+    catalog:
+    - drivers
+    - rtc
+    - api
+    - helpers

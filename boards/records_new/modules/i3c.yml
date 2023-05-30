@@ -1,0 +1,8 @@
+---
+cases:
+  drivers.i3c.build:
+    path: tests/drivers/build_all/i3c
+    catalog: i3c_cdns
+    extra_args: CONFIG_I3C=y
+    platform_allow: qemu_cortex_m3
+    build_only: true

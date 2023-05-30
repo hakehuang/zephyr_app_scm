@@ -1,0 +1,9 @@
+---
+cases:
+  net.icmpv4:
+    path: tests/net/icmpv4
+    catalog:
+    - net
+    - icmpv4
+    min_ram: 16
+    depends_on: netif

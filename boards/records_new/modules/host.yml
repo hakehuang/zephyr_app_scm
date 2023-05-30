@@ -1,0 +1,764 @@
+---
+cases:
+  bluetooth.host.bt_keys_update_usage.default:
+    path: tests/bluetooth/host
+    catalog: &1
+    - bluetooth
+    - host
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
+    type: unit
+  bluetooth.host.bt_keys_update_usage.save_aging_counter:
+    path: tests/bluetooth/host
+    catalog: *1
+    extra_configs:
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
+    - CONFIG_BT_KEYS_SAVE_AGING_COUNTER_ON_PAIRING=y
+    type: unit
+  bluetooth.host.bt_buf_get_type.default:
+    path: tests/bluetooth/host/buf
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_buf_get_cmd_complete.default:
+    path: tests/bluetooth/host/buf/bt_buf_get_cmd_complete
+    catalog: &2
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_buf_get_cmd_complete.hci_acl_flow_control:
+    path: tests/bluetooth/host/buf/bt_buf_get_cmd_complete
+    catalog: *2
+    extra_configs:
+    - CONFIG_BT_CENTRAL=y
+    - CONFIG_BT_HCI_ACL_FLOW_CONTROL=y
+    type: unit
+  bluetooth.host.bt_buf_get_cmd_complete.iso_unicast:
+    path: tests/bluetooth/host/buf/bt_buf_get_cmd_complete
+    catalog: *2
+    extra_configs:
+    - CONFIG_BT_ISO_CENTRAL=y
+    type: unit
+  bluetooth.host.bt_buf_get_cmd_complete.iso_sync_receiver:
+    path: tests/bluetooth/host/buf/bt_buf_get_cmd_complete
+    catalog: *2
+    extra_configs:
+    - CONFIG_BT_ISO_SYNC_RECEIVER=y
+    type: unit
+  bluetooth.host.bt_buf_get_evt.default:
+    path: tests/bluetooth/host/buf/bt_buf_get_evt
+    catalog: &3
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_buf_get_evt.hci_acl_flow_control:
+    path: tests/bluetooth/host/buf/bt_buf_get_evt
+    catalog: *3
+    extra_configs:
+    - CONFIG_BT_CENTRAL=y
+    - CONFIG_BT_HCI_ACL_FLOW_CONTROL=y
+    type: unit
+  bluetooth.host.bt_buf_get_evt.iso_unicast:
+    path: tests/bluetooth/host/buf/bt_buf_get_evt
+    catalog: *3
+    extra_configs:
+    - CONFIG_BT_ISO_CENTRAL=y
+    type: unit
+  bluetooth.host.bt_buf_get_evt.iso_sync_receiver:
+    path: tests/bluetooth/host/buf/bt_buf_get_evt
+    catalog: *3
+    extra_configs:
+    - CONFIG_BT_ISO_SYNC_RECEIVER=y
+    type: unit
+  bluetooth.host.bt_buf_get_rx.default:
+    path: tests/bluetooth/host/buf/bt_buf_get_rx
+    catalog: &4
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_buf_get_rx.hci_acl_flow_control:
+    path: tests/bluetooth/host/buf/bt_buf_get_rx
+    catalog: *4
+    extra_configs:
+    - CONFIG_BT_CENTRAL=y
+    - CONFIG_BT_HCI_ACL_FLOW_CONTROL=y
+    type: unit
+  bluetooth.host.bt_buf_get_rx.iso_unicast:
+    path: tests/bluetooth/host/buf/bt_buf_get_rx
+    catalog: *4
+    extra_configs:
+    - CONFIG_BT_ISO_CENTRAL=y
+    type: unit
+  bluetooth.host.bt_buf_get_rx.iso_sync_receiver:
+    path: tests/bluetooth/host/buf/bt_buf_get_rx
+    catalog: *4
+    extra_configs:
+    - CONFIG_BT_ISO_SYNC_RECEIVER=y
+    type: unit
+  bluetooth.host.bt_buf_get_type.default.bt_buf_get_type:
+    path: tests/bluetooth/host/buf/bt_buf_get_type
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.prng_init.default:
+    path: tests/bluetooth/host/crypto
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_encrypt_be.default:
+    path: tests/bluetooth/host/crypto/bt_encrypt_be
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_encrypt_le.default:
+    path: tests/bluetooth/host/crypto/bt_encrypt_le
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_rand.default:
+    path: tests/bluetooth/host/crypto/bt_rand
+    catalog: &5
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_rand.host_crypto_prng_disabled:
+    path: tests/bluetooth/host/crypto/bt_rand
+    catalog: *5
+    extra_configs:
+    - CONFIG_BT_HOST_CRYPTO_PRNG=n
+    type: unit
+  bluetooth.host.prng_init.default.prng_init:
+    path: tests/bluetooth/host/crypto/prng_init
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_data_parse:
+    path: tests/bluetooth/host/data/bt_data_parse
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_pub_key_is_debug.default:
+    path: tests/bluetooth/host/ecc
+    catalog:
+    - test_framework
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_dh_key_gen.default:
+    path: tests/bluetooth/host/ecc/bt_dh_key_gen
+    catalog: &6
+    - test_framework
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_dh_key_gen.bt_use_debug_keys_enabled:
+    path: tests/bluetooth/host/ecc/bt_dh_key_gen
+    catalog: *6
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_USE_DEBUG_KEYS=y
+    type: unit
+  bluetooth.host.bt_pub_key_gen.default:
+    path: tests/bluetooth/host/ecc/bt_pub_key_gen
+    catalog: &7
+    - test_framework
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_pub_key_gen.bt_use_debug_keys_enabled:
+    path: tests/bluetooth/host/ecc/bt_pub_key_gen
+    catalog: *7
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_USE_DEBUG_KEYS=y
+    type: unit
+  bluetooth.host.bt_pub_key_get.default:
+    path: tests/bluetooth/host/ecc/bt_pub_key_get
+    catalog: &8
+    - test_framework
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_pub_key_get.bt_use_debug_keys_enabled:
+    path: tests/bluetooth/host/ecc/bt_pub_key_get
+    catalog: *8
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_USE_DEBUG_KEYS=y
+    type: unit
+  bluetooth.host.bt_pub_key_is_debug.default.bt_pub_key_is_debug:
+    path: tests/bluetooth/host/ecc/bt_pub_key_is_debug
+    catalog:
+    - test_framework
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_br_oob_get_local.default:
+    path: tests/bluetooth/host/id/bt_br_oob_get_local
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_add.default:
+    path: tests/bluetooth/host/id/bt_id_add
+    catalog: &9
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_add.broadcaster_ext_adv_enabled:
+    path: tests/bluetooth/host/id/bt_id_add
+    catalog: *9
+    extra_configs:
+    - CONFIG_BT_EXT_ADV=y
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_id_add.broadcaster_no_ext_adv:
+    path: tests/bluetooth/host/id/bt_id_add
+    catalog: *9
+    extra_configs:
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_id_add.observer_ext_adv:
+    path: tests/bluetooth/host/id/bt_id_add
+    catalog: *9
+    extra_configs:
+    - CONFIG_BT_EXT_ADV=y
+    - CONFIG_BT_OBSERVER=y
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_id_adv_random_addr_check.default:
+    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
+    catalog: &10
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_adv_random_addr_check.observer_enabled:
+    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
+    catalog: *10
+    extra_configs:
+    - CONFIG_BT_CENTRAL=y
+    - CONFIG_BT_OBSERVER=y
+    type: unit
+  bluetooth.host.bt_id_adv_random_addr_check.observer_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
+    catalog: *10
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    - CONFIG_BT_CENTRAL=y
+    - CONFIG_BT_OBSERVER=y
+    type: unit
+  bluetooth.host.bt_id_adv_random_addr_check.observer_scan_with_identity_enabled:
+    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
+    catalog: *10
+    extra_configs:
+    - CONFIG_BT_SCAN_WITH_IDENTITY=y
+    - CONFIG_BT_CENTRAL=y
+    - CONFIG_BT_OBSERVER=y
+    type: unit
+  bluetooth.host.bt_id_adv_random_addr_check.bt_ext_adv_enabled:
+    path: tests/bluetooth/host/id/bt_id_adv_random_addr_check
+    catalog: *10
+    extra_configs:
+    - CONFIG_BT_EXT_ADV=y
+    type: unit
+  bluetooth.host.bt_id_create.default:
+    path: tests/bluetooth/host/id/bt_id_create
+    catalog: &11
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_create.bt_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_create
+    catalog: *11
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_id_del.default:
+    path: tests/bluetooth/host/id/bt_id_del
+    catalog: &12
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_del.broadcaster_ext_adv_enabled:
+    path: tests/bluetooth/host/id/bt_id_del
+    catalog: *12
+    extra_configs:
+    - CONFIG_BT_EXT_ADV=y
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_id_del.broadcaster_no_ext_adv:
+    path: tests/bluetooth/host/id/bt_id_del
+    catalog: *12
+    extra_configs:
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_id_del.broadcaster_no_ext_adv_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_del
+    catalog: *12
+    extra_configs:
+    - CONFIG_BT_CENTRAL=y
+    - CONFIG_BT_PRIVACY=y
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_id_del.observer_ext_adv:
+    path: tests/bluetooth/host/id/bt_id_del
+    catalog: *12
+    extra_configs:
+    - CONFIG_BT_EXT_ADV=y
+    - CONFIG_BT_OBSERVER=y
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_id_delete.default:
+    path: tests/bluetooth/host/id/bt_id_delete
+    catalog: &13
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_delete.default_bt_settings_enabled:
+    path: tests/bluetooth/host/id/bt_id_delete
+    catalog: *13
+    extra_configs:
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    type: unit
+  bluetooth.host.bt_id_delete.privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_delete
+    catalog: *13
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_id_delete.privacy_bt_settings_enabled:
+    path: tests/bluetooth/host/id/bt_id_delete
+    catalog: *13
+    extra_configs:
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_id_get.default:
+    path: tests/bluetooth/host/id/bt_id_get
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_init.default:
+    path: tests/bluetooth/host/id/bt_id_init
+    catalog: &14
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_init.default_bt_settings_enabled:
+    path: tests/bluetooth/host/id/bt_id_init
+    catalog: *14
+    extra_configs:
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    type: unit
+  bluetooth.host.bt_id_init.bt_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_init
+    catalog: *14
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_id_read_public_addr.default:
+    path: tests/bluetooth/host/id/bt_id_read_public_addr
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_reset.default:
+    path: tests/bluetooth/host/id/bt_id_reset
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_scan_random_addr_check.default:
+    path: tests/bluetooth/host/id/bt_id_scan_random_addr_check
+    catalog: &15
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_scan_random_addr_check.broadcaster_enabled:
+    path: tests/bluetooth/host/id/bt_id_scan_random_addr_check
+    catalog: *15
+    extra_configs:
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_id_scan_random_addr_check.broadcaster_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_scan_random_addr_check
+    catalog: *15
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_id_scan_random_addr_check.bt_ext_adv_enabled:
+    path: tests/bluetooth/host/id/bt_id_scan_random_addr_check
+    catalog: *15
+    extra_configs:
+    - CONFIG_BT_EXT_ADV=y
+    type: unit
+  bluetooth.host.bt_id_set_adv_own_addr.default:
+    path: tests/bluetooth/host/id/bt_id_set_adv_own_addr
+    catalog: &16
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_set_adv_own_addr.default_ext_adv_enabled:
+    path: tests/bluetooth/host/id/bt_id_set_adv_own_addr
+    catalog: *16
+    extra_configs:
+    - CONFIG_BT_EXT_ADV=y
+    type: unit
+  bluetooth.host.bt_id_set_adv_own_addr.privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_set_adv_own_addr
+    catalog: *16
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_id_set_adv_private_addr.default:
+    path: tests/bluetooth/host/id/bt_id_set_adv_private_addr
+    catalog: &17
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_set_adv_private_addr.bt_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_set_adv_private_addr
+    catalog: *17
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_id_set_adv_private_addr.bt_privacy_ext_adv_enabled:
+    path: tests/bluetooth/host/id/bt_id_set_adv_private_addr
+    catalog: *17
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    - CONFIG_BT_EXT_ADV=y
+    type: unit
+  bluetooth.host.bt_id_set_adv_random_addr.default:
+    path: tests/bluetooth/host/id/bt_id_set_adv_random_addr
+    catalog: &18
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_set_adv_random_addr.bt_ext_adv_enabled:
+    path: tests/bluetooth/host/id/bt_id_set_adv_random_addr
+    catalog: *18
+    extra_configs:
+    - CONFIG_BT_EXT_ADV=y
+    type: unit
+  bluetooth.host.bt_id_set_create_conn_own_addr.default:
+    path: tests/bluetooth/host/id/bt_id_set_create_conn_own_addr
+    catalog: &19
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_set_create_conn_own_addr.privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_set_create_conn_own_addr
+    catalog: *19
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_id_set_private_addr.default:
+    path: tests/bluetooth/host/id/bt_id_set_private_addr
+    catalog: &20
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_set_private_addr.bt_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_set_private_addr
+    catalog: *20
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_id_set_scan_own_addr.default:
+    path: tests/bluetooth/host/id/bt_id_set_scan_own_addr
+    catalog: &21
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_id_set_scan_own_addr.privacy_enabled:
+    path: tests/bluetooth/host/id/bt_id_set_scan_own_addr
+    catalog: *21
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_id_set_scan_own_addr.default_scan_with_identity:
+    path: tests/bluetooth/host/id/bt_id_set_scan_own_addr
+    catalog: *21
+    extra_configs:
+    - CONFIG_BT_SCAN_WITH_IDENTITY=y
+    type: unit
+  bluetooth.host.bt_id_set_scan_own_addr.privacy_scan_with_identity_enabled:
+    path: tests/bluetooth/host/id/bt_id_set_scan_own_addr
+    catalog: *21
+    extra_configs:
+    - CONFIG_BT_SCAN_WITH_IDENTITY=y
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_le_ext_adv_oob_get_local.default:
+    path: tests/bluetooth/host/id/bt_le_ext_adv_oob_get_local
+    catalog: &22
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_le_ext_adv_oob_get_local.bt_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_le_ext_adv_oob_get_local
+    catalog: *22
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_le_oob_get_local.default:
+    path: tests/bluetooth/host/id/bt_le_oob_get_local
+    catalog: &23
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_le_oob_get_local.bt_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_le_oob_get_local
+    catalog: *23
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_le_oob_get_local.bt_broadcaster_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_le_oob_get_local
+    catalog: *23
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    - CONFIG_BT_BROADCASTER=y
+    type: unit
+  bluetooth.host.bt_le_oob_get_sc_data.default:
+    path: tests/bluetooth/host/id/bt_le_oob_get_sc_data
+    catalog:
+    - bluetooth
+    - host
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    type: unit
+  bluetooth.host.bt_le_oob_set_legacy_tk.default:
+    path: tests/bluetooth/host/id/bt_le_oob_set_legacy_tk
+    catalog:
+    - bluetooth
+    - host
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    type: unit
+  bluetooth.host.bt_le_oob_set_sc_data.default:
+    path: tests/bluetooth/host/id/bt_le_oob_set_sc_data
+    catalog:
+    - bluetooth
+    - host
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    type: unit
+  bluetooth.host.bt_lookup_id_addr.default:
+    path: tests/bluetooth/host/id/bt_lookup_id_addr
+    catalog: &24
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_lookup_id_addr.bt_smp_enabled:
+    path: tests/bluetooth/host/id/bt_lookup_id_addr
+    catalog: *24
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    type: unit
+  bluetooth.host.bt_setup_public_id_addr.default:
+    path: tests/bluetooth/host/id/bt_setup_public_id_addr
+    catalog: &25
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_setup_public_id_addr.default_bt_settings_enabled:
+    path: tests/bluetooth/host/id/bt_setup_public_id_addr
+    catalog: *25
+    extra_configs:
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    type: unit
+  bluetooth.host.bt_setup_public_id_addr.bt_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_setup_public_id_addr
+    catalog: *25
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_setup_public_id_addr.bt_privacy_settings_enabled:
+    path: tests/bluetooth/host/id/bt_setup_public_id_addr
+    catalog: *25
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    type: unit
+  bluetooth.host.bt_random_idcreate.default:
+    path: tests/bluetooth/host/id/bt_setup_random_id_addr
+    catalog: &26
+    - bluetooth
+    - host
+    extra_configs:
+    - CONFIG_BT_ID_MAX=1
+    type: unit
+  bluetooth.host.bt_random_idcreate.multiple_identities:
+    path: tests/bluetooth/host/id/bt_setup_random_id_addr
+    catalog: *26
+    extra_configs:
+    - CONFIG_BT_ID_MAX=4
+    type: unit
+  bluetooth.host.bt_random_idcreate.hci_vs_ext_detect:
+    path: tests/bluetooth/host/id/bt_setup_random_id_addr
+    catalog: *26
+    extra_configs:
+    - CONFIG_BT_ID_MAX=1
+    - CONFIG_BT_HCI_VS_EXT_DETECT=y
+    type: unit
+  bluetooth.host.bt_random_idcreate.multiple_identities_hci_vs_ext_detect:
+    path: tests/bluetooth/host/id/bt_setup_random_id_addr
+    catalog: *26
+    extra_configs:
+    - CONFIG_BT_ID_MAX=4
+    - CONFIG_BT_HCI_VS_EXT_DETECT=y
+    type: unit
+  bluetooth.host.bt_random_idcreate.multiple_identities_hci_vs_ext_detect_privacy_enabled:
+    path: tests/bluetooth/host/id/bt_setup_random_id_addr
+    catalog: *26
+    extra_configs:
+    - CONFIG_BT_ID_MAX=4
+    - CONFIG_BT_HCI_VS_EXT_DETECT=y
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    type: unit
+  bluetooth.host.bt_random_idcreate.multiple_identities_hci_vs_ext_detect_privacy_settings_enabled:
+    path: tests/bluetooth/host/id/bt_setup_random_id_addr
+    catalog: *26
+    extra_configs:
+    - CONFIG_BT_ID_MAX=4
+    - CONFIG_BT_HCI_VS_EXT_DETECT=y
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_PRIVACY=y
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    type: unit
+  bluetooth.host.bt_keys_add_type.default:
+    path: tests/bluetooth/host/keys/bt_keys_add_type
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_keys_clear.default:
+    path: tests/bluetooth/host/keys/bt_keys_clear
+    catalog: &27
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_keys_clear.settings_enabled:
+    path: tests/bluetooth/host/keys/bt_keys_clear
+    catalog: *27
+    extra_configs:
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    type: unit
+  bluetooth.host.bt_keys_find.default:
+    path: tests/bluetooth/host/keys/bt_keys_find
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_keys_find_addr.default:
+    path: tests/bluetooth/host/keys/bt_keys_find_addr
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_keys_find_irk.default:
+    path: tests/bluetooth/host/keys/bt_keys_find_irk
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_keys_foreach_bond.default:
+    path: tests/bluetooth/host/keys/bt_keys_foreach_bond
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_keys_foreach_type.default:
+    path: tests/bluetooth/host/keys/bt_keys_foreach_type
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_keys_get_addr.default:
+    path: tests/bluetooth/host/keys/bt_keys_get_addr
+    catalog: &28
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_keys_get_addr.keys_overwrite_oldest:
+    path: tests/bluetooth/host/keys/bt_keys_get_addr
+    catalog: *28
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
+    type: unit
+  bluetooth.host.bt_keys_get_type.default:
+    path: tests/bluetooth/host/keys/bt_keys_get_type
+    catalog:
+    - bluetooth
+    - host
+    type: unit
+  bluetooth.host.bt_keys_store.default:
+    path: tests/bluetooth/host/keys/bt_keys_store
+    catalog:
+    - bluetooth
+    - host
+    extra_configs:
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    type: unit
+  bluetooth.host.bt_keys_update_usage.default.bt_keys_update_usage:
+    path: tests/bluetooth/host/keys/bt_keys_update_usage
+    catalog: &29
+    - bluetooth
+    - host
+    extra_configs:
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
+    type: unit
+  bluetooth.host.bt_keys_update_usage.save_aging_counter.bt_keys_update_usage:
+    path: tests/bluetooth/host/keys/bt_keys_update_usage
+    catalog: *29
+    extra_configs:
+    - CONFIG_SETTINGS=y
+    - CONFIG_BT_SETTINGS=y
+    - CONFIG_BT_SMP=y
+    - CONFIG_BT_KEYS_OVERWRITE_OLDEST=y
+    - CONFIG_BT_KEYS_SAVE_AGING_COUNTER_ON_PAIRING=y
+    type: unit

@@ -1,0 +1,40 @@
+---
+cases:
+  arch.x86.syscalls.cpu_scrubs_regs:
+    path: tests/arch/x86/cpu_scrubs_regs
+    catalog:
+    - kernel
+    - security
+    - userspace
+    - scrub
+    - registers
+    arch_allow: x86
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  arch.x86.info:
+    path: tests/arch/x86/info
+    catalog: unknown
+    arch_allow: x86
+    filter: CONFIG_X86_PC_COMPATIBLE
+  arch.x86.info.userspace:
+    path: tests/arch/x86/info
+    catalog: unknown
+    extra_configs:
+    - CONFIG_TEST_USERSPACE=y
+    arch_allow: x86
+    filter: CONFIG_X86_PC_COMPATIBLE
+  arch.x86.pagetables:
+    path: tests/arch/x86/pagetables
+    catalog:
+    - userspace
+    - mmu
+    extra_configs:
+    - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
+    arch_allow: x86
+    filter: CONFIG_MMU
+  arch.x86.interrupt:
+    path: tests/arch/x86/static_idt
+    catalog:
+    - interrupt
+    - idt
+    arch_allow: x86
+    filter: not CONFIG_X86_64

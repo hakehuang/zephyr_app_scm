@@ -1,0 +1,9 @@
+---
+cases:
+  arch.riscv.fpu_sharing:
+    path: tests/arch/riscv/fpu_sharing
+    catalog: unknown
+    arch_allow:
+    - riscv32
+    - riscv64
+    filter: CONFIG_CPU_HAS_FPU

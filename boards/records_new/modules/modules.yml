@@ -1,0 +1,41 @@
+---
+cases:
+  sample.modules.canopennode:
+    path: samples/modules/canopennode
+    catalog: &1
+    - can
+    - canopen
+    filter: dt_chosen_enabled("zephyr,canbus")
+    platform_exclude:
+    - nucleo_h723zg
+    - nucleo_h743zi
+    - nucleo_h745zi_q
+    - nucleo_h753zi
+    depends_on: can
+  sample.modules.canopennode.program_download:
+    path: samples/modules/canopennode
+    catalog: *1
+    extra_args: canopennode_CONF_FILE=prj_img_mgmt.conf
+    platform_allow:
+    - frdm_k64f
+    - twr_ke18f
+    depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")
+  sample.modules.canopennode.no_storage:
+    path: samples/modules/canopennode
+    catalog: *1
+    extra_args: CONF_FILE=prj_no_storage.conf
+    depends_on: can
+    filter: dt_chosen_enabled("zephyr,canbus")
+  sample.modules.chre:
+    path: samples/modules/chre
+    catalog:
+    - introduction
+    - chre
+    platform_exclude: qemu_leon3
+    filter: CONFIG_FULL_LIBC_SUPPORTED
+  sample.modules.nanopb:
+    path: samples/modules/nanopb
+    catalog:
+    - samples
+    - nanopb

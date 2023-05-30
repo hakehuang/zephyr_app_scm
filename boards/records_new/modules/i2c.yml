@@ -1,0 +1,37 @@
+---
+cases:
+  drivers.i2c.build:
+    path: tests/drivers/build_all/i2c
+    catalog: i2c_xilinx_axi
+    extra_args: CONFIG_I2C=y
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  drivers.i2c.api:
+    path: tests/drivers/i2c/i2c_api
+    catalog:
+    - drivers
+    - i2c
+    depends_on: i2c
+    filter: dt_alias_exists("gy271")
+  drivers.i2c.target_api.dual_role:
+    path: tests/drivers/i2c/i2c_target_api
+    catalog:
+    - drivers
+    - i2c
+    extra_configs:
+    - CONFIG_APP_DUAL_ROLE_I2C=y
+    platform_allow:
+    - nucleo_f091rc
+    - stm32f072b_disco
+    - nucleo_g071rb
+    - rpi_pico
+    depends_on: i2c
+  drivers.i2c.tca954x:
+    path: tests/drivers/i2c/i2c_tca954x
+    catalog:
+    - testing
+    - drivers
+    build_only: true
+    depends_on: i2c
+    filter: dt_compat_enabled("ti,tca9546a")
+    platform_allow: nrf52840dk_nrf52840

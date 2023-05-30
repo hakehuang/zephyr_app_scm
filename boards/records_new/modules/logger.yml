@@ -1,0 +1,140 @@
+---
+cases:
+  sample.logger.basic.dictionary:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    build_only: true
+  sample.logger.basic.dictionary.fpu:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_FPU=y
+    build_only: true
+    filter: CONFIG_CPU_HAS_FPU
+  sample.logger.basic.dictionary.fpu.long_double:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_FPU=y
+    - CONFIG_CBPRINTF_PACKAGE_LONGDOUBLE=y
+    build_only: true
+    filter: CONFIG_CPU_HAS_FPU
+  sample.logger.basic.dictionary.uart_async_frontend:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_UART_ASYNC_API=y
+    - CONFIG_UART_INTERRUPT_DRIVEN=n
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_FRONTEND_DICT_UART=y
+    build_only: true
+    platform_allow: nrf52840dk_nrf52840
+  sample.logger.basic.dictionary.uart_int_frontend:
+    path: samples/subsys/logging/dictionary
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_UART=n
+    - CONFIG_LOG_BACKEND_RTT=n
+    - CONFIG_UART_INTERRUPT_DRIVEN=y
+    - CONFIG_UART_ASYNC_API=n
+    - CONFIG_LOG_FRONTEND=y
+    - CONFIG_LOG_FRONTEND_ONLY=y
+    - CONFIG_LOG_FRONTEND_DICT_UART=y
+    build_only: true
+    filter: CONFIG_SERIAL_SUPPORT_INTERRUPT and CONFIG_UART_CONSOLE
+  sample.logger.basic:
+    path: samples/subsys/logging/logger
+    catalog: logging
+  sample.logger.rtt:
+    path: samples/subsys/logging/logger
+    catalog: logging
+    extra_configs:
+    - CONFIG_LOG_BACKEND_RTT=y
+    - CONFIG_USE_SEGGER_RTT=y
+    filter: CONFIG_HAS_SEGGER_RTT
+  sample.logger.usermode:
+    path: samples/subsys/logging/logger
+    catalog:
+    - logging
+    - usermode
+    extra_configs:
+    - CONFIG_USERSPACE=y
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  sample.logger.syst.deferred:
+    path: samples/subsys/logging/syst
+    catalog: &1
+    - logging
+    - mipi-sys-t
+    extra_configs:
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    filter: CONFIG_FULL_LIBC_SUPPORTED
+    arch_exclude: &2
+    - mips
+    - nios2
+    - posix
+    - sparc
+  sample.logger.syst.immediate:
+    path: samples/subsys/logging/syst
+    catalog: *1
+    extra_configs:
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    extra_args: OVERLAY_CONFIG=overlay_immediate.conf
+    filter: CONFIG_FULL_LIBC_SUPPORTED
+    arch_exclude: *2
+  sample.logger.syst.catalog.deferred:
+    path: samples/subsys/logging/syst
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    filter: CONFIG_FULL_LIBC_SUPPORTED
+    arch_exclude: *2
+  sample.logger.syst.catalog.immediate:
+    path: samples/subsys/logging/syst
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    filter: CONFIG_FULL_LIBC_SUPPORTED
+    arch_exclude: *2
+  sample.logger.syst.deferred_cpp:
+    path: samples/subsys/logging/syst
+    catalog: *1
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    filter: CONFIG_FULL_LIBC_SUPPORTED
+    arch_exclude: *2
+  sample.logger.syst.immediate_cpp:
+    path: samples/subsys/logging/syst
+    catalog: *1
+    extra_configs:
+    - CONFIG_CPP=y
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    filter: CONFIG_FULL_LIBC_SUPPORTED
+    arch_exclude: *2
+  sample.logger.syst.catalog.deferred_cpp:
+    path: samples/subsys/logging/syst
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
+    - CONFIG_CPP=y
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    extra_args: OVERLAY_CONFIG=overlay_deferred.conf
+    filter: CONFIG_FULL_LIBC_SUPPORTED
+    arch_exclude: *2
+  sample.logger.syst.catalog.immediate_cpp:
+    path: samples/subsys/logging/syst
+    catalog: *1
+    extra_configs:
+    - CONFIG_LOG_MIPI_SYST_USE_CATALOG=y
+    - CONFIG_CPP=y
+    - CONFIG_REQUIRES_FULL_LIBC=y
+    filter: CONFIG_FULL_LIBC_SUPPORTED
+    arch_exclude: *2

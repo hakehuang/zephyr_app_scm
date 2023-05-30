@@ -1,0 +1,42 @@
+---
+cases:
+  kernel.multiprocessing:
+    path: tests/kernel/mp
+    catalog:
+    - kernel
+    - smp
+    filter: CONFIG_MP_MAX_NUM_CPUS > 1
+  kernel.multiprocessing.linker_generator:
+    path: tests/kernel/mp
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_x86_64
+    filter: CONFIG_MP_MAX_NUM_CPUS > 1
+  kernel.multiprocessing.smp:
+    path: tests/kernel/smp
+    catalog:
+    - kernel
+    - smp
+    filter: "(CONFIG_MP_MAX_NUM_CPUS > 1)"
+  kernel.multiprocessing.smp.linker_generator:
+    path: tests/kernel/smp
+    catalog: linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    platform_allow: qemu_x86_64
+    filter: "(CONFIG_MP_MAX_NUM_CPUS > 1)"
+  kernel.multiprocessing.smp_boot_delay:
+    path: tests/kernel/smp_boot_delay
+    catalog:
+    - kernel
+    - smp
+    platform_allow: intel_adsp_cavs25
+  kernel.multiprocessing.spinlock:
+    path: tests/kernel/spinlock
+    catalog:
+    - kernel
+    - smp
+    - spinlock
+    filter: CONFIG_SMP and CONFIG_MP_MAX_NUM_CPUS > 1 and CONFIG_MP_MAX_NUM_CPUS <=
+      4

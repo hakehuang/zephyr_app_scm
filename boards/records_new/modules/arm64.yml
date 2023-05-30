@@ -1,0 +1,95 @@
+---
+cases:
+  arch.arm64.gicv3_its:
+    path: tests/arch/arm64/arm64_gicv3_its
+    catalog: unknown
+    build_only: true
+    platform_allow: fvp_base_revc_2xaemv8a
+    skip: true
+  arch.arm64.high_addr.high_sram_low_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: &1
+    - arm
+    - userspace
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x00400000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.low_sram_high_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: *1
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x00400000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_equal_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: *1
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_high_vm:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: *1
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200800000
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_low_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x00400000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.low_sram_high_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x00400000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_equal_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200880000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.high_addr.high_sram_high_vm.picolibc:
+    path: tests/arch/arm64/arm64_high_addresses
+    catalog: picolibc
+    extra_configs:
+    - CONFIG_SRAM_BASE_ADDRESS=0x200880000
+    - CONFIG_KERNEL_VM_BASE=0x200800000
+    - CONFIG_PICOLIBC=y
+    arch_allow: arm64
+    build_only: true
+  arch.arm64.psci:
+    path: tests/arch/arm64/arm64_psci
+    catalog:
+    - arm
+    - psci
+    - drivers
+    - userspace
+    arch_allow: arm
+    filter: CONFIG_PM_CPU_OPS_PSCI
+  arch.arm64.smc_call.smc:
+    path: tests/arch/arm64/arm64_smc_call
+    catalog:
+    - arm
+    - smc
+    - drivers
+    - userspace
+    platform_allow: fvp_base_revc_2xaemv8a_smp_ns

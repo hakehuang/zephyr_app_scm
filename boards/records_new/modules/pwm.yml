@@ -1,0 +1,124 @@
+---
+cases:
+  drivers.pwm.gecko.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_gecko
+    platform_allow: efr32_radio_brd4250b
+    build_only: true
+  drivers.pwm.imx.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_imx
+    platform_allow: colibri_imx7d_m4
+    build_only: true
+  drivers.pwm.litex.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_litex
+    platform_allow: litex_vexriscv
+    build_only: true
+  drivers.pwm.mcux.ftm.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_mcux_ftm
+    platform_allow: frdm_k22f
+    build_only: true
+  drivers.pwm.mcux.pwt.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_mcux_pwt
+    extra_configs:
+    - CONFIG_PWM_CAPTURE=y
+    platform_allow: twr_ke18f
+    build_only: true
+  drivers.pwm.mcux.tpm.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_mcux_tpm
+    platform_allow: frdm_kw41z
+    build_only: true
+  drivers.pwm.mcux.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_mcux
+    platform_allow: mimxrt1064_evk
+    build_only: true
+  drivers.pwm.mcux.sctimer.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_mcux_sctimer
+    platform_allow: mimxrt685_evk_cm33
+    build_only: true
+  drivers.pwm.rv32m1.tpm.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_rv32m1_tpm
+    platform_allow: rv32m1_vega_ri5cy
+    build_only: true
+  drivers.pwm.sifive.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_sifive
+    platform_allow: hifive1_revb
+    build_only: true
+  drivers.pwm.npcx.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_npcx
+    platform_allow: npcx7m6fb_evb
+    build_only: true
+  drivers.pwm.nrf.sw.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_nrf5_sw
+    platform_allow: nrf51dk_nrf51422
+    build_only: true
+  drivers.pwm.nrf.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_nrfx
+    platform_allow: nrf52840dk_nrf52840
+    build_only: true
+  drivers.pwm.pca9685.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_pca9685
+    extra_args: SHIELD=adafruit_pca9685
+    platform_allow: nrf52840dk_nrf52840
+    build_only: true
+  drivers.pwm.sam0.tcc.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_sam0_tcc
+    platform_allow: atsame54_xpro
+    build_only: true
+  drivers.pwm.build.sam:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_sam
+    platform_allow:
+    - sam_e70_xplained
+    - sam_v71b_xult
+    build_only: true
+  drivers.pwm.stm32.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_stm32
+    platform_allow: disco_l475_iot1
+    build_only: true
+  drivers.pwm.xec.build:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_xec
+    platform_allow: mec15xxevb_assy6853
+    build_only: true
+  drivers.pwm.build.xlnx:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_xlnx_axi_timer
+    platform_allow: arty_a7_arm_designstart_m1
+    build_only: true
+  drivers.pwm.build.test:
+    path: tests/drivers/build_all/pwm
+    catalog: pwm_test
+    platform_allow: qemu_cortex_m3
+    build_only: true
+  drivers.pwm:
+    path: tests/drivers/pwm/pwm_api
+    catalog:
+    - drivers
+    - pwm
+    - userspace
+    filter: dt_alias_exists("pwm-0") or dt_alias_exists("pwm-1") or dt_alias_exists("pwm-2")
+      or dt_alias_exists("pwm-3") or dt_compat_enabled("st,stm32-pwm")
+    depends_on: pwm
+  drivers.pwm.loopback:
+    path: tests/drivers/pwm/pwm_loopback
+    catalog:
+    - pwm
+    - drivers
+    - userspace
+    depends_on: pwm
+    filter: dt_compat_enabled("test-pwm-loopback")

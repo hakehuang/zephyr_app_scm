@@ -1,0 +1,15 @@
+---
+cases:
+  logging.log_stack_deferred_no_opt:
+    path: tests/subsys/logging/log_stack
+    catalog:
+    - log_api
+    - logging
+    extra_configs:
+    - CONFIG_LOG_MODE_DEFERRED=y
+    - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_IDLE_STACK_SIZE=2048
+    filter: not CONFIG_MIPS
+    platform_type:
+    - qemu
+    skip: true

@@ -1,0 +1,15 @@
+---
+cases:
+  net.mqtt_sn.client:
+    path: tests/net/lib/mqtt_sn_client
+    catalog:
+    - mqtt_sn
+    - net
+    min_ram: 16
+    depends_on: netif
+  net.mqtt_sn.packet:
+    path: tests/net/lib/mqtt_sn_packet
+    catalog:
+    - mqtt_sn
+    - net
+    min_ram: 16

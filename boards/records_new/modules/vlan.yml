@@ -1,0 +1,9 @@
+---
+cases:
+  net.vlan:
+    path: tests/net/vlan
+    catalog:
+    - net
+    - vlan
+    min_ram: 32
+    depends_on: netif

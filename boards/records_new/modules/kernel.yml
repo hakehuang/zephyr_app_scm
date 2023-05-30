@@ -1,1175 +1,163 @@
 ---
 cases:
-  kernel.cache.api:
-    path: tests/kernel/cache
+  sample.kernel.cond_var:
+    path: samples/kernel/condition_variables/condvar
     catalog:
     - kernel
-    - cache
-    filter: CONFIG_CACHE_MANAGEMENT
-  kernel.common:
-    path: tests/kernel/common
-    catalog: &1
-    - base
-    - kernel
-    - userspace
-    min_flash: 33
-  kernel.common.tls:
-    path: tests/kernel/common
-    catalog: *1
-    extra_configs:
-    - CONFIG_THREAD_LOCAL_STORAGE=y
-    filter: 'CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-      and not (CONFIG_TOOLCHAIN_ARCMWDT_SUPPORTS_THREAD_LOCAL_STORAGE and CONFIG_USERSPACE)
-
-      '
-    min_flash: 33
-  kernel.common.misra:
-    path: tests/kernel/common
-    catalog: *1
-    extra_configs:
-    - CONFIG_MISRA_SANE=y
-    filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
-    min_flash: 33
-  kernel.common.nano32:
-    path: tests/kernel/common
-    catalog: *1
-    extra_configs:
-    - CONFIG_CBPRINTF_NANO=y
-    - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
-    filter: not CONFIG_KERNEL_COHERENCE
-    min_flash: 33
-  kernel.common.nano64:
-    path: tests/kernel/common
-    catalog: *1
-    extra_configs:
-    - CONFIG_CBPRINTF_NANO=y
-    - CONFIG_CBPRINTF_FULL_INTEGRAL=y
-    filter: not CONFIG_KERNEL_COHERENCE
-    min_flash: 33
-  kernel.common.picolibc:
-    path: tests/kernel/common
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    min_flash: 33
-  kernel.condvar:
-    path: tests/kernel/condvar/condvar_api
-    catalog:
-    - kernel
-    - userspace
     - condition_variables
-  kernel.context:
-    path: tests/kernel/context
-    catalog: kernel
+  sample.kernel.cond_var.simple:
+    path: samples/kernel/condition_variables/simple
+    catalog:
+    - kernel
+    - condition_variables
+  sample.kernel.metairq_dispatch:
+    path: samples/kernel/metairq_dispatch
+    catalog: introduction
+    filter: not CONFIG_ARCH_POSIX
+  sample.kernel.philosopher:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: " DEBUG_PRINTF=1"
+  sample.kernel.philosopher.same_prio:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: SAME_PRIO=1 DEBUG_PRINTF=1
+  sample.kernel.philosopher.static:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: STATIC_OBJS=1 DEBUG_PRINTF=1
+  sample.kernel.philosopher.semaphores:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: FORKS=SEMAPHORES DEBUG_PRINTF=1
+  sample.kernel.philosopher.stacks:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: FORKS=STACKS DEBUG_PRINTF=1
+  sample.kernel.philosopher.fifos:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: FORKS=FIFOS DEBUG_PRINTF=1
+  sample.kernel.philosopher.lifos:
+    path: samples/philosophers
+    catalog: introduction
+    extra_args: FORKS=LIFOS DEBUG_PRINTF=1
+  sample.kernel.philosopher.preempt_only:
+    path: samples/philosophers
+    catalog: introduction
     extra_configs:
-    - CONFIG_TEST_EXTRA_STACK_SIZE=1024
-  kernel.context.linker_generator:
-    path: tests/kernel/context
-    catalog:
-    - kernel
-    - linker_generator
+    - CONFIG_NUM_PREEMPT_PRIORITIES=6
+    - CONFIG_NUM_COOP_PRIORITIES=0
+    - CONFIG_BT=n
+    - CONFIG_NETWORKING=n
+    extra_args: " DEBUG_PRINTF=1"
+  sample.kernel.philosopher.coop_only:
+    path: samples/philosophers
+    catalog: introduction
     extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    - CONFIG_TEST_EXTRA_STACK_SIZE=1024
-    platform_allow: qemu_cortex_m3
-  kernel.device:
-    path: tests/kernel/device
-    catalog:
-    - kernel
-    - device
-  kernel.device.pm:
-    path: tests/kernel/device
-    catalog:
-    - kernel
-    - device
+    - CONFIG_NUM_PREEMPT_PRIORITIES=0
+    - CONFIG_NUM_COOP_PRIORITIES=7
+    extra_args: " DEBUG_PRINTF=1"
+  sample.kernel.synchronization:
+    path: samples/synchronization
+    catalog: synchronization
+  sample.kernel.memory_protection.shared_mem:
+    path: samples/userspace/shared_mem
+    catalog: userspace
     extra_configs:
-    - CONFIG_PM_DEVICE=y
-    platform_exclude: mec15xxevb_assy6853
-  kernel.common.sleep:
-    path: tests/kernel/early_sleep
-    catalog:
-    - kernel
-    - sleep
-  kernel.common.sleep.linker_generator:
-    path: tests/kernel/early_sleep
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.events:
-    path: tests/kernel/events/event_api
-    catalog: kernel
-  kernel.events.linker_generator:
-    path: tests/kernel/events/event_api
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_x86
-  kernel.events.usage:
-    path: tests/kernel/events/sys_event
-    catalog:
-    - kernel
-    - userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.common.stack_protection:
-    path: tests/kernel/fatal/exception
-    catalog:
-    - kernel
-    - userspace
-    extra_args: CONF_FILE=prj.conf
-    platform_exclude: twr_ke18f
-    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
-  kernel.common.stack_protection_no_userspace:
-    path: tests/kernel/fatal/exception
-    catalog:
-    - kernel
-    - memory_protection
-    extra_args: CONF_FILE=protection_no_userspace.conf
-    filter: CONFIG_ARCH_HAS_STACK_PROTECTION
-    arch_allow: arm
-  kernel.common.stack_protection_arm_fpu_sharing:
-    path: tests/kernel/fatal/exception
-    catalog:
-    - fpu
-    - kernel
-    - userspace
-    extra_args: CONF_FILE=prj_arm_fpu_sharing.conf
-    platform_exclude: twr_ke18f
-    filter: CONFIG_ARCH_HAS_STACK_PROTECTION and CONFIG_ARMV7_M_ARMV8_M_FP
-  kernel.common.stack_protection_armv8m_mpu_stack_guard:
-    path: tests/kernel/fatal/exception
-    catalog:
-    - kernel
-    - userspace
-    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
-    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
-    arch_allow: arm
-  kernel.common.stack_sentinel:
-    path: tests/kernel/fatal/exception
-    catalog: kernel
-    extra_args: CONF_FILE=sentinel.conf
-    platform_exclude: qemu_cortex_a9
-  kernel.logging.message_capture:
-    path: tests/kernel/fatal/message_capture
-    catalog: kernel
-  kernel.no-mt.cpu_exception:
-    path: tests/kernel/fatal/no-multithreading
-    catalog: &2
-    - kernel
-    - scheduler
-    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=0
-    platform_allow: &3
-    - qemu_cortex_m3
-    - qemu_arc_em
-    - qemu_arc_hs
-    - qemu_arc_hs6x
-    - qemu_riscv32
-    - qemu_riscv32e
-    - qemu_riscv64
-    - nsim_em
-    - nsim_em7d_v22
-    - nsim_hs
-    - nsim_hs_mpuv6
-    - nsim_hs5x
-    - nsim_hs6x
-  kernel.no-mt.oops:
-    path: tests/kernel/fatal/no-multithreading
-    catalog: *2
-    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=1
-    platform_allow: *3
-  kernel.no-mt.panic:
-    path: tests/kernel/fatal/no-multithreading
-    catalog: *2
-    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=2
-    platform_allow: *3
-  kernel.no-mt.zephyr_assert:
-    path: tests/kernel/fatal/no-multithreading
-    catalog: *2
-    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=3
-    platform_allow: *3
-  kernel.no-mt.arbitrary_reason:
-    path: tests/kernel/fatal/no-multithreading
-    catalog: *2
-    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=4
-    platform_allow: *3
-  kernel.no-mt.arbitrary_reason_negative:
-    path: tests/kernel/fatal/no-multithreading
-    catalog: *2
-    extra_args: EXTRA_CPPFLAGS=-DVIA_TWISTER=5
-    platform_allow: *3
-  kernel.fifo:
-    path: tests/kernel/fifo/fifo_api
-    catalog: kernel
-  kernel.fifo.linker_generator:
-    path: tests/kernel/fifo/fifo_api
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.fifo.timeout:
-    path: tests/kernel/fifo/fifo_timeout
-    catalog: kernel
-  kernel.fifo.timeout.linker_generator:
-    path: tests/kernel/fifo/fifo_timeout
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.fifo.usage:
-    path: tests/kernel/fifo/fifo_usage
-    catalog:
-    - kernel
-    - fifo
-  kernel.fifo.usage.linker_generator:
-    path: tests/kernel/fifo/fifo_usage
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.fpu_sharing.float_disable:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: &4
-    - fpu
-    - kernel
-    - userspace
-    extra_configs:
-    - arch:arm:CONFIG_DYNAMIC_INTERRUPTS=y
-    arch_allow:
-    - arm
-    - sparc
-    filter: CONFIG_ARMV7_M_ARMV8_M_FP or CONFIG_ARMV7_R_FP or CONFIG_CPU_HAS_FPU
-  kernel.fpu_sharing.float_disable.x86.fpu:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: *4
-    extra_configs:
-    - CONFIG_X86_SSE_FP_MATH=n
-    - CONFIG_X86_SSE=n
-    extra_args: CONF_FILE=prj_x86.conf
-    platform_allow:
-    - qemu_x86
-    - qemu_x86_lakemont
-    - ehl_crb
-    - acrn_ehl_crb
-  kernel.fpu_sharing.float_disable.x86.fpu.sse:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: *4
-    extra_configs:
-    - CONFIG_X86_SSE_FP_MATH=n
-    extra_args: CONF_FILE=prj_x86.conf
-    platform_allow:
-    - qemu_x86
-    - qemu_x86_lakemont
-    - ehl_crb
-    - acrn_ehl_crb
-  kernel.fpu_sharing.float_disable.x86.sse:
-    path: tests/kernel/fpu_sharing/float_disable
-    catalog: *4
-    extra_configs:
-    - CONFIG_X86_SSE_FP_MATH=y
-    extra_args: CONF_FILE=prj_x86.conf
-    platform_allow:
-    - qemu_x86
-    - qemu_x86_lakemont
-    - ehl_crb
-    - acrn_ehl_crb
-  kernel.fpu_sharing.generic.arc:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    extra_args: PI_NUM_ITERATIONS=500
-    filter: CONFIG_ISA_ARCV2 and CONFIG_CPU_HAS_FPU
-    min_ram: 16
-  kernel.fpu_sharing.generic.arm:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    extra_args: PI_NUM_ITERATIONS=70000
-    filter: CONFIG_ARMV7_M_ARMV8_M_FP or CONFIG_ARMV7_R_FP
-    min_ram: 16
-  kernel.fpu_sharing.generic.arm64:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    extra_args: PI_NUM_ITERATIONS=70000
-    arch_allow: arm64
-    filter: CONFIG_CPU_CORTEX_A
-  kernel.fpu_sharing.generic.riscv32:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    extra_args: PI_NUM_ITERATIONS=500
-    filter: CONFIG_CPU_HAS_FPU
-    arch_allow: riscv32
-    min_ram: 16
-  kernel.fpu_sharing.generic.riscv64:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    extra_configs:
-    - CONFIG_MAIN_STACK_SIZE=2048
-    extra_args: PI_NUM_ITERATIONS=500
-    filter: CONFIG_CPU_HAS_FPU
-    arch_allow: riscv64
-    min_ram: 16
-  kernel.fpu_sharing.generic.sparc:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    extra_args: PI_NUM_ITERATIONS=70000
-    filter: CONFIG_CPU_HAS_FPU
-    arch_allow: sparc
-  kernel.fpu_sharing.generic.x86.fpu:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    extra_configs:
-    - CONFIG_X86_SSE_FP_MATH=n
-    - CONFIG_X86_SSE=n
-    extra_args: CONF_FILE=prj_x86.conf
-    platform_allow:
-    - qemu_x86
-    - qemu_x86_lakemont
-  kernel.fpu_sharing.generic.x86.fpu.sse:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    extra_configs:
-    - CONFIG_X86_SSE_FP_MATH=n
-    extra_args: CONF_FILE=prj_x86.conf
-    platform_allow:
-    - qemu_x86
-    - qemu_x86_lakemont
-  kernel.fpu_sharing.generic.x86.sse:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    extra_configs:
-    - CONFIG_X86_SSE_FP_MATH=y
-    extra_args: CONF_FILE=prj_x86.conf
-    platform_allow:
-    - qemu_x86
-    - qemu_x86_lakemont
-  kernel.fpu_sharing.generic.xtensa:
-    path: tests/kernel/fpu_sharing/generic
-    catalog:
-    - fpu
-    - kernel
-    filter: CONFIG_CPU_HAS_FPU
-    arch_allow: xtensa
-  kernel.lifo:
-    path: tests/kernel/lifo/lifo_api
-    catalog: kernel
-  kernel.lifo.linker_generator:
-    path: tests/kernel/lifo/lifo_api
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.lifo.usage:
-    path: tests/kernel/lifo/lifo_usage
-    catalog: kernel
-    platform_exclude: m2gl025_miv
-    min_ram: 20
-  kernel.lifo.usage.linker_generator:
-    path: tests/kernel/lifo/lifo_usage
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.mailbox.api:
-    path: tests/kernel/mbox/mbox_api
-    catalog:
-    - kernel
-    - mailbox
-  kernel.mailbox.api.linker_generator:
-    path: tests/kernel/mbox/mbox_api
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.mailbox.usage:
-    path: tests/kernel/mbox/mbox_usage
-    catalog:
-    - kernel
-    - mailbox
-  kernel.mailbox.usage.linker_generator:
-    path: tests/kernel/mbox/mbox_usage
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.k_heap_api:
-    path: tests/kernel/mem_heap/k_heap_api
-    catalog:
-    - k_heap_api
-    - kernel
-  kernel.k_heap_api.linker_generator:
-    path: tests/kernel/mem_heap/k_heap_api
-    catalog:
-    - kernel
-    - linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.memory_heap:
-    path: tests/kernel/mem_heap/mheap_api_concept
-    catalog:
-    - kernel
-    - memory_heap
-    extra_configs:
-    - CONFIG_IRQ_OFFLOAD=y
-  kernel.memory_heap_no_multithreading:
-    path: tests/kernel/mem_heap/mheap_api_concept
-    catalog:
-    - kernel
-    - memory_heap
-    extra_configs:
-    - CONFIG_MULTITHREADING=n
-    platform_allow:
-    - qemu_cortex_m3
-    - qemu_cortex_m0
-    - nsim_em
-    - nsim_em7d_v22
-    - nsim_hs
-    - nsim_hs_mpuv6
-    - nsim_hs5x
-    - nsim_hs6x
-    - qemu_arc_em
-    - qemu_arc_hs
-    - qemu_arc_hs6x
-    - qemu_riscv32
-    - qemu_riscv32e
-    - qemu_riscv64
-  kernel.memory_heap.linker_generator:
-    path: tests/kernel/mem_heap/mheap_api_concept
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_IRQ_OFFLOAD=y
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.shared_multi_heap:
-    path: tests/kernel/mem_heap/shared_multi_heap
-    catalog:
-    - kernel
-    - multi_heap
-    platform_allow:
-    - qemu_cortex_a53
-    - mps2_an521
-  kernel.demand_paging:
-    path: tests/kernel/mem_protect/demand_paging
-    catalog:
-    - kernel
-    - mmu
-    - demand_paging
-    extra_configs:
-    - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
-    filter: CONFIG_DEMAND_PAGING
-  kernel.demand_paging.timing_funcs:
-    path: tests/kernel/mem_protect/demand_paging
-    catalog:
-    - kernel
-    - mmu
-    - demand_paging
-    extra_configs:
-    - CONFIG_DEMAND_PAGING_STATS_USING_TIMING_FUNCTIONS=y
-    - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
-    platform_allow: qemu_x86_tiny
-    filter: CONFIG_DEMAND_PAGING
-  kernel.futex:
-    path: tests/kernel/mem_protect/futex
-    catalog:
-    - kernel
-    - userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.memory_protection.mem_map:
-    path: tests/kernel/mem_protect/mem_map
-    catalog: &5
-    - kernel
-    - mmu
-    extra_args: CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
-    filter: CONFIG_MMU and not CONFIG_X86_64
-    platform_exclude: qemu_x86_64
-  kernel.memory_protection.mem_map.x86_64:
-    path: tests/kernel/mem_protect/mem_map
-    catalog: *5
-    filter: CONFIG_MMU and CONFIG_X86_64 and not CONFIG_COVERAGE
-  kernel.memory_protection.mem_map.x86_64.coverage:
-    path: tests/kernel/mem_protect/mem_map
-    catalog: *5
-    extra_args: EXTRA_CFLAGS=-DSKIP_EXECUTE_TESTS
-    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
-    platform_allow: qemu_x86_64
-  kernel.memory_protection.mem_map.x86_64.coverage.exec:
-    path: tests/kernel/mem_protect/mem_map
-    catalog: *5
-    extra_args: CONF_FILE=prj_x86_64_coverage_exec.conf
-    filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
-    platform_allow: qemu_x86_64
-  kernel.memory_protection:
-    path: tests/kernel/mem_protect/mem_protect
-    catalog: &6
-    - kernel
-    - security
-    - userspace
-    extra_args:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
-    - CONFIG_MINIMAL_LIBC=y
     filter: CONFIG_ARCH_HAS_USERSPACE
     platform_exclude: twr_ke18f
-  kernel.memory_protection.gap_filling.arc:
-    path: tests/kernel/mem_protect/mem_protect
-    catalog: *6
-    extra_args: CONFIG_MPU_GAP_FILLING=y
-    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
-    arch_allow: arc
-  kernel.memory_protection.gap_filling.arm:
-    path: tests/kernel/mem_protect/mem_protect
-    catalog: *6
-    extra_args: CONFIG_MPU_GAP_FILLING=y
-    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
+  benchmark.kernel.application:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    min_flash: 34
+  benchmark.kernel.application.fp:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - arch:x86:CONFIG_X86_SSE=y
+    - arch:x86:CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow:
+    - x86
+    - arm
+    filter: CONFIG_CPU_HAS_FPU or CONFIG_ARMV7_M_ARMV8_M_FP
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.no_sse:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=n
+    - CONFIG_X86_SSE_FP_MATH=n
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.application.fp.x86.sse:
+    path: tests/benchmarks/app_kernel
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_X86_SSE=y
+    - CONFIG_X86_SSE_FP_MATH=y
+    extra_args: CONF_FILE=prj_fp.conf
+    arch_allow: x86
+    filter: CONFIG_CPU_HAS_FPU
+    min_flash: 34
+    min_ram: 32
+  benchmark.kernel.footprints.default:
+    path: tests/benchmarks/footprints
+    catalog: benchmark
+    build_only: true
+  benchmark.kernel.footprints.pm:
+    path: tests/benchmarks/footprints
+    catalog:
+    - benchmark
+    - pm
+    extra_args: CONF_FILE=prj_pm.conf
+    build_only: true
+  benchmark.kernel.footprints.userspace:
+    path: tests/benchmarks/footprints
+    catalog:
+    - benchmark
+    - userspace
+    extra_args: CONF_FILE=prj_userspace.conf
+    filter: CONFIG_ARCH_HAS_USERSPACE
+    arch_allow:
+    - x86
+    - arm
+    - arc
+    build_only: true
+  benchmark.kernel.latency:
+    path: tests/benchmarks/latency_measure
+    catalog: benchmark
+    platform_exclude:
+    - qemu_cortex_m0
+    - m2gl025_miv
+    filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
+  benchmark.kernel.latency.stm32:
+    path: tests/benchmarks/latency_measure
+    catalog: benchmark
+    extra_configs:
+    - CONFIG_SYS_CLOCK_TICKS_PER_SEC=20
     arch_allow: arm
-    platform_allow:
-    - efr32_radio_brd4180a
-    - mps2_an521
-    - nrf9160dk_nrf9160
-  kernel.memory_protection.obj_validation:
-    path: tests/kernel/mem_protect/obj_validation
+    filter: CONFIG_PRINTK and CONFIG_SOC_FAMILY_STM32
+  benchmark.kernel.scheduler:
+    path: tests/benchmarks/sched
+    catalog: benchmark
+  benchmark.kernel.scheduler_userspace:
+    path: tests/benchmarks/sched_userspace
     catalog:
-    - kernel
-    - security
+    - benchmark
     - userspace
+    arch_allow: arm64
     filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.memory_protection.protection:
-    path: tests/kernel/mem_protect/protection
-    catalog:
-    - kernel
-    - security
-    platform_exclude: twr_ke18f
-    filter: CONFIG_SRAM_REGION_PERMISSIONS
-  kernel.memory_protection.stack_random:
-    path: tests/kernel/mem_protect/stack_random
-    catalog:
-    - kernel
-    - memory_protection
-    arch_exclude: posix
-  kernel.memory_protection.stackprot:
-    path: tests/kernel/mem_protect/stackprot
-    catalog:
-    - kernel
-    - userspace
+  benchmark.kernel.core:
+    path: tests/benchmarks/sys_kernel
+    catalog: benchmark
     arch_exclude:
     - nios2
     - xtensa
-    - posix
-    - sparc
-  kernel.memory_protection.sys_sem:
-    path: tests/kernel/mem_protect/sys_sem
-    catalog:
-    - kernel
-    - userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.memory_protection.sys_sem.nouser:
-    path: tests/kernel/mem_protect/sys_sem
-    catalog: kernel
-    extra_configs:
-    - CONFIG_TEST_USERSPACE=n
-  kernel.memory_protection.syscalls:
-    path: tests/kernel/mem_protect/syscalls
-    catalog:
-    - kernel
-    - security
-    - userspace
-    platform_exclude: qemu_arc_em
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.memory_protection.userspace:
-    path: tests/kernel/mem_protect/userspace
-    catalog: &7
-    - kernel
-    - security
-    - userspace
-    extra_configs:
-    - CONFIG_TEST_HW_STACK_PROTECTION=n
-    - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.memory_protection.userspace.gap_filling.arc:
-    path: tests/kernel/mem_protect/userspace
-    catalog: *7
-    extra_args: CONFIG_MPU_GAP_FILLING=y
-    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
-    arch_allow: arc
-  kernel.memory_protection.userspace.gap_filling.arm:
-    path: tests/kernel/mem_protect/userspace
-    catalog: *7
-    extra_args: CONFIG_MPU_GAP_FILLING=y
-    filter: CONFIG_ARCH_HAS_USERSPACE and CONFIG_MPU_REQUIRES_NON_OVERLAPPING_REGIONS
-    arch_allow: arm
-    platform_allow:
-    - efr32_radio_brd4180a
-    - mps2_an521
-    - nrf9160dk_nrf9160
-  kernel.memory_slabs:
-    path: tests/kernel/mem_slab/mslab
-    catalog:
-    - kernel
-    - memory_slabs
-  kernel.memory_slabs.linker_generator:
-    path: tests/kernel/mem_slab/mslab
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.memory_slabs.api:
-    path: tests/kernel/mem_slab/mslab_api
-    catalog:
-    - kernel
-    - memory_slabs
-  kernel.memory_slabs.api_no_multithreading:
-    path: tests/kernel/mem_slab/mslab_api
-    catalog:
-    - kernel
-    - memory_slabs
-    extra_configs:
-    - CONFIG_MULTITHREADING=n
-    platform_allow:
-    - qemu_cortex_m3
-    - qemu_cortex_m0
-    - nsim_em
-    - nsim_em7d_v22
-    - nsim_hs
-    - nsim_hs_mpuv6
-    - nsim_hs5x
-    - nsim_hs6x
-    - qemu_arc_em
-    - qemu_arc_hs
-    - qemu_arc_hs6x
-    - qemu_riscv32
-    - qemu_riscv32e
-    - qemu_riscv64
-  kernel.memory_slabs.api.linker_generator:
-    path: tests/kernel/mem_slab/mslab_api
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.memory_slabs.concept:
-    path: tests/kernel/mem_slab/mslab_concept
-    catalog: kernel
-  kernel.memory_slabs.concept.linker_generator:
-    path: tests/kernel/mem_slab/mslab_concept
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.memory_slab.stats:
-    path: tests/kernel/mem_slab/mslab_stats
-    catalog: kernel
-  kernel.memory_slabs.threadsafe:
-    path: tests/kernel/mem_slab/mslab_threadsafe
-    catalog: kernel
-  kernel.memory_slabs.threadsafe.linker_generator:
-    path: tests/kernel/mem_slab/mslab_threadsafe
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.multiprocessing:
-    path: tests/kernel/mp
-    catalog:
-    - kernel
-    - smp
-    filter: CONFIG_MP_MAX_NUM_CPUS > 1
-  kernel.multiprocessing.linker_generator:
-    path: tests/kernel/mp
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_x86_64
-    filter: CONFIG_MP_MAX_NUM_CPUS > 1
-  kernel.message_queue:
-    path: tests/kernel/msgq/msgq_api
-    catalog:
-    - kernel
-    - userspace
-  kernel.message_queue_usage:
-    path: tests/kernel/msgq/msgq_usage
-    catalog: kernel
-  kernel.message_queue_usage.linker_generator:
-    path: tests/kernel/msgq/msgq_usage
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.mutex:
-    path: tests/kernel/mutex/mutex_api
-    catalog:
-    - kernel
-    - userspace
-  kernel.mutex_error_case:
-    path: tests/kernel/mutex/mutex_error_case
-    catalog:
-    - kernel
-    - userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.objects.tracking:
-    path: tests/kernel/obj_tracking
-    catalog: kernel
-    platform_exclude: qemu_x86_tiny
-  kernel.objects:
-    path: tests/kernel/pending
-    catalog: kernel
-  kernel.pipe:
-    path: tests/kernel/pipe/pipe
-    catalog:
-    - kernel
-    - userspace
-  kernel.pipe.api:
-    path: tests/kernel/pipe/pipe_api
-    catalog:
-    - kernel
-    - userspace
-  kernel.poll:
-    path: tests/kernel/poll
-    catalog:
-    - kernel
-    - userspace
-    platform_exclude:
-    - nrf52dk_nrf52810
-    - qemu_arc_hs6x
-  kernel.common.profiling:
-    path: tests/kernel/profiling/profiling_api
-    catalog:
-    - kernel
-    - pm
-    arch_exclude: nios2
-    platform_exclude:
-    - em_starterkit
-    - litex_vexriscv
-    - rv32m1_vega_zero_riscy
-    - rv32m1_vega_ri5cy
-    - nrf5340dk_nrf5340_cpunet
-  kernel.queue:
-    path: tests/kernel/queue
-    catalog:
-    - kernel
-    - userspace
-  kernel.scheduler.deadline:
-    path: tests/kernel/sched/deadline
-    catalog: kernel
-  kernel.scheduler.deadline.linker_generator:
-    path: tests/kernel/sched/deadline
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.scheduler.metairq:
-    path: tests/kernel/sched/metairq
-    catalog: kernel
-    platform_exclude: nrf52dk_nrf52810
-  kernel.scheduler.metairq.linker_generator:
-    path: tests/kernel/sched/metairq
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.scheduler.preempt:
-    path: tests/kernel/sched/preempt
-    catalog: kernel
-    platform_exclude: nrf52dk_nrf52810
-  kernel.scheduler.preempt.linker_generator:
-    path: tests/kernel/sched/preempt
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-    platform_exclude: nrf52dk_nrf52810
-  kernel.scheduler:
-    path: tests/kernel/sched/schedule_api
-    catalog: &8
-    - kernel
-    - threads
-    - scheduler
-    - userspace
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    filter: not CONFIG_SCHED_MULTIQ
-    min_ram: 34
-  kernel.scheduler.no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: *8
-    extra_configs:
-    - CONFIG_TIMESLICING=n
-    filter: not CONFIG_SCHED_MULTIQ
-    min_ram: 34
-  kernel.scheduler.slice_perthread:
-    path: tests/kernel/sched/schedule_api
-    catalog: *8
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    - CONFIG_TIMESLICE_PER_THREAD=y
-    filter: not CONFIG_SCHED_MULTIQ
-    min_ram: 34
-  kernel.scheduler.multiq:
-    path: tests/kernel/sched/schedule_api
-    catalog: *8
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    extra_args: CONF_FILE=prj_multiq.conf
-    min_ram: 34
-  kernel.scheduler.multiq_no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: *8
-    extra_configs:
-    - CONFIG_TIMESLICING=n
-    extra_args: CONF_FILE=prj_multiq.conf
-    min_ram: 34
-  kernel.scheduler.dumb_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: *8
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    extra_args: CONF_FILE=prj_dumb.conf
-    min_ram: 34
-  kernel.scheduler.dumb_no_timeslicing:
-    path: tests/kernel/sched/schedule_api
-    catalog: *8
-    extra_configs:
-    - CONFIG_TIMESLICING=n
-    extra_args: CONF_FILE=prj_dumb.conf
-    min_ram: 34
-  kernel.scheduler.linker_generator:
-    path: tests/kernel/sched/schedule_api
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_TIMESLICING=y
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    filter: not CONFIG_SCHED_MULTIQ
-    platform_allow: qemu_cortex_m3
-    min_ram: 34
-  kernel.semaphore:
-    path: tests/kernel/semaphore/semaphore
-    catalog:
-    - kernel
-    - userspace
-  kernel.semaphore.usage:
-    path: tests/kernel/semaphore/sys_sem
-    catalog:
-    - kernel
-    - userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.common.timing:
-    path: tests/kernel/sleep
-    catalog:
-    - kernel
-    - sleep
-  kernel.multiprocessing.smp:
-    path: tests/kernel/smp
-    catalog:
-    - kernel
-    - smp
-    filter: "(CONFIG_MP_MAX_NUM_CPUS > 1)"
-  kernel.multiprocessing.smp.linker_generator:
-    path: tests/kernel/smp
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_x86_64
-    filter: "(CONFIG_MP_MAX_NUM_CPUS > 1)"
-  kernel.multiprocessing.smp_boot_delay:
-    path: tests/kernel/smp_boot_delay
-    catalog:
-    - kernel
-    - smp
-    platform_allow: intel_adsp_cavs25
-  kernel.multiprocessing.spinlock:
-    path: tests/kernel/spinlock
-    catalog:
-    - kernel
-    - smp
-    - spinlock
-    filter: CONFIG_SMP and CONFIG_MP_MAX_NUM_CPUS > 1 and CONFIG_MP_MAX_NUM_CPUS <=
-      4
-  kernel.stack.usage:
-    path: tests/kernel/stack/stack
-    catalog:
-    - kernel
-    - userspace
-  kernel.threads.dynamic:
-    path: tests/kernel/threads/dynamic_thread
-    catalog:
-    - kernel
-    - threads
-    - userspace
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.threads.no-multithreading:
-    path: tests/kernel/threads/no-multithreading
-    catalog: kernel
-    filter: not CONFIG_SMP
-    platform_allow:
-    - qemu_cortex_m0
-    - qemu_cortex_m3
-    - mps2_an385
-    - mps2_an521
-    - nrf52840dk_nrf52840
-    - nrf9160dk_nrf9160
-    - nrf51dk_nrf51422
-    - nsim_em
-    - nsim_em7d_v22
-    - nsim_hs
-    - nsim_hs_mpuv6
-    - nsim_hs5x
-    - nsim_hs6x
-    - qemu_arc_em
-    - qemu_arc_hs
-    - qemu_arc_hs6x
-    - qemu_riscv32
-    - qemu_riscv32e
-    - qemu_riscv64
-  kernel.threads.apis:
-    path: tests/kernel/threads/thread_apis
-    catalog: &9
-    - kernel
-    - threads
-    - userspace
-    min_flash: 34
-  kernel.threads.apis.pinonly:
-    path: tests/kernel/threads/thread_apis
-    catalog: *9
-    extra_configs:
-    - CONFIG_SCHED_CPU_MASK_PIN_ONLY=y
-    min_flash: 34
-    filter: CONFIG_SMP
-  kernel.threads.error.case:
-    path: tests/kernel/threads/thread_error_case
-    catalog:
-    - kernel
-    - threads
-    - userspace
-    filter: CONFIG_USERSPACE
-  kernel.threads.init:
-    path: tests/kernel/threads/thread_init
-    catalog:
-    - kernel
-    - threads
-    - userspace
-  kernel.threads.thread_stack:
-    path: tests/kernel/threads/thread_stack
-    catalog:
-    - kernel
-    - security
-    - userspace
-    min_ram: 16
-  kernel.threads.armv8m_mpu_stack_guard:
-    path: tests/kernel/threads/thread_stack
-    catalog:
-    - kernel
-    - security
-    - userspace
-    extra_args: CONF_FILE=prj_armv8m_mpu_stack_guard.conf
-    min_ram: 16
-    filter: CONFIG_ARM_MPU and CONFIG_ARMV8_M_MAINLINE
-    arch_allow: arm
-  kernel.threads.tls:
-    path: tests/kernel/threads/tls
-    catalog:
-    - kernel
-    - threads
-    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-  kernel.threads.tls.userspace:
-    path: tests/kernel/threads/tls
-    catalog:
-    - kernel
-    - threads
-    - userspace
-    extra_configs:
-    - CONFIG_TEST_USERSPACE=y
-    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_ARCH_HAS_USERSPACE and
-      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-  kernel.tickless.concept:
-    path: tests/kernel/tickless/tickless_concept
-    catalog:
-    - kernel
-    - pm
-    arch_exclude: nios2
-    platform_exclude:
-    - litex_vexriscv
-    - rv32m1_vega_zero_riscy
-    - rv32m1_vega_ri5cy
-    - nrf5340dk_nrf5340_cpunet
-    - nucleo_l073rz
-  kernel.timer.cycle64:
-    path: tests/kernel/timer/cycle64
-    catalog:
-    - kernel
-    - timer
-    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
-    arch_exclude: posix
-  kernel.timer.cycle64.fast:
-    path: tests/kernel/timer/cycle64
-    catalog:
-    - kernel
-    - timer
-    filter: CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
-    arch_allow: posix
-  kernel.timer.starve:
-    path: tests/kernel/timer/starve
-    catalog:
-    - kernel
-    - timer
-  kernel.timer:
-    path: tests/kernel/timer/timer_api
-    catalog:
-    - kernel
-    - timer
-    - userspace
-  kernel.timer.tickless:
-    path: tests/kernel/timer/timer_api
-    catalog:
-    - kernel
-    - timer
-    - userspace
-    - pm
-    extra_args: CONF_FILE="prj_tickless.conf"
-    arch_exclude:
-    - nios2
-    - posix
-    platform_exclude:
-    - litex_vexriscv
-    - rv32m1_vega_zero_riscy
-    - rv32m1_vega_ri5cy
-    - nrf5340dk_nrf5340_cpunet
-  kernel.timer.no_multitheading:
-    path: tests/kernel/timer/timer_api
-    catalog:
-    - kernel
-    - timer
-    extra_configs:
-    - CONFIG_MULTITHREADING=n
-    - CONFIG_TEST_USERSPACE=n
-    - CONFIG_SPIN_VALIDATE=n
-    platform_allow:
-    - qemu_cortex_m3
-    - nsim_em
-    - nsim_em7d_v22
-    - nsim_hs
-    - nsim_hs_mpuv6
-    - nsim_hs5x
-    - nsim_hs6x
-    - qemu_arc_em
-    - qemu_arc_hs
-    - qemu_arc_hs6x
-  kernel.timer.timer:
-    path: tests/kernel/timer/timer_behavior
-    catalog:
-    - kernel
-    - timer
-    min_ram: 16
-    platform_type:
-    - mcu
-    platform_exclude:
-    - hifive1
-    - tflite-micro
-    - it8xxx2_evb
-    - m2gl025_miv
-    - mpfs_icicle
-    - hifive_unleashed
-    - mps2_an385
-    - mps2_an521_ns
-  kernel.timer.error_case:
-    path: tests/kernel/timer/timer_error_case
-    catalog:
-    - kernel
-    - timer
-    - userspace
-  kernel.timer.monotonic:
-    path: tests/kernel/timer/timer_monotonic
-    catalog:
-    - kernel
-    - timer
-    platform_exclude: qemu_arc_hs
-  kernel.timer.monotonic.apic.tsc:
-    path: tests/kernel/timer/timer_monotonic
-    catalog:
-    - kernel
-    - timer
-    - apic_tsc
-    extra_configs:
-    - CONFIG_APIC_TSC_DEADLINE_TIMER=y
-    - CONFIG_HPET_TIMER=n
-    platform_allow: ehl_crb
-  kernel.timer.monotonic.linker_generator:
-    path: tests/kernel/timer/timer_monotonic
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.usage:
-    path: tests/kernel/usage/thread_runtime_stats
-    catalog: kernel
-    arch_exclude:
-    - posix
-    - sparc
-    - mips
-    filter: not CONFIG_SMP
-  kernel.workqueue.critical:
-    path: tests/kernel/workq/critical
-    catalog: &10
-    - kernel
-    - workqueue
-    platform_exclude: nsim_sem_mpu_stack_guard
-    filter: not CONFIG_WDT_SAM
-  kernel.workqueue.critical.sam:
-    path: tests/kernel/workq/critical
-    catalog: *10
-    extra_configs:
-    - CONFIG_WDT_DISABLE_AT_BOOT=y
-    filter: CONFIG_WDT_SAM
-  kernel.workqueue.critical.nsim:
-    path: tests/kernel/workq/critical
-    catalog: *10
-    extra_configs:
-    - CONFIG_TEST_HW_STACK_PROTECTION=n
-    platform_allow: nsim_sem_mpu_stack_guard
-  kernel.workqueue.critical.linker_generator:
-    path: tests/kernel/workq/critical
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.work.user:
-    path: tests/kernel/workq/user_work
-    catalog:
-    - kernel
-    - userspace
-    min_flash: 34
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.work.api:
-    path: tests/kernel/workq/work
-    catalog: kernel
-    min_flash: 34
-    platform_exclude: hifive1
-  kernel.work.api.linker_generator:
-    path: tests/kernel/workq/work
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
-  kernel.workqueue:
-    path: tests/kernel/workq/work_queue
-    catalog: kernel
-    min_flash: 34
-  kernel.workqueue.linker_generator:
-    path: tests/kernel/workq/work_queue
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
+    min_ram: 32

@@ -1,0 +1,110 @@
+---
+cases:
+  bluetooth.mesh.main:
+    path: tests/bluetooth/mesh/basic
+    catalog:
+    - bluetooth
+    - mesh
+    build_only: true
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  bluetooth.mesh.dbg:
+    path: tests/bluetooth/mesh/basic
+    catalog:
+    - bluetooth
+    - mesh
+    extra_args: CONF_FILE=dbg.conf
+    build_only: true
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  bluetooth.mesh.friend:
+    path: tests/bluetooth/mesh/basic
+    catalog:
+    - bluetooth
+    - mesh
+    extra_args: CONF_FILE=friend.conf
+    build_only: true
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  bluetooth.mesh.gatt:
+    path: tests/bluetooth/mesh/basic
+    catalog:
+    - bluetooth
+    - mesh
+    extra_args: CONF_FILE=gatt.conf
+    build_only: true
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  bluetooth.mesh.lpn:
+    path: tests/bluetooth/mesh/basic
+    catalog:
+    - bluetooth
+    - mesh
+    extra_args: CONF_FILE=lpn.conf
+    build_only: true
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  bluetooth.mesh.pb_gatt:
+    path: tests/bluetooth/mesh/basic
+    catalog:
+    - bluetooth
+    - mesh
+    extra_args: CONF_FILE=pb_gatt.conf
+    build_only: true
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  bluetooth.mesh.proxy:
+    path: tests/bluetooth/mesh/basic
+    catalog:
+    - bluetooth
+    - mesh
+    extra_args: CONF_FILE=proxy.conf
+    build_only: true
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  bluetooth.mesh.ext_adv:
+    path: tests/bluetooth/mesh/basic
+    catalog:
+    - bluetooth
+    - mesh
+    extra_args: CONF_FILE=ext_adv.conf
+    build_only: true
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  bluetooth.mesh.multi_ext_adv:
+    path: tests/bluetooth/mesh/basic
+    catalog:
+    - bluetooth
+    - mesh
+    extra_args: CONF_FILE=multi_ext_adv.conf
+    build_only: true
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+  bluetooth.mesh.blob_io_flash:
+    path: tests/bluetooth/mesh/blob_io_flash
+    catalog:
+    - bluetooth
+    - mesh
+    platform_allow: native_posix
+  bluetooth.mesh.rpl:
+    path: tests/bluetooth/mesh/rpl
+    catalog:
+    - bluetooth
+    - mesh
+    platform_allow: native_posix
+  bluetooth.mesh.mesh_shell:
+    path: tests/bluetooth/mesh_shell
+    catalog: bluetooth
+    platform_allow:
+    - qemu_x86
+    - nrf52840dk_nrf52840
+    platform_exclude: nrf52dk_nrf52810

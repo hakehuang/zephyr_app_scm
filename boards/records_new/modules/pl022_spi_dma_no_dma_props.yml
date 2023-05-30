@@ -1,0 +1,16 @@
+---
+cases:
+  drivers.pl022_spi_dma_no_dma_props.loopback:
+    path: tests/drivers/spi/spi_loopback
+    catalog:
+    - drivers
+    - spi
+    - dma
+    extra_configs:
+    - CONFIG_SPI_PL022_INTERRUPT=n
+    - CONFIG_SPI_PL022_DMA=y
+    - CONFIG_DMA=y
+    extra_args: DTC_OVERLAY_FILE="boards/rpi_pico_delete_dma_props.overlay"
+    platform_allow: rpi_pico
+    depends_on: spi
+    filter: dt_compat_enabled("test-spi-loopback-slow") and dt_compat_enabled("test-spi-loopback-fast")

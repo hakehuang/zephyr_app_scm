@@ -1,8 +1,12 @@
 ---
 settings:
   case_pipe_name: "${@board}_usb"
-  version: zephyr-v3.3.0-4123-gd01780fc94
+  version: v3.4.0-rc1-24-g5f5b34793d
 __load__:
+- modules/usbh.yml
+- modules/usbd.yml
+- modules/usbc.yml
+- modules/usb_device_next.yml
 - modules/usb.yml
 - skips/${@board}.yml
 - boards/${@board}.yml

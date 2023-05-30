@@ -323,7 +323,12 @@ def split_test_catalog(fn, outdir, template_dir)
   FileUtils.mkdir_p out_put_dirs
   cases_cat = {}
   cases['cases'].each do |k, v|
-    _cat = k.split('.')[0]
+    _cats = k.split('.')
+    if _cats[1]
+      _cat = _cats[1]
+    else
+      _cat = _cats[0]
+    end
     if cases_cat[_cat].nil?
       cases_cat[_cat] = {k => v}
     else
@@ -385,21 +390,21 @@ def split_test_catalog(fn, outdir, template_dir)
     if module_name.downcase().start_with?("usb")
       template_files_hash['board_usb_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^cmsis_dsp/) or
-      module_name.downcase().match(/^cmsis_rtos/)
+      module_name.downcase().match(/cmsis_rtos/)
       template_files_hash['board_cmsis_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().start_with?("driver") or 
-        module_name.downcase().match(/^sensors/)
+        module_name.downcase().match(/sensors/)
       template_files_hash['board_drivers_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^kernel_[u-z]/)
+    elsif module_name.downcase().match(/kernel_[u-z]/)
       template_files_hash['board_kernel4_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^kernel_t/)
+    elsif module_name.downcase().match(/kernel_t/)
       template_files_hash['board_kernel3_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^kernel_[a-s]/)
+    elsif module_name.downcase().match(/kernel_[a-s]/)
       template_files_hash['board_kernel2_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^kernel/) or
-      module_name.downcase().match(/^tickless_kernel/)
+    elsif module_name.downcase().match(/kernel/) or
+      module_name.downcase().match(/tickless_kernel/)
       template_files_hash['board_kernel_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^shield/)
+    elsif module_name.downcase().match(/shield/)
       template_files_hash['board_shield_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().start_with?("bluetooth_")
       template_files_hash['board_bt1_template.yml']["__load__"].unshift("modules/#{module_name}")
@@ -407,15 +412,15 @@ def split_test_catalog(fn, outdir, template_dir)
       template_files_hash['board_bt2_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().start_with?("can_")
       template_files_hash['board_can_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().start_with?(/^net_s/)
+    elsif module_name.downcase().start_with?(/net_s/)
       template_files_hash['board_socket_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().start_with?(/^net_traffic_/)
+    elsif module_name.downcase().start_with?(/net_traffic_/)
       template_files_hash['board_traffic_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^net_[m-z]/)
+    elsif module_name.downcase().match(/net_[m-z]/)
       template_files_hash['board_samples2_template.yml']["__load__"].unshift("modules/#{module_name}")
-    elsif module_name.downcase().match(/^net_[a-l]/) or
-      module_name.downcase().match(/^net/) or
-      module_name.downcase().match(/^tcp/)
+    elsif module_name.downcase().match(/net_[a-l]/) or
+      module_name.downcase().match(/net/) or
+      module_name.downcase().match(/tcp/)
       template_files_hash['board_samples_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^[a-b]/)
       template_files_hash['board_template.yml']["__load__"].unshift("modules/#{module_name}")
