@@ -44,7 +44,8 @@ cases:
     extra_configs:
     - CONFIG_SCHED_CPU_MASK_PIN_ONLY=y
     min_flash: 34
-    filter: CONFIG_SMP
+    depends_on:
+    - smp
   kernel.threads.error.case:
     path: tests/kernel/threads/thread_error_case
     catalog:

@@ -52,6 +52,7 @@ cases:
     - fpu
     - kernel
     extra_args: PI_NUM_ITERATIONS=500
+    arch_allow: arc
     filter: CONFIG_ISA_ARCV2 and CONFIG_CPU_HAS_FPU
     min_ram: 16
   kernel.fpu_sharing.generic.arm:
@@ -61,6 +62,7 @@ cases:
     - kernel
     extra_args: PI_NUM_ITERATIONS=70000
     filter: CONFIG_ARMV7_M_ARMV8_M_FP or CONFIG_ARMV7_R_FP
+    arch_allow: arm
     min_ram: 16
   kernel.fpu_sharing.generic.arm64:
     path: tests/kernel/fpu_sharing/generic

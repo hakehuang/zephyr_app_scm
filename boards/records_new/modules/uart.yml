@@ -44,7 +44,7 @@ cases:
     - CONFIG_UART_RTT=y
     extra_args: DTC_OVERLAY_FILE=boards/segger_rtt.overlay
     filter: CONFIG_UART_CONSOLE and CONFIG_SERIAL_SUPPORT_ASYNC and CONFIG_HAS_SEGGER_RTT
-      and not CONFIG_UART_MCUX_LPUART
+      and not CONFIG_UART_MCUX_LPUART and not CONFIG_UART_MCUX_FLEXCOMM
     platform_exclude:
     - - xmc45_relax_kit
       - xmc47_relax_kit

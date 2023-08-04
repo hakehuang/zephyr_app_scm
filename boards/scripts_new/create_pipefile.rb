@@ -316,3 +316,6 @@ def create_twister_pipefile_from_config(config: "",
 end
 
 #create_pipefile_from_config(ARGV)
+if __FILE__ == $0
+  puts parse_args([{"OVERLAY_CONFIG"=>"configuration/crc32.conf"}])
+end

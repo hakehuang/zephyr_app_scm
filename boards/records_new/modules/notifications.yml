@@ -2,7 +2,9 @@
 cases:
   cb.notifications:
     path: tests/subsys/mgmt/mcumgr/cb_notifications
-    catalog: cb_notifications
+    catalog:
+    - cb_notifications
+    - mcumgr
     platform_allow:
     - qemu_cortex_m3
     - native_posix

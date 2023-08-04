@@ -105,7 +105,9 @@ cases:
     depends_on: netif
   sample.net.dsa:
     path: samples/net/dsa
-    catalog: tests
+    catalog:
+    - net
+    - dsa
     build_only: true
     platform_allow: ip_k66f
     depends_on: netif
@@ -637,13 +639,6 @@ cases:
     platform_allow: qemu_x86
     depends_on: netif
     min_flash: 140
-  sample.net.sockets.echo_server.802154.rf2xx:
-    path: samples/net/sockets/echo_server
-    catalog: *10
-    extra_args: OVERLAY_CONFIG="overlay-802154.conf"
-    platform_allow: atsamr21_xpro
-    depends_on: netif
-    min_flash: 140
   sample.net.sockets.echo_server.802154.rf2xx.xplained:
     path: samples/net/sockets/echo_server
     catalog: *10
@@ -910,6 +905,7 @@ cases:
     path: samples/net/sockets/tcp
     catalog:
     - socket
+    - net
     - tcp
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     platform_allow: qemu_x86
@@ -1043,12 +1039,13 @@ cases:
   sample.net.wpan.serial:
     path: samples/net/wpan_serial
     catalog: &14
+    - net
     - usb
     - ieee802154
     filter: dt_chosen_enabled("zephyr,ieee802154")
     platform_exclude: pinnacle_100_dvk
     depends_on: usb_device
-  sample.net.wpan_serial.frdm_cr20a:
+  sample.net.wpan.serial.frdm_cr20a:
     path: samples/net/wpan_serial
     catalog: *14
     extra_args: SHIELD=frdm_cr20a

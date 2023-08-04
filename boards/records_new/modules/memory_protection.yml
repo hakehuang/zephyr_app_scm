@@ -15,7 +15,10 @@ cases:
   kernel.memory_protection.mem_map.x86_64.coverage:
     path: tests/kernel/mem_protect/mem_map
     catalog: *1
-    extra_args: EXTRA_CFLAGS=-DSKIP_EXECUTE_TESTS
+    extra_configs:
+    - CONFIG_COVERAGE=y
+    extra_args:
+    - EXTRA_CFLAGS=-DSKIP_EXECUTE_TESTS
     filter: CONFIG_MMU and CONFIG_X86_64 and CONFIG_COVERAGE
     platform_allow: qemu_x86_64
   kernel.memory_protection.mem_map.x86_64.coverage.exec:

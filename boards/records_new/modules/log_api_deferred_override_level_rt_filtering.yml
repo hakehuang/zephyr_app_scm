@@ -16,6 +16,7 @@ cases:
     platform_type: &2
     - qemu
     - native
+    min_ram: 32
   logging.log_api_deferred_override_level_rt_filtering.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: *1
@@ -29,3 +30,4 @@ cases:
     - qemu_cortex_a9
     - native_posix
     platform_type: *2
+    min_ram: 32

@@ -19,19 +19,9 @@ cases:
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard
-  kernel.workqueue.critical.linker_generator:
-    path: tests/kernel/workq/critical
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
   kernel.workqueue:
     path: tests/kernel/workq/work_queue
-    catalog: kernel
+    catalog:
+    - kernel
+    - workqueue
     min_flash: 34
-  kernel.workqueue.linker_generator:
-    path: tests/kernel/workq/work_queue
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3

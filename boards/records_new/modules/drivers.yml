@@ -34,6 +34,10 @@ cases:
     path: samples/drivers/audio/dmic
     catalog: dmic
     filter: dt_nodelabel_enabled("dmic_dev")
+  sample.drivers.auxdisplay:
+    path: samples/drivers/auxdisplay
+    catalog: auxdisplay
+    platform_allow: nucleo_f746zg
   sample.drivers.can.babbling:
     path: samples/drivers/can/babbling
     catalog: can
@@ -47,7 +51,6 @@ cases:
   sample.drivers.clock_control_xec:
     path: samples/drivers/clock_control_xec
     catalog: clock_control
-    build_only: true
     platform_allow:
     - mec172xevb_assy6906
     - mec15xxevb_assy6853
@@ -327,7 +330,9 @@ cases:
     catalog:
     - drivers
     - peci
-    platform_exclude: mec15xxevb_assy6853
+    platform_exclude:
+    - mec15xxevb_assy6853
+    - mec172xevb_assy6906
     filter: dt_alias_exists("peci-0")
   sample.drivers.espi.ps2:
     path: samples/drivers/ps2
@@ -542,7 +547,7 @@ cases:
     path: samples/drivers/watchdog
     catalog: *2
     extra_args: DTC_OVERLAY_FILE=boards/gd32_fwdgt.overlay
-    filter: dt_has_compat("gd,gd32-fwdgt")
+    filter: dt_compat_enabled("gd,gd32-fwdgt")
     platform_allow:
     - gd32e103v_eval
     - gd32e507v_start
@@ -559,7 +564,7 @@ cases:
     path: samples/drivers/watchdog
     catalog: *2
     extra_args: DTC_OVERLAY_FILE=boards/gd32_wwdgt.overlay
-    filter: dt_has_compat("gd,gd32-wwdgt")
+    filter: dt_compat_enabled("gd,gd32-wwdgt")
     platform_allow:
     - gd32e103v_eval
     - gd32e507v_start

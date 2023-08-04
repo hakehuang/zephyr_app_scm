@@ -22,11 +22,20 @@ cases:
     min_ram: 16
   net.ieee802154.l2:
     path: tests/net/ieee802154/l2
-    catalog:
+    catalog: &1
     - net
     - ieee802154
     - l2
-    platform_allow:
+    extra_configs:
+    - CONFIG_NET_SOCKETS=n
+    platform_allow: &2
     - native_posix
     - native_posix_64
+    min_ram: 16
+  net.ieee802154.l2.sockets:
+    path: tests/net/ieee802154/l2
+    catalog: *1
+    extra_configs:
+    - CONFIG_NET_SOCKETS=y
+    platform_allow: *2
     min_ram: 16

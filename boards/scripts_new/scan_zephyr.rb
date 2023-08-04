@@ -18,7 +18,7 @@ require_relative "parse_testcase"
 require_relative "parse_sample"
 require_relative "zephyr_filter"
 
-$version = "v3.3.0"
+$version = "v3.4.0"
 
 LONG_CASE_DURATION = {
   'crypto.mbedtls' => {'timeout' => 1000},

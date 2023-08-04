@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s36_5"
-  version: zephyr-v3.3.0-4123-gd01780fc94
+  version: zephyr-v3.4.0-52-gfc69d1a11e
 __load__:
 - modules/ztest.yml
 - modules/zbus.yml
@@ -15,6 +15,8 @@ __load__:
 - modules/virtualization.yml
 - modules/virtual.yml
 - modules/video.yml
+- modules/version_no_legacy.yml
+- modules/version.yml
 - modules/uuid.yml
 - modules/util.yml
 - modules/userspace.yml

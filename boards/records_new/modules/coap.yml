@@ -6,3 +6,8 @@ cases:
     min_ram: 16
     depends_on: netif
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+  net.coap.client:
+    path: tests/net/lib/coap_client
+    catalog: coap net
+    platform_allow: native_posix
+    depends_on: netif

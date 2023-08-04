@@ -11,6 +11,7 @@ cases:
     platform_type: &2
     - qemu
     - native
+    min_ram: 32
   logging.log_api_deferred_64b_timestamp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: *1
@@ -19,3 +20,4 @@ cases:
     - CONFIG_LOG_TIMESTAMP_64BIT=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_type: *2
+    min_ram: 32

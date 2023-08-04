@@ -1,0 +1,14 @@
+---
+cases:
+  smp.version:
+    path: tests/subsys/mgmt/mcumgr/smp_version
+    catalog:
+    - smp_version
+    - mcumgr
+    arch_exclude:
+    - nios2
+    - sparc
+    - mips
+    - posix
+    platform_exclude:
+    - qemu_kvm_arm64

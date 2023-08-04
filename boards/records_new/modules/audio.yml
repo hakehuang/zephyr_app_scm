@@ -24,3 +24,9 @@ cases:
     extra_configs:
     - CONFIG_BT_BAP_UNICAST_CLIENT=y
     type: unit
+  bluetooth.audio.ascs.test_stream_pair:
+    path: tests/bluetooth/audio/ascs
+    catalog: *1
+    extra_configs:
+    - CONFIG_BT_ASCS_MAX_ACTIVE_ASES=2
+    type: unit

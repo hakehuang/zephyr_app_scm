@@ -2,30 +2,13 @@
 cases:
   kernel.fifo:
     path: tests/kernel/fifo/fifo_api
-    catalog: kernel
-  kernel.fifo.linker_generator:
-    path: tests/kernel/fifo/fifo_api
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
+    catalog:
+    - kernel
   kernel.fifo.timeout:
     path: tests/kernel/fifo/fifo_timeout
     catalog: kernel
-  kernel.fifo.timeout.linker_generator:
-    path: tests/kernel/fifo/fifo_timeout
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
   kernel.fifo.usage:
     path: tests/kernel/fifo/fifo_usage
     catalog:
     - kernel
     - fifo
-  kernel.fifo.usage.linker_generator:
-    path: tests/kernel/fifo/fifo_usage
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3

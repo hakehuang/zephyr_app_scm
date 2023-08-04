@@ -7,6 +7,9 @@ cases:
     - userspace
     depends_on: i2s
     filter: not CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
+    platform_exclude:
+    - mimxrt595_evk_cm33
+    - mimxrt685_evk_cm33
   drivers.i2s.gpio_loopback:
     path: tests/drivers/i2s/i2s_api
     catalog:
@@ -16,6 +19,9 @@ cases:
     - i2s
     - gpio
     filter: CONFIG_I2S_TEST_USE_GPIO_LOOPBACK
+    platform_exclude:
+    - mimxrt595_evk_cm33
+    - mimxrt685_evk_cm33
   drivers.i2s.speed:
     path: tests/drivers/i2s/i2s_speed
     catalog:

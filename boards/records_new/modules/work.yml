@@ -12,9 +12,3 @@ cases:
     catalog: kernel
     min_flash: 34
     platform_exclude: hifive1
-  kernel.work.api.linker_generator:
-    path: tests/kernel/workq/work
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3

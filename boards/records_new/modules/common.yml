@@ -25,7 +25,8 @@ cases:
     - base
     - kernel
     - userspace
-    min_flash: 33
+    min_flash: 32
+    min_ram: 32
   kernel.common.tls:
     path: tests/kernel/common
     catalog: *1
@@ -35,14 +36,24 @@ cases:
       and not (CONFIG_TOOLCHAIN_ARCMWDT_SUPPORTS_THREAD_LOCAL_STORAGE and CONFIG_USERSPACE)
 
       '
-    min_flash: 33
+    min_flash: 32
+    min_ram: 32
   kernel.common.misra:
     path: tests/kernel/common
     catalog: *1
     extra_configs:
     - CONFIG_MISRA_SANE=y
     filter: not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)
-    min_flash: 33
+    min_flash: 32
+    min_ram: 32
+  kernel.common.minimallibc:
+    path: tests/kernel/common
+    catalog: libc
+    extra_configs:
+    - CONFIG_MINIMAL_LIBC=y
+    filter: CONFIG_MINIMAL_LIBC_SUPPORTED
+    min_flash: 32
+    min_ram: 32
   kernel.common.nano32:
     path: tests/kernel/common
     catalog: *1
@@ -50,7 +61,8 @@ cases:
     - CONFIG_CBPRINTF_NANO=y
     - CONFIG_CBPRINTF_REDUCED_INTEGRAL=y
     filter: not CONFIG_KERNEL_COHERENCE
-    min_flash: 33
+    min_flash: 32
+    min_ram: 32
   kernel.common.nano64:
     path: tests/kernel/common
     catalog: *1
@@ -58,25 +70,21 @@ cases:
     - CONFIG_CBPRINTF_NANO=y
     - CONFIG_CBPRINTF_FULL_INTEGRAL=y
     filter: not CONFIG_KERNEL_COHERENCE
-    min_flash: 33
+    min_flash: 32
+    min_ram: 32
   kernel.common.picolibc:
     path: tests/kernel/common
     catalog: picolibc
     extra_configs:
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
-    min_flash: 33
+    min_flash: 32
+    min_ram: 32
   kernel.common.sleep:
     path: tests/kernel/early_sleep
     catalog:
     - kernel
     - sleep
-  kernel.common.sleep.linker_generator:
-    path: tests/kernel/early_sleep
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3
   kernel.common.stack_protection:
     path: tests/kernel/fatal/exception
     catalog:
@@ -138,9 +146,3 @@ cases:
     - kernel
     - xip
     filter: CONFIG_XIP
-  arch.common.xip.linker_generator:
-    path: tests/kernel/xip
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3

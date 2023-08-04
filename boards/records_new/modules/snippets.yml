@@ -1,10 +1,40 @@
 ---
 cases:
-  cmake.snippets:
+  cmake.snippets.none:
     path: tests/cmake/snippets
     catalog: snippets
-    platform_allow:
+    extra_configs:
+    - CONFIG_TEST_TYPE_NONE=y
+    platform_allow: &1
     - native_posix
     - qemu_x86
     - qemu_x86_64
     - qemu_cortex_m3
+  cmake.snippets.foo:
+    path: tests/cmake/snippets
+    catalog: snippets
+    extra_configs:
+    - CONFIG_TEST_TYPE_FOO=y
+    extra_args: SNIPPET="foo"
+    platform_allow: *1
+  cmake.snippets.bar:
+    path: tests/cmake/snippets
+    catalog: snippets
+    extra_configs:
+    - CONFIG_TEST_TYPE_BAR=y
+    extra_args: SNIPPET="bar"
+    platform_allow: *1
+  cmake.snippets.foo_bar:
+    path: tests/cmake/snippets
+    catalog: snippets
+    extra_configs:
+    - CONFIG_TEST_TYPE_FOO_BAR=y
+    extra_args: SNIPPET="foo;bar"
+    platform_allow: *1
+  cmake.snippets.bar_foo:
+    path: tests/cmake/snippets
+    catalog: snippets
+    extra_configs:
+    - CONFIG_TEST_TYPE_BAR_FOO=y
+    extra_args: SNIPPET="bar;foo"
+    platform_allow: *1

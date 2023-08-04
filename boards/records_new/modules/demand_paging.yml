@@ -8,7 +8,7 @@ cases:
     - demand_paging
     extra_configs:
     - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
-    filter: CONFIG_DEMAND_PAGING
+    platform_allow: qemu_x86_tiny
   kernel.demand_paging.timing_funcs:
     path: tests/kernel/mem_protect/demand_paging
     catalog:
@@ -19,4 +19,3 @@ cases:
     - CONFIG_DEMAND_PAGING_STATS_USING_TIMING_FUNCTIONS=y
     - CONFIG_COMMON_LIBC_MALLOC_ARENA_SIZE=0
     platform_allow: qemu_x86_tiny
-    filter: CONFIG_DEMAND_PAGING

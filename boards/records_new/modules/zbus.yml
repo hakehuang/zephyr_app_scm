@@ -31,14 +31,12 @@ cases:
     path: samples/subsys/zbus/hello_world
     catalog: zbus
     arch_exclude:
-    - posix
     - xtensa
     platform_exclude: qemu_leon3
   sample.zbus.hello_world_no_iterable_sections:
     path: samples/subsys/zbus/hello_world
     catalog: zbus
     arch_allow:
-    - posix
     - xtensa
   sample.zbus.remote_mock:
     path: samples/subsys/zbus/remote_mock

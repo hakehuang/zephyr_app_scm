@@ -1,0 +1,12 @@
+---
+cases:
+  sample.pytest.shell:
+    path: samples/subsys/testsuite/pytest/shell
+    catalog:
+    - test_framework
+    - pytest
+    - shell
+    extra_configs:
+    - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+    filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
+    min_ram: 40

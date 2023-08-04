@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt1060_evk_6"
-  version: zephyr-v3.3.0-4123-gd01780fc94
+  version: zephyr-v3.4.0-52-gfc69d1a11e
 __load__:
 - modules/system.yml
 - modules/syscon.yml
@@ -49,8 +49,10 @@ __load__:
 - modules/radio.yml
 - modules/queue.yml
 - modules/qemu_x86.yml
+- modules/pytest.yml
 - modules/pwm.yml
 - modules/ptp.yml
+- modules/psa_crypto.yml
 - modules/promisc.yml
 - modules/privacy.yml
 - modules/prf.yml

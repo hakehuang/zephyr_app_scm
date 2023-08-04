@@ -27,11 +27,14 @@ symbol
 
 $log = Logger.new(STDOUT)
 $log.level = Logger::WARN
+$log.formatter = proc { |severity, datetime, progname, msg|
+    "#{severity} #{caller[4]} #{msg}\n"
+  }
 
 class ZephyrLex < Rly::Lex
 
-  literals "=+><():[],\";\'"
-  ignore "\' \"\t\n\\"
+  literals "=+><():[],\";\'\/"
+  ignore "\' \\\t\n\\"
   token :AND, /(and|AND)/ do |t|
     t
   end
@@ -72,6 +75,10 @@ class ZephyrLex < Rly::Lex
 
   token :LTE, /<=/ do |t|
     t
+  end
+
+  token :QUOTE, /\"/ do |t|
+    nil
   end
 
   token :DATA, /[a-zA-Z_][a-zA-Z0-9_-]*\.[a-zA-Z_]*/ do |t|
@@ -282,7 +289,11 @@ class ZephyrParse < Rly::Yacc
   rule 'expression : expression "+" expression
                    | expression "*" expression
                    | expression "/" expression' do |ex, e1, op, e2|
-    ex.value = e1.value.send(op.value, e2.value)
+    begin
+      ex.value = e1.value.send(op.value, e2.value)
+    rescue
+      ex.value = "#{e1.value}/#{e2.value}"
+    end
     $log.info  "rule +*/  #{ex.value}"
   end
 
@@ -298,7 +309,8 @@ end
 
 def isDT_filter(key)
   dt_list = ["dt_compat_enabled", "dt_alias_exists", "dt_compat_enabled_with_alias",
-             "dt_enabled_alias_with_parent_compat", "dt_label_with_parent_compat_enabled"]
+             "dt_enabled_alias_with_parent_compat", "dt_label_with_parent_compat_enabled",
+             "dt_chosen_enabled"]
   if dt_list.include?(key)
     return true
   end
@@ -426,6 +438,11 @@ def dt_parser(k, v, board_hash)
     return false
   elsif k == "dt_label_with_parent_compat_enabled"
     return dt_label_with_parent_compat_enabled(board_hash, "compatible", v[1], v[0])
+  elsif k == "dt_chosen_enabled"
+    if board_hash['dtb']['root']['chosen'].keys().include?(v.join(","))
+      return true
+    end
+    return false
   end
 
 end
@@ -539,6 +556,7 @@ def zephyr_expr_parser(expr)
       end
     else
       expr.split().each do |_expr|
+        p _expr
         ret = ret | [parser.parse(_expr)]
       end
     end
@@ -561,9 +579,10 @@ if __FILE__ == $0
       "CONFIG_PINMUX"=>"y", "CONFIG_GPIO"=>"y",
       "CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC"=>"120000000", "CONFIG_OSC_LOW_POWER"=>"y", "CONFIG_ARM_MPU"=>"y"} }
 =end
-    search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
-    merge_hash = {"settings" => {"TOOLCHAIN_HAS_NEWLIB" => 1}}
-    board_hash = load_board_data(search_path,"twr_kv58f220m",merge_hash)
+    #search_path  = (Pathname.new(File.dirname(__FILE__)).realpath + '../records_new/').to_s
+    #merge_hash = {"settings" => {"TOOLCHAIN_HAS_NEWLIB" => 1}}
+    #board_hash = load_board_data(search_path,"twr_kv58f220m",merge_hash)
+    $log.info  zephyr_expr_parser("OVERLAY_CONFIG=\"configuration/crc32.conf\"")
 =begin
     $log.info  parser.parse('A AND B')
     $log.info  parser.parse('NOT A')
@@ -612,5 +631,5 @@ if __FILE__ == $0
     #$log.info  zephyr_filter_parser('dt_compat_enabled_with_alias("gpio-keys", "sw0")', board_hash)
     
     #$log.info  zephyr_filter_parser('dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")', board_hash)
-    $log.info  zephyr_filter_parser('not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)', board_hash)
+    #$log.info  zephyr_filter_parser('not ((CONFIG_I2C or CONFIG_SPI) and CONFIG_USERSPACE)', board_hash)
 end

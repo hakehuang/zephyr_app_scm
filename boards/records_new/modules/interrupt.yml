@@ -20,6 +20,7 @@ cases:
     catalog: *1
     extra_configs:
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=2048
     filter:
@@ -81,7 +82,8 @@ cases:
     filter: CONFIG_GEN_ISR_TABLES and CONFIG_ARMV6_M_ARMV8_M_BASELINE
   arch.interrupt.gen_isr_table.arm_baseline.linker_generator:
     path: tests/kernel/gen_isr_table
-    catalog: linker_generator
+    catalog:
+    - linker_generator
     extra_configs:
     - CONFIG_NULL_POINTER_EXCEPTION_DETECTION_NONE=y
     - CONFIG_CMAKE_LINKER_GENERATOR=y
@@ -127,15 +129,21 @@ cases:
     catalog: *3
     extra_configs:
     - CONFIG_GEN_IRQ_VECTOR_TABLE=y
+    arch_allow:
+    - riscv32
+    - riscv64
     platform_exclude: m2gl025_miv
-    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
+    filter: CONFIG_SOC_FAMILY_RISCV_PRIVILEGED
   arch.interrupt.gen_isr_table.riscv_no_direct:
     path: tests/kernel/gen_isr_table
     catalog: *3
     extra_configs:
     - CONFIG_GEN_IRQ_VECTOR_TABLE=n
     platform_exclude: m2gl025_miv
-    filter: CONFIG_RISCV and CONFIG_SOC_FAMILY_RISCV_PRIVILEGE
+    arch_allow:
+    - riscv32
+    - riscv64
+    filter: CONFIG_SOC_FAMILY_RISCV_PRIVILEGED
   arch.interrupt:
     path: tests/kernel/interrupt
     catalog:
@@ -143,11 +151,3 @@ cases:
     - interrupt
     arch_exclude: nios2
     filter: not CONFIG_TRUSTED_EXECUTION_NONSECURE
-  arch.interrupt.linker_generator:
-    path: tests/kernel/interrupt
-    catalog:
-    - interrupt
-    - linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3

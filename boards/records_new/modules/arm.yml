@@ -78,7 +78,8 @@ cases:
     arch_allow: arm
   arch.arm.sw_vector_relay:
     path: tests/arch/arm/arm_sw_vector_relay
-    catalog: arm
+    catalog:
+    - vector_relay
     filter: CONFIG_ARMV6_M_ARMV8_M_BASELINE or CONFIG_ARMV7_M_ARMV8_M_MAINLINE
     arch_allow: arm
   arch.arm.swap.common:
@@ -95,6 +96,7 @@ cases:
     catalog: *3
     extra_configs:
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=2048
     filter:
@@ -119,6 +121,7 @@ cases:
     - CONFIG_FPU=y
     - CONFIG_FPU_SHARING=y
     - CONFIG_NO_OPTIMIZATIONS=y
+    - CONFIG_ZTEST_WARN_NO_OPTIMIZATIONS=n
     - CONFIG_IDLE_STACK_SIZE=512
     - CONFIG_MAIN_STACK_SIZE=2048
     filter:

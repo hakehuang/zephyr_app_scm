@@ -5,6 +5,7 @@ cases:
     catalog: kernel
     extra_configs:
     - CONFIG_TEST_EXTRA_STACK_SIZE=1024
+    min_ram: 16
   kernel.context.linker_generator:
     path: tests/kernel/context
     catalog:

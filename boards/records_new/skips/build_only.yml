@@ -94,3 +94,5 @@ cases:
     comments: "Assertion failed at WEST_TOPDIR/zephyr/tests/subsys/storage/flash_map/src/main.c:108: flash_map_test_flash_area_get_sectors: (rc == 0 is false)"
   sample.subsys.task_wdt:
     comments: "uart output to quick cause problem"
+  pm.device_runtime.api:
+    comments: "https://github.com/zephyrproject-rtos/zephyr/issues/61075"

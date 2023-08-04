@@ -116,113 +116,48 @@ cases:
     min_ram: 64
   portability.posix.eventfd:
     path: tests/posix/eventfd
-    catalog: &1
+    catalog:
     - posix
     - eventfd
-    min_ram: 32
-    arch_exclude: posix
-  portability.posix.eventfd.newlib:
-    path: tests/posix/eventfd
-    catalog: *1
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    min_ram: 32
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-  portability.posix.eventfd.picolibc:
-    path: tests/posix/eventfd
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-  portability.posix.eventfd_basic:
-    path: tests/posix/eventfd_basic
-    catalog: &2
+    arch_exclude:
     - posix
-    - eventfd
-    extra_configs:
-    - CONFIG_POSIX_API=n
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.eventfd_basic.posix_api:
-    path: tests/posix/eventfd_basic
-    catalog: *2
-    extra_configs:
-    - CONFIG_POSIX_API=y
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.eventfd_basic.newlib:
-    path: tests/posix/eventfd_basic
-    catalog: *2
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_POSIX_API=n
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.eventfd_basic.newlib.posix_api:
-    path: tests/posix/eventfd_basic
-    catalog: *2
-    extra_configs:
-    - CONFIG_NEWLIB_LIBC=y
-    - CONFIG_POSIX_API=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.eventfd_basic.picolibc:
-    path: tests/posix/eventfd_basic
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-    min_ram: 32
-  portability.posix.eventfd_basic.picolibc.posix_api:
-    path: tests/posix/eventfd_basic
-    catalog: picolibc
-    extra_configs:
-    - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
-    min_ram: 32
   portability.posix.fs:
     path: tests/posix/fs
-    catalog: &3
+    catalog: &1
     - posix
     - filesystem
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
-    arch_exclude: &4
+    arch_exclude: &2
     - nios2
     - posix
     min_ram: 128
   portability.posix.fs.newlib:
     path: tests/posix/fs
-    catalog: *3
+    catalog: *1
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: *4
+    arch_exclude: *2
     min_ram: 128
   portability.posix.fs.tls:
     path: tests/posix/fs
-    catalog: *3
+    catalog: *1
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
     - CONFIG_THREAD_LOCAL_STORAGE=y
     filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: *4
+    arch_exclude: *2
     min_ram: 128
   portability.posix.fs.tls.newlib:
     path: tests/posix/fs
-    catalog: *3
+    catalog: *1
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_THREAD_LOCAL_STORAGE=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
       CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: *4
+    arch_exclude: *2
     min_ram: 128
   portability.posix.fs.picolibc:
     path: tests/posix/fs
@@ -230,7 +165,7 @@ cases:
     extra_configs:
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: *4
+    arch_exclude: *2
     min_ram: 128
   portability.posix.fs.tls.picolibc:
     path: tests/posix/fs
@@ -238,11 +173,11 @@ cases:
     extra_configs:
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: *4
+    arch_exclude: *2
     min_ram: 128
   portability.posix.getopt:
     path: tests/posix/getopt
-    catalog: &5
+    catalog: &3
     - posix
     - getopt
     min_flash: 64
@@ -250,7 +185,7 @@ cases:
     arch_exclude: posix
   portability.posix.getopt.newlib:
     path: tests/posix/getopt
-    catalog: *5
+    catalog: *3
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
@@ -264,14 +199,14 @@ cases:
     arch_exclude: posix
   portability.posix.getopt.logger:
     path: tests/posix/getopt
-    catalog: *5
+    catalog: *3
     extra_configs:
     - CONFIG_LOG=y
     build_only: true
     arch_exclude: posix
   portability.posix.headers.with_posix_api:
     path: tests/posix/headers
-    catalog: &6
+    catalog: &4
     - posix
     - net
     - socket
@@ -281,7 +216,7 @@ cases:
     min_ram: 32
   portability.posix.headers.without_posix_api:
     path: tests/posix/headers
-    catalog: *6
+    catalog: *4
     extra_configs:
     - CONFIG_POSIX_API=n
     arch_exclude: posix
@@ -315,7 +250,7 @@ cases:
     min_ram: 32
   portability.posix.headers.newlib.without_posix_api:
     path: tests/posix/headers
-    catalog: *6
+    catalog: *4
     extra_configs:
     - CONFIG_POSIX_API=n
     - CONFIG_NEWLIB_LIBC=y
@@ -324,7 +259,7 @@ cases:
     min_ram: 32
   portability.posix.headers.arcmwdtlib.with_posix_api:
     path: tests/posix/headers
-    catalog: *6
+    catalog: *4
     extra_configs:
     - CONFIG_POSIX_API=y
     - CONFIG_ARCMWDT_LIBC=y
@@ -332,9 +267,19 @@ cases:
     min_ram: 32
   portability.posix.headers.arcmwdtlib.without_posix_api:
     path: tests/posix/headers
-    catalog: *6
+    catalog: *4
     extra_configs:
     - CONFIG_POSIX_API=n
     - CONFIG_ARCMWDT_LIBC=y
     arch_exclude: posix
     min_ram: 32
+  portability.posix.pthread_pressure:
+    path: tests/posix/pthread_pressure
+    catalog: posix
+    extra_configs:
+    - CONFIG_PTHREAD_CREATE_BARRIER=y
+    min_ram: 64
+    arch_exclude:
+    - posix
+    platform_exclude:
+    - qemu_leon3

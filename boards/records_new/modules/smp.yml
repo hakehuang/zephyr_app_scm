@@ -6,7 +6,11 @@ cases:
     filter: "(CONFIG_MP_MAX_NUM_CPUS > 1)"
   sample.smp.pktqueue:
     path: samples/arch/smp/pktqueue
-    catalog: introduction
+    catalog:
+    - introduction
+    - kernel
+    depends_on:
+    - smp
     filter: "(CONFIG_MP_MAX_NUM_CPUS > 1)"
     platform_exclude:
     - esp32

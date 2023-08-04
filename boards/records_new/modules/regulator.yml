@@ -1,5 +1,12 @@
 ---
 cases:
+  drivers.regulator.build:
+    path: tests/drivers/build_all/regulator
+    catalog:
+    - drivers
+    - regulator
+    build_only: true
+    platform_allow: native_posix
   drivers.regulator.api:
     path: tests/drivers/regulator/api
     catalog:

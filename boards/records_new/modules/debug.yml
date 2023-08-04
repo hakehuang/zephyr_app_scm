@@ -11,7 +11,9 @@ cases:
     platform_allow: native_posix_64
   sample.debug.gdbstub:
     path: samples/subsys/debug/gdbstub
-    catalog: debug
+    catalog:
+    - debug
+    - gdbstub
     build_only: true
     platform_allow: qemu_x86
   buildsystem.debug.build:

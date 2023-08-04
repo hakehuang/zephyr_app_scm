@@ -38,6 +38,9 @@ cases:
     extra_args: CONF_FILE="prj_login.conf"
     filter: CONFIG_SERIAL and dt_chosen_enabled("zephyr,shell-uart")
     min_ram: 40
+  sample.shell.shell_module.robot:
+    path: samples/subsys/shell/shell_module
+    catalog: unknown
   bluetooth.shell.main:
     path: tests/bluetooth/shell
     catalog: bluetooth

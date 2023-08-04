@@ -2,9 +2,10 @@
 cases:
   libraries.smf.flat:
     path: tests/lib/smf
-    catalog: smf
+    catalog: &1
+    - smf
   libraries.smf.hierarchical:
     path: tests/lib/smf
-    catalog: smf
+    catalog: *1
     extra_configs:
     - CONFIG_SMF_ANCESTOR_SUPPORT=y

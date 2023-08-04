@@ -6,25 +6,13 @@ cases:
     - kernel
     - smp
     filter: CONFIG_MP_MAX_NUM_CPUS > 1
-  kernel.multiprocessing.linker_generator:
-    path: tests/kernel/mp
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_x86_64
-    filter: CONFIG_MP_MAX_NUM_CPUS > 1
+    depends_on:
+    - smp
   kernel.multiprocessing.smp:
     path: tests/kernel/smp
     catalog:
     - kernel
     - smp
-    filter: "(CONFIG_MP_MAX_NUM_CPUS > 1)"
-  kernel.multiprocessing.smp.linker_generator:
-    path: tests/kernel/smp
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_x86_64
     filter: "(CONFIG_MP_MAX_NUM_CPUS > 1)"
   kernel.multiprocessing.smp_boot_delay:
     path: tests/kernel/smp_boot_delay
@@ -40,3 +28,5 @@ cases:
     - spinlock
     filter: CONFIG_SMP and CONFIG_MP_MAX_NUM_CPUS > 1 and CONFIG_MP_MAX_NUM_CPUS <=
       4
+    depends_on:
+    - smp

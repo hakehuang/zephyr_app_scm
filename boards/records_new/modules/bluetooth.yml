@@ -197,6 +197,13 @@ cases:
     catalog: bluetooth
     platform_allow: native_posix
     build_only: true
+  sample.bluetooth.hap_ha.monaural_no_presets:
+    path: samples/bluetooth/hap_ha
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_HAS_PRESET_COUNT=0
+    platform_allow: native_posix
+    build_only: true
   sample.bluetooth.hap_ha.banded:
     path: samples/bluetooth/hap_ha
     catalog: bluetooth
@@ -288,24 +295,12 @@ cases:
     platform_allow:
     - 96b_carbon_nrf51
     - nrf51dk_nrf51422
-  sample.bluetooth.hci_uart.arm:
-    path: samples/bluetooth/hci_uart
-    catalog:
-    - uart
-    - bluetooth
-    platform_allow:
-    - 96b_nitrogen
-    - nrf51dk_nrf51422
-    - nrf52dk_nrf52832
-    - bbc_microbit
   sample.bluetooth.hci_uart.nrf5:
     path: samples/bluetooth/hci_uart
     catalog:
     - uart
     - bluetooth
     platform_allow:
-    - 96b_nitrogen
-    - nrf51dk_nrf51422
     - nrf52dk_nrf52832
   sample.bluetooth.hci_uart.nrf52833.df:
     path: samples/bluetooth/hci_uart
@@ -684,18 +679,51 @@ cases:
     path: samples/bluetooth/st_ble_sensor
     catalog: bluetooth
     platform_allow: nucleo_wb55rg
+  sample.bluetooth.tmap_central:
+    path: samples/bluetooth/tmap_central
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.tmap_peripheral:
+    path: samples/bluetooth/tmap_peripheral
+    catalog: bluetooth
+    platform_allow: qemu_cortex_m3 qemu_x86
+  sample.bluetooth.tmap_peripheral.duo:
+    path: samples/bluetooth/tmap_peripheral
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_TMAP_PERIPHERAL_SET_RANK=2
+    extra_args: OVERLAY_CONFIG="duo.conf"
+    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.audio_unicast_client:
     path: samples/bluetooth/unicast_audio_client
     catalog: bluetooth
     platform_allow:
     - qemu_cortex_m3
     - qemu_x86
+  sample.bluetooth.audio_unicast_client.bt_ll_sw_split:
+    path: samples/bluetooth/unicast_audio_client
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG=overlay-bt_ll_sw_split.conf
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
   sample.bluetooth.audio_unicast_server:
     path: samples/bluetooth/unicast_audio_server
     catalog: bluetooth
     platform_allow:
     - qemu_cortex_m3
     - qemu_x86
+  sample.bluetooth.audio_unicast_server.bt_ll_sw_split:
+    path: samples/bluetooth/unicast_audio_server
+    catalog: bluetooth
+    extra_args: OVERLAY_CONFIG=overlay-bt_ll_sw_split.conf
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_x86
+    - nrf52_bsim
+    - nrf52dk_nrf52832
   sample.bluetooth.mesh.onoff:
     path: samples/boards/nrf/mesh/onoff-app
     catalog: bluetooth

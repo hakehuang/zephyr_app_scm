@@ -18,5 +18,6 @@ puts "creating './merged_data.yml'"
 #File.write('./merged_data.yml', YAML.dump(merged_data))
 board_name = ZEPHER_FILTER::get_board_name(board)
 board_info = load_board_data(@search_path,board_name,merged_data)
+#File.write('./board_info.yml', YAML.dump(board_info))
 create_pipefile_from_config(config: merged_data, board_name: board_name, board_info: board_info)
 #create_report_from_config(config: merged_data, board_name: board_name, board_info: board_info, release: 'v2.4.0')

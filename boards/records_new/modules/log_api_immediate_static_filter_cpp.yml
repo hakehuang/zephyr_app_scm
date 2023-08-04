@@ -12,6 +12,7 @@ cases:
     platform_type: &2
     - qemu
     - native
+    min_ram: 32
   logging.log_api_immediate_static_filter_cpp.tagged_args:
     path: tests/subsys/logging/log_api
     catalog: *1
@@ -21,3 +22,4 @@ cases:
     - CONFIG_CPP=y
     - CONFIG_LOG_USE_TAGGED_ARGUMENTS=y
     platform_type: *2
+    min_ram: 32

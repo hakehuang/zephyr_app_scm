@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimxrt595_evk_cm33_2"
-  version: zephyr-v3.3.0-4123-gd01780fc94
+  version: zephyr-v3.4.0-52-gfc69d1a11e
 __load__:
 - modules/dns.yml
 - modules/dma.yml
@@ -43,6 +43,7 @@ __load__:
 - modules/coap.yml
 - modules/cmsis_nn.yml
 - modules/clock.yml
+- modules/check_init_priorities.yml
 - modules/cbprintf_package_no_generic_cpp.yml
 - modules/cbprintf_package_no_generic.yml
 - modules/cbprintf_package_nano_cpp.yml

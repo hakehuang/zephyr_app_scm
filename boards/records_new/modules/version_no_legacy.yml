@@ -1,0 +1,16 @@
+---
+cases:
+  smp.version_no_legacy:
+    path: tests/subsys/mgmt/mcumgr/smp_version
+    catalog:
+    - smp_version
+    - mcumgr
+    extra_configs:
+    - CONFIG_MCUMGR_SMP_SUPPORT_ORIGINAL_PROTOCOL=n
+    arch_exclude:
+    - nios2
+    - sparc
+    - mips
+    - posix
+    platform_exclude:
+    - qemu_kvm_arm64

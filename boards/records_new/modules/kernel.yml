@@ -12,52 +12,65 @@ cases:
     - condition_variables
   sample.kernel.metairq_dispatch:
     path: samples/kernel/metairq_dispatch
-    catalog: introduction
-    filter: not CONFIG_ARCH_POSIX
+    catalog:
+    - kernel
+    arch_exclude:
+    - posix
   sample.kernel.philosopher:
     path: samples/philosophers
-    catalog: introduction
+    catalog: &1
+    - inroduction
+    - kernel
     extra_args: " DEBUG_PRINTF=1"
+    min_ram: 16
   sample.kernel.philosopher.same_prio:
     path: samples/philosophers
-    catalog: introduction
+    catalog: *1
     extra_args: SAME_PRIO=1 DEBUG_PRINTF=1
+    min_ram: 16
   sample.kernel.philosopher.static:
     path: samples/philosophers
-    catalog: introduction
+    catalog: *1
     extra_args: STATIC_OBJS=1 DEBUG_PRINTF=1
+    min_ram: 16
   sample.kernel.philosopher.semaphores:
     path: samples/philosophers
-    catalog: introduction
+    catalog: *1
     extra_args: FORKS=SEMAPHORES DEBUG_PRINTF=1
+    min_ram: 16
   sample.kernel.philosopher.stacks:
     path: samples/philosophers
-    catalog: introduction
+    catalog: *1
     extra_args: FORKS=STACKS DEBUG_PRINTF=1
+    min_ram: 16
   sample.kernel.philosopher.fifos:
     path: samples/philosophers
-    catalog: introduction
+    catalog: *1
     extra_args: FORKS=FIFOS DEBUG_PRINTF=1
+    min_ram: 16
   sample.kernel.philosopher.lifos:
     path: samples/philosophers
-    catalog: introduction
+    catalog: *1
     extra_args: FORKS=LIFOS DEBUG_PRINTF=1
+    min_ram: 16
   sample.kernel.philosopher.preempt_only:
     path: samples/philosophers
-    catalog: introduction
+    catalog: *1
     extra_configs:
     - CONFIG_NUM_PREEMPT_PRIORITIES=6
     - CONFIG_NUM_COOP_PRIORITIES=0
     - CONFIG_BT=n
     - CONFIG_NETWORKING=n
     extra_args: " DEBUG_PRINTF=1"
+    min_ram: 16
   sample.kernel.philosopher.coop_only:
     path: samples/philosophers
-    catalog: introduction
+    catalog: *1
     extra_configs:
     - CONFIG_NUM_PREEMPT_PRIORITIES=0
     - CONFIG_NUM_COOP_PRIORITIES=7
     extra_args: " DEBUG_PRINTF=1"
+    min_ram: 16
   sample.kernel.synchronization:
     path: samples/synchronization
     catalog: synchronization
@@ -70,11 +83,13 @@ cases:
     platform_exclude: twr_ke18f
   benchmark.kernel.application:
     path: tests/benchmarks/app_kernel
-    catalog: benchmark
+    catalog: &2
+    - benchmark
+    - kernel
     min_flash: 34
   benchmark.kernel.application.fp:
     path: tests/benchmarks/app_kernel
-    catalog: benchmark
+    catalog: *2
     extra_configs:
     - arch:x86:CONFIG_X86_SSE=y
     - arch:x86:CONFIG_X86_SSE_FP_MATH=n
@@ -87,7 +102,7 @@ cases:
     min_ram: 32
   benchmark.kernel.application.fp.x86.no_sse:
     path: tests/benchmarks/app_kernel
-    catalog: benchmark
+    catalog: *2
     extra_configs:
     - CONFIG_X86_SSE=n
     - CONFIG_X86_SSE_FP_MATH=n
@@ -98,7 +113,7 @@ cases:
     min_ram: 32
   benchmark.kernel.application.fp.x86.sse:
     path: tests/benchmarks/app_kernel
-    catalog: benchmark
+    catalog: *2
     extra_configs:
     - CONFIG_X86_SSE=y
     - CONFIG_X86_SSE_FP_MATH=y
@@ -109,19 +124,19 @@ cases:
     min_ram: 32
   benchmark.kernel.footprints.default:
     path: tests/benchmarks/footprints
-    catalog: benchmark
+    catalog:
+    - benchmark
+    - kernel
     build_only: true
   benchmark.kernel.footprints.pm:
     path: tests/benchmarks/footprints
     catalog:
-    - benchmark
     - pm
     extra_args: CONF_FILE=prj_pm.conf
     build_only: true
   benchmark.kernel.footprints.userspace:
     path: tests/benchmarks/footprints
     catalog:
-    - benchmark
     - userspace
     extra_args: CONF_FILE=prj_userspace.conf
     filter: CONFIG_ARCH_HAS_USERSPACE
@@ -132,31 +147,38 @@ cases:
     build_only: true
   benchmark.kernel.latency:
     path: tests/benchmarks/latency_measure
-    catalog: benchmark
+    catalog: &3
+    - kernel
+    - benchmark
     platform_exclude:
     - qemu_cortex_m0
     - m2gl025_miv
     filter: CONFIG_PRINTK and not CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.latency.stm32:
     path: tests/benchmarks/latency_measure
-    catalog: benchmark
+    catalog: *3
     extra_configs:
     - CONFIG_SYS_CLOCK_TICKS_PER_SEC=20
     arch_allow: arm
     filter: CONFIG_PRINTK and CONFIG_SOC_FAMILY_STM32
   benchmark.kernel.scheduler:
     path: tests/benchmarks/sched
-    catalog: benchmark
+    catalog:
+    - benchmark
+    - kernel
   benchmark.kernel.scheduler_userspace:
     path: tests/benchmarks/sched_userspace
     catalog:
+    - kernel
     - benchmark
     - userspace
     arch_allow: arm64
     filter: CONFIG_ARCH_HAS_USERSPACE
   benchmark.kernel.core:
     path: tests/benchmarks/sys_kernel
-    catalog: benchmark
+    catalog:
+    - kernel
+    - benchmark
     arch_exclude:
     - nios2
     - xtensa

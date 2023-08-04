@@ -119,9 +119,3 @@ cases:
     - CONFIG_APIC_TSC_DEADLINE_TIMER=y
     - CONFIG_HPET_TIMER=n
     platform_allow: ehl_crb
-  kernel.timer.monotonic.linker_generator:
-    path: tests/kernel/timer/timer_monotonic
-    catalog: linker_generator
-    extra_configs:
-    - CONFIG_CMAKE_LINKER_GENERATOR=y
-    platform_allow: qemu_cortex_m3

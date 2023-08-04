@@ -118,23 +118,6 @@
 				<20 0 &gpio0 17 0>,	/* D14 */
 				<21 0 &gpio0 18 0>;	/* D15 */
 	};
-
-	power-states {
-		idle: idle {
-			compatible = "zephyr,power-state";
-			power-state-name = "runtime-idle";
-			min-residency-us = <10>;
-		};
-		suspend: suspend {
-			compatible = "zephyr,power-state";
-			power-state-name = "suspend-to-idle";
-			min-residency-us = <1000>;
-		};
-	};
-};
-
-&cpu0 {
-	cpu-power-states = <&idle &suspend>;
 };
 
 /*
@@ -157,6 +140,8 @@
 	current-speed = <115200>;
 	pinctrl-0 = <&pinmux_flexcomm0_usart>;
 	pinctrl-names = "default";
+	dmas = <&dma0 0>, <&dma0 1>;
+	dma-names = "rx", "tx";
 };
 
 arduino_i2c: &flexcomm2 {
@@ -178,9 +163,12 @@ arduino_i2c: &flexcomm2 {
 
 arduino_serial: &flexcomm4 {
 	compatible = "nxp,lpc-usart";
+	status = "okay";
 	current-speed = <115200>;
 	pinctrl-0 = <&pinmux_flexcomm4_usart>;
 	pinctrl-names = "default";
+	dmas = <&dma0 8>, <&dma0 9>;
+	dma-names = "rx", "tx";
 };
 
 arduino_spi: &flexcomm5 {
@@ -306,15 +294,6 @@ i2s1: &flexcomm3 {
 };
 
 &dma0 {
-	/*
-	 * The total number of dma channels available is defined by
-	 * FSL_FEATURE_DMA_NUMBER_OF_CHANNELS in the SoC features file.
-	 * Since memory from the heap pool is allocated based on the number
-	 * of DMA channels, set this property to as many channels is needed
-	 * for the platform. Adjust HEAP_MEM_POOL_SIZE in case you need more
-	 * memory.
-	 */
-	dma-channels = <20>;
 	status = "okay";
 };
 
@@ -396,5 +375,10 @@ zephyr_udc0: &usbhs {
 	pinctrl-0 = <&pinmux_i3c>;
 	pinctrl-names = "default";
 
+	status = "okay";
+};
+
+/* Disable this node if not using USB and need another MPU region */
+&sram1 {
 	status = "okay";
 };

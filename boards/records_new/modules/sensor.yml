@@ -20,7 +20,16 @@ cases:
     catalog: sensors
     platform_allow: frdm_k64f
     depends_on: i2c
-  sample.sensor.amg88xx:
+  sample.sensor.amg88xx.amg88xx_grid_eye_eval_shield:
+    path: samples/sensor/amg88xx
+    catalog: sensors
+    extra_configs:
+    - CONFIG_AMG88XX_TRIGGER_GLOBAL_THREAD=y
+    extra_args: SHIELD=amg88xx_grid_eye_eval_shield
+    build_only: true
+    depends_on: arduino_i2c arduino_gpio
+    platform_allow: pan1780_evb pan1770_evb pan1781_evb pan1782_evb
+  sample.sensor.amg88xx.amg88xx_eval_kit:
     path: samples/sensor/amg88xx
     catalog: sensors
     extra_configs:
@@ -116,7 +125,6 @@ cases:
     path: samples/sensor/die_temp_polling
     catalog:
     - sensors
-    - tests
     filter: dt_alias_exists("die-temp0")
   sample.sensor.dps310:
     path: samples/sensor/dps310
@@ -146,7 +154,6 @@ cases:
     path: samples/sensor/esp32_temp_sensor
     catalog:
     - sensors
-    - tests
     filter: dt_compat_enabled("espressif,esp32-temp")
   sample.sensor.fdc2x1x:
     path: samples/sensor/fdc2x1x
@@ -295,7 +302,8 @@ cases:
     depends_on: lsm6dsl
   sample.sensor.lsm6dso:
     path: samples/sensor/lsm6dso
-    catalog: sensors
+    catalog:
+    - sensors
     filter: dt_compat_enabled("st,lsm6dso")
   sample.sensor.lsm6dso.i2c_on_i3c_bus:
     path: samples/sensor/lsm6dso_i2c_on_i3c
@@ -421,13 +429,11 @@ cases:
     depends_on:
     - gpio
     - sm351lt
-  sample.sensor.stm32_vbat_sensor:
-    path: samples/sensor/stm32_vbat_sensor
+  sample.sensor.soc_voltage:
+    path: samples/sensor/soc_voltage
     catalog: sensors
     depends_on: adc
-    platform_allow:
-    - nucleo_g071rb
-    - nucleo_wb55rg
+    filter: dt_alias_exists("volt-sensor0")
   sample.sensor.sx9500:
     path: samples/sensor/sx9500
     catalog: sensors

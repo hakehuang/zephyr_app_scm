@@ -2,7 +2,8 @@
 cases:
   libraries.libc:
     path: tests/lib/c_lib
-    catalog: clib
+    catalog:
+    - clib
     arch_exclude: posix
   libraries.libc.picolibc:
     path: tests/lib/c_lib
@@ -13,14 +14,14 @@ cases:
     arch_exclude: posix
   libraries.libc.minimal.strerror_table:
     path: tests/lib/c_lib
-    catalog: clib
+    catalog: minimal_libc
     extra_configs:
     - CONFIG_MINIMAL_LIBC=y
     - CONFIG_MINIMAL_LIBC_STRING_ERROR_TABLE=y
     arch_exclude: posix
   libraries.libc.minimal.no_strerror_table:
     path: tests/lib/c_lib
-    catalog: clib
+    catalog: minimal_libc
     extra_configs:
     - CONFIG_MINIMAL_LIBC=y
     - CONFIG_MINIMAL_LIBC_STRING_ERROR_TABLE=n
@@ -28,56 +29,42 @@ cases:
   libraries.libc.minimal.mem_alloc:
     path: tests/lib/mem_alloc
     catalog:
-    - clib
     - minimal_libc
-    - userspace
     extra_args: CONF_FILE=prj.conf
     platform_exclude: twr_ke18f
     arch_exclude: posix
   libraries.libc.minimal.mem_alloc_negative_testing:
     path: tests/lib/mem_alloc
     catalog:
-    - clib
     - minimal_libc
-    - userspace
     extra_args: CONF_FILE=prj_negative_testing.conf
     platform_exclude: twr_ke18f
     arch_exclude: posix
   libraries.libc.newlib.mem_alloc:
     path: tests/lib/mem_alloc
     catalog:
-    - clib
     - newlib
-    - userspace
     extra_args: CONF_FILE=prj_newlib.conf
     filter: TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 16
     platform_exclude:
     - twr_ke18f
-    - native_posix_64
-    - nrf52_bsim
     arch_exclude: posix
   libraries.libc.newlib_nano.mem_alloc:
     path: tests/lib/mem_alloc
     catalog:
-    - clib
     - newlib
-    - userspace
     extra_args: CONF_FILE=prj_newlibnano.conf
     filter: CONFIG_HAS_NEWLIB_LIBC_NANO
     arch_exclude: posix
   libraries.libc.picolibc.mem_alloc:
     path: tests/lib/mem_alloc
     catalog:
-    - clib
     - picolibc
-    - userspace
     extra_args: CONF_FILE=prj_picolibc.conf
     filter: CONFIG_PICOLIBC_SUPPORTED
     platform_exclude:
     - twr_ke18f
-    - native_posix_64
-    - nrf52_bsim
     arch_exclude: posix
   libraries.libc.newlib.heap_listener:
     path: tests/lib/newlib/heap_listener
@@ -87,16 +74,14 @@ cases:
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   libraries.libc.newlib.thread_safety:
     path: tests/lib/newlib/thread_safety
-    catalog:
+    catalog: &1
     - clib
     - newlib
     min_ram: 64
     filter: TOOLCHAIN_HAS_NEWLIB == 1
   libraries.libc.newlib.thread_safety.stress:
     path: tests/lib/newlib/thread_safety
-    catalog:
-    - clib
-    - newlib
+    catalog: *1
     extra_configs:
     - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
     min_ram: 192
@@ -104,8 +89,6 @@ cases:
   libraries.libc.newlib.thread_safety.userspace:
     path: tests/lib/newlib/thread_safety
     catalog:
-    - clib
-    - newlib
     - userspace
     extra_args: CONF_FILE=prj_userspace.conf
     filter:
@@ -115,8 +98,6 @@ cases:
   libraries.libc.newlib.thread_safety.userspace.stress:
     path: tests/lib/newlib/thread_safety
     catalog:
-    - clib
-    - newlib
     - userspace
     extra_configs:
     - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
@@ -128,9 +109,7 @@ cases:
     min_ram: 192
   libraries.libc.newlib_nano.thread_safety:
     path: tests/lib/newlib/thread_safety
-    catalog:
-    - clib
-    - newlib
+    catalog: *1
     extra_configs:
     - CONFIG_NEWLIB_LIBC_NANO=y
     filter:
@@ -139,9 +118,7 @@ cases:
     min_ram: 64
   libraries.libc.newlib_nano.thread_safety.stress:
     path: tests/lib/newlib/thread_safety
-    catalog:
-    - clib
-    - newlib
+    catalog: *1
     extra_configs:
     - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
     - CONFIG_NEWLIB_LIBC_NANO=y
@@ -152,8 +129,6 @@ cases:
   libraries.libc.newlib_nano.thread_safety.userspace:
     path: tests/lib/newlib/thread_safety
     catalog:
-    - clib
-    - newlib
     - userspace
     extra_configs:
     - CONFIG_NEWLIB_LIBC_NANO=y
@@ -165,8 +140,6 @@ cases:
   libraries.libc.newlib_nano.thread_safety.userspace.stress:
     path: tests/lib/newlib/thread_safety
     catalog:
-    - clib
-    - newlib
     - userspace
     extra_configs:
     - CONFIG_NEWLIB_THREAD_SAFETY_TEST_STRESS=y
@@ -179,27 +152,35 @@ cases:
     min_ram: 192
   libraries.libc.sprintf:
     path: tests/lib/sprintf
-    catalog: libc
+    catalog: &2
+    - libc
     extra_args: CONF_FILE=prj.conf
     filter: not CONFIG_SOC_MCIMX7_M4 and CONFIG_STDOUT_CONSOLE
     arch_exclude: posix
   libraries.libc.sprintf_new:
     path: tests/lib/sprintf
-    catalog: libc
+    catalog: *2
     extra_args: CONF_FILE=prj_new.conf
     arch_exclude: posix
   libraries.libc.picolibc.sprintf:
     path: tests/lib/sprintf
     catalog:
-    - libc
     - picolibc
     extra_args: CONF_FILE=prj_picolibc.conf
     filter: CONFIG_PICOLIBC_SUPPORTED
   libraries.libc.picolibc.sprintf_new:
     path: tests/lib/sprintf
     catalog:
-    - libc
     - picolibc
+    extra_args: CONF_FILE=prj_picolibc_new.conf
+    filter: CONFIG_PICOLIBC_SUPPORTED
+  libraries.libc.picolibc.sprintf_inexact:
+    path: tests/lib/sprintf
+    catalog:
+    - picolibc
+    extra_configs:
+    - CONFIG_PICOLIBC_USE_MODULE=y
+    - CONFIG_PICOLIBC_IO_FLOAT_EXACT=n
     extra_args: CONF_FILE=prj_picolibc_new.conf
     filter: CONFIG_PICOLIBC_SUPPORTED
   libraries.libc.time:
