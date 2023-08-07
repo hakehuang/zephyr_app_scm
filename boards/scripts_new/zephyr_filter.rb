@@ -137,7 +137,7 @@ module ZEPHER_FILTER
   module_function :neural_list
 
   def get_board_name(instr)
-    filter_list = [/_2$/, /_3$/, /_4$/, /_5$/, /_samples$/, /_sensors$/,
+    filter_list = [/_2$/, /_3$/, /_4$/, /_5$/, /_6$/, /_7$/, /_samples$/, /_sensors$/,
       /_shield$/, /_bt1$/, /_bt2$/, /_can$/, /_socket$/, /_traffic$/,
       /_samples2$/, /_kernel$/, /_kernel2$/, /_kernel3$/, /_kernel4$/,
       /_usb$/, /_cmsis$/, /_drivers$/, /_failures$/, /_twister$/]
@@ -148,6 +148,24 @@ module ZEPHER_FILTER
     temp_str
   end
   module_function :get_board_name
+
+  def get_derived_board_name(instr, dev)
+    filter_list = [/_2$/, /_3$/, /_4$/, /_5$/, /_6$/, /_7$/, /_samples$/, /_sensors$/,
+      /_shield$/, /_bt1$/, /_bt2$/, /_can$/, /_socket$/, /_traffic$/,
+      /_samples2$/, /_kernel$/, /_kernel2$/, /_kernel3$/, /_kernel4$/,
+      /_usb$/, /_cmsis$/, /_drivers$/, /_failures$/, /_twister$/]
+    temp_str = instr.dup
+    filter_list.each do |f|
+      if temp_str.include?("_#{dev}")
+        temp_str.gsub!("_#{dev}", '')
+      end
+      if temp_str.include?("_#{f}")
+        temp_str.gsub!("_#{f}", '')
+      end
+    end
+    temp_str
+  end
+  module_function :get_derived_board_name
 
   def is_case_include?(case_name , key)
     return true if key.include? case_name

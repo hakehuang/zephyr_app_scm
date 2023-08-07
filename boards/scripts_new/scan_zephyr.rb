@@ -364,7 +364,7 @@ def split_test_catalog(fn, outdir, template_dir)
     'board_4_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_4", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_5_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_5", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_6_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_6", "version" => "#{$version}"}}.deep_merge(common_hash),
-    'board_7_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_6", "version" => "#{$version}"}}.deep_merge(common_hash),
+    'board_7_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_7", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_cmsis_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_cmsis", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_drivers_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_drivers", "version" => "#{$version}"}}.deep_merge(common_hash),
     'board_kernel_template.yml' => {'settings' => {"case_pipe_name" => "${@board}_kernel", "version" => "#{$version}"}}.deep_merge(common_hash),
@@ -390,7 +390,7 @@ def split_test_catalog(fn, outdir, template_dir)
     if module_name.downcase().start_with?("usb")
       template_files_hash['board_usb_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/^cmsis_dsp/) or
-      module_name.downcase().match(/cmsis_rtos/)
+      module_name.downcase().match(/cmsis/)
       template_files_hash['board_cmsis_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().start_with?("driver") or 
         module_name.downcase().match(/sensors/)
@@ -402,7 +402,7 @@ def split_test_catalog(fn, outdir, template_dir)
     elsif module_name.downcase().match(/kernel_[a-s]/)
       template_files_hash['board_kernel2_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/kernel/) or
-      module_name.downcase().match(/tickless_kernel/)
+      module_name.downcase().match(/tickless/)
       template_files_hash['board_kernel_template.yml']["__load__"].unshift("modules/#{module_name}")
     elsif module_name.downcase().match(/shield/)
       template_files_hash['board_shield_template.yml']["__load__"].unshift("modules/#{module_name}")

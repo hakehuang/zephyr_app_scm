@@ -1,0 +1,11 @@
+---
+settings:
+  case_pipe_name: "rdrw610_evk_a1_socket"
+  version: zephyr-v3.4.0-52-gfc69d1a11e
+__load__:
+- skips/rdrw610_evk_a1.yml
+- boards/rdrw610_evk_a1.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

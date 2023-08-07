@@ -81,6 +81,17 @@ def platforms()
     return platforms_config
 end
 
+def platforms_drived()
+    platforms_config = {
+    "rdrw610_evk" => { "a1" =>
+            ["", "2", "3", "4", "5", "cmsis", "drivers", "samples",
+            "sensors", "shield", "bt1", "bt2", "can", "socket", "traffic",
+            "samples2", "kernel", "kernel2", "kernel3", "kernel4", "usb"]
+        }
+    }
+    return platforms_config
+end
+
 
 def get_jobs()
     
