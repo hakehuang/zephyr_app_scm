@@ -155,13 +155,12 @@ module ZEPHER_FILTER
       /_samples2$/, /_kernel$/, /_kernel2$/, /_kernel3$/, /_kernel4$/,
       /_usb$/, /_cmsis$/, /_drivers$/, /_failures$/, /_twister$/]
     temp_str = instr.dup
+    if temp_str.include?("_#{dev}")
+      temp_str.gsub!("_#{dev}", '')
+    end
+    puts temp_str
     filter_list.each do |f|
-      if temp_str.include?("_#{dev}")
-        temp_str.gsub!("_#{dev}", '')
-      end
-      if temp_str.include?("_#{f}")
-        temp_str.gsub!("_#{f}", '')
-      end
+      temp_str.gsub!(f, '')
     end
     temp_str
   end
