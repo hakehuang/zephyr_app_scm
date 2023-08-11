@@ -1,0 +1,32 @@
+---
+settings:
+  case_pipe_name: "lpcxpresso54114_m4_7"
+  version: zephyr-v3.4.0-67-gadd64d525a
+__load__:
+- modules/twister.yml
+- modules/trickle.yml
+- modules/transport.yml
+- modules/traffic_class.yml
+- modules/tracing.yml
+- modules/tls_credentials.yml
+- modules/tinycrypt.yml
+- modules/timestamp.yml
+- modules/timer.yml
+- modules/time_units.yml
+- modules/time.yml
+- modules/thrift.yml
+- modules/threads.yml
+- modules/tfm_ipc.yml
+- modules/tfm.yml
+- modules/testsuite.yml
+- modules/testing.yml
+- modules/test_load_store.yml
+- modules/test_calculation.yml
+- modules/tensorflow.yml
+- modules/ThriftTest.yml
+- skips/lpcxpresso54114_m4.yml
+- boards/lpcxpresso54114_m4.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

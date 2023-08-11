@@ -1,8 +1,9 @@
 ---
 settings:
   case_pipe_name: "mimxrt1170_evk_cm7_kernel"
-  version: zephyr-v3.4.0-52-gfc69d1a11e
+  version: zephyr-v3.4.0-67-gadd64d525a
 __load__:
+- modules/tickless.yml
 - modules/kernel.yml
 - skips/mimxrt1170_evk_cm7.yml
 - boards/mimxrt1170_evk_cm7.yml

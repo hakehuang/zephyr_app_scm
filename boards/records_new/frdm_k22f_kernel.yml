@@ -1,8 +1,9 @@
 ---
 settings:
   case_pipe_name: "frdm_k22f_kernel"
-  version: zephyr-v3.4.0-52-gfc69d1a11e
+  version: zephyr-v3.4.0-67-gadd64d525a
 __load__:
+- modules/tickless.yml
 - modules/kernel.yml
 - skips/frdm_k22f.yml
 - boards/frdm_k22f.yml

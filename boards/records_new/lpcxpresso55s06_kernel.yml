@@ -1,8 +1,9 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s06_kernel"
-  version: zephyr-v3.4.0-52-gfc69d1a11e
+  version: zephyr-v3.4.0-67-gadd64d525a
 __load__:
+- modules/tickless.yml
 - modules/kernel.yml
 - skips/lpcxpresso55s06.yml
 - boards/lpcxpresso55s06.yml

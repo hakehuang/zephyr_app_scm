@@ -1,10 +1,11 @@
 ---
 settings:
   case_pipe_name: "mimxrt1064_evk_cmsis"
-  version: zephyr-v3.4.0-52-gfc69d1a11e
+  version: zephyr-v3.4.0-67-gadd64d525a
 __load__:
 - modules/cmsis_rtos_v2.yml
 - modules/cmsis_rtos_v1.yml
+- modules/cmsis_nn.yml
 - modules/cmsis_dsp.yml
 - skips/mimxrt1064_evk.yml
 - boards/mimxrt1064_evk.yml
