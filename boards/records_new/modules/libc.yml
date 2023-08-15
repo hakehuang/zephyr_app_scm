@@ -4,28 +4,49 @@ cases:
     path: tests/lib/c_lib
     catalog:
     - clib
-    arch_exclude: posix
+    filter:
+    - not (CONFIG_ARCH_POSIX and CONFIG_EXTERNAL_LIBC)
+    - not CONFIG_NATIVE_APPLICATION
   libraries.libc.picolibc:
     path: tests/lib/c_lib
     catalog: picolibc
     extra_configs:
     - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - not CONFIG_NATIVE_APPLICATION
+  libraries.libc.newlib:
+    path: tests/lib/c_lib
+    catalog: newlib
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    filter:
+    - CONFIG_NEWLIB_LIBC_SUPPORTED
+    - not CONFIG_NATIVE_APPLICATION
+    min_ram: 32
+  libraries.libc.newlib_nano:
+    path: tests/lib/c_lib
+    catalog: newlib
+    extra_configs:
+    - CONFIG_NEWLIB_LIBC=y
+    - CONFIG_NEWLIB_LIBC_NANO=y
+    filter:
+    - CONFIG_NEWLIB_LIBC_SUPPORTED and CONFIG_HAS_NEWLIB_LIBC_NANO
+    - not CONFIG_NATIVE_APPLICATION
   libraries.libc.minimal.strerror_table:
     path: tests/lib/c_lib
     catalog: minimal_libc
     extra_configs:
     - CONFIG_MINIMAL_LIBC=y
     - CONFIG_MINIMAL_LIBC_STRING_ERROR_TABLE=y
-    arch_exclude: posix
+    filter: not CONFIG_NATIVE_APPLICATION
   libraries.libc.minimal.no_strerror_table:
     path: tests/lib/c_lib
     catalog: minimal_libc
     extra_configs:
     - CONFIG_MINIMAL_LIBC=y
     - CONFIG_MINIMAL_LIBC_STRING_ERROR_TABLE=n
-    arch_exclude: posix
+    filter: not CONFIG_NATIVE_APPLICATION
   libraries.libc.minimal.mem_alloc:
     path: tests/lib/mem_alloc
     catalog:
@@ -150,6 +171,7 @@ cases:
     - CONFIG_ARCH_HAS_USERSPACE and CONFIG_HAS_NEWLIB_LIBC_NANO
     - TOOLCHAIN_HAS_NEWLIB == 1
     min_ram: 192
+    platform_exclude: acrn_ehl_crb
   libraries.libc.sprintf:
     path: tests/lib/sprintf
     catalog: &2

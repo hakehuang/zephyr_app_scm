@@ -70,14 +70,22 @@ cases:
     - mg100
   mgmt.mcumgr.all.options:
     path: tests/subsys/mgmt/mcumgr/all_options
-    catalog:
+    catalog: &1
     - mgmt
     - mcumgr
     - all_options
     platform_allow: nrf52840dk_nrf52840
+    build_only: true
+  mgmt.mcumgr.all.options.other:
+    path: tests/subsys/mgmt/mcumgr/all_options
+    catalog: *1
+    extra_args:
+    - OVERLAY_CONFIG="other-options.conf"
+    platform_allow: nrf52840dk_nrf52840
+    build_only: true
   mgmt.mcumgr.fs.mgmt.hash.supported.crc32:
     path: tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported
-    catalog: &1
+    catalog: &2
     - mgmt
     - mcumgr
     - fs_mgmt_hash_supported
@@ -85,35 +93,55 @@ cases:
 
       '
     platform_exclude:
-    - nucleo_h745zi_q_m4
-    - arduino_portenta_h7_m4
-    - stm32h747i_disco_m4
     - arduino_giga_r1_m4
+    - arduino_portenta_h7_m4
     - esp32_net
+    - lpcxpresso51u68
+    - nucleo_h745zi_q_m4
+    - stm32h747i_disco_m4
   mgmt.mcumgr.fs.mgmt.hash.supported.sha256:
     path: tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported
-    catalog: *1
+    catalog: *2
     extra_args: 'OVERLAY_CONFIG="configuration/sha256.conf"
 
       '
     platform_exclude:
-    - nucleo_h745zi_q_m4
-    - arduino_portenta_h7_m4
-    - stm32h747i_disco_m4
     - arduino_giga_r1_m4
+    - arduino_portenta_h7_m4
     - esp32_net
+    - lpcxpresso51u68
+    - nucleo_h745zi_q_m4
+    - stm32h747i_disco_m4
   mgmt.mcumgr.fs.mgmt.hash.supported.all:
     path: tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported
-    catalog: *1
+    catalog: *2
     extra_args: 'OVERLAY_CONFIG="configuration/all.conf"
 
       '
     platform_exclude:
-    - nucleo_h745zi_q_m4
-    - arduino_portenta_h7_m4
-    - stm32h747i_disco_m4
     - arduino_giga_r1_m4
+    - arduino_portenta_h7_m4
     - esp32_net
+    - lpcxpresso51u68
+    - nucleo_h745zi_q_m4
+    - stm32h747i_disco_m4
+  mgmt.mcumgr.handler.demo:
+    path: tests/subsys/mgmt/mcumgr/handler_demo
+    catalog: &3
+    - handler_demo
+    - mcumgr
+    - mgmt
+    platform_allow:
+    - nrf52840dk_nrf52840
+    build_only: true
+  mgmt.mcumgr.handler.demo.module:
+    path: tests/subsys/mgmt/mcumgr/handler_demo
+    catalog: *3
+    extra_args:
+    - OVERLAY_CONFIG="module.conf"
+    platform_allow:
+    - nrf52840dk_nrf52840
+    build_only: true
   mgmt.mcumgr.os.echo:
     path: tests/subsys/mgmt/mcumgr/os_mgmt_echo
     catalog:
@@ -127,6 +155,68 @@ cases:
     - arc
     - xtensa
     - mips
+  mgmt.mcumgr.os.info:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: &4
+    - mcumgr
+    - os_mgmt_info
+    arch_exclude: &5
+    - arm64
+    - nios2
+    - sparc
+    - arc
+    - xtensa
+    - mips
+    - posix
+  mgmt.mcumgr.os.info.no_hooks:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: *4
+    extra_configs:
+    - CONFIG_MCUMGR_GRP_OS_INFO_CUSTOM_HOOKS=n
+    - CONFIG_MCUMGR_MGMT_NOTIFICATION_HOOKS=n
+    arch_exclude: *5
+  mgmt.mcumgr.os.info.bt:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: *4
+    extra_configs:
+    - CONFIG_BT=y
+    - CONFIG_BT_DEVICE_NAME="a_bt_name"
+    depends_on: ble
+    arch_exclude: *5
+  mgmt.mcumgr.os.info.net:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: *4
+    extra_configs:
+    - CONFIG_NETWORKING=y
+    - CONFIG_NET_HOSTNAME_ENABLE=y
+    - CONFIG_NET_HOSTNAME="test_net_name"
+    - CONFIG_TEST_RANDOM_GENERATOR=y
+    depends_on: netif
+    platform_exclude:
+    - qemu_cortex_a9
+    - qemu_x86
+    - qemu_riscv64_smp
+    - qemu_riscv64
+    - qemu_riscv32e
+    - qemu_riscv32
+    - qemu_riscv32_smp
+    - qemu_cortex_m3
+    - mps2_an385
+    arch_exclude: *5
+  mgmt.mcumgr.os.info.build_date:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: *4
+    extra_configs:
+    - CONFIG_BUILD_DATE_TIME_TEST=y
+    arch_exclude: *5
+  mgmt.mcumgr.os.info.limited_size:
+    path: tests/subsys/mgmt/mcumgr/os_mgmt_info
+    catalog: *4
+    extra_configs:
+    - CONFIG_LIMITED_TEST=y
+    - CONFIG_MCUMGR_TRANSPORT_DUMMY_RX_BUF_SIZE=64
+    - CONFIG_MCUMGR_GRP_OS_INFO_MAX_RESPONSE_SIZE=32
+    arch_exclude: *5
   mgmt.mcumgr.smp.reassembly:
     path: tests/subsys/mgmt/mcumgr/smp_reassembly
     catalog:

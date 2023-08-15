@@ -26,6 +26,13 @@ cases:
     - nrf51dk_nrf51422
     - nrf52dk_nrf52832
     - nrf52840dk_nrf52840
+  drivers.clock.clock_control_fixed_clock:
+    path: tests/drivers/clock_control/fixed_clock
+    catalog:
+    - drivers
+    - clock
+    platform_allow:
+    - native_posix_64
   drivers.clock.nrf5_clock_calibration:
     path: tests/drivers/clock_control/nrf_clock_calibration
     catalog:

@@ -1,5 +1,12 @@
 ---
 cases:
+  drivers.uart.build:
+    path: tests/drivers/build_all/uart
+    catalog: uart_cdns
+    extra_configs:
+    - CONFIG_SERIAL=y
+    platform_allow: qemu_cortex_m3
+    build_only: true
   drivers.uart.async_api:
     path: tests/drivers/uart/uart_async_api
     catalog: &1
@@ -28,6 +35,7 @@ cases:
     - wio_terminal
     - xiao_esp32c3
     - atsamd20_xpro
+    - ev11l78a
   drivers.uart.async_api.nrf_uart:
     path: tests/drivers/uart/uart_async_api
     catalog: *1

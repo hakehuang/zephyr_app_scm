@@ -1,0 +1,11 @@
+---
+cases:
+  application_development.code_relocation_kinetis:
+    path: tests/application_development/code_relocation
+    catalog: linker
+    extra_configs:
+    - CONFIG_MPU_ALLOW_FLASH_WRITE=y
+    filter: CONFIG_CPU_HAS_NXP_MPU and CONFIG_MINIMAL_LIBC
+    arch_allow: arm
+    platform_allow:
+    - frdm_k64f

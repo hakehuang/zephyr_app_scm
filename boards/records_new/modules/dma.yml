@@ -24,12 +24,15 @@ cases:
     depends_on: dma
     platform_allow:
     - frdm_k64f
+    - mimxrt595_evk_cm33
+    - mimxrt1050_evk
     - mimxrt1060_evk
     - mimxrt1064_evk
     - mimxrt1160_evk_cm7
     - mimxrt1170_evk_cm7
     - mimxrt1024_evk
     - lpcxpresso55s69_cpu0
+    - lpcxpresso55s36
   drivers.dma.loop_transfer:
     path: tests/drivers/dma/loop_transfer
     catalog:
@@ -47,4 +50,5 @@ cases:
     - intel_adsp_cavs25
     - frdm_k64f
     - mimxrt1060_evk
+    - lpcxpresso55s36
     filter: dt_alias_exists("dma0")

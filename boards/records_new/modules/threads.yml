@@ -7,6 +7,74 @@ cases:
     - threads
     - userspace
     filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.threads.dynamic_thread.stack.no_pool.no_alloc.no_user:
+    path: tests/kernel/threads/dynamic_thread_stack
+    catalog: kernel security
+    extra_configs:
+    - CONFIG_DYNAMIC_THREAD_POOL_SIZE=0
+    - CONFIG_DYNAMIC_THREAD_ALLOC=n
+    - CONFIG_USERSPACE=n
+    min_ram: 32
+  kernel.threads.dynamic_thread.stack.no_pool.no_alloc.user:
+    path: tests/kernel/threads/dynamic_thread_stack
+    catalog: userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_THREAD_POOL_SIZE=0
+    - CONFIG_DYNAMIC_THREAD_ALLOC=n
+    - CONFIG_USERSPACE=y
+    min_ram: 32
+  kernel.threads.dynamic_thread.stack.no_pool.alloc.no_user:
+    path: tests/kernel/threads/dynamic_thread_stack
+    catalog: kernel security
+    extra_configs:
+    - CONFIG_DYNAMIC_THREAD_POOL_SIZE=0
+    - CONFIG_DYNAMIC_THREAD_ALLOC=y
+    - CONFIG_DYNAMIC_THREAD_PREFER_ALLOC=y
+    - CONFIG_USERSPACE=n
+    min_ram: 32
+  kernel.threads.dynamic_thread.stack.no_pool.alloc.user:
+    path: tests/kernel/threads/dynamic_thread_stack
+    catalog: userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_THREAD_POOL_SIZE=0
+    - CONFIG_DYNAMIC_THREAD_ALLOC=y
+    - CONFIG_DYNAMIC_THREAD_PREFER_ALLOC=y
+    - CONFIG_USERSPACE=y
+    min_ram: 32
+  kernel.threads.dynamic_thread.stack.pool.no_alloc.no_user:
+    path: tests/kernel/threads/dynamic_thread_stack
+    catalog: kernel security
+    extra_configs:
+    - CONFIG_DYNAMIC_THREAD_POOL_SIZE=2
+    - CONFIG_DYNAMIC_THREAD_ALLOC=n
+    - CONFIG_USERSPACE=n
+    min_ram: 32
+  kernel.threads.dynamic_thread.stack.pool.no_alloc.user:
+    path: tests/kernel/threads/dynamic_thread_stack
+    catalog: userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_THREAD_POOL_SIZE=2
+    - CONFIG_DYNAMIC_THREAD_ALLOC=n
+    - CONFIG_USERSPACE=y
+    min_ram: 32
+  kernel.threads.dynamic_thread.stack.pool.alloc.no_user:
+    path: tests/kernel/threads/dynamic_thread_stack
+    catalog: kernel security
+    extra_configs:
+    - CONFIG_DYNAMIC_THREAD_PREFER_ALLOC=y
+    - CONFIG_DYNAMIC_THREAD_POOL_SIZE=2
+    - CONFIG_DYNAMIC_THREAD_ALLOC=y
+    - CONFIG_USERSPACE=n
+    min_ram: 32
+  kernel.threads.dynamic_thread.stack.pool.alloc.user:
+    path: tests/kernel/threads/dynamic_thread_stack
+    catalog: userspace
+    extra_configs:
+    - CONFIG_DYNAMIC_THREAD_PREFER_ALLOC=y
+    - CONFIG_DYNAMIC_THREAD_POOL_SIZE=2
+    - CONFIG_DYNAMIC_THREAD_ALLOC=y
+    - CONFIG_USERSPACE=y
+    min_ram: 32
   kernel.threads.no-multithreading:
     path: tests/kernel/threads/no-multithreading
     catalog: kernel

@@ -72,6 +72,12 @@ cases:
     - OVERLAY_CONFIG=boards/nrf52840dk_flash_spi.conf
     - DTC_OVERLAY_FILE=boards/nrf52840dk_mx25r_high_perf.overlay
     platform_allow: nrf52840dk_nrf52840
+  drivers.flash.common.mr_canhubk3_sfdp_runtime:
+    path: tests/drivers/flash/common
+    catalog: *1
+    extra_configs:
+    - CONFIG_FLASH_NXP_S32_QSPI_NOR_SFDP_RUNTIME=y
+    platform_allow: mr_canhubk3
   drivers.flash.stm32.default:
     path: tests/drivers/flash/stm32
     catalog:
@@ -91,6 +97,8 @@ cases:
     - qemu_x86
     - native_posix
     - native_posix_64
+    - native_sim
+    - native_sim_64
     - nucleo_f411re
   drivers.flash.flash_simulator.qemu_erase_value_0x00:
     path: tests/drivers/flash_simulator
@@ -101,12 +109,12 @@ cases:
     path: tests/drivers/flash_simulator
     catalog: *2
     extra_args: DTC_OVERLAY_FILE=boards/native_posix_ev_0x00.overlay
-    platform_allow: native_posix
+    platform_allow: native_posix native_sim
   drivers.flash.flash_simulator.posix_64_erase_value_0x00:
     path: tests/drivers/flash_simulator
     catalog: *2
     extra_args: DTC_OVERLAY_FILE=boards/native_posix_64_ev_0x00.overlay
-    platform_allow: native_posix_64
+    platform_allow: native_posix_64 native_sim_64
   shell.flash:
     path: tests/subsys/shell/shell_flash
     catalog:

@@ -1,13 +1,41 @@
 ---
 cases:
-  drivers.coredump.api.qemu_riscv32:
+  debug.coredump.drivers.api.qemu_riscv32:
     path: tests/drivers/coredump/coredump_api
     catalog: &1
     - coredump
     filter: CONFIG_ARCH_SUPPORTS_COREDUMP
     platform_allow: qemu_riscv32
-  drivers.coredump.api:
+  debug.coredump.drivers.api:
     path: tests/drivers/coredump/coredump_api
     catalog: *1
     filter: CONFIG_ARCH_SUPPORTS_COREDUMP
     platform_exclude: qemu_riscv32
+  debug.coredump.logging_backend:
+    path: tests/subsys/debug/coredump
+    catalog: coredump
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_exclude: acrn_ehl_crb
+  debug.coredump.backends.logging:
+    path: tests/subsys/debug/coredump_backends
+    catalog: coredump
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_exclude: acrn_ehl_crb
+  debug.coredump.backends.flash:
+    path: tests/subsys/debug/coredump_backends
+    catalog: coredump
+    extra_args: CONF_FILE=prj_flash_partition.conf
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_allow:
+    - qemu_x86
+    - esp32_devkitc_wroom
+    - esp32_devkitc_wrover
+    - esp32s2_saola
+    - esp32s3_devkitm
+    - esp32c3_devkitm
+  debug.coredump.backends.other:
+    path: tests/subsys/debug/coredump_backends
+    catalog: coredump
+    extra_args: CONF_FILE=prj_backend_other.conf
+    filter: CONFIG_ARCH_SUPPORTS_COREDUMP
+    platform_exclude: acrn_ehl_crb

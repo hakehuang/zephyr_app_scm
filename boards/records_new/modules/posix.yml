@@ -14,6 +14,10 @@ cases:
     filter: "( TOOLCHAIN_HAS_NEWLIB == 1 and not CONFIG_SOC_FAMILY_INTEL_ADSP )"
     min_ram: 32
     min_flash: 96
+  sample.posix.uname:
+    path: samples/posix/uname
+    catalog: uname
+    filter: not CONFIG_ARCH_POSIX
   portability.posix.common:
     path: tests/posix/common
     catalog: posix
@@ -23,7 +27,7 @@ cases:
     - - nsim_sem_mpu_stack_guard
       - ehl_crb
     - qemu_leon3
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 64
   portability.posix.common.newlib:
     path: tests/posix/common
@@ -35,15 +39,16 @@ cases:
       - ehl_crb
       - lpcxpresso55s06
     - qemu_leon3
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 64
   portability.posix.common.armclang_std_libc:
     path: tests/posix/common
     catalog: posix
     extra_configs:
     - CONFIG_ARMCLANG_STD_LIBC=y
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     platform_exclude: qemu_leon3
     min_ram: 64
   portability.posix.common.arcmwdtlib:
@@ -51,7 +56,7 @@ cases:
     catalog: posix
     extra_configs:
     - CONFIG_ARCMWDT_LIBC=y
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     platform_exclude: qemu_leon3
     min_ram: 64
   portability.posix.common.tls:
@@ -60,13 +65,13 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
     - CONFIG_THREAD_LOCAL_STORAGE=y
-    - CONFIG_MAIN_STACK_SIZE=1152
     platform_exclude:
     - - nsim_sem_mpu_stack_guard
       - ehl_crb
     - qemu_leon3
-    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: posix
+    filter:
+    - CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 64
   portability.posix.common.tls.newlib:
     path: tests/posix/common
@@ -74,15 +79,14 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_THREAD_LOCAL_STORAGE=y
-    - CONFIG_MAIN_STACK_SIZE=1152
     platform_exclude:
     - - nsim_sem_mpu_stack_guard
       - ehl_crb
       - lpcxpresso55s06
     - qemu_leon3
-    filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
-      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
-    arch_exclude: posix
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 64
   portability.posix.common.nsim:
     path: tests/posix/common
@@ -91,7 +95,7 @@ cases:
     - CONFIG_NEWLIB_LIBC=n
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     platform_exclude: qemu_leon3
     min_ram: 64
   portability.posix.common.newlib.nsim:
@@ -101,8 +105,9 @@ cases:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     platform_exclude: qemu_leon3
     min_ram: 64
   portability.posix.common.picolibc:
@@ -110,8 +115,44 @@ cases:
     catalog: picolibc
     extra_configs:
     - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
+    platform_exclude: qemu_leon3
+    min_ram: 64
+  portability.posix.common.no_spin_validate:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_SPIN_VALIDATE=n
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
+    platform_exclude: qemu_leon3
+    min_ram: 64
+  portability.posix.common.signal.strsignal_no_desc:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_POSIX_SIGNAL_STRING_DESC=n
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
+    platform_exclude: qemu_leon3
+    min_ram: 64
+  portability.posix.common.signal.big_nsig:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_POSIX_RTSIG_MAX=1024
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
+    platform_exclude: qemu_leon3
+    min_ram: 64
+  portability.posix.common.dynamic_stack:
+    path: tests/posix/common
+    catalog: posix
+    extra_configs:
+    - CONFIG_DYNAMIC_THREAD=y
+    - CONFIG_THREAD_STACK_INFO=y
+    - CONFIG_DYNAMIC_THREAD_POOL_SIZE=5
+    - CONFIG_HEAP_MEM_POOL_SIZE=16384
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     platform_exclude: qemu_leon3
     min_ram: 64
   portability.posix.eventfd:
@@ -119,8 +160,9 @@ cases:
     catalog:
     - posix
     - eventfd
-    arch_exclude:
-    - posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
+    platform_exclude:
+    - qemu_cortex_a53_smp
   portability.posix.fs:
     path: tests/posix/fs
     catalog: &1
@@ -128,16 +170,18 @@ cases:
     - filesystem
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     arch_exclude: &2
     - nios2
-    - posix
     min_ram: 128
   portability.posix.fs.newlib:
     path: tests/posix/fs
     catalog: *1
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     arch_exclude: *2
     min_ram: 128
   portability.posix.fs.tls:
@@ -146,7 +190,9 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=n
     - CONFIG_THREAD_LOCAL_STORAGE=y
-    filter: CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    filter:
+    - CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     arch_exclude: *2
     min_ram: 128
   portability.posix.fs.tls.newlib:
@@ -155,8 +201,9 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     - CONFIG_THREAD_LOCAL_STORAGE=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and
-      CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1 and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE and CONFIG_TOOLCHAIN_SUPPORTS_THREAD_LOCAL_STORAGE
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     arch_exclude: *2
     min_ram: 128
   portability.posix.fs.picolibc:
@@ -164,7 +211,9 @@ cases:
     catalog: picolibc
     extra_configs:
     - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     arch_exclude: *2
     min_ram: 128
   portability.posix.fs.tls.picolibc:
@@ -172,7 +221,9 @@ cases:
     catalog: picolibc
     extra_configs:
     - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     arch_exclude: *2
     min_ram: 128
   portability.posix.getopt:
@@ -182,28 +233,30 @@ cases:
     - getopt
     min_flash: 64
     min_ram: 32
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
   portability.posix.getopt.newlib:
     path: tests/posix/getopt
     catalog: *3
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
   portability.posix.getopt.picolibc:
     path: tests/posix/getopt
     catalog: picolibc
     extra_configs:
     - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
   portability.posix.getopt.logger:
     path: tests/posix/getopt
     catalog: *3
     extra_configs:
     - CONFIG_LOG=y
     build_only: true
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
   portability.posix.headers.with_posix_api:
     path: tests/posix/headers
     catalog: &4
@@ -212,14 +265,14 @@ cases:
     - socket
     extra_configs:
     - CONFIG_POSIX_API=y
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 32
   portability.posix.headers.without_posix_api:
     path: tests/posix/headers
     catalog: *4
     extra_configs:
     - CONFIG_POSIX_API=n
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 32
   portability.posix.headers.picolibc.with_posix_api:
     path: tests/posix/headers
@@ -227,8 +280,9 @@ cases:
     extra_configs:
     - CONFIG_POSIX_API=y
     - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 32
   portability.posix.headers.picolibc.without_posix_api:
     path: tests/posix/headers
@@ -236,8 +290,9 @@ cases:
     extra_configs:
     - CONFIG_POSIX_API=n
     - CONFIG_PICOLIBC=y
-    filter: CONFIG_PICOLIBC_SUPPORTED
-    arch_exclude: posix
+    filter:
+    - CONFIG_PICOLIBC_SUPPORTED
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 32
   portability.posix.headers.newlib.with_posix_api:
     path: tests/posix/headers
@@ -245,8 +300,9 @@ cases:
     extra_configs:
     - CONFIG_POSIX_API=y
     - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 32
   portability.posix.headers.newlib.without_posix_api:
     path: tests/posix/headers
@@ -254,8 +310,9 @@ cases:
     extra_configs:
     - CONFIG_POSIX_API=n
     - CONFIG_NEWLIB_LIBC=y
-    filter: TOOLCHAIN_HAS_NEWLIB == 1
-    arch_exclude: posix
+    filter:
+    - TOOLCHAIN_HAS_NEWLIB == 1
+    - not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 32
   portability.posix.headers.arcmwdtlib.with_posix_api:
     path: tests/posix/headers
@@ -263,7 +320,7 @@ cases:
     extra_configs:
     - CONFIG_POSIX_API=y
     - CONFIG_ARCMWDT_LIBC=y
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 32
   portability.posix.headers.arcmwdtlib.without_posix_api:
     path: tests/posix/headers
@@ -271,7 +328,7 @@ cases:
     extra_configs:
     - CONFIG_POSIX_API=n
     - CONFIG_ARCMWDT_LIBC=y
-    arch_exclude: posix
+    filter: not (CONFIG_NATIVE_BUILD and CONFIG_EXTERNAL_LIBC)
     min_ram: 32
   portability.posix.pthread_pressure:
     path: tests/posix/pthread_pressure

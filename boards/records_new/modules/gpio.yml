@@ -2,7 +2,7 @@
 cases:
   drivers.gpio.build:
     path: tests/drivers/build_all/gpio
-    catalog:
+    catalog: &1
     - drivers
     - gpio
     min_ram: 32
@@ -11,6 +11,14 @@ cases:
     - gpio
     - spi
     - i2c
+    build_only: true
+  drivers.gpio.build.efinix_sapphire:
+    path: tests/drivers/build_all/gpio
+    catalog: *1
+    extra_args: DTC_OVERLAY_FILE="efinix_sapphire.overlay"
+    min_ram: 32
+    platform_allow: titanium_ti60_f225
+    depends_on: gpio
     build_only: true
   drivers.gpio.1pin:
     path: tests/drivers/gpio/gpio_api_1pin
@@ -26,7 +34,7 @@ cases:
     filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
   drivers.gpio.2pin:
     path: tests/drivers/gpio/gpio_basic_api
-    catalog: &1
+    catalog: &2
     - drivers
     - gpio
     min_flash: 34
@@ -34,9 +42,9 @@ cases:
     depends_on: gpio
   drivers.gpio.nrf_sense_edge:
     path: tests/drivers/gpio/gpio_basic_api
-    catalog: *1
+    catalog: *2
     extra_args: DTC_OVERLAY_FILE=boards/nrf52840dk_nrf52840.overlay;boards/nrf52840dk_nrf52840_sense_edge.overlay
-    platform_allow: nrf52840dk_nrf52840
+    platform_allow: nrf52840dk_nrf52840 nrf52_bsim
     depends_on: gpio
   drivers.gpio.enable_disable_interrupt:
     path: tests/drivers/gpio/gpio_enable_disable_interrupt
@@ -69,3 +77,10 @@ cases:
     - frdm_k64f
     - nrf52840dk_nrf52840
     - nucleo_g474re
+    - nrf52_bsim
+  drivers.gpio.reserved_ranges:
+    path: tests/drivers/gpio/gpio_reserved_ranges
+    catalog: drivers gpio
+    depends_on: gpio
+    filter: dt_compat_enabled("test-gpio-reserved-ranges")
+    platform_allow: native_posix native_posix_64

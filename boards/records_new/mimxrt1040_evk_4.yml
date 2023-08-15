@@ -1,9 +1,27 @@
 ---
 settings:
   case_pipe_name: "mimxrt1040_evk_4"
-  version: zephyr-v3.4.0-67-gadd64d525a
+  version: zephyr-v3.4.0-2252-gd11c0a1664
 __load__:
-- modules/mutex_error_case.yml
+- modules/packet.yml
+- modules/p4wq.yml
+- modules/overlays.yml
+- modules/osdesc.yml
+- modules/os.yml
+- modules/openthread.yml
+- modules/onoff.yml
+- modules/offload.yml
+- modules/objects.yml
+- modules/nvs_cache.yml
+- modules/nvs_0x00.yml
+- modules/nvs.yml
+- modules/nrf52_bsim.yml
+- modules/notifications.yml
+- modules/no-mt.yml
+- modules/neighbour.yml
+- modules/neighbor.yml
+- modules/native_posix_64.yml
+- modules/native_posix.yml
 - modules/mutex.yml
 - modules/multiprocessing.yml
 - modules/multifs.yml
@@ -38,13 +56,10 @@ __load__:
 - modules/min.yml
 - modules/mgmt.yml
 - modules/mfd.yml
-- modules/message_queue_usage.yml
 - modules/message_queue.yml
 - modules/mesh.yml
 - modules/memory_slabs.yml
-- modules/memory_slab.yml
 - modules/memory_protection.yml
-- modules/memory_heap_no_multithreading.yml
 - modules/memory_heap.yml
 - modules/memc.yml
 - modules/mem_blocks.yml
@@ -60,7 +75,6 @@ __load__:
 - modules/mailbox.yml
 - modules/lwm2m.yml
 - modules/lorawan.yml
-- modules/logging_backend.yml
 - modules/logging.yml
 - modules/logger.yml
 - modules/log_syst.yml
@@ -103,48 +117,6 @@ __load__:
 - modules/log_api_immediate_printk_cpp.yml
 - modules/log_api_immediate_printk.yml
 - modules/log_api_immediate_cpp.yml
-- modules/log_api_immediate_64b_timestamp_cpp.yml
-- modules/log_api_immediate_64b_timestamp.yml
-- modules/log_api_immediate.yml
-- modules/log_api_frontend_only_cpp.yml
-- modules/log_api_frontend_only.yml
-- modules/log_api_frontend_no_backends_cpp.yml
-- modules/log_api_frontend_no_backends.yml
-- modules/log_api_frontend_immediate_override_level.yml
-- modules/log_api_frontend_immediate_cpp.yml
-- modules/log_api_frontend_immediate.yml
-- modules/log_api_frontend_dbg_cpp.yml
-- modules/log_api_frontend_dbg.yml
-- modules/log_api_frontend_cpp.yml
-- modules/log_api_frontend.yml
-- modules/log_api_deferred_static_filter_cpp.yml
-- modules/log_api_deferred_static_filter.yml
-- modules/log_api_deferred_printk_cpp.yml
-- modules/log_api_deferred_printk.yml
-- modules/log_api_deferred_override_level_rt_filtering.yml
-- modules/log_api_deferred_override_level.yml
-- modules/log_api_deferred_overflow_rt_filter_cpp.yml
-- modules/log_api_deferred_overflow_rt_filter.yml
-- modules/log_api_deferred_overflow_cpp.yml
-- modules/log_api_deferred_overflow.yml
-- modules/log_api_deferred_no_overflow_cpp.yml
-- modules/log_api_deferred_no_overflow.yml
-- modules/log_api_deferred_func_prefix_cpp.yml
-- modules/log_api_deferred_func_prefix.yml
-- modules/log_api_deferred_64b_timestamp_cpp.yml
-- modules/log_api_deferred_64b_timestamp.yml
-- modules/ll_settings.yml
-- modules/littlefs.yml
-- modules/lists.yml
-- modules/linear_range.yml
-- modules/lifo.yml
-- modules/libcxx.yml
-- modules/libc.yml
-- modules/led_strip.yml
-- modules/led_api.yml
-- modules/led.yml
-- modules/lcd_cyclonev_socdk.yml
-- modules/l2cap.yml
 - skips/mimxrt1040_evk.yml
 - boards/mimxrt1040_evk.yml
 cases:

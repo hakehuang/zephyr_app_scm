@@ -1,11 +1,11 @@
  
 require 'yml_merger'
 require 'pathname'
-require_relative 'create_pipefile'
-require_relative 'create_report'
-require_relative 'zephyr_utils'
+require_relative 'core_scripts/create_pipefile'
+require_relative 'core_scripts/create_report'
+require_relative 'core_scripts/zephyr_utils'
 
-require_relative 'zephyr_filter'
+require_relative 'core_scripts/zephyr_filter'
 
 board = File.basename(__FILE__, ".rb")
 @entry_yml = "#{board}.yml"

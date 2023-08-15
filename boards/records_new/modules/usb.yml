@@ -31,6 +31,9 @@ cases:
     path: samples/subsys/usb/cdc_acm_composite
     catalog: usb
     depends_on: usb_device
+    platform_exclude:
+    - nucleo_f429zi
+    - nucleo_f207zg
     arch_exclude: posix
   sample.usb.console:
     path: samples/subsys/usb/console
@@ -80,13 +83,6 @@ cases:
   sample.usb.hid:
     path: samples/subsys/usb/hid
     catalog: usb
-    depends_on: usb_device
-    arch_exclude: posix
-  sample.usb.hid_composite:
-    path: samples/subsys/usb/hid
-    catalog: usb
-    extra_configs:
-    - CONFIG_USB_COMPOSITE_DEVICE=y
     depends_on: usb_device
     arch_exclude: posix
   sample.usb.hid.buildonly:

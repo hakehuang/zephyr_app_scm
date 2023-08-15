@@ -84,6 +84,15 @@ cases:
     - xtensa
     - posix
     - sparc
+  kernel.memory_protection.stackprot_tls:
+    path: tests/kernel/mem_protect/stackprot
+    catalog:
+    - kernel
+    - userspace
+    extra_configs:
+    - CONFIG_THREAD_LOCAL_STORAGE=y
+    - CONFIG_STACK_CANARIES_TLS=y
+    filter: CONFIG_ARCH_HAS_STACK_CANARIES_TLS and CONFIG_ARCH_HAS_THREAD_LOCAL_STORAGE
   kernel.memory_protection.sys_sem:
     path: tests/kernel/mem_protect/sys_sem
     catalog:

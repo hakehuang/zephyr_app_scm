@@ -150,6 +150,7 @@ cases:
     - net
     - socket
     - userspace
+    platform_exclude: vmu_rt1170 mimxrt1160_evk_cm7
     depends_on: netif
     min_ram: 21
   net.socket.socketpair.newlib:
@@ -158,6 +159,7 @@ cases:
     extra_configs:
     - CONFIG_NEWLIB_LIBC=y
     filter: TOOLCHAIN_HAS_NEWLIB == 1
+    platform_exclude: vmu_rt1170 mimxrt1160_evk_cm7
     depends_on: netif
     min_ram: 21
   net.socket.socketpair.picolibc:
@@ -166,6 +168,7 @@ cases:
     extra_configs:
     - CONFIG_PICOLIBC=y
     filter: CONFIG_PICOLIBC_SUPPORTED
+    platform_exclude: vmu_rt1170 mimxrt1160_evk_cm7
     depends_on: netif
     min_ram: 21
   net.socket.tcp:

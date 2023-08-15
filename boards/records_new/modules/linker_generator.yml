@@ -1,0 +1,11 @@
+---
+cases:
+  linker.linker_generator:
+    path: tests/kernel/context
+    catalog:
+    - kernel
+    - linker_generator
+    extra_configs:
+    - CONFIG_CMAKE_LINKER_GENERATOR=y
+    - CONFIG_TEST_EXTRA_STACK_SIZE=1024
+    platform_allow: qemu_cortex_m3

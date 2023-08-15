@@ -7,3 +7,25 @@ cases:
     - memory_heap
     extra_configs:
     - CONFIG_IRQ_OFFLOAD=y
+  kernel.memory_heap.no_mt:
+    path: tests/kernel/mem_heap/mheap_api_concept
+    catalog:
+    - kernel
+    - memory_heap
+    extra_configs:
+    - CONFIG_MULTITHREADING=n
+    platform_allow:
+    - qemu_cortex_m3
+    - qemu_cortex_m0
+    - nsim_em
+    - nsim_em7d_v22
+    - nsim_hs
+    - nsim_hs_mpuv6
+    - nsim_hs5x
+    - nsim_hs6x
+    - qemu_arc_em
+    - qemu_arc_hs
+    - qemu_arc_hs6x
+    - qemu_riscv32
+    - qemu_riscv32e
+    - qemu_riscv64

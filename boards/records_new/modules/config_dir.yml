@@ -1,0 +1,8 @@
+---
+cases:
+  cmake.config_dir.user_defined:
+    path: tests/cmake/config_dir
+    catalog: unknown
+    extra_args: APPLICATION_CONFIG_DIR:PATH=foo
+    platform_allow: native_posix
+    build_only: true

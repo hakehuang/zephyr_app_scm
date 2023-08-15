@@ -1,14 +1,8 @@
 ---
 settings:
   case_pipe_name: "${@board}_6"
-  version: zephyr-v3.4.0-67-gadd64d525a
+  version: zephyr-v3.4.0-2252-gd11c0a1664
 __load__:
-- modules/system.yml
-- modules/syscon.yml
-- modules/syscall_performances.yml
-- modules/sys_util.yml
-- modules/subsys.yml
-- modules/stream_flash.yml
 - modules/stm32_clock_configuration.yml
 - modules/states.yml
 - modules/stack.yml
@@ -46,7 +40,7 @@ __load__:
 - modules/red_black_tree.yml
 - modules/recovery.yml
 - modules/rand32.yml
-- modules/radio.yml
+- modules/radio_test.yml
 - modules/queue.yml
 - modules/qemu_x86.yml
 - modules/pytest.yml
@@ -55,43 +49,6 @@ __load__:
 - modules/psa_crypto.yml
 - modules/promisc.yml
 - modules/privacy.yml
-- modules/prf.yml
-- modules/ppp.yml
-- modules/powers_of_two.yml
-- modules/power_domain.yml
-- modules/power.yml
-- modules/posix.yml
-- modules/portability.yml
-- modules/poll.yml
-- modules/policy.yml
-- modules/pm.yml
-- modules/pl022_spi_interrupt.yml
-- modules/pl022_spi_dma_no_dma_props.yml
-- modules/pl022_spi_dma_and_interrupt_no_dma_props.yml
-- modules/pl022_spi_dma_and_interrupt.yml
-- modules/pl022_spi_dma.yml
-- modules/pkt_filter.yml
-- modules/pipe.yml
-- modules/pinctrl.yml
-- modules/packet.yml
-- modules/p4wq.yml
-- modules/overlays.yml
-- modules/osdesc.yml
-- modules/os.yml
-- modules/openthread.yml
-- modules/onoff.yml
-- modules/offload.yml
-- modules/objects.yml
-- modules/nvs_cache.yml
-- modules/nvs_0x00.yml
-- modules/nvs.yml
-- modules/nrf52_bsim.yml
-- modules/notifications.yml
-- modules/no-mt.yml
-- modules/neighbour.yml
-- modules/neighbor.yml
-- modules/native_posix_64.yml
-- modules/native_posix.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

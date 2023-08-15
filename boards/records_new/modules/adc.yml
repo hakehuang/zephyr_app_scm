@@ -16,6 +16,11 @@ cases:
     - userspace
     depends_on: adc
     platform_allow: native_posix
+  drivers.adc.rescale:
+    path: tests/drivers/adc/adc_rescale
+    catalog: adc drivers userspace
+    depends_on: adc
+    platform_allow: native_posix
   drivers.adc.build:
     path: tests/drivers/build_all/adc
     catalog:
@@ -23,6 +28,7 @@ cases:
     - adc_lmp90xxx
     - adc_ads1x1x
     - adc_ads1119
+    - adc_ads1112
     - adc_ads114s08
     - adc_emul
     extra_args: CONFIG_GPIO=y

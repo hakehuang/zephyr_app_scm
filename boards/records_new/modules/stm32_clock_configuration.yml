@@ -487,3 +487,33 @@ cases:
     catalog: unknown
     extra_args: DTC_OVERLAY_FILE="boards/core_init.overlay;boards/spi1_sysclk.overlay"
     platform_allow: b_u585i_iot02a
+  drivers.stm32_clock_configuration.wba.sysclksrc_hsi_32:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32wba_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_16.overlay"
+    platform_allow: nucleo_wba52cg
+  drivers.stm32_clock_configuration.wba.sysclksrc_hsi_32_ahb5_div:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32wba_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hsi_16_ahb5_div.overlay"
+    platform_allow: nucleo_wba52cg
+  drivers.stm32_clock_configuration.wba.sysclksrc_hse_16:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32wba_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hse_16.overlay"
+    platform_allow: nucleo_wba52cg
+  drivers.stm32_clock_configuration.wba.sysclksrc_hse_32:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32wba_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/hse_32.overlay"
+    platform_allow: nucleo_wba52cg
+  drivers.stm32_clock_configuration.wba.sysclksrc_pll_hse_100:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32wba_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse_100.overlay"
+    platform_allow: nucleo_wba52cg
+  drivers.stm32_clock_configuration.wba.sysclksrc_pll_hse_50:
+    path: tests/drivers/clock_control/stm32_clock_configuration/stm32wba_core
+    catalog: unknown
+    extra_args: DTC_OVERLAY_FILE="boards/clear_clocks.overlay;boards/pll_hse_100_ahb_50.overlay"
+    platform_allow: nucleo_wba52cg

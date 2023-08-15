@@ -5,7 +5,7 @@ cases:
     catalog:
     - samples
     - ipm
-    platform_allow: esp32
+    platform_allow: esp32_devkitc_wroom
   sample.ipm.ipm_imx:
     path: samples/drivers/ipm/ipm_imx
     catalog:
@@ -17,6 +17,13 @@ cases:
     - udoo_neo_full_m4
     - colibri_imx7d_m4
     - warp7_m4
+  sample.ipm.ipm_ivshmem:
+    path: samples/drivers/ipm/ipm_ivshmem
+    catalog:
+    - samples
+    - ipm
+    build_only: true
+    platform_allow: qemu_cortex_a53
   sample.ipm.ipm_mcux:
     path: samples/drivers/ipm/ipm_mcux
     catalog: ipm

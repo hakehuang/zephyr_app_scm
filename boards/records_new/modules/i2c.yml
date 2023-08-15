@@ -21,10 +21,17 @@ cases:
     extra_configs:
     - CONFIG_APP_DUAL_ROLE_I2C=y
     platform_allow:
+    - nucleo_f746zg
     - nucleo_f091rc
     - stm32f072b_disco
     - nucleo_g071rb
+    - nucleo_f207zg
+    - nucleo_f429zi
+    - nucleo_wl55jc
+    - nucleo_l073rz
     - rpi_pico
+    - efr32bg22_brd4184a
+    - mr_canhubk3
     depends_on: i2c
   drivers.i2c.tca954x:
     path: tests/drivers/i2c/i2c_tca954x

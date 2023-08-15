@@ -1,29 +1,35 @@
 ---
 settings:
   case_pipe_name: "mimxrt1160_evk_cm4_7"
-  version: zephyr-v3.4.0-67-gadd64d525a
+  version: zephyr-v3.4.0-2252-gd11c0a1664
 __load__:
+- modules/ztest.yml
+- modules/zbus.yml
+- modules/x86.yml
+- modules/workqueue.yml
+- modules/winstream.yml
+- modules/wifi.yml
+- modules/watchdog.yml
+- modules/w1.yml
+- modules/vlan.yml
+- modules/virtualization.yml
+- modules/virtual.yml
+- modules/video.yml
+- modules/version_no_legacy.yml
+- modules/version.yml
+- modules/uuid.yml
+- modules/util.yml
+- modules/userspace.yml
+- modules/usage.yml
+- modules/uoscore.yml
+- modules/uefi.yml
+- modules/udp.yml
+- modules/udc.yml
+- modules/uart_emul.yml
+- modules/uart.yml
 - modules/twister.yml
 - modules/trickle.yml
 - modules/transport.yml
-- modules/traffic_class.yml
-- modules/tracing.yml
-- modules/tls_credentials.yml
-- modules/tinycrypt.yml
-- modules/timestamp.yml
-- modules/timer.yml
-- modules/time_units.yml
-- modules/time.yml
-- modules/thrift.yml
-- modules/threads.yml
-- modules/tfm_ipc.yml
-- modules/tfm.yml
-- modules/testsuite.yml
-- modules/testing.yml
-- modules/test_load_store.yml
-- modules/test_calculation.yml
-- modules/tensorflow.yml
-- modules/ThriftTest.yml
 - skips/mimxrt1160_evk_cm4.yml
 - boards/mimxrt1160_evk_cm4.yml
 cases:

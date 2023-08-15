@@ -8,6 +8,7 @@ cases:
     - userspace
     depends_on: kscan
     platform_exclude: mec15xxevb_assy6853
+    filter: dt_alias_exists("kscan0")
   drivers.kscan.mec15xxevb_assy6853:
     path: tests/drivers/kscan/kscan_api
     catalog:

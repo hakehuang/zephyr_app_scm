@@ -1,8 +1,47 @@
 ---
 settings:
   case_pipe_name: "mimxrt1050_evk_2"
-  version: zephyr-v3.4.0-67-gadd64d525a
+  version: zephyr-v3.4.0-2252-gd11c0a1664
 __load__:
+- modules/host.yml
+- modules/history.yml
+- modules/helloworld.yml
+- modules/heap_align.yml
+- modules/heap.yml
+- modules/hci_prop_evt.yml
+- modules/hci_codecs_info.yml
+- modules/hash_map.yml
+- modules/hash_function.yml
+- modules/hash.yml
+- modules/gui.yml
+- modules/gpio.yml
+- modules/generic_test.yml
+- modules/general.yml
+- modules/gatt.yml
+- modules/futex.yml
+- modules/fs_shell.yml
+- modules/frdm_k64f.yml
+- modules/fpu_sharing.yml
+- modules/format_newlib.yml
+- modules/format.yml
+- modules/flash_map.yml
+- modules/flash.yml
+- modules/filesystem.yml
+- modules/fifo.yml
+- modules/fcb.yml
+- modules/fat.yml
+- modules/fail.yml
+- modules/ext2.yml
+- modules/events.yml
+- modules/eth_ivshmem_queue.yml
+- modules/eth_bridge.yml
+- modules/espi.yml
+- modules/esp32.yml
+- modules/entropy.yml
+- modules/encoding.yml
+- modules/emul.yml
+- modules/eeprom.yml
+- modules/ec_host_cmd.yml
 - modules/dns.yml
 - modules/dma.yml
 - modules/display.yml
@@ -13,6 +52,7 @@ __load__:
 - modules/devmem_load.yml
 - modules/devicetree.yml
 - modules/device_runtime.yml
+- modules/device_driver_init.yml
 - modules/device-wakeup-api.yml
 - modules/device.yml
 - modules/desc_sections.yml
@@ -30,36 +70,6 @@ __load__:
 - modules/cpp.yml
 - modules/counter.yml
 - modules/coredump.yml
-- modules/core.yml
-- modules/controller.yml
-- modules/context.yml
-- modules/console.yml
-- modules/conn_mgr_nodad.yml
-- modules/conn_mgr_dad.yml
-- modules/conn_mgr_conn.yml
-- modules/condvar.yml
-- modules/compression.yml
-- modules/common.yml
-- modules/coap.yml
-- modules/clock.yml
-- modules/check_init_priorities.yml
-- modules/cbprintf_package_no_generic_cpp.yml
-- modules/cbprintf_package_no_generic.yml
-- modules/cbprintf_package_nano_cpp.yml
-- modules/cbprintf_package_nano.yml
-- modules/cbprintf_package_long_double_cpp.yml
-- modules/cbprintf_package_long_double_align_offset_cpp.yml
-- modules/cbprintf_package_long_double_align_offset.yml
-- modules/cbprintf_package_long_double.yml
-- modules/cbprintf_package_fp_cpp.yml
-- modules/cbprintf_package_fp_align_offset_cpp.yml
-- modules/cbprintf_package_fp_align_offset.yml
-- modules/cbprintf_package_fp.yml
-- modules/cbprintf_package_cpp.yml
-- modules/cbprintf_package.yml
-- modules/cbprintf_fp.yml
-- modules/can.yml
-- modules/cache.yml
 - skips/mimxrt1050_evk.yml
 - boards/mimxrt1050_evk.yml
 cases:

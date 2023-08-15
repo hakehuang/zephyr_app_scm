@@ -4,6 +4,7 @@ cases:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;arm.conf'
+    build_only: true
     platform_allow:
     - reel_board
     - frdm_k64f
@@ -11,11 +12,11 @@ cases:
     - nrf51dk_nrf51422
     - nucleo_f429zi
     - disco_l475_iot1
-    build_only: true
   sample.minimal.mt-no-preempt.arm:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;arm.conf'
+    build_only: true
     platform_allow:
     - reel_board
     - frdm_k64f
@@ -23,11 +24,11 @@ cases:
     - nrf51dk_nrf51422
     - nucleo_f429zi
     - disco_l475_iot1
-    build_only: true
   sample.minimal.mt-no-preempt-no-timers.arm:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;arm.conf'
+    build_only: true
     platform_allow:
     - reel_board
     - frdm_k64f
@@ -35,11 +36,11 @@ cases:
     - nrf51dk_nrf51422
     - nucleo_f429zi
     - disco_l475_iot1
-    build_only: true
   sample.minimal.no-mt.arm:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;arm.conf'
+    build_only: true
     platform_allow:
     - reel_board
     - frdm_k64f
@@ -47,11 +48,11 @@ cases:
     - nrf51dk_nrf51422
     - nucleo_f429zi
     - disco_l475_iot1
-    build_only: true
   sample.minimal.no-mt-no-timers.arm:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;arm.conf'
+    build_only: true
     platform_allow:
     - reel_board
     - frdm_k64f
@@ -59,34 +60,47 @@ cases:
     - nrf51dk_nrf51422
     - nucleo_f429zi
     - disco_l475_iot1
-    build_only: true
   sample.minimal.mt.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;x86.conf'
-    platform_allow: qemu_x86
     build_only: true
+    platform_allow: qemu_x86
   sample.minimal.mt-no-preempt.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;x86.conf'
-    platform_allow: qemu_x86
     build_only: true
+    platform_allow: qemu_x86
   sample.minimal.mt-no-preempt-no-timers.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;mt.conf;no-preempt.conf;no-timers.conf;x86.conf'
-    platform_allow: qemu_x86
     build_only: true
+    platform_allow: qemu_x86
   sample.minimal.no-mt.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;x86.conf'
-    platform_allow: qemu_x86
     build_only: true
+    platform_allow: qemu_x86
   sample.minimal.no-mt-no-timers.x86:
     path: samples/basic/minimal
     catalog: footprint
     extra_args: CONF_FILE='common.conf;no-mt.conf;no-timers.conf;x86.conf'
-    platform_allow: qemu_x86
     build_only: true
+    platform_allow: qemu_x86
+  sample.minimal.arc.runtime:
+    path: samples/basic/minimal
+    catalog:
+    - kernel
+    extra_args:
+    - CONF_FILE='common-runtime.conf;no-timers.conf'
+    arch_allow: arc
+  sample.minimal.riscv.runtime:
+    path: samples/basic/minimal
+    catalog:
+    - kernel
+    extra_args:
+    - CONF_FILE='common-runtime.conf;no-timers.conf;no-mt.conf;riscv.conf'
+    platform_allow: qemu_riscv32

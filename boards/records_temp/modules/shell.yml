@@ -254,7 +254,16 @@ cases:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_configs:
-    - CONFIG_BT_TBS_CLIENT=n
+    - CONFIG_BT_TBS_CLIENT_TBS=n
+    - CONFIG_BT_TBS_CLIENT_GTBS=n
+    extra_args: CONF_FILE="audio.conf"
+    build_only: true
+    platform_allow: native_posix
+  bluetooth.shell.audio.tbs_only_client:
+    path: tests/bluetooth/shell
+    catalog: bluetooth
+    extra_configs:
+    - CONFIG_BT_TBS_CLIENT_GTBS=n
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix
@@ -262,7 +271,7 @@ cases:
     path: tests/bluetooth/shell
     catalog: bluetooth
     extra_configs:
-    - CONFIG_BT_TBS_CLIENT_MAX_TBS_INSTANCES=0
+    - CONFIG_BT_TBS_CLIENT_TBS=n
     extra_args: CONF_FILE="audio.conf"
     build_only: true
     platform_allow: native_posix

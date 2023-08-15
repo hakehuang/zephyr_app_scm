@@ -5,14 +5,24 @@ cases:
     catalog:
     - kernel
     - userspace
-  system.mutex:
+  kernel.mutex.error:
+    path: tests/kernel/mutex/mutex_error_case
+    catalog:
+    - kernel
+    - userspace
+    - mutex
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.mutex.system:
     path: tests/kernel/mutex/sys_mutex
     catalog:
     - kernel
     - userspace
+    - mutex
     filter: CONFIG_ARCH_HAS_USERSPACE
-  system.mutex.nouser:
+  kernel.mutex.system.nouser:
     path: tests/kernel/mutex/sys_mutex
-    catalog: kernel
+    catalog:
+    - kernel
+    - mutex
     extra_configs:
     - CONFIG_TEST_USERSPACE=n

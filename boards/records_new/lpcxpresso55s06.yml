@@ -1,8 +1,40 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s06"
-  version: zephyr-v3.4.0-67-gadd64d525a
+  version: zephyr-v3.4.0-2252-gd11c0a1664
 __load__:
+- modules/core.yml
+- modules/controller.yml
+- modules/context.yml
+- modules/console.yml
+- modules/conn_mgr_nodad.yml
+- modules/conn_mgr_dad.yml
+- modules/conn_mgr_conn.yml
+- modules/config_dir.yml
+- modules/condvar.yml
+- modules/compression.yml
+- modules/common.yml
+- modules/code_relocation.yml
+- modules/coap.yml
+- modules/clock.yml
+- modules/check_init_priorities.yml
+- modules/cbprintf_package_no_generic_cpp.yml
+- modules/cbprintf_package_no_generic.yml
+- modules/cbprintf_package_nano_cpp.yml
+- modules/cbprintf_package_nano.yml
+- modules/cbprintf_package_long_double_cpp.yml
+- modules/cbprintf_package_long_double_align_offset_cpp.yml
+- modules/cbprintf_package_long_double_align_offset.yml
+- modules/cbprintf_package_long_double.yml
+- modules/cbprintf_package_fp_cpp.yml
+- modules/cbprintf_package_fp_align_offset_cpp.yml
+- modules/cbprintf_package_fp_align_offset.yml
+- modules/cbprintf_package_fp.yml
+- modules/cbprintf_package_cpp.yml
+- modules/cbprintf_package.yml
+- modules/cbprintf_fp.yml
+- modules/can.yml
+- modules/cache.yml
 - modules/build_all.yml
 - modules/build.yml
 - modules/buf_simple.yml
@@ -17,7 +49,6 @@ __load__:
 - modules/basicmath.yml
 - modules/basic.yml
 - modules/base64.yml
-- modules/backends.yml
 - modules/audio_shell.yml
 - modules/audio.yml
 - modules/at.yml
@@ -33,6 +64,8 @@ __load__:
 - modules/add.yml
 - modules/adc-dma.yml
 - modules/adc.yml
+- modules/ThriftTest.yml
+- modules/6lo.yml
 - skips/lpcxpresso55s06.yml
 - boards/lpcxpresso55s06.yml
 cases:

@@ -8,6 +8,7 @@ cases:
     - nrf52dk_nrf52832
     - native_posix
     - native_posix_64
+    - mr_canhubk3
   system.settings.fcb:
     path: tests/subsys/settings/fcb_init
     catalog: settings_intialization_fcb
@@ -23,6 +24,7 @@ cases:
     - nrf52840dk_nrf52840
     - native_posix
     - native_posix_64
+    - mr_canhubk3
   system.settings.functional.fcb:
     path: tests/subsys/settings/functional/fcb
     catalog: settings_fcb
@@ -31,6 +33,7 @@ cases:
     - nrf52dk_nrf52832
     - native_posix
     - native_posix_64
+    - mr_canhubk3
   system.settings.functional.fcb.chosen:
     path: tests/subsys/settings/functional/fcb
     catalog: settings_fcb
@@ -38,6 +41,7 @@ cases:
     platform_allow:
     - native_posix
     - native_posix_64
+    - mr_canhubk3
   system.settings.file:
     path: tests/subsys/settings/functional/file
     catalog: settings_file
@@ -46,6 +50,7 @@ cases:
     - nrf52dk_nrf52832
     - native_posix
     - native_posix_64
+    - mr_canhubk3
   system.settings.functional.nvs:
     path: tests/subsys/settings/functional/nvs
     catalog: settings_nvs
