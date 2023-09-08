@@ -150,6 +150,11 @@ cases:
     depends_on:
     - i2c
     - arduino_i2c
+  sample.sensor.esp32_temp_sensor:
+    path: samples/sensor/esp32_temp_sensor
+    catalog:
+    - sensors
+    filter: dt_compat_enabled("espressif,esp32-temp")
   sample.sensor.fdc2x1x:
     path: samples/sensor/fdc2x1x
     catalog: sensors
@@ -444,7 +449,7 @@ cases:
   sample.sensor.thermometer:
     path: samples/sensor/thermometer
     catalog: sensors
-    platform_allow: nrf52840dk_nrf52840 frdm_k22f
+    platform_allow: nrf52840dk_nrf52840
   sample.sensor.ti_hdc:
     path: samples/sensor/ti_hdc
     catalog: sensors

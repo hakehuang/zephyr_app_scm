@@ -178,11 +178,19 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
   docker_name: "confident_sinoussi", template: "../../template/Jenkinsfile_template", board_info: nil)
   engine = Tenjin::Engine.new()
   @content = config
+
+  if board_info["settings"].has_key?("report_board_name")
+    report_board_name =board_info["settings"]["report_board_name"]
+  else
+    report_board_name =  board_name
+  end
+
   pipe_data = {
     :docker => docker_name,
     :build_script => @content["settings"]["build_script"], 
     :run_script   => @content["settings"]["run_script"], 
     :board => board_name,
+    :report_board_name => report_board_name,
     :catalog => {},
     :version =>  @content["settings"]["version"]
   }
@@ -201,7 +209,7 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     if @content["cases"][key]['catalog'].class == String
       catalog = @content["cases"][key]['catalog'].gsub(" ", "_")
     else
-      catalog = @content["cases"][key]['catalog'].join('_')
+      catalog = @content["cases"][key]['catalog'].join('_').gsub(" ", "_")
     end
     pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]
@@ -257,14 +265,14 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
   end
   #File.write('./merged_data_pipe.yml', YAML.dump(pipe_data))
   
-  output = engine.render(template, pipe_data)
+  output = engine.render(File.join(File.dirname(__FILE__), template), pipe_data)
   out_line = ''
   output.each_line do |line|
     out_line += line.rstrip() + "\n"
   end
-  FileUtils::mkdir_p output_path
+  FileUtils::mkdir_p File.join(File.dirname(__FILE__), output_path)
   board_pipe_name = @content["settings"]["case_pipe_name"]
-  File.open( output_path + "Jenkinsfile_" + board_pipe_name, 'w') {|f| f.write(out_line) }
+  File.open( File.join(File.dirname(__FILE__), output_path, "Jenkinsfile_" + board_pipe_name), 'w') {|f| f.write(out_line) }
 end
 
 def create_twister_pipefile_from_config(config: "",
@@ -272,12 +280,20 @@ def create_twister_pipefile_from_config(config: "",
   docker_name: "confident_sinoussi",
   template: "../../template/Jenkinsfile_template", board_info: nil)
   engine = Tenjin::Engine.new()
+
+  if board_info["settings"].has_key?("report_board_name")
+    report_board_name =board_info["settings"]["report_board_name"]
+  else
+    report_board_name =  board_name
+  end
+
   @content = config
   pipe_data = {
     :docker => docker_name,
     :build_script => @content["settings"]["build_script"], 
     :run_script   => @content["settings"]["run_script"], 
     :board => board_name,
+    :report_board_name => report_board_name,
     :catalog => {},
     :version =>  @content["settings"]["version"]
   }
@@ -305,14 +321,14 @@ def create_twister_pipefile_from_config(config: "",
   end
   #File.write('./merged_data_pipe.yml', YAML.dump(pipe_data))
   
-  output = engine.render(template, pipe_data)
+  output = engine.render(File.join(File.dirname(__FILE__), template), pipe_data)
   out_line = ''
   output.each_line do |line|
     out_line += line.rstrip() + "\n"
   end
-  FileUtils::mkdir_p output_path
+  FileUtils::mkdir_p File.join(File.dirname(__FILE__), output_path)
   board_pipe_name = @content["settings"]["case_pipe_name"]
-  File.open( output_path + "Jenkinsfile_" + board_pipe_name, 'w') {|f| f.write(out_line) }
+  File.open(File.join(File.dirname(__FILE__), output_path,  "Jenkinsfile_" + board_pipe_name), 'w') {|f| f.write(out_line) }
 end
 
 #create_pipefile_from_config(ARGV)

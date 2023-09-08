@@ -1,8 +1,23 @@
 ---
 settings:
   case_pipe_name: "frdm_k22f_3"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
+- modules/log_immediate.yml
+- modules/log_custom_header.yml
+- modules/log_cache.yml
+- modules/log_benchmark_user.yml
+- modules/log_benchmark_speed.yml
+- modules/log_benchmark.yml
+- modules/log_backend_initialization.yml
+- modules/log_backend_fs.yml
+- modules/log_api_immediate_static_filter_cpp.yml
+- modules/log_api_immediate_static_filter.yml
+- modules/log_api_immediate_rt_filter_cpp.yml
+- modules/log_api_immediate_rt_filter.yml
+- modules/log_api_immediate_printk_cpp.yml
+- modules/log_api_immediate_printk.yml
+- modules/log_api_immediate_cpp.yml
 - modules/log_api_immediate_64b_timestamp_cpp.yml
 - modules/log_api_immediate_64b_timestamp.yml
 - modules/log_api_immediate.yml
@@ -36,7 +51,6 @@ __load__:
 - modules/ll_settings.yml
 - modules/littlefs.yml
 - modules/lists.yml
-- modules/linker_generator.yml
 - modules/linear_range.yml
 - modules/lifo.yml
 - modules/libcxx.yml
@@ -63,7 +77,6 @@ __load__:
 - modules/intmath.yml
 - modules/interrupt.yml
 - modules/intel_adsp.yml
-- modules/input_shell.yml
 - modules/input_longpress.yml
 - modules/input.yml
 - modules/init.yml

@@ -1,0 +1,52 @@
+---
+settings:
+  case_pipe_name: "rd_rw612_bga_a1_6"
+  version: zephyr-v3.4.0-130-g65c5909629
+__load__:
+- modules/stm32_clock_configuration.yml
+- modules/states.yml
+- modules/stack.yml
+- modules/spsc_pbuf_utilization.yml
+- modules/spsc_pbuf_stress.yml
+- modules/spsc_pbuf_nocache.yml
+- modules/spsc_pbuf_cache.yml
+- modules/spsc_pbuf.yml
+- modules/spi.yml
+- modules/socket.yml
+- modules/soc.yml
+- modules/snippets.yml
+- modules/smp.yml
+- modules/smf.yml
+- modules/smbus.yml
+- modules/shell.yml
+- modules/shared_multi_heap.yml
+- modules/settings.yml
+- modules/sensor.yml
+- modules/semaphore.yml
+- modules/sdmmc.yml
+- modules/sdhc.yml
+- modules/scheduler.yml
+- modules/sbs_gauge_new_api.yml
+- modules/rtu.yml
+- modules/rtio.yml
+- modules/rtc.yml
+- modules/route_mcast.yml
+- modules/route.yml
+- modules/riscv.yml
+- modules/ring_buffer_concurrent.yml
+- modules/ring_buffer.yml
+- modules/retained_mem.yml
+- modules/regulator.yml
+- modules/red_black_tree.yml
+- modules/recovery.yml
+- modules/rand32.yml
+- modules/radio.yml
+- modules/queue.yml
+- modules/qemu_x86.yml
+- modules/pytest.yml
+- skips/rd_rw612_bga_a1.yml
+- boards/rd_rw612_bga_a1.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

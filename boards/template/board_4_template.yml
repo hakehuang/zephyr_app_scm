@@ -1,18 +1,37 @@
 ---
 settings:
   case_pipe_name: "${@board}_4"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
+- modules/modbus.yml
+- modules/mmc.yml
+- modules/mm.yml
+- modules/mld.yml
+- modules/mipi_dsi.yml
+- modules/minimal.yml
+- modules/min_wildcards.yml
+- modules/min_tab_auto.yml
+- modules/min_tab.yml
+- modules/min_metakeys.yml
+- modules/min_log_backend.yml
+- modules/min_history.yml
+- modules/min_help_all.yml
+- modules/min_help.yml
+- modules/min_colors.yml
+- modules/min_cmds_select.yml
 - modules/min_cmds_resize.yml
 - modules/min_cmds_all.yml
 - modules/min_cmds.yml
 - modules/min.yml
 - modules/mgmt.yml
 - modules/mfd.yml
+- modules/message_queue_usage.yml
 - modules/message_queue.yml
 - modules/mesh.yml
 - modules/memory_slabs.yml
+- modules/memory_slab.yml
 - modules/memory_protection.yml
+- modules/memory_heap_no_multithreading.yml
 - modules/memory_heap.yml
 - modules/memc.yml
 - modules/mem_blocks.yml
@@ -28,6 +47,7 @@ __load__:
 - modules/mailbox.yml
 - modules/lwm2m.yml
 - modules/lorawan.yml
+- modules/logging_backend.yml
 - modules/logging.yml
 - modules/logger.yml
 - modules/log_syst.yml
@@ -55,21 +75,6 @@ __load__:
 - modules/log_msg.yml
 - modules/log_links.yml
 - modules/log_link_order.yml
-- modules/log_immediate.yml
-- modules/log_custom_header.yml
-- modules/log_cache.yml
-- modules/log_benchmark_user.yml
-- modules/log_benchmark_speed.yml
-- modules/log_benchmark.yml
-- modules/log_backend_initialization.yml
-- modules/log_backend_fs.yml
-- modules/log_api_immediate_static_filter_cpp.yml
-- modules/log_api_immediate_static_filter.yml
-- modules/log_api_immediate_rt_filter_cpp.yml
-- modules/log_api_immediate_rt_filter.yml
-- modules/log_api_immediate_printk_cpp.yml
-- modules/log_api_immediate_printk.yml
-- modules/log_api_immediate_cpp.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

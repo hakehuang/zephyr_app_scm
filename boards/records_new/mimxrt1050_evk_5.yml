@@ -1,34 +1,8 @@
 ---
 settings:
   case_pipe_name: "mimxrt1050_evk_5"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
-- modules/shell.yml
-- modules/shared_multi_heap.yml
-- modules/settings.yml
-- modules/sensor.yml
-- modules/semaphore.yml
-- modules/sdmmc.yml
-- modules/sdhc.yml
-- modules/scheduler.yml
-- modules/sbs_gauge_new_api.yml
-- modules/rtu.yml
-- modules/rtio.yml
-- modules/rtc.yml
-- modules/route_mcast.yml
-- modules/route.yml
-- modules/riscv.yml
-- modules/ring_buffer_concurrent.yml
-- modules/ring_buffer.yml
-- modules/retained_mem.yml
-- modules/regulator.yml
-- modules/red_black_tree.yml
-- modules/recovery.yml
-- modules/rand32.yml
-- modules/radio_test.yml
-- modules/queue.yml
-- modules/qemu_x86.yml
-- modules/pytest.yml
 - modules/pwm.yml
 - modules/ptp.yml
 - modules/psa_crypto.yml
@@ -52,6 +26,38 @@ __load__:
 - modules/pkt_filter.yml
 - modules/pipe.yml
 - modules/pinctrl.yml
+- modules/packet.yml
+- modules/p4wq.yml
+- modules/overlays.yml
+- modules/osdesc.yml
+- modules/os.yml
+- modules/openthread.yml
+- modules/onoff.yml
+- modules/offload.yml
+- modules/objects.yml
+- modules/nvs_cache.yml
+- modules/nvs_0x00.yml
+- modules/nvs.yml
+- modules/nrf52_bsim.yml
+- modules/notifications.yml
+- modules/no-mt.yml
+- modules/neighbour.yml
+- modules/neighbor.yml
+- modules/native_posix_64.yml
+- modules/native_posix.yml
+- modules/mutex_error_case.yml
+- modules/mutex.yml
+- modules/multiprocessing.yml
+- modules/multifs.yml
+- modules/multicore.yml
+- modules/mqtt_sn.yml
+- modules/mqtt.yml
+- modules/mpu_regions.yml
+- modules/mpu.yml
+- modules/mpsc_pbuf_concurrent.yml
+- modules/mpsc_pbuf.yml
+- modules/modules.yml
+- modules/modem.yml
 - skips/mimxrt1050_evk.yml
 - boards/mimxrt1050_evk.yml
 cases:

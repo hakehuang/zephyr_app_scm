@@ -1,14 +1,14 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso54114_m4_7"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
 - modules/ztest.yml
 - modules/zbus.yml
 - modules/x86.yml
 - modules/workqueue.yml
+- modules/work.yml
 - modules/winstream.yml
-- modules/wifi.yml
 - modules/watchdog.yml
 - modules/w1.yml
 - modules/vlan.yml
@@ -20,8 +20,8 @@ __load__:
 - modules/uuid.yml
 - modules/util.yml
 - modules/userspace.yml
+- modules/user_defined.yml
 - modules/usage.yml
-- modules/uoscore.yml
 - modules/uefi.yml
 - modules/udp.yml
 - modules/udc.yml
@@ -30,6 +30,29 @@ __load__:
 - modules/twister.yml
 - modules/trickle.yml
 - modules/transport.yml
+- modules/traffic_class.yml
+- modules/tracing.yml
+- modules/tls_credentials.yml
+- modules/tinycrypt.yml
+- modules/timestamp.yml
+- modules/timer.yml
+- modules/time_units.yml
+- modules/time.yml
+- modules/thrift.yml
+- modules/threads.yml
+- modules/tfm_ipc.yml
+- modules/tfm.yml
+- modules/testsuite.yml
+- modules/testing.yml
+- modules/test_load_store.yml
+- modules/test_calculation.yml
+- modules/tensorflow.yml
+- modules/system.yml
+- modules/syscon.yml
+- modules/syscall_performances.yml
+- modules/sys_util.yml
+- modules/subsys.yml
+- modules/stream_flash.yml
 - skips/lpcxpresso54114_m4.yml
 - boards/lpcxpresso54114_m4.yml
 cases:

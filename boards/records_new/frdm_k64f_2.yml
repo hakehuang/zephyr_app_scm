@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_k64f_2"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
 - modules/host.yml
 - modules/history.yml
@@ -15,7 +15,6 @@ __load__:
 - modules/hash.yml
 - modules/gui.yml
 - modules/gpio.yml
-- modules/generic_test.yml
 - modules/general.yml
 - modules/gatt.yml
 - modules/futex.yml
@@ -31,7 +30,6 @@ __load__:
 - modules/fcb.yml
 - modules/fat.yml
 - modules/fail.yml
-- modules/ext2.yml
 - modules/events.yml
 - modules/eth_ivshmem_queue.yml
 - modules/eth_bridge.yml
@@ -52,7 +50,6 @@ __load__:
 - modules/devmem_load.yml
 - modules/devicetree.yml
 - modules/device_runtime.yml
-- modules/device_driver_init.yml
 - modules/device-wakeup-api.yml
 - modules/device.yml
 - modules/desc_sections.yml

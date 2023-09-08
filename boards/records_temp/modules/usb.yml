@@ -31,9 +31,6 @@ cases:
     path: samples/subsys/usb/cdc_acm_composite
     catalog: usb
     depends_on: usb_device
-    platform_exclude:
-    - nucleo_f429zi
-    - nucleo_f207zg
     arch_exclude: posix
   sample.usb.console:
     path: samples/subsys/usb/console
@@ -65,6 +62,7 @@ cases:
     - frdm_kl25z
     - lpcxpresso55s69_cpu0
     - stm32l562e_dk_ns
+    - rd_rw612_bga
     depends_on: usb_device
     filter: dt_label_with_parent_compat_enabled("slot0_partition", "fixed-partitions")
       and dt_label_with_parent_compat_enabled("slot1_partition", "fixed-partitions")
@@ -83,6 +81,13 @@ cases:
   sample.usb.hid:
     path: samples/subsys/usb/hid
     catalog: usb
+    depends_on: usb_device
+    arch_exclude: posix
+  sample.usb.hid_composite:
+    path: samples/subsys/usb/hid
+    catalog: usb
+    extra_configs:
+    - CONFIG_USB_COMPOSITE_DEVICE=y
     depends_on: usb_device
     arch_exclude: posix
   sample.usb.hid.buildonly:

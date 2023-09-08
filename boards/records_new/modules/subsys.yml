@@ -17,13 +17,7 @@ cases:
     path: samples/subsys/ipc/openamp_rsc_table
     catalog: ipm
     build_only: true
-    platform_allow:
-    - stm32mp157c_dk2
-    - nxp_adsp_imx8m
-  sample.subsys.sensing.simple:
-    path: samples/subsys/sensing/simple
-    catalog: sensing
-    platform_allow: native_posix
+    platform_allow: stm32mp157c_dk2
   sample.subsys.settings:
     path: samples/subsys/settings
     catalog: settings
@@ -31,19 +25,10 @@ cases:
     - qemu_x86
     - native_posix
     - native_posix_64
-    - mr_canhubk3
   sample.subsys.task_wdt:
     path: samples/subsys/task_wdt
     catalog: subsys
     depends_on: watchdog
-    platform_exclude: &1
+    platform_exclude:
     - s32z270dc2_rtu0_r52
     - s32z270dc2_rtu1_r52
-  sample.subsys.task_wdt.no_hw_fallback:
-    path: samples/subsys/task_wdt
-    catalog: subsys
-    extra_args: CONF_FILE="prj_no_hw_fallback.conf"
-    platform_allow:
-    - mr_canhubk3
-    depends_on: watchdog
-    platform_exclude: *1

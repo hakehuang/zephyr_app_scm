@@ -1,0 +1,83 @@
+---
+settings:
+  case_pipe_name: "rd_rw612_bga_a1_4"
+  version: zephyr-v3.4.0-130-g65c5909629
+__load__:
+- modules/modbus.yml
+- modules/mmc.yml
+- modules/mm.yml
+- modules/mld.yml
+- modules/mipi_dsi.yml
+- modules/minimal.yml
+- modules/min_wildcards.yml
+- modules/min_tab_auto.yml
+- modules/min_tab.yml
+- modules/min_metakeys.yml
+- modules/min_log_backend.yml
+- modules/min_history.yml
+- modules/min_help_all.yml
+- modules/min_help.yml
+- modules/min_colors.yml
+- modules/min_cmds_select.yml
+- modules/min_cmds_resize.yml
+- modules/min_cmds_all.yml
+- modules/min_cmds.yml
+- modules/min.yml
+- modules/mgmt.yml
+- modules/mfd.yml
+- modules/message_queue_usage.yml
+- modules/message_queue.yml
+- modules/mesh.yml
+- modules/memory_slabs.yml
+- modules/memory_slab.yml
+- modules/memory_protection.yml
+- modules/memory_heap_no_multithreading.yml
+- modules/memory_heap.yml
+- modules/memc.yml
+- modules/mem_blocks.yml
+- modules/mec172xevb_assy6906.yml
+- modules/mec15xxevb_assy6853.yml
+- modules/mcumgr.yml
+- modules/mcuboot.yml
+- modules/mbedtls.yml
+- modules/max17048.yml
+- modules/math.yml
+- modules/management.yml
+- modules/main.yml
+- modules/mailbox.yml
+- modules/lwm2m.yml
+- modules/lorawan.yml
+- modules/logging_backend.yml
+- modules/logging.yml
+- modules/logger.yml
+- modules/log_syst.yml
+- modules/log_switch_format.yml
+- modules/log_stress_no_overflow.yml
+- modules/log_stress_light_no_overflow.yml
+- modules/log_stress_light.yml
+- modules/log_stress.yml
+- modules/log_stack_immediate_no_opt.yml
+- modules/log_stack_immediate_cpp_no_opt.yml
+- modules/log_stack_immediate_cpp.yml
+- modules/log_stack_immediate.yml
+- modules/log_stack_deferred_no_opt.yml
+- modules/log_stack_deferred_cpp_no_opt.yml
+- modules/log_stack_deferred_cpp.yml
+- modules/log_stack_deferred.yml
+- modules/log_output_ts64.yml
+- modules/log_output_default_timestamp.yml
+- modules/log_output_custom_timestamp.yml
+- modules/log_output.yml
+- modules/log_msg_no_overflow.yml
+- modules/log_msg_fp_64b_timestamp.yml
+- modules/log_msg_fp.yml
+- modules/log_msg_64b_timestamp.yml
+- modules/log_msg.yml
+- modules/log_links.yml
+- modules/log_link_order.yml
+- skips/rd_rw612_bga_a1.yml
+- boards/rd_rw612_bga_a1.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

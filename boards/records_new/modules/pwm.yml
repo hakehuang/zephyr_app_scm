@@ -105,12 +105,6 @@ cases:
     catalog: pwm_test
     platform_allow: qemu_cortex_m3
     build_only: true
-  drivers.pwm.max31790.build:
-    path: tests/drivers/build_all/pwm
-    catalog: pwm_max31790
-    extra_args: DTC_OVERLAY_FILE=max31790.overlay
-    platform_allow: nucleo_f429zi
-    build_only: true
   drivers.pwm:
     path: tests/drivers/pwm/pwm_api
     catalog:
@@ -118,7 +112,7 @@ cases:
     - pwm
     - userspace
     filter: dt_alias_exists("pwm-0") or dt_alias_exists("pwm-1") or dt_alias_exists("pwm-2")
-      or dt_alias_exists("pwm-3") or dt_compat_enabled("st,stm32-pwm") or dt_compat_enabled("intel,blinky-pwm")
+      or dt_alias_exists("pwm-3") or dt_compat_enabled("st,stm32-pwm")
     depends_on: pwm
   drivers.pwm.loopback:
     path: tests/drivers/pwm/pwm_loopback

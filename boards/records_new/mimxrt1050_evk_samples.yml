@@ -1,13 +1,12 @@
 ---
 settings:
   case_pipe_name: "mimxrt1050_evk_samples"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
 - modules/tcp.yml
 - modules/offloaded_netdev.yml
 - modules/net.yml
 - modules/ethernet.yml
-- modules/code_relocation_kinetis.yml
 - skips/mimxrt1050_evk.yml
 - boards/mimxrt1050_evk.yml
 cases:

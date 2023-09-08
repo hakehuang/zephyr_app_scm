@@ -1,8 +1,13 @@
 ---
 settings:
   case_pipe_name: "${@board}_5"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
+- modules/pwm.yml
+- modules/ptp.yml
+- modules/psa_crypto.yml
+- modules/promisc.yml
+- modules/privacy.yml
 - modules/prf.yml
 - modules/ppp.yml
 - modules/powers_of_two.yml
@@ -40,6 +45,7 @@ __load__:
 - modules/neighbor.yml
 - modules/native_posix_64.yml
 - modules/native_posix.yml
+- modules/mutex_error_case.yml
 - modules/mutex.yml
 - modules/multiprocessing.yml
 - modules/multifs.yml
@@ -52,22 +58,6 @@ __load__:
 - modules/mpsc_pbuf.yml
 - modules/modules.yml
 - modules/modem.yml
-- modules/modbus.yml
-- modules/mmc.yml
-- modules/mm.yml
-- modules/mld.yml
-- modules/mipi_dsi.yml
-- modules/minimal.yml
-- modules/min_wildcards.yml
-- modules/min_tab_auto.yml
-- modules/min_tab.yml
-- modules/min_metakeys.yml
-- modules/min_log_backend.yml
-- modules/min_history.yml
-- modules/min_help_all.yml
-- modules/min_help.yml
-- modules/min_colors.yml
-- modules/min_cmds_select.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

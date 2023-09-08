@@ -27,8 +27,8 @@
       }
       script {
         echo test_#{ll}_#{kk}_result
-        myCustomMeasurementFields = ['results_info' : ['board_name': '#{@board}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
-        mycustomDataMapTags = ['results_info' :['board_name': '#{@board}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
+        myCustomMeasurementFields = ['results_info' : ['board_name': '#{@report_board_name}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
+        mycustomDataMapTags = ['results_info' :['board_name': '#{@report_board_name}', 'app_name': '#{k}', 'result': test_#{ll}_#{kk}_result, 'version': '#{@version}']]
         influxDbPublisher(selectedTarget: 'influxdb', customDataMap: myCustomMeasurementFields, customDataMapTags: mycustomDataMapTags)
       }
    }

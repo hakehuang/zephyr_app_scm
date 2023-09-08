@@ -12,14 +12,9 @@ cases:
     catalog:
     - drivers
     - can
-    extra_args: DTC_OVERLAY_FILE=twai-enable.overlay
+    extra_args: DTC_OVERLAY_FILE="twai-enable.overlay"
     filter: dt_compat_enabled("espressif,esp32-twai")
-    platform_allow:
-    - esp32_devkitc_wroom
-    - esp32c3_devkitm
-    - esp32s2_saola
-    - esp32s3_devkitm
-    - xiao_esp32s3
+    platform_allow: esp32c3_devkitm
   drivers.can.shell:
     path: tests/drivers/can/shell
     catalog:

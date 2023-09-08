@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "${@board}_6"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
 - modules/stm32_clock_configuration.yml
 - modules/states.yml
@@ -40,15 +40,10 @@ __load__:
 - modules/red_black_tree.yml
 - modules/recovery.yml
 - modules/rand32.yml
-- modules/radio_test.yml
+- modules/radio.yml
 - modules/queue.yml
 - modules/qemu_x86.yml
 - modules/pytest.yml
-- modules/pwm.yml
-- modules/ptp.yml
-- modules/psa_crypto.yml
-- modules/promisc.yml
-- modules/privacy.yml
 - skips/${@board}.yml
 - boards/${@board}.yml
 cases:

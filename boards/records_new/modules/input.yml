@@ -4,22 +4,6 @@ cases:
     path: samples/subsys/input/input_dump
     catalog: input
     build_only: true
-  drivers.input.default:
-    path: tests/drivers/build_all/input
-    catalog: &1
-    - drivers
-    - input
-    build_only: true
-    platform_allow: native_posix
-  drivers.input.touchscreen_interrupt:
-    path: tests/drivers/build_all/input
-    catalog: *1
-    extra_configs:
-    - CONFIG_INPUT_CST816S_INTERRUPT=n
-    - CONFIG_INPUT_FT5336_INTERRUPT=y
-    - CONFIG_INPUT_GT911_INTERRUPT=y
-    build_only: true
-    platform_allow: native_posix
   drivers.input.gpio_keys:
     path: tests/drivers/input/gpio_keys
     catalog:

@@ -19,19 +19,6 @@ cases:
     extra_configs:
     - CONFIG_TEST_HW_STACK_PROTECTION=n
     platform_allow: nsim_sem_mpu_stack_guard
-  kernel.workqueue.user:
-    path: tests/kernel/workq/user_work
-    catalog:
-    - kernel
-    - userspace
-    - workqueue
-    min_flash: 34
-    filter: CONFIG_ARCH_HAS_USERSPACE
-  kernel.workqueue.api:
-    path: tests/kernel/workq/work
-    catalog: kernel
-    min_flash: 34
-    platform_exclude: hifive1
   kernel.workqueue:
     path: tests/kernel/workq/work_queue
     catalog:

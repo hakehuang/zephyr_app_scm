@@ -1,0 +1,8 @@
+# Copyright (c) 2022, NXP
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_RDRW612BGA_EVK
+	bool "NXP RW612BGA-EVK"
+	depends on SOC_SERIES_RW6XX
+	select SOC_PART_NUMBER_RW612ETA1I
+	select NXP_RW6XX_BOOT_HEADER if !BOOTLOADER_MCUBOOT

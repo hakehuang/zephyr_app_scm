@@ -84,6 +84,7 @@ cases:
     - qemu_x86
     - nrf51dk_nrf51422
     - nrf52dk_nrf52832
+    - rd_rw612_bga
   sample.bluetooth.central_iso:
     path: samples/bluetooth/central_iso
     catalog: bluetooth
@@ -287,11 +288,6 @@ cases:
     - CONF_FILE="nrf5340_cpunet_df-bt_ll_sw_split.conf"
     - DTC_OVERLAY_FILE="nrf5340_cpunet_df-bt_ll_sw_split.overlay"
     platform_allow: nrf5340dk_nrf5340_cpunet
-  sample.bluetooth.hci_rpmsg.mesh.bt_ll_sw_split:
-    path: samples/bluetooth/hci_rpmsg
-    catalog: bluetooth
-    extra_args: CONF_FILE="nrf5340_cpunet_bt_mesh-bt_ll_sw_split.conf"
-    platform_allow: nrf5340dk_nrf5340_cpunet
   sample.bluetooth.hci_spi:
     path: samples/bluetooth/hci_spi
     catalog:
@@ -461,7 +457,6 @@ cases:
     - bbc_microbit
     - qemu_x86
     - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp_ns
   sample.bluetooth.mesh_demo:
     path: samples/bluetooth/mesh_demo
     catalog: bluetooth
@@ -469,14 +464,12 @@ cases:
     - bbc_microbit
     - qemu_x86
     - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp_ns
   sample.bluetooth.mesh_provisioner:
     path: samples/bluetooth/mesh_provisioner
     catalog: bluetooth
     platform_allow:
     - qemu_x86
     - nrf52840dk_nrf52840
-    - nrf5340dk_nrf5340_cpuapp_ns
   sample.bluetooth.central_mtu_update:
     path: samples/bluetooth/mtu_update/central
     catalog: bluetooth
@@ -592,6 +585,7 @@ cases:
     platform_allow:
     - qemu_cortex_m3
     - qemu_x86
+    - rd_rw612_bga
   sample.bluetooth.peripheral_esp:
     path: samples/bluetooth/peripheral_esp
     catalog: bluetooth
@@ -639,6 +633,7 @@ cases:
     - qemu_x86
     - nrf51dk_nrf51422
     - nrf52dk_nrf52832
+    - rd_rw612_bga
   sample.bluetooth.peripheral_ht.frdm_kw41z_shield:
     path: samples/bluetooth/peripheral_ht
     catalog: bluetooth
@@ -665,6 +660,7 @@ cases:
     platform_allow:
     - qemu_cortex_m3
     - qemu_x86
+    - rd_rw612_bga
   sample.bluetooth.peripheral_past:
     path: samples/bluetooth/peripheral_past
     catalog: bluetooth
@@ -687,14 +683,6 @@ cases:
     path: samples/bluetooth/st_ble_sensor
     catalog: bluetooth
     platform_allow: nucleo_wb55rg
-  sample.bluetooth.tmap_bmr:
-    path: samples/bluetooth/tmap_bmr
-    catalog: bluetooth
-    platform_allow: qemu_cortex_m3 qemu_x86
-  sample.bluetooth.tmap_bms:
-    path: samples/bluetooth/tmap_bms
-    catalog: bluetooth
-    platform_allow: qemu_cortex_m3 qemu_x86
   sample.bluetooth.tmap_central:
     path: samples/bluetooth/tmap_central
     catalog: bluetooth

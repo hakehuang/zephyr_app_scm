@@ -52,19 +52,15 @@ cases:
   sample.board.esp32:
     path: samples/boards/esp32/flash_encryption
     catalog: esp32
-    platform_allow: esp32_devkitc_wroom
+    platform_allow: esp32
   sample.board.esp32.spiram:
     path: samples/boards/esp32/spiram_test
     catalog: esp32
-    platform_allow: esp32_devkitc_wrover
+    platform_allow: esp32
   sample.board.google_kukui:
     path: samples/boards/google_kukui
     catalog: ec
     platform_allow: google_kukui
-  sample.board.google_twinkie_v2:
-    path: samples/boards/google_twinkie_v2_pda
-    catalog: usb
-    platform_allow: google_twinkie_v2
   sample.board.mec15xxevb_assy6853.pm:
     path: samples/boards/mec15xxevb_assy6853/power_management
     catalog:

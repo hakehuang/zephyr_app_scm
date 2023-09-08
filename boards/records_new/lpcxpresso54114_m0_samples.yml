@@ -1,13 +1,12 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso54114_m0_samples"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
 - modules/tcp.yml
 - modules/offloaded_netdev.yml
 - modules/net.yml
 - modules/ethernet.yml
-- modules/code_relocation_kinetis.yml
 - skips/lpcxpresso54114_m0.yml
 - boards/lpcxpresso54114_m0.yml
 cases:

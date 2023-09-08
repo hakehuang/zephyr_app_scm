@@ -1,0 +1,16 @@
+---
+settings:
+  case_pipe_name: "rd_rw612_bga_a1_usb"
+  version: zephyr-v3.4.0-130-g65c5909629
+__load__:
+- modules/usbh.yml
+- modules/usbd.yml
+- modules/usbc.yml
+- modules/usb_device_next.yml
+- modules/usb.yml
+- skips/rd_rw612_bga_a1.yml
+- boards/rd_rw612_bga_a1.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

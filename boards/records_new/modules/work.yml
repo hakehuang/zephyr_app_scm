@@ -1,0 +1,14 @@
+---
+cases:
+  kernel.work.user:
+    path: tests/kernel/workq/user_work
+    catalog:
+    - kernel
+    - userspace
+    min_flash: 34
+    filter: CONFIG_ARCH_HAS_USERSPACE
+  kernel.work.api:
+    path: tests/kernel/workq/work
+    catalog: kernel
+    min_flash: 34
+    platform_exclude: hifive1

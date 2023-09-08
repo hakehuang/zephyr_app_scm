@@ -1,39 +1,8 @@
 ---
 settings:
   case_pipe_name: "mimxrt1170_evk_cm7_4"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
-- modules/packet.yml
-- modules/p4wq.yml
-- modules/overlays.yml
-- modules/osdesc.yml
-- modules/os.yml
-- modules/openthread.yml
-- modules/onoff.yml
-- modules/offload.yml
-- modules/objects.yml
-- modules/nvs_cache.yml
-- modules/nvs_0x00.yml
-- modules/nvs.yml
-- modules/nrf52_bsim.yml
-- modules/notifications.yml
-- modules/no-mt.yml
-- modules/neighbour.yml
-- modules/neighbor.yml
-- modules/native_posix_64.yml
-- modules/native_posix.yml
-- modules/mutex.yml
-- modules/multiprocessing.yml
-- modules/multifs.yml
-- modules/multicore.yml
-- modules/mqtt_sn.yml
-- modules/mqtt.yml
-- modules/mpu_regions.yml
-- modules/mpu.yml
-- modules/mpsc_pbuf_concurrent.yml
-- modules/mpsc_pbuf.yml
-- modules/modules.yml
-- modules/modem.yml
 - modules/modbus.yml
 - modules/mmc.yml
 - modules/mm.yml
@@ -56,10 +25,13 @@ __load__:
 - modules/min.yml
 - modules/mgmt.yml
 - modules/mfd.yml
+- modules/message_queue_usage.yml
 - modules/message_queue.yml
 - modules/mesh.yml
 - modules/memory_slabs.yml
+- modules/memory_slab.yml
 - modules/memory_protection.yml
+- modules/memory_heap_no_multithreading.yml
 - modules/memory_heap.yml
 - modules/memc.yml
 - modules/mem_blocks.yml
@@ -75,6 +47,7 @@ __load__:
 - modules/mailbox.yml
 - modules/lwm2m.yml
 - modules/lorawan.yml
+- modules/logging_backend.yml
 - modules/logging.yml
 - modules/logger.yml
 - modules/log_syst.yml
@@ -102,21 +75,6 @@ __load__:
 - modules/log_msg.yml
 - modules/log_links.yml
 - modules/log_link_order.yml
-- modules/log_immediate.yml
-- modules/log_custom_header.yml
-- modules/log_cache.yml
-- modules/log_benchmark_user.yml
-- modules/log_benchmark_speed.yml
-- modules/log_benchmark.yml
-- modules/log_backend_initialization.yml
-- modules/log_backend_fs.yml
-- modules/log_api_immediate_static_filter_cpp.yml
-- modules/log_api_immediate_static_filter.yml
-- modules/log_api_immediate_rt_filter_cpp.yml
-- modules/log_api_immediate_rt_filter.yml
-- modules/log_api_immediate_printk_cpp.yml
-- modules/log_api_immediate_printk.yml
-- modules/log_api_immediate_cpp.yml
 - skips/mimxrt1170_evk_cm7.yml
 - boards/mimxrt1170_evk_cm7.yml
 cases:

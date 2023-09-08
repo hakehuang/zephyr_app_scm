@@ -729,6 +729,16 @@ cases:
     extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
     depends_on: netif usb_device
     min_flash: 140
+  sample.net.sockets.echo_server.usbnet_composite:
+    path: samples/net/sockets/echo_server
+    catalog:
+    - net
+    - usb
+    extra_configs:
+    - CONFIG_USB_COMPOSITE_DEVICE=y
+    extra_args: OVERLAY_CONFIG="overlay-netusb.conf"
+    depends_on: netif usb_device
+    min_flash: 140
   sample.net.sockets.echo_server.nrf_openthread:
     path: samples/net/sockets/echo_server
     catalog:
@@ -1068,16 +1078,6 @@ cases:
     - native_posix
     - native_posix_64
     - sam_e70_xplained
-    min_ram: 64
-  sample.net.zperf_st:
-    path: samples/net/zperf
-    catalog: *16
-    platform_allow:
-    - nucleo_h563zi
-    - nucleo_h743zi
-    - nucleo_f429zi
-    - nucleo_f746zg
-    platform_exclude: *17
     min_ram: 64
   sample.net.zperf_no_shell:
     path: samples/net/zperf

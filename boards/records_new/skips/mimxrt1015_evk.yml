@@ -18,3 +18,24 @@ cases:
   net.socket.socketpair:
     result: skip
     comments: "code size issue"
+  kernel.timer.timer:
+    result: skip
+    commnets: "pm wakeup not support"
+  kernel.timer:
+    result: skip
+    commnets: "pm wakeup not support"
+  kernel.timer.tickless:
+    result: skip
+    commnets: "pm wakeup not support"
+  kernel.timer.no_multitheading:
+    result: skip
+    commnets: "pm wakeup not support"
+  kernel.usage:
+    result: skip
+    commnets: "pm wakeup not support"
+  pm.device_runtime.api:
+    result: skip
+    commnets: "pm wakeup not support"
+  kernel.tickless.concept:
+    result: skip
+    commnets: "pm wakeup not support"

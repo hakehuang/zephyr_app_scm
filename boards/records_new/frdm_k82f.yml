@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_k82f"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
 - modules/core.yml
 - modules/controller.yml
@@ -10,11 +10,9 @@ __load__:
 - modules/conn_mgr_nodad.yml
 - modules/conn_mgr_dad.yml
 - modules/conn_mgr_conn.yml
-- modules/config_dir.yml
 - modules/condvar.yml
 - modules/compression.yml
 - modules/common.yml
-- modules/code_relocation.yml
 - modules/coap.yml
 - modules/clock.yml
 - modules/check_init_priorities.yml
@@ -49,6 +47,7 @@ __load__:
 - modules/basicmath.yml
 - modules/basic.yml
 - modules/base64.yml
+- modules/backends.yml
 - modules/audio_shell.yml
 - modules/audio.yml
 - modules/at.yml

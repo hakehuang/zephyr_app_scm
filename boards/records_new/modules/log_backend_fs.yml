@@ -11,7 +11,6 @@ cases:
     - native_posix
     - native_posix_64
     - nrf52840dk_nrf52840
-    - mr_canhubk3
   logging.log_backend_fs.manualmounted.native_posix:
     path: tests/subsys/logging/log_backend_fs
     catalog: *1
@@ -27,8 +26,3 @@ cases:
     catalog: *1
     extra_args: DTC_OVERLAY_FILE="./boards/nrf52840dk_nrf52840.overlay;./boards/automount.overlay"
     platform_allow: nrf52840dk_nrf52840
-  logging.log_backend_fs.manualmounted.mr_canhubk3:
-    path: tests/subsys/logging/log_backend_fs
-    catalog: *1
-    extra_args: DTC_OVERLAY_FILE="./boards/mr_canhubk3.overlay;./boards/automount.overlay"
-    platform_allow: mr_canhubk3

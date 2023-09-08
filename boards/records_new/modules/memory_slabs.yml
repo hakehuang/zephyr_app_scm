@@ -10,7 +10,7 @@ cases:
     catalog:
     - kernel
     - memory_slabs
-  kernel.memory_slabs.api.no-mt:
+  kernel.memory_slabs.api_no_multithreading:
     path: tests/kernel/mem_slab/mslab_api
     catalog:
     - kernel
@@ -35,11 +35,6 @@ cases:
   kernel.memory_slabs.concept:
     path: tests/kernel/mem_slab/mslab_concept
     catalog: kernel
-  kernel.memory_slabs.stats:
-    path: tests/kernel/mem_slab/mslab_stats
-    catalog:
-    - kernel
-    - memory slabs
   kernel.memory_slabs.threadsafe:
     path: tests/kernel/mem_slab/mslab_threadsafe
     catalog: kernel

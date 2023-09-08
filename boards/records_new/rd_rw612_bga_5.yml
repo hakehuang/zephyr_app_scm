@@ -1,0 +1,66 @@
+---
+settings:
+  case_pipe_name: "rd_rw612_bga_5"
+  version: zephyr-v3.4.0-130-g65c5909629
+__load__:
+- modules/pwm.yml
+- modules/ptp.yml
+- modules/psa_crypto.yml
+- modules/promisc.yml
+- modules/privacy.yml
+- modules/prf.yml
+- modules/ppp.yml
+- modules/powers_of_two.yml
+- modules/power_domain.yml
+- modules/power.yml
+- modules/posix.yml
+- modules/portability.yml
+- modules/poll.yml
+- modules/policy.yml
+- modules/pm.yml
+- modules/pl022_spi_interrupt.yml
+- modules/pl022_spi_dma_no_dma_props.yml
+- modules/pl022_spi_dma_and_interrupt_no_dma_props.yml
+- modules/pl022_spi_dma_and_interrupt.yml
+- modules/pl022_spi_dma.yml
+- modules/pkt_filter.yml
+- modules/pipe.yml
+- modules/pinctrl.yml
+- modules/packet.yml
+- modules/p4wq.yml
+- modules/overlays.yml
+- modules/osdesc.yml
+- modules/os.yml
+- modules/openthread.yml
+- modules/onoff.yml
+- modules/offload.yml
+- modules/objects.yml
+- modules/nvs_cache.yml
+- modules/nvs_0x00.yml
+- modules/nvs.yml
+- modules/nrf52_bsim.yml
+- modules/notifications.yml
+- modules/no-mt.yml
+- modules/neighbour.yml
+- modules/neighbor.yml
+- modules/native_posix_64.yml
+- modules/native_posix.yml
+- modules/mutex_error_case.yml
+- modules/mutex.yml
+- modules/multiprocessing.yml
+- modules/multifs.yml
+- modules/multicore.yml
+- modules/mqtt_sn.yml
+- modules/mqtt.yml
+- modules/mpu_regions.yml
+- modules/mpu.yml
+- modules/mpsc_pbuf_concurrent.yml
+- modules/mpsc_pbuf.yml
+- modules/modules.yml
+- modules/modem.yml
+- skips/rd_rw612_bga.yml
+- boards/rd_rw612_bga.yml
+cases:
+  attribute: required
+  __common__:
+    attribute: required

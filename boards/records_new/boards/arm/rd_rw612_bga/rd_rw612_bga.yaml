@@ -1,0 +1,30 @@
+#
+# Copyright 2022 NXP
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+identifier: rd_rw612_bga
+name: NXP RD_RW612_BGA
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 1216
+flash: 62500
+supported:
+  - adc
+  - ble
+  - counter
+  - dma
+  - entropy
+  - gpio
+  - i2c
+  - i2s
+  - pwm
+  - spi
+  - usb_device
+  - watchdog
+

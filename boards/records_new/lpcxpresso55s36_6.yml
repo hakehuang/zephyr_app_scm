@@ -1,31 +1,8 @@
 ---
 settings:
   case_pipe_name: "lpcxpresso55s36_6"
-  version: zephyr-v3.4.0-2252-gd11c0a1664
+  version: zephyr-v3.4.0-130-g65c5909629
 __load__:
-- modules/traffic_class.yml
-- modules/tracing.yml
-- modules/tls_credentials.yml
-- modules/tinycrypt.yml
-- modules/timestamp.yml
-- modules/timer.yml
-- modules/time_units.yml
-- modules/time.yml
-- modules/thrift.yml
-- modules/threads.yml
-- modules/tfm_ipc.yml
-- modules/tfm.yml
-- modules/testsuite.yml
-- modules/testing.yml
-- modules/test_load_store.yml
-- modules/test_calculation.yml
-- modules/tensorflow.yml
-- modules/system.yml
-- modules/syscon.yml
-- modules/syscall_performances.yml
-- modules/sys_util.yml
-- modules/subsys.yml
-- modules/stream_flash.yml
 - modules/stm32_clock_configuration.yml
 - modules/states.yml
 - modules/stack.yml
@@ -41,6 +18,32 @@ __load__:
 - modules/smp.yml
 - modules/smf.yml
 - modules/smbus.yml
+- modules/shell.yml
+- modules/shared_multi_heap.yml
+- modules/settings.yml
+- modules/sensor.yml
+- modules/semaphore.yml
+- modules/sdmmc.yml
+- modules/sdhc.yml
+- modules/scheduler.yml
+- modules/sbs_gauge_new_api.yml
+- modules/rtu.yml
+- modules/rtio.yml
+- modules/rtc.yml
+- modules/route_mcast.yml
+- modules/route.yml
+- modules/riscv.yml
+- modules/ring_buffer_concurrent.yml
+- modules/ring_buffer.yml
+- modules/retained_mem.yml
+- modules/regulator.yml
+- modules/red_black_tree.yml
+- modules/recovery.yml
+- modules/rand32.yml
+- modules/radio.yml
+- modules/queue.yml
+- modules/qemu_x86.yml
+- modules/pytest.yml
 - skips/lpcxpresso55s36.yml
 - boards/lpcxpresso55s36.yml
 cases:
