@@ -33,6 +33,12 @@ def load_board_data(search_base, board_name, board_settings)
     boards_dtb = dtb_parse_file(board_dtb_file)
     board_info["dtb"] = boards_dtb
   end
+  overlay_board_dtb_file = File.join(search_base, "boards", "dts", "#{board_name}.overlay")
+  if File.exist?(overlay_board_dtb_file)
+    overlay_board_dtb = dtb_parse_file(overlay_board_dtb_file)
+    boards_dtb.deep_merge!(overlay_board_dtb)
+
+  end
   #puts board_info
   return board_info
 end
