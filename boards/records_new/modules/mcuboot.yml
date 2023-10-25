@@ -8,6 +8,7 @@ cases:
     - frdm_k64f
     - mimxrt1060_evk
     - nrf52840dk_nrf52840
+    sysbuild: true
   boot.mcuboot.assert:
     path: tests/boot/test_mcuboot
     catalog: mcuboot
@@ -15,6 +16,7 @@ cases:
     - CONFIG_ASSERT=y
     platform_allow:
     - b_u585i_iot02a
+    sysbuild: true
   bootloader.mcuboot.build:
     path: tests/misc/test_build
     catalog: mcuboot

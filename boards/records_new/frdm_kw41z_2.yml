@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "frdm_kw41z_2"
-  version: zephyr-v3.4.0-169-gaa0e5a3192
+  version: zephyr-v3.4.0-242-g4c90c3627f
 __load__:
 - modules/host.yml
 - modules/history.yml
@@ -67,6 +67,7 @@ __load__:
 - modules/cpp.yml
 - modules/counter.yml
 - modules/coredump.yml
+- modules/core.yml
 - skips/frdm_kw41z.yml
 - boards/frdm_kw41z.yml
 cases:

@@ -16,18 +16,18 @@ cases:
 #    comments: "build error #20205"
 #  peripheral.uart_async_api:
 #    comments: "USER FAULT and not harness keyboard"
-  crypto.rand32.random_hw_xoroshiro:
-    comments: "not hw in chip"
-  kernel.common.stack_sentinel:
-    comments: "no sentinel"
-  sample.net.sockets.echo_server.usbnet:
-    comments: "not support"
-  sample.net.sockets.echo_server.usbnet_composite:
-    comments: "not support"
-  sample.driver.i2c_fujitsu_fram:
-    comments: "not support"
-  sample.servo_motor:
-    comments: "not support"
+  # crypto.rand32.random_hw_xoroshiro:
+  #   comments: "not hw in chip"
+  # kernel.common.stack_sentinel:
+  #   comments: "no sentinel"
+  # sample.net.sockets.echo_server.usbnet:
+  #   comments: "not support"
+  # sample.net.sockets.echo_server.usbnet_composite:
+  #   comments: "not support"
+  # sample.driver.i2c_fujitsu_fram:
+  #   comments: "not support"
+  # sample.servo_motor:
+  #   comments: "not support"
   google_iot_mqtt:
     comments: "compilation error"
   #drivers.spi:
@@ -38,10 +38,8 @@ cases:
     comments: "not support"
   sample.basic.servo_motor:
     comments: "no motor"
-  drivers.pwm:
-    comments: "need add support"
-  boot.mcuboot:
-    comments: "need use sysbuild"
+  # drivers.pwm:
+  #   comments: "need add support"
   sample.modules.nanopb:
     comments: "need use nanopb_generator"
   net.virtual.tunnel.ip6ip:
@@ -52,17 +50,17 @@ cases:
     comments: "not support"
   net.virtual.tunnel.ipip6:
     comments: "not support"
-  kernel.timer.timer:
-    comments: "low power issue"
-  kernel.timer:
-    comments: "low power issue"
-  kernel.timer.tickless:
-    comments: "low power issue"
-  kernel.timer.no_multitheading:
-    comments: "low power issue"
-  kernel.usage:
-    comments: "low power issue"
-  pm.device_runtime.api:
-    comments: "low power issue"
-  kernel.tickless.concept:
-    comments: "low power issue"
+  # kernel.timer.timer:
+  #   comments: "low power issue"
+  # kernel.timer:
+  #   comments: "low power issue"
+  # kernel.timer.tickless:
+  #   comments: "low power issue"
+  # kernel.timer.no_multitheading:
+  #   comments: "low power issue"
+  # kernel.usage:
+  #   comments: "low power issue"
+  # pm.device_runtime.api:
+  #   comments: "low power issue"
+  # kernel.tickless.concept:
+  #   comments: "low power issue"

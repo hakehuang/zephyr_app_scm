@@ -2,6 +2,9 @@ __load__:
   - boards/common.yml
 
 settings:
-  build_script: build_zephyr_elf.sh
-  run_script: run_zephyr_elf.sh
-
+  build_script: build_zephyr_elf_twister.sh
+  run_script: run_zephyr_twister.sh
+  star_link:
+    ip: 10.192.244.74
+    port: 3000
+    drb_url: "druby://10.192.244.74:8787"

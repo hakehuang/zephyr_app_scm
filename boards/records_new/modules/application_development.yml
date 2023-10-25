@@ -9,6 +9,7 @@ cases:
   sample.application_development.sysbuild.with_mcuboot:
     path: samples/application_development/sysbuild/with_mcuboot
     catalog: mcuboot
+    sysbuild: true
     platform_allow:
     - reel_board
     - nrf52840dk_nrf52840

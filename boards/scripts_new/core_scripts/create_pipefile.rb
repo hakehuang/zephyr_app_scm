@@ -150,6 +150,13 @@ def create_pipefile_from_commandline(data, board_info: nil)
         options_array.insert(-1, "-D#{conf}")
       end
     end
+    if @content["cases"][key].has_key?("sysbuild")
+      options_array.insert(-1, "-Dsysbuild.conf")
+      options_array.insert(-1, "-DAPP_DIR=../")
+      options_array.insert(-1, "share/sysbuild")
+    else
+      options_array.insert(-1, "..")
+    end
     case_array.insert(-1, options_array.join(' ')) if options_array.length
     pipe_data[:catalog][catalog]['cases'][key] = {}
     if @content["cases"][key].has_key?("build_only") and @content["cases"][key]['build_only']
@@ -178,11 +185,17 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
   docker_name: "confident_sinoussi", template: "../../template/Jenkinsfile_template", board_info: nil)
   engine = Tenjin::Engine.new()
   @content = config
+  @use_star_link = False
 
   if board_info["settings"].has_key?("report_board_name")
     report_board_name =board_info["settings"]["report_board_name"]
   else
     report_board_name =  board_name
+  end
+
+  
+  if "star_link" in @content["settings"]
+    @use_star_link = True
   end
 
   pipe_data = {
@@ -213,7 +226,7 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     end
     pipe_data[:catalog][catalog] = {'cases' => {}} if pipe_data[:catalog][catalog].nil?
     case_array = [key, @content["cases"][key]['path']]
-    options_array = case_array
+    options_array = []
     if @content["cases"][key].has_key?("config")
       config_list = @content["cases"][key]['config'].split(";")
       config_files = ""
@@ -243,7 +256,13 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
       @content["cases"][key]["SPECIAL_BUILD_OPTIONS"].each do |conf|
         options_array.insert(-1, %Q[-D#{conf.gsub('"', '')}])
       end
-    end    
+    end
+    if @content["cases"][key].has_key?("sysbuild")
+      options_array.insert(-1, "-DAPP_DIR=../")
+      options_array.insert(-1, "share/sysbuild")
+    else
+      options_array.insert(-1, "..")
+    end
     case_array.insert(-1, options_array.join(' ')) if options_array.length
     pipe_data[:catalog][catalog]['cases'][key] = {}
     if @content["cases"][key].has_key?("build_only") and @content["cases"][key]['build_only']
@@ -256,7 +275,6 @@ def create_pipefile_from_config(config: "", board_name: "frdm_k64f", output_path
     if @content["cases"][key].has_key?("scripts")
       pipe_data[:catalog][catalog]['cases'][key]['scripts'] = @content["cases"][key]['scripts']
     end
-
     pipe_data[:catalog][catalog]['cases'][key]['opt'] = case_array
 
     if @content["cases"][key].has_key?("bin")

@@ -2,10 +2,13 @@
 require 'rubygems'
 require 'fileutils'
 require "logger"
+require 'shellwords'
 
 require_relative 'platform_config'
 
-output_base = Pathname.new(File.dirname(__FILE__)).realpath + "../"
+output_base = Pathname.new(File.join(File.dirname(__FILE__), "../"))
+
+output_base = output_base.relative_path_from(Pathname.new(File.dirname(__FILE__)))
 
 $log = Logger.new(STDOUT)
 $log.level = Logger::WARN

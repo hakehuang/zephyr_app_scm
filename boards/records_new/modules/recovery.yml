@@ -7,6 +7,7 @@ cases:
     - sysbuild
     - recovery
     platform_allow: nrf52840dk_nrf52840
+    sysbuild: true
   mcuboot.recovery.retention.mem:
     path: tests/boot/mcuboot_recovery_retention
     catalog:
@@ -17,3 +18,4 @@ cases:
     - '''OVERLAY_CONFIG="nrf52840dk_nrf52840_mem.conf"'''
     - '''DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840_mem.overlay"'''
     platform_allow: nrf52840dk_nrf52840
+    sysbuild: true

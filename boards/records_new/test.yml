@@ -35,6 +35,7 @@ cases:
   sample.application_development.sysbuild.with_mcuboot:
     path: samples/application_development/sysbuild/with_mcuboot
     catalog: mcuboot
+    sysbuild: true
     platform_allow:
     - reel_board
     - nrf52840dk_nrf52840
@@ -636,7 +637,9 @@ cases:
     depends_on:
     - usb_device
     - ble
-    platform_exclude: 96b_carbon
+    platform_exclude:
+    - 96b_carbon
+    - rd_rw612_bga
   sample.bluetooth.hci_usb.device_next:
     path: samples/bluetooth/hci_usb
     catalog:
@@ -655,7 +658,9 @@ cases:
     depends_on:
     - usb_device
     - ble
-    platform_exclude: 96b_carbon
+    platform_exclude:
+    - 96b_carbon
+    - rd_rw612_bga
   sample.bluetooth.ibeacon:
     path: samples/bluetooth/ibeacon
     catalog: bluetooth
@@ -1189,6 +1194,12 @@ cases:
     extra_args: DTC_OVERLAY_FILE="./vsi-and-psi.overlay"
     platform_allow: s32z270dc2_rtu0_r52
     depends_on: netif
+  sample.boards.rd_rw612_bga.nxp_mfg_bridge:
+    path: samples/boards/rd_rw612_bga/nxp_mfg_bridge
+    catalog: wifi
+    build_only: true
+    platform_allow:
+    - rd_rw612_bga
   sample.board.reel_board.mesh_badge:
     path: samples/boards/reel_board/mesh_badge
     catalog:
@@ -1431,6 +1442,7 @@ cases:
     - stm32f3_disco
     - stm32l562e_dk
     - twr_ke18f
+    - rd_rw612_bga
     depends_on: dac
   sample.display.shield.adafruit_2_8_tft_touch_v2:
     path: samples/drivers/display
@@ -1633,6 +1645,7 @@ cases:
     platform_allow:
     - lpcxpresso54114_m4
     - lpcxpresso55s69_cpu0
+    sysbuild: true
   sample.ipm.ipm_mcux.remote:
     path: samples/drivers/ipm/ipm_mcux/remote
     catalog: ipm
@@ -2093,6 +2106,7 @@ cases:
     path: samples/modules/canopennode
     catalog: *3
     extra_args: canopennode_CONF_FILE=prj_img_mgmt.conf
+    sysbuild: true
     platform_allow:
     - frdm_k64f
     - twr_ke18f
@@ -4213,6 +4227,7 @@ cases:
     - lpcxpresso55s69_cpu0
     - mps2_an521
     - v2m_musca_b1
+    sysbuild: true
   sample.ipc.openamp.remote:
     path: samples/subsys/ipc/openamp/remote
     catalog: ipm
@@ -8042,6 +8057,7 @@ cases:
     - sysbuild
     - recovery
     platform_allow: nrf52840dk_nrf52840
+    sysbuild: true
   mcuboot.recovery.retention.mem:
     path: tests/boot/mcuboot_recovery_retention
     catalog:
@@ -8052,6 +8068,7 @@ cases:
     - '''OVERLAY_CONFIG="nrf52840dk_nrf52840_mem.conf"'''
     - '''DTC_OVERLAY_FILE="boards/nrf52840dk_nrf52840_mem.overlay"'''
     platform_allow: nrf52840dk_nrf52840
+    sysbuild: true
   boot.mcuboot:
     path: tests/boot/test_mcuboot
     catalog: mcuboot
@@ -8060,6 +8077,7 @@ cases:
     - frdm_k64f
     - mimxrt1060_evk
     - nrf52840dk_nrf52840
+    sysbuild: true
   boot.mcuboot.assert:
     path: tests/boot/test_mcuboot
     catalog: mcuboot
@@ -8067,6 +8085,7 @@ cases:
     - CONFIG_ASSERT=y
     platform_allow:
     - b_u585i_iot02a
+    sysbuild: true
   boot.uefi:
     path: tests/boot/uefi
     catalog: uefi

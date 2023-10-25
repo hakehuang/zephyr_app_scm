@@ -358,7 +358,9 @@ cases:
     depends_on:
     - usb_device
     - ble
-    platform_exclude: 96b_carbon
+    platform_exclude:
+    - 96b_carbon
+    - rd_rw612_bga
   sample.bluetooth.hci_usb.device_next:
     path: samples/bluetooth/hci_usb
     catalog:
@@ -377,7 +379,9 @@ cases:
     depends_on:
     - usb_device
     - ble
-    platform_exclude: 96b_carbon
+    platform_exclude:
+    - 96b_carbon
+    - rd_rw612_bga
   sample.bluetooth.ibeacon:
     path: samples/bluetooth/ibeacon
     catalog: bluetooth

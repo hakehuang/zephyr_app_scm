@@ -16,6 +16,7 @@ cases:
     path: samples/modules/canopennode
     catalog: *1
     extra_args: canopennode_CONF_FILE=prj_img_mgmt.conf
+    sysbuild: true
     platform_allow:
     - frdm_k64f
     - twr_ke18f

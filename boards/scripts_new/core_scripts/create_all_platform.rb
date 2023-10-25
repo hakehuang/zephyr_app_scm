@@ -18,7 +18,7 @@ update the relase version here
 generator = %{ 
 require 'yml_merger'
 require 'pathname'
-require_relative 'core_scripts/create_pipefile'
+require_relative 'core_scripts/create_pipefile_west'
 require_relative 'core_scripts/create_report'
 require_relative 'core_scripts/zephyr_utils'
 
@@ -43,7 +43,7 @@ create_pipefile_from_config(config: merged_data, board_name: board_name, board_i
 generator_build_only = %{ 
 require 'yml_merger'
 require 'pathname'
-require_relative 'core_scripts/create_pipefile'
+require_relative 'core_scripts/create_pipefile_west'
 require_relative 'core_scripts/create_report'
 require_relative 'core_scripts/zephyr_utils'
 
@@ -67,7 +67,7 @@ create_pipefile_from_config(config: merged_data, board_name: board_name, templat
 generator_derived = %{ 
 require 'yml_merger'
 require 'pathname'
-require_relative 'core_scripts/create_pipefile'
+require_relative 'core_scripts/create_pipefile_west'
 require_relative 'core_scripts/create_report'
 require_relative 'core_scripts/zephyr_utils'
 
@@ -92,7 +92,7 @@ create_pipefile_from_config(config: merged_data, board_name: board_name, board_i
 generator_build_only_derived = %{ 
 require 'yml_merger'
 require 'pathname'
-require_relative 'core_scripts/create_pipefile'
+require_relative 'core_scripts/create_pipefile_west'
 require_relative 'core_scripts/create_report'
 require_relative 'core_scripts/zephyr_utils'
 

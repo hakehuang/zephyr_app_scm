@@ -132,7 +132,7 @@ module ZEPHER_FILTER
   module_function :pos_list
   
   def neural_list
-    ["min_ram", "min_flash", "depends_on", "filter", "type"]
+    ["min_ram", "min_flash", "depends_on", "filter", "type", "sysbuild"]
   end
   module_function :neural_list
 

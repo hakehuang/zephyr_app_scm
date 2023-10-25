@@ -1,7 +1,7 @@
  
 require 'yml_merger'
 require 'pathname'
-require_relative 'core_scripts/create_pipefile'
+require_relative 'core_scripts/create_pipefile_west'
 require_relative 'core_scripts/create_report'
 require_relative 'core_scripts/zephyr_utils'
 

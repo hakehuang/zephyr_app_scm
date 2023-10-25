@@ -93,6 +93,12 @@ cases:
     extra_args: DTC_OVERLAY_FILE="./vsi-and-psi.overlay"
     platform_allow: s32z270dc2_rtu0_r52
     depends_on: netif
+  sample.boards.rd_rw612_bga.nxp_mfg_bridge:
+    path: samples/boards/rd_rw612_bga/nxp_mfg_bridge
+    catalog: wifi
+    build_only: true
+    platform_allow:
+    - rd_rw612_bga
   sample.boards.stm32.backup_sram:
     path: samples/boards/stm32/backup_sram
     catalog: unknown

@@ -18,7 +18,7 @@ require_relative "parse_testcase"
 require_relative "parse_sample"
 require_relative "zephyr_filter"
 
-$version = "v3.4.0"
+$version = "v3.5.0"
 
 LONG_CASE_DURATION = {
   'crypto.mbedtls' => {'timeout' => 1000},
@@ -459,8 +459,8 @@ def split_test_catalog(fn, outdir, template_dir)
 
 end
 
-get_version("C:/github/zephyrproject/zephyr/")
-#scan("C:/github/zephyrproject/zephyr/samples/", "../records_temp", "test.yml")
-#scan("C:/github/zephyrproject/zephyr/tests/", "../records_temp", "test.yml")
-scan("C:/github/zephyrproject/zephyr/", "../../records_temp", "test.yml")
+get_version(File.dirname(__FILE__) + "../../../../../zephyrproject/zephyr/")
+#scan(File.dirname(__FILE__) + "../../../../zephyrproject/zephyr/samples/", "../records_temp", "test.yml")
+#scan(File.dirname(__FILE__) + "../../../../zephyrproject/zephyr/tests/", "../records_temp", "test.yml")
+scan(File.dirname(__FILE__) + "../../../../../zephyrproject/zephyr/", "../../records_temp", "test.yml")
 split_test_catalog("../../records_temp/test.yml", "../../records_temp", template_dir="../../template")

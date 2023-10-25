@@ -1,7 +1,7 @@
 ---
 settings:
   case_pipe_name: "mimx8mm_evk_4"
-  version: zephyr-v3.4.0-169-gaa0e5a3192
+  version: zephyr-v3.4.0-242-g4c90c3627f
 __load__:
 - modules/modbus.yml
 - modules/mmc.yml
@@ -75,6 +75,7 @@ __load__:
 - modules/log_msg.yml
 - modules/log_links.yml
 - modules/log_link_order.yml
+- modules/log_immediate.yml
 - skips/mimx8mm_evk.yml
 - boards/mimx8mm_evk.yml
 cases:

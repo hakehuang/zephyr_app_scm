@@ -44,20 +44,18 @@ cases:
     comments: "timeout"
   drivers.uart.basic_api.poll:
     comments: "output different"
-  drivers.counter.basic_api:
-    comments: "output different"
-  kernel.timer.starve:
-    comments: "timeout"
+  # drivers.counter.basic_api:
+  #   comments: "output different"
+  # kernel.timer.starve:
+  #   comments: "timeout"
   drivers.uart.basic_api.cdc_acm:
     comments: "no usb connected"
-  drivers.i2s:
-    comments: "need rework boards"
+  # drivers.i2s:
+  #   comments: "need rework boards"
   drivers.coredump.api:
     comments: "log output has not SUCESS"
-  usb.device:
-    comments: "no usb connected"
-  boot.mcuboot:
-    comments: "boot failure"
+  # usb.device:
+  #   comments: "no usb connected"
   drivers.uart.basic_api:
     comments: "need input data"
   libraries.cbprintf_fp.fprintf:
@@ -94,5 +92,3 @@ cases:
     comments: "Assertion failed at WEST_TOPDIR/zephyr/tests/subsys/storage/flash_map/src/main.c:108: flash_map_test_flash_area_get_sectors: (rc == 0 is false)"
   sample.subsys.task_wdt:
     comments: "uart output to quick cause problem"
-  pm.device_runtime.api:
-    comments: "https://github.com/zephyrproject-rtos/zephyr/issues/61075"
